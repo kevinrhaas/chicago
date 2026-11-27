@@ -152,15 +152,15 @@
   "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, coping and walk, a 2 m disk round every door, and a 5.2 m way from each front door to the lot line. Lots a photograph shows bare are bare. Seeded by the parcel's id."
  },
  "summary": {
-  "lots": 151,
+  "lots": 150,
   "shrubs": 159,
   "trees": 12,
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
-  "lots_with_a_door": 130,
+  "lots_with_a_door": 129,
   "schemes": {
-   "corners": 72,
+   "corners": 71,
    "group": 23,
    "lawn": 35,
    "pictured": 3,
@@ -1284,42 +1284,6 @@
      1
     ]
    ],
-   "creeper": []
-  },
-  {
-   "parcel": "e20th_215",
-   "street": "e20th",
-   "side": "south",
-   "addresses": [
-    "215"
-   ],
-   "frame": {
-    "origin": [
-     1319.0,
-     -3483.06
-    ],
-    "along": [
-     0.99995,
-     0.00978
-    ],
-    "into": [
-     0.00978,
-     -0.99995
-    ],
-    "width_m": 7.16
-   },
-   "front_m": 2.34,
-   "doors": [
-    [
-     4.79,
-     3.19
-    ]
-   ],
-   "scheme": "corners",
-   "grade": "reconstructed",
-   "shrubs": [],
-   "trees": [],
-   "beds": [],
    "creeper": []
   },
   {

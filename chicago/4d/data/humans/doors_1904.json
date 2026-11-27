@@ -17075,24 +17075,24 @@
   {
    "structure": "e20th_213:back_door:stoop",
    "placement": {
-    "local_e": 1314.46,
-    "local_n": -3506.14,
+    "local_e": 1313.71,
+    "local_n": -3506.35,
     "rotation_deg": 89.41
    },
    "barrier": {
     "cell": 0.1,
     "u0": 0.05,
-    "v0": -0.75,
+    "v0": -0.55,
     "count": 1,
-    "rects": "0 34 0 16"
+    "rects": "0 6 0 12"
    },
    "what": "back stoop"
   },
   {
    "structure": "e20th_215:back_door:stoop",
    "placement": {
-    "local_e": 1321.01,
-    "local_n": -3497.25,
+    "local_e": 1322.02,
+    "local_n": -3497.65,
     "rotation_deg": 89.44
    },
    "barrier": {
@@ -17100,7 +17100,7 @@
     "u0": 0.05,
     "v0": -0.75,
     "count": 1,
-    "rects": "0 34 0 16"
+    "rects": "0 26 0 16"
    },
    "what": "back stoop"
   },

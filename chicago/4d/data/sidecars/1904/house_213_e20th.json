@@ -1,12 +1,13 @@
 {
   "id": "house_213_e20th",
-  "phase": "draft_1904",
-  "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
+  "phase": "as_mapped_1904",
+  "name": "213 East Twentieth Street — four-storey red-fronted rowhouse behind a bracketed cornice, K01 frontage assembly",
   "aka": [
-    "213 E. Twentieth Street"
+    "213 E. Twentieth Street",
+    "213 E. Cullerton Street"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_213_e20th__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_213_e20th__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -21,23 +22,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-2982 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-2982 census rules it present in 1904 (present_as_mapped); the 2009 photographs show it standing. No building or loss date is read for it here (T-3782).",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1318.791,
-    "local_n": -3506.096,
-    "rotation_deg": -90.587,
+    "local_e": 1319.233,
+    "local_n": -3498.861,
+    "rotation_deg": -90.599,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 7.250, v -4.375 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -90.587 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body at its east wall: row 357, where the east wall steps in to the rear range, and column 361, the party wall with 215, of sheet 35 at full size (T-3782), carried through the T-1250 fit of the sheet (0.05 m RMS on its control crossings, a similarity on two degrees of freedom, plus about a pixel, 0.19 m, of reading) and set on 217's own corner so the row's walls stand in one line. Rotation -90.599 degrees, 217's, turns the plan's u axis onto the lot's rear-to-street line, north to East Twentieth Street; v runs west from the east wall, so K01's `south` wall is the east flank (a party wall with 215 but for the 3.25 m before 215's front) and its `north` wall the west flank on the lot's side passage.",
     "symbolic_location": "213 E. Twentieth Street, parcel e20th_213 (data/street_grid/1904.json), south side of East Twentieth Street, the district's named context buildings off Prairie Avenue: East Twentieth Street between Indiana and Prairie, and Calumet Avenue between 20th and 21st Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -47,120 +48,436 @@
         0.0
       ],
       [
-        22.0,
+        15.89,
         0.0
       ],
       [
-        22.0,
-        5.5
+        15.89,
+        6.5
       ],
       [
         0.0,
-        5.5
+        6.5
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
+    "note": "The main body: 15.89 m from the east wall's step (row 357) to the front (row 271.5, on the street line with 217's), and 6.5 m along the front from the party wall with 215 (column 361) to the west wall (column 326), read off sheet 35 of the 1911 Sanborn at full size (T-3782) at 0.1858 m a pixel. Behind the step the outline runs on to row 397 about 0.46 m narrower on the east: the rear range (see rear_wings). A small rounded bulge on the east wall at rows 343-358, about 0.6 m out behind 215's rear corner, is not built (L-k01-213-215-e20th-3782). The draft's fit had read a 22.0 by 5.5 m body."
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 4,
+      "confidence": "inferred",
       "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "'3' printed on the 1911 sheet: 3 full storeys."
+      "note": "Four storeys: photograph 225 shows three tiers of lights over the ground storey's (a square-headed tier, a round-headed tier and a square-headed tier under the cornice; the ground storey itself, hidden there by a tree, is photograph 222's door between two lights). The sheet's storey figure is illegible at this copy's resolution (the draft read it '3 or 4' and took 3); the photographs' count stands."
     },
     "construction": {
       "value": "brick",
-      "confidence": "attested",
+      "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "jyoti_blog_2009_cullerton_rowhouses"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The sheet colours the body brick; photographs 222 and 225 show a red front with stone-dressed openings, 220 and 225 a buff brick east flank."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 0.18,
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "The door a single step over the walk in photograph 222: the principal floor at the street."
+    },
+    "storey_heights_m": {
+      "value": [
+        3.8,
+        3.5,
+        3.3,
+        3.1
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Four storeys diminishing upward: in photograph 225 the tiers of lights stand about evenly apart, the top one shorter under the cornice; their heights in the street's usual range, read by proportion and not through a solved camera. T-3783 holds them to the pictures."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "A brick front's usual thickness on the street; unread."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "A party or flank wall's usual 13 in.; unread."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The kit's tread; unread."
+    },
+    "stair_landing_depth_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "The kit's landing; unread."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "The rear's common brick, as the street's other K01 houses; unread."
+    },
+    "eave_overhang_m": {
+      "value": 0.7,
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "The deep bracketed cornice over the front and round the east flank in photograph 225; its projection read by proportion."
+    },
+    "face_brick": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              0.0,
-              0.0,
-              22.0,
-              5.5
-            ],
-            "from": "s35xfp-e20th_213-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill"
-          }
-        ],
-        "lot_v": [
-          -0.456,
-          9.206
-        ],
-        "street_u": 23.032
+        "front": "pressed_red",
+        "sides": "common_buff"
       },
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photographs 222 and 225: the street front red (painted over in 2009; the register's red brick and sandstone); photographs 220 and 225: the east flank buff common brick where it shows over and before 215."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          2
+        ],
+        "key": {
+          "width_m": 0.2,
+          "height_m": 0.25,
+          "proud_m": 0.05
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 225: the third storey's lights are round-headed, the second's and fourth's square-headed. The kit's shallow key at each crown is not read."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k01.flat_lintel",
+          "k01.flat_lintel",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 222: the ground storey's two lights stand in moulded frames under a cornice (the kit's corniced lintel); photograph 225: the upper storeys' square-headed lights under plain heads."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber",
+        "frieze": {
+          "height_m": 0.6,
+          "proud_m": 0.03
+        },
+        "bracket_m": {
+          "height_m": 0.9,
+          "projection_m": 0.6,
+          "width_m": 0.16
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 225: a deep cornice on brackets over a frieze crowns the front and returns along the east flank: the kit's bracketed cornice."
+    },
+    "roof_form": {
+      "value": "flat",
+      "confidence": "reconstructed",
+      "note": "Flat behind the cornice: photograph 225 shows no roof over it; the deck itself is unseen."
+    },
+    "roof_pitch_deg": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "note": "A flat deck's fall to the rear; unread."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_flat_seam_painted",
+        "flashing": "painted_tin_sheet"
+      },
+      "confidence": "reconstructed",
+      "note": "A painted flat-seam tin deck, as the street's other flat roofs; unread."
+    },
+    "stoop_width_m": {
+      "value": 1.4,
+      "confidence": "reconstructed",
+      "note": "The door's single step; the kit's width."
+    },
+    "entrance_bay": {
+      "value": "middle",
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 222: the door between the ground storey's two lights."
+    },
+    "front_bays": {
+      "value": [
+        1.45,
+        3.7,
+        5.45
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "The street front, counted from the east corner: photograph 222 at about 124 px a metre (its door 1.2 m clear) sets the west light's axis 1.05 m, the door's 2.8 m and the east light's 5.05 m from the west corner; on the 6.5 m front that is 5.45, 3.7 and 1.45 m from the east one. The upper storeys' lights stand over them."
+    },
+    "side_bays": {
+      "value": [
+        13.6,
+        15.0
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "The east flank is a party wall with 215 but for the 3.25 m before 215's front (sheet 35); photographs 220 and 225 show lights in that strip, round-headed in the third storey: two bays of the kit's lights there."
+    },
+    "north_bays": {
+      "value": [
+        3.0,
+        7.5,
+        12.0
+      ],
+      "confidence": "reconstructed",
+      "note": "The west flank on the lot's side passage: unseen; three bays."
+    },
+    "rear_bays": {
+      "value": [],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35xfp-e20th_213-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The main body's rear wall is covered by the rear range but for 0.46 m on the east (sheet 35)."
     },
-    "draft_elevation": {
-      "value": {
-        "kind": "house",
-        "seed": 2988847109,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2982",
-          "refined_by": [
-            "T-1939"
-          ]
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 1.2,
+          "width_m": 0.8,
+          "height_m": 1.4
         },
-        "v_toward": "south"
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's red brick and sandstone rowhouse, standing today: flat behind a cornice, the roof its street front shows. The sheet's storey figure is blurred (3 or 4) and is drafted as 3, its neighbour's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2988847109 only tints the fabric inside +-6 %. Liberty L-draft-district-edges-2982."
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 0.9,
+          "height_m": 2.0
+        },
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 0.9,
+          "height_m": 1.9
+        },
+        {
+          "sill_above_floor_m": 0.55,
+          "width_m": 0.9,
+          "height_m": 1.3
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 222: the ground storey's lights about 0.75 m wide and 1.35 m tall, their sills about 1.4 m over the door's step; the upper storeys' lights by proportion off photograph 225, the top tier shortest."
     },
-    "draft": {
+    "basement_lights": {
       "value": {
-        "pass": "T-2982",
-        "liberty": "L-draft-district-edges-2982",
-        "register_row": "frontage-35x-213",
-        "census_ids": [
-          "s35x-213-front"
-        ],
-        "trace_building": "s35xfp-e20th_213-b1",
-        "seed": 2988847109,
-        "replaceable_by": [
-          "T-1939"
-        ],
-        "card": "District draft — refined by T-1939."
+        "sill_m": 0.05,
+        "width_m": 0.5,
+        "height_m": 0.25
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The kit asks for a light under each ground-storey light; photograph 222 shows the plinth plain to the walk, so the kit's least."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        },
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+        "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight"
+      },
+      "confidence": "reconstructed",
+      "note": "The kit's sash; the 2009 glazing and grilles are not read as 1904's."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 1.6,
+          "hood": {
+            "soffit_m": 3.45,
+            "width_m": 2.2,
+            "out_m": 0.35,
+            "fascia_m": 0.2,
+            "cornice": {
+              "height_m": 0.12,
+              "proud_m": 0.06
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "pediment": {
+              "rise_m": 0.45,
+              "rake_m": 0.14,
+              "console_m": {
+                "reach_m": 0.3,
+                "drop_m": 1.0,
+                "thickness_m": 0.16
+              }
+            },
+            "fabric": "stone"
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "jyoti_blog_2009_cullerton_rowhouses"
+      ],
+      "note": "Photograph 222: a panelled door with a transom light a step over the walk, between moulded pilasters, under a broad hood with a low pediment carried on carved consoles; the kit's panelled door under its pedimented hood on consoles, in the 1.6 m strip between the front and the walk's inner edge, as 217's."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 5.0,
+            "v_m": 5.8
+          },
+          {
+            "u_m": 11.0,
+            "v_m": 5.8
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "Two stacks on the west wall: no picture shows the stacks."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 1.55,
+        "lot_s_m": [
+          0.0,
+          9.71
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 0.9,
+          "drawn_deg": 10
+        },
+        "posts": {
+          "section_m": 0.1,
+          "height_m": 1.1
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "A low iron railing on a stone curb along the walk's inner edge, 1.55 m before the front, with a walk gate, as 217's: no picture shows 213's strip in 1904. The lot lines are the parcel's, its east one (sheet 35 column 360.7) taken on the party wall, inside a pixel of it."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "A short walk of stone flags across the strip to the door's step, as the street's other K01 fronts."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -7.43,
+            0.0,
+            0.46,
+            6.5
+          ],
+          "floor_m": 0.18,
+          "storey_heights_m": [
+            3.8,
+            3.5,
+            3.3,
+            3.1
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.9
+            },
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 1.8
+            },
+            {
+              "sill_above_floor_m": 0.6,
+              "width_m": 0.9,
+              "height_m": 1.5
+            }
+          ],
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.1,
+            "fascia_m": 0.25,
+            "covering": "painted_tin_sheet"
+          },
+          "windows": {
+            "rear": [
+              3.0
+            ]
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "Sheet 35 draws the outline running on from the east wall's step (row 357) to the rear (row 397), 7.43 m, its east wall 0.46 m in from the main body's (column 358.5), its west wall flush; no separate storey figure, so the main body's four storeys. One light in its rear wall, unseen."
     },
     "function": {
       "value": "residence",
@@ -173,6 +490,28 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "jyoti_blog_2009_cullerton_rowhouses",
+      "citation": "Jyoti Srivastava, 'Three Row Houses at East Cullerton', Chicago - Architecture & Cityscape (blog), September 2009: colour photographs of 213, 215 and 217 E. Cullerton Street (East Twentieth Street before the 1930s renaming), c. 2009.",
+      "url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "217's street front: two round-headed lights under the oriel and the door in a carved stone surround west of them (223)",
+        "217's corner oriel: a rounded bay sheathed in copper over the ground storey, two storeys tall, its lights bent round it, on a rounded copper underside (106, 220, 223)",
+        "217's walls: red brick over a red sandstone base course, stone sills and heads, the ground storey's round-headed openings (106, 220, 223)",
+        "a steep gable with a finial over 217's east flank (106)",
+        "215's street front: red pressed brick, the ground storey's two round-headed lights and round-arched door in its west bay under plain stone heads, the second storey's square-headed lights on stone sills under flat stone lintels, set back behind a front yard (224)",
+        "213's street front: red, four storeys, the third storey's lights round-headed, a deep bracketed cornice returning along the east flank (225); the ground storey's door with a transom between two framed lights under a broad pedimented hood on consoles (222)",
+        "213's east flank: buff common brick where it stands before and over 215, with lights near the front (220, 225)"
+      ],
+      "what_it_does_not_supply": [
+        "a 1904 date: the photographs are of the surviving house in 2009",
+        "the rear, 217's west flank, 213's west flank and the roofs behind the gable and the cornices",
+        "dimensions: no scale stands in the frame"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
@@ -193,8 +532,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2982, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1939 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35x trace (s35xfp-e20th_213-b1), the T-2982 census (s35x-213-front) and the T-1837 register row frontage-35x-213 (Rowhouse, flat behind a cornice); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-edges-2982).",
+  "research_note": "T-3782 (piece 2 of T-1939, the X01 package of the T-1837 programme) refines the district draft (T-2982) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 red pressed-brick front over buff common flanks, four storeys on the street line, the third storey's round-headed lights, a K07 door under a pedimented hood on consoles between the ground storey's two lights, a K10 bracketed cornice over a flat deck, and the sheet's narrower rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (the outline, the rear step) and photographs 220, 222 and 225 of the surviving house (2009, forms only). What is not built, and why, is the liberty L-k01-213-215-e20th-3782; T-3783 solves the photographs' cameras and works the match down.",
   "research_doc": "",
   "review_required": false,
-  "called": "213 East Twentieth Street — Rowhouse, flat behind a cornice"
+  "called": "213 East Twentieth Street — four-storey red-fronted rowhouse behind a bracketed cornice"
 }
