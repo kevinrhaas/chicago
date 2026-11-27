@@ -33,6 +33,9 @@ html.pc-open { overflow: hidden; }
 .pc-floor { position: absolute; left: 50%; bottom: 13%; width: min(46%, 300px); aspect-ratio: 4 / 1; transform: translateX(-50%);
   border-radius: 50%; background: radial-gradient(closest-side, var(--pc-floor), transparent); pointer-events: none; }
 .pc-stage[data-frame="face"] .pc-floor { display: none; }
+/* The face up close fills its frame to the edge: the edge fades into the stage, no hard line. */
+.pc-stage[data-frame="face"] .pc-view { -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent); border-radius: 0; }
 .pc-view { position: relative; display: block; height: min(86%, 720px); width: auto; aspect-ratio: 2 / 3; max-width: 92%;
   object-fit: contain; cursor: grab; touch-action: none; outline: none; border-radius: 12px; }
 .pc-view.is-dragging { cursor: grabbing; }

@@ -31,6 +31,8 @@ ok(/gl\.bindBuffer\(gl\.PIXEL_PACK_BUFFER, null\);\s*const fence/.test(pp), 'the
 ok(/targets\.get\(size\)/.test(pp) && (pp.match(/new THREE\.WebGLRenderTarget/g) ?? []).length === 1, 'one render target a size, made once');
 ok(/PREVIEW_PERSON_ID = `\$\{VISITOR_PERSON_ID\}:preview`/.test(pp) && /personId: PREVIEW_PERSON_ID/.test(pp),
   'a preview is built under a row of its own, never the visitor\'s');
+ok(/function forget\(\) \{\s*gen\+\+;/.test(pp) && /if \(g !== gen \|\| held\) \{ actor\.dispose\(\); continue; \}/.test(pp),
+  'a figure built for a choice changed while it built is let go, not kept as the person (Randomize pressed twice)');
 ok(/function turnTo/.test(pp) && /while \(wanted\)/.test(pp), 'a drag draws only the newest turn');
 ok(!/<link[^>]+person-creator\.css/.test(read('renderers/web/index.html')), 'the creator\'s styles load with it, not with the page');
 const pc = read('renderers/web/js/person-creator.js');

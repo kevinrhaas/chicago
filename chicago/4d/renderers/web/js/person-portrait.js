@@ -53,17 +53,25 @@ export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
     return actor;
   }
 
+  // The choice the figure was built for: a change while one is building (Randomize pressed
+  // twice) makes that one stale, and it is let go, not kept as the person.
+  let gen = 0;
   async function figure(year) {
-    if (held?.year === year && held.lod === level && held.actor.body) return held.actor;
-    forget();
-    const actor = await build(person, year, { id: `visitor:portrait:${year}`, personId: VISITOR_PERSON_ID });
-    if (!actor) return null;
-    turnGroup.add(actor.root);
-    held = { year, lod: level, actor };
-    return actor;
+    for (;;) {
+      if (held?.year === year && held.lod === level && held.actor.body) return held.actor;
+      forget();
+      const g = gen;
+      const actor = await build(person, year, { id: `visitor:portrait:${year}`, personId: VISITOR_PERSON_ID });
+      if (!actor) return null;
+      if (g !== gen || held) { actor.dispose(); continue; }
+      turnGroup.add(actor.root);
+      held = { year, lod: level, actor };
+      return actor;
+    }
   }
 
   function forget() {
+    gen++;
     if (!held) return;
     held.actor.root.removeFromParent();
     held.actor.dispose();
