@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3282, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'End asks before it leaves a jaunt', kind: 'fix',
+    items: [
+      'End now asks "End this jaunt?" first, by mouse, touch, keys or controller.',
+      'Cancel is the key already picked, so a second bump keeps you at your stop.',
+    ] },
+  { v: 3281, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'Warriors spring up out of the grass at the sand bank', kind: 'fix',
+    items: [
+      'In the 1812 battle jaunts, a man lying face down no longer swings up stiff from his toes: he pushes up on his hands, brings a knee in under him, crouches and drives off into his run.',
+      'Some come up through both knees first; each has his own side, pace and lean, so no two rise alike.',
+      'Men kneeling or crouched in wait drive up off the front foot leaning into the run, and the run starts as they come up rather than after a pause.',
+      'Men dropping into the grass on the way to the bank go down to a crouch, their hands and knees, then flat.',
+      'Lying in wait, a man rests on his forearms, elbows out, and the fallen keep their arms where they fell.',
+    ] },
   { v: 3280, ts: '2026-11-27T07:41:45.171Z', date: 'Nov 27, 2026, 1:41 AM CT', title: 'The Built-so-far walk counts the two new stables', kind: 'fix',
     items: [
       'The 1904 Built-so-far walk\'s opening card now reads 129 Prairie Avenue buildings, with 79 waiting outside the walk. Before, it still said 127 and 77 from before 2031 and 2033 Prairie\'s alley stables were added.',
