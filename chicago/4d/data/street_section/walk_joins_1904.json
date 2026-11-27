@@ -14,8 +14,8 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 113,
-  "joined": 89,
+  "walk_ends": 114,
+  "joined": 90,
   "already_met": 17,
   "not_street_ends": 7,
   "widest_gap_m": 1.6
@@ -101,6 +101,7 @@
   {"id": "spalding_house_1637_prairie:front_walk:0", "house": "spalding_house_1637_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.243, "width_m": 1.8, "polygon_local_m": [[1410.268, -3059.065], [1410.28, -3060.865], [1409.967, -3060.869], [1409.945, -3059.069]]},
   {"id": "stone_house_2035_prairie:front_walk:0", "house": "stone_house_2035_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.284, "width_m": 1.28, "polygon_local_m": [[1415.912, -3589.69], [1415.926, -3590.97], [1415.562, -3590.973], [1415.552, -3589.693]]},
   {"id": "tolman_house_2031_prairie:front_walk:0", "house": "tolman_house_2031_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.313, "width_m": 1.28, "polygon_local_m": [[1415.861, -3579.24], [1415.875, -3580.52], [1415.481, -3580.523], [1415.472, -3579.243]]},
+  {"id": "tucker_smith_house_2140_prairie:front_walk:0", "house": "tucker_smith_house_2140_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.345, "width_m": 1.6, "polygon_local_m": [[1396.739, -3735.152], [1396.721, -3733.552], [1397.146, -3733.548], [1397.161, -3735.148]]},
   {"id": "walker_house_1720_prairie:front_walk:0", "house": "walker_house_1720_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_16_18", "gap_m": 0.308, "width_m": 1.3, "polygon_local_m": [[1390.765, -3135.586], [1390.752, -3134.286], [1391.139, -3134.282], [1391.154, -3135.582]]},
   {"id": "walker_house_1720_prairie:service_walk:1", "house": "walker_house_1720_prairie", "kind": "service_walk", "face": "prairie__indiana_prairie_16_18", "gap_m": 0.305, "width_m": 0.89, "polygon_local_m": [[1390.735, -3132.556], [1390.726, -3131.666], [1391.11, -3131.662], [1391.12, -3132.552]]},
   {"id": "wheeler_house_1812_prairie:front_walk:0", "house": "wheeler_house_1812_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 1.6, "width_m": 2.0, "polygon_local_m": [[1391.101, -3254.784], [1391.079, -3252.784], [1392.759, -3252.767], [1392.779, -3254.767]]},

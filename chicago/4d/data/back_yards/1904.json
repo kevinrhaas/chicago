@@ -16877,7 +16877,7 @@
     "tucker_smith_house_2140_prairie_alley_building",
     "tucker_smith_house_2140_prairie_coach_house"
    ],
-   "scheme": "service_court",
+   "scheme": "side_lawn",
    "grade": "reconstructed",
    "sources": [],
    "note": "",
@@ -16885,124 +16885,124 @@
     {
      "id": "prairie_2140:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "yard_brick",
+     "material": "flags",
      "polygon_local_m": [
       [
        1373.19,
-       -3727.35
+       -3727.66
       ],
       [
-       1373.22,
-       -3730.19
+       1373.23,
+       -3731.63
       ],
       [
-       1368.4,
-       -3730.24
+       1366.3,
+       -3731.69
       ],
       [
-       1368.37,
-       -3727.39
+       1366.26,
+       -3727.72
       ]
      ],
      "along_deg": 179.48,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in stone flagging: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_2140:coach_walk:1",
      "kind": "coach_walk",
-     "material": "cinder",
+     "material": "cement",
      "polygon_local_m": [
       [
-       1369.07,
-       -3722.56
+       1367.17,
+       -3722.47
       ],
       [
-       1369.13,
-       -3729.06
+       1367.23,
+       -3729.17
       ],
       [
-       1368.13,
-       -3729.07
+       1366.03,
+       -3729.19
       ],
       [
-       1368.07,
-       -3722.57
+       1365.97,
+       -3722.49
       ]
      ],
      "along_deg": 179.48,
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "The walk from the back door to the coach house, in cinders (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in Portland cement walk (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_2140:coach_walk:2",
      "kind": "coach_walk",
-     "material": "cinder",
+     "material": "cement",
      "polygon_local_m": [
       [
-       1369.07,
-       -3722.56
+       1367.17,
+       -3722.47
       ],
       [
-       1369.08,
-       -3723.56
+       1367.18,
+       -3723.67
       ],
       [
-       1355.58,
-       -3723.68
+       1355.48,
+       -3723.78
       ],
       [
-       1355.57,
-       -3722.68
+       1355.47,
+       -3722.58
       ]
      ],
      "along_deg": 179.48,
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "The walk from the back door to the coach house, in cinders (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in Portland cement walk (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_2140:coach_walk:3",
      "kind": "coach_walk",
-     "material": "cinder",
+     "material": "cement",
      "polygon_local_m": [
       [
-       1356.57,
-       -3722.67
+       1356.67,
+       -3722.57
       ],
       [
-       1356.65,
-       -3731.42
+       1356.75,
+       -3731.52
       ],
       [
-       1355.65,
-       -3731.43
+       1355.55,
+       -3731.53
       ],
       [
-       1355.57,
-       -3722.68
+       1355.47,
+       -3722.58
       ]
      ],
      "along_deg": 179.48,
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "The walk from the back door to the coach house, in cinders (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in Portland cement walk (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_2140:back_door",
      "structure": "tucker_smith_house_2140_prairie",
-     "e": 1373.53,
+     "e": 1373.22,
      "n": -3728.77,
      "facing_deg": 269.48,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -17011,10 +17011,10 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],

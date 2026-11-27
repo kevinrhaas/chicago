@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 49.6 MB**, consciously re-budgeted on 2026-11-18 by T-3651 for three owner-requested parcels that now stand in the first view: the photographic farm-box wagon (T-3558), the riding horse and its levels (T-3559, T-3560) and a townsperson's figure with its cloth sheets (the people work of T-3553, T-3555 and T-3644), plus the people's code past § 4q's room (§ 4r). It had been set at 46.6 MB on 2026-11-16 by T-3624 for the 1835 commercial core's row of stores and the ground behind them (T-3605) and a day of the walk's code past § 4o's room (§ 4p). It had been set at 45.7 MB earlier the same day by T-3609 for the 1835 townspeople's comings and goings (T-3556) and two days of the people's code past § 4n's room (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n), and before that at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 49.9 MB**, consciously re-budgeted on 2026-11-26 by T-3775 for the owner's photographic faces, which every person in the first view now wears (T-3767, T-3768), after a cut that took their review records out of the boot, and for a day of the people's code past § 4s's room (§ 4t). It had been set at 49.6 MB on 2026-11-18 by T-3651 for three owner-requested parcels that now stand in the first view: the photographic farm-box wagon (T-3558), the riding horse and its levels (T-3559, T-3560) and a townsperson's figure with its cloth sheets (the people work of T-3553, T-3555 and T-3644), plus the people's code past § 4q's room (§ 4r). It had been set at 46.6 MB on 2026-11-16 by T-3624 for the 1835 commercial core's row of stores and the ground behind them (T-3605) and a day of the walk's code past § 4o's room (§ 4p). It had been set at 45.7 MB earlier the same day by T-3609 for the 1835 townspeople's comings and goings (T-3556) and two days of the people's code past § 4n's room (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n), and before that at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,7 +188,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 49.6 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 49.9 MB budget
 node tools/measure_boot_payload.mjs --against docs/measurements/T-3732-boot-payload-entries.json
                                            # what grew since § 4s's reading, file by file
 ```
@@ -1037,10 +1037,64 @@ by ready) are called synchronously as each figure is built, so they would need a
 the first figure rather than an import on demand. The next reading to beat:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3732-boot-payload-entries.json`.
 
+### 4t. The faces' review left the boot, and the faces stayed: re-measured 2026-11-26 (T-3775), and the budget is 49.9 MB
+
+Every PR's desktop `1-2` leg went red at **Enforce the first-visit boot payload budget** on dev
+`71566d43b`, #2369's merged head among them (job 140177125274). Re-read on dev `71566d43b`,
+published by `publish.sh` and measured `--against` § 4s's committed entries, it is **49.767 MB
+across 1,400 requests: +0.268 MB since § 4s**. What arrived:
+
+| arrived at boot | on the wire | where it came from |
+|---|---|---|
+| the two photo-face libraries' `review.json` | 0.158 MB | `human-variation.js loadVariationKit` fetches both whenever the variation kit loads, since the owner's dev rollout of the faces in all four years (T-3767, T-3768: "Ok yes let's roll the faces out so I can see them on dev; children faces of the same type so people look consistent.") |
+| the people's code | 0.064 MB | `human-trim`, `human-drape`, `human-fair`, `human-layover`, `human-pits` and `photo-face-pages` |
+| the walk's code | 0.019 MB | `bug-report` and `strings/bugs` (T-3743), `controls/gamepad` (T-3749), `flight-clearance`, `graphics-settings` |
+| growth | +0.031 MB | 49 existing files, led by `main.js` (+0.007 MB) |
+
+**The cut.** Each `review.json` is the review record `tools/photo_face_library.py` writes:
+source URLs, the fit's camera and residual, the scalp shells, input hashes, limits, and every
+float at 17 digits. The walk reads none of that. It reads which face a person gets
+(`photoFaceFor`), the face's shape values, its place on the atlas and its eyes
+(`human-skin.js dressPhotoEyes`). `tools/photo_face_runtime.mjs` now writes exactly that part
+beside each library as `runtime.json` (the tone that weights the draw verbatim, every other
+float to six significant figures, and the sha256 of the review it was read from), and
+`loadVariationKit` fetches `runtime.json`. A `check.sh` step (`photo_face_runtime.mjs --check`)
+refuses a runtime file that is not what its review gives, and draws 20,000 people from each
+pair to hold that every one gets the same face from either. `review.json` stays the record;
+`photo_face_library.py --check` and `tools/photo_face_review.html` still read it.
+
+| | before | after |
+|---|---|---|
+| `photo_faces/pilot` (256 faces) | `review.json`, 0.148 MB | `runtime.json`, 0.062 MB |
+| `photo_faces/children` (16 faces) | `review.json`, 0.010 MB | `runtime.json`, 0.003 MB |
+
+Measured on the same machine one after the other, dev `71566d43b` reads 49.767 MB and this
+change reads **49.673 MB across 1,400 requests: −0.094 MB**, every byte of it the faces' review.
+The reading is committed as `docs/measurements/T-3775-boot-payload-entries.json`.
+
+**Why the number moves as well.** The cut is the review data and nothing else, and it leaves the
+first visit 0.073 MB past 49.6 MB. What remains is the faces themselves (0.065 MB) and a day of
+the people's and walk's code (§ 4s's room was 0.101 MB). Taking the faces out of the first view
+was the other route, and it is not open: the owner asked to see them on dev in every year, a
+person who changes face after the street appears is a gap in the scene, and `photoFaceFor` must
+see the whole library to give a person the same face on every visit. Under AGENTS.md's standing
+ruling on budgets (when a parcel the owner asked for needs more room, the number moves and the
+parcel stays whole), this re-argues the number the way § 4r did: **49.673 MB measured plus
+0.227 MB of room, 49.9 MB.** This is a conscious re-budget, not an assertion weakened to clear a
+red. The check, its unit (MiB, read off the line above) and the measurement method are unchanged.
+
+**Said plainly, what 49.9 surrenders.** At this window's pace (0.268 MB in three days) the room
+lasts about two days. The levers § 4r and § 4s named are still the next ones and still unpulled:
+the wagon's far level (0.963 MB) and the people's shared alpha sheet (0.801 MB). Measured but
+not cut here: `controls/gamepad.js` (0.007 MB) runs only once a controller is connected and could
+load on `gamepadconnected`; `bug-report.js` is made early on purpose, to catch a crash in boot.
+The next reading to beat:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3775-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 49.6 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 49.9 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
