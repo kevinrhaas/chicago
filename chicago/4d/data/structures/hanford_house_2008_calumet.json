@@ -92,7 +92,7 @@
         "stone_front": {
           "value": {
             "fabric": "sandstone_brown",
-            "dressing": "smooth",
+            "dressing": "rock_faced",
             "trim_fabric": "dressed_trim",
             "rusticated_base_courses": 3,
             "coping_height_m": 0.23,
@@ -102,7 +102,7 @@
           "sources": [
             "inland_architect_1883_12_hanford_plate"
           ],
-          "note": "Brown sandstone: the register's 'brownstone' (the T-1837 row frontage-35x-2008) and the plate's coursed ashlar with dressed bands; the plate is monochrome, so the colour is the register's. Three rusticated courses under the principal floor, as the plate draws the base (rows of deep-jointed stone from grade to the water table)."
+          "note": "Brown sandstone: the register's 'brownstone' (the T-1837 row frontage-35x-2008) and the plate's coursed ashlar with dressed bands; the plate is monochrome, so the colour is the register's. Three rusticated courses under the principal floor, as the plate draws the base (rows of deep-jointed stone from grade to the water table). T-3791: rock-faced, where T-3790 laid it smooth: through the plate's solved camera every block of the front and the south flank is drawn with the broken, hatched face of quarry-faced ashlar, its joints sunk, which a smooth dressed face is not."
         },
         "principal_floor_m": {
           "value": 1.4,
@@ -208,7 +208,7 @@
               },
               {
                 "face": "south",
-                "along_m": 10.7,
+                "along_m": 3.6,
                 "head": "gable",
                 "gable_pitch_deg": 50,
                 "sash": {
@@ -222,7 +222,7 @@
               },
               {
                 "face": "south",
-                "along_m": 3.6,
+                "along_m": 15.3,
                 "head": "gable",
                 "gable_pitch_deg": 50,
                 "sash": {
@@ -242,7 +242,7 @@
               "depth_m": 4.2,
               "overhang_m": 0.9,
               "point": true,
-              "pitch_deg": 64,
+              "pitch_deg": 55,
               "end_pitch_deg": 65,
               "finial": {
                 "height_m": 1.6,
@@ -254,7 +254,7 @@
           "sources": [
             "inland_architect_1883_12_hanford_plate"
           ],
-          "note": "Off the plate: the roof's steep faces about 3.2 m high over the cornice; a gabled dormer over the entrance bay on the street face and two on the south face (one over the flank's projecting bay, one near the rear), each a pedimented stone face with one light; and over the corner pavilion a tall pointed hip roof carried up past the deck to an iron finial. Heights, pitches and the sash are read at the front's scale; the deck and the north and rear faces, which the plate does not see, are the kit's."
+          "note": "Off the plate: the roof's steep faces about 3.2 m high over the cornice; a gabled dormer over the entrance bay on the street face and two on the south face (one over the flank's projecting bay, one near the rear), each a pedimented stone face with one light; and over the corner pavilion a tall pointed hip roof carried up past the deck to an iron finial. Heights, pitches and the sash are read at the front's scale; the deck and the north and rear faces, which the plate does not see, are the kit's. T-3791, through the plate's solved camera: the street face has two gabled dormers, over the window bay (x 1370-1475 px) and over the entrance bay; the south face's dormer stands between the projecting bay and the oriel (x 830-920 px, u about 15.3), not over the bay, which carries its own gable."
         },
         "roof_covering": {
           "value": {
@@ -294,7 +294,6 @@
         },
         "front_bays": {
           "value": [
-            5.45,
             8.7
           ],
           "confidence": "inferred",
@@ -302,22 +301,19 @@
             "inland_architect_1883_12_hanford_plate",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Two bays north of the corner pavilion, read off the plate at the front's 10.5 m width: a single window bay (s 4.05-6.9) and the entrance bay under its porch (s 6.9-10.5)."
+          "note": "The entrance bay under its porch (s 6.9-10.5), north of the corner block. T-3791: the plate's window bay (s 4.05-6.9) is carried in the corner block with the pavilion, because the pointed roof the plate draws over them covers both: through the plate's solved camera its apex stands over v about 3.45 m, the middle of s 0-6.9, not of the pavilion's 4.05 m."
         },
         "side_bays": {
           "value": [
             3.0,
             5.4,
-            15.6,
-            17.0,
-            18.4,
-            20.6
+            15.6
           ],
           "confidence": "inferred",
           "sources": [
             "inland_architect_1883_12_hanford_plate"
           ],
-          "note": "The south flank's windows: a pair near the rear (the plate's triple lights under the rear dormer stand for it), the three narrow lights east of the oriel, and one by the pavilion; the projecting bay between carries its own."
+          "note": "The south flank's windows. Read through the plate's solved camera (data/reference_views/hanford_house_2008_calumet/inland_architect_plate.json, T-3791): one light a storey just east of the projecting bay (u 14.6-16.7, centre 15.6), and three narrow lights by the pavilion (u 20.75-23.8 on the principal storey). The pair near the rear (3.0, 5.4) stands behind the projecting bay, which hides it from the plate, and is the kit's. The chamber storey over the three narrow lights carries one light in the plate, not three: K01's side bays run the same centres up every storey (see the match record)."
         },
         "north_bays": {
           "value": [
@@ -378,12 +374,12 @@
             "cap_depth_m": 0.35,
             "stacks": [
               {
-                "u_m": 19.2,
-                "v_m": 1.1,
+                "u_m": 20.5,
+                "v_m": 3.75,
                 "fabric": "stone"
               },
               {
-                "u_m": 8.3,
+                "u_m": 11.2,
                 "v_m": 1.1,
                 "fabric": "stone"
               }
@@ -393,7 +389,7 @@
           "sources": [
             "inland_architect_1883_12_hanford_plate"
           ],
-          "note": "Two tall panelled stone stacks on the south flank, the plate's: one just behind the corner pavilion and one over the flank's projecting bay, each rising well over the deck to a corbelled cap."
+          "note": "Two tall panelled stone stacks on the south side, the plate's, placed through the plate's solved camera (data/reference_views/hanford_house_2008_calumet/inland_architect_plate.json, T-3791): the east one rising beside the pointed roof's south-west hip, behind the corner pavilion (its top at x 1160-1240 px), and the west one standing on the flank just east of the projecting bay (x 770-840 px), each rising well over the deck to a corbelled cap."
         },
         "rainwater": {
           "value": {
@@ -457,8 +453,8 @@
                   "respond_m": 0.15,
                   "at_v_m": [
                     7.3,
-                    8.7,
-                    10.1
+                    8.5,
+                    9.8
                   ]
                 },
                 "fabric": "stone"
@@ -480,7 +476,7 @@
           "sources": [
             "inland_architect_1883_12_hanford_plate"
           ],
-          "note": "The plate's entrance porch at the front's north end: round stone columns carrying an entablature and a balustraded balcony before the chamber window, over a stone stoop. K07's hooded porch on columns with its rail. The plate's flight runs down northward along the front; K07's runs straight out to the walk, a liberty (L-k01-2008-calumet-3790)."
+          "note": "The plate's entrance porch at the front's north end: round stone columns carrying an entablature and a balustraded balcony before the chamber window, over a stone stoop. K07's hooded porch on columns with its rail. The plate's flight runs down northward along the front; K07's runs straight out to the walk, a liberty (L-k01-2008-calumet-3790). T-3791: the porch's columns re-read through the plate's solved camera at v 7.2, 8.5 and 9.6-9.8 m (x 1595-1610, 1650-1665 and 1700-1710 px on the porch's front), the hood kept at 3.4 m (its north end about 0.5 m past the plate's, within the fit)."
         },
         "boundary": {
           "value": {
@@ -521,10 +517,10 @@
               "id": "pavilion",
               "variant": "k08.projection.full_height",
               "wall": "k01.wall.street_front",
-              "s_m": 2.025,
+              "s_m": 3.0,
               "fabric": "front_stone",
               "plan": {
-                "width_m": 4.05,
+                "width_m": 6.0,
                 "proud_m": 0.45
               },
               "storeys": [
@@ -537,10 +533,21 @@
                       "clear_height_m": 0.8,
                       "sill_m": 0.2,
                       "at": [
-                        0.5
+                        0.3375
                       ],
                       "recess_m": 0.4,
                       "why_not_ordinary": "the pavilion's basement light, read off the 1883 plate: one square opening under its wide principal light in the rusticated base, about as wide as the light above it is narrowed by its reveals"
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 0.8,
+                      "sill_m": 0.2,
+                      "at": [
+                        0.89
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the window bay's basement light, under its principal light in the rusticated base (the 1883 plate's x 1420-1460 px)"
                     }
                   ]
                 },
@@ -553,10 +560,27 @@
                       "clear_height_m": 2.7,
                       "sill_m": 0.4,
                       "at": [
-                        0.5
+                        0.3375
                       ],
                       "recess_m": 0.4,
                       "why_not_ordinary": "the pavilion's one wide principal light a storey, as the 1883 plate draws it: about 0.4 of the pavilion's width (about 80 of 200 px on the rotated crop) and taller than the bays' lights beside it",
+                      "surround": {
+                        "band_m": 0.12,
+                        "proud_m": 0.03,
+                        "head_m": 0.15,
+                        "head_proud_m": 0.12
+                      }
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.1,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.89
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the window bay's principal light, now inside the corner block under the pointed roof; read off the 1883 plate through its solved camera at v 5.5-6.6 m (x 1420-1470 px)",
                       "surround": {
                         "band_m": 0.12,
                         "proud_m": 0.03,
@@ -575,10 +599,27 @@
                       "clear_height_m": 2.3,
                       "sill_m": 0.4,
                       "at": [
-                        0.5
+                        0.3375
                       ],
                       "recess_m": 0.4,
                       "why_not_ordinary": "the pavilion's wide chamber light, as the 1883 plate draws it over the principal one, a little narrower and shorter",
+                      "surround": {
+                        "band_m": 0.12,
+                        "proud_m": 0.03,
+                        "head_m": 0.15,
+                        "head_proud_m": 0.12
+                      }
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.3,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.89
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the window bay's chamber light, over its principal one, as the 1883 plate draws it",
                       "surround": {
                         "band_m": 0.12,
                         "proud_m": 0.03,
@@ -618,9 +659,7 @@
                       "sill_m": 0.2,
                       "at": [
                         0.5
-                      ],
-                      "recess_m": 0.4,
-                      "why_not_ordinary": "the projecting bay's basement light under its principal light, as the 1883 plate draws one in every bay of the rusticated base"
+                      ]
                     }
                   ]
                 },
@@ -629,20 +668,163 @@
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
-                      "clear_width_m": 1.0,
+                      "clear_width_m": 0.62,
                       "clear_height_m": 2.6,
                       "sill_m": 0.4,
                       "at": [
-                        0.5
+                        0.3,
+                        0.5,
+                        0.7
                       ],
-                      "recess_m": 0.4,
-                      "why_not_ordinary": "the projecting bay's tall principal light, as the 1883 plate draws it (the house's principal storey's lights all run about 2.6 m)",
-                      "surround": {
-                        "band_m": 0.12,
-                        "proud_m": 0.03,
-                        "head_m": 0.15,
-                        "head_proud_m": 0.12
-                      }
+                      "why_not_ordinary": "the projecting bay's triple lights, read off the 1883 plate through its solved camera (x 665-740 px, three tall lights between stone mullions on each main storey of the bay's south face)"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.8,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.62,
+                      "clear_height_m": 2.3,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.3,
+                        0.5,
+                        0.7
+                      ],
+                      "why_not_ordinary": "the projecting bay's triple chamber lights, as the 1883 plate draws them over the principal storey's"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 1.8,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.5,
+                      "clear_height_m": 0.9,
+                      "sill_m": 0.35,
+                      "at": [
+                        0.3,
+                        0.5,
+                        0.7
+                      ],
+                      "why_not_ordinary": "the projecting bay's attic: three short lights over the main cornice, under its gable (the plate's x 665-740 px, y 770-830 px, about 9.8-10.8 m)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "gable",
+                "pitch": 1.15,
+                "covering": "slate_pennsylvania",
+                "gable": {
+                  "upstand_m": 0.15,
+                  "coping": {
+                    "width_m": 0.35,
+                    "height_m": 0.16,
+                    "proud_m": 0.08
+                  },
+                  "kneeler": {
+                    "width_m": 0.35,
+                    "out_m": 0.03
+                  },
+                  "inset_m": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              },
+              "plinth_m": 0.05
+            },
+            {
+              "id": "south_oriel",
+              "variant": "k08.oriel.canted_corbelled",
+              "wall": "k01.wall.side.south",
+              "s_m": 19.3,
+              "fabric": "front_stone",
+              "base_m": 5.4,
+              "cap_at_eave": true,
+              "plan": {
+                "kind": "bow",
+                "chord_m": 2.0,
+                "rise_m": 1.0
+              },
+              "corbel": {
+                "courses": 4
+              },
+              "storeys": [
+                {
+                  "height_m": 3.8,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 2.3,
+                      "sill_m": 0.4,
+                      "at_deg": [
+                        0
+                      ],
+                      "why_not_ordinary": "the round oriel's one curtained light, read off the 1883 plate through its solved camera (x 935-990 px, y 815-960 px)"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 0.6,
+                "covering": "tin_flat_seam_painted"
+              }
+            },
+            {
+              "id": "south_lights",
+              "variant": "k08.projection.full_height",
+              "wall": "k01.wall.side.south",
+              "s_m": 22.1,
+              "fabric": "front_stone",
+              "plan": {
+                "width_m": 3.2,
+                "proud_m": 0.15
+              },
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.0,
+                "covering": "tin_flat_seam_painted"
+              },
+              "plinth_m": 0.05,
+              "storeys": [
+                {
+                  "height_m": 1.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.55,
+                      "clear_height_m": 0.7,
+                      "sill_m": 0.25,
+                      "at": [
+                        0.2,
+                        0.53,
+                        0.85
+                      ],
+                      "why_not_ordinary": "the basement grilles under the flank's three narrow lights, as the 1883 plate draws them"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.6,
+                      "clear_height_m": 2.6,
+                      "sill_m": 0.4,
+                      "at": [
+                        0.2,
+                        0.53,
+                        0.85
+                      ],
+                      "why_not_ordinary": "the flank's three narrow principal lights by the pavilion, read off the 1883 plate through its solved camera (x 1020-1130 px, u about 20.75-23.8 m)"
                     }
                   ]
                 },
@@ -655,25 +837,13 @@
                       "clear_height_m": 2.3,
                       "sill_m": 0.4,
                       "at": [
-                        0.5
+                        0.47
                       ],
-                      "recess_m": 0.4,
-                      "surround": {
-                        "band_m": 0.12,
-                        "proud_m": 0.03,
-                        "head_m": 0.15,
-                        "head_proud_m": 0.12
-                      }
+                      "why_not_ordinary": "the one chamber light over the three narrow principal lights, as the 1883 plate draws it (x 1045-1085 px, u about 21.5-22.6 m)"
                     }
                   ]
                 }
-              ],
-              "roof": {
-                "kind": "hip",
-                "pitch": 0.0,
-                "covering": "tin_flat_seam_painted"
-              },
-              "plinth_m": 0.05
+              ]
             }
           ],
           "confidence": "inferred",
@@ -681,7 +851,7 @@
             "inland_architect_1883_12_hanford_plate",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The corner pavilion: the plate's south end of the front, about 4.05 m wide, stepped forward of the bays north of it and carried up as its own block under the pointed roof, one wide light a storey over a basement light; 0.45 m proud (the plate's shadowed return). The south flank's projecting bay: the 1911 sheet's stone projection (s35xfp-calumet_2008-b1 p4, u 7.6-11.9, about 1.2-1.7 m out, its corners canted), which the plate draws two storeys high under a gabled dormer and the flank's west stack; built square (the sheet's canted corners not built)."
+          "note": "The corner pavilion: the plate's south end of the front, about 4.05 m wide, stepped forward of the bays north of it and carried up as its own block under the pointed roof, one wide light a storey over a basement light; 0.45 m proud (the plate's shadowed return). The south flank's projecting bay: the 1911 sheet's stone projection (s35xfp-calumet_2008-b1 p4, u 7.6-11.9, about 1.2-1.7 m out, its corners canted), which the plate draws two storeys high under a gabled dormer and the flank's west stack; built square (the sheet's canted corners not built). T-3791, through the plate's solved camera: the projecting bay carries three lights a storey and rises past the main cornice into an attic of three short lights under a coped stone gable (the plate's x 622-752 px), where it had one light a storey under a flat top and a roof dormer; and the south flank's round oriel on corbels at the chamber storey (x 920-1000 px, u about 17.5-20.1 m), which T-3790 left unbuilt, is built as K08's bowed oriel under the main cornice."
         },
         "rear_wings": {
           "value": [
