@@ -1197,9 +1197,9 @@
     "hanford_house_2008_calumet__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4923852,
+      "bytes": 4942648,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "5936dec2ac5989c3387b7e709fd9639ed85c60fa5c68476aa1b26485682450ad",
+      "inputs_sha256": "ec4c10029f8a04e51855e1961f4adb6036fbb737e7d5a027a608006cd701d8ee",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "hanford_house_2008_calumet"

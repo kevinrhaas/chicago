@@ -539,7 +539,8 @@
                       "at": [
                         0.5
                       ],
-                      "recess_m": 0.4
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the pavilion's basement light, read off the 1883 plate: one square opening under its wide principal light in the rusticated base, about as wide as the light above it is narrowed by its reveals"
                     }
                   ]
                 },
@@ -555,6 +556,7 @@
                         0.5
                       ],
                       "recess_m": 0.4,
+                      "why_not_ordinary": "the pavilion's one wide principal light a storey, as the 1883 plate draws it: about 0.4 of the pavilion's width (about 80 of 200 px on the rotated crop) and taller than the bays' lights beside it",
                       "surround": {
                         "band_m": 0.12,
                         "proud_m": 0.03,
@@ -576,6 +578,7 @@
                         0.5
                       ],
                       "recess_m": 0.4,
+                      "why_not_ordinary": "the pavilion's wide chamber light, as the 1883 plate draws it over the principal one, a little narrower and shorter",
                       "surround": {
                         "band_m": 0.12,
                         "proud_m": 0.03,
@@ -607,7 +610,19 @@
               "storeys": [
                 {
                   "height_m": 1.4,
-                  "windows": []
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 1.0,
+                      "clear_height_m": 0.8,
+                      "sill_m": 0.2,
+                      "at": [
+                        0.5
+                      ],
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the projecting bay's basement light under its principal light, as the 1883 plate draws one in every bay of the rusticated base"
+                    }
+                  ]
                 },
                 {
                   "height_m": 4.0,
@@ -620,7 +635,14 @@
                       "at": [
                         0.5
                       ],
-                      "recess_m": 0.4
+                      "recess_m": 0.4,
+                      "why_not_ordinary": "the projecting bay's tall principal light, as the 1883 plate draws it (the house's principal storey's lights all run about 2.6 m)",
+                      "surround": {
+                        "band_m": 0.12,
+                        "proud_m": 0.03,
+                        "head_m": 0.15,
+                        "head_proud_m": 0.12
+                      }
                     }
                   ]
                 },
@@ -635,14 +657,17 @@
                       "at": [
                         0.5
                       ],
-                      "recess_m": 0.4
+                      "recess_m": 0.4,
+                      "surround": {
+                        "band_m": 0.12,
+                        "proud_m": 0.03,
+                        "head_m": 0.15,
+                        "head_proud_m": 0.12
+                      }
                     }
                   ]
                 }
               ],
-              "eaves": {
-                "cornice": "k10.cornice.moulded_stone"
-              },
               "roof": {
                 "kind": "hip",
                 "pitch": 0.0,
