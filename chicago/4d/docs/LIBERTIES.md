@@ -47278,14 +47278,34 @@ rear range's light and deck. The colour is the register's 'brownstone' (the plat
 **What is built otherwise than the evidence, and why.** The north flank and the rear are laid in the front's stone
 (K01's all-stone house), where the sheet draws them brick. The porch's stoop runs straight out to the walk; the plate
 draws its flight running north along the front past the house's corner, which K01's side stoop refuses (its foot must
-stand inside the front's width). The south flank's projecting bay is built square and flat-topped, where the sheet
-cuts its corners. Not built: the round oriel on corbels on the south flank's chamber storey, the sheet's projection
+stand inside the front's width). The south flank's projecting bay is built square, where the sheet
+cuts its corners (its gable and attic, T-3791's, below). Not built: the sheet's projection
 across the front's south-east corner (rows 447-463), the north flank's small brick projection (columns 1372-1405),
-the pavilion's own dormer and the rear gable's triple lights; the pavilion's rusticated quoins and the stacks'
+the pavilion's own dormer; the pavilion's rusticated quoins and the stacks'
 panelled shafts are K01's plain stone.
 
 **How to resolve:** T-3791 solves the plate's camera and works the photo-match down over these numbers and the
 differences named above; a picture of the north flank or the rear would read first for those faces.
+
+**Re-read through the plate's solved camera (T-3791, 2026-11-27).** The plate's camera
+(`data/reference_views/hanford_house_2008_calumet/inland_architect_plate.json`; the engraving's is the same camera
+scaled, `glessner_blog_engraving.json`) puts several of T-3790's proportional readings elsewhere, and the record now
+stands them there: the flank's projecting bay carries three lights a storey and rises past the main cornice into an
+attic of three short lights under a coped stone gable (the plate's leftmost block; it had one light a storey under a
+flat top and a roof dormer); the round oriel on corbels is built on the flank's chamber storey at u about 19.3 m (K08's
+half-round bowed oriel under the main cornice: the plate's reads a little shallower than a half round, which is the
+only bow K08 caps at an eave); the flank's lights east of the oriel are three narrow ones (u 21.15-23.25), the plate's principal storey's; the
+chamber storey repeats the three, because K01's side bays run one set of centres up every storey, where the plate draws
+one (named open in the match record); the south roof dormer stands between the bay and the oriel (u 15.3), not
+over the bay; the stacks stand at u 11.2 m beside the bay and at (20.5, 3.75) beside the pointed roof's south-west
+hip; the stone is rock-faced. **The pointed roof** is stood on a 6.0 m corner block (the pavilion and the window bay
+together, 0.45 m proud), because through the camera its apex stands over v about 3-4 m, not over the middle of a 4.05 m
+pavilion; the plate draws the pavilion's own face 4.05 m wide and a step to the window bay that the record no longer
+has, and its end pitch is held at K05's slated 65 degrees where the plate's is steeper. **Still not built, and named
+open in the match record:** the chamber storey's one light over the three; the two gabled dormers on the pointed roof's faces (street and south: K01's hipped crown
+carries no dormer), so the street face has one dormer where the plate has two; the pointed roof's apex about 0.8 m
+behind the plate's; the step at the pavilion's north edge. The stoop, the north and rear faces' fabric and the
+unbuilt plan projections stand as above.
 **Covers:** `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_front_m`, `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_side_m`, `hanford_house_2008_calumet.as_mapped_1904.form.service_wall_brick`, `hanford_house_2008_calumet.as_mapped_1904.form.roof_pitch_deg`, `hanford_house_2008_calumet.as_mapped_1904.form.eave_overhang_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_tread_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_landing_depth_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stoop_width_m`, `hanford_house_2008_calumet.as_mapped_1904.form.north_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rear_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rainwater`, `hanford_house_2008_calumet.as_mapped_1904.form.window_kit`, `hanford_house_2008_calumet.as_mapped_1904.form.yard`
 **Ticket:** T-3790 (piece 1 of T-1940, the X02 package of T-1837).
 **Review:** `docs/RESEARCH/k01-2008-calumet-3790/README.md`.

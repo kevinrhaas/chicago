@@ -1,0 +1,23 @@
+{
+  "structure_id": "hanford_house_2008_calumet",
+  "source_id": "inland_architect_1883_12_hanford_plate",
+  "library_image": "dw-inland-1883-12-hanford-plate",
+  "photo": "../../sources/assets/hanford_2008_plate_t3791/inland_architect_1883_hanford_2008_upright.jpg",
+  "image_px": [
+    2400,
+    1636
+  ],
+  "principal_px": [
+    893.4,
+    1256.2
+  ],
+  "focal_px": 1970.8,
+  "eye": [
+    47.86,
+    -17.42,
+    0.78
+  ],
+  "yaw_deg": -60.96,
+  "solve": "Fitted by T-3791 to Paul C. Lautrup's pen perspective in The Inland Architect and Builder, December 1883, p. 147 (the image store's 1636 x 2400 px greyscale copy of library image dw-inland-1883-12-hanford-plate, printed sideways; this camera reads the copy turned 90 degrees upright, 2400 x 1636 px, committed beside it). Frame: the record's footprint frame, u east toward Calumet from the main rear wall, v north from the south wall, y over grade. A delineator's two-point perspective: the verticals are drawn vertical, so the camera is level (no basis), its principal point free. Fitted by least squares on ten points read off the upright copy: the corner pavilion's south-east corner (u 24.55, v 0) at grade (1150, 1300) and at the chamber floor's band, 5.4 m (1150, 950); the pavilion's north edge on the front, v 4.05 (T-3790's reading of its face), at grade (1375, 1298) and at 5.4 m (1375, 960); the front's north end at the wall head, (24.1, 10.5, 9.2) at (1665, 780); and the 1911 sheet's flank projection, u 7.6-11.9 and 1.2 m out, which the plate draws as the flank's leftmost block: its south-west corner at grade (622, 1270) and at the wall head (622, 880), its south-east corner at grade (752, 1280) and at the wall head (752, 875), and its east return's root (11.9, 0) at grade (765, 1283). A free principal point fits them at 18 px rms but throws it to x 134, off the drawing's left edge; a weak prior holding it near x 1000 gives this camera, rms 26.4 px (largest 41 px, at the projection's south-east corner's head): f 1970.8 px, principal (893.4, 1256.2), the eye at u 47.86, v -17.42, 0.78 m over grade (about 23 m out in Calumet's roadway and 17 m south of the house), heading -60.96 degrees (west-north-west). The largest residuals are on the flank projection: the plate draws it about 1.5 m wider than the sheet's 4.3 m (its face over u about 6.0-13.0 m when read on its plane), the 1883 design against the 1911 survey, which controls the plan. Read through it: the oriel at u about 17.5-20.1 m between y 5.0 and 8.9 m; the flank's light east of the projection at u 14.6-16.7; the three narrow principal lights at u 20.75-23.8; the stacks' tops at x 770-840 and 1160-1240 px; the pointed roof's apex at x 1285, y 365 px, over v about 3-4 m; the street dormers over v about 4.5-6.7 and 8.6-10.5. Heights at the pavilion's corner scale about 65 px a metre; places along the flank are good to about +-1 m and the apex's to about +-1 m. Light: a pen drawing's hatching is conventional and casts only the cornices' and returns' own shadows, so the render is overcast.",
+  "sky": "overcast"
+}
