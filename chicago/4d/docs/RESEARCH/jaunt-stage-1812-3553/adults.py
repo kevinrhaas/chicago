@@ -229,7 +229,11 @@ def bank(st, killed):
     arm_of = {}
     for i, c in enumerate(warriors):
         arm_of[key(c)] = kinds[i % len(kinds)]
-        add(c, {'t': r1(36.4 + 0.25 * (i % 13)), 'arm': arm_of[key(c)]})
+        # One getting up off his face has his hands on the ground until he is crouched (T-3553,
+        # human-motions.js): he takes his weapon up from the grass as he comes up off them.
+        up = next((x['t'] for x in c.get('beats', []) if x.get('pose') == 'stand'), None)
+        t = up + 1.2 if c.get('pose') == 'prone' and up is not None else 36.4 + 0.25 * (i % 13)
+        add(c, {'t': r1(t), 'arm': arm_of[key(c)]})
     # 'Scarcely were the words uttered when a volley was showered from among the sand-hills.'
     guns = [c for c in warriors if arm_of[key(c)] == 'musket']
     for i, c in enumerate(guns):

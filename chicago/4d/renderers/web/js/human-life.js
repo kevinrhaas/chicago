@@ -103,13 +103,15 @@ export const POSTURES = Object.freeze({
   // Lying face down, the head up, watching ahead: the elbows out and the forearms on the
   // ground before the head, the legs a little apart (the owner, 2026-11-16, of a figure lying
   // in wait on the beach: "they would have their arms and legs in a different position").
+  // The forearms are laid by the hands (`hands`: each wrist on the ground before the head, [x
+  // forward of the toes, y up, out from the middle], the elbow out toward `pole` [out, up,
+  // forward]; human-actions.js reaches them), as human-motions.js's way up starts from (owner,
+  // 2026-11-27); laid by turning the arms, the standing arms of human-actions.js put them back
+  // by the sides.
   prone: {
-    root: 90, lift: 0.12, look: 34,
-    limbs: {
-      upperarm_l: { out: 70, twist: -90 }, lowerarm_l: { flex: 95 },
-      upperarm_r: { out: 70, twist: -90 }, lowerarm_r: { flex: 95 },
-      thigh_l: { roll: 8 }, thigh_r: { roll: 8 },
-    },
+    root: 90, lift: 0.12, look: 52,
+    hands: { pos: [1.62, 0.05, 0.16], pole: [1, -0.25, 0.35] },
+    limbs: { thigh_l: { roll: 8 }, thigh_r: { roll: 8 } },
   },
   // Lying face up and still, as someone lies who has fallen or been laid down: one knee up and
   // fallen out, the other leg out a little, one arm out on the ground, the other hand on the
@@ -292,8 +294,33 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
       else turn(`${part}_${s}`, 0, (L.pitch ?? 0) * DEG * w, (L.roll ?? 0) * m * DEG * w);
     }
   }
+  // T-3553 (owner, 2026-11-27): a motion's pose this frame (human-motions.js motionFrame): the
+  // legs solved to their ankles on this body's own thigh and shin, in the plane of the figure,
+  // under a trunk tipped `tip` forward (the root's tip, humans.js), the spine and head over it.
+  // Leg `a` is the figure's side `frame.side`.
+  function frameOn(f, w) {
+    sunk = 0;
+    const sideOf = { a: f.side, b: f.side === 'l' ? 'r' : 'l' };
+    for (const k of ['a', 'b']) {
+      const s = sideOf[k], L = f[k];
+      if (!L) continue;
+      const dx = L.ankle[0] - f.hip[0], dy = L.ankle[1] - f.hip[1];
+      const d = clamp(Math.hypot(dx, dy), Math.abs(thighLen - shinLen) + 1e-3, (thighLen + shinLen) * 0.999);
+      const phi = Math.atan2(dx, -dy); // from straight down, + forward
+      const alpha = Math.acos(clamp((thighLen * thighLen + d * d - shinLen * shinLen) / (2 * thighLen * d), -1, 1));
+      const beta = Math.acos(clamp((shinLen * shinLen + d * d - thighLen * thighLen) / (2 * shinLen * d), -1, 1));
+      const thighW = phi + alpha, shinW = phi - beta; // the knee forward of the line, as knees go
+      const thigh = thighW / DEG + f.tip, calf = (shinW - thighW) / DEG, foot = L.foot - shinW / DEG;
+      turn(`thigh_${s}`, 0, thigh * DEG * w, (f.spread ?? 0) * (s === 'l' ? 1 : -1) * DEG * w);
+      turn(`calf_${s}`, 0, calf * DEG * w, 0);
+      turn(`foot_${s}`, 0, foot * DEG * w, 0);
+    }
+    if (f.lean) { turn('spine_01', 0, f.lean * 0.5 * DEG * w, 0); turn('spine_02', 0, f.lean * 0.3 * DEG * w, 0); turn('spine_03', 0, f.lean * 0.2 * DEG * w, 0); }
+    if (f.look) { turn('neck_01', 0, f.look * 0.55 * DEG * w, 0); turn('head', 0, f.look * 0.45 * DEG * w, 0); }
+  }
   function postureOn(def, w) {
     sunk = 0;
+    if (def.frame) { frameOn(def.frame, w); return; }
     if (def.root) {   // lying: the whole figure is tipped in humans.js; the look and the limbs here
       if (def.look) { turn('neck_01', 0, def.look * 0.55 * DEG * w, 0); turn('head', 0, def.look * 0.45 * DEG * w, 0); }
       if (def.limbs) layLimbs(def.limbs, w);
@@ -364,6 +391,8 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     get bound() { return bound; },
     /** T-3553: the pelvis's drop under a held posture this frame (0 standing). */
     get sink() { return sunk; },
+    /** T-3553: this body's hip height and leg, metres at bind (human-motions.js places the root by them). */
+    get dims() { return { hipY: hipY0, thigh: thighLen, shin: shinLen }; },
     /**
      * T-3754: take back what this layer wrote last frame, before the clip and the gait layer
      * (humans.js calls it ahead of the mixer). The gait layer, which also writes the pelvis and
@@ -391,7 +420,8 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     apply(dt, { state = 'standing', root = null, viewer = null, gait = null, posture = null } = {}) {
       if (!bound) return;
       // T-3553: a held posture ({ kind, w }), and how much of a lifeless stillness it asks.
-      const pose = posture && POSTURES[posture.kind] && posture.w > 0 ? { def: POSTURES[posture.kind], w: clamp(posture.w, 0, 1) } : null;
+      const pose = posture?.frame && posture.frame.w > 0 ? { def: { frame: posture.frame }, w: clamp(posture.frame.w, 0, 1) }
+        : posture && POSTURES[posture.kind] && posture.w > 0 ? { def: POSTURES[posture.kind], w: clamp(posture.w, 0, 1) } : null;
       const calm = pose?.def.still ? 1 - pose.w : 1;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
       const mode = LIFE_MODES[state] ?? LIFE_MODES.standing;
