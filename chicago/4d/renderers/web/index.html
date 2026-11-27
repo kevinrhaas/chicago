@@ -902,6 +902,18 @@
         <div class="field row account-row" id="s-account" hidden><span class="account-who">Signed in as
           <b id="s-account-who"></b> <span id="s-account-how"></span></span>
           <button class="setting-button" id="s-sign-out" type="button">Sign out</button></div>
+        <!-- T-3776: what this account keeps, and the way to delete all of it (js/student-data.js
+             showSavedData). Hidden unless someone is signed in. -->
+        <div class="saved-data" id="s-saved-data" hidden>
+          <h5>Your saved data</h5>
+          <p class="legend-note">Signed in, we keep your email, how you signed in, which years you entered and when, your reading age, your own person and any bug report you send, so they follow you to another device. Nothing is sold, shared or used for ads. <a href="./privacy.html" target="_blank" rel="noopener">What we keep</a></p>
+          <div class="field row"><span>Delete everything saved to this account</span>
+            <button class="setting-button" id="s-delete-data" type="button">Delete my saved data</button></div>
+          <div class="field row saved-data-confirm" id="s-delete-data-confirm" hidden><span>Delete it all? This cannot be undone.</span>
+            <span class="saved-data-choice"><button class="setting-button danger" id="s-delete-data-yes" type="button">Delete</button>
+            <button class="setting-button" id="s-delete-data-no" type="button">Cancel</button></span></div>
+          <p class="legend-note" id="s-delete-data-status" role="status" aria-live="polite"></p>
+        </div>
         <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>

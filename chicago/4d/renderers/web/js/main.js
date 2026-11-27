@@ -41,6 +41,7 @@ import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
+import { showSavedData } from './student-data.js';
 import { SIGN_IN } from './sign-in-config.js';
 import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -2046,6 +2047,10 @@ async function boot() {
   bugs.signedIn(api.signIn.account ?? null);
   // T-3603: "Signed in as … · Sign out" on the Settings card's About tab.
   showAccount(document, api.signIn.account);
+  // T-3776: what the account keeps, and Delete my saved data (signs out after, so the next
+  // entry does not write the visitor row straight back).
+  showSavedData(document, api.signIn.account, { projectId: SIGN_IN.firebase?.projectId,
+    after: async () => { try { await api.signIn.account.signOut(); } catch { /* already out */ } setTimeout(() => location.reload(), 2500); } });
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
   // words at each age, fetched the first time a card opens.
   void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });

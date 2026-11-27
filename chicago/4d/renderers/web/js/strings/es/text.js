@@ -2462,5 +2462,15 @@ export default {
  "With compliments": "Con mis saludos",
  "Work chit": "Vale de trabajo",
  "Work chits from the yards, shops and wharves.": "Vales de trabajo de los patios, talleres y muelles.",
- "Your Chicago daybook": "Tu diario de Chicago"
+ "Your Chicago daybook": "Tu diario de Chicago",
+ "Your saved data": "Tus datos guardados",
+ "Signed in, we keep your email, how you signed in, which years you entered and when, your reading age, your own person and any bug report you send, so they follow you to another device. Nothing is sold, shared or used for ads.": "Con tu sesión iniciada guardamos tu correo, cómo entraste, qué años visitaste y cuándo, tu edad de lectura, tu propio personaje y los informes de errores que envíes, para que te sigan a otro dispositivo. Nada se vende, se comparte ni se usa para publicidad.",
+ "What we keep": "Lo que guardamos",
+ "Delete everything saved to this account": "Borrar todo lo guardado en esta cuenta",
+ "Delete my saved data": "Borrar mis datos guardados",
+ "Delete it all? This cannot be undone.": "¿Borrarlo todo? No se puede deshacer.",
+ "Delete": "Borrar",
+ "Deleting…": "Borrando…",
+ "Deleted, and signed out. Signing in again starts a new record.": "Borrado, y sesión cerrada. Al volver a entrar empieza un registro nuevo.",
+ "Some of it could not be deleted just now. Try again in a minute.": "Una parte no se pudo borrar ahora. Inténtalo de nuevo en un minuto."
 };

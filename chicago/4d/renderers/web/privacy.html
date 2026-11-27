@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What we keep · 4D Chicago</title>
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316150f'/%3E%3Cpath d='M30 16H17M17 16L7 6M17 16L7 26' stroke='%23d8a24a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./css/skins.css">
+<script src="./js/skin.js"></script>
+<!-- T-3776: the visitor's page of what 4D Chicago keeps. docs/STUDENT-DATA.md is the
+     field-by-field version for teachers and schools; tools/test_sign_in.mjs holds the
+     collections named here to js/student-data.js. -->
+<style>
+  :root { color-scheme: dark light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; padding: 24px 16px 48px;
+    background: var(--page, #0A1426); color: var(--ink, #ECE6D8);
+    font: 16px/1.55 var(--font-body, system-ui, sans-serif);
+  }
+  main { width: min(720px, 100%); margin: 0 auto; display: grid; gap: 18px; }
+  .eyebrow {
+    margin: 0 0 6px; color: var(--ink-dim);
+    font: var(--label-weight, 400) 11px/1.2 var(--font-label, var(--font-mono, monospace));
+    letter-spacing: var(--label-tracking, .14em); text-transform: uppercase;
+  }
+  h1 { margin: 0; font: var(--display-weight, 300) clamp(28px, 6vw, 40px)/1.05 var(--font-display, inherit); }
+  h2 { margin: 0 0 6px; font: 600 17px/1.3 var(--font-body, inherit); }
+  p, ul { margin: 0; }
+  ul { padding-left: 20px; display: grid; gap: 6px; }
+  section { padding: 16px; border: 1px solid var(--edge); border-radius: var(--r-screen, 10px); background: var(--panel-solid, var(--panel)); display: grid; gap: 8px; }
+  a { color: var(--accent, inherit); }
+  .dim { color: var(--ink-dim); font-size: 14px; }
+  [data-collection] { font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">4D Chicago</p>
+    <h1>What we keep</h1>
+  </header>
+  <p>You sign in once to walk the town. Here is everything 4D Chicago saves about you, why, and how to delete it.</p>
+
+  <section>
+    <h2>What is saved to your account</h2>
+    <ul>
+      <li><span data-collection="visitors">Your visit record</span>: your email, your name if your Google or Microsoft account gives one, how you signed in, the years you have entered, and when you first and last came in.</li>
+      <li><span data-collection="visits">Each entry into a year</span>: which year, when, and whether you were on a computer, tablet or phone.</li>
+      <li><span data-collection="readers">Your reading age</span>, so another device opens at the same level.</li>
+      <li><span data-collection="people">Your own person</span> (how you look in the town), so it follows you.</li>
+      <li><span data-collection="bugs">Bug reports you send</span>, with what you wrote and, if you chose, a picture of the screen.</li>
+    </ul>
+    <p class="dim">Your field notebook, the people you have met, the places you have found and your settings stay in this browser only.</p>
+  </section>
+
+  <section>
+    <h2>Who can see it</h2>
+    <p>Only you, and the owner of 4D Chicago, who reads the visitor list and bug reports to know who is using the town and what to fix. It is kept with Google Firebase in the United States.</p>
+    <p>Nothing is sold, shared with anyone else, or used for advertising. No other student or teacher can see it.</p>
+  </section>
+
+  <section>
+    <h2>Delete it</h2>
+    <p>In the town, open <b>Settings</b>, then <b>About</b>, and press <b>Delete my saved data</b>. Everything listed above is deleted at once and you are signed out. Signing in again starts a new record.</p>
+    <p class="dim">The sign-in itself (your email with Google Firebase's sign-in service) is removed on request: use the <a href="/contact/">contact page</a>.</p>
+  </section>
+
+  <section>
+    <h2>Schools</h2>
+    <p>Class features that save student work are switched off until a school has read and signed our student data agreement. Teachers can ask for it on the <a href="/contact/">contact page</a>.</p>
+  </section>
+
+  <p class="dim">Updated 26 November 2026.</p>
+</main>
+</body>
+</html>

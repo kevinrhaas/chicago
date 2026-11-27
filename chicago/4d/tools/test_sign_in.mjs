@@ -7,6 +7,8 @@ import { readFileSync } from 'node:fs';
 import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId, MESSAGE_FIELDS } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
+import { ACCOUNT_DOCS, ACCOUNT_ROWS, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
+import { rulesFromDoc, collectionsOf, ownerEmailOf } from './publish_firestore_rules.mjs';
 
 const FULL = { apiKey: 'k', authDomain: 'p.firebaseapp.com', projectId: 'p', appId: 'a' };
 const on = { enabled: true, hosts: ['chicago.polecat.live'], firebase: FULL };
@@ -126,5 +128,99 @@ const page = readFileSync(new URL('../renderers/web/index.html', import.meta.url
 assert.ok(page.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "./vendor/firebase-13.3.0/"'), 'index.html maps the Firebase SDK to the vendored copy');
 const visitorsPage = readFileSync(new URL('../renderers/web/visitors.html', import.meta.url), 'utf8');
 assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "./vendor/firebase-13.3.0/"'), 'visitors.html maps it too');
+
+// T-3776: what an account keeps, and Delete my saved data.
+{
+  // One switch, off until the owner turns it on; a gate that is off turns it off too.
+  assert.equal(SIGN_IN.cloudFeatures, false, 'the Stage 1 cloud features stay off until the owner switches them on (docs/STUDENT-DATA.md)');
+  assert.equal(cloudFeaturesOn({ enabled: true, cloudFeatures: true }), true);
+  assert.equal(cloudFeaturesOn({ enabled: false, cloudFeatures: true }), false, 'no sign-in, no cloud feature');
+  assert.equal(cloudFeaturesOn({ enabled: true }), false, 'absent is off');
+  assert.equal(cloudFeaturesOn(null), false);
+
+  // Every collection the rules let a visitor write is one Delete my saved data removes, and
+  // the rules let the visitor read and delete each of them.
+  const kept = [...ACCOUNT_DOCS, ...ACCOUNT_ROWS].sort();
+  const written = [...doc.matchAll(/match \/([a-z]+)\/\{[a-z]+\} \{\n\s+allow read, delete: ([^;]+);/g)].map((m) => [m[1], m[2]]);
+  const selfDeletes = written.filter(([, rule]) => /isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c).sort();
+  assert.deepEqual(selfDeletes, kept, 'the rules let a visitor delete exactly the collections js/student-data.js deletes');
+  assert.deepEqual(written.filter(([, rule]) => !/isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c), ['messages'],
+    'only the contact page\'s messages (no uid) are the owner\'s alone');
+  const policy = readFileSync(new URL('../docs/STUDENT-DATA.md', import.meta.url), 'utf8');
+  for (const c of kept) assert.ok(policy.includes(`| \`${c}/`), `docs/STUDENT-DATA.md lists ${c}`);
+  const privacy = readFileSync(new URL('../renderers/web/privacy.html', import.meta.url), 'utf8');
+  assert.deepEqual([...privacy.matchAll(/data-collection="([a-z]+)"/g)].map((m) => m[1]).sort(), kept, 'privacy.html names every collection kept');
+  assert.ok(page.includes('href="./privacy.html"'), 'Settings › About links What we keep');
+  assert.ok(readFileSync(new URL('../renderers/web/js/sign-in.js', import.meta.url), 'utf8').includes('href="./privacy.html"'), 'the sign-in panel links it before anything is kept');
+
+  // The query asks only for this uid's rows.
+  const q = rowsQuery('visits', 'u1');
+  assert.equal(q.where.fieldFilter.field.fieldPath, 'uid');
+  assert.equal(q.where.fieldFilter.value.stringValue, 'u1');
+
+  // A fake Firestore: three documents, two visits and one bug for u1, one visit for someone else.
+  const calls = [];
+  const rows = { visits: ['v1', 'v2'], bugs: ['b1'] };
+  const fakeFetch = async (url, init = {}) => {
+    calls.push([init.method ?? 'GET', url, init.body ? JSON.parse(init.body) : null]);
+    const ok = (body) => ({ ok: true, status: 200, json: async () => body });
+    if (url.endsWith(':runQuery')) {
+      const col = JSON.parse(init.body).structuredQuery.from[0].collectionId;
+      const left = rows[col].splice(0);
+      return ok(left.length ? left.map((id) => ({ document: { name: `projects/p/databases/(default)/documents/${col}/${id}` } })) : [{ readTime: 'x' }]);
+    }
+    return ok({});
+  };
+  const account = { uid: 'u1', idToken: async () => 'tok' };
+  const r = await deleteMyData({ projectId: 'p', account, fetchFn: fakeFetch });
+  assert.deepEqual(r, { deleted: 6, failed: [] }, 'three documents and three rows');
+  assert.deepEqual(calls.filter(([m]) => m === 'DELETE').map(([, u]) => u.split('/documents/')[1]), ['readers/u1', 'people/u1', 'visitors/u1']);
+  const commits = calls.filter(([, u]) => u.endsWith(':commit')).map(([, , b]) => b.writes.map((w) => w.delete.split('/').slice(-2).join('/')));
+  assert.deepEqual(commits, [['visits/v1', 'visits/v2'], ['bugs/b1']]);
+  assert.equal(calls.length, 9, 'three deletes, then each collection queried until it comes back empty');
+
+  // A refusal is reported, never thrown, and the rest still goes.
+  const refuse = async (url, init = {}) => (init.method === 'DELETE' && url.includes('/people/') ? { ok: false, status: 403 } : fakeFetch(url, init));
+  rows.visits = ['v3']; rows.bugs = [];
+  const partly = await deleteMyData({ projectId: 'p', account, fetchFn: refuse });
+  assert.deepEqual(partly.failed, ['people']);
+  assert.equal(partly.deleted, 3);
+  assert.deepEqual(await deleteMyData({ projectId: 'p', account: null, fetchFn: fakeFetch }), { deleted: 0, failed: ['not signed in'] });
+
+  // Settings › About: hidden signed out; the button asks once more, then deletes and says so.
+  const els = Object.fromEntries(['s-saved-data', 's-delete-data', 's-delete-data-confirm', 's-delete-data-yes', 's-delete-data-no', 's-delete-data-status']
+    .map((id) => [id, { id, hidden: true, disabled: false, textContent: '', focus() {} }]));
+  els['s-delete-data'].hidden = false;
+  const dom = { getElementById: (id) => els[id] ?? null };
+  assert.equal(showSavedData(dom, null), false);
+  assert.equal(els['s-saved-data'].hidden, true, 'nobody signed in: no saved-data section');
+  let asked = 0, afterRan = 0;
+  assert.equal(showSavedData(dom, account, { projectId: 'p', deleteFn: async () => { asked++; return { deleted: 4, failed: [] }; }, after: () => { afterRan++; } }), true);
+  assert.equal(els['s-saved-data'].hidden, false);
+  els['s-delete-data'].onclick();
+  assert.equal(els['s-delete-data-confirm'].hidden, false, 'one press asks first');
+  assert.equal(asked, 0, 'and deletes nothing yet');
+  els['s-delete-data-no'].onclick();
+  assert.equal(els['s-delete-data-confirm'].hidden, true, 'Cancel puts it back');
+  els['s-delete-data'].onclick();
+  await els['s-delete-data-yes'].onclick();
+  assert.equal(asked, 1);
+  assert.equal(afterRan, 1, 'then signs out');
+  assert.match(els['s-delete-data-status'].textContent, /^Deleted/);
+}
+
+// T-3776: the rules publisher (chicago-4d-firestore-rules.yml) publishes exactly the doc's one
+// rules block, with every collection the app writes, and carries the live owner address
+// across rather than reading it from the repo.
+{
+  const rules = rulesFromDoc(doc);
+  assert.deepEqual(collectionsOf(rules), [...ACCOUNT_DOCS, ...ACCOUNT_ROWS, 'messages'].sort(),
+    'the published rules match every account collection and messages, and nothing else');
+  assert.equal(ownerEmailOf(rules), null, 'the doc holds the placeholder, never an address');
+  assert.equal(ownerEmailOf(rules.replaceAll("'OWNER_EMAIL'", "'owner@example.com'")), 'owner@example.com');
+  assert.equal(ownerEmailOf("request.auth.token.email == 'a@x.org' || request.auth.token.email == 'b@x.org'"), null,
+    'two addresses are refused, not guessed between');
+  assert.throws(() => rulesFromDoc('no rules here'), /0 rules blocks/);
+}
 
 console.log('sign-in gate: OK');
