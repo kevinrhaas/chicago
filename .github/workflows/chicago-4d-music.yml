@@ -1,0 +1,116 @@
+name: Chicago 4D — make and host score music
+
+# T-3811 (owner, 2026-11-27): "every jaunt should have music ... let me know if you need
+# anything to fill in", then a fal top-up and "go for it". The score's cues are ElevenLabs
+# Music composition plans (data/music/score.json, tools/build_music_score.py) made through
+# fal's queue by tools/fal_music.mjs. No session holds the fal key: this workflow does.
+#
+# It runs when chicago/4d/data/music/make.json changes on any branch but main (a push
+# trigger reads the workflow from the pushed commit, so a PR branch can make its own takes
+# before it merges), or by hand once it is on main. make.json says:
+#   "cues":    comma-separated cue ids to make, one take each (blank: make nothing);
+#   "max_usd": the most the run may spend at fal's list price (the tool refuses more);
+#   "host":    encoded deliveries under renderers/web/audio/ to put on the media host as
+#              media/<sha256>.<ext>, the content-addressed keys tools/audio_hosting.mjs
+#              publishes, then verified there (tools/verify_audio_host.py).
+# The takes come back as the run's artifact "music-takes" (with fal's receipt) for the owner
+# to hear; a chosen take goes through the music intake like any recording. Changing
+# make.json again makes again, so a request is written once and cleared after.
+#
+# NEEDS the repository secret FAL_KEY (fal.ai/dashboard/keys) to make, and the narration
+# workflow's R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY and R2_ENDPOINT to host.
+on:
+  push:
+    branches-ignore: [main]
+    paths:
+      - 'chicago/4d/data/music/make.json'
+  workflow_dispatch:
+
+concurrency:
+  group: chicago-4d-music
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  music:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      FAL_KEY: ${{ secrets.FAL_KEY }}
+      HAVE_R2: ${{ secrets.R2_ACCESS_KEY_ID != '' && secrets.R2_SECRET_ACCESS_KEY != '' && secrets.R2_ENDPOINT != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/data/music/
+            /chicago/4d/data/narration/voices.json
+            /chicago/4d/tools/fal_music.mjs
+            /chicago/4d/tools/verify_audio_host.py
+            /chicago/4d/tools/audio-hosting.json
+            /chicago/4d/renderers/web/audio/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read the request
+        id: req
+        working-directory: chicago/4d
+        run: |
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('data/music/make.json', 'utf8'));
+            const out = [];
+            out.push('cues=' + String(r.cues ?? '').replace(/\s+/g, ''));
+            out.push('max_usd=' + Number(r.max_usd ?? 0));
+            out.push('host=' + (r.host ?? []).join(' '));
+            require('fs').appendFileSync(process.env.GITHUB_OUTPUT, out.join('\n') + '\n');
+            console.log(r);
+          "
+      - name: Make the takes
+        if: steps.req.outputs.cues != ''
+        working-directory: chicago/4d
+        env:
+          CUES: ${{ steps.req.outputs.cues }}
+          MAX_USD: ${{ steps.req.outputs.max_usd }}
+        run: |
+          if [ -z "$FAL_KEY" ]; then echo "::error::Making music needs the repository secret FAL_KEY (docs/AUDIO.md § Generated music trials)."; exit 1; fi
+          node tools/fal_music.mjs --plan --cues data/music/score.json --cue "$CUES"
+          node tools/fal_music.mjs --make --cues data/music/score.json --cue "$CUES" --max-usd "$MAX_USD" --out "$RUNNER_TEMP/music-takes"
+      - name: Keep the takes with the run
+        if: always() && steps.req.outputs.cues != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: music-takes
+          path: ${{ runner.temp }}/music-takes
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Host the deliveries (content-addressed, immutable)
+        if: steps.req.outputs.host != ''
+        working-directory: chicago/4d
+        env:
+          HOST: ${{ steps.req.outputs.host }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          AWS_DEFAULT_REGION: auto
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+        run: |
+          if [ "$HAVE_R2" != true ]; then echo "::error::Hosting needs R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY and R2_ENDPOINT."; exit 1; fi
+          bucket=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/narration/voices.json','utf8')).bucket)")
+          echo '{"objects":{' > "$RUNNER_TEMP/host-manifest.json"; sep=""
+          for rel in $HOST; do
+            case "$rel" in *..*|/*) echo "::error::refused path $rel"; exit 1;; esac
+            f="renderers/web/audio/$rel"; [ -f "$f" ] || { echo "::error::no file $f"; exit 1; }
+            ext="${f##*.}"; sha=$(sha256sum "$f" | cut -d' ' -f1); bytes=$(stat -c %s "$f")
+            case "$ext" in ogg) type=audio/ogg;; m4a) type=audio/mp4;; mp3) type=audio/mpeg;; *) echo "::error::unknown type $f"; exit 1;; esac
+            aws s3 cp "$f" "s3://$bucket/media/$sha.$ext" --endpoint-url "$R2_ENDPOINT" \
+              --content-type "$type" --cache-control "public, max-age=31536000, immutable" --only-show-errors
+            echo "hosted $rel as media/$sha.$ext"
+            printf '%s"media/%s.%s":{"bytes":%s,"sha256":"%s","content_type":"%s"}' "$sep" "$sha" "$ext" "$bytes" "$sha" "$type" >> "$RUNNER_TEMP/host-manifest.json"; sep=","
+          done
+          echo '}}' >> "$RUNNER_TEMP/host-manifest.json"
+          base=$(node -e "console.log(JSON.parse(require('fs').readFileSync('tools/audio-hosting.json','utf8')).public_base)")
+          python3 tools/verify_audio_host.py --manifest "$RUNNER_TEMP/host-manifest.json" --public-base "$base" --report "$RUNNER_TEMP/host-report.json"
+          cat "$RUNNER_TEMP/host-report.json"

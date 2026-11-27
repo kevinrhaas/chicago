@@ -225,8 +225,14 @@ nothing it makes is played by the app.
 - **Key.** `FAL_KEY`, from the environment, or `--env-file PATH` (a `FAL_KEY='…'` line). Make
   one at <https://fal.ai/dashboard/keys> (API preset); revoke it there. It is sent only to
   `https://queue.fal.run` in an `Authorization: Key …` header, never printed, written or put in
-  a URL, and never committed. A CI job would take it as a repository secret named `FAL_KEY`;
-  there is no workflow yet.
+  a URL, and never committed. CI takes it as the repository secret `FAL_KEY`.
+- **The workflow (T-3811).** `.github/workflows/chicago-4d-music.yml` makes and hosts the
+  score's cues, so no session needs the key: edit `data/music/make.json` (`cues`, comma ids
+  from `data/music/score.json`; `max_usd`; `host`, encoded deliveries under
+  `renderers/web/audio/`) and push it on any branch but main. The takes come back as the
+  run's `music-takes` artifact with fal's receipt; hosted deliveries go to the media host as
+  `media/<sha256>.<ext>` and are verified there. Clear `cues` after a run: every change to the
+  file runs it again, including the merge into dev.
 - **Plan first.** `node tools/fal_music.mjs --plan` lists every clip and its list price
   (read from each model's `https://fal.ai/models/<id>/llms.txt` on 2026-11-20; three cues on
   four models is $2.75). `--make --out DIR` refuses a run over `--max-usd` (default $5).

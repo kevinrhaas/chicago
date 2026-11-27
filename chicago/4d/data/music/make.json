@@ -1,0 +1,7 @@
+{
+  "about": "T-3811: what .github/workflows/chicago-4d-music.yml makes (cues, one take each, at most max_usd at fal's list price) and hosts (deliveries under renderers/web/audio/). A push that changes this file runs it; clear cues after a run.",
+  "request": "T-3811 take 1: 1835 and 1871 openings, closings and beds, the Great Fire suite, the Scandal bed",
+  "cues": "jaunt-opening-1835,jaunt-closing-1835,bed-1835-town,bed-1835-river,bed-1835-trades,jaunt-opening-1871,jaunt-closing-1871,bed-1871-city,bed-1871-inquiry,fire-1-rising,fire-2-inferno,fire-3-ruins,bed-1904-scandal",
+  "max_usd": 8,
+  "host": []
+}
