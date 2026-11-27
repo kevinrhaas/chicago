@@ -1,0 +1,106 @@
+name: Better Trees — calibrated desktop diagnostic
+
+# Temporary diagnostic only. Owner-visible PR targets the held feature branch.
+# The checked-out app is exactly2358's1605 head. All seven ordinary core runs
+# remain mandatory. No app, measurement, sample, raster or ceiling edits.
+on:
+  pull_request:
+    branches: [steward/t3747-vegetation-realism]
+    paths: ['.github/workflows/chicago-4d-t3747-calibrated-probe.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calibrated-desktop:
+    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
+    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        viewport: [desktop]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 1605dcbd4b58bedf98084a16d4b32d95a59bd20e
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            chicago/4d/tools
+
+      # Publish reads the app, two sibling browsers and the production site.
+      # Keep their complete native inputs; unrelated app research archives need
+      # not consume the measurement job's existing 25-minute wall-time budget.
+      - name: Materialize the complete native publication inputs
+        run: |
+          set -euo pipefail
+          python3 - <<'PYTHON'
+          import os, subprocess
+          names = subprocess.check_output([
+              'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
+          ]).split(b'\0')
+          directories = {name for name in names if name}
+          if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
+              raise SystemExit('Native publication directories cannot be established')
+          paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
+                   'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
+          paths += ['chicago/4d/' + os.fsdecode(name)
+                    for name in sorted(directories) if name != b'docs']
+          subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
+          PYTHON
+
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Require a real calibrated desktop CPU before measuring
+        env:
+          SOURCE_HEAD: 1605dcbd4b58bedf98084a16d4b32d95a59bd20e
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const os = require('node:os');
+          const { execFileSync } = require('node:child_process');
+          const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+          const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
+          const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
+          const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
+          const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
+          const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
+          const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
+          fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
+          console.log(JSON.stringify(reading));
+          if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
+          if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
+          NODE
+
+      # Globally, as the smoke does: the tool falls back to `npm root -g`.
+      - name: Install Playwright
+        run: |
+          set -e
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+      # The mirror is generated (T-0938); the gate reads what ships.
+      - name: Publish the mirror the gate serves (site/4d/ is generated)
+        working-directory: chicago/4d
+        run: bash tools/publish.sh
+
+      - name: Hold the still-frame ceiling
+        working-directory: chicago/4d
+        run: node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
+
+      - name: Keep the reading
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: still-frame-${{ matrix.viewport }}
+          path: |
+            chicago/4d/still-frame-${{ matrix.viewport }}.json
+            chicago/4d/calibrated-host.json
+          if-no-files-found: ignore
+
