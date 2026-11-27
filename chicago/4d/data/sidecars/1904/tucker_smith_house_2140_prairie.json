@@ -592,10 +592,9 @@
       "confidence": "inferred",
       "sources": [
         "chicagology_2140_photo_a",
-        "chicagology_2140_photo_b",
-        "glessner_blog_2015_08_2140_photo"
+        "chicagology_2140_photo_b"
       ],
-      "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). T-3771: the tall stack's head as both photographs draw it — a row of four tall ribbed pots running back along the 22nd Street flank (four in the first photograph, x 625-700 px, y 230-330 px; three in the second, x 565-655 px, the fourth behind them), on a corbelled stone head with a dentil course and no bands down the shaft, and two narrow sunk panels down each face (the second photograph, x 580-640 px, y 350-600 px); its plan widened to 1.5 m along the flank to carry the four. The north stack, which no picture shows, stays a plain shaft with no pots or panels (reconstructed). T-3799: the tall stack's place and height off both post-1890 photographs through cameras fitted on this house and 2130 together (data/reference_views/tucker_smith_house_2140_prairie/): its shaft's axis (the first photograph's x 645 px, the Van Osdel print's x 284 px) meets at u 9.15, v 2.25, about 0.55 m from where it stood, and its head's cap top (y 310 and 85 px) at 16.6 m and its pots' lips (y 230 and 53 px) at 17.9 m, the two pictures agreeing within 0.05 m. Its cap now stands at 16.65 m (top_m), the long pots' 1.1 m over it, where it had risen about 1.5 m higher at 2.6 m over the deck. With about 1.2 m of shaft left over the deck under its head, the two sunk panels run from 0.3 m over the deck to 0.2 m under the head (they had 0.5 and 0.3), so they still run most of the shaft as the Van Osdel print draws them."
+      "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). T-3771: the tall stack's head as both photographs draw it — a row of four tall ribbed pots running back along the 22nd Street flank (four in the first photograph, x 625-700 px, y 230-330 px; three in the second, x 565-655 px, the fourth behind them), on a corbelled stone head with a dentil course and no bands down the shaft, and two narrow sunk panels down each face (the second photograph, x 580-640 px, y 350-600 px); its plan widened to 1.5 m along the flank to carry the four. The north stack, which no picture shows, stays a plain shaft with no pots or panels (reconstructed). T-3799: the tall stack's place and height off both post-1890 photographs through cameras fitted on this house and 2130 together (data/reference_views/tucker_smith_house_2140_prairie/): its shaft's axis (the first photograph's x 645 px, the Van Osdel print's x 284 px) meets at u 9.15, v 2.25, about 0.55 m from where it stood, and its head's cap top (y 310 and 85 px) at 16.6 m and its pots' lips (y 230 and 53 px) at 17.9 m, the two pictures agreeing within 0.05 m. Its cap now stands at 16.65 m (top_m), the long pots' 1.1 m over it, where it had risen about 1.5 m higher at 2.6 m over the deck. With about 1.2 m of shaft left over the deck under its head, the two sunk panels run from 0.3 m over the deck to 0.2 m under the head (they had 0.5 and 0.3), so they still run most of the shaft as the Van Osdel print draws them. The place and height rest on the Chicagology print (chicagology_2140_photo_a); the Van Osdel print, whose source is not yet resolved, is cited only through its camera and agrees within 0.05 m in height."
     },
     "rainwater": {
       "value": {
@@ -974,24 +973,6 @@
       "what_it_does_not_supply": [
         "a date: undated, after 1890",
         "any size as a measurement"
-      ]
-    },
-    {
-      "source_id": "glessner_blog_2015_08_2140_photo",
-      "citation": "[2140 S. Prairie Ave.] Photograph from the south-east, on Prairie Avenue near 22nd Street, looking west at the Tucker/Smith house with the Murdoch house at 2130 at right; unknown photographer, undated (after 1890). Illustration in Glessner House Museum, 'John M. Van Osdel, Chicago's First Architect', The Story of a House (blog), 31 August 2015.",
-      "url": "https://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "2130's round tower: three stages of lights, the steep cone and its finial",
-        "2130's street gable and the columned porch south of the tower",
-        "the front's pale rock-faced stone"
-      ],
-      "what_it_does_not_supply": [
-        "a date: undated, after 1890",
-        "2130's south flank, rear or roof behind the gable",
-        "dimensions: no scale stands in the frame"
       ]
     },
     {
