@@ -307,7 +307,10 @@
       "value": [
         3.0,
         5.4,
-        15.6
+        15.6,
+        21.15,
+        22.2,
+        23.25
       ],
       "confidence": "inferred",
       "sources": [
@@ -533,7 +536,7 @@
                   "clear_height_m": 0.8,
                   "sill_m": 0.2,
                   "at": [
-                    0.3375
+                    0.3587
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the pavilion's basement light, read off the 1883 plate: one square opening under its wide principal light in the rusticated base, about as wide as the light above it is narrowed by its reveals"
@@ -544,7 +547,7 @@
                   "clear_height_m": 0.8,
                   "sill_m": 0.2,
                   "at": [
-                    0.89
+                    0.8261
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the window bay's basement light, under its principal light in the rusticated base (the 1883 plate's x 1420-1460 px)"
@@ -560,7 +563,7 @@
                   "clear_height_m": 2.7,
                   "sill_m": 0.4,
                   "at": [
-                    0.3375
+                    0.3587
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the pavilion's one wide principal light a storey, as the 1883 plate draws it: about 0.4 of the pavilion's width (about 80 of 200 px on the rotated crop) and taller than the bays' lights beside it",
@@ -577,7 +580,7 @@
                   "clear_height_m": 2.6,
                   "sill_m": 0.4,
                   "at": [
-                    0.89
+                    0.8261
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the window bay's principal light, now inside the corner block under the pointed roof; read off the 1883 plate through its solved camera at v 5.5-6.6 m (x 1420-1470 px)",
@@ -599,7 +602,7 @@
                   "clear_height_m": 2.3,
                   "sill_m": 0.4,
                   "at": [
-                    0.3375
+                    0.3587
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the pavilion's wide chamber light, as the 1883 plate draws it over the principal one, a little narrower and shorter",
@@ -616,7 +619,7 @@
                   "clear_height_m": 2.3,
                   "sill_m": 0.4,
                   "at": [
-                    0.89
+                    0.8261
                   ],
                   "recess_m": 0.4,
                   "why_not_ordinary": "the window bay's chamber light, over its principal one, as the 1883 plate draws it",
@@ -659,7 +662,8 @@
                   "sill_m": 0.2,
                   "at": [
                     0.5
-                  ]
+                  ],
+                  "why_not_ordinary": "the projecting bay's basement light, a low square opening in the rusticated base as the 1883 plate draws the house's basement lights"
                 }
               ]
             },
@@ -752,7 +756,7 @@
             "rise_m": 1.0
           },
           "corbel": {
-            "courses": 4
+            "courses": 8
           },
           "storeys": [
             {
@@ -776,74 +780,6 @@
             "pitch": 0.6,
             "covering": "tin_flat_seam_painted"
           }
-        },
-        {
-          "id": "south_lights",
-          "variant": "k08.projection.full_height",
-          "wall": "k01.wall.side.south",
-          "s_m": 22.1,
-          "fabric": "front_stone",
-          "plan": {
-            "width_m": 3.2,
-            "proud_m": 0.15
-          },
-          "roof": {
-            "kind": "hip",
-            "pitch": 0.0,
-            "covering": "tin_flat_seam_painted"
-          },
-          "plinth_m": 0.05,
-          "storeys": [
-            {
-              "height_m": 1.4,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.55,
-                  "clear_height_m": 0.7,
-                  "sill_m": 0.25,
-                  "at": [
-                    0.2,
-                    0.53,
-                    0.85
-                  ],
-                  "why_not_ordinary": "the basement grilles under the flank's three narrow lights, as the 1883 plate draws them"
-                }
-              ]
-            },
-            {
-              "height_m": 4.0,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.6,
-                  "clear_height_m": 2.6,
-                  "sill_m": 0.4,
-                  "at": [
-                    0.2,
-                    0.53,
-                    0.85
-                  ],
-                  "why_not_ordinary": "the flank's three narrow principal lights by the pavilion, read off the 1883 plate through its solved camera (x 1020-1130 px, u about 20.75-23.8 m)"
-                }
-              ]
-            },
-            {
-              "height_m": 3.8,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 1.0,
-                  "clear_height_m": 2.3,
-                  "sill_m": 0.4,
-                  "at": [
-                    0.47
-                  ],
-                  "why_not_ordinary": "the one chamber light over the three narrow principal lights, as the 1883 plate draws it (x 1045-1085 px, u about 21.5-22.6 m)"
-                }
-              ]
-            }
-          ]
         }
       ],
       "confidence": "inferred",

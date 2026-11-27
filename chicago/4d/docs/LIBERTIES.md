@@ -47206,15 +47206,15 @@ stands them there: the flank's projecting bay carries three lights a storey and 
 attic of three short lights under a coped stone gable (the plate's leftmost block; it had one light a storey under a
 flat top and a roof dormer); the round oriel on corbels is built on the flank's chamber storey at u about 19.3 m (K08's
 half-round bowed oriel under the main cornice: the plate's reads a little shallower than a half round, which is the
-only bow K08 caps at an eave); the flank's lights east of the oriel are three narrow ones on the principal storey and one
-on the chamber storey, carried on a 0.15 m K08 projection because K01's side bays run one set of centres up every
-storey (the plate draws the wall flush there); the south roof dormer stands between the bay and the oriel (u 15.3), not
+only bow K08 caps at an eave); the flank's lights east of the oriel are three narrow ones (u 21.15-23.25), the plate's principal storey's; the
+chamber storey repeats the three, because K01's side bays run one set of centres up every storey, where the plate draws
+one (named open in the match record); the south roof dormer stands between the bay and the oriel (u 15.3), not
 over the bay; the stacks stand at u 11.2 m beside the bay and at (20.5, 3.75) beside the pointed roof's south-west
 hip; the stone is rock-faced. **The pointed roof** is stood on a 6.0 m corner block (the pavilion and the window bay
 together, 0.45 m proud), because through the camera its apex stands over v about 3-4 m, not over the middle of a 4.05 m
 pavilion; the plate draws the pavilion's own face 4.05 m wide and a step to the window bay that the record no longer
 has, and its end pitch is held at K05's slated 65 degrees where the plate's is steeper. **Still not built, and named
-open in the match record:** the two gabled dormers on the pointed roof's faces (street and south: K01's hipped crown
+open in the match record:** the chamber storey's one light over the three; the two gabled dormers on the pointed roof's faces (street and south: K01's hipped crown
 carries no dormer), so the street face has one dormer where the plate has two; the pointed roof's apex about 0.8 m
 behind the plate's; the step at the pavilion's north edge. The stoop, the north and rear faces' fabric and the
 unbuilt plan projections stand as above.
