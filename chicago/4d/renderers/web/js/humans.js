@@ -33,6 +33,7 @@
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife, POSTURES } from './human-life.js';
+import { chooseMotion, motionFrame } from './human-motions.js';
 import { createHumanActions } from './human-actions.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
@@ -466,8 +467,22 @@ export class HumanActor {
    * T-3553: kneel, crouch, sit, lie down (prone or face up) or stand again, easing into it
    * over `seconds` (0: at once). Returns false for a posture this layer does not know.
    */
-  setPosture(kind = 'stand', { seconds = 0.9 } = {}) {
+  setPosture(kind = 'stand', { seconds = 0.9, spring = false } = {}) {
     if (kind !== 'stand' && !POSTURES[kind]) return false;
+    // T-3553 (owner, 2026-11-27: "they just rise like a plank"): up off the ground, or down onto
+    // it, through the poses people pass through (human-motions.js), where there is one for it.
+    if (this.posture?.motion) this.endMotion();
+    if (seconds > 0 && this.state !== 'walking' && (!this.path || this.path.arrived)) {
+      const from = !this.posture ? 'stand' : this.posture.to === 1 && this.posture.w >= 0.999 ? this.posture.kind : null;
+      const m = from && from !== kind ? chooseMotion(from, kind, { id: this.personId ?? this.id, spring, seconds }) : null;
+      if (m) {
+        // A rise stands up where the knees were: the spot moves at once, the keys are drawn from it.
+        if (m.shift > 0) this.shiftAlong(m.shift);
+        this.posture = { kind: m.def.from === 'stand' ? kind : m.def.from, w: 1, to: 1, rate: Infinity, motion: m, frame: motionFrame(m) };
+        this.place();
+        return true;
+      }
+    }
     if (kind === 'stand') {
       if (!this.posture) return true;
       this.posture.to = 0; this.posture.rate = seconds > 0 ? 1 / seconds : Infinity;
@@ -480,10 +495,43 @@ export class HumanActor {
     return true;
   }
 
+  /** T-3553: move the spot it stands on `d` metres along its heading. */
+  shiftAlong(d) {
+    const h = (this.heading ?? 0) * (Math.PI / 180);
+    this.e += Math.sin(h) * d; this.n += Math.cos(h) * d;
+  }
+
+  /** T-3553: getting up or down under way (human-motions.js). */
+  get rising() { return !!this.posture?.motion; }
+
+  /** T-3553: the motion done (or cut short): what it ends in, and the walk that waited for it. */
+  endMotion() {
+    const m = this.posture?.motion;
+    if (!m) return;
+    if (m.shift < 0) this.shiftAlong(m.shift);
+    this.posture = m.ends === 'stand' ? null : { kind: m.ends, w: 1, to: 1, rate: Infinity };
+    const q = m.queued; m.queued = null;
+    if (q && !m.released) { m.released = true; this.walkPath(q.points, q.opts); }
+    this.place();
+  }
+
   /** T-3553: one frame of a posture's easing; the root's tip follows its weight. */
   stepPosture(dt) {
     const p = this.posture;
     if (!p) return;
+    if (p.motion) {
+      const m = p.motion;
+      m.t += Math.max(0, dt);
+      // The run asked for while getting up starts as he drives up off his foot.
+      if (!m.released && m.t >= m.release) {
+        m.released = true;
+        const q = m.queued; m.queued = null;
+        if (q) this.walkPath(q.points, q.opts);
+      }
+      if (m.t >= m.end + m.out) { this.endMotion(); return; }
+      p.frame = motionFrame(m);
+      return;
+    }
     const step = Number.isFinite(p.rate) ? p.rate * Math.max(0, dt) : 1;
     p.w = p.to > p.w ? Math.min(p.to, p.w + step) : Math.max(p.to, p.w - step);
     if (p.to === 0 && p.w <= 0) this.posture = null;
@@ -505,12 +553,57 @@ export class HumanActor {
     }
     // T-3553: lying down tips the whole figure about its feet, face down along its heading
     // (+90) or face up with its head to its heading (-90), lifted by the body's depth.
+    const f = this.posture?.frame ?? null;
+    if (f) {
+      // T-3553: a motion's pose: the figure tipped `tip` forward about its feet and moved so its
+      // hip joint is where the key puts it (human-motions.js), in the frame of the spot.
+      const hipY = this.life?.dims?.hipY ?? 0.95, tip = f.tip * (Math.PI / 180), w = f.w;
+      const x = (f.hip[0] - hipY * Math.sin(tip)) * w, y = (f.hip[1] - hipY * Math.cos(tip)) * w;
+      const h = (this.heading ?? 0) * (Math.PI / 180);
+      this.root.rotation.y = headingToYaw(this.heading % 360);
+      this.root.rotation.x = tip * w;
+      this.root.position.x += Math.sin(h) * x; this.root.position.z -= Math.cos(h) * x;
+      this.root.position.y += y;
+      return;
+    }
     const lying = this.posture && POSTURES[this.posture.kind]?.root ? POSTURES[this.posture.kind] : null;
     const w = lying ? this.posture.w : 0;
     const face = lying && lying.root < 0 ? 180 : 0;
     this.root.rotation.y = headingToYaw((this.heading + face * (w > 0 ? 1 : 0)) % 360);
     this.root.rotation.x = lying ? lying.root * (Math.PI / 180) * w : 0;
     if (lying) this.root.position.y += lying.lift * w;
+  }
+
+  /**
+   * T-3553: the wrists planted on the ground this frame, world positions, for human-actions.js
+   * ({ l, r }: { pos, pole, w } or null), and how much a lying posture keeps the arms it laid
+   * (`yield`): a held prone posture's hands, or a motion's.
+   */
+  planted() {
+    const p = this.posture;
+    if (!p) return null;
+    const f = p.frame;
+    const def = f ? null : POSTURES[p.kind];
+    let hands = null, w = 0;
+    if (f) { hands = { [f.side]: f.hands.a, [f.side === 'l' ? 'r' : 'l']: f.hands.b }; w = f.w; }
+    else if (def?.hands) { hands = { l: def.hands, r: def.hands }; w = p.w; }
+    const out = { yield: !f && def?.root && def.limbs && !def.hands ? p.w : 0, l: null, r: null };
+    if (!hands || !(w > 0)) return out;
+    const h = (this.heading ?? 0) * (Math.PI / 180), fe = Math.sin(h), fn = Math.cos(h), re = Math.cos(h), rn = -Math.sin(h);
+    const ground = this.standY ?? this.heightAt(this.e, this.n);
+    for (const s of ['l', 'r']) {
+      const H = hands[s];
+      if (!H) continue;
+      const out1 = s === 'l' ? -1 : 1; // out from the middle: the left hand to the figure's left
+      const [x, y, o] = H.pos, [po, pu, pf] = H.pole;
+      const e = this.e + fe * x + re * o * out1, n = this.n + fn * x + rn * o * out1;
+      const pos = enuToWorld(e, n, this.heightAt(e, n) + y, new THREE.Vector3());
+      if (!Number.isFinite(pos.y)) pos.y = ground + y;
+      const pole = new THREE.Vector3(fe * pf + re * po * out1, pu, -(fn * pf + rn * po * out1)).normalize();
+      const fingers = new THREE.Vector3(fe, 0, -fn);
+      out[s] = { pos, pole, fingers, w: (H.w ?? 1) * w };
+    }
+    return out;
   }
 
   /**
@@ -876,6 +969,9 @@ export class HumanActor {
    * when it has stopped and turned. Returns false for a path of fewer than two points.
    */
   walkPath(points, { endHeading = null, onArrive = null, speed = null } = {}) {
+    // T-3553: getting up off the ground, the walk waits for him to be up (human-motions.js release).
+    const rising = this.posture?.motion;
+    if (rising && !rising.released) { rising.queued = { points, opts: { endHeading, onArrive, speed } }; return true; }
     const pts = (points ?? []).map((p) => ({ e: p.e ?? p.local_e ?? p[0], n: p.n ?? p.local_n ?? p[1], y: Number.isFinite(p.y) ? p.y : null }))
       .filter((p) => Number.isFinite(p.e) && Number.isFinite(p.n));
     if (pts.length < 2) return false;
@@ -1029,6 +1125,9 @@ export class HumanActor {
       // immediately make that person visible again if the visitor has approached.
       if (this.indoors || this.disposed) return false;
     }
+    // T-3553: getting up off the ground goes on out of range too, so the run it holds starts.
+    const risenAway = !this.inRange && !!this.posture?.motion;
+    if (risenAway) this.stepPosture(dt);
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
     // (`current` only while drawn: out of range the body kept is not drawn, T-3553.)
@@ -1048,7 +1147,7 @@ export class HumanActor {
     // T-3472: the ground covered this frame, which is what the gait's phase advances by.
     const moved = Math.hypot(this.e - e0, this.n - n0);
     const b = this.body;
-    if (this.posture) { this.stepPosture(dt); this.place(); }
+    if (this.posture) { if (!risenAway) this.stepPosture(dt); this.place(); }
     if (!b) { this.visualIdleBody = null; return true; }
     const every = animateEvery(this.distance);
     // T-3639: past 30 m a figure is posed every second or third frame, with the time between.
@@ -1075,8 +1174,8 @@ export class HumanActor {
       if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, posture: this.posture });
       if (this.actions?.bound && !b.oneShot) {
         // T-3553: kneeling or seated, the hands reach from where the body is, and leave their standing poses.
-        const posed = this.posture ? this.posture.w : 0;
-        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, sink: this.life?.sink ?? 0, posed });
+        const posed = this.posture ? (this.posture.frame ? this.posture.frame.w : this.posture.w) : 0;
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, sink: this.life?.sink ?? 0, posed, plant: this.planted() });
         if (this.actions.takeNod()) this.life?.nod();
       }
       // Last, the skirt over wherever the legs went.
