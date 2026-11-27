@@ -43439,6 +43439,23 @@ brogans and women in long gowns); everything past 4.5 m/s, carried on the measur
 elbow, the hands, the lean, the gather and the pull-up; the pace names and which pace each jaunt beat takes;
 the run's pelvis travel is about half the measured 9-10 cm. **How to resolve:** running measured in period
 footwear and dress.
+**Getting up off the ground and down onto it (T-3553, Kevin 2026-11-27, of the warriors rising from the grass
+behind the sand bank in the 1812 battle jaunts: "they just rise like a plank, that is not how someone would jump
+up to attack from a prone position").** A held posture used to be eased in and out as one weight, so a man lying
+face down was swung up whole about his toes. Now he passes through key poses (`renderers/web/js/human-motions.js`):
+the hands come back under the shoulders, the arms push the chest up with the hips still low, a knee comes in under
+the hips onto the ground, the foot comes through to a crouch as the hands leave the ground, and he drives up off it
+leaning into his first stride, where the run takes him (about 1.1-1.9 s); some go up through both knees on all
+fours first. He stands up where his knees were, not where his toes were. Lying in wait, a man rests on his
+forearms with the elbows out (the arm layer had been hanging the arms of every lying figure by its
+sides, the fallen too, over the limbs its posture laid; it now leaves them). A man kneeling or crouched who runs at
+once drives up off his front foot leaning forward; a calm rise, and one off a seat, stay the plain ease. Going down
+into the grass is the way up in reverse. The legs are solved to each key's ankles on the figure's own thigh and
+shin, the hands planted by the arm layer's reach. **What is read:** nothing measured; the order of the movements
+is the ordinary way a person gets up off their face in a hurry. **What is invented:** every key pose, its timing,
+the share who go up on all fours (about two in five), and each man's own side, pace (about a fifth either side),
+lean, hip height and look, drawn from his id so no two rise alike. **How to resolve:** motion capture of people
+rising from prone and kneeling into a run, reviewed in the town.
 ### L-1812-garrison-looks-3491 — How each man of Heald's company looks: complexion, hair, eyes, height
 
 **Decision:** the owner, 2026-11-07: *"they all have the same complexion and hair so change all that up ... use their ethnicity and find an image of someone like that and use that as a basis"*. Each enlisted man gets his own looks (`data/humans/variation/looks/<person>.json`, written by `docs/RESEARCH/people-1812-3491/looks.py` from `reading.json` beside it, carried into `assets/humans/web/hm08_variation_persons.json`, drawn by `renderers/web/js/human-looks.js` and shown in his card's Looks section). Four things are ours. (1) **His colouring is drawn, not read.** No man's own entry in the Register of Enlistments (NARA M233, which gives each recruit's height, complexion, eyes and hair) could be reached; the 1798-1815 volumes are transcribed only behind subscription logins. His complexion, hair and eyes are drawn, seeded by his id, from what the register wrote of 199 men of the 22nd US Infantry, 1812-14 (fair 98, dark 70, light 21, ruddy 4, brown 3; hair brown 57, black 46, dark 32, fair 26, light 19, sandy 11; eyes blue 67, grey 58, brown 21, dark 20, black 17, hazel 13), in the register's own words. (2) **The lean of his name.** A Scottish, Ulster or Irish surname doubles the draw's chance of sandy hair and triples that of red; a Welsh or French one leans dark; a Dutch one leans fair. Each surname's origin is read from a surname dictionary; the lean is our choice, not a measured rate. (3) **His height** is drawn from 68.1 in, the mean of native-born army recruits of 1815-20 aged 24-35 (Sokoloff 1984, after Sokoloff and Villaflor 1982), with the 2.5 in spread of two register samples, clipped to 62-75 in; Paul Grummo, remembered as "a tall, well-built man" (Quaife 1913 p. 239), is put at 71-74 in and heavier built (inferred), and David Kennison at the "about five feet ten inches" Lossing measured in his old age (inferred). (4) **The look.** The tints that draw each register word on the shared skin picture, the iris colours, a short crop for every man and short side whiskers for about two in five are reconstructed rendering choices. His card shows the one of seven public-domain portraits of young American men of about 1810-1825 (The Met) whose colouring is nearest his, labelled a stand-in, never his likeness.
