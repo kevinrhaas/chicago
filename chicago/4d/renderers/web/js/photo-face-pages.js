@@ -4,7 +4,7 @@
  * unbounded collection of images or re-upload an evicted texture through an old material.
  * The renderer submits only visible heads; the nearest page wins with a little hysteresis.
  */
-export const PHOTO_FACE_BUDGET = Object.freeze({ faces: 256, crowdBytes: 5_600_000,
+export const PHOTO_FACE_BUDGET = Object.freeze({ faces: 512, crowdBytes: 5_600_000,
   pageBytes: 5_600_000, pageEdge: 1024, nearM: 6, residentPages: 1 });
 
 export class PhotoFacePages {

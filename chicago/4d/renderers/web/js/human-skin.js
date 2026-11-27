@@ -52,9 +52,9 @@ import { fineCells, fineOf } from './human-fine.js';
 import { teethStrip, teethOf, createMouth, drawnTeeth, drawnLook, TEETH_DRAWN } from './human-mouth.js';
 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
-export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6 });
+export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6, environment: 2.1 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
-export const EYES = Object.freeze({ roughness: .08, sclera_value: .78, cornea_roughness: .1, cornea_sky: 2.5, cornea_radius_m: .0078, corner_shade: .45, like_sky: .6 });
+export const EYES = Object.freeze({ roughness: .16, sclera_value: .78, cornea_roughness: .14, cornea_sky: 1.4, cornea_radius_m: .0078, corner_shade: .22, like_sky: 1.15, sclera_sky: 1.2, photo_cornea_roughness: .22, photo_sclera_roughness: .3 });
 
 /** What a material of a portable human is, by the contract's slot names (HUMAN-ASSET-CONTRACT § 5). */
 export function surfaceFor(material) {
@@ -263,7 +263,7 @@ uniform vec4 chiLikeFrontAt[ 3 ]; // on it: the picture's own rectangle, the one
 uniform vec4 chiLikeFrontTo;    // toward where the picture was taken from (bind pose), and 1 where the person has one
 uniform sampler2D chiFaceLib;   // the library's sheet of faces (FACE_LIBRARY), or nothing
 uniform vec4 chiFaceLibAt;      // this person's face on it: where its box's corner lies (xy), and the sheet's share for one unit of the body's map (zw)
-uniform vec4 chiFaceLibGain;    // what the face is multiplied by to meet this body's skin, and 1 once the sheet is here
+uniform vec4 chiFaceLibGain;    // RGB gain; w: 0 waiting, 1 stock face, 2 photograph
 uniform vec3 chiSkinEven;       // what the body's skin is multiplied by to be the skin the person wears on every body (skinEven)
 varying vec2 vChiLikeFront;     // where this place lies on that picture
 varying float vChiSmile;        // how far the face has moved into its smile
@@ -322,6 +322,7 @@ const SKIN_COLOR = `
     vec3 c = diffuseColor.rgb * chiSkinEven;
     // T-3553: a face from the library in place of the body's own (FACE_LIBRARY), in the
     // person's complexion. First of all, so the lips, the age and the brows below work on it.
+    float photoCoverage = 0.0;
     #ifdef USE_MAP
     if ( chiFaceLibGain.w > 0.5 ) {
       vec2 fq = abs( vMapUv - vec2( ${glsl(FACE_LIBRARY.centre[0])}, ${glsl(FACE_LIBRARY.centre[1])} ) ) - vec2( ${glsl(FACE_LIBRARY.half[0] - FACE_LIBRARY.round)}, ${glsl(FACE_LIBRARY.half[1] - FACE_LIBRARY.round)} );
@@ -329,6 +330,7 @@ const SKIN_COLOR = `
       float fa = 1.0 - smoothstep( ${glsl(-FACE_LIBRARY.feather)}, 0.0, fd );
       vec3 fc = texture2D( chiFaceLib, chiFaceLibAt.xy + ( vMapUv - vec2( ${glsl(FACE_LIBRARY.box[0])}, ${glsl(FACE_LIBRARY.box[1])} ) ) * chiFaceLibAt.zw ).rgb;
       c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );
+      photoCoverage = fa * step( 1.5, chiFaceLibGain.w );
     }
     #endif
     // Lips (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too
@@ -342,10 +344,13 @@ const SKIN_COLOR = `
       chiSkinLip = smoothstep( 0.30, 0.55, 1.0 - tex.g / max( tex.r, 1e-3 ) / 0.43 );
       vec3 skinHue = vec3( 1.0, 0.435, 0.19 ) * diffuse;
       vec3 lw = vec3( 0.3, 0.59, 0.11 );
-      c = mix( c, skinHue * ( dot( c, lw ) / max( dot( skinHue, lw ), 1e-4 ) ), chiSkinLip * chiSkinLipTone );
+      c = mix( c, skinHue * ( dot( c, lw ) / max( dot( skinHue, lw ), 1e-4 ) ), chiSkinLip * chiSkinLipTone * ( 1.0 - photoCoverage ) );
     }
-    c *= 1.0 + chiSkin.z * ( vec3( 0.10, -0.03, -0.05 ) * blood + vec3( -0.06, -0.08, -0.11 ) * tone );
-    c *= 1.0 - chiSkin.z * spot * vec3( 0.10, 0.14, 0.17 );
+    // The reference already has pigment and freckles. Keep the geometric pore
+    // relief, without painting a second layer of spots over photographed skin.
+    float pigment = chiSkin.z * ( 1.0 - photoCoverage );
+    c *= 1.0 + pigment * ( vec3( 0.10, -0.03, -0.05 ) * blood + vec3( -0.06, -0.08, -0.11 ) * tone );
+    c *= 1.0 - pigment * spot * vec3( 0.10, 0.14, 0.17 );
     // Pores: pits about half a millimetre across, a fraction of that deep.
     float poreF = 1500.0;
     float poreFade = clamp( 1.4 - pix * poreF * 0.9, 0.0, 1.0 );
@@ -383,7 +388,7 @@ const SKIN_COLOR = `
       float bMid = 1.72 - 0.55 * bt * bt, bHalf = 0.24 * sqrt( 1.0 - 0.7 * bt * bt );
       float brow = ( 1.0 - smoothstep( 0.45, 1.25, abs( y - bMid ) / bHalf ) ) * smoothstep( 1.05, 1.55, ax ) * ( 1.0 - smoothstep( 4.35, 4.95, ax ) );
       brow *= 0.75 + 0.5 * chiSkinNoise( p * 900.0 );
-      c = mix( c, c * chiBrowTint, clamp( brow * chiFaceLook.y * face, 0.0, 1.0 ) );
+      c = mix( c, c * chiBrowTint, clamp( brow * chiFaceLook.y * face * ( 1.0 - photoCoverage ), 0.0, 1.0 ) );
       if ( A > 0.0 && face > 0.0 ) {
         vec3 c0 = c;   // the age is laid on as far as the face goes, fading at its bounds
         float ys = chiFaceMarks.x, ym = chiFaceMarks.y, mw = chiFaceMarks.z, nx = chiFaceMarks.w;
@@ -637,6 +642,10 @@ function chain(material, key, uniforms, patch) {
 }
 
 function patchSkin(material, rest, look = NO_LOOK) {
+  // T-3762: retain the scene's sun, shadows and each person's colour, while
+  // allowing the existing sky environment to fill faces under period hats.
+  // This changes a standard material uniform; no light, texture or draw is added.
+  material.envMapIntensity = SKIN.environment;
   const uniforms = {
     chiSkinRest: { value: rest.clone() },
     chiSkin: { value: new THREE.Vector4(SKIN.pores, SKIN.lines, SKIN.mottle, SKIN.scatter) },
@@ -713,8 +722,8 @@ function patchEyes(material, mesh, root) {
   const cornea = /__(iris|pupil)$/.test(material.name);
   material.roughness = Math.min(material.roughness, cornea ? EYES.cornea_roughness : EYES.roughness);
   // A wet cornea mirrors the bright sky over the dark iris: the catchlight of every portrait.
-  if (cornea) material.envMapIntensity = material.userData?.chiPhotoOwned ? EYES.like_sky : EYES.cornea_sky;
-  if (material.userData?.chiPhotoOwned) material.roughness = cornea ? .18 : .3;
+  material.envMapIntensity = cornea ? material.userData?.chiPhotoOwned ? EYES.like_sky : EYES.cornea_sky : EYES.sclera_sky;
+  if (material.userData?.chiPhotoOwned) material.roughness = cornea ? EYES.photo_cornea_roughness : EYES.photo_sclera_roughness;
   if (!/sclera/.test(material.name)) return null;
   material.color.multiplyScalar(EYES.sclera_value);
   const uniforms = {
@@ -1313,7 +1322,7 @@ function watchPhotoPage(mesh, root, lib) {
     const sharp = distance <= PHOTO_FACE_BUDGET.nearM ? photoPages.get(lib.detail.url) : null;
     uniforms.chiFaceLib.value = sharp ?? crowd;
     uniforms.chiFaceLibAt.value.set(...(sharp ? lib.detail.at : lib.at));
-    uniforms.chiFaceLibGain.value.w = (sharp ?? crowd)?.image ? 1 : 0;
+    uniforms.chiFaceLibGain.value.w = (sharp ?? crowd)?.image ? 2 : 0;
   };
 }
 
@@ -1467,9 +1476,12 @@ export function dressPhotoLooks(root, recorded) {
     if (o.isMesh && o.material?.name === 'eyes__iris') irises.set(o, o.material.map);
   });
   const photo=root.userData.chiPhotoFace;
-  const owned = dressLooks(root, photo.historical&&!photo.historical.monochrome?{...recorded,complexion:null,eyes:null}:recorded);
+  const colourPhoto = !photo.historical?.monochrome;
+  const owned = dressLooks(root, colourPhoto?{...recorded,
+    complexion:photo.customize_colour?recorded?.complexion:null,
+    eyes:photo.customize_colour||recorded?.eyes?.grade==='attested'?recorded?.eyes:null}:recorded);
   for (const [mesh, map] of irises) {
-    if ((recorded?.eyes?.grade === 'attested' || root.userData.chiPhotoFace.historical?.monochrome)
+    if ((photo.customize_colour || recorded?.eyes?.grade === 'attested' || photo.historical?.monochrome)
       && EYE_COLOUR[recorded?.eyes?.drawn]) mesh.material.userData.chiPhotoRecordedIris = true;
     else if (mesh.material.map !== map) { mesh.material.map = map; mesh.material.needsUpdate = true; }
     delete mesh.userData.chiPhotoEyes;

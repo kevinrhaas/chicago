@@ -14,10 +14,10 @@ const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
 const hooks = registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair, fitPhotoHairline } = await import(new URL('renderers/web/js/human-hair.js', here));
 const { dressSpectacles, fitSpectacles, PEOPLE_SPECTACLES, spectaclesFor } = await import(new URL('renderers/web/js/human-spectacles.js', here));
 const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, PEOPLE_HAIR, ERA_DEFAULT, hairFor } = await import(new URL('renderers/web/js/human-hair-styles.js', here));
-const { dressSkin, domeCornea } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { dressSkin, domeCornea, SKIN } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 // A synthetic head on the contract's bones: a cap (the top of a sphere) and a skin (all of
 // it), both quantised as the exports are, the unit folded into the inverse bind matrices.
@@ -67,7 +67,33 @@ function figure() {
   return { root, cap, skin, skeleton };
 }
 
+// Photo hairlines follow the actual varied head without expanding geometry,
+// materials or texture budgets. The original cap and children's heads stay intact.
+{
+  const {root,cap}=figure();cap.geometry.translate(0,.04/UNIT,0); // deliberately receding stock cap
+  const original=cap.geometry,points=original.attributes.position.array.slice(),material=cap.material;
+  const face={id:'frontal-woman',sex:'female',eyes:{centres_uv:[[.4,.5],[.6,.5]]},hair_projection:{hairline_v:.34}};
+  const result=fitPhotoHairline(root,face);assert(result,'reference hairline fitted');
+  assert.notEqual(cap.geometry,original);assert.equal(cap.geometry.attributes.position.count,original.attributes.position.count);
+  assert.equal(cap.geometry.index.count,original.index.count);assert.equal(cap.material,material);
+  assert.deepEqual(original.attributes.position.array,points,'the shared cap remains unchanged');
+  assert(cap.geometry.attributes.position.array.some((v,i)=>v!==points[i]),'front cap moves to the reference');
+  const fitted=cap.geometry;fitPhotoHairline(root,face);assert.equal(cap.geometry,fitted,'repeated dressing allocates no geometry');
+  const child=figure();assert.equal(fitPhotoHairline(child.root,{...face,population:'child'}),null);
+  const known=figure();assert.equal(fitPhotoHairline(known.root,{...face,historical:{shape_mode:'existing_fit'}}),null,'curated historical hair is preserved');
+  let disposed=false;fitted.addEventListener('dispose',()=>{disposed=true;});original.dispose();assert(disposed,'the source cap releases its fitted geometry');
+}
+
 // 1. The cards lie over the cap, a few millimetres off it, and are skinned exactly as the cap.
+{
+  const fig=figure();dressSkin(fig.root);const original=fig.cap.material,key=original.customProgramCacheKey();
+  fig.root.userData.chiPhotoFace={id:'reference-hair',sex:'female',reference_pool:'european',hair_projection:{fallback_gain:[1.2,1,.9]}};
+  dressHair(fig.root,{lod:2,style:{cut:'drawn_back_bun_1904',colour:'dark_brown',facial:[]}});
+  assert.notEqual(fig.cap.material,original,'the source hair tint is owned');
+  assert.equal(fig.cap.material.onBeforeCompile,original.onBeforeCompile,'colour-only clones retain the native strand-lighting shader');
+  assert.equal(fig.cap.material.customProgramCacheKey(),key,'the shader variant remains shared');
+  assert.equal(fig.cap.material.map,original.map,'no extra hair texture');
+}
 {
   const { root, cap } = figure();
   const style = PEOPLE_HAIR.pa1904_otis_f_r_c1900_hans_johnson;
@@ -236,7 +262,11 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
     if (r > .004) assert(tilt > .4 && (nn.getX(i) * px + nn.getY(i) * py) > 0, `the rim tilts outward: ${tilt}`);
   }
   dressSkin(root);
-  assert(iris.material.roughness <= .1 && iris.material.envMapIntensity > 1, 'the cornea is glossy and mirrors the sky');
+  // T-3762: the reviewed broader reflection replaces the old sharp glare.
+  // Keep exact calibration checks and the eye's gloss relative to the skin.
+  assert.equal(iris.material.roughness, .14, 'the cornea has the reviewed softer highlight');
+  assert.equal(iris.material.envMapIntensity, 1.4, 'the cornea retains a bounded sky catchlight');
+  assert(iris.material.roughness < SKIN.roughness, 'the cornea remains glossier than skin');
 }
 
 // 4b. A worn-up bun shares the cap's material and comes first in the file (T-3423): the

@@ -46,12 +46,46 @@ import * as THREE from 'three';
 /** Cloth by the garment material's name, as the portable-human exports name them. */
 export const CLOTHS = Object.freeze({
   // pitch_m: one repeat of the weave; weave/heather/rumple: strengths; twill: 1 diagonal, 0 plain.
-  wool: Object.freeze({ pitch_m: .008, weave: 1, heather: .16, rumple: 1, sheen: .22, twill: 1 }),
-  cotton_twill: Object.freeze({ pitch_m: .007, weave: .9, heather: .12, rumple: 1, sheen: .16, twill: 1 }),
-  linen: Object.freeze({ pitch_m: .005, weave: .6, heather: .08, rumple: .8, sheen: .1, twill: 0 }),
+  // T-3553 round 8 (the owner, 2026-11-26: "The surface of their jackets also needs some work so it
+  // is finer"): a suiting's twill is a fine thing, its wales a couple of millimetres apart, not the
+  // centimetre that read as a coarse zigzag on every coat; linen's weave finer with it.
+  wool: Object.freeze({ pitch_m: .0024, weave: .8, heather: .12, rumple: 1, sheen: .22, twill: 1 }),
+  cotton_twill: Object.freeze({ pitch_m: .003, weave: .8, heather: .1, rumple: 1, sheen: .16, twill: 1 }),
+  linen: Object.freeze({ pitch_m: .0018, weave: .5, heather: .06, rumple: .8, sheen: .1, twill: 0 }),
 });
+/**
+ * T-3553 round 8 (the owner, 2026-11-26: "their hats men and women need a material update"): a
+ * hat is no garment's cloth, and every hat, modelled or made (human-hats.js), was drawn as one
+ * smooth enamel, a rubber dome. Its own surfaces, in the same program (uniforms, never code):
+ *
+ *   felt    a derby's, a round hat's, a lady's: no weave, a fine mottle of its fibres, a firm
+ *           shape (little rumple) and the soft pale halo felt's nap shows edge-on; never glossy;
+ *   plush   a silk top hat's (and a toque's silk or velvet): smooth, glossy, a strong halo;
+ *   straw   a boater's, a sailor's: a plaited braid read as a coarse plain weave, its straws'
+ *           uneven colour;
+ *   ribbon  a hat's band: a grosgrain's fine ribs, a little sheen.
+ *
+ * `rough` is the least roughness the surface is drawn with (felt is never shiny). Reconstructed,
+ * as the cloths are (liberty L-drape-3553, round 8).
+ */
+export const HATS = Object.freeze({
+  felt: Object.freeze({ pitch_m: .0012, weave: 0, heather: .08, rumple: .3, sheen: .55, twill: 0, rough: .86 }),
+  plush: Object.freeze({ pitch_m: .0012, weave: 0, heather: .03, rumple: .12, sheen: .8, twill: 0, rough: .34 }),
+  straw: Object.freeze({ pitch_m: .003, weave: 1.1, heather: .22, rumple: .35, sheen: .12, twill: 0, rough: .7 }),
+  ribbon: Object.freeze({ pitch_m: .0009, weave: .9, heather: .03, rumple: .15, sheen: .3, twill: 0, rough: .55 }),
+});
+export function hatFor(name) {
+  if (!/^headwear__/.test(name) || /plume|feather/.test(name)) return null;
+  if (/band|ribbon/.test(name)) return HATS.ribbon;
+  if (/straw|boater|sailor/.test(name)) return HATS.straw;
+  if (/silk|plush|toque|top_hat/.test(name)) return HATS.plush;
+  if (/linen|cotton|maid_cap|head_cloth|handkerchief/.test(name)) return CLOTHS.linen;
+  if (/tuque|knit|wool/.test(name)) return CLOTHS.wool;
+  return HATS.felt;
+}
 export function clothFor(material) {
   const name = material?.name ?? '';
+  if (/^headwear__/.test(name)) return HATS[material.userData?.chiHat] ?? hatFor(name);
   if (!/^garment_/.test(name)) return null;
   if (/deerskin|buckskin|leather/.test(name)) return null;   // hide has no weave (T-3466)
   if (/wool|stroud|broadcloth|coat|waistcoat|vest|jacket/.test(name)) return CLOTHS.wool;
@@ -131,7 +165,10 @@ const COLOR = `
     vec3 an = abs( normalize( vChiFabricN ) );
     // Across the cloth and up it: the bind pose stands upright, so the vertical
     // runs up every garment; across is whichever horizontal axis the face turns from.
-    vec2 uv = vec2( an.x > an.z ? p.z : p.x, p.y );
+    // The two ways across are blended where the face turns between them (switched outright, the
+    // wales met in a hard zigzag down the side of every coat).
+    float side = smoothstep( -0.2, 0.2, an.x - an.z );
+    vec2 uv = vec2( mix( p.x, p.z, side ), p.y );
     if ( an.y > 0.75 ) uv = p.xz;
     vec2 t = uv / chiFabric.x * 6.2831853;
     float twill = sin( t.x + t.y ) + 0.35 * sin( 2.0 * ( t.x + t.y ) + 1.3 );
@@ -209,8 +246,9 @@ const COLOR = `
       vec3 col = chiFinBandRgb[ i ];
       vec3 c = col;
       if ( bk < 1.5 ) {
-        // Ribbon or velvet: its colour, a fine darker line at each edge.
+        // Ribbon or velvet: its colour, a fine darker line at each edge, a ribbon's sheen.
         c *= 1.0 - 0.3 * smoothstep( 0.8, 1.0, abs( d ) );
+        chiFinGloss += inside * 0.22;
       } else if ( bk < 2.5 ) {
         // Lace: a net of threads with flowers in it, over the shadow of what lies beneath.
         // In metres, so a lace's net is fine and its flowers a few centimetres, at any width.
@@ -273,7 +311,8 @@ const SHEEN = `
   {
     float chiRim = pow( 1.0 - clamp( abs( dot( normalize( vViewPosition ), normal ) ), 0.0, 1.0 ), 3.0 );
     float chiShe = chiFabricWear.x + chiFin.w * 0.35 + chiFinPat.w * 0.9;
-    reflectedLight.indirectDiffuse += diffuseColor.rgb * chiShe * chiRim * 2.0;
+    // and a little of the light itself, so a black cloth's nap still shows its form edge-on
+    reflectedLight.indirectDiffuse += ( diffuseColor.rgb * 2.0 + 0.035 ) * chiShe * chiRim;
     reflectedLight.directDiffuse *= 1.0 + chiShe * chiRim;
   }`;
 const ANCHORS = ['#include <color_fragment>', '#include <roughnessmap_fragment>',
@@ -320,6 +359,7 @@ export function patchFabric(material) {
   if (!cloth || !material.isMeshStandardMaterial) return null;
   if (patched.has(material)) return cloth;
   patched.add(material);
+  if (cloth.rough && 'roughness' in material) material.roughness = Math.max(material.roughness ?? 0, cloth.rough);
   const prior = material.onBeforeCompile;
   const hadKey = Object.prototype.hasOwnProperty.call(material, 'customProgramCacheKey');
   const priorKey = hadKey ? String(material.customProgramCacheKey())
@@ -348,11 +388,44 @@ export function patchFabric(material) {
   return cloth;
 }
 
+/** A hat's band: a felt or plush hat modelled without one (a derby, a top hat, a lady's) gets a
+ * grosgrain ribbon round the foot of its crown, `width` deep, a shade off the felt in colour and
+ * glossier, drawn by the trims' ribbon (T-3553 round 8). The crown's foot is read off its wall
+ * (points between `wall` of its widest reach, facing out level): the lowest of them at each of
+ * `sectors` bearings round it, and the highest of those, so the band lies on the crown all round
+ * even where a lady's brim is cocked up. */
+export const HAT_BAND = Object.freeze({ width: .024, wall: [.2, .8], level: .6, sectors: 12, lift: .002, shade: 1.6, add: .006 });
+export function hatBand(mesh) {
+  const m = Array.isArray(mesh?.material) ? mesh.material[0] : mesh?.material, cloth = m ? clothFor(m) : null;
+  if (!(cloth === HATS.felt || cloth === HATS.plush) || m.userData?.chiFinery) return null;
+  if ((mesh.parent?.children ?? []).some((o) => o !== mesh && o.isMesh && /^headwear__.*(band|ribbon)/.test(o.material?.name ?? ''))) return null;
+  const p = mesh.geometry?.attributes?.position, nm = mesh.geometry?.attributes?.normal; if (!p || !nm || p.count < 24) return null;
+  let cx = 0, cz = 0; for (let i = 0; i < p.count; i++) { cx += p.getX(i); cz += p.getZ(i); } cx /= p.count; cz /= p.count;
+  let rmax = 0; for (let i = 0; i < p.count; i++) rmax = Math.max(rmax, Math.hypot(p.getX(i) - cx, p.getZ(i) - cz));
+  const K = HAT_BAND.sectors, low = new Array(K).fill(Infinity);
+  for (let i = 0; i < p.count; i++) {
+    const dx = p.getX(i) - cx, dz = p.getZ(i) - cz, r = Math.hypot(dx, dz);
+    if (r < HAT_BAND.wall[0] * rmax || r > HAT_BAND.wall[1] * rmax) continue;
+    // the wall faces out (or in, as a double-sided hat may be drawn), level
+    if (Math.abs(nm.getX(i) * dx + nm.getZ(i) * dz) / r < HAT_BAND.level || Math.abs(nm.getY(i)) > HAT_BAND.level) continue;
+    const k = Math.floor(((Math.atan2(dz, dx) + Math.PI) / (2 * Math.PI)) * K) % K;
+    low[k] = Math.min(low[k], p.getY(i));
+  }
+  const seen = low.filter(Number.isFinite); if (seen.length < K * 2 / 3) return null;
+  // a metre in the hat's own units: its world scale
+  const e = mesh.matrixWorld?.elements, upm = e ? 1 / (Math.hypot(e[0], e[1], e[2]) || 1) : 1;
+  const foot = Math.max(...seen) + HAT_BAND.lift * upm, half = HAT_BAND.width * upm / 2;
+  const rgb = [m.color?.r ?? 0, m.color?.g ?? 0, m.color?.b ?? 0].map((c) => Math.min(1, c * HAT_BAND.shade + HAT_BAND.add));
+  m.userData = { ...m.userData, chiFinery: { fin: [foot, foot + 2 * half, upm, 0], pat: [0, 0, 0, 0], patRgb: [0, 0, 0], bands: [[foot + half, half, 1, 0]], bandRgb: [rgb] } };
+  return { foot, half };
+}
+
 /** Every plain garment under a loaded human. Returns the names of the materials clothed. */
 export function clothHuman(root) {
   const names = new Set();
   root?.traverse(node => {
     if (!node.isMesh) return;
+    hatBand(node);
     for (const m of Array.isArray(node.material) ? node.material : [node.material]) if (patchFabric(m)) names.add(m.name);
   });
   return [...names];

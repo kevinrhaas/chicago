@@ -10,9 +10,57 @@ from unittest.mock import patch
 import numpy as np
 from PIL import Image
 import photo_face_library as P
+import photo_reference_fit as R
 
 
 class ImportBoundaries(unittest.TestCase):
+    def test_blue_reference_iris_is_not_limited_to_the_stock_brown_channels(self):
+        image=np.full((110,170,3),[195,191,187],dtype=np.uint8)
+        points=[[85,55]for _ in range(478)]
+        for outer,inner,upper,lower,centre,cx in [(33,133,159,145,468,55),(263,362,386,374,473,115)]:
+            points[outer]=[cx-15,55];points[inner]=[cx+15,55]
+            points[upper]=[cx,51];points[lower]=[cx,59];points[centre]=[cx,55]
+            image[49:62,cx-6:cx+7]=[90,130,165]
+        for start,cx in [(469,55),(474,115)]:
+            for i,xy in enumerate([(cx-6,55),(cx,49),(cx+6,55),(cx,61)]):points[start+i]=list(xy)
+        with patch.object(P,'measured_lid_rest',return_value=None):
+            eyes=P.eye_appearance(Image.fromarray(image),points,'female',{'camera':{'px_per_m':1000}},{'base_body':P.BASE['female']})
+        native=P.native_iris_tone('female')
+        np.testing.assert_allclose(native*np.array(eyes['iris_gain']),eyes['iris_linear'],rtol=1e-12)
+        self.assertGreater(eyes['iris_gain'][2],20,'the low-blue stock texture needs a larger gain to reproduce a blue iris')
+
+    def test_reference_albedo_reduces_studio_shading_without_recolouring_skin(self):
+        size=128;points=[[64,64]for _ in range(478)];points[468]=[44,60];points[473]=[84,60]
+        for i,x in zip((50,101,118,205,280,330,347,425),(35,45,52,60,68,76,84,94)):points[i]=[x,80]
+        flat=Image.new('RGB',(size,size),(145,113,95))
+        self.assertTrue(np.array_equal(np.asarray(P.reference_albedo(flat,points)),np.asarray(flat)))
+        y,x=np.indices((size,size));light=np.exp((x-64)*.009)*(1+np.where((x+y)%2,.03,-.03))
+        rgb=np.array([.4,.25,.17])*light[...,None];photo=Image.fromarray(P.L.srgb8(rgb))
+        before=P.L.linear(np.asarray(photo));after=P.L.linear(np.asarray(P.reference_albedo(photo,points)))
+        a=P.gaussian_filter(before[:,:,0],5);b=P.gaussian_filter(after[:,:,0],5)
+        self.assertLess(b[:,16:-16].std(),a[:,16:-16].std()*.65,'broad lighting is reduced before relighting')
+        np.testing.assert_allclose(after[16:-16,16:-16,1]/after[16:-16,16:-16,0],before[16:-16,16:-16,1]/before[16:-16,16:-16,0],rtol=.025)
+        fine_a=(before[:,:,0]/a)[16:-16,16:-16].std();fine_b=(after[:,:,0]/b)[16:-16,16:-16].std()
+        self.assertGreater(fine_b,fine_a*.9,'fine photographic detail remains')
+
+    def test_reference_solver_derivative_matches_finite_differences(self):
+        from scipy.optimize._numdiff import approx_derivative
+        rng=np.random.default_rng(3762)
+        base=rng.normal(size=(12,3))*.05+[0,1.5,.1]
+        pos=rng.normal(size=(3,12,3))*.008
+        neg=rng.normal(size=(3,12,3))*.008
+        observed=rng.normal(size=(12,2))*30+150
+        sigma=np.linspace(2,5,12);centre=np.array([.1,-.2,.05]);spreads=np.array([.2,.3,.4])
+        residual,jacobian,state=R.objective(base,pos,neg,observed,sigma,centre,spreads)
+        p=np.array([.12,-.18,.07,900,155,144,.25,-.3,.2])
+        np.testing.assert_allclose(jacobian(p),approx_derivative(residual,p),rtol=2e-6,atol=1e-7)
+        rotation,_=R.rotation(*p[:3])
+        np.testing.assert_allclose(rotation,P.F.rot(*p[:3]),atol=1e-15)
+        delta=np.einsum('a,aij->ij',p[6:],np.where((p[6:]>=0)[:,None,None],pos,-neg))
+        X=(base+delta-base.mean(0))@P.F.rot(*p[:3]).T
+        pixels=np.column_stack((p[4]+p[3]*X[:,0],p[5]-p[3]*X[:,1]))
+        np.testing.assert_allclose(residual(p),np.r_[((pixels-observed)/sigma[:,None]).ravel(),(p[6:]-centre)/spreads])
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = pathlib.Path(self.tmp.name)
@@ -52,7 +100,7 @@ class ImportBoundaries(unittest.TestCase):
             with self.assertRaises(ValueError):P.read_photo(path,crop)
 
     def test_duplicate_ids_and_capacity_fail_before_output(self):
-        for faces in ([self.entry()]*2,[{**self.entry(),'id':f'face_{i}'} for i in range(257)]):
+        for faces in ([self.entry()]*2,[{**self.entry(),'id':f'face_{i}'} for i in range(P.LIMIT+1)]):
             with self.assertRaises(ValueError):P.build({'faces':faces},self.root/'review')
         self.assertFalse((self.root/'review').exists())
 

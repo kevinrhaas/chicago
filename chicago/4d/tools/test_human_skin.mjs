@@ -49,6 +49,8 @@ dressSkin(eyeRoot); dressSkin(eyeRoot);
 assert.equal(sclera.roughness, EYES.roughness);
 assert.equal(sclera.customProgramCacheKey(), '|chicago-sclera-v1', 'the white is shaded toward its corners');
 assert(Math.abs(sclera.color.r - before * EYES.sclera_value) < 1e-9, 'the sclera is toned once');
+assert.equal(sclera.envMapIntensity, EYES.sclera_sky, 'off-white sclera receives the existing environment fill');
+assert(EYES.corner_shade > 0 && EYES.corner_shade < .3, 'corner occlusion remains soft rather than a dark eye rim');
 
 // The bind pose in metres: a quantised export folds its scale into the inverse bind matrices.
 {
@@ -86,6 +88,9 @@ const dressOne = (name, hook) => {
 };
 let priorRan = 0;
 const skin = dressOne('skin', shader => { priorRan++; shader.fragmentShader = '// prior\n' + shader.fragmentShader; });
+assert.equal(skin.envMapIntensity, SKIN.environment);
+assert(SKIN.environment > 1 && SKIN.environment < 3, 'bounded skin-only environment fill, without an added light');
+assert.equal(skin.emissive.getHex(), 0, 'skin still follows scene lighting rather than emitting light');
 const s = compile(skin);
 assert.equal(priorRan, 1, 'the prior hook runs once, first');
 assert(s.fragmentShader.includes('// prior'));

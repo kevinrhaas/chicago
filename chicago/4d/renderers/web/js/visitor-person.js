@@ -111,8 +111,13 @@ export function faceChoices(faces, sex, complexion, catalog = null) {
   if (!Array.isArray(F)) return [];
   const light = Array.isArray(faces.light_only_for) ? faces.light_only_for : [];
   const wears = catalog ? bodiesOf(catalog, sex) : [sex === 'male' ? 'male' : 'female'];
-  return F.map((f, index) => ({ ...f, index }))
+  const original=F.map((f, index) => ({ ...f, index }))
     .filter((f) => wears.includes(f.sex) && (!f.light_only || light.includes(complexion)));
+  // The full fictional photo catalog is available here. Historical NPC pools
+  // never limit a visitor's choices, and no photo is hidden by complexion.
+  const photos=(catalog?.photo_faces?.faces??[]).filter(f=>wears.includes(f.sex))
+    .map(f=>({...f,photographic:true}));
+  return [...original,...photos];
 }
 
 function faceOk(face, sex, complexion, catalog) {
@@ -310,6 +315,12 @@ export async function loadVisitorPerson({ dataBase, assetBase = null, storage = 
       const kit = await (await fetchFn(new URL('humans/web/hm08_variation_kit.json', assetBase))).json();
       if (kit?.faces) catalog.faces = { ...kit.faces, base: new URL('humans/web/', assetBase).href };
     } catch { /* no faces to choose among: Auto only */ }
+    try {
+      const url=new URL('humans/web/photo_faces/pilot/runtime.json',assetBase);
+      const r=await fetchFn(url);
+      if(r.ok){const p=await r.json();if(Array.isArray(p.faces)&&p.faces.length<=512&&p.textures?.light)
+        catalog.photo_faces={...p,base:url.href,map:p.textures.light.file};}
+    }catch{/* Existing saved settings and the original faces remain usable. */}
   }
   const person = createVisitorPerson({ catalog, storage, account, fetchFn });
   void person.sync();

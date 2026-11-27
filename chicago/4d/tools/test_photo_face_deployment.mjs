@@ -16,7 +16,7 @@ const fetchFiles=async url=>{
 };
 const kit=await V.loadVariationKit('https://example.org/humans/web/',fetchFiles);
 assert(kit.photoFaces&&kit.photoChildren&&kit.photoPortraits,'all three libraries load without a preview flag');
-assert.equal(kit.photoFaces.faces.length,256);assert.equal(kit.photoChildren.faces.length,16);
+assert.equal(kit.photoFaces.faces.length,320);assert.equal(kit.photoChildren.faces.length,64);
 assert(kit.photoFaces.activation&&kit.photoChildren.activation,'the manifests record owner-approved dev activation');
 const noPhotos={...kit,photoFaces:null,photoChildren:null,photoPortraits:null};
 const locationBefore=globalThis.location;globalThis.location=new URL('https://example.org/walk/?photoFaces=off');
@@ -51,9 +51,21 @@ for(const year of ['1812','1835','1871','1904']){
    assert.deepEqual(v.values,old.values,`${key}: child head and body morphs are unchanged`);
    assert.deepEqual(v.option,old.option);assert.equal(v.height,old.height);assert.equal(v.age,old.age);
    assert(v.photoFace.age>=v.age-4&&v.photoFace.age<=v.age+3,`${key}: nearby appearance age`);
+   assert.equal(v.photoFace.reference_pool,record.photo_pool,`${key}: child follows the same historical population context`);
    assert(v.photoFace.eyes.centres_uv===null,'native child eye geometry is retained');children++;childFaces.add(v.photoFace.id);
   }else{
    assert(v.photoFace&&v.photoFace.age>=18,`${year}/${key}: an adult photo`);adults++;adultFaces.add(v.photoFace.id);
+   assert(record.photo_pool,`${key}: default population has an explicit reconstructed reference pool`);
+   assert.equal(v.photoFace.reference_pool,record.photo_pool,`${key}: follows its existing community/year context, not the catalog's proportions`);
+  }
+  if(v.photoFace&&!v.photoFace.historical?.monochrome){
+   assert.deepEqual(v.lib.gain,[1,1,1],`${key}: colour photographs retain their own colour`);
+   const actual=kit.header.faces.bodies[asset],reference=kit.header.faces.bodies[v.photoFace.base_body];
+   v.even.forEach((gain,i)=>assert(Math.abs(gain*actual.gain[i]-v.photoFace.body_gain[i]*reference.gain[i])<1e-8,`${key}: every exposed skin surface joins the same reference colour on every body`));
+  }
+  if(v.photoFace){
+   const actual=kit.header.faces.bodies[asset],reference=kit.header.faces.bodies[v.photoFace.base_body];
+   v.lib.gain.forEach((gain,i)=>assert(Math.abs(gain*v.photoFace.body_gain[i]*reference.gain[i]-(v.even?.[i]??1)*actual.gain[i])<1e-8,`${key}: photo and surrounding skin meet at the same calibrated edge, including monochrome portraits`));
   }
   if(chosen.has(key))assert.equal(chosen.get(key),v.photoFace?.id??null,`${key}: same source across bodies`);
   chosen.set(key,v.photoFace?.id??null);
@@ -68,6 +80,22 @@ assert.equal(V.attachChildPhotoLibrary({},bad,new URL('photo_faces/children/revi
 const movedEyes=structuredClone(kit.photoChildren);movedEyes.faces[0].eyes.centres_uv=[[.4,.4],[.6,.4]];
 assert.equal(V.attachChildPhotoLibrary({},movedEyes,new URL('photo_faces/children/review.json',kit.base)),false,'a child library cannot reshape the native eyes');
 const catalogs=[kit.photoFaces,kit.photoChildren,kit.photoPortraits];
+// Settings exposes every fictional background, even when the NPC scene has no
+// member of that community. Saved visitor selections always win over defaults.
+const Visitor=await import(new URL('renderers/web/js/visitor-person.js',root));
+const catalog=await read('data/humans/visitor_person.json');
+catalog.faces=kit.header.faces;catalog.photo_faces=kit.photoFaces;
+for(const type of catalog.sexes.map(s=>s.id)){
+ const a=Visitor.faceChoices(catalog.faces,type,'fair',catalog).filter(f=>f.photographic);
+ const b=Visitor.faceChoices(catalog.faces,type,'deep_brown',catalog).filter(f=>f.photographic);
+ assert.deepEqual(a.map(f=>f.id),b.map(f=>f.id),'a visitor’s complexion does not restrict photographic choices');
+ assert.equal(new Set(a.map(f=>f.reference_pool).filter(Boolean)).size,4,`${type}: all four authored reference pools remain available`);
+}
+for(const pool of ['european','native_metis','black','east_asian']){
+ const face=kit.photoFaces.faces.find(f=>f.reference_pool===pool&&f.sex==='female');
+ const choice={visitor:true,photo_pool:'european',sex:'female',age:{years:35},looks:{face_pick:face.id}};
+ for(const year of [1812,1835,1871,1904])assert.equal(V.personVariation({kit,key:'visitor:chosen',record:choice,assetId:'glessner_frances_m_1904',sceneYear:year}).photoFace?.id,face.id,'the visitor keeps the chosen face in every year');
+}
 const crowd=catalogs.reduce((s,l)=>s+l.textures.light.gpu_bytes_rgba8_mipmaps,0);
 const detail=Math.max(...catalogs.flatMap(l=>l.pages.map(p=>p.textures.full.gpu_bytes_rgba8_mipmaps)));
 const rgbaMips=([width,height])=>{let bytes=0;for(;;){bytes+=width*height*4;if(width===1&&height===1)return bytes;width=Math.max(1,Math.floor(width/2));height=Math.max(1,Math.floor(height/2));}};

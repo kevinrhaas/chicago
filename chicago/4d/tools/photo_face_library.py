@@ -32,7 +32,7 @@ FORMAT = 'chicago4d_photo_face_review_v2'
 BASE = {'male': 'glessner_john_j_1904', 'female': 'glessner_frances_m_1904'}
 TILE = 256
 PAD = 8  # duplicated texels: bilinear filtering and the near mip levels stay inside a face
-LIMIT = 256
+LIMIT = 512  # catalogue/disk only: crowd edge and ONE resident detail page stay fixed
 PAGE_FACES = 16
 CROWD_EDGE = 1024
 
@@ -97,7 +97,7 @@ def portrait(entry, points, size):
     marks += [{'landmark': k, 'x': points[int(k[3:])][0], 'y': points[int(k[3:])][1], 'sigma_px': 3.5}
               for k in table['points']]
     outline_fields={}
-    if entry.get('historical',{}).get('shape_mode')=='new_photo_fit':
+    if entry.get('population')!='child' and (entry.get('reference_pool') or entry.get('historical',{}).get('shape_mode')=='new_photo_fit'):
         outline=min(table['outline'],key=lambda o:abs(o['solved_yaw_deg']))
         marks += [{'landmark':k,'x':points[int(k[4:])][0],'y':points[int(k[4:])][1],'sigma_px':5.0} for k in outline['points']]
         outline_fields={'outline_yaw_deg':outline['solved_yaw_deg']}
@@ -134,6 +134,22 @@ def blend_face_photo(photo, fallback, covered):
         joined += (front - low_front) * weight + (back - low_back) * (1 - weight)
         front, back = low_front, low_back
     return L.srgb8(joined + front * weight + back * (1 - weight))
+
+
+def reference_albedo(im, points):
+    """Reduce broad studio illumination before the 3D face is lit again.
+
+    One smooth scalar gain per pixel preserves chroma and fine facial detail;
+    the cheek exposure anchors it. The original source remains unchanged.
+    """
+    rgb=L.linear(np.asarray(im,dtype=float))
+    luma=np.maximum(.004,np.sum(rgb*np.array([.2126,.7152,.0722]),axis=2))
+    radius=max(3,np.linalg.norm(np.array(points[468])-points[473])*.28)
+    broad=gaussian_filter(np.log(luma),radius)
+    cheeks=[points[i] for i in (50,101,118,205,280,330,347,425)]
+    target=np.median([broad[min(im.height-1,max(0,round(y))),min(im.width-1,max(0,round(x)))] for x,y in cheeks])
+    gain=np.clip(np.exp(.6*(target-broad)),.5,2)
+    return Image.fromarray(L.srgb8(rgb*gain[...,None]))
 
 
 def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
@@ -294,7 +310,10 @@ def eye_appearance(im, points, sex, fit, portrait_record):
     # Use a conservative closure when no fitted aperture can be measured.
     # A measured aperture can also open lids that start narrower than the source.
     rest=float(np.clip((.36-float(np.mean(apertures)))/.36,0,.42))
-    gain=np.clip(iris/np.maximum(native_iris_tone(sex,portrait_record['base_body']),.002),.4,3)
+    # The shared iris is dark brown: its blue channel is only about .005 linear.
+    # A gain capped at three turned blue/grey reference eyes brown and almost
+    # black. Transfer each measured channel, preserving the existing iris detail.
+    gain=np.clip(iris/np.maximum(native_iris_tone(sex,portrait_record['base_body']),.002),.05,64)
     measured=measured_lid_rest(portrait_record,fit,points)
     if measured is not None:rest=measured['rest']
     centres=[np.array(points[mid]) for mid in (468,473)]
@@ -403,7 +422,10 @@ def prepare_face(task):
     if len(points) != 478 or not np.isfinite(points).all():
         raise ValueError(f"{e['id']}: expected 478 finite detected landmarks")
     p = portrait(e, points, im.size)
-    fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
+    analytic = e.get('population')!='child' and bool(e.get('reference_pool') or e.get('historical',{}).get('shape_mode')=='new_photo_fit')
+    non_fit=(relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))
+    fit_inputs = {k:v for k,v in inputs.items() if k not in non_fit
+                  and (analytic or k!='tools/photo_reference_fit.py')}
     signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
     fit = e.get('fitted') if e.get('fit_signature') == signature else None
     if fit is None and e.get('shape_from'):
@@ -412,11 +434,16 @@ def prepare_face(task):
     if fit is None and e.get('population')=='child':
         import photo_face_child as C
         fit=C.pose(e,p)
+    if fit is None and analytic:
+        import photo_reference_fit as R
+        fit=R.fit(e['id'],p)
     fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
     skin_photo=im
     if e.get('historical'):
         import historical_photo_shape as H
         skin_photo=H.texture_photo(im,e,points)
+    elif e.get('reference_pool'):
+        skin_photo=reference_albedo(im,points)
     tile, tone, base_tone = bake_face(skin_photo, points, e['sex'],body=p['base_body'])
     hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit,body=p['base_body'])
     face = {'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
@@ -427,6 +454,8 @@ def prepare_face(task):
             'tone_rgb':tone, 'body_gain':(np.array(tone)/np.maximum(base_tone,.001)).tolist(),
             'hair_rgb':hair_rgb, 'hair_shell':hair_shell, 'hair_projection':hair_projection,
             'eyes':eye_appearance(im,points,e['sex'],fit,p), 'limits':p['not_modelled']}
+    if e.get('reference_pool'):
+        face['reference_pool']=e['reference_pool']
     if e.get('population')=='child':
         face.update(population='child',texture_only=True)
         face['eyes']['centres_uv']=None
@@ -486,6 +515,8 @@ def build(recipe, output, model=None, fast=False, jobs=1):
         dependencies.append(pathlib.Path(C.__file__))
         for asset in sorted({C.body(e) for e in entries}):
             dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
+    if any(e.get('population')!='child' and (e.get('reference_pool') or e.get('historical',{}).get('shape_mode')=='new_photo_fit') for e in entries):
+        dependencies.append(ROOT/'tools/photo_reference_fit.py')
     if any(e.get('historical') for e in entries):
         dependencies += [ROOT/'tools/historical_photo_shape.py',ROOT/'tools/historical_photo_faces.py',ROOT/'data/humans/variation/person_photo_references.json']
     for e in entries:
@@ -520,7 +551,7 @@ def build(recipe, output, model=None, fast=False, jobs=1):
             print(f"{i+1}/{len(entries)} {face['id']}: fitted {face['fit_rms_px']} px, {elapsed}s",flush=True)
     finally:
         if pool:pool.shutdown(cancel_futures=True)
-    crowd_edge = 256 if all(e.get('historical') for e in entries) else CROWD_EDGE
+    crowd_edge = 256 if all(e.get('historical') for e in entries) else 512 if all(e.get('population')=='child' for e in entries) else CROWD_EDGE
     scale=min(.5,crowd_edge/max(atlas.size))
     crowd=atlas.resize((round(atlas.width*scale),round(atlas.height*scale)),Image.Resampling.LANCZOS)
     shared={}

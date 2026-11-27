@@ -1,6 +1,6 @@
-# Photo-face library: 256 adults and 16 children on dev
+# Photo-face library: 320 adults and 64 children on dev
 
-The library is enabled by default on dev in 1812, 1835, 1871 and 1904. Its 256 fictional adult sources
+The library is enabled by default on dev in 1812, 1835, 1871 and 1904. Its 320 fictional adult sources
 are generated images, not archival photographs or a dataset of living people. Each is fitted
 with the existing portable-human morph kit, then its visible facial colour is mapped through
 the calibrated landmarks to the hm08 face island. A small portable scalp surface carries the photographed front hair, with source-matched colour
@@ -18,10 +18,10 @@ http://localhost:3000/tools/photo_face_review.html
 
 Choose a face, compare the source with the existing skin and the fitted result, and inspect
 front, three-quarter and profile views. **Page gallery** shows sixteen actual rendered heads.
-Previous/Next and the page selector cover all sixteen pages. Navigation reloads the viewer,
+Previous/Next and the page selector cover all twenty adult pages. Navigation reloads the viewer,
 releasing the preceding page’s renderer, fitted bodies and textures. Only sixteen thumbnails
-are requested per page. The catalog preserves the original sixteen and adds 240 new sources;
-128 men and 128 women have apparent ages 18–87. These are appearance targets, not biographies.
+are requested per page. The catalog preserves the original 256 and adds 64 new references;
+160 men and 160 women span young adults through old age. These are appearance targets, not biographies.
 The source, before and after are deliberately separate: a plausible result is not evidence of
 an exact historical likeness. Generic residents receive stable, age-compatible assignments;
 personal likenesses and visitor choices retain priority.
@@ -30,14 +30,14 @@ personal likenesses and visitor choices retain priority.
 
 Open a walk URL (for example, `walk/?year=1904`). No preview flag is needed.
 The library supplies existing generic adults, fits their face
-values, preserves their recorded complexion, and applies the softer source-based eyes.
-Personal portrait fits and visitor-chosen faces take priority. Sixteen fictional child sources
+values, joins photographic face and body colour, and applies softer source-based eyes.
+Attested eye colours, personal portrait fits and visitor-chosen faces take priority. Sixty-four fictional child sources
 cover apparent ages two through seventeen, using the same photographic style and eye treatment.
 Children retain their existing head morphs, body proportions and native eye placement: only
 texture, eye tone and resting lids are transferred. Their shared hm08 UV topology supplies
 camera registration; this is not an independent child photogrammetry calibration.
 Assignment is seeded by the person's id, sex,
-age and recorded complexion, and remains the same across their body LODs.
+age and existing community context, and remains the same across their body LODs.
 Carriage drivers retain the existing face-only morph scope; body-wide head-outline
 targets stay with their engineered body.
 
@@ -89,7 +89,7 @@ A source with several people needs a crop containing one face. The batch recipe'
 is an integer rectangle on the EXIF-oriented image. A four-view head sheet and the older
 `photo_face.py` path remain useful where real side views are available.
 
-## Rebuild the 256-face library
+## Rebuild the adult face library
 
 ```
 python3 tools/photo_face_library.py --batch data/humans/variation/photo_face_pilot.json \
@@ -117,14 +117,14 @@ offline fitting/baking; the app performs neither operation at runtime.
 | Review Light | one face page at 512 × 512; optional hair trial page | 1.33 MiB; 2.67 MiB with trial |
 | Review Full | one face page at 1024 × 1024; optional hair trial page | 5.33 MiB; 10.67 MiB with trial |
 
-The town limits apply to the whole 272-entry adult-and-child catalog. Identical crowd and Light review sheets share one file. Other pages remain on disk until
+The town limits apply to the whole 384-entry adult-and-child catalog. Identical crowd and Light review sheets share one file. Other pages remain on disk until
 needed. The review limits apply to its current sixteen-face page; navigation releases the
 previous page. Light uses body LOD2, pixel ratio 1 and no shadows. Full uses LOD0 for close
 inspection. Existing body/clothing textures, geometry, image decoding and driver overhead
 are outside these **added face-texture** bounds. The town keeps its existing crowd limits.
 
 Each full tile is 256 square with eight pixels of duplicated border. The compact crowd
-sheet gives 64 pixels per face at 256 entries; the nearby page restores 256 pixels. If
+sheet gives about 57 pixels per face at 320 entries; the nearby page restores 256 pixels. If
 several different pages are visible nearby, only the nearest page is sharp and the others
 keep their smaller version. This is the deliberate low-memory compromise, not a change
 of face identity. The shader uses the same face sampler when switching detail.
@@ -182,6 +182,15 @@ existing head fits. Each texture binds to its exact person, sex and scene; a pho
 creates a person or changes scene presence. These named records currently belong to 1904.
 Generic adults and matching children continue in all four years.
 
+The skin display calibration reduces the shared body maps' orange cast halfway toward
+the reconstructed linear RGB white point `[0.60, 0.40, 0.30]`, at unchanged base luminance.
+Existing complexion tints still apply to monochrome and non-photo reconstructions, equally
+to the face and surrounding body. Colour photographs supply the whole skin colour; visitor
+complexion controls apply to both together. The Grey full skin sheets retain their own colours. Sky fill on
+skin and eyes, softer eye-corner shading and broader corneal highlights keep faces legible
+under hats. These use existing material uniforms: no extra atlas, light or draw call.
+This is display calibration, not a demographic revision or evidence of ancestry.
+
 Dorothy and Alice have distinct fitted heads. The owner's modern uploads are not published.
 Stored references are edited 1904 studio portraits, with neutral companions for resting face
 textures; source records retain the original SHA-256 and disclose the edits. Their cards use
@@ -213,3 +222,67 @@ pass or per-person atlas is introduced. Weak-PC GPU timing remains outstanding.
 
 Check with `python3 tools/historical_photo_faces.py --check`,
 `node tools/test_historical_photo_faces.mjs` and `node tools/test_photo_face_deployment.mjs`.
+
+## Reference appearance and historical NPC assignment (T-3762)
+
+The owner-approved sixteen period references are included, with 48 additional fictional
+references made with explicit creation briefs: 32 European, 16 Great Lakes Indigenous/Métis,
+eight Black and eight East Asian references in all. They supplement the original 256
+unclassified adult sources, which remain available. A reference pool describes an artistic
+creation brief; it neither establishes anyone's ancestry nor claims a uniform appearance
+for a community. Source `synthetic_photo_reference_pools_3762` points to all seven unchanged originals;
+`data/humans/variation/photo_reference_pools.json` records their hashes and creation briefs. New heads fit the frontal outline as well as eyes, nose, mouth and jaw.
+
+`tools/human_variation_kit.py` derives each NPC's `photo_pool` from the existing compiled
+community or explicit Community/People card facts. The 1812 camps retain their Indigenous
+context. Unknown town residents use the existing European-majority reconstruction, including
+Prairie Avenue; this remains a reconstructed appearance choice, never a biographical fact.
+Names and photographs are not classified. The policy changes no historical person counts,
+community records, scene dates or household membership. Individual identified portraits win.
+The existing scene populations supply the city/year/neighborhood distribution; the library's
+ratio of reference sheets is never a population quota. Black residents and Native/Métis
+communities keep their own recorded contexts. No Asian actors are invented to fill a quota.
+
+The settings creator independently offers every compatible fictional photo face, across all
+four new reference pools and all original choices. Complexion and NPC historical defaults
+do not hide any photo choices. A selected face persists across years and overrides NPC rules;
+its skin/eye controls remain available. Named archive portraits are not generic visitor faces.
+
+A colour photograph supplies the colour of the whole exposed skin, with the reference/actual
+body gain ratio keeping a coachman's seated and standing appearances consistent. NPCs do
+not receive a second reconstructed complexion tint on top of the photograph. Photo lips and
+pigment retain their source colour instead of the stock orange lip correction and extra
+freckles. Monochrome historical sources retain their declared reconstructed colours. The
+stock woman's frontal hairline follows the reference estimate by moving the existing cap
+against the actual varied forehead, retaining its strand texture, crown, bun and period cut.
+Curated older portrait hair and child geometry remain protected. No hair triangles, texture
+or draw calls are added. A single front reference still leaves profile depth reconstructed.
+
+The 320-entry adult catalog uses twenty detail pages on disk. Across adults, children and
+named portraits, only one nearby page may be resident **or loading**; the fixed crowd-sheet
+edges and 13 MiB total added face-texture ceiling are unchanged. Settings thumbnails use
+the existing crowd atlas. A larger catalog is not a claim about real-GPU frame rates.
+
+New frontal photo imports use `tools/photo_reference_fit.py`: the existing hm08 morphs,
+camera, bounds and priors with a vectorized analytic derivative. Finite-difference tests
+verify the derivative independently. Pinned landmarks/fit results keep subsequent offline
+builds deterministic, and existing curated portrait heads are never refitted by this path.
+
+The shared iris texture is dark brown. Reference-colour transfer now allows the per-channel
+gains required to reproduce measured blue/grey irises (the former cap of three suppressed
+their blue channel). Photo faces also suppress the stock painted brow shadow. New fictional
+references have broad studio lighting reduced before relighting; a smooth scalar gain keeps
+their chroma and fine detail, with exposure anchored at the cheeks. Source files stay intact.
+
+The child catalog retains its original sixteen references and adds 32 companions across the
+same four fictional background briefs, ages 4, 8, 12 and 16 of each sex. The child selector
+uses the same existing population context as the adults, within its age-compatible choices.
+Camera registration and texture transfer leave every child head/body morph and eye position
+unchanged. Its crowd sheet is explicitly capped at 512 pixels even as the catalog grows;
+The companion additions share the single global resident-or-loading detail slot.
+
+Sixteen additional toddler/school-age companions cover the youngest resolved age bands: each
+background has a boy and girl of two and six. The final child catalog has 64 entries and
+four disk detail pages, with the same 512-pixel crowd edge and one global nearby slot.
+These references close the age-band fallback gap without changing any recorded age, seeded
+age, child body/head morph, stature or eye geometry.

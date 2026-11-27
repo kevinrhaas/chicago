@@ -332,7 +332,17 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   }
   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
   // the hooks are wrapped on the objects that exist once it has settled.
-  await a.setDetail(tier);
+  // The default CPU/worker measurement also skips unused scene draws during
+  // tier preparation. Otherwise SwiftShader spends minutes rasterising the
+  // previous tier between asynchronous rebuild slices, outside the measured
+  // frames. Restore before installing the normal hooks; --render is unchanged.
+  const preparationRender = a.renderer.render;
+  try {
+    if (!render) a.renderer.render = () => {};
+    await a.setDetail(tier);
+  } finally {
+    a.renderer.render = preparationRender;
+  }
   if (xray) {
     a.setConfidenceView(true);
     a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });

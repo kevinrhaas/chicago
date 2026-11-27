@@ -4828,7 +4828,7 @@
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "murdoch_house_2130_prairie/as_mapped_1904/form.storey_heights_m": {
@@ -6605,6 +6605,205 @@
         "chicagology_prefire021"
       ],
       "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.eave_overhang_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.face_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.mansard": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.roof_covering": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.sash_by_storey": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.side_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stair_landing_depth_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stone_front": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.window_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
       "confidence": "inferred"
     },
     "walker_house_1720_prairie/as_mapped_1904/form.boundary": {

@@ -33,9 +33,12 @@
 // T-3553 round 7 (the owner 2026-11-26: "sweep all of the people and clothing and remove these
 // ragged collars and edges and holes in clothing", "Armpit is bad"; human-layover.js,
 // human-pits.js): every body level's garment outlines evened; the coachman's armpits tucked in,
-// the skin with them, and no more sharp folds there in his walk; John Glessner's waistcoat,
-// shirt and tie bound to his coat at the farthest level, and his waistcoat's band under the
+// the skin with them, and no more sharp folds there in his walk; John Glessner's waistcoat
+// and shirt bound to his coat at the farthest level, and his waistcoat's band under the
 // coat left out at the far levels; braces under a waistcoat, belts over a coat.
+// T-3553 round 8 (the owner 2026-11-26: "Look how bad their lapels are"): John Glessner's
+// lapels whole after the cull at every level, each facing out from his chest, his coat behind
+// every point of them, and their silk soft (not glazed).
 // Wired into humans.js's parse, after the fittings.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -190,6 +193,8 @@ function pokes(scene) {
       if (outer === inner || rank(outer.m) <= rank(inner.m)) continue;
       for (let i = 0; i < inner.P.length / 3; i++) {
         if (!inner.used[i]) continue;
+        // a trim laid on the coat from a lower layer's mesh (a lapel's silk facing in the tie's) lies over it by design
+        if (i >= (inner.m.geometry.userData?.chicagoLaidFrom ?? Infinity)) continue;
         const x = inner.P[i * 3], y = inner.P[i * 3 + 1], z = inner.P[i * 3 + 2], b = inner.m === body ? i : nearest(x, y, z); if (b < 0) continue;
         const n = [BN[b * 3], BN[b * 3 + 1], BN[b * 3 + 2]];
         if (Number.isFinite(outer.grid([x + n[0] * 0.0005, y + n[1] * 0.0005, z + n[2] * 0.0005], [-n[0], -n[1], -n[2]], 0.025))) total++;
@@ -258,27 +263,51 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
     // The new lapels: the silk's last points before the buttons (at the near levels) and seams; on the coat's cloth.
     const Pc = bindPos(coat), Ps = bindPos(silk), n = Ps.length / 3, buttons = (trim.buttoned ?? []).find((r) => r.mesh === silk.name)?.points ?? 0;
     const half = 0.25 * Math.abs(J.upperarm_l[0] - J.upperarm_r[0]), top = J.clavicle_l[1] + 0.01;
-    let off = 0, over = 0;
+    let off = 0, over = 0, through = 0;
     const onCoat = rayGrid(Pc, coat.geometry.index.array);
     const cols = T.LAPEL.across.length, rolled = T.LAPEL.across.filter(([v]) => v < 0.05).length;
-    for (let i = n - buttons - cut.points; i < n - buttons; i++) {
+    const first = n - buttons - cut.points;
+    for (let i = first; i < n - buttons; i++) {
       // From in front, straight in: the coat's cloth within LAPEL_ON_M of the lapel's point
       // (all but the rolled front edge, which turns over the coat's own edge).
-      if ((i - (n - buttons - cut.points)) % cols < rolled) continue;
+      if ((i - first) % cols < rolled) continue;
       const h = onCoat([Ps[i * 3], Ps[i * 3 + 1], Ps[i * 3 + 2] + 0.05], [0, 0, -1], 0.1);
-      if (!(Math.abs(h - 0.05) <= LAPEL_ON_M)) off++;
+      // (round 8: the coat is set back T.LAPEL.under beneath them)
+      if (!(Math.abs(h - 0.05) <= LAPEL_ON_M + T.LAPEL.under)) off++;
+      // T-3553 round 8: and behind it, never in front (the coat's facets came up through the silk
+      // between its rows as dark shards).
+      if (h < 0.05) through++;
       if (Math.abs(Ps[i * 3]) > half && Ps[i * 3 + 1] > top) over++;
     }
     assert(off <= cut.points * 0.02, `${tag}: ${off} of ${cut.points} lapel points off the coat`);
+    assert(through === 0, `${tag}: the coat in front of ${through} lapel points`);
     assert(over === 0, `${tag}: ${over} lapel points over the shoulder`);
+    // T-3553 round 8: both lapels whole after the cull, each facing out from the chest (one was
+    // wound in, and the cull took it for covered and cut it to shards).
+    { const idx = silk.geometry.index.array, mine = (v) => v >= first && v < n - buttons, per = { 1: [0, 0], [-1]: [0, 0] };
+      for (let t = 0; t < idx.length; t += 3) {
+        if (!(mine(idx[t]) && mine(idx[t + 1]) && mine(idx[t + 2]))) continue;
+        const [a, b, c] = [idx[t], idx[t + 1], idx[t + 2]].map((v) => [Ps[v * 3], Ps[v * 3 + 1], Ps[v * 3 + 2]]);
+        const nz = (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]), side = idx[t] - first < (cut.rows + 1) * cols ? 1 : -1;
+        per[side][0]++; if (nz > 0) per[side][1]++;
+      }
+      const whole = 2 * (cut.rows) * (cols - 1);
+      for (const side of [1, -1]) {
+        assert(per[side][0] === whole, `${tag}: the ${side > 0 ? 'first' : 'second'} lapel keeps ${per[side][0]} of its ${whole} triangles`);
+        assert(per[side][1] >= per[side][0] * 0.97, `${tag}: the ${side > 0 ? 'first' : 'second'} lapel faces out (${per[side][1]} of ${per[side][0]})`);
+      }
+      assert(T.LAPEL.silkRoughness >= 0.55 && [silk.material].flat().every((m) => m.roughness >= T.LAPEL.silkRoughness), `${tag}: the facings' silk has a soft sheen`);
+    }
     if (lod <= 1) assert((trim.buttoned ?? []).some((r) => r.buttons === 3) && (trim.collared ?? []).length === 1, `${tag}: buttons and collar`);
     if (lod === 0) assert((trim.seamed ?? []).some((r) => r.seams >= 7), `${tag}: seams (five, and both armholes)`);
     if (lod >= T.FAR_WAISTCOAT.from) assert((trim.waistcoatClosed ?? []).length === 1, `${tag}: waistcoat closed under the lapels`);
     // T-3553 round 7: at the farthest level his waistcoat, shirt and tie move with the coat over
     // them; at the far levels the waistcoat under the coat keeps no band; nearer, as before.
     const bound = (after.userData.chicagoBind?.bound ?? []).map((r) => short({ name: r.mesh }, asset));
-    const all3 = ['waistcoat_high_cut', 'four_in_hand_tie', 'shirt_standing_collar'].every((n) => bound.includes(n));
-    assert(all3 === lod >= D.BIND_ALL_LOD, `${tag}: waistcoat, tie and shirt bound to the coat at the farthest level only (${bound})`);
+    // (round 8: the tie's own points lie over the coat's front, and its lapel facings carry the
+    // coat's weights already; drawn, one facing was wound in and took the tie into the binding)
+    const all3 = ['waistcoat_high_cut', 'shirt_standing_collar'].every((n) => bound.includes(n));
+    assert(all3 === lod >= D.BIND_ALL_LOD, `${tag}: waistcoat and shirt bound to the coat at the farthest level only (${bound})`);
     if (lod >= D.FAR_WAISTCOAT_LOD) {
       const cut = (after.userData.chicagoCull?.culled ?? []).find((r) => /waistcoat_high_cut/.test(r.mesh));
       assert(cut && cut.after < cut.before * 0.8, `${tag}: the waistcoat under the coat left out (${JSON.stringify(cut)})`);

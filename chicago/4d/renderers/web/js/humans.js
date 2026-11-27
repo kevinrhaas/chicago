@@ -696,6 +696,9 @@ export class HumanActor {
     const year = Number(this.instance.scene) || null;
     // T-3639: a near level's first head of hair grows over a few frames (dressHairSteps).
     const hair = yield* dressHairSteps(scene, { lod, person: this.personId ?? null, year, style });
+    if (this.variation?.photoFace) scene.traverse(o => {
+      if (o.isMesh && o.material?.userData?.chiPhotoOwned && !looked.includes(o.material)) looked.push(o.material);
+    });
     yield;
     // T-3506: a handkerchief tied round the head, at every level.
     if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }

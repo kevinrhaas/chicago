@@ -949,9 +949,9 @@
     },
     {
       "id": "house_2011_prairie_coach_house",
-      "name": "2011 S. Prairie Avenue — the alley building of the house at 2011 (district draft; refined by T-1938)",
+      "name": "2011 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_2011_prairie_coach_house.json",
-      "asset": "gltf/house_2011_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_2011_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_2013_indiana",
@@ -997,9 +997,9 @@
     },
     {
       "id": "house_2017_prairie_coach_house",
-      "name": "2017 S. Prairie Avenue — the alley building of the house at 2017 (district draft; refined by T-1938)",
+      "name": "2017 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_2017_prairie_coach_house.json",
-      "asset": "gltf/house_2017_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_2017_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_2018_prairie",
@@ -1465,9 +1465,9 @@
     },
     {
       "id": "otis_house_2033_prairie_coach_house",
-      "name": "2033 S. Prairie Avenue — the alley building of the house at 2033 (district draft; refined by T-1938)",
+      "name": "2033 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/otis_house_2033_prairie_coach_house.json",
-      "asset": "gltf/otis_house_2033_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/otis_house_2033_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "pullman_glasshouse_1800_calumet_east",
@@ -1663,15 +1663,15 @@
     },
     {
       "id": "tolman_house_2031_prairie_coach_house",
-      "name": "2031 S. Prairie Avenue — the alley building of the house at 2031 (district draft; refined by T-1938)",
+      "name": "2031 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/tolman_house_2031_prairie_coach_house.json",
-      "asset": "gltf/tolman_house_2031_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/tolman_house_2031_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "tucker_smith_house_2140_prairie",
-      "name": "2140 Prairie Avenue — Tucker/Smith polychrome corner mansion (district draft; refined by T-1928, T-1929)",
+      "name": "2140 Prairie Avenue — the Tucker/Smith house, a red brick corner mansion banded in stone, its round corner tower, polygonal tower and square tower under crested slate caps, K01 frontage assembly",
       "sidecar": "sidecars/1904/tucker_smith_house_2140_prairie.json",
-      "asset": "gltf/tucker_smith_house_2140_prairie__draft_1904.glb"
+      "asset": "gltf/tucker_smith_house_2140_prairie__as_mapped_1904.glb"
     },
     {
       "id": "tucker_smith_house_2140_prairie_alley_building",

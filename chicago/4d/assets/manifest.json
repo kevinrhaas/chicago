@@ -2500,14 +2500,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2011_prairie"
     },
-    "house_2011_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2011_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 56064,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "17e5f2aaafa731c096606830e812e5f7638f21837fa71d46d75b1ba24034b3bd",
+      "bytes": 89632,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "f3dbb9fca0132ff0fbdf988195d60eaba6059755322112b20f3af8081798ea5b",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "house_2011_prairie_coach_house"
     },
     "house_2013_indiana__draft_1904.glb": {
@@ -2580,14 +2580,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2017_prairie"
     },
-    "house_2017_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2017_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 78540,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "af38e399dbafe92bfde00e68e6444e371452e7acd0d1ff35a7d8ec97ba68129a",
+      "bytes": 152844,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "9cc2944eaa46523ceb4435db346032e7a3c02e336a1fa1d9e27906e94fdf1f24",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "house_2017_prairie_coach_house"
     },
     "house_2018_prairie__as_mapped_1904.glb": {
@@ -4198,14 +4198,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "otis_house_2033_prairie"
     },
-    "otis_house_2033_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "otis_house_2033_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 26120,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "0c4e5424f3f6c0f1cf4a657ef0a38aad47ce70114fd6bed0f340aae38b9a7208",
+      "bytes": 91888,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "55ad698dc516b4101330cf6632c1765931cd62a914e6238ca4c02d50ee313146",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "otis_house_2033_prairie_coach_house"
     },
     "ouilmette_house_1812__ouilmette_1812.glb": {
@@ -10417,14 +10417,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "tolman_house_2031_prairie"
     },
-    "tolman_house_2031_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "tolman_house_2031_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 56108,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "c0f704ccc4f5cc5e28806b49b58dccdf7855d986091af99c422217d61e5e4800",
+      "bytes": 91900,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "1c3dc6ac106d3e38212f8c1ec8383139a95357d520fb5241ac3419b755b5b6ad",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "tolman_house_2031_prairie_coach_house"
     },
     "tremont_house_1871__hotel_1850_1871.glb": {
@@ -10465,14 +10465,14 @@
       "phase_id": "office_1869_1871",
       "structure_id": "tribune_building_1871"
     },
-    "tucker_smith_house_2140_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "tucker_smith_house_2140_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 299980,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "ebedd53206067e30ea9067c0eb32ac9eb221c2d7afaa920851392144a94ba345",
+      "bytes": 9528288,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "0608807f2a7ea04a947bf42443500ff5861d3104b384bccd0465dc694bf59c66",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "tucker_smith_house_2140_prairie"
     },
     "tucker_smith_house_2140_prairie_alley_building__draft_1904.glb": {

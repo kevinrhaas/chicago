@@ -1,4 +1,37 @@
 export const CHANGELOG = [ // newest first
+  { v: 3279, ts: '2026-11-27T04:52:34.499Z', date: 'Nov 26, 2026, 10:52 PM CT', title: '2140 Prairie\'s columned porch, crocketed dormers and tall chimney', kind: 'improvement',
+    items: [
+      'The Tucker/Smith mansion at Prairie Avenue and 22nd Street now has the stone porch its photographs show before the front door: paired Corinthian columns under a balustraded balcony, with a broad stair down to the walk. Its mansard dormers rise in steep coped gables with crockets, pinnacles and finials, and the tall chimney on 22nd Street carries its row of four tall pots over sunk panels.',
+    ] },
+  { v: 3278, ts: '2026-11-27T04:33:17.790Z', date: 'Nov 26, 2026, 10:33 PM CT', title: 'Brick stables behind 2031 and 2033 Prairie', kind: 'feature',
+    items: [
+      'The stables behind 2031 and 2033 Prairie now stand on the alley as a matched pair of two-storey brick buildings, each about 14.7 m deep, sharing a fire wall on their lot line and closed by another at their far ends, as the 1911 fire-insurance map draws them.',
+      'Each has a carriage door and a loft hatch on the alley, the one window the map marks there, and a paved yard and walk back to its house\'s rear wing.',
+    ] },
+  { v: 3277, ts: '2026-11-27T03:36:42.565Z', date: 'Nov 26, 2026, 9:36 PM CT', title: 'Clean lapels, finer coat cloth, real felt and straw hats', kind: 'fix',
+    items: [
+      'Gentlemen\'s lapels are whole and pressed at every distance; the dark torn shards on their chests are gone.',
+      'Lapel facings have a soft silk sheen instead of a glossy blob.',
+      'Coat, jacket and trouser cloth has a much finer weave, with no zigzag where it turns round the body.',
+      'Hats are drawn as felt, silk plush or woven straw, and derbies, top hats and ladies\' felt hats wear a grosgrain band.',
+    ] },
+  { v: 3276, ts: '2026-11-27T03:17:37.657Z', date: 'Nov 26, 2026, 9:17 PM CT', title: 'Brick stables behind 2011 and 2017 Prairie', kind: 'feature',
+    items: [
+      'The stable behind 2011 Prairie now stands on the alley as a two-storey brick building 14.6 m deep, filling its lot from line to line with a fire wall at each end, as the 1911 fire-insurance map draws it, and with the one window the map marks on its alley wall.',
+      'The stable behind 2017 Prairie, the longest on this alley at 15.2 m along it, now stands with two carriage doors, a fire wall on its north lot line, the window the map marks, and a paved yard and walk back to the house.',
+    ] },
+  { v: 3275, ts: '2026-11-27T01:55:06.270Z', date: 'Nov 26, 2026, 7:55 PM CT', title: 'A lighter first visit with the new faces', kind: 'fix',
+    items: [
+      'The photographic faces now load only what the street draws, about a third of their old download, and every person keeps the face they had.',
+    ] },
+  { v: 3274, ts: '2026-11-27T01:55:06.270Z', date: 'Nov 26, 2026, 7:55 PM CT', title: 'Glessner jaunts read aloud at every age', kind: 'improvement',
+    items: [
+      'The Glessner Household tour is now read aloud for ages 14-15 and 16-17, and Meet the Glessner House and Frances Glessner Lee for ages 8-10, 14-15 and 16-17, as their main tellings already were.',
+    ] },
+  { v: 3273, ts: '2026-11-27T01:24:06.603Z', date: 'Nov 26, 2026, 7:24 PM CT', title: '2140 Prairie\'s Tucker/Smith mansion: banded red brick and three towers', kind: 'improvement',
+    items: [
+      'The corner mansion at Prairie Avenue and 22nd Street now stands on the house kit: red brick banded in pale stone over a stone basement, a slated mansard with dormers and iron cresting, a round tower across the corner, a polygonal tower on 22nd Street and a square tower on Prairie, each under a crested slate cap, read off the 1911 map and two photographs.',
+    ] },
   { v: 3272, ts: '2026-11-26T22:44:53.711Z', date: 'Nov 26, 2026, 4:44 PM CT', title: '1904 front walks run straight to the door, and frame-house doors swing', kind: 'fix',
     items: [
       'At 2010 Prairie, the Greys\' house, the front walk now runs straight up to the porch steps and the door above them. It used to come in more than a metre to one side.',

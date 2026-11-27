@@ -147,7 +147,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
   }
 
   function faceThumb(b, f) {
-    const F = C.faces;
+    const F = f.photographic ? C.photo_faces : C.faces;
     if (f.id === 'auto' || !F) { b.textContent = f.label; b.classList.add('person-face-word'); return; }
     // The library sheet's tile, turned upright (the atlas lays a face on its side).
     const [W, H] = F.size_px ?? [1280, 1280], t = F.tile_px ?? 256, cols = F.cols ?? 5;
@@ -216,7 +216,8 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
 /** The faces on offer (visitor-person.js faceChoices), each with a plain label. */
 export function facesFor(catalog, sex, complexion) {
   const word = { young: 'Young', middle: 'Middle-aged', old: 'Older' };
-  return faceChoices(catalog.faces, sex, complexion, catalog).map((f, n) => ({ ...f, label: `${word[f.age] ?? 'A'} face ${n + 1}` }));
+  return faceChoices(catalog.faces, sex, complexion, catalog).map((f, n) => ({ ...f,
+    label:f.photographic?`Photo face ${n+1}, about ${f.age}`:`${word[f.age] ?? 'A'} face ${n + 1}` }));
 }
 
 /** The close face's turns (degrees from the front, as person-portrait.js draws): front, three-quarters, profile. */
