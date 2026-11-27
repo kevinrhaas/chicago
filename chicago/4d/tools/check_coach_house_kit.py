@@ -59,6 +59,8 @@ def shell_of(var):
     """The elevations a variant closes: an east party wall stands where the gable would (T-2321)."""
     if var.v.get("roof_form") == "hip_deck":       # T-1935: four walls, no gable and no party wall
         return ("alley", "yard", "end_west", "end_east")
+    if var.v.get("west_end", "party") == "gable":    # T-1938: a gable at both ends, no party wall
+        return ("alley", "yard", "gable", "gable_west")
     return SHELL if var.v.get("east_end", "gable") == "gable" else ("alley", "yard", "party", "party_east")
 
 

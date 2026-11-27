@@ -54,12 +54,12 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 287,
+  "surfaces": 289,
   "doors": 126,
   "posts": 112,
   "gardens": 28,
   "by_kind": {
-   "alley_walk": 22,
+   "alley_walk": 24,
    "coach_walk": 33,
    "drying_yard": 56,
    "front_walk": 10,
@@ -16720,8 +16720,7 @@
    "street": "prairie",
    "side": "east",
    "structures": [
-    "house_2125_prairie",
-    "house_2125_prairie_coach_house"
+    "house_2125_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -16755,6 +16754,62 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2125:alley_walk:1",
+     "kind": "alley_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1445.02,
+       -3687.11
+      ],
+      [
+       1445.06,
+       -3691.86
+      ],
+      [
+       1446.06,
+       -3691.86
+      ],
+      [
+       1446.02,
+       -3687.11
+      ]
+     ],
+     "along_deg": 179.59,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2125:alley_walk:2",
+     "kind": "alley_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1445.02,
+       -3687.11
+      ],
+      [
+       1445.03,
+       -3688.11
+      ],
+      [
+       1471.03,
+       -3687.93
+      ],
+      [
+       1471.02,
+       -3686.93
+      ]
+     ],
+     "along_deg": 179.59,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -16781,7 +16836,22 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
+   "shrubs": [
+    [
+     1463.29,
+     -3689.98,
+     "lilac",
+     2.42,
+     2.12
+    ],
+    [
+     1470.09,
+     -3696.93,
+     "lilac",
+     2.37,
+     2.28
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []

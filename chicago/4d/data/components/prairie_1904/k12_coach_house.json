@@ -32,8 +32,9 @@
     "wall": {
       "brick_m": 0.33,
       "service_brick_m": 0.23,
+      "frame_m": 0.2,
       "confidence": "reconstructed",
-      "note": "A 13-inch (three-brick) wall for the two-storey coach house and its party wall, a 9-inch (two-brick) wall for the one-storey lean-to and connecting wing: the common Chicago load-bearing sizes for buildings of these heights."
+      "note": "A 13-inch (three-brick) wall for the two-storey coach house and its party wall, a 9-inch (two-brick) wall for the one-storey lean-to and connecting wing: the common Chicago load-bearing sizes for buildings of these heights. T-1938: a frame building (`construction: frame`, the sheet's yellow) stands on a 0.2 m wall: a stud wall with its sheathing, clapboard and lath and plaster inside, deep enough for the kit's leaves and sash, set 0.1 m in, to sit inside it as they sit inside the brick. Its clapboard laps are not modelled: the wall is painted flat in K16's frame body colour, its rings, sills and lintels in K16's trim colour."
     },
     "storeys": {
       "ground_m": 3.6,
@@ -171,7 +172,7 @@
       "coach_house": 9000
     }
   },
-  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west, range_alley, range_yard, range_end), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line.",
+  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west, range_alley, range_yard, range_end), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line. T-1938: `construction` is 'brick' (the default) or 'frame'; `west_end` is 'party' (the default) or 'gable', a second open gable for a building the sheet draws clear of both neighbours, whose openings (wall gable_west) count back from the yard face. A frame building takes west_end 'gable': it stands free.",
   "variants": [
     {
       "id": "k12.coach_house.two_storey_brick",
