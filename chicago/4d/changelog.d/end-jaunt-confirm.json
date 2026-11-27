@@ -1,0 +1,8 @@
+{
+  "title": "End asks before it leaves a jaunt",
+  "kind": "fix",
+  "items": [
+    "End now asks \"End this jaunt?\" first, by mouse, touch, keys or controller.",
+    "Cancel is the key already picked, so a second bump keeps you at your stop."
+  ]
+}
