@@ -1,7 +1,7 @@
 import hashlib,json,os,subprocess,sys
 from pathlib import Path
 head=os.environ['DIAGNOSTIC_HEAD'];raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-current-committed-source.json'])
-assert hashlib.sha256(raw).hexdigest()==os.environ['SOURCE_.github/diagnostics/t3747-current-committed-source.json_SHA'];m=json.loads(raw)
+assert hashlib.sha256(raw).hexdigest()==os.environ['SOURCE_MANIFEST_SHA'];m=json.loads(raw)
 assert m['role']=='committed-core' and subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['app_head']
 assert subprocess.check_output(['git','write-tree'],text=True).strip()==m['candidate_tree']
 assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()

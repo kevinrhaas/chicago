@@ -22,7 +22,7 @@ jobs:
         - 3
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: cbfaa5d845793c78c7e7ef99f964de89e4cda56a6183f93b3d53179c12233928
+      SOURCE_MANIFEST_SHA: b42c858331ce76457dcba526d4ef892ac5fcc0f6dcc09ce3ac336daaf6bf9d67
       REQUIRED_CPU: AMD EPYC 9V74 80-Core Processor
       SOURCE_RECEIPT_PATH: /tmp/calibrated-source-before.json
     steps:
@@ -68,7 +68,7 @@ jobs:
         head=os.environ[''DIAGNOSTIC_HEAD''];subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
         raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3747-verify-current-committed-source.py'']);assert
-        hashlib.sha256(raw).hexdigest()==''99c7db96cdd7f405d5d7aa3d3a37115d7b4fe6fa928bbd7e803ff8eb9e37b734''
+        hashlib.sha256(raw).hexdigest()==''c0bb0412bf5597af4c6c8888de9b054a9ae07cb891b0dfa45708581fceb60ba4''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw);subprocess.run([''python3'',str(p)],check=True)
 
