@@ -25243,10 +25243,11 @@ round-arched heads and carved hoods of the lights (T-1929), the rear range's fit
 fence (T-1945).
 **How to resolve:** T-3771 and T-3772 build what this piece leaves; T-1929 solves the pictures' cameras, works the
 photo-match down and signs off the image gate; a dated view of the towers settles the roof state.
-**Covers:** `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_front_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_side_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.service_wall_brick`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.roof_pitch_deg`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_tread_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_landing_depth_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stoop_width_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.north_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rear_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.entrance_kit`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rainwater`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.yard`
+**Covers:** `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_front_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_side_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.service_wall_brick`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.roof_pitch_deg`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_tread_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.north_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rear_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rainwater`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3770 (piece 1 of T-1928, the S17A package of T-1837).
 **Review:** `docs/RESEARCH/k01-2140-tucker-3770/README.md`.
 **Recorded:** 2026-11-26 (T-3770).
+**Revised:** 2026-11-27 (T-3771) — the door's kit, the stoop's width and its landing left this entry's covers: T-3771 built the columned porch and its stair there off the second photograph, so they are read now, not invented (`L-k01-2140-tucker-3771` says what of their numbers is still proportion).
 
 ### L-k01-2108-kimball-3667 — 2108 Prairie, the Mark Kimball house, refined from the district draft onto K01: its plan off the 1911 sheet, its pale stone front, round-arched door, round-headed lights and iron-railed stoop off the Tribune's 1898 cut and the early-1890s street photograph, everything neither shows the kits'
 
@@ -46887,3 +46888,39 @@ T-1938's image gate names pictures for 2013 Reid's coach house only; none for th
 **Covers:** `otis_house_2033_prairie_coach_house.as_standing_1904.form.coach_house`, `otis_house_2033_prairie_coach_house.as_standing_1904.form.stories`, `otis_house_2033_prairie_coach_house.as_standing_1904.form.construction`, `otis_house_2033_prairie_coach_house.function`
 **Ticket:** T-1938.
 **Recorded:** 2026-11-27 (T-1938).
+
+### L-k01-2140-tucker-3771 — 2140 Prairie's columned porch and its stair, its dormers' crocketed gables and its tall stack's pots, off the two Chicagology photographs; the arched glass canopy left to the spired state
+
+**Decision:** 2140 Prairie (T-3771, piece 2 of T-1928) gains what piece 1 (`L-k01-2140-tucker-3770`) left: a stone
+porch before the door bay on K01's columned door hood (two pairs of turned shafts with carved Corinthian bells, a
+plain entablature, a stone balustrade round its flat top), its straight stair falling to the walk as wide as the
+porch; the two mansard dormers' gables pitched at 60 degrees under a stone coping with crockets, a pinnacle at each
+edge of the face and a finial at the apex; and the tall stack on the 22nd Street flank, widened to 1.5 m along the
+flank, carrying four tall ribbed pots in a row on a K15 corbelled head with a dentil course and two narrow sunk
+panels down each face.
+**What is read, not invented.** From the second Chicagology photograph (`chicagology_2140_photo_b`, forms only,
+`check_required`): the porch's place before the door bay, its paired shafts and their Corinthian capitals, its
+entablature and balustraded top, its stair falling toward the street between iron rails; the dormers' steep coped
+gables, their cross-topped finials and engaged pinnacles; the stack's corbelled head, its sunk slots and its pots.
+From the first (`chicagology_2140_photo_a`): the stack's four pots in a row along the flank; the dormers' gables. The
+1898 quarter-century plate draws the same porch square-on (not entered as a source; read only to confirm the
+photograph).
+**What is invented.** Every dimension, read by proportion on the photographs and not through a solved camera: the
+porch's 3.0 m width and 2.0 m projection, its 4.9 m soffit, 0.5 m frieze and 0.2 m cornice, the shafts' 0.26-0.28 m
+diameter and their plinths, the balustrade's 0.6 m height and its posts and balusters; the stair's width (the
+porch's, so its columns stand on the landing as K01 requires) and its 2.0 m landing; the gables' coping, crocket,
+pinnacle and finial sizes; the stack's 1.5 m width, its corbel courses and cap, its panels' size; the kit's console
+brackets under the porch's cornice, which the photograph does not resolve.
+**What is built otherwise than the evidence, and why.** The paired shafts stand side by side along the front; neither
+picture is square to the porch's flank, so one standing behind the other is the alternative reading. The gables'
+finial is K01's turned finial, where the photographs draw a cross. The pots rise straight off the cap, where the
+second photograph draws them out of a weathered stone haunching. The north stack, which no picture shows, stays a
+plain shaft. Not built: the arched glass canopy over the same door in the first photograph and the 1911 sheet's
+one-storey GLASS room there — the later state, which came with the conical spires; the declared 1904 state keeps the
+flat-topped towers and this porch, and a view dated by July 1904 showing the canopy replaces it (T-1929). The
+polygonal tower's gabled faces and the round-arched heads stay T-1929's.
+**How to resolve:** T-1929 solves the pictures' cameras and works the photo-match down over these numbers; a dated
+view settles the porch-or-canopy state with the towers'.
+**Ticket:** T-3771 (piece 2 of T-1928, the S17A package of T-1837).
+**Review:** `docs/RESEARCH/k01-2140-tucker-3771/README.md`.
+**Recorded:** 2026-11-27 (T-3771).

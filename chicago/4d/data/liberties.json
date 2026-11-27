@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1248,
+  "count": 1249,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -36361,12 +36361,6 @@
           "domain": "structure",
           "structure": "tucker_smith_house_2140_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.entrance_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "tucker_smith_house_2140_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.north_bays"
         },
         {
@@ -36397,19 +36391,7 @@
           "domain": "structure",
           "structure": "tucker_smith_house_2140_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.stair_landing_depth_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "tucker_smith_house_2140_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.stair_tread_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "tucker_smith_house_2140_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stoop_width_m"
         },
         {
           "domain": "structure",
@@ -36431,7 +36413,7 @@
         }
       ],
       "recorded": "2026-11-26",
-      "revised": null,
+      "revised": "2026-11-27",
       "fields": [
         {
           "label": "Decision",
@@ -36443,7 +36425,7 @@
         },
         {
           "label": "Covers",
-          "text": "`tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_front_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_side_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.service_wall_brick`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.roof_pitch_deg`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_tread_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_landing_depth_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stoop_width_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.north_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rear_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.entrance_kit`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rainwater`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.yard`"
+          "text": "`tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_front_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.wall_thickness_side_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.service_wall_brick`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.roof_pitch_deg`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.stair_tread_m`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.north_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rear_bays`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.rainwater`, `tucker_smith_house_2140_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
@@ -36452,6 +36434,10 @@
         {
           "label": "Recorded",
           "text": "2026-11-26 (T-3770)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-27 (T-3771) — the door's kit, the stoop's width and its landing left this entry's covers: T-3771 built the columned porch and its stair there off the second photograph, so they are read now, not invented (`L-k01-2140-tucker-3771` says what of their numbers is still proportion)."
         }
       ],
       "work_refs": [
@@ -81800,6 +81786,39 @@
       ],
       "work_refs": [
         "T-1938"
+      ]
+    },
+    {
+      "id": "L-k01-2140-tucker-3771",
+      "title": "2140 Prairie's columned porch and its stair, its dormers' crocketed gables and its tall stack's pots, off the two Chicagology photographs; the arched glass canopy left to the spired state",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "2140 Prairie gains what piece 1 (`“2140 Prairie, the Tucker/Smith corner mansion, refined from the district draft onto K01: its plan off the 1911 sheet, its banded brick, mansard and three towers off the two Chicagology photographs, its towers' crested caps the state the draft declared, the rest the kits'”`) left: a stone porch before the door bay on K01's columned door hood (two pairs of turned shafts with carved Corinthian bells, a plain entablature, a stone balustrade round its flat top), its straight stair falling to the walk as wide as the porch; the two mansard dormers' gables pitched at 60 degrees under a stone coping with crockets, a pinnacle at each edge of the face and a finial at the apex; and the tall stack on the 22nd Street flank, widened to 1.5 m along the flank, carrying four tall ribbed pots in a row on a K15 corbelled head with a dentil course and two narrow sunk panels down each face. **What is read, not invented.** From the second Chicagology photograph ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph of the house from the…, forms only, check required): the porch's place before the door bay, its paired shafts and their Corinthian capitals, its entablature and balustraded top, its stair falling toward the street between iron rails; the dormers' steep coped gables, their cross-topped finials and engaged pinnacles; the stack's corbelled head, its sunk slots and its pots. From the first ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph from the south-east…): the stack's four pots in a row along the flank; the dormers' gables. The 1898 quarter-century plate draws the same porch square-on (not entered as a source; read only to confirm the photograph). **What is invented.** Every dimension, read by proportion on the photographs and not through a solved camera: the porch's 3.0 m width and 2.0 m projection, its 4.9 m soffit, 0.5 m frieze and 0.2 m cornice, the shafts' 0.26-0.28 m diameter and their plinths, the balustrade's 0.6 m height and its posts and balusters; the stair's width (the porch's, so its columns stand on the landing as K01 requires) and its 2.0 m landing; the gables' coping, crocket, pinnacle and finial sizes; the stack's 1.5 m width, its corbel courses and cap, its panels' size; the kit's console brackets under the porch's cornice, which the photograph does not resolve. **What is built otherwise than the evidence, and why.** The paired shafts stand side by side along the front; neither picture is square to the porch's flank, so one standing behind the other is the alternative reading. The gables' finial is K01's turned finial, where the photographs draw a cross. The pots rise straight off the cap, where the second photograph draws them out of a weathered stone haunching. The north stack, which no picture shows, stays a plain shaft. Not built: the arched glass canopy over the same door in the first photograph and the 1911 sheet's one-storey GLASS room there — the later state, which came with the conical spires; the declared 1904 state keeps the flat-topped towers and this porch, and a view dated by July 1904 showing the canopy replaces it. The polygonal tower's gabled faces and the round-arched heads stay earlier work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Earlier work solves the pictures' cameras and works the photo-match down over these numbers; a dated view settles the porch-or-canopy state with the towers'."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2140 tucker."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-3771)."
+        }
+      ],
+      "work_refs": [
+        "T-3771",
+        "T-1928",
+        "T-1929",
+        "T-1837"
       ]
     },
     {
