@@ -347,11 +347,20 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert.equal(battle('closing','ouilmette').asset.id,'score-theme-remembrance');
   assert.deepEqual(battle('outcome','ouilmette',{played:new Set(['score-theme-remembrance'])}),{quiet:true},'after the closing cue the music rests');
   assert.equal(battle('atStop','the-bank').loop,true);assert.equal(battle('closing','ouilmette').loop,false);
+  // T-3809: 1871 borrows recorded cues for now (owner, 2026-11-27), never the 1812 fort's.
+  const fire=(id,phase,stop)=>scoreCueFor(catalog,{id,phase,stop,version_of:id.replace(/-(grades-[0-9-]+|adults)$/,'')})?.asset.id;
+  assert.equal(fire('the-great-fire-grades-3-5','atStop','court-house'),'score-bed-1904-ghosts','the fire burns under Night on the Avenue');
+  assert.equal(fire('the-great-fire','closing','old-cemetery'),'score-theme-remembrance');
+  assert.equal(fire('the-last-sunday','atStop','lake-street'),'score-bed-1904-places');
+  assert.equal(fire('the-last-sunday-adults','atStop','dekoven'),'score-bed-1904-ghosts','dusk at the barn turns to the night cue');
+  for(const id of ['the-great-fire','who-started-the-fire','the-last-sunday','a-message-for-the-opera-house'])
+    for(const c of Object.values(score[id]).flatMap(v=>typeof v==='string'?[v]:Object.values(v)))assert.ok(!/1812|battle/.test(c),`${id}: ${c} is the fort's music`);
   const g=(phase,played)=>scoreCueFor(catalog,{id:'glessner-household-tour-grades-3-5',phase,stop:null},played);
   assert.equal(g('opening').asset.id,'score-jaunt-opening-1904','a grade version opens on the theme');
   assert.equal(g('opening',new Set(['score-jaunt-opening-1904'])).asset.id,'score-bed-1904-household','a flight longer than the opening goes on into the bed');
   assert.equal(scoreCueFor(catalog,{id:'some-new-band-of-it',version_of:'killing-of-jean-lalime',phase:'atStop'}).asset.id,'score-bed-1812-mystery','an unlisted version takes its jaunt\'s plan');
-  assert.equal(scoreCueFor(catalog,{id:'a-decent-coat',phase:'atStop'}),null,'a jaunt with no score keeps the era playlist');
+  assert.equal(scoreCueFor(catalog,{id:'no-such-jaunt',phase:'atStop'}),null,'a jaunt with no score keeps the era playlist');
+  assert.equal(scoreCueFor(catalog,{id:'a-decent-coat',phase:'atStop'}).asset.id,'score-bed-1812-fort','T-3809: 1835 borrows the frontier bed');
   assert.equal(scoreCueFor(catalog,null),null);
   // The engine: one gesture-unlocked element plays the playlist and the score; a cue change dips
   // the fader and starts the next one; a closing cue is never cut; then the playlist returns.

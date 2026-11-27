@@ -8164,6 +8164,971 @@
         "opening": "score-jaunt-opening-1904",
         "bed": "score-bed-1904-bronze",
         "closing": "score-jaunt-closing-1904"
+      },
+      "the-great-fire": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-theme-remembrance"
+      },
+      "the-great-fire-adults": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-theme-remembrance"
+      },
+      "the-great-fire-grades-11-12": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-theme-remembrance"
+      },
+      "the-great-fire-grades-3-5": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-theme-remembrance"
+      },
+      "the-great-fire-grades-9-10": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-theme-remembrance"
+      },
+      "who-started-the-fire": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "who-started-the-fire-adults": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "who-started-the-fire-grades-11-12": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "who-started-the-fire-grades-3-5": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "who-started-the-fire-grades-9-10": {
+        "opening": "score-bed-1904-ghosts",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-last-sunday": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts",
+          "dekoven": "score-bed-1904-ghosts"
+        }
+      },
+      "the-last-sunday-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts",
+          "dekoven": "score-bed-1904-ghosts"
+        }
+      },
+      "the-last-sunday-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts",
+          "dekoven": "score-bed-1904-ghosts"
+        }
+      },
+      "the-last-sunday-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts",
+          "dekoven": "score-bed-1904-ghosts"
+        }
+      },
+      "the-last-sunday-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts",
+          "dekoven": "score-bed-1904-ghosts"
+        }
+      },
+      "a-message-for-the-opera-house": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts"
+        }
+      },
+      "a-message-for-the-opera-house-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts"
+        }
+      },
+      "a-message-for-the-opera-house-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts"
+        }
+      },
+      "a-message-for-the-opera-house-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts"
+        }
+      },
+      "a-message-for-the-opera-house-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904",
+        "stops": {
+          "saturday-ruins": "score-bed-1904-ghosts"
+        }
+      },
+      "errands-before-the-march": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "errands-before-the-march-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "errands-before-the-march-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "errands-before-the-march-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "errands-before-the-march-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "water-for-the-garrison": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "water-for-the-garrison-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "water-for-the-garrison-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "water-for-the-garrison-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "water-for-the-garrison-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "ice-for-prairie-avenue": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "ice-for-prairie-avenue-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "ice-for-prairie-avenue-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "ice-for-prairie-avenue-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "ice-for-prairie-avenue-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "flowers-for-prairie-avenue": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "flowers-for-prairie-avenue-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "flowers-for-prairie-avenue-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "flowers-for-prairie-avenue-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "flowers-for-prairie-avenue-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-built-so-far": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "a-decent-coat": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-decent-coat-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-decent-coat-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-decent-coat-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-decent-coat-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-parcel-across-the-river": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-parcel-across-the-river-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-parcel-across-the-river-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-parcel-across-the-river-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "a-parcel-across-the-river-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "across-wolf-point": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "across-wolf-point-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "across-wolf-point-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "across-wolf-point-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "across-wolf-point-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "along-the-harbor": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "along-the-harbor-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "along-the-harbor-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "along-the-harbor-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "along-the-harbor-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "an-evening-stroll": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "an-evening-stroll-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "an-evening-stroll-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "an-evening-stroll-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "an-evening-stroll-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "apprentice-at-the-democrat": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "apprentice-at-the-democrat-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "apprentice-at-the-democrat-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "apprentice-at-the-democrat-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "apprentice-at-the-democrat-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "bed-for-the-night": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "bed-for-the-night-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "bed-for-the-night-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "bed-for-the-night-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "bed-for-the-night-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "boots-and-leather": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "boots-and-leather-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "boots-and-leather-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "boots-and-leather-grades-6-8": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "boots-and-leather-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "calling-on-neighbors": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "calling-on-neighbors-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "calling-on-neighbors-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "calling-on-neighbors-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "calling-on-neighbors-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "fort-dearborn-errand": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "fort-dearborn-errand-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "fort-dearborn-errand-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "fort-dearborn-errand-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "fort-dearborn-errand-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "freight-for-the-store": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "freight-for-the-store-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "freight-for-the-store-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "freight-for-the-store-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "freight-for-the-store-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "from-prairie-to-town": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "from-prairie-to-town-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "from-prairie-to-town-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "from-prairie-to-town-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "from-prairie-to-town-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "gossip-or-notice": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "gossip-or-notice-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "gossip-or-notice-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "gossip-or-notice-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "gossip-or-notice-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "household-provisions": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "household-provisions-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "household-provisions-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "household-provisions-grades-6-8": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "household-provisions-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "inspect-a-lot": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "inspect-a-lot-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "inspect-a-lot-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "inspect-a-lot-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "inspect-a-lot-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "letter-home": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "letter-home-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "letter-home-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "letter-home-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "letter-home-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "materials-for-a-roof": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "materials-for-a-roof-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "materials-for-a-roof-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "materials-for-a-roof-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "materials-for-a-roof-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "mend-the-harness": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "mend-the-harness-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "mend-the-harness-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "mend-the-harness-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "mend-the-harness-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "new-in-chicago": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "new-in-chicago-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "new-in-chicago-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "new-in-chicago-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "new-in-chicago-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "news-before-breakfast": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "news-before-breakfast-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "news-before-breakfast-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "news-before-breakfast-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "news-before-breakfast-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "notable-women-1835": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "notable-women-1835-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "notable-women-1835-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "notable-women-1835-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "notable-women-1835-grades-6-8": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "outfit-for-the-west": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "outfit-for-the-west-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "outfit-for-the-west-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "outfit-for-the-west-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "outfit-for-the-west-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "over-the-draw": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "over-the-draw-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "over-the-draw-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "over-the-draw-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "over-the-draw-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "schoolday-errand": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "schoolday-errand-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "schoolday-errand-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "schoolday-errand-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "schoolday-errand-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "shopping-south-water": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "shopping-south-water-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "shopping-south-water-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "shopping-south-water-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "shopping-south-water-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "soap-and-candles": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "soap-and-candles-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "soap-and-candles-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "soap-and-candles-grades-6-8": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "soap-and-candles-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "sunday-circuit": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "sunday-circuit-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "sunday-circuit-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "sunday-circuit-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "sunday-circuit-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "taverns-of-chicago": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "taverns-of-chicago-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "taverns-of-chicago-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "taverns-of-chicago-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "taverns-of-chicago-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "work-on-waterfront": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "work-on-waterfront-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "work-on-waterfront-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "work-on-waterfront-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "work-on-waterfront-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
       }
     }
   }

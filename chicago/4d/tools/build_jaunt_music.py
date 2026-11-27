@@ -72,7 +72,40 @@ PLANS = {
         'prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire')},
     'prairie-ghosts-at-night': {'opening': O04, 'bed': 'bed-1904-ghosts', 'closing': C04},
     'bronze-at-eighteenth': {'opening': O04, 'bed': 'bed-1904-bronze', 'closing': C04},
+    # 1871 has no score of its own yet. The owner, 2026-11-27: "you should reuse some
+    # appropriate music we have already recorded for now". The orchestral 1904 cues stand in
+    # (REUSE); the 1812 cues are left out, their cedar flute and hand drum are the fort's.
+    # The fire by night: Night on the Avenue under every stop, Remembrance at the rain.
+    'the-great-fire': {'opening': 'bed-1904-ghosts', 'bed': 'bed-1904-ghosts', 'closing': 'theme-remembrance'},
+    'who-started-the-fire': {'opening': 'bed-1904-ghosts', 'bed': 'bed-1904-ghosts', 'closing': C04},
+    # The last ordinary day: the Avenue's bed through the city, the night's at Saturday's
+    # ruins and the barn on DeKoven Street, Remembrance to close.
+    'the-last-sunday': {'opening': O04, 'bed': 'bed-1904-places',
+        'stops': {'saturday-ruins': 'bed-1904-ghosts', 'dekoven': 'bed-1904-ghosts'}, 'closing': 'theme-remembrance'},
+    'a-message-for-the-opera-house': {'opening': O04, 'bed': 'bed-1904-stories',
+        'stops': {'saturday-ruins': 'bed-1904-ghosts'}, 'closing': C04},
+    # The owner, 2026-11-27: "every jaunt should have music, pull from the existing library".
+    'errands-before-the-march': {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12},
+    'water-for-the-garrison': {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12},
+    'ice-for-prairie-avenue': {'opening': O04, 'bed': 'bed-1904-places', 'closing': C04},
+    'flowers-for-prairie-avenue': {'opening': O04, 'bed': 'bed-1904-places', 'closing': C04},
+    'prairie-built-so-far': {'opening': O04, 'bed': 'bed-1904-architecture', 'closing': C04},
+    # 1835 has no score of its own yet either: the frontier town under the 1812 cues (fiddle,
+    # fife, a soft drum), the nearest in time; the fort's errand keeps the fort's own bed.
+    **{j: {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12} for j in (
+        'a-decent-coat', 'a-parcel-across-the-river', 'across-wolf-point', 'along-the-harbor', 'an-evening-stroll',
+        'apprentice-at-the-democrat', 'bed-for-the-night', 'boots-and-leather', 'calling-on-neighbors',
+        'fort-dearborn-errand', 'freight-for-the-store', 'from-prairie-to-town', 'gossip-or-notice',
+        'household-provisions', 'inspect-a-lot', 'letter-home', 'materials-for-a-roof', 'mend-the-harness',
+        'new-in-chicago', 'news-before-breakfast', 'notable-women-1835', 'outfit-for-the-west', 'over-the-draw',
+        'schoolday-errand', 'shopping-south-water', 'soap-and-candles', 'sunday-circuit', 'taverns-of-chicago',
+        'work-on-waterfront')},
 }
+
+# Cues a scene without its own score may borrow, by scene (see the 1871 plans above).
+REUSE = {'1871': {'jaunt-opening-1904', 'jaunt-closing-1904', 'bed-1904-places', 'bed-1904-stories',
+    'bed-1904-ghosts', 'theme-remembrance'},
+    '1835': {'jaunt-opening-1812', 'jaunt-closing-1812', 'bed-1812-fort'}}
 
 
 def build():
@@ -93,7 +126,7 @@ def build():
         stops = {s['id'] for s in doc['stops']}
         for cid in [plan['opening'], plan['bed'], plan['closing'], *plan.get('stops', {}).values()]:
             if cid not in cues: raise SystemExit(f'{jid}: no cue {cid}')
-            if cues[cid]['era'] != str(doc['scene']): raise SystemExit(f'{jid}: {cid} is not {doc["scene"]} music')
+            if cues[cid]['era'] != str(doc['scene']) and cid not in REUSE.get(str(doc['scene']), ()): raise SystemExit(f'{jid}: {cid} is not {doc["scene"]} music')
         for sid in plan.get('stops', {}):
             if sid not in stops: raise SystemExit(f'{jid}: no stop {sid}')
         rows.append({'id': jid, **plan})
