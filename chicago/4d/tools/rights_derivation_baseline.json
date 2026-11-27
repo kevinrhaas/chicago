@@ -4209,6 +4209,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "mark_kimball_house_2108_prairie_coach_house/as_standing_1904/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2014_10_rees_coach_house_relocated"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "mark_kimball_house_2108_prairie_coach_house/as_standing_1904/form.coach_house": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2014_10_rees_coach_house_relocated"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "marsh_house_1824_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
       "blocked_sources": [

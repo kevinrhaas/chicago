@@ -16039,8 +16039,7 @@
    "street": "prairie",
    "side": "west",
    "structures": [
-    "mark_kimball_house_2108_prairie",
-    "mark_kimball_house_2108_prairie_coach_house"
+    "mark_kimball_house_2108_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -16100,7 +16099,22 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
+   "shrubs": [
+    [
+     1353.83,
+     -3642.2,
+     "lilac",
+     3.07,
+     2.41
+    ],
+    [
+     1356.58,
+     -3641.92,
+     "lilac",
+     3.14,
+     2.06
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []
@@ -16277,15 +16291,15 @@
    "crops": [],
    "shrubs": [
     [
-     1353.71,
+     1353.96,
      -3655.27,
      "lilac",
      2.64,
      1.95
     ],
     [
-     1356.21,
-     -3655.25,
+     1353.68,
+     -3652.77,
      "lilac",
      2.27,
      2.1
