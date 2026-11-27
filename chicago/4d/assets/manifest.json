@@ -2505,7 +2505,7 @@
       "baked_ao": false,
       "bytes": 89632,
       "generator": "generators/k12_emit.py",
-      "inputs_sha256": "f3dbb9fca0132ff0fbdf988195d60eaba6059755322112b20f3af8081798ea5b",
+      "inputs_sha256": "276097e9ccb1bc323034d1cff380d9a65cfa06bbe38ac11820d01e85b2ae12a3",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "house_2011_prairie_coach_house"
@@ -2585,7 +2585,7 @@
       "baked_ao": false,
       "bytes": 152844,
       "generator": "generators/k12_emit.py",
-      "inputs_sha256": "9cc2944eaa46523ceb4435db346032e7a3c02e336a1fa1d9e27906e94fdf1f24",
+      "inputs_sha256": "347cdd0ba5274e5bfd6816792e1ed1b03ea1acacb622e88f85b2d0696a025694",
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "house_2017_prairie_coach_house"
