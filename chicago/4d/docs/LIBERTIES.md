@@ -46807,3 +46807,34 @@ T-1938's image gate names pictures for 2013 Reid's coach house only; none for th
 **Covers:** `house_2017_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2017_prairie_coach_house.as_standing_1904.form.stories`, `house_2017_prairie_coach_house.as_standing_1904.form.construction`, `house_2017_prairie_coach_house.function`
 **Ticket:** T-1938.
 **Recorded:** 2026-11-26 (T-1938).
+
+### L-prairie-shared-lot-2000-3785 — 2000, 2010 and 2018 Prairie's yards laid as three properties on the one lot the 1911 sheet draws for them
+
+**Decision:** the front and back yard passes (`tools/plant_prairie_1904_front_yards.py`, whose
+`lay_district()` `tools/lay_prairie_1904_back_yards.py` reads) no longer treat parcel
+`prairie_2000` as one yard. Sheet 35 draws one 199-ft lot for 2000, 2010 and 2018 Prairie and the
+street grid keeps the sheet's reading (`docs/RESEARCH/prairie_1904_street_grid.md` section 5,
+untouched), but in 1904 they were three houses, each with its own front door, back door and coach
+house. The passes now cut the lot into three, on the lines the houses' own records already stand
+their shares of it (`form.boundary.lot_s_m`: 2000 and 2010 under `L-k16-2000-2010-frame-1909`,
+2018 under `L-k01-2018-stone-front-3607`): each line is the side of the first house's share that
+faces the next, drawn square to its street line. 2000's share and 2010's meet on the same line
+(18.3 m and 28.0 m of frontage); 2018's own yard edge stops 3.8 m short of 2010's, and the gap
+goes to 2018 (14.4 m), as a side passage. Every structure on the lot goes with the house whose id
+it carries. So each house gets its own front yard, planted round its own stoop and door, and its
+own back yard: 2000 and 2018 each gain a back door, steps and terrace and their walks (before,
+the three shared one drying yard and no back door), and the doors file hangs the two doors.
+2010's rear wall carries glass across every stretch with room for a door in its model, so the
+back yard pass, which never cuts a door through a window, still lays nothing behind it.
+**What it stands on:** the houses' records and their committed placements (`data/sidecars/1904/`),
+and through them sheet 35 (`sanborn_1911_chicago_v3_sheet_35`), which prints the three numbers on
+the lot and draws a house and an alley building for each.
+**What is invented:** the two lines themselves. No plat or deed south of 18th Street is in hand
+(the legal-lots standard of the street grid), so where 2000's property ended and 2010's began,
+and 2010's and 2018's, is the T-1909 midpoint rule carried into the yards, and the 3.8 m passage
+is assigned to 2018 by that rule, not read.
+**How to resolve:** a plat or atlas plate south of 18th Street (Robinson's 1886 atlas stops at
+18th), a deed, or a photograph of the 2000 block's fronts, entered as a source, gives the true
+lot lines; then the houses' `lot_s_m` and this cut move together.
+**Ticket:** T-3785 (piece 1 of T-1945).
+**Recorded:** 2026-11-27 (T-3785).

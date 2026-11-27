@@ -6728,6 +6728,22 @@
       }
      },
      "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks): its panelled leaf is read off the model's stained wood inside the door's casing, and the way up to it off the model's porch steps (derive_doors_scene.py stoop_way); one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3773); its hinge side and swing are reconstructed."
+    },
+    {
+     "id": "house_2000_prairie:back",
+     "leaf": {
+      "local_e": 1361.51,
+      "local_n": -3489.97
+     },
+     "step": {
+      "local_e": 1359.15,
+      "local_n": -3489.99
+     },
+     "outward_deg": 269.5,
+     "width_m": 0.95,
+     "passage": true,
+     "back": true,
+     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2000:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
    "model_inputs_sha256": "ca105c51c59211bf688e18dab222cf2693ccc333f085dbab3b407235bc3fd679",
@@ -8110,6 +8126,22 @@
       }
      },
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
+    },
+    {
+     "id": "house_2018_prairie:back",
+     "leaf": {
+      "local_e": 1361.28,
+      "local_n": -3540.1
+     },
+     "step": {
+      "local_e": 1357.52,
+      "local_n": -3540.13
+     },
+     "outward_deg": 269.5,
+     "width_m": 0.95,
+     "passage": true,
+     "back": true,
+     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2018:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
    "model_inputs_sha256": "8a66b6f8019753c901151709ed3bcef387dfc0b78a2cc115240da83e6ddcdc7a",
@@ -18321,6 +18353,22 @@
    "what": "back stoop"
   },
   {
+   "structure": "prairie_2000:back_door:stoop",
+   "placement": {
+    "local_e": 1361.51,
+    "local_n": -3489.97,
+    "rotation_deg": 179.48
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": 0.05,
+    "v0": -0.75,
+    "count": 1,
+    "rects": "0 20 0 16"
+   },
+   "what": "back stoop"
+  },
+  {
    "structure": "prairie_2001:back_door:stoop",
    "placement": {
     "local_e": 1441.61,
@@ -18390,6 +18438,22 @@
     "local_e": 1447.59,
     "local_n": -3533.61,
     "rotation_deg": 359.55
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": 0.05,
+    "v0": -0.75,
+    "count": 1,
+    "rects": "0 34 0 16"
+   },
+   "what": "back stoop"
+  },
+  {
+   "structure": "prairie_2018:back_door:stoop",
+   "placement": {
+    "local_e": 1361.28,
+    "local_n": -3540.1,
+    "rotation_deg": 179.48
    },
    "barrier": {
     "cell": 0.1,

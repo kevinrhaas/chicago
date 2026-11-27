@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1246,
+  "count": 1247,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -81708,6 +81708,42 @@
       "work_refs": [
         "T-1938",
         "T-1932"
+      ]
+    },
+    {
+      "id": "L-prairie-shared-lot-2000-3785",
+      "title": "2000, 2010 and 2018 Prairie's yards laid as three properties on the one lot the 1911 sheet draws for them",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front and back yard passes (the plant prairie 1904 front yards tool, whose lay district the lay prairie 1904 back yards tool reads) no longer treat parcel prairie 2000 as one yard. Sheet 35 draws one 199-ft lot for 2000, 2010 and 2018 Prairie and the street grid keeps the sheet's reading (the research notes on prairie 1904 street grid section 5, untouched), but in 1904 they were three houses, each with its own front door, back door and coach house. The passes now cut the lot into three, on the lines the houses' own records already stand their shares of it (form.boundary.lot s (m): 2000 and 2010 under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, 2018 under `“2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'”`): each line is the side of the first house's share that faces the next, drawn square to its street line. 2000's share and 2010's meet on the same line (18.3 m and 28.0 m of frontage); 2018's own yard edge stops 3.8 m short of 2010's, and the gap goes to 2018 (14.4 m), as a side passage. Every structure on the lot goes with the house whose id it carries. So each house gets its own front yard, planted round its own stoop and door, and its own back yard: 2000 and 2018 each gain a back door, steps and terrace and their walks (before, the three shared one drying yard and no back door), and the doors file hangs the two doors. 2010's rear wall carries glass across every stretch with room for a door in its model, so the back yard pass, which never cuts a door through a window, still lays nothing behind it."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the houses' records and their committed placements (the 1904 data), and through them sheet 35 (Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3), which prints the three numbers on the lot and draws a house and an alley building for each."
+        },
+        {
+          "label": "What is invented",
+          "text": "the two lines themselves. No plat or deed south of 18th Street is in hand (the legal-lots standard of the street grid), so where 2000's property ended and 2010's began, and 2010's and 2018's, is the midpoint rule carried into the yards, and the 3.8 m passage is assigned to 2018 by that rule, not read."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plat or atlas plate south of 18th Street (Robinson's 1886 atlas stops at 18th), a deed, or a photograph of the 2000 block's fronts, entered as a source, gives the true lot lines; then the houses' lot s (m) and this cut move together."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-3785)."
+        }
+      ],
+      "work_refs": [
+        "T-1909",
+        "T-3785",
+        "T-1945"
       ]
     },
     {

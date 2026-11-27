@@ -152,20 +152,20 @@
   "note": "Each plant's crown edge stands clear of the house's wall, every stoop and step, fence, coping and walk, a 2 m disk round every door, and a 5.2 m way from each front door to the lot line. Lots a photograph shows bare are bare. Seeded by the parcel's id."
  },
  "summary": {
-  "lots": 149,
-  "shrubs": 157,
+  "lots": 151,
+  "shrubs": 158,
   "trees": 12,
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
   "lots_with_a_door": 122,
   "schemes": {
-   "corners": 72,
-   "group": 23,
-   "lawn": 34,
+   "corners": 73,
+   "group": 22,
+   "lawn": 35,
    "pictured": 3,
    "pictured bare": 7,
-   "stoop": 10
+   "stoop": 11
   }
  },
  "lots": [
@@ -6275,9 +6275,7 @@
    "street": "prairie",
    "side": "west",
    "addresses": [
-    "2000",
-    "2010",
-    "2018"
+    "2000"
    ],
    "frame": {
     "origin": [
@@ -6292,45 +6290,26 @@
      -0.99996,
      -0.00905
     ],
-    "width_m": 60.79
+    "width_m": 18.35
    },
-   "front_m": 7.53,
-   "doors": [
-    [
-     53.33,
-     9.8
-    ]
-   ],
-   "scheme": "group",
+   "front_m": 7.65,
+   "doors": [],
+   "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [
     [
-     1386.43,
+     1386.18,
      -3483.59,
      "arborvitae",
      2.47,
      1.05
     ],
     [
-     1387.93,
-     -3486.34,
-     "rose",
-     1.05,
-     0.95
-    ],
-    [
-     1387.93,
-     -3485.34,
-     "rose",
-     1.05,
-     0.95
-    ],
-    [
-     1387.93,
-     -3484.34,
-     "rose",
-     1.05,
-     0.95
+     1386.68,
+     -3493.84,
+     "arborvitae",
+     2.8,
+     1.18
     ]
    ],
    "trees": [],
@@ -6494,6 +6473,37 @@
    "creeper": []
   },
   {
+   "parcel": "prairie_2010",
+   "street": "prairie",
+   "side": "west",
+   "addresses": [
+    "2010"
+   ],
+   "frame": {
+    "origin": [
+     1394.67,
+     -3500.64
+    ],
+    "along": [
+     0.00906,
+     -0.99996
+    ],
+    "into": [
+     -0.99996,
+     -0.00906
+    ],
+    "width_m": 28.03
+   },
+   "front_m": 7.58,
+   "doors": [],
+   "scheme": "lawn",
+   "grade": "reconstructed",
+   "shrubs": [],
+   "trees": [],
+   "beds": [],
+   "creeper": []
+  },
+  {
    "parcel": "prairie_2011",
    "street": "prairie",
    "side": "east",
@@ -6610,6 +6620,64 @@
      "globe",
      0.87,
      0.96
+    ]
+   ],
+   "trees": [],
+   "beds": [],
+   "creeper": []
+  },
+  {
+   "parcel": "prairie_2018",
+   "street": "prairie",
+   "side": "west",
+   "addresses": [
+    "2018"
+   ],
+   "frame": {
+    "origin": [
+     1394.92,
+     -3528.67
+    ],
+    "along": [
+     0.00901,
+     -0.99996
+    ],
+    "into": [
+     -0.99996,
+     -0.00901
+    ],
+    "width_m": 14.42
+   },
+   "front_m": 7.53,
+   "doors": [
+    [
+     6.95,
+     9.8
+    ]
+   ],
+   "scheme": "stoop",
+   "grade": "reconstructed",
+   "shrubs": [
+    [
+     1387.43,
+     -3532.84,
+     "rose",
+     0.92,
+     0.83
+    ],
+    [
+     1387.93,
+     -3540.84,
+     "rose",
+     0.92,
+     0.83
+    ],
+    [
+     1386.43,
+     -3532.84,
+     "arborvitae",
+     2.25,
+     0.95
     ]
    ],
    "trees": [],
