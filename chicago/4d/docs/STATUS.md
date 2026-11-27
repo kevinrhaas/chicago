@@ -1,3 +1,26 @@
+## T-3776 — Student data policy and Delete my saved data (27 November 2026)
+
+Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
+starts with the policy. `docs/STUDENT-DATA.md` lists every record kept on a signed-in account,
+field by field, with why and who reads it; `renderers/web/privacy.html` (*What we keep*, linked
+from the sign-in panel and Settings › About) says the same for a visitor; and
+`docs/STUDENT-DATA-AGREEMENT.md` is a draft school agreement on Illinois SOPPA's points, for the
+owner, not legal advice. Settings › About gains *Your saved data* with **Delete my saved data**
+(`js/student-data.js`): the visitor's `visitors`, `readers` and `people` documents and every
+`visits` and `bugs` row with their uid, behind an inline confirm, then a sign-out.
+`cloudFeatures` in `js/sign-in-config.js` is the one switch T-3777..T-3780 check before
+writing student work; the owner switched it on on 27 November 2026.
+
+The rules are now published from the repo (the owner, 26 November 2026: "you can push directly
+to firestore"): `tools/publish_firestore_rules.mjs`, run by the workflow
+`chicago-4d-firestore-rules.yml` with the repository secret `FIREBASE_SERVICE_ACCOUNT`, publishes
+the one rules block of docs/SIGN-IN.md, carries the live owner address across (never
+committed), and refuses to drop a collection the live rules hold. Until the new rules are live,
+the visitor's own read and delete of `visitors`, `visits` and `bugs` (`isSelf`) are refused and
+the delete reports "could not be deleted just now". The Firebase sign-in account itself is
+removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
+live delete was run.
+
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
 Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish

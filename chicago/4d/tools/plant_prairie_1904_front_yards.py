@@ -100,6 +100,14 @@ TALL_M = 2.6               # ... and one reaching above this is the house itself
 FLAT_M = 0.12              # a triangle wholly below this lies on the ground (a walk, a yard surface)
 GROUND_MATS = ("turf", "earth", "lawn", "grass")   # a yard surface the lawn may lie beside, not a walk
 DOOR_MATS = ("door_leaf", "draft_door", "k16_door", "k12_door")
+# T-3786: K16 (k16_timber.py ROLE_MATERIAL) paints its door and door panels "stained", the one
+# material of its porch floor, porch ceiling and step treads, so no door material names a frame
+# house's leaf and the planter read every K16 front as doorless (T-3785 checked 2000's and 2010's
+# by hand). In that material a leaf is the UPRIGHT face: floors, ceilings and treads lie level, and
+# their board edges rise a few centimetres, not LEAF_MIN_RISE_M.
+LEAF_SHARED_MATS = ("k16_stained",)
+LEAF_MIN_RISE_M = 0.6      # a shared-material face rising this much, and upright, is a door leaf
+LEAF_UPRIGHT = 0.25        # ... upright: its normal's vertical part at most this of its length
 DOOR_FOOT_M = 4.5          # a door leaf whose foot is below this is an entrance (a raised first floor's)
 PORCH_HALF_MAX_M = 4.5     # a porch or stoop front kept clear runs at most this far either side of its door
 DOOR_RADIUS_M = 2.0        # no plant's edge nearer a door (in plan) than this
@@ -522,6 +530,21 @@ def read_glb(path: Path):
     return out
 
 
+def door_leaves(name: str, pos, idx):
+    """Which of a primitive's triangles are a door's leaf: all of a door material's, and the
+    upright faces of a material a kit shares between its door and its floors (LEAF_SHARED_MATS)."""
+    name = name.lower()
+    if any(name.startswith(m) for m in DOOR_MATS):
+        return np.ones(len(idx), bool)
+    if name not in LEAF_SHARED_MATS:
+        return np.zeros(len(idx), bool)
+    p = pos[idx]
+    nrm = np.cross(p[:, 1] - p[:, 0], p[:, 2] - p[:, 0])
+    length = np.linalg.norm(nrm, axis=1)
+    rise = p[:, :, 1].max(axis=1) - p[:, :, 1].min(axis=1)
+    return (length > 1e-9) & (np.abs(nrm[:, 1]) <= LEAF_UPRIGHT * length) & (rise >= LEAF_MIN_RISE_M)
+
+
 class Plan:
     """The district on a RES raster: house (tall), low (stoops, fences), paved (walks), doors."""
 
@@ -599,11 +622,12 @@ class Plan:
             # a level floor raised off the ground (a terrace's), for a tub stood on it (T-1934)
             level = ~flat & (hi - lo <= 0.02) & (hi < LOW_TOP_M)
             self.lay_triangles(self.floor, tri[level], heights=hi[level])
-            if any(name.startswith(m) for m in DOOR_MATS):
+            leaf = door_leaves(name, pos, idx)
+            if leaf.any():
                 # Every leaf whose foot stands below a raised first floor's: the front door at the
                 # top of a high stoop is an entrance as much as a door at grade (T-3223: T-3203's
                 # 2.5 m cut missed the raised doors of 39 lots, and planted across them).
-                sel = lo < DOOR_FOOT_M
+                sel = leaf & (lo < DOOR_FOOT_M)
                 if sel.any():
                     pts = tri[sel].reshape(-1, 2)
                     for cl in cluster(pts, 1.5):
@@ -1548,6 +1572,22 @@ def self_test() -> int:
     print(f"   self-test | {'ok  ' if not clean else 'FAIL'} the planted file passes its own check"
           + (f": {clean[0]}" if clean else ""))
     ok &= not clean
+    # T-3786: a K16 frame house's front door is seen through its shared "stained" material (its
+    # upright leaf, not its porch floor or treads), so 2000's and 2010's fronts keep their doors
+    by = {l["parcel"]: l for l in data["lots"]}
+    for pid in ("prairie_2000", "prairie_2010"):
+        seen = bool(by.get(pid, {}).get("doors"))
+        ok &= seen
+        print(f"   self-test | {'ok  ' if seen else 'FAIL'} {pid}'s K16 front door is a door to the planter: "
+              f"{by.get(pid, {}).get('doors')}")
+    flat = np.array([[0, 0.6, 0], [1, 0.6, 0], [0, 0.6, 1]], float)
+    leaf = np.array([[0, 0.6, 0], [0.95, 0.6, 0], [0, 2.8, 0]], float)
+    tri = np.array([[0, 1, 2]])
+    got = (bool(door_leaves("k16_stained", flat, tri)[0]), bool(door_leaves("k16_stained", leaf, tri)[0]),
+           bool(door_leaves("k16_body", leaf, tri)[0]))
+    print(f"   self-test | {'ok  ' if got == (False, True, False) else 'FAIL'} in K16's shared material a "
+          f"level floor is no door, an upright leaf is, and a wall is not: {got}")
+    ok &= got == (False, True, False)
     lot = next(l for l in data["lots"] if l["doors"] and l["shrubs"] and l["front_m"] >= 4)
     A = np.array(lot["frame"]["origin"]); su = np.array(lot["frame"]["along"]); nu = np.array(lot["frame"]["into"])
     ds, dd = lot["doors"][0]
