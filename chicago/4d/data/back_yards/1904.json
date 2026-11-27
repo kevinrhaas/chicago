@@ -54,13 +54,13 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 283,
+  "surfaces": 284,
   "doors": 126,
   "posts": 112,
   "gardens": 28,
   "by_kind": {
    "alley_walk": 22,
-   "coach_walk": 29,
+   "coach_walk": 30,
    "drying_yard": 56,
    "front_walk": 10,
    "gangway": 31,
@@ -15078,6 +15078,34 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2017:coach_walk:1",
+     "kind": "coach_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1451.99,
+       -3533.23
+      ],
+      [
+       1452.02,
+       -3536.93
+      ],
+      [
+       1453.22,
+       -3536.92
+      ],
+      [
+       1453.19,
+       -3533.22
+      ]
+     ],
+     "along_deg": 179.55,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk from the back door to the coach house, in brick paving, laid herringbone (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [

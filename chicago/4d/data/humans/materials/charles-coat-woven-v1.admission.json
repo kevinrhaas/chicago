@@ -52,7 +52,7 @@
     "tools/human_export.sh": "520bc004711e0125d7a2b231cc6fdb6be061aad4895a36f67b164b3e2a99a68e"
   },
   "runtime_sha256": {
-    "renderers/web/js/fabric.js": "cf602e7fcd66101679749245ddd8ef51abf9cd523156cfec22496c913d22cfe5",
+    "renderers/web/js/fabric.js": "c79b7b04c3a4b3158d0358e4202648b30736bd80f06659723b5132c3aee26f06",
     "renderers/web/js/human-looks.js": "77607a2af12169e7b52ab1c118e1afedf94a9cd114f3e49eeec7be5cda21d00d"
   },
   "actual_reproduction_proof_sha256": "fc94f3a36c0631686be63299f4f073d1fda8b2ac9978aa9d850cbc0ef4d6cd6f",
