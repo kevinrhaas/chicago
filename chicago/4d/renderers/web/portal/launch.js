@@ -329,10 +329,20 @@ $('#play-cloud').addEventListener('click', async () => {
     if (!state.account) { joinAfterSignIn = true; $('#account-note').textContent = 'Sign in to join the cloud play waitlist.'; $('#account-open').click(); return; }
     await joinWaitlist(); return;
   }
+  if (!chosen) { say('Choose a year first', 'Pick the year the cloud machine should open, then press the cloud button again.'); $('#play').click(); return; }
   const access = await loadAccess();
-  const r = access?.startCloud ? await access.startCloud({ year: state.year, account: state.account, config }).catch(() => null) : null;
-  if (r?.ok) return;
-  say(r?.title || 'Cloud play is opening soon', r?.message || 'The cloud machines are waiting on Google to approve graphics capacity. This button starts one for you once they are ready.');
+  const veil = $('#launching'), line = $('#launching-line');
+  $('#launching-year').textContent = chosen;
+  // The veil only when there is a starter to wait on; otherwise the check's line says why not.
+  const live = !!config?.streamStarter;
+  line.textContent = 'REQUESTING A CLOUD MACHINE';
+  if (live) { veil.hidden = false; musicFade(0, 500); }
+  const r = access?.startCloud ? await access.startCloud({ year: chosen, account: state.account, config,
+    progress: (s) => { line.textContent = `STARTING A CLOUD MACHINE · ${s} S · USUALLY ABOUT A MINUTE`; } }).catch(() => null) : null;
+  if (r?.ok) { line.textContent = 'CLOUD MACHINE READY · CONNECTING'; location.assign(r.link); return; }
+  veil.hidden = true;
+  line.textContent = 'LOCK CONFIRMED · LOADING THE TOWN';
+  say(r?.title || 'Cloud play did not start', r?.message || 'Something went wrong. Try again in a moment.');
 });
 paintCloud();
 

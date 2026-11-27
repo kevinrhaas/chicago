@@ -1,0 +1,148 @@
+/**
+ * test_stream_starter.mjs — T-3793..T-3795: cloud play's starter, machine scripts and the launch
+ * page's cloud button, against a fake Google (no network, no keys).
+ *
+ *   node tools/test_stream_starter.mjs
+ *
+ * Holds: a Firebase ID token is checked by signature, project, expiry, provider and verified
+ * address; rights come from Firestore read as the player; a machine is a Spot L4 with Google's
+ * own two-hour end, tagged for the firewall, with the session in its metadata; Spot tries each
+ * zone and only an admin falls back to on demand; the month's hours count a vanished session at
+ * most two hours; the scripts parse, hold no key and gate the stream by the session's token;
+ * the launch page's startCloud waits for ready and hands back only an sslip.io link.
+ */
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import * as lib from './stream/starter/lib.mjs';
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const STREAM = path.join(HERE, 'stream');
+let passed = 0;
+const ok = (cond, what) => { assert.ok(cond, what); passed++; };
+
+// ---- ID tokens ---------------------------------------------------------------------------
+const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
+const pem = publicKey.export({ type: 'spki', format: 'pem' });
+const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
+const now = Math.floor(Date.now() / 1000);
+const sign = (claims, { kid = 'k1', key = privateKey, alg = 'RS256' } = {}) => {
+  const head = b64({ alg, kid, typ: 'JWT' }), body = b64(claims);
+  return `${head}.${body}.${crypto.createSign('RSA-SHA256').update(`${head}.${body}`).sign(key).toString('base64url')}`;
+};
+const good = { aud: 'chicago-61643', iss: 'https://securetoken.google.com/chicago-61643', sub: 'u1', iat: now - 10, exp: now + 3000, email: 'Ann@School.org', email_verified: true, firebase: { sign_in_provider: 'google.com' } };
+const certFetch = async (url) => { assert.match(String(url), /securetoken@system/); return { ok: true, json: async () => ({ k1: pem }) }; };
+lib.resetCertCache();
+const claims = await lib.verifyIdToken(sign(good), { fetchFn: certFetch });
+ok(claims.email === 'Ann@School.org', 'a good token passes');
+const refuses = async (token, why) => { await assert.rejects(lib.verifyIdToken(token, { fetchFn: certFetch }), undefined, why); passed++; };
+await refuses(sign({ ...good, aud: 'other' }), 'another project');
+await refuses(sign({ ...good, exp: now - 5 }), 'expired');
+await refuses(sign({ ...good, email_verified: false }), 'an unverified address');
+await refuses(sign({ ...good, firebase: { sign_in_provider: 'anonymous' } }), 'an email-only sign-in');
+await refuses(sign(good, { key: crypto.generateKeyPairSync('rsa', { modulusLength: 2048 }).privateKey }), 'a forged signature');
+await refuses(sign(good, { kid: 'nope' }), 'an unknown key');
+await refuses(`${b64({ alg: 'none', kid: 'k1' })}.${b64(good)}.`, 'alg none');
+
+// ---- Rights, as the player ---------------------------------------------------------------
+const fsFake = ({ cloud = false, admin = false, open = false }) => async (url, init = {}) => {
+  assert.equal(init.headers.Authorization, 'Bearer T', 'Firestore is read with the player\'s own token');
+  const u = String(url);
+  if (u.endsWith(':runQuery')) return { ok: admin, json: async () => [] };
+  if (u.includes('/access/')) { assert.ok(u.endsWith('/access/ann%40school.org')); return cloud ? { ok: true, json: async () => ({ fields: { rights: { arrayValue: { values: [{ stringValue: 'cloud' }] } } } }) } : { ok: false, status: 404, json: async () => ({}) }; }
+  if (u.endsWith('/launch/cloud')) return { ok: true, json: async () => ({ fields: { ready: { booleanValue: open } } }) };
+  throw new Error(u);
+};
+ok(JSON.stringify(await lib.rightsOf({ token: 'T', email: 'Ann@School.org', fetchFn: fsFake({}) })) === '{"admin":false,"cloud":false,"open":false}', 'a stranger has nothing');
+ok((await lib.rightsOf({ token: 'T', email: 'ann@school.org', fetchFn: fsFake({ cloud: true, open: true }) })).cloud, 'a grant gives cloud play');
+const adm = await lib.rightsOf({ token: 'T', email: 'ann@school.org', fetchFn: fsFake({ admin: true }) });
+ok(adm.admin && adm.cloud && !adm.open, 'an admin has cloud play, even while it is closed');
+
+// ---- The machine -------------------------------------------------------------------------
+const body = lib.machineBody({ project: 'p', zone: 'us-central1-b', name: 'stream-x', year: '1871', token: 'ab'.repeat(24), player: lib.playerLabel('ann@school.org'), spot: true, machineSA: 'm@p.iam.gserviceaccount.com' });
+ok(body.machineType.endsWith('/g2-standard-4') && body.scheduling.provisioningModel === 'SPOT', 'a Spot g2-standard-4');
+ok(body.scheduling.maxRunDuration.seconds === '7200' && body.scheduling.instanceTerminationAction === 'DELETE', 'Google itself deletes it after two hours');
+ok(body.disks[0].initializeParams.sourceImage === 'projects/p/global/images/family/chicago-stream' && body.disks[0].autoDelete, 'from the image family, its disk going with it');
+ok(body.tags.items.includes('chicago-stream') && body.labels.app === 'chicago-stream', 'tagged for the firewall and labelled for the starter');
+ok(body.networkInterfaces[0].accessConfigs[0].networkTier === 'STANDARD', 'Standard network tier (the cheaper egress)');
+const meta = Object.fromEntries(body.metadata.items.map((m) => [m.key, m.value]));
+ok(meta['chicago-url'] === 'https://chicago.polecat.live/4d/1871/' && meta['enable-guest-attributes'] === 'TRUE', 'opens the chosen year');
+ok(!/@/.test(body.labels.player) && body.labels.player.length === 20, 'the player label holds no address');
+ok(lib.townURL('9999') === 'https://chicago.polecat.live/4d/1904/', 'an unknown year opens 1904');
+ok(lib.sslipHost('34.1.2.3') === '34-1-2-3.sslip.io', 'the sslip.io host');
+
+// Spot in each zone, then (admin only) on demand.
+const fakeG = (outcomes) => {
+  const tried = [];
+  return { tried, project: 'p',
+    insert: async (zone, b) => { tried.push(`${zone}:${b.scheduling.provisioningModel}`); return { ok: true, body: { name: `op-${tried.length}`, status: 'RUNNING' } }; },
+    operation: async () => { const o = outcomes.shift(); return { body: o ? { status: 'DONE', error: { errors: [o] } } : { status: 'DONE' } }; } };
+};
+const noWait = async () => {};
+const stockout = { code: 'ZONE_RESOURCE_POOL_EXHAUSTED', message: 'no L4' };
+let g = fakeG([stockout, stockout]);
+let r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
+ok(r.ok && r.zone === 'us-central1-c' && r.spot && /^[0-9a-f]{48}$/.test(r.token), `Spot moves on to the next zone (${g.tried})`);
+g = fakeG([stockout, stockout, stockout]);
+r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
+ok(!r.ok && r.why === 'no capacity' && g.tried.every((t) => t.endsWith('SPOT')), 'a player never gets an on-demand machine');
+g = fakeG([stockout, stockout, stockout]);
+r = await lib.startMachine(g, { year: '1904', player: 'x', admin: true, wait: noWait });
+ok(r.ok && !r.spot && g.tried[3] === 'us-central1-a:STANDARD', 'an admin falls back to on demand');
+g = fakeG([{ code: 'QUOTA_EXCEEDED', message: 'GPUS_ALL_REGIONS' }]);
+r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
+ok(!r.ok && r.why === 'quota' && g.tried.length === 1, 'a quota refusal stops at once');
+
+// ---- Hours -------------------------------------------------------------------------------
+const t = Date.parse('2026-12-10T12:00:00Z');
+const ledger = { sessions: {
+  a: { start: '2026-12-10T09:00:00Z', end: '2026-12-10T09:30:00Z' },
+  b: { start: '2026-12-01T00:00:00Z' },
+  c: { start: '2026-12-10T11:00:00Z' },
+} };
+ok(Math.abs(lib.hoursUsed(ledger, t) - 3.5) < 1e-9, `hours: 0.5 closed + 2 capped + 1 running = 3.5 (${lib.hoursUsed(ledger, t)})`);
+ok(lib.HOURS_CAP === 120, `the hours cap is 90 % of $100 at $0.75 (${lib.HOURS_CAP})`);
+
+// ---- The scripts -------------------------------------------------------------------------
+for (const f of ['setup.sh', 'build-image.sh', 'machine/provision.sh', 'machine/session.sh']) {
+  execFileSync('bash', ['-n', path.join(STREAM, f)]);
+  passed++;
+}
+const all = ['setup.sh', 'build-image.sh', 'machine/provision.sh', 'machine/session.sh', 'starter/lib.mjs', 'starter/server.mjs', 'README.md']
+  .map((f) => fs.readFileSync(path.join(STREAM, f), 'utf8')).join('\n');
+ok(!/BEGIN (RSA )?PRIVATE KEY|"private_key"|AIza[0-9A-Za-z_-]{30}/.test(all), 'no key in tools/stream');
+const session = fs.readFileSync(path.join(STREAM, 'machine/session.sh'), 'utf8');
+ok(/@ok header_regexp session Cookie chicago_stream=\$TOKEN/.test(session) && /respond "This cloud machine belongs to another session\." 403/.test(session), 'the stream answers only the session cookie');
+ok(/-p 127\.0\.0\.1:3000:3000/.test(session), 'the streamer listens only behind Caddy');
+ok(/\[\[ "\$TOKEN" =~ \^\[0-9a-f\]\{32,\}\$ \]\]/.test(session), 'the token is checked before it goes into the Caddyfile');
+ok(/"\$idle" -ge 600/.test(session), 'ten idle minutes end a session');
+const server = fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8');
+ok(/BUDGET_SECRET/.test(server) && /costAmount\) >= Number\(note\.budgetAmount\)/.test(server), 'the budget push stops machines at 100 %');
+ok(/hoursUsed\(data\)/.test(server) && /HOURS_CAP/.test(server), 'the starter checks the month\'s hours before it starts one');
+ok(!/chicago-61643/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup touches nothing in the Firebase project');
+
+// ---- The launch page's cloud button ------------------------------------------------------
+const { startCloud } = await import('../renderers/web/portal/launch-access.js');
+const account = { idToken: async () => 'T' };
+r = await startCloud({ year: '1904', account, config: {} });
+ok(!r.ok && /opening soon/.test(r.title), 'no starter configured: opening soon');
+let polls = 0;
+const starter = async (url, init) => {
+  assert.equal(init.headers.Authorization, 'Bearer T');
+  if (String(url).endsWith('/start')) { assert.equal(JSON.parse(init.body).year, '1835'); return { status: 200, json: async () => ({ ok: true, name: 'stream-1', status: 'STARTING' }) }; }
+  polls++;
+  return { status: 200, json: async () => (polls < 3 ? { ok: true, status: 'RUNNING', ready: false } : { ok: true, status: 'RUNNING', ready: true, link: `https://34-1-2-3.sslip.io/?k=${'ab'.repeat(24)}` }) };
+};
+const seen = [];
+r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app/' }, fetchFn: starter, wait: noWait, progress: (s, st) => seen.push(st) });
+ok(r.ok && r.link.startsWith('https://34-1-2-3.sslip.io/?k=') && polls === 3 && seen.length === 3, 'it waits for ready and hands back the link');
+r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app' }, wait: noWait,
+  fetchFn: async (url) => (String(url).endsWith('/start') ? { status: 200, json: async () => ({ ok: true, name: 'n' }) } : { status: 200, json: async () => ({ ok: true, ready: true, link: 'https://evil.example/' }) }) });
+ok(!r.ok, 'a link that is not an sslip.io stream is never followed');
+r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app' }, fetchFn: async () => ({ status: 429, json: async () => ({ ok: false, why: 'busy', message: 'All 1 cloud machine is in use.' }) }) });
+ok(!r.ok && r.title === 'Every cloud machine is in use', 'busy is said plainly');
+
+console.log(`PASS stream starter: ${passed} checks (tokens, rights as the player, the machine, zones and on demand, hours, scripts, the cloud button)`);

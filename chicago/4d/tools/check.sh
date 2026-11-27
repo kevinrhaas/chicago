@@ -5038,6 +5038,12 @@ step "launch page: check verdicts, four year tiles and stills, tools (T-3798)" \
 step "launch access: rights by email, owner-only admin, the Admin panel's imports (T-3797)" \
   node tools/test_launch_rights.mjs
 
+# Cloud play (T-3793..T-3795): the starter checks a Firebase ID token and reads rights as the
+# player, starts a Spot L4 with Google's own two-hour end, caps the month's hours, and stops on
+# the budget; the machine scripts parse and gate the stream by the session's token.
+step "cloud play starter: tokens, rights, the machine, hours cap, budget stop (T-3793..T-3795)" \
+  node tools/test_stream_starter.mjs
+
 # The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
 # site/js/films.js names each by the hash of its bytes, and every film has its poster.
 step "public site films: films.js, site-films/ and the posters agree (T-3611)" \

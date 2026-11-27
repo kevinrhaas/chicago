@@ -29,6 +29,9 @@ export const SIGN_IN = {
   // cloud features"); docs/STUDENT-DATA.md says what each feature keeps, and a school gets the
   // agreement (docs/STUDENT-DATA-AGREEMENT.md) before its classes use them.
   cloudFeatures: true,
+  // T-3794: the cloud play starter (tools/stream/setup.sh prints its address). Empty: the
+  // launch page's cloud button says cloud play is opening soon and starts nothing.
+  streamStarter: '',
   firebase: {
     apiKey: 'AIzaSyBxCJiD-E2s72C5WV8J101WtjCqDxGztDw',
     authDomain: 'chicago-61643.firebaseapp.com',

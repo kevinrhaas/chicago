@@ -4,9 +4,9 @@
  *
  *   myRights({ account, config })   → { rights, admin, waiting, cloudReady }
  *   joinWaitlist({ account, config, year, check })  a player without cloud play asks for it
- *   startCloud({ year, account })   → { ok } or { ok: false, title, message } for the check's
- *                                     verdict line. Until the cloud starter (T-3794) runs and
- *                                     the owner opens launch/cloud, it says what it waits on.
+ *   startCloud({ year, account, config, progress })  → { ok, link } once a cloud machine is
+ *                                     ready (T-3794's starter), or { ok: false, title, message }
+ *                                     for the check's verdict line.
  *   mountAdmin({ account, config, body })  the Admin sheet: cloud play's state, the waitlist
  *                                     (let in, or remove), and people by email with their rights
  *   refreshAdmin()                  reread the list when the sheet opens
@@ -30,14 +30,49 @@ export async function joinWaitlist({ account, config, year = '', check = '' }) {
   return join({ projectId: projectOf(config), account, year, check });
 }
 
-export async function startCloud() {
-  if (!last.cloudReady) {
+/**
+ * T-3794: ask the starter (config.streamStarter, tools/stream/starter) for a cloud machine at
+ * this year, then wait for it to be ready. `progress(seconds, status)` is told how it goes.
+ * → { ok: true, link } or { ok: false, title, message }
+ */
+export async function startCloud({ year, account, config, progress = () => {}, fetchFn = globalThis.fetch?.bind(globalThis), wait = (ms) => new Promise((r) => setTimeout(r, ms)) } = {}) {
+  const base = String(config?.streamStarter || '').replace(/\/$/, '');
+  if (!base) {
     return { ok: false, title: 'Cloud play is opening soon',
-      message: last.note || 'Your account has cloud play. The cloud machines are waiting on Google to approve graphics capacity; this button starts one for you once they are ready.' };
+      message: last.note || 'Your account has cloud play. The cloud machines are being set up; this button starts one for you once they are ready.' };
   }
-  // T-3794 replaces this with a call to the cloud starter, which checks the same rights.
-  return { ok: false, title: 'Cloud play is not connected yet', message: 'The machines are ready, but this page cannot reach the starter yet.' };
+  let token;
+  try { token = await account.idToken(); } catch { return { ok: false, title: 'Sign in again', message: 'Your sign-in has run out. Sign in, then press the cloud button again.' }; }
+  const call = async (path, init = {}) => {
+    try {
+      const r = await fetchFn(`${base}${path}`, { ...init, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } });
+      return { status: r.status, ...(await r.json().catch(() => ({}))) };
+    } catch { return { ok: false, why: 'offline' }; }
+  };
+  const t0 = Date.now();
+  const started = await call('/start', { method: 'POST', body: JSON.stringify({ year }) });
+  if (!started.ok) return { ok: false, ...CLOUD_WORDS(started) };
+  let s = started;
+  for (let i = 0; i < 100 && !s.ready; i++) {
+    progress(Math.round((Date.now() - t0) / 1000), s.status || 'STARTING');
+    await wait(3000);
+    const next = await call(`/status?name=${encodeURIComponent(started.name)}`);
+    if (next.ok) s = next; else if (next.why === 'gone') return { ok: false, title: 'The cloud machine stopped', message: 'Google took the machine back before it was ready. Press the cloud button to try again.' };
+  }
+  if (!s.ready || !/^https:\/\/[0-9-]+\.sslip\.io\/\?k=[0-9a-f]+$/.test(s.link)) return { ok: false, title: 'The cloud machine is slow to start', message: 'It did not answer in five minutes. Press the cloud button again to reach it, or play here.' };
+  return { ok: true, link: s.link, seconds: Math.round((Date.now() - t0) / 1000) };
 }
+const CLOUD_WORDS = (r) => ({
+  'no cloud play': { title: 'No cloud play on this account', message: 'Join the cloud waitlist, and an admin can let you in.' },
+  closed: { title: 'Cloud play is not open yet', message: 'The machines are being tested. Your account is ready for when it opens.' },
+  busy: { title: 'Every cloud machine is in use', message: r.message || 'Try again in a few minutes.' },
+  budget: { title: 'Cloud play has stopped for this month', message: r.message || 'The spending limit was reached.' },
+  hours: { title: 'Cloud play has stopped for this month', message: r.message || "This month's cloud hours are used." },
+  quota: { title: 'Cloud play is opening soon', message: r.message || 'Google has not given us the graphics capacity yet.' },
+  'no capacity': { title: 'No cloud machine free just now', message: r.message || 'Google has no free graphics machine in our region. Try again in a few minutes.' },
+  'sign in': { title: 'Sign in again', message: 'Your sign-in has run out. Sign in, then press the cloud button again.' },
+  offline: { title: 'Could not reach the cloud starter', message: 'You look to be offline, or the starter is down. Play here, or try again.' },
+}[r.why] || { title: 'Cloud play did not start', message: `Something went wrong (${r.why || r.status || 'unknown'}). Try again in a moment.` });
 
 // ---- Admin sheet -----------------------------------------------------------------------
 const n = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
