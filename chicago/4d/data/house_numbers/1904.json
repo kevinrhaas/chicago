@@ -65,14 +65,14 @@
   }
  },
  "summary": {
-  "numbers": 124,
+  "numbers": 125,
   "forms": {
-   "transom": 124
+   "transom": 125
   },
   "hands": {
    "gilt_block": 21,
    "gilt_italic": 17,
-   "gilt_roman": 24,
+   "gilt_roman": 25,
    "gilt_shaded": 26,
    "white_block": 16,
    "white_roman": 20
@@ -3111,6 +3111,30 @@
    "height_m": 0.121,
    "form": "transom",
    "hand": "white_roman",
+   "grade": "reconstructed",
+   "number_grade": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ]
+  },
+  {
+   "structure": "tucker_smith_house_2140_prairie",
+   "lot": "prairie_2140",
+   "street": "prairie",
+   "number": "2140",
+   "at": [
+    13.249,
+    4.085,
+    -5.8
+   ],
+   "normal": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "height_m": 0.134,
+   "form": "transom",
+   "hand": "gilt_roman",
    "grade": "reconstructed",
    "number_grade": "inferred",
    "sources": [
