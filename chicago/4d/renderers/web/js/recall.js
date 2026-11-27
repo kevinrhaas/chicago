@@ -7,6 +7,8 @@
  *                 outside the card or CANCEL leaves the scene exactly as it was.
  *   askJump(to, go)  the same prompt before the Navigator's Jump leaves this year for
  *                 another (T-3390), CANCEL and DEPART; `go` runs the jump's own ring.
+ *   askEndJaunt(jaunt, go)  the same prompt before End leaves a jaunt (the owner,
+ *                 2026-11-27: a bumped End dumped him out), CANCEL and END.
  *   depart(href)  the reverse ring: the outbound transfer's rings run backwards (wide and
  *                 faint, closing to the centre), the lamps light Arrive › Lock › Scan and the
  *                 year readout rolls forward to the present, then the page goes. The recall
@@ -155,6 +157,23 @@ export function createRecall({
     });
   }
 
+  /** The owner, 2026-11-27 ("I bumped it inadvertently and it dumped me out"): the same
+   * question before End leaves a jaunt. `jaunt` is { title }; `go` ends it on END. CANCEL,
+   * Esc, a tap outside or the controller's B leaves the outing exactly where it was. In the
+   * closing scene (`closing`) the Jaunts menu no longer pauses it, so the prompt does not say so. */
+  function askEndJaunt(jaunt, go, { closing = false } = {}) {
+    const title = String(jaunt?.title ?? '').trim();
+    const kind = closing ? 'end.body.closing' : 'end.body';
+    return open({
+      eyebrow: t('recall.end.eyebrow'),
+      code: t('recall.end.code'),
+      title: t('recall.end.title'),
+      body: title ? t(`recall.${kind}`, { title }) : t(`recall.${kind}.plain`),
+      confirm: t('recall.end.confirm'),
+      onYes: () => go?.(),
+    });
+  }
+
   function stopRing() {
     if (!ring) return;
     ring.timers.forEach(cancel);
@@ -216,6 +235,7 @@ export function createRecall({
   return {
     ask,
     askJump,
+    askEndJaunt,
     depart,
     close,
     abort: stopRing,

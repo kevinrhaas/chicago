@@ -349,7 +349,82 @@ async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, fra
   }
   assert(POSTURES.prone.root === 90 && POSTURES.lie.root === -90 && POSTURES.lie.still, 'lying is a tip of the whole figure; lying still stills it');
   // The owner, 2026-11-16: the lying figures were stiff, arms at the sides and legs straight.
-  for (const k of ['prone', 'lie', 'fallen']) assert(POSTURES[k].limbs && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('upperarm')) && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('thigh')), `${k}: the arms and legs are laid, not left straight`);
+  // Prone, the forearms are laid by planting the hands (human-actions.js reaches them; 2026-11-27).
+  for (const k of ['prone', 'lie', 'fallen']) assert(POSTURES[k].limbs && (POSTURES[k].hands || Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('upperarm'))) && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('thigh')), `${k}: the arms and legs are laid, not left straight`);
+}
+// T-3553 (owner, 2026-11-27, of the warriors getting up out of the grass at the sand bank: "they
+// just rise like a plank, that is not how someone would jump up to attack from a prone
+// position"): getting up off the ground passes through its poses (human-motions.js), on a real
+// 1812 body, placed as humans.js places it: it starts where the held posture is, the knees bend
+// deep on the way (a knee on the ground under the body, the hips up off it), nothing goes into
+// the ground, and it ends on its feet. Each man has his own way up.
+{
+  const M = await import(data(await js('human-motions.js')));
+  const r = await rig('potawatomi_man_1812', 1, 'idle', 0);
+  r.root.rotation.order = 'YXZ';
+  const base = r.root.position.clone();
+  const life = createHumanLife({ id: 't3553:motions', scene: r.scene });
+  const { hipY } = life.dims;
+  assert(hipY > 0.85 && hipY < 1.05, `the body's hip height is read at bind (${hipY.toFixed(3)} m)`);
+  const y = (n) => world(r.bone(n)).y - base.y;
+  const kneeBend = (s) => {
+    const h = world(r.bone(`thigh_${s}`)), k = world(r.bone(`calf_${s}`)), a = world(r.bone(`foot_${s}`));
+    return 180 - ang(h.clone().sub(k), a.clone().sub(k));
+  };
+  const place = (f) => {   // humans.js place(), the figure facing +z
+    const tip = f.tip * Math.PI / 180;
+    r.root.rotation.set(tip * f.w, 0, 0);
+    r.root.position.set(base.x, base.y + (f.hip[1] - hipY * Math.cos(tip)) * f.w, base.z + (f.hip[0] - hipY * Math.sin(tip)) * f.w);
+  };
+  const run = (m) => {
+    const seen = { low: Infinity, lowAt: '', bend: 0, kneeDownHipsUp: false, first: null, last: null };
+    for (m.t = 0; m.t <= m.end + m.out + 1e-9; m.t += 1 / 30) {
+      const f = M.motionFrame(m);
+      place(f);
+      r.mixer.update(1 / 30);
+      life.apply(1 / 30, { state: 'standing', root: r.root, posture: { kind: m.def.from, w: 1, frame: f } });
+      r.root.updateMatrixWorld(true);
+      const at = Object.fromEntries(['foot_l', 'foot_r', 'calf_l', 'calf_r', 'pelvis', 'head'].map((n) => [n, y(n)]));
+      for (const n of ['foot_l', 'foot_r', 'calf_l', 'calf_r']) if (at[n] < seen.low) { seen.low = at[n]; seen.lowAt = `${n} at ${m.t.toFixed(2)} s`; }
+      seen.bend = Math.max(seen.bend, kneeBend('l'), kneeBend('r'));
+      if (Math.min(at.calf_l, at.calf_r) < 0.15 && at.pelvis > 0.4) seen.kneeDownHipsUp = true;
+      seen.last = at; seen.first ??= at;
+    }
+    return seen;
+  };
+  // The prone posture held, as humans.js lays it: tipped 90 deg about the feet, lifted 0.12 m.
+  r.root.rotation.set(Math.PI / 2, 0, 0); r.root.position.set(base.x, base.y + 0.12, base.z);
+  for (let i = 0; i < 20; i++) { r.mixer.update(1 / 30); life.apply(1 / 30, { state: 'standing', root: r.root, posture: { kind: 'prone', w: 1 } }); }
+  r.root.updateMatrixWorld(true);
+  const held = { pelvis: world(r.bone('pelvis')), foot: world(r.bone('foot_l')), head: world(r.bone('head')) };
+  for (const [name, spring] of [['rise_prone_knee', true], ['rise_prone_fours', true], ['rise_prone_calm', false], ['down_prone', false], ['rise_kneel', true], ['rise_crouch', true], ['rise_kneel2', true]]) {
+    const def = M.MOTIONS[name];
+    let m = null;
+    for (let i = 0; i < 400 && m?.name !== name; i++) m = M.chooseMotion(def.from, def.ends, { id: `t3553:${i}`, spring, seconds: 1.1 });
+    assert(m?.name === name, `${name}: chosen for some figure`);
+    if (name.startsWith('rise_prone')) {
+      // Its first frame is the held posture, on the spot it rises from (PRONE_BACK behind the one it stands on).
+      m.t = 0; place(M.motionFrame(m));
+      r.root.position.z += M.PRONE_BACK;
+      r.mixer.update(1 / 30); life.apply(1 / 30, { state: 'standing', root: r.root, posture: { kind: 'prone', w: 1, frame: M.motionFrame(m) } });
+      r.root.updateMatrixWorld(true);
+      const d = Math.max(world(r.bone('pelvis')).distanceTo(held.pelvis), world(r.bone('foot_l')).distanceTo(held.foot));
+      assert(d < 0.05, `${name}: starts where the held prone posture lies (${(d * 100).toFixed(1)} cm off)`);
+    }
+    const seen = run(m);
+    assert(seen.low > -0.05, `${name}: nothing into the ground (lowest ${seen.low.toFixed(3)} m, ${seen.lowAt})`);
+    assert(seen.bend > 80, `${name}: the knees bend on the way, no plank (most ${seen.bend.toFixed(0)} deg)`);
+    if (name.startsWith('rise_prone')) assert(seen.kneeDownHipsUp, `${name}: a knee down under the body, the hips up off the ground`);
+    if (def.ends === 'stand') assert(seen.last.pelvis > 0.85 && seen.last.head > 1.5, `${name}: up on the feet at the end (pelvis ${seen.last.pelvis.toFixed(2)} m)`);
+    else assert(seen.last.pelvis < 0.3, `${name}: down on the ground at the end (pelvis ${seen.last.pelvis.toFixed(2)} m)`);
+    console.log(`motion ${name}: ${m.end.toFixed(2)} s, lowest ${seen.low.toFixed(3)} m, knees to ${seen.bend.toFixed(0)} deg: PASS`);
+  }
+  // Not alike (the owner: the Native people must not look identical): ways, sides and speeds.
+  const ways = Array.from({ length: 24 }, (_, i) => M.chooseMotion('prone', 'stand', { id: `gathering_1812_middle_${i}`, spring: true, seconds: 1.1 }));
+  const names = new Set(ways.map((m) => m.name)), sides = new Set(ways.map((m) => m.side)), ends = ways.map((m) => m.end);
+  assert(names.size >= 2 && sides.size === 2 && Math.max(...ends) - Math.min(...ends) > 0.3, `24 men get up ${names.size} ways, on ${sides.size} sides, in ${Math.min(...ends).toFixed(2)}..${Math.max(...ends).toFixed(2)} s`);
+  assert(!M.chooseMotion('sit', 'stand', { id: 'x', spring: true }) && !M.chooseMotion('kneel', 'stand', { id: 'x', spring: false }), 'a calm rise off a kneel, and a rise off a seat, stay the plain blend');
+  console.log(`motions vary: ${names.size} ways, both sides, ${Math.min(...ends).toFixed(2)}..${Math.max(...ends).toFixed(2)} s: PASS`);
 }
 // T-3754 (owner, 2026-11-26: "people appear to be missing from boats"): a castmate walks down
 // to a boat and sits in it. The gait layer writes the pelvis too; humans.js takes back life's

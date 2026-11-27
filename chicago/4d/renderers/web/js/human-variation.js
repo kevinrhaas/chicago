@@ -114,11 +114,17 @@ export function attachChildPhotoLibrary(kit,library,manifestURL){
   kit.photoChildren=checked.photoFaces;return true;
 }
 
-/** Stable age-compatible assignment. Personal portraits and visitor-selected faces win. */
-export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null }) {
+/** Stable age-compatible assignment. Personal portraits and visitor-selected faces win.
+ * T-3553 (Kevin, 2026-11-27, the You tab's face library): a visitor who chose a face of this
+ * library (`pick`, its id) wears that face; one who chose a painted face (face_library.json)
+ * or the body's own wears none of these. A visitor's Style 3 on Auto draws from the other
+ * body's faces (`faceOf`, as libraryFace does since T-3756); nobody of the town has either. */
+export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null, faceOf = null }) {
+  if (typeof pick === 'string' && !own) return kit?.photoFaces?.faces?.find(f => f.id === pick && f.population !== 'child') ?? null;
   const child=Number.isFinite(age)&&age<18,P=child?kit?.photoChildren:kit?.photoFaces;
   if (!P || own || pick || !Number.isFinite(age)) return null;
-  const candidates = P.faces.filter(f => (f.sex===sex||child&&sex==='either')
+  const wears = !child && (faceOf === 'male' || faceOf === 'female') ? faceOf : sex;
+  const candidates = P.faces.filter(f => (f.sex===wears||child&&sex==='either')
     &&(child?f.population==='child'&&f.age>=2&&f.age<18&&f.age>=age-4&&f.age<=age+3:f.age>=18));
   if (!candidates.length) return null;
   const tint = kit.header.faces?.complexions?.[complexion] ?? [1, 1, 1];
@@ -346,7 +352,8 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     }
   }
   const photo = photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
-    own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn });
+    own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn,
+    faceOf: record?.looks?.face_of ?? null });
   if (photo&&!photo.texture_only) for (const [k,v] of Object.entries(photo.values)) {
     if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
     else values[k] = v;
