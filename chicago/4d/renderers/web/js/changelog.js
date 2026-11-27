@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3279, ts: '2026-11-27T04:52:34.499Z', date: 'Nov 26, 2026, 10:52 PM CT', title: '2140 Prairie\'s columned porch, crocketed dormers and tall chimney', kind: 'improvement',
+    items: [
+      'The Tucker/Smith mansion at Prairie Avenue and 22nd Street now has the stone porch its photographs show before the front door: paired Corinthian columns under a balustraded balcony, with a broad stair down to the walk. Its mansard dormers rise in steep coped gables with crockets, pinnacles and finials, and the tall chimney on 22nd Street carries its row of four tall pots over sunk panels.',
+    ] },
+  { v: 3278, ts: '2026-11-27T04:33:17.790Z', date: 'Nov 26, 2026, 10:33 PM CT', title: 'Brick stables behind 2031 and 2033 Prairie', kind: 'feature',
+    items: [
+      'The stables behind 2031 and 2033 Prairie now stand on the alley as a matched pair of two-storey brick buildings, each about 14.7 m deep, sharing a fire wall on their lot line and closed by another at their far ends, as the 1911 fire-insurance map draws them.',
+      'Each has a carriage door and a loft hatch on the alley, the one window the map marks there, and a paved yard and walk back to its house\'s rear wing.',
+    ] },
   { v: 3277, ts: '2026-11-27T03:36:42.565Z', date: 'Nov 26, 2026, 9:36 PM CT', title: 'Clean lapels, finer coat cloth, real felt and straw hats', kind: 'fix',
     items: [
       'Gentlemen\'s lapels are whole and pressed at every distance; the dark torn shards on their chests are gone.',
