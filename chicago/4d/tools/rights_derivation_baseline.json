@@ -4105,6 +4105,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "mark_kimball_house_2108_prairie_coach_house/as_standing_1904/footprint": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2014_10_rees_coach_house_relocated"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "mark_kimball_house_2108_prairie_coach_house/as_standing_1904/form.coach_house": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2014_10_rees_coach_house_relocated"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "marsh_house_1824_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
       "blocked_sources": [
@@ -4828,7 +4844,7 @@
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "murdoch_house_2130_prairie/as_mapped_1904/form.storey_heights_m": {

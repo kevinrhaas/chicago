@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1246,
+  "count": 1247,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "mark_kimball_house_2108_prairie_coach_house",
-      "name": "2108 S. Prairie Avenue — the coach house of 2108 and 2110, one building divided on their lot line"
+      "name": "2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley"
     },
     {
       "id": "marsh_house_1824_prairie",
@@ -36048,18 +36048,6 @@
         },
         {
           "domain": "structure",
-          "structure": "mark_kimball_house_2108_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "mark_kimball_house_2108_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "murdoch_house_2130_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36148,11 +36136,11 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
-          "text": "the district draft's 20th-22nd block, west side, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 35's trace and the census. Block 35's west side stands thirteen houses and thirteen alley buildings: the frame pair 2000 and 2010, 2018, 2026, 2036 Buckingham, 2100 Sherman, 2108 Mark Kimball, 2110 Rees at its historical site, 2112 Rothschild, 2120, 2126 Robbins, 2130 Murdoch and 2140 Tucker/Smith, with the stable or coach house the sheet draws behind each, one coach house shared by 2108 and 2110, and 2140's three-storey building on the alley beside its stable. That is every west-side row of the census (frontage-35-059 to -071). Nothing on sheets 20 or 28 moves. **What is invented on this side, beyond the 18th-20th list.** 2000 and 2010, which the sheet draws as twins in plan, are one design with their doors mirrored. Roofs are varied where the register names no form so that neighbours do not share one face: 2018 plain and 2026 bracketed behind their stone fronts, 2108 flat, 2110 a steep street gable (the register's 'tall gable'), 2112 bracketed. Each building's roof and storey heights are the draft rules'. The sheet's crossed stables are filled from their traced outlines (block 35's service outline), so the one-storey pieces a few of them carry stand at the stable's own two storeys. 2130's turret stands on the round bay the sheet draws on its front, under a cone the register names. **2126, a building site.** The census rules 2126 a building site on 1 July 1904 (r35-robbins-2126): the Hamill house razed, the Robbins house rising, finished by the May 1905 plate. The draft stands that ONE working phase: a hollow brick shell two of its three storeys up over its stone basement, the street wall and its returns 1.6 m into the third, empty openings in the finished house's five bays, no roof, a deck at the principal floor and a pole scaffold. How far the walls had risen is the draft's reconstruction and nothing more: no permit or progress photograph dates the month. The May 1905 plate is not read as July 1904 evidence. The alley stable stands, as the ruling has it. **2108/2110, one coach house.** The sheet draws one two-storey brick stable across the alley end of both lots, divided on the lot line, and the census rules it one building (r35-2108-2110-coach-house). The trace outlines it as two; the draft fills the two outlines as one envelope under one roof (block 35's `join`) and stands the lot line through it as a coped party wall. It is one record, 2108 S. Prairie Avenue — the coach house of 2108 and 2110, one building divided on their lot line, whose south half is Rees's. **2140, one roof state.** The register asks for ONE declared 1904 state of the towers, flat-topped and crested or the later conical spires, never both. The spires are dated only by a 1928 photograph, and nothing found puts them on the house by 1904, so the draft draws the house's first state: the round corner tower flat-topped inside an iron cresting. A dated view showing spires by July 1904 replaces it. 2140's two rear buildings carry each other's census ids in the trace; read again on the raster (the yard building crossed and numbered 2, the alley building lettered CATERER and numbered 3), the draft swaps them back (block 35's census fix). The three-storey alley building's 1911 use is not carried back: it stands as an `outbuilding`. **What is not drafted here.** The 6- and 8-ft brick walls the sheet draws along 21st Street and the alley (2036, 2100, 2140) and 2026's open ground: the draft archetype has no boundary walls, and the per-building pieces of work build them. 2100's oriel, 2110's tympanum and loggia, and 2140's porch, glass room and exterior stairs are the per-building pieces of work'."
+          "text": "the district draft's 20th-22nd block, west side, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word, reading sheet 35's trace and the census. Block 35's west side stands thirteen houses and thirteen alley buildings: the frame pair 2000 and 2010, 2018, 2026, 2036 Buckingham, 2100 Sherman, 2108 Mark Kimball, 2110 Rees at its historical site, 2112 Rothschild, 2120, 2126 Robbins, 2130 Murdoch and 2140 Tucker/Smith, with the stable or coach house the sheet draws behind each, one coach house shared by 2108 and 2110, and 2140's three-storey building on the alley beside its stable. That is every west-side row of the census (frontage-35-059 to -071). Nothing on sheets 20 or 28 moves. **What is invented on this side, beyond the 18th-20th list.** 2000 and 2010, which the sheet draws as twins in plan, are one design with their doors mirrored. Roofs are varied where the register names no form so that neighbours do not share one face: 2018 plain and 2026 bracketed behind their stone fronts, 2108 flat, 2110 a steep street gable (the register's 'tall gable'), 2112 bracketed. Each building's roof and storey heights are the draft rules'. The sheet's crossed stables are filled from their traced outlines (block 35's service outline), so the one-storey pieces a few of them carry stand at the stable's own two storeys. 2130's turret stands on the round bay the sheet draws on its front, under a cone the register names. **2126, a building site.** The census rules 2126 a building site on 1 July 1904 (r35-robbins-2126): the Hamill house razed, the Robbins house rising, finished by the May 1905 plate. The draft stands that ONE working phase: a hollow brick shell two of its three storeys up over its stone basement, the street wall and its returns 1.6 m into the third, empty openings in the finished house's five bays, no roof, a deck at the principal floor and a pole scaffold. How far the walls had risen is the draft's reconstruction and nothing more: no permit or progress photograph dates the month. The May 1905 plate is not read as July 1904 evidence. The alley stable stands, as the ruling has it. **2108/2110, one coach house.** The sheet draws one two-storey brick stable across the alley end of both lots, divided on the lot line, and the census rules it one building (r35-2108-2110-coach-house). The trace outlines it as two; the draft fills the two outlines as one envelope under one roof (block 35's `join`) and stands the lot line through it as a coped party wall. It is one record, 2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley, whose south half is Rees's. **2140, one roof state.** The register asks for ONE declared 1904 state of the towers, flat-topped and crested or the later conical spires, never both. The spires are dated only by a 1928 photograph, and nothing found puts them on the house by 1904, so the draft draws the house's first state: the round corner tower flat-topped inside an iron cresting. A dated view showing spires by July 1904 replaces it. 2140's two rear buildings carry each other's census ids in the trace; read again on the raster (the yard building crossed and numbered 2, the alley building lettered CATERER and numbered 3), the draft swaps them back (block 35's census fix). The three-storey alley building's 1911 use is not carried back: it stands as an `outbuilding`. **What is not drafted here.** The 6- and 8-ft brick walls the sheet draws along 21st Street and the alley (2036, 2100, 2140) and 2026's open ground: the draft archetype has no boundary walls, and the per-building pieces of work build them. 2100's oriel, 2110's tympanum and loggia, and 2140's porch, glass room and exterior stairs are the per-building pieces of work'."
         },
         {
           "label": "How to resolve",
@@ -36185,6 +36173,10 @@
         {
           "label": "Retired in part",
           "text": "2120, the two-storey brick house with an iron-clad north bay, by later work (the S15 package), which refined it in place on the K01 frontage kit under `“2120 Prairie, the two-storey brick house with an iron-clad bay, refined from the district draft onto K01: its plan off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone (its alley building is still this draft's, 's)."
+        },
+        {
+          "label": "Retired in part",
+          "text": "the coach house 2108 and 2110 shared, by earlier work, which refined it in place on the K12 coach-house kit under `“The coach house 2108 and 2110 Prairie shared, built from the K12 kit as one building under a flat roof, its two halves' openings the kit's”`, under the same id 2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley, as one building divided on the lot line under a flat roof; its draft attributes are gone."
         },
         {
           "label": "Review",
@@ -81708,6 +81700,52 @@
       "work_refs": [
         "T-1938",
         "T-1932"
+      ]
+    },
+    {
+      "id": "L-k12-2108-2110-coach-house-1937",
+      "title": "The coach house 2108 and 2110 Prairie shared, built from the K12 kit as one building under a flat roof, its two halves' openings the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "mark_kimball_house_2108_prairie",
+        "mark_kimball_house_2108_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "mark_kimball_house_2108_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building across the rear of 2108 and 2110 Prairie Avenue is refined in place, under its own id 2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”), facing the alley on its west (alley side: west), as ONE building (census ruling r35-2108-2110-coach-house), under a flat roof the kit now builds (roof form: flat). **What is read.** From sheet 35 of the 1911 Sanborn, through the committed trace of its two halves (s35fp-2108-b2, s35fp-2110-b2): one two-storey brick stable across both lots' alley ends, divided on the lot line, its alley wall on the alley line, 2100's alley building against it to the north and 2112's to the south. The trace gives two readings of each wall line (its vertices' median and its outermost), 10.27 or 11.06 m deep and 14.96 or 16.00 m along the alley; the building takes the middle of the width, 15.48 m, and the Glessner House post of 1 October 2014 (Glessner House Museum, 'Rees coach house relocated', The Story of a House…) for the depth, its measure of the surviving south half, 35 ft (10.67 m), which the two readings bracket. The post also gives: Kimball's coach house spanning both lots when Rees bought 2110 in 1888, 'a party wall... constructed in the middle'; the south half 25 ft wide (7.62 m; the north half is the rest, 7.86 m) and 23 ft high; a full basement; carriages on the ground floor, horses down a ramp to the basement, the coachman upstairs. Its 2014 photograph shows the level wall heads, no roof above them, and the common brick. **The date.** The 1911 sheet, the census's carry-back, and the 2108 to-let notice of February 1904 ('a good brick barn'). The post carries it from before 1888 to the 1930s; the range claims 1904 and no more. **What is invented.** The flat roof's own make: the parapet 0.45 m (the kit's party-wall parapet), the slab and its felt; no fall, outlet, coping or corbel. The split of the 7.01 m into the kit's 3.6 m carriage room and a 2.96 m loft. The 23 ft read as grade to the wall head. Every opening: each half has on the alley a man door, a carriage bay 3.0 m clear under the loft hatch and hoist, and a stable sash, laid out mirror-wise so the carriage bays stand toward the ends, and on the yard a door toward its own house between two stable sash, every one with a loft sash over it. The kit's 1.8 m basement. Flat colours. **Left out.** The middle party wall, which stands inside under the one roof and shows nothing outside. The ramp: attested, but placed by no source, and the scene's yard layer makes no cut for it, so it would stand under the ground. The photograph's segmental heads with keystones. **What is not.** The outline, its place, the two storeys, the brick, the one building of two halves, the depth, the south half's width, the height and the flat roof are the sources'."
+        },
+        {
+          "label": "How to resolve",
+          "text": "This work's image gate: solve the 2014 photograph's camera, settle which of its faces is the alley's, and read its openings and heads onto that wall; the NRHP nomination's 2006 alley photograph (link-only) and its site plan, and a permit or an older view of the north half, would place the carriage doors and the ramp."
+        },
+        {
+          "label": "Covers",
+          "text": "`mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.coach_house`, `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.stories`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-1937)."
+        }
+      ],
+      "work_refs": [
+        "T-1937"
       ]
     },
     {

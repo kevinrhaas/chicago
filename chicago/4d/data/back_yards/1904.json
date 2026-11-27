@@ -54,12 +54,12 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 284,
+  "surfaces": 286,
   "doors": 126,
   "posts": 112,
   "gardens": 28,
   "by_kind": {
-   "alley_walk": 22,
+   "alley_walk": 24,
    "coach_walk": 30,
    "drying_yard": 56,
    "front_walk": 10,
@@ -15945,8 +15945,7 @@
    "street": "prairie",
    "side": "west",
    "structures": [
-    "mark_kimball_house_2108_prairie",
-    "mark_kimball_house_2108_prairie_coach_house"
+    "mark_kimball_house_2108_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -15980,6 +15979,34 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2108:alley_walk:1",
+     "kind": "alley_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1361.19,
+       -3641.38
+      ],
+      [
+       1361.2,
+       -3642.38
+      ],
+      [
+       1341.59,
+       -3642.58
+      ],
+      [
+       1341.58,
+       -3641.58
+      ]
+     ],
+     "along_deg": 179.42,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -16006,7 +16033,22 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
+   "shrubs": [
+    [
+     1343.11,
+     -3644.81,
+     "lilac",
+     3.07,
+     2.41
+    ],
+    [
+     1342.64,
+     -3647.32,
+     "lilac",
+     3.14,
+     2.06
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []
@@ -16127,6 +16169,34 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in stone flagging: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2110:alley_walk:1",
+     "kind": "alley_walk",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1363.45,
+       -3653.44
+      ],
+      [
+       1363.45,
+       -3654.44
+      ],
+      [
+       1341.7,
+       -3654.62
+      ],
+      [
+       1341.69,
+       -3653.62
+      ]
+     ],
+     "along_deg": 179.51,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -16155,15 +16225,15 @@
    "crops": [],
    "shrubs": [
     [
-     1353.71,
-     -3655.27,
+     1342.67,
+     -3651.61,
      "lilac",
      2.64,
      1.95
     ],
     [
-     1356.21,
-     -3655.25,
+     1345.17,
+     -3651.59,
      "lilac",
      2.27,
      2.1
