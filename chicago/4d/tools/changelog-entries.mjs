@@ -49,11 +49,23 @@ export const ENTRY_DIR = 'changelog.d';
 
 /**
  * The What's-New budget, shared with check-changelog.mjs so the two cannot drift.
- * Measured 2026-08-15 (see check-changelog.mjs § LENGTH). Warn at the budget, fail
- * at the ceiling.
+ * Warn at the budget, fail at the ceiling (budget × CEILING, rounded up).
+ *
+ * T-3813 (Kevin, 2026-11-27: What's New "has become a bit much … keep the what's new
+ * items more concise"). The 2026-08-15 budget of 12 title words, 6 items and 450 words
+ * held entries to a median of 77 words and a 34-word item, over some twenty releases a
+ * day: 3,300 releases and 690,000 words by November. The tab now opens on titles alone,
+ * so the title carries the release and the items are its few lines underneath: LIMITS.
+ *
+ * LEGACY_LIMITS is the old budget. It stays the hard ceiling wherever a file written to
+ * it may still arrive: the fold on dev (a PR opened before T-3813 must still fold, or one
+ * long entry jams every entry behind it) and, until CONCISE_HARD_FROM, the PR gate too,
+ * so the PRs already open when the budget tightened see a note, not a red gate.
  */
-export const LIMITS = { titleWords: 12, items: 6, words: 450 };
+export const LIMITS = { titleWords: 10, items: 3, words: 60, itemWords: 25 };
+export const LEGACY_LIMITS = { titleWords: 12, items: 6, words: 450 };
 export const CEILING = 1.5;
+export const CONCISE_HARD_FROM = '2026-12-04';
 
 /** Every kind the published history carries; the first four are the ones to use. */
 export const KINDS = ['feature', 'fix', 'change', 'chore',
@@ -63,26 +75,36 @@ const words = (s) => String(s ?? '').trim().split(/\s+/).filter(Boolean).length;
 
 /**
  * Hold one entry to the What's-New budget. Returns { problems, notes }.
- * `at` names the entry in the messages.
+ * `at` names the entry in the messages. Over LIMITS is a note. The hard ceiling is
+ * LIMITS × CEILING from CONCISE_HARD_FROM on (`now`), and LEGACY_LIMITS × CEILING
+ * before it and always in the fold (`fold: true`), which must never jam on a file
+ * an older PR wrote to the old budget.
  */
-export function budget(entry, at) {
+export function budget(entry, at, { now = new Date(), fold = false } = {}) {
   const problems = [];
   const notes = [];
-  const iw = (entry.items || []).reduce((n, i) => n + words(i), 0);
-  const one = (name, got, limit) => {
-    if (got > Math.ceil(limit * CEILING)) {
-      problems.push(`${at}: ${name} is ${got}, over the hard ceiling of `
-        + `${Math.ceil(limit * CEILING)} (budget ${limit}). What's-New is for a visitor asking `
-        + 'what changed in the town; the reasoning belongs in the PR body and STATUS.md, which '
-        + 'have no limit. Cut the entry, do not raise this number.');
+  const strict = !fold && now >= new Date(`${CONCISE_HARD_FROM}T00:00:00Z`);
+  const items = (entry.items || []).map(String);
+  const one = (name, key, got) => {
+    const limit = LIMITS[key];
+    const hardFrom = strict ? limit : LEGACY_LIMITS[key];
+    const hard = hardFrom === undefined ? Infinity : Math.ceil(hardFrom * CEILING);
+    if (got > hard) {
+      problems.push(`${at}: ${name} is ${got}, over the hard ceiling of ${hard} (budget `
+        + `${limit}). What's-New is for a visitor asking what changed in the town; the `
+        + 'reasoning belongs in the PR body and STATUS.md, which have no limit. Cut the entry, '
+        + 'do not raise this number.');
     } else if (got > limit) {
-      notes.push(`${at}: ${name} is ${got}, over the budget of ${limit} — allowed, but `
-        + 'the last 20 entries already drifted 78 % longer than the first 20. Trim if you can.');
+      notes.push(`${at}: ${name} is ${got}, over the budget of ${limit} — trim it (T-3813: `
+        + 'the tab opens on titles and a release\'s few short lines'
+        + (strict || fold ? ')' : `; a hard ceiling of ${Math.ceil(limit * CEILING)} from ${CONCISE_HARD_FROM})`));
     }
   };
-  one('title length in words', words(entry.title), LIMITS.titleWords);
-  one('item count', (entry.items || []).length, LIMITS.items);
-  one('total words', iw, LIMITS.words);
+  one('title length in words', 'titleWords', words(entry.title));
+  one('item count', 'items', items.length);
+  one('total words', 'words', items.reduce((n, i) => n + words(i), 0));
+  const longest = items.reduce((m, i) => Math.max(m, words(i)), 0);
+  one('longest item in words', 'itemWords', longest);
   return { problems, notes };
 }
 
@@ -156,7 +178,7 @@ export function pending(root = ROOT) {
 }
 
 /** Read and validate every pending file. Returns { entries, problems, notes }. */
-export function readPending(root = ROOT, published = []) {
+export function readPending(root = ROOT, published = [], { fold = false } = {}) {
   const entries = [];
   const problems = [];
   const notes = [];
@@ -173,7 +195,7 @@ export function readPending(root = ROOT, published = []) {
     const shape = validate(entry, at);
     problems.push(...shape);
     if (shape.length) continue;
-    const b = budget(entry, at);
+    const b = budget(entry, at, { fold });
     problems.push(...b.problems);
     notes.push(...b.notes);
     const t = entry.title;
@@ -193,7 +215,7 @@ export function readPending(root = ROOT, published = []) {
  */
 export function fold(root = ROOT, { stamp = true } = {}) {
   const file = path.join(root, 'renderers', 'web', 'js', 'changelog.js');
-  const { entries, problems } = readPending(root);
+  const { entries, problems } = readPending(root, [], { fold: true });
   if (problems.length) {
     const err = new Error(`refusing to fold — ${problems.length} problem(s):\n  - ${problems.join('\n  - ')}`);
     err.problems = problems;
@@ -327,10 +349,27 @@ function selfTest() {
     check('no items is refused', bad({ title: 'T', kind: 'fix', items: [] }));
     check('a "//" in an item is refused', bad({ title: 'T', kind: 'fix', items: ['see https://x'] }));
     check('a line break in an item is refused', bad({ title: 'T', kind: 'fix', items: ['a\nb'] }));
-    check('a title over the hard ceiling is refused',
-      budget({ title: Array(19).fill('w').join(' '), items: ['a'] }, 'x').problems.length === 1);
+    const W = (n) => Array(n).fill('w').join(' ');
+    const before = new Date('2026-11-28T00:00:00Z');
+    const after = new Date(`${CONCISE_HARD_FROM}T00:00:01Z`);
+    check('a title over the old hard ceiling is refused',
+      budget({ title: W(19), items: ['a'] }, 'x', { now: before }).problems.length === 1);
     check('…and one merely over the budget only notes it',
-      budget({ title: Array(13).fill('w').join(' '), items: ['a'] }, 'x').notes.length === 1);
+      budget({ title: W(11), items: ['a'] }, 'x', { now: before }).notes.length === 1);
+    check('T-3813: a 16-word title only notes before the concise ceiling binds …',
+      budget({ title: W(16), items: ['a'] }, 'x', { now: before }).problems.length === 0);
+    check('… is refused once it binds …',
+      budget({ title: W(16), items: ['a'] }, 'x', { now: after }).problems.length === 1);
+    check('… and never jams the fold',
+      budget({ title: W(16), items: ['a'] }, 'x', { now: after, fold: true }).problems.length === 0);
+    check('T-3813: a 40-word item is refused once the concise ceiling binds',
+      budget({ title: 'T', items: [W(40)] }, 'x', { now: after }).problems.length === 1);
+    check('T-3813: a four-item entry is noted, not refused',
+      budget({ title: 'T', items: ['a', 'b', 'c', 'd'] }, 'x', { now: after }).problems.length === 0
+        && budget({ title: 'T', items: ['a', 'b', 'c', 'd'] }, 'x', { now: after }).notes.length === 1);
+    check('T-3813: a concise entry draws nothing',
+      (({ problems, notes }) => !problems.length && !notes.length)(
+        budget({ title: W(8), items: [W(20), W(20)] }, 'x', { now: after })));
     writeFileSync(path.join(box, ENTRY_DIR, 'dup.json'), JSON.stringify({ title: 'Old', kind: 'fix', items: ['x'] }));
     check('a title the published file already carries is refused',
       readPending(box, [{ v: 7, title: 'Old' }]).problems.length === 1);

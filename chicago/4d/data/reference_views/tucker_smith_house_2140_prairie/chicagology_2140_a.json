@@ -1,0 +1,24 @@
+{
+ "structure_id": "tucker_smith_house_2140_prairie",
+ "source_id": "chicagology_2140_photo_a",
+ "library_image": "a20-chicagology-2140-photo-a",
+ "photo": "../../sources/assets/murdoch_2130_photos_t3730/chicagology_2140_photo_a.jpg",
+ "image_px": [
+  2000,
+  1467
+ ],
+ "principal_px": [
+  1000.0,
+  1351.3
+ ],
+ "focal_px": 3787.0,
+ "eye": [
+  53.59,
+  -43.0,
+  -1.08
+ ],
+ "yaw_deg": -39.37,
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "FITTED FOR T-3799 jointly with the Van Osdel print's camera (glessner_2140_vanosdel.json), both cameras and the round tower's axis solved together by least squares, because T-3730's cameras on 2130 (which this one started from, carried into this frame: 2130's origin lies at u -9.52, v +26.16 here, both frames turned -0.679 degrees) were fitted to 2130 alone and put 2140's tower about 2 m apart on the two pictures. In this house's frame (u east from its rear wall, v north from its south wall): the lot's south-east street corner (18.18, -6.99), the corner pier's foot; 2130's tower lights at -40 degrees on its 2.4 m drum about (12.51, 32.76), centres at 3.4, 7.05 and 9.8 m; that drum's right edge; and this house's round drum, 2.3 m in radius as sheet 35 draws it, its two silhouette edges at about 6 m, with its axis left free. ON THIS PRINT (2000 x 1467 px): the pier's foot at (659, 1267); 2130's lights at x 1767, y 1147, 985 and 845; 2130's drum edge at x 1850; this drum's edges at x 625 and 920. Residuals over both pictures 3.7 px RMS; on this one 5.0 px RMS, worst 10.6 px (2130's top light, whose head the cone's eave crowds). A level camera; the principal column the print's middle. THE AXIS the two pictures agree on is (13.0, 0.8): at the Prairie/22nd Street corner, within about 0.4 m of both walls' line, where sheet 35 draws it (12.73, -1.3) 2 m further south and the build stands it (K08's ring clear of the wall's end) 2 m further west, about (10.8, -1.3); the gap between the photographs and the sheet is along neither line of sight, and the build's is T-3800's. THE STACK checks the fit: its shaft's axis (x 645 here, 284 on the Van Osdel print) meets at (9.15, 2.25), and its cap's top (y 310 and 85) and pots' lips (y 230 and 53) give 16.62 and 16.61 m and 17.96 and 17.92 m on the two pictures. WHAT IS SOFT: the two eyes stand 15 degrees apart, so depth along the north-west line of sight trades against focal length (eyes from about (50, -40) to (60, -51) fit within 1 px RMS); the eye fits 1.08 m under the house's grade, the print's walk below the lot behind its curb, so read heights against courses. LIGHT: overcast, as T-3730 read it. DATE: no earlier than 1905 (2126's finished front at the far right), and its towers carry the spires the 1904 record does not (L-k01-2140-tucker-3770)."
+}
