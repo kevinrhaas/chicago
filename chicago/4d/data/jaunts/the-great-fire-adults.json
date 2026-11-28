@@ -669,6 +669,7 @@
         "tower",
         "mason",
         "prisoners",
+        "runaway",
         "stand",
         "stage"
       ],
@@ -680,7 +681,7 @@
       ],
       "since": "Two hours later",
       "stage": {
-        "caption": "Released prisoners run out of the square, and men who came to save the city's records stand back across Clark Street to watch the tower.",
+        "caption": "Released prisoners run out of the square and men watch the tower from Clark Street; a runaway team tears along Washington Street, and a wagon goes by with its load alight.",
         "liberty": "L-1871-great-fire-jaunt",
         "cast": [
           {
@@ -691,7 +692,31 @@
               563.38,
               -396.17
             ],
-            "heading": 319.6
+            "heading": 319.6,
+            "beats": [
+              {
+                "t": 38.8,
+                "walk": [
+                  [
+                    563.38,
+                    -391.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 235.6
+              },
+              {
+                "t": 44.9,
+                "walk": [
+                  [
+                    563.38,
+                    -396.17
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 319.6
+              }
+            ]
           },
           {
             "extra": "fire_court_house_watch_1",
@@ -702,7 +727,53 @@
               -392.86
             ],
             "heading": 317.8,
-            "wear": "working_coat_1904"
+            "wear": "working_coat_1904",
+            "beats": [
+              {
+                "t": 27.5,
+                "walk": [
+                  [
+                    563.98,
+                    -395.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 55.1
+              },
+              {
+                "t": 33.6,
+                "walk": [
+                  [
+                    563.98,
+                    -392.86
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 317.8
+              },
+              {
+                "t": 39.2,
+                "walk": [
+                  [
+                    563.98,
+                    -391.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 232.9
+              },
+              {
+                "t": 45.3,
+                "walk": [
+                  [
+                    563.98,
+                    -392.86
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 317.8
+              }
+            ]
           },
           {
             "extra": "fire_court_house_watch_2",
@@ -712,7 +783,53 @@
               568.33,
               -392.9
             ],
-            "heading": 315.7
+            "heading": 315.7,
+            "beats": [
+              {
+                "t": 27.1,
+                "walk": [
+                  [
+                    568.33,
+                    -395.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 52.9
+              },
+              {
+                "t": 33.2,
+                "walk": [
+                  [
+                    568.33,
+                    -392.9
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 315.7
+              },
+              {
+                "t": 40.6,
+                "walk": [
+                  [
+                    568.33,
+                    -391.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 232.4
+              },
+              {
+                "t": 46.7,
+                "walk": [
+                  [
+                    568.33,
+                    -392.9
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 315.7
+              }
+            ]
           },
           {
             "extra": "fire_court_house_watch_3",
@@ -722,7 +839,31 @@
               568.61,
               -389.9
             ],
-            "heading": 314.2
+            "heading": 314.2,
+            "beats": [
+              {
+                "t": 27.0,
+                "walk": [
+                  [
+                    568.61,
+                    -385.5
+                  ]
+                ],
+                "pace": "run",
+                "heading": 124.4
+              },
+              {
+                "t": 33.1,
+                "walk": [
+                  [
+                    568.61,
+                    -389.9
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 314.2
+              }
+            ]
           },
           {
             "extra": "fire_court_house_flee_0",
@@ -828,6 +969,61 @@
               }
             ]
           }
+        ],
+        "teams": [
+          {
+            "team": "express_wagon_clark_dearborn_1871",
+            "at": [
+              700.0,
+              -390.5
+            ],
+            "heading": 270.0,
+            "loose": 14.0,
+            "beats": [
+              {
+                "t": 14.0,
+                "walk": [
+                  [
+                    688.0,
+                    -390.5
+                  ]
+                ],
+                "pace": 4.5
+              },
+              {
+                "t": 16.8,
+                "walk": [
+                  [
+                    340.0,
+                    -390.5
+                  ]
+                ],
+                "pace": 9.5
+              }
+            ]
+          },
+          {
+            "team": "milk_wagon_court_house_1871",
+            "at": [
+              430.0,
+              -396.5
+            ],
+            "heading": 90.0,
+            "load": "load_household",
+            "burning": true,
+            "beats": [
+              {
+                "t": 1.0,
+                "walk": [
+                  [
+                    720.0,
+                    -396.5
+                  ]
+                ],
+                "pace": 3.2
+              }
+            ]
+          }
         ]
       }
     },
@@ -844,6 +1040,7 @@
         "sherman",
         "sherman-hour",
         "crossing",
+        "runaway",
         "goods",
         "stand",
         "stage"
@@ -857,7 +1054,7 @@
       ],
       "since": "35 minutes later",
       "stage": {
-        "caption": "Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel.",
+        "caption": "Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel. A wagon goes up Clark Street with its load alight.",
         "liberty": "L-1871-great-fire-jaunt",
         "cast": [
           {
@@ -1054,6 +1251,30 @@
             ],
             "carry": "basket",
             "tier": "desktop"
+          }
+        ],
+        "teams": [
+          {
+            "team": "hotel_baggage_wagon_wells_1871",
+            "at": [
+              590.5,
+              -360.0
+            ],
+            "heading": 0.0,
+            "load": "load_household",
+            "burning": true,
+            "beats": [
+              {
+                "t": 1.0,
+                "walk": [
+                  [
+                    590.5,
+                    -150.0
+                  ]
+                ],
+                "pace": 3.4
+              }
+            ]
           }
         ]
       }
@@ -3017,6 +3238,15 @@
         "andreas_1885_v2"
       ],
       "locator": "p. 725, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the county jail in the Court House basement"
+    },
+    {
+      "id": "runaway",
+      "text": "White: \"a horse came tearing down the avenue, with the wreck of a buggy at his heels, and I fully expected that serious mischief would ensue; but he made his way, by some means, through the crowd, and disappeared, without doing any injury that I could see. This was the only runaway I saw; and I was continually surprised at the sober, matter-of-fact way in which the horses did their work\". Frear, hurrying \"toward the St. James Hotel\": \"a runaway truck\"; \"Loads of goods passed us, repeatedly, that were burning on the trucks\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 730 and 736, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Horace White's narrative; Alexander Frear's narrative"
     },
     {
       "id": "sherman",

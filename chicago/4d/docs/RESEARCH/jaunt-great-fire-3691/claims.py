@@ -141,6 +141,13 @@ CLAIMS = {
         'on his back was a huge feather bed. One woman had a live hen in her arms, several had cats, and numbers had canary birds '
         'in cages." And of the wagons: "Expressmen, and owners of every description of wagons, were extortionate in their '
         'demands, asking from twenty to fifty dollars for conveying a small load a few blocks."'),
+    # T-3815: the runaways and the loads alight (the Court House and Sherman House stops' staging).
+    'runaway': att(A, f'pp. 730 and 736, {AV}: Horace White\'s narrative; Alexander Frear\'s narrative',
+        'White: "a horse came tearing down the avenue, with the wreck of a buggy at his heels, and I fully expected that serious '
+        'mischief would ensue; but he made his way, by some means, through the crowd, and disappeared, without doing any injury '
+        'that I could see. This was the only runaway I saw; and I was continually surprised at the sober, matter-of-fact way in '
+        'which the horses did their work". Frear, hurrying "toward the St. James Hotel": "a runaway truck"; "Loads of goods '
+        'passed us, repeatedly, that were burning on the trucks".'),
     'prisoners': att(A, f'p. 725, {AV}: the county jail in the Court House basement',
         '"Captain Hickey, seeing that there was no hope of saving the building, ordered the cells to be unlocked, and in a moment '
         'the released prisoners, all bareheaded, many barefooted, rushed into the street, yelling like demons. A large truck, '

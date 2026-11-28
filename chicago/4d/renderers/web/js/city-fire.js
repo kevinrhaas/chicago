@@ -148,6 +148,9 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
   let fx = null, plume = null, sky = null, lights = [], chimneys = null, goods = null;
   let city = null, recs = [], nearEntries = [], farEntries = [], named = [], namedLayer = null;
   let active = [], stateClock = Infinity, lastMinute = null, visual = 0;
+  // T-3815: things alight that move (a stage's burning load on its wagon): each a function the
+  // draw asks every frame for { flames: [{ x, y, z, w, h, heat, seed }], top, foot } (world metres).
+  const alight = new Set();
   let night = 0, adapt = 1;
   const v3 = new THREE.Vector3(), cam = new THREE.Vector3(), fwd = new THREE.Vector3();
   const rnd = (() => { let s = 0x3687; return () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; }; })();
@@ -509,6 +512,25 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       }
     }
     near.sort((a, b) => a.dist - b.dist);
+    // T-3815: a burning load going by. Few flames, drawn first (it is in the scene the stop is about).
+    const moveStep = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.25) : 0;
+    for (const fn of alight) {
+      let it = null;
+      try { it = fn(); } catch { it = null; }
+      if (!it?.flames?.length) continue;
+      for (const f of it.flames) {
+        if (flames >= F * 0.1) break;
+        fx.flame(f.x, f.y, f.z, f.w, f.h * flick(f.seed), f.heat ?? 0.8, f.seed);
+        flames++;
+      }
+      if (it.foot) fx.glow(it.foot.x, it.foot.y, it.foot.z, 4, 0.35);
+      if (it.top) {
+        fn.smoke = (fn.smoke ?? 0) + moveStep * 2.5;
+        while (fn.smoke >= 1) { fn.smoke -= 1; fx.smoke({ ...it.top }, { dark: 0.75, glow: 0.7, size: 1.2, up: 2.2, life: 9, spread: 0.4, glowLife: 1.2, thin: 0.04 }); }
+        fn.spark = (fn.spark ?? 0) + moveStep * 4;
+        while (fn.spark >= 1) { fn.spark -= 1; fx.sparks({ ...it.top }, 1, { up: 3.5, spread: 0.8 }); }
+      }
+    }
     const lightPick = [];
     // Near: every window and the roof, the nearest first.
     for (const rec of near) {
@@ -692,6 +714,9 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       return api;
     },
     setRate(r) { rate = Number.isFinite(r) ? Math.max(0, r) : 0; return rate; },
+    /** T-3815: draw a moving thing alight (`fn` says each frame where its flames stand, or null
+     *  while it is not burning). Returns the way to put it out. */
+    alight(fn) { if (typeof fn !== 'function') return () => {}; alight.add(fn); return () => alight.delete(fn); },
     onFire(fn) { listeners.add(fn); try { fn(api.iso); } catch { /* its own */ } return () => listeners.delete(fn); },
     /** The minute (from 1871-10-08T00:00) the fire reaches a place, or null where it never burned. */
     catchAt: (e, n, key = null) => map.catchAt(e, n, key),
