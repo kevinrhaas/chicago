@@ -1,0 +1,37 @@
+{
+  "structure_id": "house_215_e20th",
+  "view": "jyoti_2009_224",
+  "glb": "assets/gltf/house_215_e20th__as_mapped_1904.glb",
+  "glb_sha256": "bec73142702747184c2a085cce3c503ee17f09bd156dbac81d1dc29512431e5d",
+  "camera_sha256": "dfca4acf834a7141b580fa2614a6becff19a55a5c0d414c730643e615aa74550",
+  "photo_sha256": "229980f12ff97abde0ba424dbb1fc7b1e5af956bdb33f85ba85aa56c3d68f2c5",
+  "side_by_side": "docs/RESEARCH/photo-match/house_215_e20th/jyoti_2009_224-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing and placement: the three-storey red pressed-brick front, set back behind its yard, its two ground-storey round-headed lights and the round-arched door in the west bay, and the second storey's three lights over them, each where the photograph puts it (camera residuals 4.7 px RMS, about 0.12 m on the front)",
+      "status": "fixed"
+    },
+    {
+      "what": "the ground storey's round heads: their crowns stand about 0.25-0.3 m higher in the photograph than built, and the lights read about 0.96 m wide against the build's 0.76 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stone over the ground storey: the photograph's flat stone heads over the round heads read as separate blocks; the build carries them as one stone band at the same height",
+      "status": "within tolerance"
+    },
+    {
+      "what": "tone: the photograph's pressed brick is a lighter orange-red in its shade than the review render's red; the same material, read under a different light",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the third storey and the cornice: out of the frame's top",
+      "status": "not shown"
+    },
+    {
+      "what": "the date: a 2009 photograph of the surviving house, 105 years after the scene, is evidence of 2009 (AGENTS.md rule 11); the copper's green patina, the window grilles, the fence and the planting are 2009's and are not copied into 1904",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

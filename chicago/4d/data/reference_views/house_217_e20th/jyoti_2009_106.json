@@ -1,0 +1,44 @@
+{
+ "structure_id": "house_217_e20th",
+ "source_id": "jyoti_blog_2009_cullerton_rowhouses",
+ "library_image": "a19-jyoti-cullerton-106",
+ "photo": "../../sources/assets/cullerton_213_217_photos_t3783/a19-jyoti-cullerton-106.jpg",
+ "image_px": [
+  267,
+  400
+ ],
+ "principal_px": [
+  133.5,
+  200.0
+ ],
+ "focal_px": 436.0,
+ "eye": [
+  20.7,
+  -10.26,
+  1.6
+ ],
+ "yaw_deg": -30.73,
+ "basis_right_up_forward": [
+  [
+   0.85958,
+   0.51101,
+   0.0
+  ],
+  [
+   0.19307,
+   -0.32477,
+   0.92588
+  ],
+  [
+   -0.47313,
+   0.79586,
+   0.37782
+  ]
+ ],
+ "sun_uvy": [
+  -0.35,
+  -1.0,
+  0.9
+ ],
+ "solve": "FITTED FOR T-3783 by least squares on this copy (267 x 400 px, the image store's, about 400 px on its long side), looking up at 217's north-east corner from the passage's walk: a camera pitched 22.2 degrees up (the flank's verticals lean in, from x 57 at the third storey to x 50 at the ground), so basis_right_up_forward carries it; principal point the copy's middle. FRAME: the K01 cross-street frame T-3781 set: u runs north to East Twentieth Street from the main body's rear, v west from the house's east wall, so the footprint frame's 'north' (+v, yaw 0) is the real west.  FITTED TO: the house's corner, the street front's line on the east flank (u 14.6, v 0), at x 135-136 at 3, 6 and 9 m; the street front's two round-headed lights, the east jamb of the first at x 140 (head y 322, sill y 378) and the west jamb of the second at x 180 (head y 326); and the east flank's window column nearest the street, its jambs at x 50-57 and 85 and its heads and sills at y 105/168 (third storey), 205/283 (second) and 382 (ground sill), with the column's centre and width left free.  FIXED: the eye 1.6 m over grade, and the focal length at 436 px, the value photograph 220 solves to (one camera, both copies scaled to 400 px on their long side): on a single corner the focal length trades against distance.  RESULT: the eye at u 20.7, v -10.3 (6.1 m out from the front, 10.3 m east of the flank, on the walk past the passage), heading -30.7 (real south-west). Residuals 10.6 px RMS, worst 31 px, and they are the house, not the fit: the flank column solves to a centre at u 12.09 (the build has 11.91, within tolerance) but 1.22 m wide where the build's lights are 0.71 m, and the second storey's sill sits about 0.9 m lower and the third storey's head about 0.85 m higher than built (residuals -27 to -31 px and +19 to +27 px). Those are written into the match record as differences.  LIGHT: the sun read from 106 and 220, which the blog posted together: the east flank lit, the street front (north) and its oriel's north face in shade, so a morning sun from the east-south-east, high; sun_uvy is that direction in the houses' common frame (all three stand on one bearing, -90.599 deg)."
+}

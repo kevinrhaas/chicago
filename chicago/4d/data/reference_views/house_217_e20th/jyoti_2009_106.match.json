@@ -1,0 +1,41 @@
+{
+  "structure_id": "house_217_e20th",
+  "view": "jyoti_2009_106",
+  "glb": "assets/gltf/house_217_e20th__as_mapped_1904.glb",
+  "glb_sha256": "f92ea2ae9c40aad0dc04aee1e41ac51d5ca240c59360b5c3a5db06dc79c000d4",
+  "camera_sha256": "0aa16eb558515463f690bc2a6dc01e6f8b61dd95eb4870a15b3e7b01ad5b45cb",
+  "photo_sha256": "cd7323700ceea151af9a48c85b62fd5ddbf41723a7fba68ff8770910500431d0",
+  "side_by_side": "docs/RESEARCH/photo-match/house_217_e20th/jyoti_2009_106-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the steep gable over the east flank's front bay, with its finial, and the small turreted dormer beside it: the build stands a plain hip (K01 stands a shaped gable on the street front only; liberty L-k01-217-e20th-3781)",
+      "status": "open"
+    },
+    {
+      "what": "the oriel: in the photograph it turns the north-east corner and rises to the wall head, where a copper cornice and a pierced copper cresting cap it; the build's oriel stands 0.3 m in from the corner and stops a metre under the eave under a shallow cone",
+      "status": "open"
+    },
+    {
+      "what": "the east flank's window column: the photograph's lights are about 1.2 m wide (the build's 0.71 m), the second storey's sill about 0.9 m lower and the third storey's head about 0.85 m higher than built (camera residuals -27 to -31 px and +19 to +27 px); the column's centre agrees (u 12.09 against 11.91)",
+      "status": "open"
+    },
+    {
+      "what": "the east flank's ground-storey light: round-headed in a moulded brick arch in the photograph, a square-headed sash in the build",
+      "status": "open"
+    },
+    {
+      "what": "the street front's two round-headed ground lights under the oriel, and the oriel's two tiers of three bent lights: where the photograph puts them",
+      "status": "fixed"
+    },
+    {
+      "what": "the flank's brick banding and stone courses: the photograph shows raised brick bands at the sill lines; the build lays one stone band",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the date: a 2009 photograph of the surviving house, 105 years after the scene, is evidence of 2009 (AGENTS.md rule 11); the copper's green patina, the window grilles, the fence and the planting are 2009's and are not copied into 1904",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

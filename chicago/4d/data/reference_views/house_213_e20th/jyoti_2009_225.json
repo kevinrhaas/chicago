@@ -1,0 +1,50 @@
+{
+ "structure_id": "house_213_e20th",
+ "also_render": [
+  "house_215_e20th",
+  "house_217_e20th"
+ ],
+ "card_members": [],
+ "scene": "1904",
+ "source_id": "jyoti_blog_2009_cullerton_rowhouses",
+ "library_image": "a19-jyoti-cullerton-225",
+ "photo": "../../sources/assets/cullerton_213_217_photos_t3783/a19-jyoti-cullerton-225.jpg",
+ "image_px": [
+  400,
+  266
+ ],
+ "principal_px": [
+  200,
+  133.0
+ ],
+ "focal_px": 436.0,
+ "eye": [
+  37.21,
+  18.63,
+  1.6
+ ],
+ "yaw_deg": -122.61,
+ "basis_right_up_forward": [
+  [
+   -0.53888,
+   0.84238,
+   0.0
+  ],
+  [
+   0.19359,
+   0.12384,
+   0.97323
+  ],
+  [
+   -0.81984,
+   -0.52445,
+   0.22981
+  ]
+ ],
+ "sun_uvy": [
+  -0.6,
+  0.8,
+  0.7
+ ],
+ "solve": "FITTED FOR T-3783 by least squares on this copy (400 x 266 px). WHERE IT WAS TAKEN FROM: the source record calls it 'from across the street to the north-east'; the copy says north-WEST, and the camera is solved there. The red block is 213's street front, seen from the west and receding to the left (its cornice falls from y 30 at the north-west corner, x 225, to y 52 at the north-east one, x 148); the long buff wall right of it, with its rows of lights and its stepped rear, is 213's own buff common-brick west flank and rear range, which the first render of this camera laid over it bay for bay; and from the north-east 217 and its oriel would stand large in the left of the frame, where the copy shows only trees and the modern tower behind. FRAME: 213's own K01 frame, on 217's bearing (u north to the street from the main body's rear, v west from the east wall; the front at u 15.89). A camera pitched 13.3 degrees up (the cornice near the copy's top), principal point the copy's middle. FITTED TO: the front's north-west corner at x 225 at 4, 9 and 14.1 m (the cornice's top at y 30); its north-east corner's cornice top at (148, 52); the fourth storey's middle light, jambs x 172 and 182, head y 57, sill y 77; the fourth storey's west light, jambs x 200 and 212, head y 55, sill y 70; and the third storey's west round-headed light, jambs x 200 and 213, head y 90, sill y 121. FIXED: the eye 1.6 m over grade and the focal length at 436 px (photograph 220's), which one corner cannot separate from distance. RESULT: the eye at u 37.2, v 18.6 (21 m north of the front, across the street; 12 m west of the west wall), heading -122.6 (real east-south-east). Residuals 3.4 px RMS, worst 8.9 px (the far corner's cornice, about 0.6 m: the cornice's depth, within tolerance). Trees hide the lower two storeys and most of 215 and 217, which stand behind them to the left: rendered as context, not card members. The review stands every member on one grade plane; the scene's ground is not reproduced. LIGHT: read from this copy, not carried from 106 and 220: the buff west flank is in full sun and the cars throw their shadows toward the camera's left, while the red street front is in shade, so an afternoon sun from the south-west (real), moderately high; sun_uvy is that direction in 213's frame."
+}

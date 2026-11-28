@@ -1,0 +1,27 @@
+{
+ "structure_id": "house_215_e20th",
+ "source_id": "jyoti_blog_2009_cullerton_rowhouses",
+ "library_image": "a19-jyoti-cullerton-224",
+ "photo": "../../sources/assets/cullerton_213_217_photos_t3783/a19-jyoti-cullerton-224.jpg",
+ "image_px": [
+  400,
+  266
+ ],
+ "principal_px": [
+  200,
+  175.7
+ ],
+ "focal_px": 436.0,
+ "eye": [
+  22.47,
+  3.91,
+  1.6
+ ],
+ "yaw_deg": -90.1,
+ "sun_uvy": [
+  -0.35,
+  -1.0,
+  0.9
+ ],
+ "solve": "FITTED FOR T-3783 by least squares on this copy (400 x 266 px): 215's front square-on from the street, behind its front yard's fence. A level camera (the front's verticals upright); principal column the copy's middle, principal row free.  FRAME: the same cross-street K01 frame as 217 (u north to the street from the main body's rear, v west from the east wall); the front stands at u 11.29 (glass plane).  FITTED TO: the ground storey's two round-headed lights, jambs at x 72/110 and 168/208, sills y 178, crowns y 88 and 85; the round-arched door's jambs at x 255 and 315 and its crown at y 82; and the second storey's three lights, jambs at x 78/110, 172/205 and 265/298, sills y 53.  FIXED: the eye 1.6 m over grade and the focal length at 436 px (photograph 220's): square to a flat front, focal length and distance trade exactly, and only their ratio (about 39 px a metre on the front) is measured here.  RESULT: the eye at u 22.5, v 3.9 (11.2 m out from the front), heading -90.1 (real south). Residuals 4.7 px RMS, worst 12.3 px: the ground storey's crowns stand about 0.25-0.3 m higher in the photograph than built, and its lights read about 0.96 m wide against the build's 0.76 m; both are under the tolerance's foot or at it, and are written into the match record.  LIGHT: the front faces north and is in shade, lit by the sky; the sun is taken from 106 and 220 (posted with it), from the east-south-east, which leaves this face unlit as the photograph shows it."
+}

@@ -1,0 +1,101 @@
+{
+  "structure_id": "house_213_e20th",
+  "view": "jyoti_2009_225",
+  "glb": "assets/gltf/house_213_e20th__as_mapped_1904.glb",
+  "glb_sha256": "48b1e071f9d3d3780583a4a06bd7c1bbe41c56343ecdad668a2b6a014ffc5034",
+  "camera_sha256": "1dcbd4916e27d02ad03589f3d3c06f61fac37be253608aa0fcd144d50fa79d1c",
+  "photo_sha256": "bb3f438d16e4ad01a1c909677921d8dff3c0d84a762aed1642677169620f7bfd",
+  "rendered_members": [
+    {
+      "structure_id": "house_213_e20th",
+      "glb": "assets/gltf/house_213_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1319.233,
+        "local_n": -3498.861,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "48b1e071f9d3d3780583a4a06bd7c1bbe41c56343ecdad668a2b6a014ffc5034"
+    },
+    {
+      "structure_id": "house_215_e20th",
+      "glb": "assets/gltf/house_215_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1326.38,
+        "local_n": -3497.607,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        1.179214362157952,
+        0,
+        7.159719162654532
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "bec73142702747184c2a085cce3c503ee17f09bd156dbac81d1dc29512431e5d"
+    },
+    {
+      "structure_id": "house_217_e20th",
+      "glb": "assets/gltf/house_217_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1333.442,
+        "local_n": -3497.468,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        1.2443782750592889,
+        0,
+        14.222786390456768
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f92ea2ae9c40aad0dc04aee1e41ac51d5ca240c59360b5c3a5db06dc79c000d4"
+    }
+  ],
+  "group_sha256": "26c5ddfa06912dfd644edff5a62da611d80f29b4c8281c8778669c69d6dfc087",
+  "side_by_side": "docs/RESEARCH/photo-match/house_213_e20th/jyoti_2009_225-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the four-storey red front on the street line under its deep bracketed cornice, the long buff common-brick west flank and rear range behind it, its parapet under the front's cornice and the rear stepping down, as the photograph shows them (camera residuals 3.4 px RMS)",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's openings: the third storey's round-headed lights and the fourth storey's square-headed ones, in the columns the photograph shows; the front's east column falls where the front turns away from this camera behind the tree's crown",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cornice at the far (north-east) corner stands about 0.6 m off the photograph, the cornice's own depth; and the red brick returns about 0.7 m onto the west flank in the photograph where the build turns buff at the corner",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the two-storey dark timber-and-glass bays on the west flank: the 1911 sheet draws no projection on that wall (T-3782 read it at full size and found the only one on the east wall), so they are taken as a later addition and not built into 1904",
+      "status": "not shown"
+    },
+    {
+      "what": "the lower two storeys, the door and its hood (photograph 222 reads them), and 215 and 217: behind the trees",
+      "status": "not shown"
+    },
+    {
+      "what": "tone: the front reads a brighter red in the photograph (2009 paint or cleaning is possible); the same red pressed brick",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the date: a 2009 photograph of the surviving house, 105 years after the scene, is evidence of 2009 (AGENTS.md rule 11); the copper's green patina, the window grilles, the fence and the planting are 2009's and are not copied into 1904",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

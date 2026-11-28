@@ -11,9 +11,11 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a19-jyoti-cullerton-225"
+    ]
   },
   "documented_range": {
     "from": "1904-07-01",
@@ -503,8 +505,9 @@
         "217's walls: red brick over a red sandstone base course, stone sills and heads, the ground storey's round-headed openings (106, 220, 223)",
         "a steep gable with a finial over 217's east flank (106)",
         "215's street front: red pressed brick, the ground storey's two round-headed lights and round-arched door in its west bay under plain stone heads, the second storey's square-headed lights on stone sills under flat stone lintels, set back behind a front yard (224)",
-        "213's street front: red, four storeys, the third storey's lights round-headed, a deep bracketed cornice returning along the east flank (225); the ground storey's door with a transom between two framed lights under a broad pedimented hood on consoles (222)",
-        "213's east flank: buff common brick where it stands before and over 215, with lights near the front (220, 225)"
+        "213's street front: red, four storeys, the third storey's lights round-headed, a deep bracketed cornice (225); the ground storey's door with a transom between two framed lights under a broad pedimented hood on consoles (222)",
+        "213's east flank: buff common brick where it stands before and over 215, with lights near the front (220, 225)",
+        "213's west flank and rear range in buff common brick behind the red front, its parapet under the front's cornice (225)"
       ],
       "what_it_does_not_supply": [
         "a 1904 date: the photographs are of the surviving house in 2009",

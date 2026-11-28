@@ -1,0 +1,97 @@
+{
+  "structure_id": "house_217_e20th",
+  "view": "jyoti_2009_220",
+  "glb": "assets/gltf/house_217_e20th__as_mapped_1904.glb",
+  "glb_sha256": "f92ea2ae9c40aad0dc04aee1e41ac51d5ca240c59360b5c3a5db06dc79c000d4",
+  "camera_sha256": "6ee66d6b3c35760df09b95e87bbccd49691cd27514dbafd506f2c9e5e5fd82ff",
+  "photo_sha256": "4569021f0831576e55873f2a96690a7fa7c48b41db1641322207fc4ba2a044bd",
+  "rendered_members": [
+    {
+      "structure_id": "house_217_e20th",
+      "glb": "assets/gltf/house_217_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1333.442,
+        "local_n": -3497.468,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f92ea2ae9c40aad0dc04aee1e41ac51d5ca240c59360b5c3a5db06dc79c000d4"
+    },
+    {
+      "structure_id": "house_215_e20th",
+      "glb": "assets/gltf/house_215_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1326.38,
+        "local_n": -3497.607,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -0.06516391290133679,
+        0,
+        -7.063067227802238
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "bec73142702747184c2a085cce3c503ee17f09bd156dbac81d1dc29512431e5d"
+    },
+    {
+      "structure_id": "house_213_e20th",
+      "glb": "assets/gltf/house_213_e20th__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1319.233,
+        "local_n": -3498.861,
+        "rotation_deg": -90.599,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -1.2443782750592889,
+        0,
+        -14.222786390456768
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "48b1e071f9d3d3780583a4a06bd7c1bbe41c56343ecdad668a2b6a014ffc5034"
+    }
+  ],
+  "group_sha256": "50d7d3ccd31036af9a8cf4bfee3a0d500a547b7f43cf52e3ef5954c15ac24fa3",
+  "side_by_side": "docs/RESEARCH/photo-match/house_217_e20th/jyoti_2009_220-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the east flank's window column: about 1.2 m wide in the photograph against the build's 0.71 m, and the second storey's sill about 0.6 m lower than built (the camera's worst residual, 16 px), as 106 shows",
+      "status": "open"
+    },
+    {
+      "what": "the east flank's ground-storey light: round-headed in a moulded brick arch in the photograph, a square-headed sash in the build",
+      "status": "open"
+    },
+    {
+      "what": "the oriel: in the photograph it wraps the north-east corner from the flank's face; the build's stands 0.3 m in from the corner on the street front (its top is out of this frame)",
+      "status": "open"
+    },
+    {
+      "what": "the street front's two round-headed ground lights under the oriel's copper apron, the front's west end and 213's cornice beyond: where the photograph puts them",
+      "status": "fixed"
+    },
+    {
+      "what": "215: behind 217 from here, as in the photograph",
+      "status": "not shown"
+    },
+    {
+      "what": "the date: a 2009 photograph of the surviving house, 105 years after the scene, is evidence of 2009 (AGENTS.md rule 11); the copper's green patina, the window grilles, the fence and the planting are 2009's and are not copied into 1904",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
