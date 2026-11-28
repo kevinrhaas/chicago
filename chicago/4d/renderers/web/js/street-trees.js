@@ -297,6 +297,7 @@ export async function createStreetTrees({
   });
   // T-3223: the front yards' shrubs and lawn trees grow on these same atlases.
   out.materials = mats;
+  const leafRelief = mats.leafMat.bumpMap;
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
@@ -308,40 +309,74 @@ export async function createStreetTrees({
 
   let forest = null;
   let burnt = null;
-  let current = { mode: null, detail: null };
-  const build = async (wantMode, wantDetail) => {
-    if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
-    stats.mode = wantMode; stats.detail = wantDetail; stats.triangles = 0; stats.drawCalls = 0;
+  let buildRevision = 0, disposed = false;
+  let pending = Promise.resolve();
+  let livePlaced = [];
+  const contextPlaced = [], contextCards = new Map();
+  let current = { mode: null, detail: null }, applied = { ...current };
+  const build = (wantMode, wantDetail) => {
+    if (disposed) return pending;
+    const mine = ++buildRevision;
     current = { mode: wantMode, detail: wantDetail };
-    group.visible = wantMode !== 'hidden';
-    if (wantMode === 'hidden' || !placed.length) return;
-    // Three elms, grown once, stand for all four hundred: a young tree is one of
-    // them at its record's smaller scale. Each variant is a megabyte and more of
-    // geometry, and a parkway of one age is the case where siblings read true.
-    const spec = elmSpec(wantMode);
-    const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
-    const rings = LV[wantDetail] ?? LV.full;
-    // T-3164: a form only one or two pictured trees name grows as many crowns as it has trees.
-    const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
-      variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
-      castFar: true });
-    for (const p of placed) {
-      const sc = p.t.scale ?? 1;
-      p.h = grown.add(specFor(p.t, wantMode, spec), p.t.e, p.y, -p.t.n, sc,
-        { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
-    }
-    const background = contextTrees?.(wantDetail) ?? [];
-    for (const t of background) {
-      grown.add(spec, t.e, t.y + (levelAt?.(t.e, t.n) ?? 0), -t.n, t.h / ELM_MID_H, { lodK: CONTEXT_LOD_K });
-    }
-    stats.context = background.length;
-    const pause = checkpoint(); if (pause) await pause;
-    forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
-    if (burnt) forest.setBare?.(burnt);
-    group.add(forest.group);
-    stats.drawCalls = forest.stats.drawCalls;
-    stats.crowns = forest.stats.variants;
-    stats.grown = forest.stats;
+    pending = pending.catch(() => {}).then(async () => {
+      if (disposed || mine !== buildRevision) return;
+      try {
+        const background = [...(contextTrees?.(wantDetail) ?? [])];
+        const nextContext = [], nextPlaced = [];
+        let candidate = null;
+        if (wantMode !== 'hidden') {
+          const spec = elmSpec(wantMode);
+          const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
+          const rings = LV[wantDetail] ?? LV.full;
+          // A few crowns stand for the file; the context keeps its nominal dimensions.
+          const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
+            variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
+            castFar: true });
+          for (const p of placed) {
+            const h = grown.add(specFor(p.t, wantMode, spec), p.t.e, p.y, -p.t.n, p.t.scale ?? 1,
+              { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
+            nextPlaced.push({ ...p, h });
+          }
+          // T-3760: an explicitly generic proxy, with the context record's own card.
+          const contextSpec = { ...spec, speciesId: 'context_deciduous', common: 'Generic deciduous tree', h: [20, 20] };
+          for (const t of background) {
+            const y = t.y + (levelAt?.(t.e, t.n) ?? 0);
+            const h = grown.add(t.crownW ? contextSpec : spec, t.e, y, -t.n, t.h / ELM_MID_H,
+              { lodK: CONTEXT_LOD_K, crownW: t.crownW ?? null });
+            if (t.id && typeof t.card === 'function') nextContext.push({ t, y, h });
+          }
+          const pause = checkpoint(); if (pause) await pause;
+          candidate = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+        }
+        if (disposed || mine !== buildRevision) { candidate?.dispose(); return; }
+        // Fire may change while the replacement grows. Commit the latest map
+        // on its own instance slots before it becomes the live forest.
+        candidate?.setBare?.(burnt);
+        const bumpMap = wantDetail === 'light' ? null : leafRelief;
+        if (mats.leafMat.bumpMap !== bumpMap) {
+          mats.leafMat.bumpMap = bumpMap;
+          mats.leafMat.needsUpdate = true;
+        }
+        // Keep the live forest and its pick records until the replacement is ready.
+        if (forest) { group.remove(forest.group); forest.dispose(); }
+        forest = candidate;
+        if (forest) group.add(forest.group);
+        livePlaced = nextPlaced;
+        contextPlaced.splice(0, contextPlaced.length, ...nextContext);
+        contextCards.clear();
+        for (const t of background) if (t.id && typeof t.card === 'function') contextCards.set(t.id, t.card);
+        group.visible = wantMode !== 'hidden';
+        Object.assign(stats, { mode: wantMode, detail: wantDetail, triangles: 0,
+          context: background.length, drawCalls: forest?.stats.drawCalls ?? 0,
+          crowns: forest?.stats.variants ?? 0, grown: forest?.stats ?? { stems: 0 } });
+        stats.burnt = forest?.stats?.bare ?? 0;
+        applied = { mode: wantMode, detail: wantDetail };
+      } catch (error) {
+        if (mine === buildRevision) current = { ...applied };
+        throw error;
+      }
+    });
+    return pending;
   };
   await build(STREET_TREE_MODES.includes(mode) ? mode : 'summer', detail);
 
@@ -353,10 +388,7 @@ export async function createStreetTrees({
       stats.triangles = forest.stats.triangles;
     }
   };
-  /**
-   * T-3751 — the trees the 1871 fire has been through stand bare and charred: `test(e, n)`
-   * (local metres) names them, null none. Kept over a Season or detail re-build.
-   */
+  /** T-3751: preserve the latest fire map through seasonal/detail replacements. */
   out.setBurnt = (test) => {
     burnt = typeof test === 'function' ? test : null;
     const changed = forest?.setBare?.(burnt) ?? 0;
@@ -366,11 +398,12 @@ export async function createStreetTrees({
   /** Finish every dissolve at once (a still frame for a reading or a shot). */
   out.settle = () => { forest?.settle(); };
   out.setMode = async (m) => {
-    if (!STREET_TREE_MODES.includes(m) || m === current.mode) return;
+    if (!STREET_TREE_MODES.includes(m)) return;
+    if (m === current.mode) return pending;
     await build(m, current.detail);
   };
   out.setDetail = async (d) => {
-    if (d === current.detail) return;
+    if (d === current.detail) return pending;
     await build(current.mode, d);
   };
 
@@ -379,13 +412,13 @@ export async function createStreetTrees({
    *  opens the house. */
   const ray = new THREE.Raycaster();
   out.pickAt = (ndc, camera) => {
-    if (!camera || !forest || !group.visible) return null;
+    if (!camera || !forest || !group.visible || confidence?.hidden?.reconstructed) return null;
     ray.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
     const o = ray.ray.origin; const d = ray.ray.direction;
     const a = d.x * d.x + d.z * d.z;
     if (a < 1e-9) return null;
     let best = null;
-    for (const p of placed) {
+    for (const p of [...livePlaced, ...contextPlaced]) {
       const s = p.t.scale ?? 1;
       const h = p.h;
       const dx = o.x - p.t.e; const dz = o.z + p.t.n;
@@ -400,16 +433,20 @@ export async function createStreetTrees({
       }
     }
     if (!best) return null;
-    const record = treeCard(best.p.t, doc);
+    const record = contextCards.get(best.p.t.id)?.() ?? treeCard(best.p.t, doc);
     return { id: record.id, record, point: best.point, distance: best.distance };
   };
   out.cardFor = (id) => {
+    if (contextCards.has(id)) return contextCards.get(id)();
     const t = trees.find((x) => x.id === id);
     return t ? treeCard(t, doc) : null;
   };
   out.dispose = () => {
+    if (disposed) return;
+    disposed=true; buildRevision++;
     if (forest) { group.remove(forest.group); forest.dispose(); }
     mats.dispose();
+    livePlaced = []; contextPlaced.length=0; contextCards.clear();
   };
   return out;
 }

@@ -302,12 +302,33 @@ const { webcrypto } = await import('node:crypto');
 const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
 const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
 // T-3559: the horse's gaits and levels, imported with 'three' resolved to the vendored copy.
-const { createHorseGait, attachHorseLods, loadGaitClip } = await (async () => {
+const { createHorseGait, attachHorseLods, loadGaitClip, GLTFLoader } = await (async () => {
   const { registerHooks } = await import('node:module');
   const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
   const hooks = registerHooks({ resolve: (specifier, context, next) => specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context) });
-  try { return await import('../renderers/web/js/horse-rig.js'); } finally { hooks.deregister(); }
+  try {
+    return { ...await import('../renderers/web/js/horse-rig.js'),
+      ...await import('../renderers/web/vendor/three-0.185.1/addons/loaders/GLTFLoader.js') };
+  } finally { hooks.deregister(); }
 })();
+// The human store releases parser scratch. The real GLTF loader retains scene
+// extras on userData, including the actual 1904 driver's identity/vehicle proof.
+{
+  const loops = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
+  const row = loops.rows.find(row => row.id === 'prairie_driven_brougham_loop_1904');
+  const bytes = readFileSync(new URL(`../assets/humans/web/${row.driver_asset}.lod0.glb`, import.meta.url));
+  const source = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)).toString());
+  const extras = source.scenes[0].extras;
+  // Parse the source's actual scene metadata without its mesh/texture payload.
+  const loaded = await new GLTFLoader().parseAsync(JSON.stringify({ asset: { version: '2.0' },
+    scene: 0, scenes: [{ extras }] }), '');
+  loaded.parser = null;
+  assert.deepEqual(loaded.scenes[0].userData, extras);
+  assert.equal(loaded.scenes[0].userData.chicago4d_human.person_reference_scene, row.scene);
+  assert.equal(loaded.scenes[0].userData.chicago4d_human.person_reference_id, row.driver_export_person_id ?? row.driver_instance.person_id);
+  const study = JSON.parse(loaded.scenes[0].userData.driver_study_json);
+  assert.equal(study.vehicle_sidecar_sha256, (row.driver_binding.fitted_on ?? row.driver_binding).vehicle_sidecar_sha256);
+}
 const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
 const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
 const fixtureBytes = readFileSync(path);
@@ -330,10 +351,12 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     horse_offset_m: [0, 0, 5], team_half_spacing_m: .63,
     driver_binding: { scene: '1835', asset_id: 'control_asset', vehicle_file: 'wagon.glb', root_offset_m: [0, 0, 0],
       vehicle_glb_sha256: wrongHash ? '0'.repeat(64) : fixtureHash, vehicle_sidecar_sha256: 'source-sidecar-binding' } };
-  const human = { parser: { json: { scenes: [{ extras: {
+  const humanScene = new THREE.Group();
+  humanScene.userData = {
     chicago4d_human: { person_reference_scene: wrongMetadata ? '1904' : '1835', person_reference_id: 'control_person' },
     driver_study_json: JSON.stringify({ scene: '1835', person_reference_id: 'control_person',
-      vehicle_sidecar_sha256: row.driver_binding.vehicle_sidecar_sha256, vehicle_glb_sha256: fixtureHash }) } }] } } };
+      vehicle_sidecar_sha256: row.driver_binding.vehicle_sidecar_sha256, vehicle_glb_sha256: fixtureHash }) };
+  const human = { parser: null, scene: humanScene, scenes: [humanScene] };
   let humanReady = false;
   const assets = {
     acquire() {

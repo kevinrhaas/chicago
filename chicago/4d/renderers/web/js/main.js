@@ -55,6 +55,7 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
+import { createRoughSurfaceLighting } from './rough-surface-lighting.js';
 import { renderBudget } from './render-budget.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
@@ -140,7 +141,8 @@ import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
-import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
+import { isWallVineMaterial as isWallVine } from './leaf-light.js';
+import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonForDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { inertStreetGrid, inertStreetTrees, inertStreetFurniture, inertBackYards, inertFrontYards, inertRailway, inertContext, inertCrossings } from './inert-layers.js';
 import { createViewOcclusion } from './view-occlusion.js';
@@ -1696,11 +1698,11 @@ const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
 /** T-2481: the Season setting and whether the street trees show, from the
  *  chicago4d.settings blob. T-2473 stored the season in `streetTrees` itself
  *  ('summer' | 'spring' | 'winter' | 'hidden'); such a blob still reads right. */
-function readSeasonPreference() {
+function readSeasonPreference(fallback = 'summer') {
   let saved = {};
   try { saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { /* none */ }
   const legacy = SEASONS.includes(saved.streetTrees) ? saved.streetTrees : null;
-  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
+  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? fallback);
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
 /** T-3331: the visitor's Time of day, a name or 'HH:MM'; daytime unless chosen. */
@@ -2482,7 +2484,8 @@ async function boot() {
     renderer, scene: scene3d, sceneJson: loaded.scene, datum: loaded.datum, lowSpec: lowMem,
   });
 
-  const confidence = createConfidenceView();
+  const roughSurfaceLighting = createRoughSurfaceLighting();
+  const confidence = createConfidenceView({ prepareMaterial: roughSurfaceLighting.prepare });
   // T-2981: public and frame statistics read the same current view/tier policy.
   const currentBudget = () => renderBudget(BUDGET, detailLevel, confidence.ghosting);
   Object.defineProperty(api, 'budget', { get: currentBudget });
@@ -2759,7 +2762,7 @@ async function boot() {
   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
   // listing `street_trees` is handed a data base. The Season and Street trees
   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
-  const seasonPref = readSeasonPreference();
+  const seasonPref = readSeasonPreference(seasonForDate(loaded.scene.target_date) ?? 'summer');
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
@@ -2907,8 +2910,7 @@ async function boot() {
   // uniforms), the elms, the context city's crowns and the sun's date. A viewing
   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
-  // The new city kit currently models only its early-autumn scene day.
-  const seasonal = YEAR !== '1871';
+  // T-3748: 1871 shares the same four-season view; its own October day is fall.
 
   // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
   // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
@@ -3092,9 +3094,8 @@ async function boot() {
   /** T-3399: a GLB's wall creepers (Glessner's Boston ivy and Virginia creeper,
    *  masonry_house_v4_vines.py) are batched under their own atlas; they take the
    *  creeper's season (season.js FOLIAGE.vine), never the ground's. */
-  const isWallVine = (m) => /vines/.test(m?.userData?.texture_generator ?? '') || /vine/i.test(m?.map?.name ?? '');
   const applySeason = async (season) => {
-    const s = seasonal && SEASONS.includes(season) ? season : 'summer';
+    const s = SEASONS.includes(season) ? season : 'summer';
     // The lawns, steps and roofs inside the building GLBs take the season too.
     // Their materials learn it the first time a season other than summer is
     // chosen, so a summer visit compiles nothing for it.
@@ -3158,7 +3159,9 @@ async function boot() {
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
-  if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
+  if (seasonPref.season !== 'summer'
+    || seasonDate(seasonPref.season, loaded.scene.target_date) !== loaded.scene.target_date)
+    await applySeason(seasonPref.season);
   api.season = {
     get current() { return seasonState.season; },
     /** The visitor's own Season, under any season a jaunt holds. */
@@ -3175,7 +3178,7 @@ async function boot() {
     async restore() {
       if (!seasonState.held) return seasonState.season;
       seasonState.held = null;
-      if (seasonState.season !== (SEASONS.includes(seasonState.own) && seasonal ? seasonState.own : 'summer'))
+      if (seasonState.season !== (SEASONS.includes(seasonState.own) ? seasonState.own : 'summer'))
         await applySeason(seasonState.own);
       gateFrame.invalidate();
       return seasonState.season;
@@ -3816,6 +3819,7 @@ async function boot() {
   /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
    *  before the 15 m base carries the ground alone. Null is terrain.js's own. */
   function applyGroundDetailReach(level) {
+    roughSurfaceLighting.set(level === 'light');
     return terrain.setDetailReach((DETAIL[level] ?? DETAIL.full).groundDetailReachM);
   }
   applyGroundDetailReach(detailLevel);
@@ -4169,7 +4173,9 @@ async function boot() {
     if (inspectionSwitch) {
       if (!DETAIL[level]) return false;
       if (level !== detailLevel) hud.say(`Loading ${level} detail…`, 9000);
-      return inspectionSwitch.set(level);
+      const changed = await inspectionSwitch.set(level);
+      await Promise.all([streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
+      return changed;
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
@@ -4249,7 +4255,7 @@ async function boot() {
       scene3d.remove(trees.group);
       trees.dispose?.();
       trees = nextTrees;
-      await streetsRebuilt;
+      await Promise.all([streetsRebuilt, streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
       if (lowMem) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
@@ -4948,6 +4954,7 @@ async function boot() {
     onTravelStop: () => { if (api.getDown?.()) return; api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
+    resolvedSeason: seasonPref.season,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
     lowered: crashBoot.lowered,
     device,
@@ -5113,7 +5120,7 @@ async function boot() {
   paintChipDay(timeState.transient?.date);
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
-  document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  document.getElementById('row-season')?.removeAttribute('hidden');
   // T-2864: every year has its own day, so the choice says which one it is.
   const seasonDay = String(loaded.scene.target_date ?? '').match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (seasonDay) {
@@ -5121,9 +5128,7 @@ async function boot() {
       .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
     const summer = document.querySelector('#s-season option[value="summer"]');
-    if (summer) summer.textContent = YEAR === '1871'
-      ? `Scene day — ${day.replace(/ \d{4}$/, '')}, early autumn`
-      : `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+    if (summer) summer.textContent = `Summer — ${spokenDay(seasonDate('summer', loaded.scene.target_date))}, full leaf`;
     // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
     for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
       const opt = document.querySelector(`#s-season option[value="${season}"]`);
@@ -8444,6 +8449,7 @@ async function boot() {
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
   if (lowMem) releaseAfterUpload(scene3d);
+  roughSurfaceLighting.prepareScene(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -8541,6 +8547,8 @@ async function boot() {
   Object.assign(api, {
     renderer, camera, scene3d, world, terrain, buildings, walker, intent, popup, hud,
     confidence,
+    roughSurfaceLighting: { get light() { return roughSurfaceLighting.light; },
+      get materials() { return roughSurfaceLighting.materials; } },
     backends, streets, flora, trees, navigation,
     // Where the dataset was loaded from, so a gate can re-read an authored
     // record and ask whether what it says reached the renderer — rather than
