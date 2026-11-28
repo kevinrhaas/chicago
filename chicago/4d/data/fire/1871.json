@@ -1468,7 +1468,51 @@
   },
   "st_pauls_church_1871": {
    "fate": "collapses",
-   "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten."
+   "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten.",
+   "burning_by": {
+    "t": "1871-10-08T21:45",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Riley saw the brand land on its cupola (Andreas pp. 715-716) and it was 'in flames while the main fire was yet four blocks away' (p. 716); Marshal Williams set his first engines on it after the second call, and by ten it 'had gone down in ruins in advance of the main body of flame' (p. 718). Alight by a quarter to ten."
+   }
+  },
+  "st_pauls_residence_1871": {
+   "fate": "collapses",
+   "note": "The priest's $3,000 house, destroyed with the church (Andreas vol. 2, p. 406)."
+  },
+  "st_pauls_school_1871": {
+   "fate": "collapses",
+   "note": "The $5,000 parish school, destroyed with the church (Andreas vol. 2, p. 406)."
+  },
+  "bateham_mills_1871": {
+   "fate": "collapses",
+   "note": "'Large wooden structures, surrounded by combustible materials' (Andreas p. 716): burned to the ground with the yard.",
+   "burning_by": {
+    "t": "1871-10-08T22:20",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Marshal Williams found 'Bateham's mills on Canal Street ... on fire' while the church burned (Andreas p. 716); 'At half-past ten the heroic men were driven from Bateham's works by the intense heat' (p. 718), and the stop at half-past ten has them going. The batehams_mills control's hour."
+   }
+  },
+  "roelle_finishing_works_1871": {
+   "fate": "collapses",
+   "note": "A three-storey building filled with combustible materials (Andreas p. 718).",
+   "burning_by": {
+    "t": "1871-10-08T22:15",
+    "grade": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "With the engines on it and on Bateham's works, 'the Roelle structure went up in smoke and flame' before the men were driven from the mills at half-past ten (Andreas p. 718): alight by a quarter past."
+   }
+  },
+  "match_factory_1871": {
+   "fate": "collapses",
+   "note": "The fire went from the church 'to the match factory and Bateham's planing mills' (Andreas p. 716)."
   },
   "dalton_cottage_1871": {
    "fate": "collapses",

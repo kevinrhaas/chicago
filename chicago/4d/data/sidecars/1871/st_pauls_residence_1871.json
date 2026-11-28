@@ -1,0 +1,318 @@
+{
+  "id": "st_pauls_residence_1871",
+  "phase": "house_1868_1871",
+  "name": "St. Paul's priest's residence, Clinton Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/st_pauls_residence_1871__house_1868_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Destroyed by the fire with the church (Andreas vol. 2, p. 406); its building date is not known."
+  },
+  "change_note": "Built T-3831 (2026-11-28): the parish's house on Clinton Street.",
+  "placement": {
+    "local_e": -246.2,
+    "local_n": -1515.6,
+    "rotation_deg": 359.29,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "Andreas gives the residence with the church and school but not its place: set on Clinton Street next north of the church, reconstructed. The footprint's origin is local E -246.2 N -1515.6; the frame is turned onto the 1871 plan's grid.",
+    "symbolic_location": "Clinton Street, east side, next north of St. Paul's church.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        11.0,
+        0
+      ],
+      [
+        11.0,
+        7.3
+      ],
+      [
+        0,
+        7.3
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Twenty-four feet by thirty-six, reconstructed for a $3,000 house."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the residence",
+            "box": [
+              0,
+              0,
+              11.0,
+              7.3
+            ],
+            "storeys": [
+              0.9,
+              3.2,
+              3.0
+            ],
+            "wall": "clapboard",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.12,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 3.0,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    1.6,
+                    3.65,
+                    5.7
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.7,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.6,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 1.0,
+                    "h": 2.2,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 3,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.7,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.6,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 3,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.7,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.6,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.65
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.7,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.6,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A two-storey frame house with its gable to the street, reconstructed for a $3,000 priest's house of 1868."
+          }
+        ],
+        "chimneys": [
+          {
+            "at": [
+              5.5,
+              3.65
+            ],
+            "z0": 9.0,
+            "h": 2.2,
+            "w": 0.6,
+            "d": 0.6,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A chimney on the ridge, reconstructed."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 3.0,
+            "s1": 4.3,
+            "n": 6,
+            "material": "wood_trim",
+            "rise": 0.15
+          }
+        ],
+        "tint": {
+          "clapboard": [
+            0.62,
+            0.6,
+            0.55
+          ]
+        },
+        "note": "ST. PAUL'S PRIEST'S RESIDENCE, built by T-3831.",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "Destroyed with the church (Andreas vol. 2, p. 406)."
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Only its cost is recorded; its form is reconstructed as a plain two-storey frame house."
+    },
+    "wall_material": {
+      "value": "Painted weatherboards on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Taken to be frame, as the church was and the neighbourhood's houses were.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "dwelling",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "The priest's residence of St. Paul's, valued at $3,000 (Andreas vol. 2, p. 406; Sheahan and Upton)."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not known: taken to be the parish's own, of 1868."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "ST. PAUL'S PRIEST'S RESIDENCE, built by T-3831: the parish's $3,000 house (Andreas vol. 2, p. 406; Sheahan and Upton, 'with A $3,000 residence'), destroyed with the church. Where on the lot it stood, its size and its form are reconstructed: a two-storey frame house on Clinton Street north of the church.",
+  "research_doc": "",
+  "review_required": false
+}

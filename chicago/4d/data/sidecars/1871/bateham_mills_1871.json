@@ -1,0 +1,1119 @@
+{
+  "id": "bateham_mills_1871",
+  "phase": "mills_1865_1871",
+  "name": "Bateham's mills and yard, Canal Street south of Harrison",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/bateham_mills_1871__mills_1865_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1865-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 716-719); when they were built is not known."
+  },
+  "change_note": "Built T-3831 (2026-11-28): Bateham's mills and yard in place of the context city's generic blocks on Canal Street.",
+  "placement": {
+    "local_e": -196.4,
+    "local_n": -1512.4,
+    "rotation_deg": 359.29,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "The main mill fronts the west walk of Canal Street (Andreas: the fire-plug 'in front of the mill, on Canal street, south of Harrison'), its south end eleven feet north of the Roelle building on Mather Street; the west mill eighty feet west of it. The block bounded by Harrison, Mather, Canal and Clinton streets (Andreas vol. 2, pp. 717-718): Bateham's mills on Canal Street, the church on the north-east corner of Clinton and Mather, the Roelle building on Mather, the Huntoon place in the north-west quarter. The footprint's origin is local E -196.4 N -1512.4; the frame is turned onto the 1871 plan's grid.",
+    "symbolic_location": "Canal Street, west side, south of Harrison Street: the east half of the block bounded by Harrison, Mather, Canal and Clinton.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        54.9,
+        0
+      ],
+      [
+        54.9,
+        108.0
+      ],
+      [
+        0,
+        108.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "The mills' ground, 54.9 by 108 m (1.47 acres) against Andreas's 'one and a half acres': the two mills' widths and the eighty feet between them across, the mills' 245-foot length and the yard north of them along Canal."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "blocks": [
+          {
+            "name": "the main mill",
+            "box": [
+              36.6,
+              0,
+              54.9,
+              74.7
+            ],
+            "storeys": [
+              0.6,
+              4.2,
+              3.9,
+              3.6
+            ],
+            "wall": "boards",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.2,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 5.5,
+              "eave": 0.4,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "E": {
+                "bays": {
+                  "n": 17,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      8
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.0,
+                    "h": 3.2,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 17,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      4,
+                      12
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 2.6,
+                    "h": 3.0,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 4,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 4,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Bateham's three-story-and-attic mill. The building was two hundred and forty-five by sixty in size', on Canal Street, the fire-plug 'in front of the mill' (Andreas vol. 2, pp. 717-718); 'large wooden structures, surrounded by combustible materials' (p. 716). Its windows, doors and storey heights are reconstructed; the attic is the roof's."
+          },
+          {
+            "name": "the west mill",
+            "box": [
+              0,
+              0,
+              12.2,
+              74.7
+            ],
+            "storeys": [
+              0.6,
+              4.0,
+              3.6
+            ],
+            "wall": "boards",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.15,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 3.8,
+              "eave": 0.35,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "E": {
+                "bays": {
+                  "n": 15,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      7
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 2.6,
+                    "h": 3.0,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 15,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 2,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 2,
+                  "margin": 2.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Eighty feet west of the main mill was another of the same length, and forty feet in width' (Andreas vol. 2, pp. 717-718). Its storeys and openings are reconstructed."
+          },
+          {
+            "name": "the engine and boiler house",
+            "box": [
+              28.0,
+              2.0,
+              36.6,
+              12.0
+            ],
+            "storeys": [
+              4.2
+            ],
+            "wall": "brick_red",
+            "roof": {
+              "kind": "gable",
+              "h": 1.8,
+              "eave": 0.3,
+              "covering": "tin_dark",
+              "ridge": "y"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    5.0
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "door_flat",
+                    "w": 1.6,
+                    "h": 2.8,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "The mill ran on steam: Bateham and his watchman 'at once started the steam engine, attaching the force-pump' (Andreas vol. 2, pp. 717-718). Where its engine and boilers stood, and their house, are reconstructed: a brick boiler house against the main mill's west wall."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              2.0,
+              17.6,
+              11.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              13.67,
+              17.6,
+              22.67
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              25.34,
+              17.6,
+              34.34
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              37.01,
+              17.6,
+              46.01
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              48.68,
+              17.6,
+              57.68
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              13.6,
+              60.35,
+              17.6,
+              69.35
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              22.6,
+              14.0,
+              26.6,
+              23.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              22.6,
+              24.0,
+              26.6,
+              33.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              22.6,
+              34.0,
+              26.6,
+              43.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              22.6,
+              44.0,
+              26.6,
+              53.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a kindling pile",
+            "box": [
+              22.6,
+              54.0,
+              26.6,
+              63.0
+            ],
+            "storeys": [
+              7.6
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' in the yard (Andreas vol. 2, pp. 717-718). The piles' number, sizes and places between the mills are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              1.0,
+              78.0,
+              7.0,
+              84.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              1.0,
+              90.0,
+              7.0,
+              96.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              12.0,
+              78.0,
+              18.0,
+              84.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              12.0,
+              90.0,
+              18.0,
+              96.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              23.0,
+              78.0,
+              29.0,
+              84.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              23.0,
+              90.0,
+              29.0,
+              96.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              34.0,
+              78.0,
+              40.0,
+              84.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              34.0,
+              90.0,
+              40.0,
+              96.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              45.0,
+              78.0,
+              51.0,
+              84.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of furniture lumber",
+            "box": [
+              45.0,
+              90.0,
+              51.0,
+              96.0
+            ],
+            "storeys": [
+              4.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' in the yard (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed to that quantity."
+          },
+          {
+            "name": "a stack of shingles",
+            "box": [
+              1.0,
+              102.0,
+              6.0,
+              107.0
+            ],
+            "storeys": [
+              2.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Near by were seven hundred and fifty thousand shingles' (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed."
+          },
+          {
+            "name": "a stack of shingles",
+            "box": [
+              12.0,
+              102.0,
+              17.0,
+              107.0
+            ],
+            "storeys": [
+              2.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Near by were seven hundred and fifty thousand shingles' (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed."
+          },
+          {
+            "name": "a stack of shingles",
+            "box": [
+              23.0,
+              102.0,
+              28.0,
+              107.0
+            ],
+            "storeys": [
+              2.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Near by were seven hundred and fifty thousand shingles' (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed."
+          },
+          {
+            "name": "a stack of shingles",
+            "box": [
+              34.0,
+              102.0,
+              39.0,
+              107.0
+            ],
+            "storeys": [
+              2.0
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {},
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Near by were seven hundred and fifty thousand shingles' (Andreas vol. 2, pp. 717-718). The stacks' sizes and places are reconstructed."
+          }
+        ],
+        "towers": [
+          {
+            "name": "the engine stack",
+            "at": [
+              32.3,
+              7.0
+            ],
+            "z0": 0.0,
+            "plan": "square",
+            "wall": "brick_red",
+            "stages": [
+              {
+                "w": 1.8,
+                "h": 21.0,
+                "cornice_proj": 0.15
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "The steam engine's chimney (its engine is Andreas's, Andreas vol. 2, pp. 717-718); its height and place are reconstructed."
+          }
+        ],
+        "tint": {
+          "boards": [
+            0.5,
+            0.44,
+            0.36
+          ]
+        },
+        "note": "BATEHAM'S MILLS, built by T-3831: William B. Bateham's planing and shingle mills and their yard on Canal Street.",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "time": "1871-10-08T22:20",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "'At half-past ten the heroic men were driven from Bateham's works by the intense heat' (Andreas p. 718)."
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Sizes, storeys and the yard's contents from Andreas's account (Andreas vol. 2, pp. 717-718); openings, the boiler house and stack, and where the piles stood are reconstructed."
+    },
+    "wall_material": {
+      "value": "Sawn boards on a frame, shingle roofs; a brick boiler house",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "'Large wooden structures' (Andreas p. 716); the boards and shingles are reconstructed in kind.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "large_workshop",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "William B. Bateham's planing mills, with a yard of kindling wood, furniture lumber and shingles (Andreas vol. 2, pp. 717-718)."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not known: reconstructed as standing through the later 1860s."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "BATEHAM'S MILLS, built by T-3831 for the 1871 scene: William B. Bateham's 'three-story-and-attic mill', 245 by 60 feet, on Canal Street south of Harrison, with a second mill of the same length and forty feet wide eighty feet west of it; a yard holding 'a thousand cords of fire-kindling wood, in piles twenty-five feet high', six hundred thousand feet of the Frank Mayer Furniture Company's lumber (the company had the mill's attic) and 750,000 shingles; the grounds an acre and a half (Andreas vol. 2, pp. 717-718). Bateham, an alderman, fought for his works with his own steam pump and the engines; at half-past ten the men were driven out by the heat, and he turned away: 'The materials from this mill will fire the South Side, and nothing can prevent it now.' No picture of the mills is known.",
+  "research_doc": "",
+  "review_required": false
+}

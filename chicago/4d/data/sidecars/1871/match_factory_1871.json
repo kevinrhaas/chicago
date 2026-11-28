@@ -1,0 +1,286 @@
+{
+  "id": "match_factory_1871",
+  "phase": "factory_1865_1871",
+  "name": "The match factory by St. Paul's, Mather Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/match_factory_1871__factory_1865_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1865-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 716-717); when it was built is not known."
+  },
+  "change_note": "Built T-3831 (2026-11-28): the match factory between the church and the mills.",
+  "placement": {
+    "local_e": -213.5,
+    "local_n": -1531.0,
+    "rotation_deg": 359.29,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "Andreas puts it between the church and the mills (pp. 716-717); its place on Mather Street in that gap is reconstructed. The footprint's origin is local E -213.5 N -1531.0; the frame is turned onto the 1871 plan's grid.",
+    "symbolic_location": "Mather Street, north side, between St. Paul's church and Bateham's mills.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        13.5,
+        0
+      ],
+      [
+        13.5,
+        16.0
+      ],
+      [
+        0,
+        16.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Its size is not recorded; reconstructed to fill the gap between the church and the west mill."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the factory",
+            "box": [
+              0,
+              0,
+              13.5,
+              16.0
+            ],
+            "storeys": [
+              0.5,
+              3.6,
+              3.4
+            ],
+            "wall": "boards",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.15,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 2.6,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      2
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 2.2,
+                    "h": 2.8,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.5
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A two-storey frame factory, reconstructed."
+          }
+        ],
+        "tint": {
+          "boards": [
+            0.47,
+            0.42,
+            0.35
+          ]
+        },
+        "note": "THE MATCH FACTORY, built by T-3831.",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "Burned between the church and the mills (Andreas vol. 2, p. 716)."
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not described in any account read: reconstructed whole."
+    },
+    "wall_material": {
+      "value": "Sawn boards on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not stated: taken to be frame, as its neighbours were.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "large_workshop",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "The fire went 'into the high church, at the corner of Clinton and Mather streets, and thence to the match factory and Bateham's planing mills' (Andreas vol. 2, p. 716)."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not known: reconstructed as standing through the later 1860s."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "THE MATCH FACTORY, built by T-3831: the match factory the fire reached from the church on its way to Bateham's mills (Andreas vol. 2, p. 716); Engine 14's foreman laid a line of hose 'between the mill and church and match factory' (p. 717). Whose it was, its size and its form are not recorded: a two-storey frame factory on Mather Street between the church and the mills, reconstructed.",
+  "research_doc": "",
+  "review_required": false
+}

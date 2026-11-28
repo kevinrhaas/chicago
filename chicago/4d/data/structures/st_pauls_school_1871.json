@@ -1,0 +1,293 @@
+{
+ "id": "st_pauls_school_1871",
+ "name": "St. Paul's parish school, Clinton Street",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "school",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "St. Paul's parish school, valued at $5,000 (Andreas vol. 2, p. 406; Sheahan and Upton, 'St. Paul's Parish School, $5,000')."
+ },
+ "built": {
+  "value": 1868,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Not known: taken to be the parish's own, of 1868."
+ },
+ "research_note": "ST. PAUL'S PARISH SCHOOL, built by T-3831: the parish's $5,000 school (Andreas vol. 2, p. 406; Sheahan and Upton), destroyed with the church. Its place on the lot, size and form are reconstructed: a two-storey frame school on Clinton Street north of the priest's house.",
+ "phases": [
+  {
+   "id": "school_1868_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Destroyed by the fire with the church (Andreas vol. 2, p. 406); its building date is not known."
+   },
+   "position": {
+    "utm_e": 446826.5,
+    "utm_n": 4635890.8,
+    "rotation_deg": 359.29,
+    "symbolic_location": "Clinton Street, east side, north of the priest's residence.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas gives the school with the church and residence but not its place: set on Clinton Street north of the priest's house, reconstructed. The footprint's origin is local E -246.2 N -1505.0; the frame is turned onto the 1871 plan's grid.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from Andreas's description of the block against the 1871 plan's Clinton and Canal streets and the line of Mather Street; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      18.3,
+      0
+     ],
+     [
+      18.3,
+      12.2
+     ],
+     [
+      0,
+      12.2
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Forty feet by sixty, reconstructed for a $5,000 parish school."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the school",
+        "box": [
+         0,
+         0,
+         18.3,
+         12.2
+        ],
+        "storeys": [
+         0.8,
+         3.6,
+         3.4
+        ],
+        "wall": "clapboard",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.15,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 3.6,
+         "eave": 0.35,
+         "covering": "shingle",
+         "ridge": "x"
+        },
+        "faces": {
+         "W": {
+          "bays": {
+           "at": [
+            1.8,
+            4.0,
+            6.1,
+            8.2,
+            10.4
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 1.3,
+            "h": 2.5,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "n": 6,
+           "margin": 1.8
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "n": 6,
+           "margin": 1.8
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            4.0,
+            8.2
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A two-storey frame schoolhouse with its gable to the street, reconstructed for a $5,000 parish school of 1868."
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         9.0,
+         6.1
+        ],
+        "z0": 10.2,
+        "h": 2.0,
+        "w": 0.7,
+        "d": 0.7,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A stove chimney on the ridge, reconstructed."
+       }
+      ],
+      "steps": [
+       {
+        "block": 0,
+        "face": "W",
+        "s0": 5.3,
+        "s1": 6.9,
+        "n": 4,
+        "material": "wood_trim",
+        "rise": 0.2
+       }
+      ],
+      "tint": {
+       "clapboard": [
+        0.6,
+        0.58,
+        0.53
+       ]
+      },
+      "note": "ST. PAUL'S PARISH SCHOOL, built by T-3831.",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "Destroyed with the church (Andreas vol. 2, p. 406)."
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Only its cost is recorded; its form is reconstructed as a plain two-storey frame schoolhouse."
+    },
+    "wall_material": {
+     "value": "Painted weatherboards on a frame, a shingle roof",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Taken to be frame, as the church was.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): the parish school on Clinton Street."
+  }
+ ]
+}

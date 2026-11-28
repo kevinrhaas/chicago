@@ -1,0 +1,285 @@
+{
+ "id": "roelle_finishing_works_1871",
+ "name": "The Roelle furniture-finishing works, Mather Street",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "large_workshop",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "'Used by the Roelle Furniture-finishing Company, and ... filled with combustible materials' (Andreas vol. 2, pp. 717-718)."
+ },
+ "built": {
+  "value": 1865,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Not known: reconstructed as standing through the later 1860s."
+ },
+ "research_note": "THE ROELLE BUILDING, built by T-3831: 'Eleven feet south of the mills stood a three-story building, fifty by seventy feet, siding on Mather Street', the Roelle Furniture-finishing Company's; with the engines working on it and on Bateham's property 'the Roelle structure went up in smoke and flame' (Andreas vol. 2, pp. 717-718). No picture of it is known.",
+ "phases": [
+  {
+   "id": "works_1865_1871",
+   "documented_range": {
+    "from": "1865-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 717-718); when it was built is not known."
+   },
+   "position": {
+    "utm_e": 446910.1,
+    "utm_n": 4635864.8,
+    "rotation_deg": 359.29,
+    "symbolic_location": "Mather Street, north side, west of Canal Street.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Its long side on the line of Mather Street, eleven feet south of the main mill (Andreas pp. 717-718); set under the main mill's south end, reconstructed. The footprint's origin is local E -162.6 N -1531.0; the frame is turned onto the 1871 plan's grid.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from Andreas's description of the block against the 1871 plan's Clinton and Canal streets and the line of Mather Street; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      21.3,
+      0
+     ],
+     [
+      21.3,
+      15.2
+     ],
+     [
+      0,
+      15.2
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Fifty by seventy feet, 'siding on Mather Street' (Andreas pp. 717-718)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the works",
+        "box": [
+         0,
+         0,
+         21.3,
+         15.2
+        ],
+        "storeys": [
+         0.5,
+         4.0,
+         3.6,
+         3.4
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.3,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "flat",
+         "covering": "tin_dark"
+        },
+        "faces": {
+         "S": {
+          "bays": {
+           "n": 7,
+           "margin": 1.5
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.1,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.0,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             3
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 2.4,
+            "h": 3.0,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "n": 7,
+           "margin": 1.5
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.1,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.0,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "n": 5,
+           "margin": 1.5
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.1,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.0,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 5,
+           "margin": 1.5
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.1,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 2.0,
+            "sill": 0.9,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A three-storey building (Andreas), built as a plain frame factory with a flat roof and a light cornice; its openings are reconstructed."
+       }
+      ],
+      "tint": {
+       "clapboard_bare": [
+        0.5,
+        0.46,
+        0.4
+       ]
+      },
+      "note": "THE ROELLE BUILDING, built by T-3831.",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "time": "1871-10-08T22:15",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'In the very face of those efforts, the Roelle structure went up in smoke and flame', just before half-past ten (Andreas p. 718)."
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Its size and storeys are Andreas's; its frame walls, flat roof and openings are reconstructed."
+    },
+    "wall_material": {
+     "value": "Weathered boards on a frame, a flat roof",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Not stated: taken to be frame, as its neighbours were.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): the Roelle works on Mather Street."
+  }
+ ]
+}

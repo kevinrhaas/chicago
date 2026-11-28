@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1264,
+  "count": 1265,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -24,6 +24,10 @@
     {
       "id": "armour_house_2115_prairie_coach_house",
       "name": "2115 S. Prairie Avenue — the alley building of the house at 2115"
+    },
+    {
+      "id": "bateham_mills_1871",
+      "name": "Bateham's mills and yard, Canal Street south of Harrison"
     },
     {
       "id": "bates_auction_room",
@@ -1624,6 +1628,10 @@
     {
       "id": "mason_blacksmith_shop",
       "name": "Matthias Mason & Co.'s Blacksmith Shop"
+    },
+    {
+      "id": "match_factory_1871",
+      "name": "The match factory by St. Paul's, Mather Street"
     },
     {
       "id": "mayer_house_2009_prairie",
@@ -3498,6 +3506,10 @@
       "name": "Log cabins at Wolf Point"
     },
     {
+      "id": "roelle_finishing_works_1871",
+      "name": "The Roelle furniture-finishing works, Mather Street"
+    },
+    {
       "id": "roloson_house_2109_prairie",
       "name": "2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side"
     },
@@ -3588,6 +3600,18 @@
     {
       "id": "st_michaels_church_1871",
       "name": "St. Michael's Church (German Catholic), Hurlbut and Linden Streets"
+    },
+    {
+      "id": "st_pauls_church_1871",
+      "name": "St. Paul's Church, Clinton and Mather streets"
+    },
+    {
+      "id": "st_pauls_residence_1871",
+      "name": "St. Paul's priest's residence, Clinton Street"
+    },
+    {
+      "id": "st_pauls_school_1871",
+      "name": "St. Paul's parish school, Clinton Street"
     },
     {
       "id": "steamboat_hotel",
@@ -82833,6 +82857,166 @@
         "T-1939",
         "T-1837",
         "T-3783"
+      ]
+    },
+    {
+      "id": "L-1871-st-pauls-batehams-3831",
+      "title": "St. Paul's church and Bateham's mills on the block of Harrison, Mather, Canal and Clinton: what the accounts do not say",
+      "section": "per_subject",
+      "subjects": [
+        "bateham_mills_1871",
+        "match_factory_1871",
+        "roelle_finishing_works_1871",
+        "st_pauls_church_1871",
+        "st_pauls_residence_1871",
+        "st_pauls_school_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "bateham_mills_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "bateham_mills_1871",
+          "phase": "mills_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "match_factory_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "match_factory_1871",
+          "phase": "factory_1865_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "match_factory_1871",
+          "phase": "factory_1865_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "match_factory_1871",
+          "phase": "factory_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "roelle_finishing_works_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "roelle_finishing_works_1871",
+          "phase": "works_1865_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "roelle_finishing_works_1871",
+          "phase": "works_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_church_1871",
+          "phase": "church_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_church_1871",
+          "phase": "church_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_residence_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_residence_1871",
+          "phase": "house_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_residence_1871",
+          "phase": "house_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_residence_1871",
+          "phase": "house_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-28, of the St. Paul's stop on The Great Chicago Fire: \"Did st pauls really look like that? I think you have a brick square building on fire that and it seems odd to me\". The stop's view showed a generic three-storey brick block from the context city where the church stood. The block is now built from Andreas's account of it (vol. 2, pp. 406, 716-718) and Sheahan and Upton's list of the Catholic losses, on the landmark 1871 archetype: St. Paul's church, its priest's residence and its parish school; Bateham's two planing mills with their yard of kindling, furniture lumber and shingles; the Roelle furniture-finishing works on Mather Street; and the match factory between the church and the mills. Their structure footprints keep the context city's generic blocks off the lots. **What the accounts give** — the church's corner, its wood, its cupola, its 100 by 40 feet and the three parish buildings' costs; the main mill's three storeys and attic, its 245 by 60 feet on Canal Street and the fire-plug in front of it; the second mill eighty feet west, of the same length and forty feet wide; the thousand cords of kindling in piles twenty-five feet high, the 600,000 feet of lumber and the 750,000 shingles; the acre and a half; the Roelle building's three storeys, 50 by 70 feet, eleven feet south of the mills and siding on Mather; the hours each caught and went down — is cited attribute by attribute in the records."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **No picture of any of them is known.** Every face, window, door, roof pitch, storey height and colour is reconstructed in the archetype's frame vocabulary: a plain frame church with pointed lights and a louvred, bell-capped cupola over its Clinton Street front; two-storey frame houses for the residence and the school; board-walled mills with shingle roofs. - **Places on the block.** The church stands on the north-east corner with its front on Clinton Street and its length along Mather (the accounts give the corner, not the orientation); the residence and the school stand north of it on Clinton (Andreas gives neither's place nor size: 24 by 36 and 40 by 60 feet are reconstructed for their costs); the match factory, whose size and owner no account read gives, fills the gap between the church and the west mill. The 1871 plan does not draw Mather Street east of Clinton, so the buildings keep a half-street back from its line west of Clinton. - **The block is wider than the account.** Andreas says the mills' south-west corner \"almost touched\" the church. On the plan's block, 105 m between the walks of Clinton and Canal, the mills on Canal and the church on Clinton leave about 20 m between them. The match factory stands in that gap. The mills stay on Canal Street, where the account's fire-plug and Engine 14 put them. - **The yard.** The kindling's eleven piles, the ten lumber stacks and the four shingle stacks are laid between and north of the mills to the quantities the account gives (a cord taken as 128 cubic feet, a board foot as 1/12 cubic foot); where they stood is not recorded. The engine and boiler house and its stack are reconstructed from the account's steam engine and force-pump. - **Dates.** The church and the parish buildings are dated from the congregation's founding in 1868; when the mills, the Roelle building and the match factory were built is not known. - **Not built.** The Huntoon place in the block's north-west quarter (Andreas: a large old farmhouse with twelve chimney stacks among large trees, built by Judge J. D. Caton) is still the context city's generic fill."
+        },
+        {
+          "label": "Covers",
+          "text": "`bateham_mills_1871.built`, `bateham_mills_1871.mills_1865_1871.form.wall_material`, `match_factory_1871.built`, `match_factory_1871.factory_1865_1871.footprint`, `match_factory_1871.factory_1865_1871.form.composition`, `match_factory_1871.factory_1865_1871.form.wall_material`, `roelle_finishing_works_1871.built`, `roelle_finishing_works_1871.works_1865_1871.form.composition`, `roelle_finishing_works_1871.works_1865_1871.form.wall_material`, `st_pauls_church_1871.church_1868_1871.form.composition`, `st_pauls_church_1871.church_1868_1871.form.wall_material`, `st_pauls_residence_1871.built`, `st_pauls_residence_1871.house_1868_1871.footprint`, `st_pauls_residence_1871.house_1868_1871.form.composition`, `st_pauls_residence_1871.house_1868_1871.form.wall_material`, `st_pauls_school_1871.built`, `st_pauls_school_1871.school_1868_1871.footprint`, `st_pauls_school_1871.school_1868_1871.form.composition`, `st_pauls_school_1871.school_1868_1871.form.wall_material`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of St. Paul's or of Bateham's mills (the Chicago History Museum's ruins photographs, the Catholic directories of 1868-71) would replace the reconstructed forms; an insurance plat of the block before the fire would place the buildings and the yard."
+        },
+        {
+          "label": "Review",
+          "text": "the record of St. Paul's Church, Clinton and Mather streets, the record of Bateham's mills and yard, Canal Street south of Harrison, the fire jaunt check."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3831)."
+        }
+      ],
+      "work_refs": [
+        "T-3831"
       ]
     },
     {
