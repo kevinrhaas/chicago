@@ -4902,6 +4902,12 @@ step "1871 city, infrastructure and terrain are reproducible" \
 step "1871 street furniture and street trees re-lay from the city (T-3686)" \
   python3 tools/lay_1871_street_furniture.py --check
 
+# T-3803. The shop signs round the 1871 jaunt stops carry firms of Edwards' 1871 directory at
+# their listed numbers: every firm sits on its face's parity and number span, every street's
+# numbering carries its evidence, and every listing keeps its page and line.
+step "1871 directory firms sit on their calibrated faces with their listings (T-3803)" \
+  python3 -I tools/build_1871_directory_fronts.py --check
+
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
 

@@ -1,3 +1,22 @@
+## T-3803 — 1871 shop signs from Edwards' 1871 directory (27 November 2026)
+
+Owner request, 27 November 2026: the signs above the 1871 stores should be "varied and be more
+specific based on your research of the citizens and people and businesses in 1871".
+`tools/build_1871_directory_fronts.py` reads the directory's text and writes
+`data/context/1871/directory_fronts.json`: 732 firms (510 at street level, 222 upstairs) on 71
+block faces of Lake, Randolph, Washington, Madison, Clark, LaSalle, Dearborn and State round the
+Court House square, each with its listing's page and line. The pre-1909 numbering of each street
+is calibrated from the directory (corner listings, the Court House square's and the Methodist
+block's gaps) and Carbutt's Lake Street stereograph (118, 120 and 124 on the north side), and
+written with its evidence. `renderers/web/js/city-signs-1871.js` assigns the firms to the
+generated shop fronts in the detail rings by their numbers' share of the block, lets fronts with
+no firm carry a trade from that street's classified list (never their neighbour's), and letters
+fascia boards, wall bands, cornice friezes, upstairs boards, hanging signs, pier boards, gilt
+window letters and awning valances at run time into per-cell atlas pages. A front's card names
+the firm (attested), its place (inferred) and its signs (reconstructed), under the new
+`L-1871-directory-signs`. Sign textures: Full 2 pages of 2048 (42.7 MiB, 38 px/m, the stops'
+fronts at 1.25x), Light 1 page of 2048x1024 (10.7 MiB, 30 px/m); no shipped textures.
+
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
 Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish

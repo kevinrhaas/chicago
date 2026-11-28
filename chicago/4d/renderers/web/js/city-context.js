@@ -7,7 +7,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { dressStreetSurfaces, STREET_DECAL_ORDER } from './street-surfaces-1871.js';
-import { buildFronts, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
+import { buildFronts, shopFrames, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
+import { planSigns, paintSigns, tradeWords } from './city-signs-1871.js';
 
 async function json(url) {
   const response = await fetch(url, { cache: 'no-cache' });
@@ -67,7 +68,12 @@ export function createContextFloorIndex(surfaces = [], cellM = 64) {
 /** A generated instance's card, distinct from a compiled structure sidecar.
  * The scene's declared liberty is runtime record metadata, like its instance id;
  * it does not add a field that the structure-sidecar compiler never emits. */
-export function cityContextCard(r, doc, definition) {
+// T-3803: the sign forms in a visitor's words.
+const SIGN_WORDS={fascia:'a signboard over the shop',band:'a board on the wall above the shop',frieze:'lettering in the cornice frieze',
+  hanging:'a sign hung from an iron bracket',pier:'boards on the door piers',glass:'gilt letters on the window',valance:'lettering on the awning',
+  upper:'an upstairs office\u2019s board between the windows'};
+
+export function cityContextCard(r, doc, definition, sign = null) {
   const id=`context:1871:${r.id}`;
   const libertyIds=typeof doc.liberty==='string' && doc.liberty ? [doc.liberty] : [];
   if (r.isTree) {
@@ -79,10 +85,25 @@ export function cityContextCard(r, doc, definition) {
   }
   const district=doc.districts?.[r.district] ?? {};
   const sources=[...new Set([...(definition.sources ?? []),...(district.sources ?? [])])];
-  return {id,libertyIds,sidecar:{name:r.t.name,phase:null,
+  // T-3803: a shop front round the stops carries the firm the 1871 directory lists on it.
+  const firmAttrs={};
+  if (sign?.firm) {
+    const f=sign.firm, at=f.listings.map(l=>`${l.section} directory p. ${l.page}`).join('; ');
+    firmAttrs.firm={value:`${f.name} — ${f.trade ?? f.heading ?? 'merchant'}`,confidence:'attested',sources:['edwards_chicago_directory_1871'],
+      note:`Listed at ${f.address} in Edwards' 1871 directory (${at}): "${f.listings[0]?.text ?? ''}".`};
+    firmAttrs.firm_place={value:`${f.address}, on this block face`,confidence:'inferred',sources:['edwards_chicago_directory_1871','nypl_carbutt_lake_street_east_from_clark_stereo'],
+      note:'Placed by the city\u2019s pre-1909 street numbering, read from the directory itself (the Court House square\u2019s gaps, corner listings) and Carbutt\u2019s Lake Street view; its place along the block is its number\u2019s share of the block, not a surveyed lot. The front it is lettered on is a generated front.'};
+    if (sign.upper) firmAttrs.upstairs={value:`${sign.upper.name} — ${sign.upper.trade ?? ''} (${sign.upper.address})`,confidence:'attested',sources:['edwards_chicago_directory_1871'],
+      note:`An office upstairs, listed at ${sign.upper.address} (${sign.upper.listings.map(l=>`${l.section} directory p. ${l.page}`).join('; ')}): "${sign.upper.listings[0]?.text ?? ''}".`};
+    firmAttrs.signs={value:sign.signs.map(x=>SIGN_WORDS[x.kind] ?? x.kind).join('; '),confidence:'reconstructed',sources:[],note:'The sign forms, colours and lettering are reconstructed from the period street views (L-1871-directory-signs).'};
+  } else if (sign?.trade) {
+    firmAttrs.signs={value:`${sign.signs.map(x=>SIGN_WORDS[x.kind] ?? x.kind).join('; ')}: ${sign.trade}`,confidence:'reconstructed',sources:['edwards_chicago_directory_1871'],note:'No firm the 1871 directory lists falls on this front; it carries a trade the classified directory lists on this street, lettered in a reconstructed form (L-1871-directory-signs).'};
+  }
+  const libs=Object.keys(firmAttrs).length ? [...libertyIds,'L-1871-directory-signs'] : libertyIds;
+  return {id,libertyIds:libs,sidecar:{name:sign?.firm ? `${sign.firm.name}, ${tradeWords(sign.firm.trade).toLowerCase() || 'merchants'}` : r.t.name,phase:null,
     change_note:`A reconstructed ${r.t.name.toLowerCase()} in ${district.name ?? r.district}. Its footprint, height, facade and exact position are context choices, not an identified historical parcel.`,
     placement:{symbolic_location:district.name ?? r.district,position_confidence:'reconstructed',position_sources:district.sources ?? [],position_note:district.note ?? doc.source_limit ?? 'District-scale reconstruction from the pre-fire city evidence.'},
-    attributes:{form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
+    attributes:{...firmAttrs,form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
     citations:doc.citations ?? definition.citations ?? [],research_note:'The whole-city context is a liberty recorded in the project’s liberties register. Named, documented structures can replace these forms as research and modelling continue.'}};
 }
 
@@ -563,7 +584,25 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     }
     const rows=[];
     for (const tile of tiles.values()) for (const set of tile.sets.values()) for (const r of set) if (!r.isTree) rows.push(r);
-    fronts=buildFronts({rows,rings,fronts:definition.fronts,materials:frontMaterials,detail,value});
+    // T-3803: the firms of 1871 on the shops round the stops, lettered at runtime.
+    let signs=null;
+    if (rings.directory_fronts) {
+      try {
+        const directory=await json(new URL(rings.directory_fronts,new URL(doc.detail_rings,dataBase)));
+        const frames=shopFrames({rows,rings,detail,value});
+        const cellOf=new Map(frames.map(f=>[f.r.id,f.cell]));
+        const planned=planSigns(directory,frames,detail);
+        const painted=await paintSigns(planned.plans,id=>cellOf.get(id),detail,problems);
+        (painted.textures ?? []).forEach((map,k)=>{
+          const material=new THREE.MeshStandardMaterial({map,alphaTest:.5,roughness:.85,metalness:0,name:`context-1871-signs-${k}`});
+          confidence?.patch(material); materials.add(material); textures.add(map);
+          frontMaterials.set(`sign${k}`,material);
+        });
+        signs={plans:planned.plans};
+        out.census.signs={...planned.census,pages:painted.pages,density:painted.density,textureMiB:+((painted.bytes ?? 0)/1048576).toFixed(1)};
+      } catch (error) { problems.push(`1871 shop signs: ${error.message}`); }
+    }
+    fronts=buildFronts({rows,rings,fronts:definition.fronts,materials:frontMaterials,detail,value,signs});
     for (const mesh of fronts.meshes) { geometries.add(mesh.geometry); group.add(mesh); }
     out.census.detail={...fronts.census,showM:fronts.showM};
   }
@@ -625,7 +664,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     const r=hit.instanceId!=null?hit.object.userData.rows[hit.instanceId]
       :hit.object.userData.ranges.find(range=>hit.faceIndex>=range.first&&hit.faceIndex<range.first+range.count)?.row;
     if (!r) return null;
-    const record=cityContextCard(r,doc,definition);
+    const record=cityContextCard(r,doc,definition,fronts?.signPlans?.get(r.id) ?? null);
     return {id:record.id,record,point:hit.point.clone(),distance:hit.distance};
   };
   let disposed=false;

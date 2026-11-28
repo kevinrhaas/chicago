@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1256,
+  "count": 1257,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -79626,7 +79626,7 @@
         }
       ],
       "recorded": "2026-11-18",
-      "revised": null,
+      "revised": "2026-11-27",
       "fields": [
         {
           "label": "Decision",
@@ -79671,6 +79671,10 @@
         {
           "label": "Recorded",
           "text": "2026-11-18."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-27 (T-3803). Inside the jaunt stops' rings the sentence \"never a firm's name, and no sign is placed at its recorded address\" no longer holds on the business streets round the Court House square: there the shop signs carry firms of the 1871 directory at their listed numbers, under `L-1871-directory-signs`. Every other front keeps a trade word, as above."
         }
       ],
       "work_refs": [
@@ -82309,6 +82313,48 @@
         "T-1909",
         "T-3785",
         "T-1945"
+      ]
+    },
+    {
+      "id": "L-1871-directory-signs",
+      "title": "The 1871 shop signs round the jaunt stops: real firms by their listed numbers, set on generated fronts, in reconstructed sign forms",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-27, asked that the signs above the 1871 stores be \"varied and be more specific based on your research of the citizens and people and businesses in 1871\". the 1871 directory fronts generator reads Edwards' 1871 directory (Edwards’ Annual Directory of the City of Chicago, 1871, the fourteenth annual issue, read in its Internet Archive text) and writes the directory fronts data; the walkthrough's city signs 1871 code paints the signs at run time, cell by cell, and the walkthrough's city fronts code hangs them on the fronts inside the detail rings."
+        },
+        {
+          "label": "What is attested",
+          "text": "each firm's name, its business as the directory gives it, and its listed street number, with the directory's page and line on the front's card (the alphabetical list, with the classified business list where the firm appears in it). Page numbers are counted through the scanned text and may be one page out."
+        },
+        {
+          "label": "What is inferred",
+          "text": "which generated front a firm stands on. The 1871 numbering is not the 1909 grid. Each face's number range is calibrated from the directory itself (the numbers that stop at a corner, the gaps where the Court House square and the Methodist Church block have no shops, corner listings such as \"cor. Dearborn\" and \"S.E. cor. Clark\") and, on Lake Street, from John Carbutt's stereograph east from Clark (John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's…), whose wall signs show 118, 120 and 124 on the north side, so Lake runs even numbers north where Randolph, Washington and Madison run odd. A firm is then set along its face in proportion to its number between the face's corner numbers, on the nearest generated shop front. The generated fronts are not the 1871 lots, so a firm may stand a front or two from its true door; neighbours keep their directory order. The evidence and the conflicts each street's calibration met are written into the data file."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "every sign's form, size, colours, lettering and placement on the front: fascia boards over the shop, lettered string courses and friezes, boards between the upper windows for a firm upstairs, hanging boards on iron brackets at right angles to the walk, narrow boards on the door piers, gilt letters on the plate glass and painted awning valances. The forms are those the period stereographs show on Lake, Clark and State streets (John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's…, '58. Clark street, North from Washington.' Stereograph from Carbutt's Views of…, John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's…); no sign is copied from a picture, and none is claimed for a particular firm. The faces are the project's self-hosted period display types (Old Standard, Abril Fatface, Alfa Slab One, Anton). Fronts the directory does not reach (no listed firm near that number, or a street outside the calibrated faces) carry a trade word drawn from the classified trades listed on that street, never the same as the next front's. On the light detail grade the hanging, pier and valance signs are left off and the lettering is coarser; the firms keep their fascia and upper boards."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a lot-by-lot source for the pre-fire business blocks (an insurance atlas or survey of 1869-71 that gives street numbers), or photographs of particular fronts, entered as sources; then the firm's front, and its sign, move to the recorded ones."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 directory fronts generator, the directory fronts data, the walkthrough's city signs 1871 code, the walkthrough's city fronts code, the walkthrough's city context code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-3803)."
+        }
+      ],
+      "work_refs": [
+        "T-3803"
       ]
     },
     {
