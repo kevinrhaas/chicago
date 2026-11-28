@@ -42,6 +42,7 @@ try {
       const THREE = await import('three');
       const { TreeInstances, createGrownTreeMaterials } = await import('/js/tree-instances.js');
       const { patchTreeWind } = await import('/js/tree-surface.js');
+      const { EVERGREEN_BELOW_V } = await import('/js/tree-model.js');
       const { applySeasonLook, patchFoliage, patchSeason, SEASON_CROWN } = await import('/js/season.js');
       applySeasonLook(season);
       const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -62,7 +63,7 @@ try {
       camera.position.set(7, 3, 10); camera.lookAt(0, 9, 0);
       const mats = await createGrownTreeMaterials({ assetBase: new URL('/assets/', location.href),
         uWind: { value: 0 }, patchWind: patchTreeWind, lowSpec: detail === 'light' });
-      if (season !== 'summer') patchFoliage(mats.leafMat, 0, { evergreenBelowV: 0.2 });
+      if (season !== 'summer') patchFoliage(mats.leafMat, 0, { evergreenBelowV: EVERGREEN_BELOW_V ?? 0.2 });
       const trees = new TreeInstances({ level: detail, variants: () => 1 });
       trees.add({ speciesId, arch: speciesId, common: speciesId, form: 'open', h: [16, 16], dbh: [0.45, 0.45],
         crownW: [11, 11], dark: 0x345028, light: 0x738c4b, bark: 0x554837,

@@ -520,6 +520,11 @@ step "Overlapping seasonal tree rebuilds retain independent templates and live i
   node tools/test_tree_rebuilds.mjs
 step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
   node tools/test_city_context_depth.mjs
+step "Seasonal dates and evergreen atlas tiles retain the four scene years' contracts (T-3748)" \
+  node tools/test_vegetation_seasons.mjs
+
+step "1871 context trees retain dimensions, cards and the live forest through seasonal/detail rebuilds (T-3760)" \
+  node tools/test_1871_tree_handoff.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
 step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \

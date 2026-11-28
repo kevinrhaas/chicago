@@ -78,9 +78,11 @@ import { onDaylight } from './time-of-day.js';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
+import { EVERGREEN_BELOW_V } from './tree-model.js';
 import { resolveBases } from './scene-loader.js';
 import { RULES, compactPlan, compactGeometry } from './compact-attributes.js';
 import { releaseAfterUpload } from './upload-release.js';
+import { patchDeciduousSprays } from './season.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -4583,6 +4585,7 @@ export async function createTrees({
   patchTreeWind(distanceMat, uWind);
   confidence?.patch(depthMat);
   confidence?.patch(distanceMat);
+  for (const material of [nearMat, depthMat, distanceMat]) patchDeciduousSprays(material);
   const disposables = [nearMat, depthMat, distanceMat, surfaceAtlas];
   /**
    * ONE BATCH, CULLED PER CHUNK, IN BOTH PASSES — T-0223 step one.
@@ -5324,7 +5327,7 @@ uniform float uBandUp;
       // T-3399: the grown leaf atlas's fifth row is the conifers' scale and needle
       // (tree-model.js LEAF_TILES), and an evergreen keeps its colour in every Season.
       if (foliage) {
-        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: 0.2 }], [nearMat, 0], [farMat, 2]]) {
+        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: EVERGREEN_BELOW_V }], [nearMat, 0], [farMat, 2]]) {
           foliage(m, role, opts);
         }
       }

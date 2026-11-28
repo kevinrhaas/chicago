@@ -7,10 +7,15 @@
 import * as THREE from 'three';
 import { LEAF_SKY } from './time-of-day.js';
 
+const leafLit = new WeakSet();
+
 export function patchLeafLight(material, { mask = '1.0', lowSpec = false } = {}) {
   const prior = material.onBeforeCompile;
   const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
     ? String(prior) : material.customProgramCacheKey();
+  // Rekeying and owned material clones can revisit a leaf. Its light is added once.
+  if (leafLit.has(material) || key.includes('|leaf-light-3747-')) return false;
+  leafLit.add(material);
   material.onBeforeCompile = (shader, renderer) => {
     prior(shader, renderer);
     const pars = '#include <lights_physical_pars_fragment>';
@@ -47,4 +52,37 @@ reflectedLight.indirectDiffuse += diffuseColor.rgb * (uLeafSky * chiLeafFill * (
 `);
   };
   material.customProgramCacheKey = () => `${key}|leaf-light-3747-${mask}-${lowSpec}`;
+  material.needsUpdate = true;
+  return true;
+}
+
+/** Native wall creepers retain their own atlas and geometry, including brown stems. */
+export function isWallVineMaterial(material) {
+  return /vines/.test(material?.userData?.texture_generator ?? '') || /vine/i.test(material?.map?.name ?? '');
+}
+
+/** Measure the atlas's leaf mask before season/confidence recolour it. This keeps
+ *  bare stems opaque to leaf light and still transmits through red autumn ivy. */
+export function patchVineLeafLight(material, { lowSpec = false } = {}) {
+  if (!material?.isMeshStandardMaterial || !isWallVineMaterial(material)) return false;
+  const prior = material.onBeforeCompile;
+  const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
+    ? String(prior) : material.customProgramCacheKey();
+  if (key.includes('|vine-leaf-mask-3748')) return false;
+  material.onBeforeCompile = (shader, renderer) => {
+    prior(shader, renderer);
+    if (!shader.fragmentShader.includes('#include <map_fragment>')) throw Error('vine light: missing atlas anchor');
+    shader.fragmentShader = 'float chiVineLeafMask = 0.0;\n' + shader.fragmentShader.replace(
+      '#include <map_fragment>', `#include <map_fragment>
+vec3 chiRawVineColour = diffuseColor.rgb;
+#if defined(USE_COLOR) || defined(USE_COLOR_ALPHA)
+chiRawVineColour *= vColor.rgb;
+#endif
+chiVineLeafMask = smoothstep(0.01, 0.08, chiRawVineColour.g - max(chiRawVineColour.r, chiRawVineColour.b));
+`);
+  };
+  material.customProgramCacheKey = () => `${key}|vine-leaf-mask-3748`;
+  patchLeafLight(material, { mask: 'chiVineLeafMask', lowSpec });
+  material.needsUpdate = true;
+  return true;
 }

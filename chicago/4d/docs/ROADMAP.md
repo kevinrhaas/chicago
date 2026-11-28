@@ -6938,3 +6938,12 @@ The owner requested more realistic vegetation in every year. T-3747 adds close l
 sprays and shadowed thin-leaf light through the existing adaptive renderer. T-3748 follows
 with flora, crop lighting and seasonal controls; T-3760 covers the 1871 context leftovers.
 STATUS and the PR evidence distinguish render checks from hardware FPS acceptance.
+
+### Better Trees - T-3748 and T-3760 (November 2026)
+
+Seasonal flora extends the shared leaf lighting and folded surfaces through all four years.
+The current 1871 context hands its 3,543 recorded trees to the shared grown path; its new
+planting remains intact. The refreshed footprint audit supersedes the old prototype's
+placement deletions. Fire state, cards, confidence and adaptive detail survive rebuilds.
+STATUS and versioned evidence retain the exact inputs and distinguish software checks
+from hardware FPS acceptance.

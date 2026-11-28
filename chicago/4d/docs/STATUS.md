@@ -21,6 +21,51 @@ the delete reports "could not be deleted just now". The Firebase sign-in account
 removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
 live delete was run.
 
+
+- **2026-11-27 — T-3748/T-3760, Light fix working source:** seasonal flora and the current 3,543-record 1871 grown handoff are composed on the fully gated Core3bdf source. A local software-renderer prototype kept triangles/calls unchanged and reduced Light frame time about25% against its warm controls, with a small colour change in the sampled view. This is not calibrated hardware acceptance. The earlier actual EPYC7763/4 Light miss remains held; fresh whole Native, actual failed-profile revalidation, seasonal browser evidence, committed preflight and final current-head CI remain required. Full/Balanced physical lighting and all current planting data are retained.
+## T-3748, T-3760 — Seasonal flora and the current 1871 trees (25 November 2026)
+
+All four years offer spring, summer, fall and winter. A fresh 1871 visit resolves to
+fall on 8 October, its target day; other choices use representative seasonal dates.
+Explicit visitor preferences win. Dated jaunts retain their documented dates and restore
+the visitor's choice. The evergreen exemption covers the complete scale/needle row of
+the six-row leaf atlas, rather than the obsolete five-row cutoff.
+
+Prairie leaf normals follow the existing midrib folds, plant size, arch and wind.
+Grass ribbons keep their width in physical metres, without new vertices, attributes,
+density, waves or draw passes. April withholds July flowers and their peduncles.
+Winter withholds legacy deciduous leaf sprays in colour and both shadow passes while
+retaining wood; conifers keep their separate evergreen path. Crop phenology is retained.
+Crop leaves share shadowed thin-leaf light and slight atlas relief on capable devices;
+Light and weak devices omit the extra sampling. Original green ivy masks precede seasonal
+or confidence recolouring so brown stems receive no leaf light. Reused street/front-yard
+materials drop relief on Light and restore the same atlas on Full.
+
+The current upstream 1871 city contains 3,543 context and 6,693 street trees. All current
+planting is preserved. A refreshed audit checked 10,236 trunk centres against 38,598 context
+building plans and 19 named solid footprint parts, with zero centres more than 0.25 m inside.
+No cross-set trunk centres were closer than two metres. These scans do not establish crown
+clearance. The earlier prototype's two deletion edits are superseded: those old serial IDs
+now name valid trees elsewhere, and the old coordinates no longer intrude into buildings.
+The former pumping-works context tree is absent upstream and is not reintroduced.
+
+All 3,543 current context records now use the shared grown-tree path instead of portable
+solid crowns. Their positions, nominal height/crown width, reconstructed grade and lazy
+inspection cards remain. The elm-like habit is a declared generic deciduous proxy, not an
+identified historical elm. Census and triangle accounting distinguish the handoff.
+
+Street trees and front yards keep their live forest and pick records until the latest
+replacement is ready, join duplicate requests and coalesce superseded choices. Detail
+completion waits for both. A replacement receives the latest Great Fire burnt-tree map
+before it mounts. Native regressions reproduce leaf restoration on a burnt tree, then verify
+fire changes during pending season/detail rebuilds, Hide/show, winter wood, relief toggling,
+picking, confidence, independent forests and disposal. Capture checks require actual probe
+instance slots, not just placement totals. The wider Water Tower view is checked separately.
+
+Complete integrated native/CI, published phone/desktop seasonal captures and memory/frame
+receipts belong to the merging PR. Software rendering does not establish hardware FPS.
+Liberties: L-seasonal-flora-3748 and L-1871-grown-context-3760.
+
 ## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
 
 The leaf-light implementation retains its rounded foliage and shadowed transmission.

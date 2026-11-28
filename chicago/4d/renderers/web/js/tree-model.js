@@ -516,6 +516,9 @@ export const BARK_TILES = {
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
 const LEAF_GRID = [4, 6];
+// Scale/needle foliage starts in row four. The sixth row holds bare twig tiles;
+// both keep their own colour rather than receiving a deciduous autumn/winter tint.
+export const EVERGREEN_BELOW_V = 1 - Math.floor(LEAF_TILES.scale[0] / LEAF_GRID[0]) / LEAF_GRID[1];
 /**
  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
