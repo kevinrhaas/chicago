@@ -1,0 +1,2085 @@
+{
+ "_doc": "Hand transcriptions read by tools/lay_1871_street_furniture.py (T-3805): the fire-alarm telegraph's street boxes as Edwards' 1871 directory lists them, the year's new fire hydrants at a named corner as the Board of Public Works' Tenth Annual Report lists them, and the barbers and tobacconists the directory's classified pages put at a named corner. Text is the printed words with the OCR's errors corrected by eye; `streets` are the 1871 context's names for the printed ones (Fifth Avenue is South Wells Street's 1870 name), null where the station is a building, not a corner. djvu_line is the line in the Internet Archive item's djvu.txt (edwardsannualdir141871chic).",
+ "ticket": "T-3805",
+ "fire_alarm": {
+  "source_id": "edwards_chicago_directory_1871",
+  "locator": "City and County Record, 'Fire Alarm and Police Telegraph', printed pp. 34-35 (djvu.txt lines 2348-2700): 'The stations are located as follows', by division.",
+  "form_source_id": "andreas_1885_v2",
+  "form_locator": "Vol. 2, 'Fire Alarm Telegraph', pp. 92-94 (archive.org historyofchicago02andr djvu.txt).",
+  "form_text": "Distributed over the city are signal boxes. These are cottage-shaped, of heavy cast-iron, and fastened to the side of a house, or post, being communicated by insulated wires with the signal circuit overhead ... At first all the boxes were provided with signs stating where the keys could be found.",
+  "history_text": "the system embracing ... one hundred and six boxes ... On the 2d of June, 1865, the system was formally turned over to the city ... the call was sounded from Box No. 5, located at the corner of Lake Street and Michigan Avenue.",
+  "cupola_text": "The central office was located, originally, in the dome of the old Court-house cupola. Old citizens and firemen can remember the network of wires that radiated thence to the tops of the buildings that surrounded the Court-house square.",
+  "stations": [
+   {
+    "box": 2,
+    "division": "south",
+    "text": "State and S. Water streets",
+    "streets": [
+     "State Street",
+     "South Water Street"
+    ],
+    "djvu_line": 2365
+   },
+   {
+    "box": 3,
+    "division": "south",
+    "text": "Clark and S. Water streets",
+    "streets": [
+     "Clark Street",
+     "South Water Street"
+    ],
+    "djvu_line": 2367
+   },
+   {
+    "box": 4,
+    "division": "south",
+    "text": "Fifth avenue and S. Water street",
+    "streets": [
+     "Fifth Avenue",
+     "South Water Street"
+    ],
+    "djvu_line": 2369
+   },
+   {
+    "box": 5,
+    "division": "south",
+    "text": "Lake street and Michigan avenue",
+    "streets": [
+     "Lake Street",
+     "Michigan Avenue"
+    ],
+    "djvu_line": 2371
+   },
+   {
+    "box": 6,
+    "division": "south",
+    "text": "Tremont House, Dearborn and Lake streets",
+    "streets": [
+     "Dearborn Street",
+     "Lake Street"
+    ],
+    "djvu_line": 2373,
+    "corner": "SE",
+    "corner_basis": "the Tremont House stood on the south-east corner of Lake and Dearborn (data/sidecars/1871/tremont_house_1871.json)"
+   },
+   {
+    "box": 7,
+    "division": "south",
+    "text": "Lake and Market streets",
+    "streets": [
+     "Lake Street",
+     "Market Street"
+    ],
+    "djvu_line": 2375
+   },
+   {
+    "box": 8,
+    "division": "south",
+    "text": "A. D. Titsworth, Engine House, Dearborn St.",
+    "streets": null,
+    "djvu_line": 2377
+   },
+   {
+    "box": 9,
+    "division": "south",
+    "text": "Long John Engine House, LaSalle street",
+    "streets": null,
+    "djvu_line": 2379
+   },
+   {
+    "box": 10,
+    "division": "south",
+    "text": "Randolph street and Fifth avenue",
+    "streets": [
+     "Randolph Street",
+     "Fifth Avenue"
+    ],
+    "djvu_line": 2380
+   },
+   {
+    "box": 12,
+    "division": "south",
+    "text": "Madison street and Wabash avenue",
+    "streets": [
+     "Madison Street",
+     "Wabash Avenue"
+    ],
+    "djvu_line": 2382
+   },
+   {
+    "box": 13,
+    "division": "south",
+    "text": "Madison and Market streets",
+    "streets": [
+     "Madison Street",
+     "Market Street"
+    ],
+    "djvu_line": 2384
+   },
+   {
+    "box": 14,
+    "division": "south",
+    "text": "Adams and State streets",
+    "streets": [
+     "Adams Street",
+     "State Street"
+    ],
+    "djvu_line": 2386
+   },
+   {
+    "box": 15,
+    "division": "south",
+    "text": "Adams and Clark streets",
+    "streets": [
+     "Adams Street",
+     "Clark Street"
+    ],
+    "djvu_line": 2388
+   },
+   {
+    "box": 16,
+    "division": "south",
+    "text": "Adams and Franklin streets (Police Station)",
+    "streets": [
+     "Adams Street",
+     "Franklin Street"
+    ],
+    "djvu_line": 2390
+   },
+   {
+    "box": 17,
+    "division": "south",
+    "text": "Van Buren street and Wabash avenue",
+    "streets": [
+     "Van Buren Street",
+     "Wabash Avenue"
+    ],
+    "djvu_line": 2392
+   },
+   {
+    "box": 18,
+    "division": "south",
+    "text": "Van Buren and Griswold streets",
+    "streets": [
+     "Van Buren Street",
+     "Griswold Street"
+    ],
+    "djvu_line": 2394
+   },
+   {
+    "box": 19,
+    "division": "south",
+    "text": "Van Buren and Market streets",
+    "streets": [
+     "Van Buren Street",
+     "Market Street"
+    ],
+    "djvu_line": 2396
+   },
+   {
+    "box": 21,
+    "division": "south",
+    "text": "J. B. Rice Engine House, State street",
+    "streets": null,
+    "djvu_line": 2398
+   },
+   {
+    "box": 23,
+    "division": "south",
+    "text": "Clark and Harrison streets",
+    "streets": [
+     "Clark Street",
+     "Harrison Street"
+    ],
+    "djvu_line": 2400
+   },
+   {
+    "box": 24,
+    "division": "south",
+    "text": "Polk street and Fifth avenue",
+    "streets": [
+     "Polk Street",
+     "Fifth Avenue"
+    ],
+    "djvu_line": 2402
+   },
+   {
+    "box": 25,
+    "division": "south",
+    "text": "Peck Court and Wabash avenue",
+    "streets": [
+     "Peck Court",
+     "Wabash Avenue"
+    ],
+    "djvu_line": 2404
+   },
+   {
+    "box": 26,
+    "division": "south",
+    "text": "Taylor and State streets",
+    "streets": [
+     "Taylor Street",
+     "State Street"
+    ],
+    "djvu_line": 2413
+   },
+   {
+    "box": 27,
+    "division": "south",
+    "text": "Twelfth street and Michigan avenue",
+    "streets": [
+     "Twelfth Street",
+     "Michigan Avenue"
+    ],
+    "djvu_line": 2415
+   },
+   {
+    "box": 28,
+    "division": "south",
+    "text": "Twelfth and Clark streets",
+    "streets": [
+     "Twelfth Street",
+     "Clark Street"
+    ],
+    "djvu_line": 2417
+   },
+   {
+    "box": 29,
+    "division": "south",
+    "text": "Fourteenth and State streets",
+    "streets": [
+     "Fourteenth Street",
+     "State Street"
+    ],
+    "djvu_line": 2418
+   },
+   {
+    "box": 31,
+    "division": "south",
+    "text": "Indiana avenue, near Ill. C. R. R. roundhouse",
+    "streets": null,
+    "djvu_line": 2420
+   },
+   {
+    "box": 32,
+    "division": "south",
+    "text": "Haven School, Wabash avenue",
+    "streets": null,
+    "djvu_line": 2422
+   },
+   {
+    "box": 34,
+    "division": "south",
+    "text": "Clark and Sixteenth streets",
+    "streets": [
+     "Clark Street",
+     "Sixteenth Street"
+    ],
+    "djvu_line": 2424
+   },
+   {
+    "box": 35,
+    "division": "south",
+    "text": "Eighteenth street and Indiana avenue",
+    "streets": [
+     "Eighteenth Street",
+     "Indiana Avenue"
+    ],
+    "djvu_line": 2426
+   },
+   {
+    "box": 36,
+    "division": "south",
+    "text": "Eighteenth and State streets",
+    "streets": [
+     "Eighteenth Street",
+     "State Street"
+    ],
+    "djvu_line": 2428
+   },
+   {
+    "box": 37,
+    "division": "south",
+    "text": "Eighteenth and Arnold streets",
+    "streets": [
+     "Eighteenth Street",
+     "Arnold Street"
+    ],
+    "djvu_line": 2430
+   },
+   {
+    "box": 38,
+    "division": "south",
+    "text": "Twentieth and Grove streets",
+    "streets": [
+     "Twentieth Street",
+     "Grove Street"
+    ],
+    "djvu_line": 2432
+   },
+   {
+    "box": 39,
+    "division": "south",
+    "text": "Clark street and Archer avenue",
+    "streets": [
+     "Clark Street",
+     "Archer Road"
+    ],
+    "djvu_line": 2434
+   },
+   {
+    "box": 41,
+    "division": "south",
+    "text": "State and Twenty-second streets",
+    "streets": [
+     "State Street",
+     "Twenty-second Street"
+    ],
+    "djvu_line": 2436
+   },
+   {
+    "box": 42,
+    "division": "south",
+    "text": "Archer avenue and Twenty-second street",
+    "streets": [
+     "Archer Road",
+     "Twenty-second Street"
+    ],
+    "djvu_line": 2438
+   },
+   {
+    "box": 43,
+    "division": "south",
+    "text": "Cottage Grove avenue and Twenty-second street",
+    "streets": [
+     "Cottage Grove Avenue",
+     "Twenty-second Street"
+    ],
+    "djvu_line": 2440
+   },
+   {
+    "box": 45,
+    "division": "south",
+    "text": "Michigan avenue and Twenty-fourth street",
+    "streets": [
+     "Michigan Avenue",
+     "Twenty-fourth Street"
+    ],
+    "djvu_line": 2441
+   },
+   {
+    "box": 46,
+    "division": "south",
+    "text": "Prairie avenue and Twenty-fifth street",
+    "streets": [
+     "Prairie Avenue",
+     "Twenty-fifth Street"
+    ],
+    "djvu_line": 2443
+   },
+   {
+    "box": 47,
+    "division": "south",
+    "text": "F. C. Sherman Engine House, Cottage Grove avenue",
+    "streets": null,
+    "djvu_line": 2445
+   },
+   {
+    "box": 48,
+    "division": "south",
+    "text": "Archer avenue and Grove street",
+    "streets": [
+     "Archer Road",
+     "Grove Street"
+    ],
+    "djvu_line": 2448
+   },
+   {
+    "box": 49,
+    "division": "south",
+    "text": "Archer avenue and Halsted street",
+    "streets": [
+     "Archer Road",
+     "Halsted Street"
+    ],
+    "djvu_line": 2449
+   },
+   {
+    "box": 51,
+    "division": "south",
+    "text": "Archer avenue and Main street",
+    "streets": [
+     "Archer Road",
+     "Main Street"
+    ],
+    "djvu_line": 2450
+   },
+   {
+    "box": 52,
+    "division": "south",
+    "text": "Archer avenue and Deering street",
+    "streets": [
+     "Archer Road",
+     "Deering Street"
+    ],
+    "djvu_line": 2451
+   },
+   {
+    "box": 53,
+    "division": "south",
+    "text": "Michigan avenue and Twenty-sixth street",
+    "streets": [
+     "Michigan Avenue",
+     "Twenty-sixth Street"
+    ],
+    "djvu_line": 2452
+   },
+   {
+    "box": 54,
+    "division": "south",
+    "text": "State and Twenty-eighth streets",
+    "streets": [
+     "State Street",
+     "Twenty-eighth Street"
+    ],
+    "djvu_line": 2453
+   },
+   {
+    "box": 56,
+    "division": "south",
+    "text": "Indiana avenue and Twenty-ninth street",
+    "streets": [
+     "Indiana Avenue",
+     "Twenty-ninth Street"
+    ],
+    "djvu_line": 2455
+   },
+   {
+    "box": 57,
+    "division": "south",
+    "text": "Kankakee avenue and Twenty-ninth street",
+    "streets": [
+     "Kankakee Avenue",
+     "Twenty-ninth Street"
+    ],
+    "djvu_line": 2457
+   },
+   {
+    "box": 58,
+    "division": "south",
+    "text": "State and Thirty-first streets",
+    "streets": [
+     "State Street",
+     "Thirty-first Street"
+    ],
+    "djvu_line": 2458
+   },
+   {
+    "box": 59,
+    "division": "south",
+    "text": "Indiana avenue and Thirty-first street",
+    "streets": [
+     "Indiana Avenue",
+     "Thirty-first Street"
+    ],
+    "djvu_line": 2460
+   },
+   {
+    "box": 61,
+    "division": "south",
+    "text": "Cottage Grove avenue and Thirty-first street",
+    "streets": [
+     "Cottage Grove Avenue",
+     "Thirty-first Street"
+    ],
+    "djvu_line": 2462
+   },
+   {
+    "box": 62,
+    "division": "south",
+    "text": "Cottage Grove avenue and Douglas place",
+    "streets": [
+     "Cottage Grove Avenue",
+     "Douglas Place"
+    ],
+    "djvu_line": 2451
+   },
+   {
+    "box": 63,
+    "division": "south",
+    "text": "Calumet avenue and Twenty-third street",
+    "streets": [
+     "Calumet Avenue",
+     "Twenty-third Street"
+    ],
+    "djvu_line": 2466
+   },
+   {
+    "box": 64,
+    "division": "south",
+    "text": "Lake avenue and Pier street",
+    "streets": [
+     "Lake Avenue",
+     "Pier Street"
+    ],
+    "djvu_line": 2467
+   },
+   {
+    "box": 65,
+    "division": "south",
+    "text": "Wentworth avenue and Twenty-sixth street",
+    "streets": [
+     "Wentworth Avenue",
+     "Twenty-sixth Street"
+    ],
+    "djvu_line": 2469
+   },
+   {
+    "box": 67,
+    "division": "south",
+    "text": "Wentworth avenue and Twenty-ninth street",
+    "streets": [
+     "Wentworth Avenue",
+     "Twenty-ninth Street"
+    ],
+    "djvu_line": 2470
+   },
+   {
+    "box": 68,
+    "division": "south",
+    "text": "Wabansia Engine House, Sanger street",
+    "streets": null,
+    "djvu_line": 2471
+   },
+   {
+    "box": 69,
+    "division": "south",
+    "text": "Archer avenue and Broad street",
+    "streets": [
+     "Archer Road",
+     "Broad Street"
+    ],
+    "djvu_line": 2472
+   },
+   {
+    "box": 213,
+    "division": "west",
+    "text": "Rolling Mills",
+    "streets": null,
+    "djvu_line": 2475
+   },
+   {
+    "box": 214,
+    "division": "west",
+    "text": "Bloomingdale and Elston rds.",
+    "streets": null,
+    "djvu_line": 2477
+   },
+   {
+    "box": 215,
+    "division": "west",
+    "text": "Noble street and North avenue",
+    "streets": [
+     "Noble Street",
+     "North Avenue"
+    ],
+    "djvu_line": 2479
+   },
+   {
+    "box": 216,
+    "division": "west",
+    "text": "Noble and Bradley streets",
+    "streets": [
+     "Noble Street",
+     "Bradley Street"
+    ],
+    "djvu_line": 2480
+   },
+   {
+    "box": 217,
+    "division": "west",
+    "text": "Noble street and Milwaukee avenue",
+    "streets": [
+     "Noble Street",
+     "Milwaukee Avenue"
+    ],
+    "djvu_line": 2482
+   },
+   {
+    "box": 218,
+    "division": "west",
+    "text": "Milwaukee avenue and Cornell street",
+    "streets": [
+     "Milwaukee Avenue",
+     "Cornell Street"
+    ],
+    "djvu_line": 2484
+   },
+   {
+    "box": 219,
+    "division": "west",
+    "text": "South end of North Halsted street bridge",
+    "streets": null,
+    "djvu_line": 2486
+   },
+   {
+    "box": 231,
+    "division": "west",
+    "text": "Chicago avenue and Reuben street",
+    "streets": [
+     "West Chicago Avenue",
+     "Reuben Street"
+    ],
+    "djvu_line": 2488
+   },
+   {
+    "box": 232,
+    "division": "west",
+    "text": "Chicago avenue and Noble street",
+    "streets": [
+     "West Chicago Avenue",
+     "Noble Street"
+    ],
+    "djvu_line": 2490
+   },
+   {
+    "box": 234,
+    "division": "west",
+    "text": "Wm. James Engine House, Chicago avenue",
+    "streets": null,
+    "djvu_line": 2492
+   },
+   {
+    "box": 235,
+    "division": "west",
+    "text": "C. & N. W. R. W. machine shops",
+    "streets": null,
+    "djvu_line": 2494
+   },
+   {
+    "box": 236,
+    "division": "west",
+    "text": "Milwaukee avenue and West Erie street",
+    "streets": [
+     "Milwaukee Avenue",
+     "West Erie Street"
+    ],
+    "djvu_line": 2496
+   },
+   {
+    "box": 237,
+    "division": "west",
+    "text": "West Erie and Desplaines streets",
+    "streets": [
+     "West Erie Street",
+     "North Desplaines Street"
+    ],
+    "djvu_line": 2498
+   },
+   {
+    "box": 238,
+    "division": "west",
+    "text": "West Indiana street and Milwaukee avenue",
+    "streets": [
+     "West Indiana Street",
+     "Milwaukee Avenue"
+    ],
+    "djvu_line": 2500
+   },
+   {
+    "box": 241,
+    "division": "west",
+    "text": "West Indiana and North Carpenter streets",
+    "streets": [
+     "West Indiana Street",
+     "North Carpenter Street"
+    ],
+    "djvu_line": 2502
+   },
+   {
+    "box": 242,
+    "division": "west",
+    "text": "West Indiana and Noble streets",
+    "streets": [
+     "West Indiana Street",
+     "Noble Street"
+    ],
+    "djvu_line": 2504
+   },
+   {
+    "box": 243,
+    "division": "west",
+    "text": "West Indiana and North Paulina streets",
+    "streets": [
+     "West Indiana Street",
+     "North Paulina Street"
+    ],
+    "djvu_line": 2506
+   },
+   {
+    "box": 245,
+    "division": "west",
+    "text": "Hubbard and Robey streets",
+    "streets": [
+     "Hubbard Street",
+     "Robey Street"
+    ],
+    "djvu_line": 2508
+   },
+   {
+    "box": 246,
+    "division": "west",
+    "text": "Carroll and Wood streets",
+    "streets": [
+     "Carroll Street",
+     "Wood Street"
+    ],
+    "djvu_line": 2510
+   },
+   {
+    "box": 247,
+    "division": "west",
+    "text": "Carroll and Morgan streets",
+    "streets": [
+     "Carroll Street",
+     "Morgan Street"
+    ],
+    "djvu_line": 2512
+   },
+   {
+    "box": 248,
+    "division": "west",
+    "text": "Kinzie and Rucker streets",
+    "streets": [
+     "West Kinzie Street",
+     "Rucker Street"
+    ],
+    "djvu_line": 2514
+   },
+   {
+    "box": 251,
+    "division": "west",
+    "text": "Kinzie street and Milwaukee avenue",
+    "streets": [
+     "West Kinzie Street",
+     "Milwaukee Avenue"
+    ],
+    "djvu_line": 2516
+   },
+   {
+    "box": 252,
+    "division": "west",
+    "text": "Kinzie and West Water streets",
+    "streets": [
+     "West Kinzie Street",
+     "West Water Street"
+    ],
+    "djvu_line": 2518
+   },
+   {
+    "box": 253,
+    "division": "west",
+    "text": "Randolph street bridge",
+    "streets": null,
+    "djvu_line": 2520
+   },
+   {
+    "box": 254,
+    "division": "west",
+    "text": "T. B. Brown engine house, Lake street, near Jefferson",
+    "streets": null,
+    "djvu_line": 2522
+   },
+   {
+    "box": 256,
+    "division": "west",
+    "text": "Fulton and Halsted streets",
+    "streets": [
+     "Fulton Street",
+     "Halsted Street"
+    ],
+    "djvu_line": 2526
+   },
+   {
+    "box": 257,
+    "division": "west",
+    "text": "Lake and Elizabeth streets",
+    "streets": [
+     "West Lake Street",
+     "Elizabeth Street"
+    ],
+    "djvu_line": 2528
+   },
+   {
+    "box": 261,
+    "division": "west",
+    "text": "Liberty Engine House, Lake street, near Reuben",
+    "streets": null,
+    "djvu_line": 2530
+   },
+   {
+    "box": 262,
+    "division": "west",
+    "text": "Lake and Lincoln streets",
+    "streets": [
+     "West Lake Street",
+     "Lincoln Street"
+    ],
+    "djvu_line": 2533
+   },
+   {
+    "box": 263,
+    "division": "west",
+    "text": "Lake and Leavitt streets",
+    "streets": [
+     "West Lake Street",
+     "Leavitt Street"
+    ],
+    "djvu_line": 2535
+   },
+   {
+    "box": 264,
+    "division": "west",
+    "text": "West Division Railway barn, city limits",
+    "streets": null,
+    "djvu_line": 2537
+   },
+   {
+    "box": 265,
+    "division": "west",
+    "text": "Madison and Leavitt streets",
+    "streets": [
+     "West Madison Street",
+     "Leavitt Street"
+    ],
+    "djvu_line": 2539
+   },
+   {
+    "box": 267,
+    "division": "west",
+    "text": "Madison and Robey streets",
+    "streets": [
+     "West Madison Street",
+     "Robey Street"
+    ],
+    "djvu_line": 2540
+   },
+   {
+    "box": 271,
+    "division": "west",
+    "text": "Madison and Wood streets",
+    "streets": [
+     "West Madison Street",
+     "Wood Street"
+    ],
+    "djvu_line": 2542
+   },
+   {
+    "box": 272,
+    "division": "west",
+    "text": "Madison street and Southwestern plank road",
+    "streets": null,
+    "djvu_line": 2544
+   },
+   {
+    "box": 273,
+    "division": "west",
+    "text": "Madison and Ada streets",
+    "streets": [
+     "West Madison Street",
+     "Ada Street"
+    ],
+    "djvu_line": 2546
+   },
+   {
+    "box": 274,
+    "division": "west",
+    "text": "Randolph and North Carpenter streets",
+    "streets": [
+     "West Randolph Street",
+     "North Carpenter Street"
+    ],
+    "djvu_line": 2548
+   },
+   {
+    "box": 275,
+    "division": "west",
+    "text": "Randolph and Halsted streets",
+    "streets": [
+     "West Randolph Street",
+     "Halsted Street"
+    ],
+    "djvu_line": 2550
+   },
+   {
+    "box": 276,
+    "division": "west",
+    "text": "Tempest Hose House, Clinton and Washington streets",
+    "streets": [
+     "South Clinton Street",
+     "West Washington Street"
+    ],
+    "djvu_line": 2552
+   },
+   {
+    "box": 278,
+    "division": "west",
+    "text": "Canal and West Madison streets",
+    "streets": [
+     "South Canal Street",
+     "West Madison Street"
+    ],
+    "djvu_line": 2556
+   },
+   {
+    "box": 279,
+    "division": "west",
+    "text": "Halsted and W. Madison streets",
+    "streets": [
+     "Halsted Street",
+     "West Madison Street"
+    ],
+    "djvu_line": 2558
+   },
+   {
+    "box": 281,
+    "division": "west",
+    "text": "Aberdeen and W. Madison streets",
+    "streets": [
+     "Aberdeen Street",
+     "West Madison Street"
+    ],
+    "djvu_line": 2560
+   },
+   {
+    "box": 282,
+    "division": "west",
+    "text": "W. Jackson and Loomis streets",
+    "streets": [
+     "West Jackson Street",
+     "Loomis Street"
+    ],
+    "djvu_line": 2562
+   },
+   {
+    "box": 283,
+    "division": "west",
+    "text": "W. Harrison and May streets",
+    "streets": [
+     "West Harrison Street",
+     "May Street"
+    ],
+    "djvu_line": 2564
+   },
+   {
+    "box": 284,
+    "division": "west",
+    "text": "W. Adams street and Centre avenue",
+    "streets": [
+     "West Adams Street",
+     "Centre Avenue"
+    ],
+    "djvu_line": 2566
+   },
+   {
+    "box": 285,
+    "division": "west",
+    "text": "Chicago Engine House, Clinton and Jackson streets",
+    "streets": [
+     "South Clinton Street",
+     "West Jackson Street"
+    ],
+    "djvu_line": 2568
+   },
+   {
+    "box": 286,
+    "division": "west",
+    "text": "W. Jackson and Halsted streets",
+    "streets": [
+     "West Jackson Street",
+     "Halsted Street"
+    ],
+    "djvu_line": 2572
+   },
+   {
+    "box": 287,
+    "division": "west",
+    "text": "W. Van Buren and Canal streets",
+    "streets": [
+     "West Van Buren Street",
+     "South Canal Street"
+    ],
+    "djvu_line": 2574
+   },
+   {
+    "box": 289,
+    "division": "west",
+    "text": "W. Van Buren and Morgan streets",
+    "streets": [
+     "West Van Buren Street",
+     "Morgan Street"
+    ],
+    "djvu_line": 2575
+   },
+   {
+    "box": 291,
+    "division": "west",
+    "text": "W. Harrison and Jefferson streets",
+    "streets": [
+     "West Harrison Street",
+     "South Jefferson Street"
+    ],
+    "djvu_line": 2576
+   },
+   {
+    "box": 292,
+    "division": "west",
+    "text": "American Hose House, Blue Island avenue",
+    "streets": null,
+    "djvu_line": 2579
+   },
+   {
+    "box": 293,
+    "division": "west",
+    "text": "W. Polk and Canal streets",
+    "streets": [
+     "West Polk Street",
+     "South Canal Street"
+    ],
+    "djvu_line": 2581
+   },
+   {
+    "box": 294,
+    "division": "west",
+    "text": "W. Polk and Morgan streets",
+    "streets": [
+     "West Polk Street",
+     "Morgan Street"
+    ],
+    "djvu_line": 2583
+   },
+   {
+    "box": 295,
+    "division": "west",
+    "text": "W. Taylor and Desplaines streets",
+    "streets": [
+     "West Taylor Street",
+     "South Desplaines Street"
+    ],
+    "djvu_line": 2585
+   },
+   {
+    "box": 296,
+    "division": "west",
+    "text": "W. Twelfth and Canal streets",
+    "streets": [
+     "West Twelfth Street",
+     "South Canal Street"
+    ],
+    "djvu_line": 2587
+   },
+   {
+    "box": 297,
+    "division": "west",
+    "text": "W. Twelfth street and Blue Island avenue",
+    "streets": [
+     "West Twelfth Street",
+     "Blue Island Avenue"
+    ],
+    "djvu_line": 2589
+   },
+   {
+    "box": 298,
+    "division": "west",
+    "text": "Little Giant Engine House, Maxwell street",
+    "streets": null,
+    "djvu_line": 2591
+   },
+   {
+    "box": 312,
+    "division": "west",
+    "text": "Jackson street and Seeley avenue",
+    "streets": [
+     "West Jackson Street",
+     "Seeley Avenue"
+    ],
+    "djvu_line": 2592
+   },
+   {
+    "box": 314,
+    "division": "west",
+    "text": "Jackson and Honore streets",
+    "streets": [
+     "West Jackson Street",
+     "Honore Street"
+    ],
+    "djvu_line": 2594
+   },
+   {
+    "box": 317,
+    "division": "west",
+    "text": "Mitchell street and Blue Island avenue",
+    "streets": [
+     "Mitchell Street",
+     "Blue Island Avenue"
+    ],
+    "djvu_line": 2596
+   },
+   {
+    "box": 319,
+    "division": "west",
+    "text": "Twelfth and Johnson streets (police station)",
+    "streets": [
+     "West Twelfth Street",
+     "Johnson Street"
+    ],
+    "djvu_line": 2598
+   },
+   {
+    "box": 321,
+    "division": "west",
+    "text": "Halsted and Maxwell streets",
+    "streets": [
+     "South Halsted Street",
+     "Maxwell Street"
+    ],
+    "djvu_line": 2600
+   },
+   {
+    "box": 323,
+    "division": "west",
+    "text": "Wright and Jefferson streets",
+    "streets": [
+     "Wright Street",
+     "South Jefferson Street"
+    ],
+    "djvu_line": 2602
+   },
+   {
+    "box": 324,
+    "division": "west",
+    "text": "Wright and Morgan streets",
+    "streets": [
+     "Wright Street",
+     "Morgan Street"
+    ],
+    "djvu_line": 2604
+   },
+   {
+    "box": 325,
+    "division": "west",
+    "text": "Canal and Sixteenth streets",
+    "streets": [
+     "South Canal Street",
+     "West Sixteenth Street"
+    ],
+    "djvu_line": 2606
+   },
+   {
+    "box": 326,
+    "division": "west",
+    "text": "Sixteenth and Union streets",
+    "streets": [
+     "West Sixteenth Street",
+     "South Union Street"
+    ],
+    "djvu_line": 2608
+   },
+   {
+    "box": 327,
+    "division": "west",
+    "text": "Eighteenth and Lumber streets",
+    "streets": [
+     "West Eighteenth Street",
+     "South Lumber Street"
+    ],
+    "djvu_line": 2610
+   },
+   {
+    "box": 341,
+    "division": "west",
+    "text": "Jefferson street and Canalport avenue",
+    "streets": [
+     "South Jefferson Street",
+     "Canalport Avenue"
+    ],
+    "djvu_line": 2612
+   },
+   {
+    "box": 342,
+    "division": "west",
+    "text": "Halsted street and Canalport avenue",
+    "streets": [
+     "South Halsted Street",
+     "Canalport Avenue"
+    ],
+    "djvu_line": 2614
+   },
+   {
+    "box": 343,
+    "division": "west",
+    "text": "Lumber and Twenty-second streets",
+    "streets": [
+     "South Lumber Street",
+     "West Twenty-second Street"
+    ],
+    "djvu_line": 2615
+   },
+   {
+    "box": 351,
+    "division": "west",
+    "text": "Lumber and Halsted streets",
+    "streets": [
+     "South Lumber Street",
+     "South Halsted Street"
+    ],
+    "djvu_line": 2617
+   },
+   {
+    "box": 352,
+    "division": "west",
+    "text": "May and Twenty-second streets",
+    "streets": [
+     "May Street",
+     "West Twenty-second Street"
+    ],
+    "djvu_line": 2619
+   },
+   {
+    "box": 121,
+    "division": "north",
+    "text": "Corklin's coal office, 472 N. Water street",
+    "streets": null,
+    "djvu_line": 2622
+   },
+   {
+    "box": 123,
+    "division": "north",
+    "text": "Kingsbury and Indiana streets",
+    "streets": [
+     "North Kingsbury Street",
+     "Indiana Street"
+    ],
+    "djvu_line": 2623
+   },
+   {
+    "box": 124,
+    "division": "north",
+    "text": "Kingsbury and Erie streets",
+    "streets": [
+     "North Kingsbury Street",
+     "Erie Street"
+    ],
+    "djvu_line": 2625
+   },
+   {
+    "box": 125,
+    "division": "north",
+    "text": "N. Market and Kinzie streets",
+    "streets": [
+     "North Market Street",
+     "Kinzie Street"
+    ],
+    "djvu_line": 2627
+   },
+   {
+    "box": 126,
+    "division": "north",
+    "text": "N. LaSalle and Kinzie streets",
+    "streets": [
+     "North LaSalle Street",
+     "Kinzie Street"
+    ],
+    "djvu_line": 2629
+   },
+   {
+    "box": 127,
+    "division": "north",
+    "text": "North Market Hall",
+    "streets": null,
+    "djvu_line": 2631
+   },
+   {
+    "box": 128,
+    "division": "north",
+    "text": "A. C. Coventry Engine House, Michigan street",
+    "streets": null,
+    "djvu_line": 2633
+   },
+   {
+    "box": 131,
+    "division": "north",
+    "text": "Michigan and Pine streets",
+    "streets": [
+     "Michigan Street",
+     "Pine Street"
+    ],
+    "djvu_line": 2635
+   },
+   {
+    "box": 132,
+    "division": "north",
+    "text": "N. Wells and Indiana street",
+    "streets": [
+     "North Wells Street",
+     "Indiana Street"
+    ],
+    "djvu_line": 2637
+   },
+   {
+    "box": 134,
+    "division": "north",
+    "text": "N. Market and Ontario streets",
+    "streets": [
+     "North Market Street",
+     "Ontario Street"
+    ],
+    "djvu_line": 2639
+   },
+   {
+    "box": 135,
+    "division": "north",
+    "text": "N. Clark and Ontario streets",
+    "streets": [
+     "North Clark Street",
+     "Ontario Street"
+    ],
+    "djvu_line": 2641
+   },
+   {
+    "box": 136,
+    "division": "north",
+    "text": "Ontario and Rush streets",
+    "streets": [
+     "Ontario Street",
+     "Rush Street"
+    ],
+    "djvu_line": 2643
+   },
+   {
+    "box": 137,
+    "division": "north",
+    "text": "Fred. Gund Engine House, N. Dearborn street",
+    "streets": null,
+    "djvu_line": 2645
+   },
+   {
+    "box": 138,
+    "division": "north",
+    "text": "Chicago avenue and Bremer street",
+    "streets": [
+     "Chicago Avenue",
+     "Bremer Street"
+    ],
+    "djvu_line": 2646
+   },
+   {
+    "box": 139,
+    "division": "north",
+    "text": "Water Works",
+    "streets": null,
+    "djvu_line": 2648,
+    "structure": "chicago_pumping_station_1871",
+    "street": "Pine Street"
+   },
+   {
+    "box": 141,
+    "division": "north",
+    "text": "Chicago avenue and N. Wells street",
+    "streets": [
+     "Chicago Avenue",
+     "North Wells Street"
+    ],
+    "djvu_line": 2650
+   },
+   {
+    "box": 142,
+    "division": "north",
+    "text": "Chicago avenue and N. Clark street",
+    "streets": [
+     "Chicago Avenue",
+     "North Clark Street"
+    ],
+    "djvu_line": 2652
+   },
+   {
+    "box": 143,
+    "division": "north",
+    "text": "Chicago avenue and Green Bay street",
+    "streets": [
+     "Chicago Avenue",
+     "Green Bay Street"
+    ],
+    "djvu_line": 2654
+   },
+   {
+    "box": 145,
+    "division": "north",
+    "text": "Larrabee and North Branch streets",
+    "streets": [
+     "Larrabee Street",
+     "North Branch Street"
+    ],
+    "djvu_line": 2656
+   },
+   {
+    "box": 146,
+    "division": "north",
+    "text": "N. Market and Whiting streets",
+    "streets": [
+     "North Market Street",
+     "Whiting Street"
+    ],
+    "djvu_line": 2658
+   },
+   {
+    "box": 147,
+    "division": "north",
+    "text": "Oak and N. Wells streets",
+    "streets": [
+     "Oak Street",
+     "North Wells Street"
+    ],
+    "djvu_line": 2660
+   },
+   {
+    "box": 148,
+    "division": "north",
+    "text": "Huck Hose House, Oak and N. State streets",
+    "streets": [
+     "Oak Street",
+     "North State Street"
+    ],
+    "djvu_line": 2662
+   },
+   {
+    "box": 151,
+    "division": "north",
+    "text": "Oak and Bremer streets",
+    "streets": [
+     "Oak Street",
+     "Bremer Street"
+    ],
+    "djvu_line": 2664
+   },
+   {
+    "box": 152,
+    "division": "north",
+    "text": "Clybourn avenue and Division street",
+    "streets": [
+     "Clybourn Avenue",
+     "Division Street"
+    ],
+    "djvu_line": 2666
+   },
+   {
+    "box": 153,
+    "division": "north",
+    "text": "N. Wells and Division streets",
+    "streets": [
+     "North Wells Street",
+     "Division Street"
+    ],
+    "djvu_line": 2667
+   },
+   {
+    "box": 154,
+    "division": "north",
+    "text": "N. Clark and Division streets",
+    "streets": [
+     "North Clark Street",
+     "Division Street"
+    ],
+    "djvu_line": 2669
+   },
+   {
+    "box": 156,
+    "division": "north",
+    "text": "Clybourn avenue and Larrabee street",
+    "streets": [
+     "Clybourn Avenue",
+     "Larrabee Street"
+    ],
+    "djvu_line": 2671
+   },
+   {
+    "box": 157,
+    "division": "north",
+    "text": "N. State and Grand Haven streets",
+    "streets": [
+     "North State Street",
+     "Grand Haven Street"
+    ],
+    "djvu_line": 2673
+   },
+   {
+    "box": 158,
+    "division": "north",
+    "text": "Sedgwick and Schiller streets",
+    "streets": [
+     "Sedgwick Street",
+     "Schiller Street"
+    ],
+    "djvu_line": 2675
+   },
+   {
+    "box": 161,
+    "division": "north",
+    "text": "N. Wells and Schiller streets",
+    "streets": [
+     "North Wells Street",
+     "Schiller Street"
+    ],
+    "djvu_line": 2677
+   },
+   {
+    "box": 162,
+    "division": "north",
+    "text": "North avenue and Sedgwick street",
+    "streets": [
+     "North Avenue",
+     "Sedgwick Street"
+    ],
+    "djvu_line": 2679
+   },
+   {
+    "box": 163,
+    "division": "north",
+    "text": "Jacob Rehm Engine House, Larrabee street",
+    "streets": null,
+    "djvu_line": 2681
+   },
+   {
+    "box": 164,
+    "division": "north",
+    "text": "N. Clark and Schiller streets",
+    "streets": [
+     "North Clark Street",
+     "Schiller Street"
+    ],
+    "djvu_line": 2683
+   },
+   {
+    "box": 165,
+    "division": "north",
+    "text": "N. Clark street and North avenue",
+    "streets": [
+     "North Clark Street",
+     "North Avenue"
+    ],
+    "djvu_line": 2685
+   },
+   {
+    "box": 167,
+    "division": "north",
+    "text": "Penn and Division streets",
+    "streets": [
+     "Penn Street",
+     "Division Street"
+    ],
+    "djvu_line": 2686
+   },
+   {
+    "box": 171,
+    "division": "north",
+    "text": "N. Wells and Eugenie streets",
+    "streets": [
+     "North Wells Street",
+     "Eugenie Street"
+    ],
+    "djvu_line": 2688
+   },
+   {
+    "box": 172,
+    "division": "north",
+    "text": "Mohawk and Menomonee streets",
+    "streets": [
+     "Mohawk Street",
+     "Menomonee Street"
+    ],
+    "djvu_line": 2689
+   },
+   {
+    "box": 173,
+    "division": "north",
+    "text": "Larrabee and Centre streets",
+    "streets": [
+     "Larrabee Street",
+     "Center Street"
+    ],
+    "djvu_line": 2691
+   },
+   {
+    "box": 174,
+    "division": "north",
+    "text": "Lincoln avenue and Centre streets",
+    "streets": [
+     "Lincoln Avenue",
+     "Center Street"
+    ],
+    "djvu_line": 2693
+   },
+   {
+    "box": 175,
+    "division": "north",
+    "text": "Hurlbut street and Asylum place",
+    "streets": [
+     "Hurlbut Street",
+     "Asylum Place"
+    ],
+    "djvu_line": 2695
+   },
+   {
+    "box": 181,
+    "division": "north",
+    "text": "Clybourn avenue and Blackhawk street",
+    "streets": [
+     "Clybourn Avenue",
+     "Blackhawk Street"
+    ],
+    "djvu_line": 2697
+   },
+   {
+    "box": 182,
+    "division": "north",
+    "text": "Halsted street and North avenue",
+    "streets": [
+     "North Halsted Street",
+     "North Avenue"
+    ],
+    "djvu_line": 2699
+   }
+  ]
+ },
+ "hydrants": {
+  "source_id": "chicago_public_works_1871",
+  "locator": "Tenth Annual Report: pp. 8-9 ('Fire Hydrants': 258 erected in the year, 1,552 in the city at March 31, 1871); pp. 79-85 ('Hydrants', each new hydrant by corner, by division); p. 61 (the shops made 335 new hydrants, eight of them triple hydrants of a new style); pp. 85-86 (packed against frost with manure, boards and tan bark in winter).",
+  "count_1871": 1552,
+  "form_source_id": "andreas_1885_v2",
+  "form_text": "All of the fire hydrants used in the city are of his [DeWitt C. Cregier's] design.",
+  "listed": [
+   {
+    "corner": "SW",
+    "streets": [
+     "Clark Street",
+     "South Water Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One southwest corner Clark and South Water streets."
+   },
+   {
+    "corner": "SE",
+    "streets": [
+     "Dearborn Street",
+     "Lake Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One southeast corner Dearborn and Lake streets."
+   },
+   {
+    "corner": "SW",
+    "streets": [
+     "Griswold Street",
+     "Harrison Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One southwest corner Griswold and Harrison streets."
+   },
+   {
+    "corner": "SE",
+    "streets": [
+     "Jackson Street",
+     "Third Avenue"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One southeast corner Jackson street and Third avenue."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Lake Street",
+     "Fifth Avenue"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One northeast corner Lake street and Fifth avenue."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Lake Street",
+     "Franklin Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One northeast corner Lake and Franklin streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Lake Street",
+     "Market Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One northeast corner Lake and Market streets."
+   },
+   {
+    "corner": "SE",
+    "streets": [
+     "Sherman Street",
+     "Harrison Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One southeast corner Sherman and Harrison streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Washington Street",
+     "Franklin Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One northeast corner Washington and Franklin streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Twentieth Street",
+     "State Street"
+    ],
+    "division": "south",
+    "page": 80,
+    "text": "One northwest corner Twentieth and State streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Halsted Street",
+     "West Lake Street"
+    ],
+    "division": "west",
+    "page": 82,
+    "text": "One northeast corner Halsted and Lake streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Meridian Street",
+     "Union Street"
+    ],
+    "division": "west",
+    "page": 82,
+    "text": "One northeast corner Meridian and Union streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "West Polk Street",
+     "South Clinton Street"
+    ],
+    "division": "west",
+    "page": 83,
+    "text": "One northwest corner Polk and Clinton streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "West Polk Street",
+     "South Jefferson Street"
+    ],
+    "division": "west",
+    "page": 83,
+    "text": "One northeast corner Polk and Jefferson streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "West Twelfth Street",
+     "South Desplaines Street"
+    ],
+    "division": "west",
+    "page": 83,
+    "text": "One northwest corner Twelfth and Desplaines streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "South Desplaines Street",
+     "Depuyster Street"
+    ],
+    "division": "west",
+    "page": 81,
+    "text": "One northwest corner Desplaines and Depuyster streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "North Desplaines Street",
+     "Pierce Street"
+    ],
+    "division": "west",
+    "page": 81,
+    "text": "One northwest corner Desplaines and Pierce streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Chicago Avenue",
+     "Pine Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northeast corner Chicago avenue and Pine street."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Erie Street",
+     "North Clark Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Erie and North Clark streets."
+   },
+   {
+    "corner": "SE",
+    "streets": [
+     "Erie Street",
+     "North LaSalle Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One southeast corner Erie and North La Salle streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Erie Street",
+     "Rush Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northeast corner Erie and Rush streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "North LaSalle Street",
+     "Chicago Avenue"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner La Salle street and Chicago avenue."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "North LaSalle Street",
+     "Locust Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northeast corner La Salle and Locust streets."
+   },
+   {
+    "corner": "SW",
+    "streets": [
+     "North Market Street",
+     "Chicago Avenue"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One southwest corner Market street and Chicago avenue."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "North Market Street",
+     "Hinsdale Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Market and Hinsdale streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "North Market Street",
+     "Huron Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Market and Huron streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "North Market Street",
+     "Whiting Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Market and Whiting streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Ohio Street",
+     "North Clark Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Ohio and Clark streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Ohio Street",
+     "North LaSalle Street"
+    ],
+    "division": "north",
+    "page": 84,
+    "text": "One northwest corner Ohio and La Salle streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Ohio Street",
+     "North Franklin Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One northwest corner Ohio and Franklin streets."
+   },
+   {
+    "corner": "SE",
+    "streets": [
+     "Pine Street",
+     "Pearson Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One southeast corner Pine and Pearson streets."
+   },
+   {
+    "corner": "SW",
+    "streets": [
+     "Pine Street",
+     "Hinsdale Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One southwest corner Pine and Hinsdale streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Rush Street",
+     "Pearson Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One northeast corner Rush and Pearson streets."
+   },
+   {
+    "corner": "NW",
+    "streets": [
+     "Rush Street",
+     "Whiting Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One northwest corner Rush and Whiting streets."
+   },
+   {
+    "corner": "SW",
+    "streets": [
+     "Sedgwick Street",
+     "Division Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One southwest corner Sedgwick and Division streets."
+   },
+   {
+    "corner": "NE",
+    "streets": [
+     "Sedgwick Street",
+     "Hill Street"
+    ],
+    "division": "north",
+    "page": 85,
+    "text": "One northeast corner Sedgwick and Hill streets."
+   }
+  ]
+ },
+ "trades": {
+  "source_id": "edwards_chicago_directory_1871",
+  "locator": "Classified business directory: 'Barbers' (djvu.txt from line 260830) and 'Cigars and Tobacco (Retail)' (from line 264090).",
+  "firms": [
+   {
+    "trade": "barber",
+    "text": "Becker John, Clark, ne. cor. Randolph",
+    "fronts": "Clark Street",
+    "at": "Randolph Street",
+    "corner": "NE",
+    "djvu_line": 260843
+   },
+   {
+    "trade": "barber",
+    "text": "Delight A. M., Clark, se. cor. Madison",
+    "fronts": "Clark Street",
+    "at": "Madison Street",
+    "corner": "SE",
+    "djvu_line": 260875
+   },
+   {
+    "trade": "barber",
+    "text": "Pettillon Bros., Dearborn, se. cor. Madison",
+    "fronts": "Dearborn Street",
+    "at": "Madison Street",
+    "corner": "SE",
+    "djvu_line": 261014
+   },
+   {
+    "trade": "barber",
+    "text": "Tress Edward, Randolph, nw. cor. LaSalle",
+    "fronts": "Randolph Street",
+    "at": "LaSalle Street",
+    "corner": "NW",
+    "djvu_line": 261097
+   },
+   {
+    "trade": "barber",
+    "text": "Glass Henry, Randolph, sw. cor. 5th av.",
+    "fronts": "Randolph Street",
+    "at": "Fifth Avenue",
+    "corner": "SW",
+    "djvu_line": 260921
+   },
+   {
+    "trade": "tobacconist",
+    "text": "Daniel William T., Dearborn, nw. cor. Madison, and 91 Clark",
+    "fronts": "Dearborn Street",
+    "at": "Madison Street",
+    "corner": "NW",
+    "djvu_line": 264114
+   },
+   {
+    "trade": "tobacconist",
+    "text": "Frost J., State, nw. cor. Randolph",
+    "fronts": "State Street",
+    "at": "Randolph Street",
+    "corner": "NW",
+    "djvu_line": 264564
+   }
+  ]
+ }
+}

@@ -64,6 +64,7 @@ const GOODS_RGB = {
   calico: 0x8a5a48, shawl: 0x4a4f63, linen: 0xc8c2b0, ticking: 0xbab3a0, stripe: 0x5a6378, leather: 0x4d3423,
   trunkPaint: 0x3f4a3a, iron: 0x2b2b2b, brass: 0x8f7a3a, wicker: 0x9a7d4f, wood: 0x6b5338, walnut: 0x5c3d26,
   paper: 0xd8d2c0, twine: 0x8c7a58, cloth1: 0x6a2e2e, cloth2: 0x2f3e57, cloth3: 0x7a6a4a, cord: 0x7a6a50,
+  oak: 0x7a5a36, blanket: 0xd9d2bf, stroud: 0x7d2a24, dark: 0x0e0d0c, stone: 0x6e6a60,
 };
 let goodsShared = null;
 function goodsParts() {
@@ -86,6 +87,22 @@ const HAND_L = { side: 'l', wrist_from_shoulder: [0.205, -0.39, 0.05], elbow_pol
 const HAND_R = { side: 'r', wrist_from_shoulder: [-0.205, -0.39, 0.05], elbow_pole: [-0.7, -0.1, -0.7], fingers: [-0.10, -1, 0.06], palm: [1, 0, 0], curl: 0.75 };
 const SHOULDER_R = { side: 'r', wrist_from_shoulder: [0.06, 0.1, 0.16], elbow_pole: [-0.55, -0.75, 0.35], fingers: [0.15, 0.45, -0.88], palm: [0.25, -0.2, -0.95], curl: 0.85 };
 const DRAG_R = { side: 'r', wrist_from_shoulder: [-0.16, -0.5, -0.14], elbow_pole: [-0.6, 0, 0.8], fingers: [0, -1, -0.15], palm: [0.9, 0, -0.3], curl: 0.9 };
+
+/** A keg lying along its axis (y before turning), 0.44 m long: oak staves and two iron hoops. */
+function keg(g, at, rot) {
+  const k = new THREE.Group(); k.position.set(...at); k.rotation.set(...rot); g.add(k);
+  gp(k, 'cyl', 'oak', [0.34, 0.44, 0.34], [0, 0, 0]);
+  gp(k, 'cyl', 'oak', [0.38, 0.2, 0.38], [0, 0, 0]);                    // the belly
+  for (const y of [-0.17, 0.17]) gp(k, 'cyl', 'iron', [0.36, 0.025, 0.36], [0, y, 0]);
+  return k;
+}
+/** A musket lying along -z from `at` (its butt at +z), turned up by `tilt` about x. */
+function musket(g, at, tilt = 0) {
+  const m = new THREE.Group(); m.position.set(...at); m.rotation.set(tilt, 0, 0); g.add(m);
+  gp(m, 'box', 'walnut', [0.045, 0.1, 0.62], [0, -0.02, 0.32]);
+  gp(m, 'cyl', 'iron', [0.022, 0.95, 0.022], [0, 0.02, -0.45], [Math.PI / 2, 0, 0]);
+  return m;
+}
 
 /** How each kind is carried, and how it is made (its origin: the grip for `hand`, the shoulder's
  *  top for `shoulder`, the middle of the back for `back`, the front of its bottom for `drag`). */
@@ -127,6 +144,18 @@ export const GOODS = Object.freeze({
     for (const x of [-0.3, 0, 0.3]) gp(g, 'cyl', 'stripe', [0.43, 0.04, 0.43], [x, 0.12, -0.22], [0, 0, Math.PI / 2]);
     gp(g, 'box', 'cord', [0.02, 0.5, 0.02], [0.18, -0.02, -0.04], [0.5, 0, 0]);
   } },
+  // T-3553 (the owner, 2026-11-28, 1812): "the fort dearborn people should be carrying goods out of
+  // the factor and piling them ... and also the soldiers are carrying and dumping arms and whiskey
+  // out the sally port". A keg (powder or whiskey), an armful of muskets, a bale of trade blankets,
+  // each on the shoulder. Reconstructed make (L-1812-staged-jaunts-3553).
+  keg: { mode: 'shoulder', hold: SHOULDER_R, make(g) { keg(g, [0, 0.16, -0.06], [Math.PI / 2 - 0.15, 0, 0]); } },
+  muskets: { mode: 'shoulder', hold: SHOULDER_R, make(g) {
+    for (const x of [-0.05, 0, 0.05]) musket(g, [x, 0.05 + Math.abs(x) * 0.4, -0.1], 0.2);
+  } },
+  blanket_bale: { mode: 'shoulder', hold: SHOULDER_R, make(g) {
+    gp(g, 'box', 'blanket', [0.44, 0.24, 0.62], [0, 0.11, -0.16], [0.15, 0, 0]);
+    for (const z of [-0.36, 0.04]) gp(g, 'box', 'stroud', [0.45, 0.25, 0.05], [0, 0.11, z], [0.15, 0, 0]);
+  } },
   trunk: { mode: 'drag', hold: DRAG_R, make(g) {
     gp(g, 'box', 'trunkPaint', [0.52, 0.42, 0.8], [0, 0.23, -0.4]);
     gp(g, 'box', 'trunkPaint', [0.54, 0.08, 0.82], [0, 0.46, -0.4]);
@@ -145,6 +174,28 @@ const STILL = Object.freeze({
   bundle: (g) => { gp(g, 'ball', 'calico', [0.5, 0.32, 0.42], [0, 0.15, 0]); },
   shawl_bundle: (g) => { gp(g, 'ball', 'shawl', [0.46, 0.3, 0.36], [0, 0.14, 0]); },
   featherbed: (g) => { gp(g, 'cyl', 'ticking', [0.44, 1.0, 0.44], [0, 0.2, 0], [0, 0, Math.PI / 2]); },
+  // T-3553, 1812: the factory's goods piled on the grass, the powder and whiskey kegs, the well
+  // in the sally port the muskets went down, and a keg with its head knocked in at the river.
+  keg: (g) => { keg(g, [0, 0.22, 0], [0, 0, 0]); },
+  keg_staved: (g) => {
+    keg(g, [0, 0.22, 0], [0, 0, 0]);
+    gp(g, 'cyl', 'dark', [0.3, 0.01, 0.3], [0, 0.445, 0]);                // the open head, the keg empty
+    gp(g, 'cyl', 'oak', [0.32, 0.02, 0.32], [0.42, 0.012, 0.1], [0, 0, 0.08]);   // the head knocked in, on the ground
+  },
+  muskets: (g) => { for (const x of [-0.12, -0.04, 0.04, 0.12]) musket(g, [x, 0.05, 0], 0.02); },
+  blanket_bale: (g) => {
+    gp(g, 'box', 'blanket', [0.46, 0.26, 0.64], [0, 0.13, 0]);
+    for (const z of [-0.2, 0.2]) gp(g, 'box', 'stroud', [0.47, 0.27, 0.05], [0, 0.13, z]);
+  },
+  bolt: (g) => { gp(g, 'box', 'cloth1', [0.34, 0.16, 1.05], [0, 0.08, 0]); },
+  bolt_blue: (g) => { gp(g, 'box', 'cloth2', [0.34, 0.16, 1.05], [0, 0.08, 0]); },
+  well: (g) => {
+    for (let i = 0; i < 10; i++) {
+      const a = (i / 10) * Math.PI * 2;
+      gp(g, 'box', 'oak', [0.34, 0.5, 0.12], [Math.sin(a) * 0.52, 0.25, Math.cos(a) * 0.52], [0, a, 0]);
+    }
+    gp(g, 'cyl', 'dark', [0.98, 0.02, 0.98], [0, 0.4, 0]);
+  },
   /** A load of a store's dry goods on a wagon bed (bolts and cases), its origin on the bed's top. */
   load_dry_goods: (g) => {
     gp(g, 'box', 'wood', [0.8, 0.45, 0.6], [0, 0.225, 0.75]);

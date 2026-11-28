@@ -538,6 +538,7 @@ def adult_doc(base_name, stages, texts):
             stop['stage'] = {'caption': s['caption'], 'liberty': LIBERTY, 'cast': s['cast']}
             if s.get('teams'): stop['stage']['teams'] = s['teams']
             if s.get('open_gates'): stop['stage']['open_gates'] = s['open_gates']
+            if s.get('props'): stop['stage']['props'] = s['props']
             if s.get('fire'): stop['stage']['fire'] = s['fire']
     doc['liberties'] = [x for x in doc['liberties'] if x != b.LIBERTY] + [b.LIBERTY, LIBERTY]
     path = ROOT / f'data/jaunts/{doc["id"]}.json'
