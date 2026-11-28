@@ -172,10 +172,14 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   const fig = { up: new THREE.Vector3(0, 1, 0), fwd: new THREE.Vector3(0, 0, 1), left: new THREE.Vector3(1, 0, 0) };
   // T-3481: the carrying hand's hold, figure frame (the dress module drew the thing it holds there).
   const vec = (a) => (Array.isArray(a) && a.length === 3 && a.every(Number.isFinite) ? new THREE.Vector3(...a) : null);
-  const hold = carry && SIDES.includes(carry.side) && vec(carry.wrist_from_shoulder) && vec(carry.fingers) && vec(carry.palm)
-    ? { side: carry.side, offset: vec(carry.wrist_from_shoulder), pole: vec(carry.elbow_pole) ?? new THREE.Vector3(0.7, -0.1, -0.7),
-      fingers: vec(carry.fingers), palm: vec(carry.palm), curl: Number.isFinite(carry.curl) ? carry.curl : 0.7, wrist: null }
-    : null;
+  const holdOf = (c) => (c && SIDES.includes(c.side) && vec(c.wrist_from_shoulder) && vec(c.fingers) && vec(c.palm)
+    ? { side: c.side, offset: vec(c.wrist_from_shoulder), pole: vec(c.elbow_pole) ?? new THREE.Vector3(0.7, -0.1, -0.7),
+      fingers: vec(c.fingers), palm: vec(c.palm), curl: Number.isFinite(c.curl) ? c.curl : 0.7, wrist: null }
+    : null);
+  // T-3814: a jaunt stage may hand a figure something to carry after it is made (setCarry), over
+  // the dress's own (`carry`, T-3481), which comes back when the stage's load is put down.
+  const ownHold = holdOf(carry);
+  let hold = ownHold;
 
   function bind(next) {
     const found = {};
@@ -251,7 +255,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     L.backZ = Math.min(at('pelvis').z, at('spine_03').z) - 0.13; // the small of the back's surface, roughly
     L.frontZ = Math.max(at('pelvis').z, at('spine_03').z) + 0.19; // the front of a skirt and apron at the waist, roughly
     L.waistY = (at('pelvis').y + at('spine_03').y) / 2;
-    if (hold) hold.wrist = at(`upperarm_${hold.side}`).add(hold.offset);
+    // T-3814: the shoulders kept (figure frame), so a hold set later finds its wrist.
+    for (const h of [ownHold, hold]) if (h) h.wrist = at(`upperarm_${h.side}`).add(h.offset);
     held = {};
     for (const s of SIDES) for (const n of ARM(s)) if (found[n]) held[n] = { base: found[n].quaternion.clone(), out: new THREE.Quaternion(NaN, NaN, NaN, NaN) };
     bones = found;
@@ -641,6 +646,19 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
     greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
+    /**
+     * T-3814: carry something in one hand (a jaunt stage's goods, stage-props.js GOODS): `spec` is
+     * a hold as a dress's `carry` names it (side, wrist_from_shoulder, elbow_pole, fingers, palm,
+     * curl; figure frame, metres from the shoulder joint). That arm is held there and does not
+     * swing; null gives back the dress's own hold, or none.
+     */
+    setCarry(spec) {
+      const next = spec ? holdOf(spec) : ownHold;
+      if (next && next !== ownHold && bound) next.wrist = (next.side === 'r' ? L.shR : L.shL).clone().add(next.offset);
+      hold = next;
+      return api;
+    },
+    get carrying() { return hold?.side ?? null; },
     /** Adults jaunts: take up `kind` in the right hand (human-fight.js WEAPON_KINDS; 'none' puts it down). */
     wield(kind) { fight.arm = typeof kind === 'string' && kind ? kind : 'none'; return api; },
     /** Adults jaunts: begin a fight motion (strike, stab, aim, fire, lower, struck), or null to let go. */

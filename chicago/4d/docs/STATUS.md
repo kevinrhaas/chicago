@@ -1,3 +1,45 @@
+## T-3814 — The Great Fire's people carry what they saved (27 November 2026)
+
+Owner request, 27 November 2026: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... you may have to start a crowd
+development stream". The research is `docs/RESEARCH/fire-night-scenes-3814/README.md` (what the
+accounts say people did, by kind and by stop; what stays out of the student tellings; crowd
+dynamics; the rendering plan), and the stream is four tickets: T-3814 (this), T-3815 (runaway
+teams and burning loads), T-3816 (a fire-night crowd for crowd.js at the jaunt's budgets) and
+T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder), and T-3830 (firemen and their engines, asked for on 28 November).
+
+This first piece restages the Great Fire jaunt with what was carried. A castmate may `carry` a
+thing (`renderers/web/js/stage-props.js` GOODS: a bundle or bolt on the shoulder, a bird cage,
+basket, shawl bundle or papers in the hand, a feather bed on the back, a trunk dragged on a
+1.3 m cord), from the start or from a beat; the hands hold it through `setCarry` in
+`human-actions.js`. A borne castmate with `bier: "mattress"` is carried on a doubled mattress; a
+stage team may carry a `load` on its bed (a streamed wagon row is now built for a stage at any
+hour, `townTransport.stageWant`); `stage.props` sets chairs, trunks and bundles on the ground.
+The jaunt (`docs/RESEARCH/jaunt-great-fire-3691/build.py`) now has 101 castmates (was 82): carriers
+at nine stops, a sick woman borne out at St. Paul's, four men loading an express wagon at
+Field, Leiter & Co.'s door that drives off north, and goods set down at the Ogden house and the
+old cemetery. Reconstructed under `L-1871-fire-night-3814`. Tested in
+`tools/test_jaunt_stage.mjs` and `tools/test_human_actions.mjs`.
+
+## T-3803 — 1871 shop signs from Edwards' 1871 directory (27 November 2026)
+
+Owner request, 27 November 2026: the signs above the 1871 stores should be "varied and be more
+specific based on your research of the citizens and people and businesses in 1871".
+`tools/build_1871_directory_fronts.py` reads the directory's text and writes
+`data/context/1871/directory_fronts.json`: 732 firms (510 at street level, 222 upstairs) on 71
+block faces of Lake, Randolph, Washington, Madison, Clark, LaSalle, Dearborn and State round the
+Court House square, each with its listing's page and line. The pre-1909 numbering of each street
+is calibrated from the directory (corner listings, the Court House square's and the Methodist
+block's gaps) and Carbutt's Lake Street stereograph (118, 120 and 124 on the north side), and
+written with its evidence. `renderers/web/js/city-signs-1871.js` assigns the firms to the
+generated shop fronts in the detail rings by their numbers' share of the block, lets fronts with
+no firm carry a trade from that street's classified list (never their neighbour's), and letters
+fascia boards, wall bands, cornice friezes, upstairs boards, hanging signs, pier boards, gilt
+window letters and awning valances at run time into per-cell atlas pages. A front's card names
+the firm (attested), its place (inferred) and its signs (reconstructed), under the new
+`L-1871-directory-signs`. Sign textures: Full 2 pages of 2048 (42.7 MiB, 38 px/m, the stops'
+fronts at 1.25x), Light 1 page of 2048x1024 (10.7 MiB, 30 px/m); no shipped textures.
+
 ## T-3778 — Class codes and a teacher view (27 November 2026)
 
 Stage 1's third piece, behind `cloudFeatures`. `js/classes.js` keeps a class on Firestore:

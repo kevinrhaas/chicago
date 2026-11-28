@@ -905,6 +905,18 @@
                     "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
                     "maxLength": 90
                   },
+                  "wear": {
+                    "description": "T-3553: how the figure's plain clothes are worn, a wear of renderers/web/js/human-wear.js WEARS (its colours, what is set aside, its hat).",
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 60
+                  },
+                  "look": {
+                    "description": "T-3553: one of that wear's colourings (WEARS[wear].looks[].id); left out, the figure's own key picks one.",
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 40
+                  },
                   "name": {
                     "type": "string",
                     "maxLength": 120
@@ -1135,6 +1147,27 @@
                             }
                           ],
                           "description": "T-3553: the dead carried on a bier by these castmates (person or extra ids, the front pair first), at their hands; false sets the bier down where it is."
+                        },
+                        "carry": {
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "bundle",
+                                "shawl_bundle",
+                                "birdcage",
+                                "basket",
+                                "papers",
+                                "bolt",
+                                "bolt_blue",
+                                "featherbed",
+                                "trunk"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ],
+                          "description": "T-3814: take up a thing to carry (a GOODS kind), or put it down (null: out of sight, into the wagon or the house)."
                         }
                       },
                       "required": [
@@ -1192,6 +1225,26 @@
                       "seat"
                     ],
                     "additionalProperties": false
+                  },
+                  "carry": {
+                    "enum": [
+                      "bundle",
+                      "shawl_bundle",
+                      "birdcage",
+                      "basket",
+                      "papers",
+                      "bolt",
+                      "bolt_blue",
+                      "featherbed",
+                      "trunk"
+                    ],
+                    "description": "T-3814: what the castmate carries from the start (renderers/web/js/stage-props.js GOODS): a bundle or a bolt of cloth on the shoulder, a shawl bundle, a bird cage, a basket or tied papers in the hand, a feather bed on the back, a trunk dragged on a cord. Reconstructed make, from the accounts' lists (L-1871-fire-night-3814)."
+                  },
+                  "bier": {
+                    "enum": [
+                      "mattress"
+                    ],
+                    "description": "T-3814: one `borne` is carried in a doubled mattress (a sick man or woman, Andreas II p. 734), not on a bier."
                   }
                 },
                 "required": [
@@ -1315,6 +1368,13 @@
                       "additionalProperties": false
                     },
                     "maxItems": 24
+                  },
+                  "load": {
+                    "enum": [
+                      "load_dry_goods",
+                      "load_household"
+                    ],
+                    "description": "T-3814: goods heaped on the team's bed (a store's dry goods; a family's household goods). Reconstructed make."
                   }
                 },
                 "required": [
@@ -1382,6 +1442,50 @@
                 "liberty"
               ],
               "additionalProperties": false
+            },
+            "props": {
+              "description": "T-3814: things standing on the ground for the scene (chairs, trunks, bundles, a feather bed): a kind of stage-props.js's still goods at a mark (local ENU metres), turned to a heading, `y` metres up from the ground (on a heap). Taken away when the stage ends.",
+              "type": "array",
+              "maxItems": 40,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "chair",
+                      "trunk",
+                      "bundle",
+                      "shawl_bundle",
+                      "featherbed",
+                      "load_dry_goods",
+                      "load_household"
+                    ]
+                  },
+                  "at": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "heading": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 3
+                  }
+                },
+                "required": [
+                  "kind",
+                  "at"
+                ],
+                "additionalProperties": false
+              }
             }
           },
           "required": [
