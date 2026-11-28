@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1267,
+  "count": 1268,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -81430,6 +81430,45 @@
       ],
       "work_refs": [
         "T-2216",
+        "T-3737"
+      ]
+    },
+    {
+      "id": "L-1871-house-numbers-3738",
+      "title": "The 1871 DeKoven Street houses' street numbers, painted on their front doors",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-23 (thread \"Add period street numbers to buildings\"): *\"yes start with 1904, the other years can come later, you can add pieces of work for the other years for later to the queue\"*."
+        },
+        {
+          "label": "The numbers",
+          "text": "a building shows a number only where its own record reads it from a source: the O'Learys' cottage at No. 137 DeKoven Street (Mountford's 1871 stereograph card, J. Mountford, 'Mrs. O'Leary's residence, No. 137 DeKoven St., where the great…, prints \"No. 137 DeKoven St.\"; Andreas gives it), the Forbes house at No. 133 and Dennis Sullivan's at No. 134 (Andreas vol. 2, pp. 708-712, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time) are **attested**; Dalton's cottage at 135 is **inferred**: its record places it next east of the O'Learys, between the printed 133 and 137, and no source read prints \"No. 135\". These are the old numbers, before the 1909-11 renumbering. The downtown landmarks (the Sherman, Tremont and Palmer houses, the Tribune, Crosby's Opera House, Field & Leiter's, the Court House, the Chamber of Commerce) are known by name and corner in every source read for them, so they show none, and the context city's unnamed fronts show none."
+        },
+        {
+          "label": "The form (reconstructed)",
+          "text": "no picture of these fronts with their numbers is read (Mountford's card looks at the cottages from the burnt lots behind), so each number is white painted figures, about 4 in high, on the front door's top rail, as earlier work's rule puts figures on a door without a transom; a Roman or a block letter, dealt per house."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of a DeKoven Street front showing its number's place and form replaces the rule for that house; a directory or a source printing \"No. 135\" for Dalton's lifts it to attested; a directory entry giving a landmark's street number adds it (the place 1871 house numbers tool reads it from the landmark's own symbolic location)."
+        },
+        {
+          "label": "Review",
+          "text": "the place 1871 house numbers tool, the 1871 house numbers data, the walkthrough's house numbers code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3738)."
+        }
+      ],
+      "work_refs": [
+        "T-3738",
         "T-3737"
       ]
     },
