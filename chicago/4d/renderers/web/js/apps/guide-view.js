@@ -37,6 +37,7 @@ import { DESTINATIONS } from './jump-view.js';
 import { handoutModel, renderHandout, printHandout } from './teacher-handout.js';
 import { createLessonGuides } from './lesson-guides.js';
 import { mountRouteBuilder } from '../teacher-route-view.js';
+import { mountTeacherClasses } from '../classes-view.js';
 
 const state = { scheme: null, chosen: false, off: null, host: null };
 
@@ -142,6 +143,8 @@ function teachers(doc, ctx) {
   block.append(createLessonGuides(doc, ctx, { catalogs, ready, destinations: DESTINATIONS }));
   // T-3672: a route of this year's places and people, shared as one link or one file.
   mountRouteBuilder(block, ctx);
+  // T-3778: the teacher's classes, their codes, rosters and hand-ins.
+  mountTeacherClasses(block);
   return block;
 }
 

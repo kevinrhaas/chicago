@@ -3,7 +3,10 @@
   const params = new URLSearchParams(location.search);
   if ([...params.keys()].some(key => !['skin','utm_source','utm_medium','utm_campaign'].includes(key))) {
     const year = /^\d{4}$/.test(params.get('year') || '') ? params.get('year') : '1835';
-    location.replace(new URL(`${year}/${location.search}${location.hash}`, location.href).href);
+    // T-3798: resolved against the home link, so the classic console (/4d/console/) sends a
+    // deep link to /4d/<year>/ like the launch page does.
+    const home = document.querySelector('a.brand');
+    location.replace(new URL(`${year}/${location.search}${location.hash}`, home ? home.href : location.href).href);
     return;
   }
   // The front door is a working machine (T-2119): it cold-starts, finds each coordinate on the
