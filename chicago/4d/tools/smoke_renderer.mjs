@@ -10425,6 +10425,10 @@ for (const [label, viewport, touch] of [
       const bootHere = async (url) => {
         // The version fixture replaces this same town. Let its in-flight embedded
         // pictures finish before navigation tears down their object URLs (T-3650).
+        // This page's assertions are complete. Retire its draw loop so software
+        // rendering cannot keep those reads queued until the settle deadline.
+        // The replacement page boots its own normal renderer and animation loop.
+        await page.evaluate(() => window.__chicago4d?.renderer?.setAnimationLoop(null));
         // Refusals while settling still reach the unchanged zero-page-errors check.
         console.log(settledLine('the town before the version/default reload',
           await settlePictureWork(page, bodyPictureFiles)));
