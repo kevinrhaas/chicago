@@ -2797,6 +2797,7 @@ async function boot() {
   const streetFurniture = await createStreetFurniture({
     dataBase: layerBase('street_furniture'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('street_furniture'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    floorAt: (e, n) => api.contextCity?.floorHeight?.(e, n) ?? null,
   });
   scene3d.add(streetFurniture.group);
   api.streetFurniture = streetFurniture;

@@ -654,10 +654,12 @@ function itemCard(it, doc) {
 /**
  * @param {object} o dataBase (data/ root, or null when the scene does not list the
  *   layer) · sceneId · terrain · confidence · problems · detail · levelAt (the street
- *   grid's drop below the field at a point: the parkway falls toward the curb)
+ *   grid's drop below the field at a point: the parkway falls toward the curb) ·
+ *   floorAt (the walk floor's height at a point, or null: 1871's raised stretches of walk)
  */
 export async function createStreetFurniture({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
+  floorAt = null,
 } = {}) {
   // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
   const out = inertStreetFurniture({ detail });
@@ -745,8 +747,10 @@ export async function createStreetFurniture({
   /* ---- where each lamp stands, once ------------------------------------- */
   const up = new THREE.Vector3(0, 1, 0);
   const placed = items.map((it) => {
-    // 1871: an item on a raised plank walk carries the walk's own height (y_m).
-    const y = Number.isFinite(it.y_m) ? it.y_m
+    // 1871: an item on a raised plank walk carries the walk's own height (y_m), and
+    // stands on a stretch the walk raises a step or two round the stops (T-3807), not in it.
+    const floor = Number.isFinite(it.y_m) ? floorAt?.(it.e, it.n) : null;
+    const y = Number.isFinite(it.y_m) ? (Number.isFinite(floor) ? Math.max(it.y_m, floor) : it.y_m)
       : terrain.surfaceHeight(it.e, it.n) + (levelAt?.(it.e, it.n) ?? 0) + PARKWAY_LIFT_M;
     // heading_deg is a compass bearing; the post's local x is turned onto it.
     const q = new THREE.Quaternion().setFromAxisAngle(up, (90 - (it.heading_deg ?? 0)) * Math.PI / 180);

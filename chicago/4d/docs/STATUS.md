@@ -1,3 +1,29 @@
+## T-3807 — 1871 street surfaces round the jaunt stops (28 November 2026)
+
+The ground round the 1871 jaunt stops is matched to the photographs and the paving
+specification (renderers/web/js/street-surfaces-1871.js, liberty `L-1871-street-dress-3807`).
+The Nicholson block is repainted as Andreas describes it (vol. 2 pp. 56-57): rows of three-inch
+pine blocks across the street with gravel-and-tar cells between them, grey-brown and worn, and a
+24 x 8 m "grime" tile multiplied over the paved roadways in the shader (wheel tracks, dung, wet,
+straw, mended patches), so the dung does not repeat every two metres. Stone-flag walks with
+stone kerbs are laid over the plank walks on thirteen frontages the photographs show (Lake
+Street, Crosby's, the Sherman House, the Court House square, the Chamber of Commerce, State
+Street, the Tribune); stone crosswalks over the paved streets round the stops (the generator
+lays plank crossings over dirt streets only); a gutter strip along every kerb; about one
+frontage in four raised one or two 0.17 m risers with steps at each end, handed back to
+city-context.js as floors so the walker climbs them; and trodden yard ground over the South
+Division's business blocks, the Court House square's lawn kept.
+
+Cost, measured with the published mirror (Playwright, SwiftShader): seven more draws at a
+stand at Full and Light (court house: 472 -> 479 desktop, 291 -> 298 phone); one new texture
+(the grime, 768 x 256 at Full, 384 x 128 at Light) and the flags and yard tiles (512 or 256 px
+each). The stone flag frontages, the crosswalk rule and the steps' placement are
+reconstructions; the paving extents are T-3685's and unchanged. Not done: the Samuels blocks on
+Lake east of Clark are drawn like the worn ones (one material per surface); dirt-street dung is
+painted in the dirt tile, not the grime.
+T-3805's lamps, hydrants, alarm boxes and goods stand on a raised stretch's top, not in it:
+`createStreetFurniture` reads the walk floors (`floorAt`, the context city's `floorHeight`).
+
 ## T-3805 — 1871 street furniture round the jaunt stops (27 November 2026)
 
 Owner request, 27 November 2026: photo-match the streets round the 1871 jaunt stops. Within the

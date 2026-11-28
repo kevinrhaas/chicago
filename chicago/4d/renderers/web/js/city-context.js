@@ -180,7 +180,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     }
   });
   remember(kit.scene);
-  const floors=createContextFloorIndex(doc.walk_surfaces ?? []);
+  let floors=createContextFloorIndex(doc.walk_surfaces ?? []);
   out.floorHeight=(e,n)=>floors.heightAt(e,n);
   out.census.walkSurfaces=doc.walk_surfaces?.length ?? 0;
   out.census.floorCells=floors.cells;
@@ -239,7 +239,12 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   // T-3685: the streets' painted surfaces (wood block, boulders, dirt, planks)
   // and the raised walks' kerb boards and crossing steps, from the floors.
   const surfacing=dressStreetSurfaces(infrastructureMeshes,{walkSurfaces:doc.walk_surfaces ?? [],
-    heights:doc.surface_heights_m ?? {},detail,confidence});
+    heights:doc.surface_heights_m ?? {},detail,confidence,rings:rings?.rings ? rings : null,streets:doc.streets ?? []});
+  // T-3807: the raised stretches of walk round the stops, and their steps, are floors too.
+  if (surfacing.floors?.length) {
+    floors.clear(); floors=createContextFloorIndex([...(doc.walk_surfaces ?? []),...surfacing.floors]);
+    out.census.floorCells=floors.cells;
+  }
   for (const texture of surfacing.textures) textures.add(texture);
   for (const material of surfacing.materials) materials.add(material);
   for (const mesh of surfacing.meshes) {
