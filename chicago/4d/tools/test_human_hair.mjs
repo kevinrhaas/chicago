@@ -14,10 +14,10 @@ const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
 const hooks = registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair, fitPhotoHairline, fitChildHairCap, fitChildHairCapSteps, metricSurface } = await import(new URL('renderers/web/js/human-hair.js', here));
 const { dressSpectacles, fitSpectacles, PEOPLE_SPECTACLES, spectaclesFor } = await import(new URL('renderers/web/js/human-spectacles.js', here));
 const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, PEOPLE_HAIR, ERA_DEFAULT, hairFor } = await import(new URL('renderers/web/js/human-hair-styles.js', here));
-const { dressSkin, domeCornea } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { dressSkin, domeCornea, SKIN } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 // A synthetic head on the contract's bones: a cap (the top of a sphere) and a skin (all of
 // it), both quantised as the exports are, the unit folded into the inverse bind matrices.
@@ -67,7 +67,84 @@ function figure() {
   return { root, cap, skin, skeleton };
 }
 
+// Photo hairlines follow the actual varied head without expanding geometry,
+// materials or texture budgets. The original cap and children's heads stay intact.
+{
+  const {root,cap}=figure();cap.geometry.translate(0,.04/UNIT,0); // deliberately receding stock cap
+  const original=cap.geometry,points=original.attributes.position.array.slice(),material=cap.material;
+  const face={id:'frontal-woman',sex:'female',eyes:{centres_uv:[[.4,.5],[.6,.5]]},hair_projection:{hairline_v:.34}};
+  const result=fitPhotoHairline(root,face);assert(result,'reference hairline fitted');
+  assert.notEqual(cap.geometry,original);assert.equal(cap.geometry.attributes.position.count,original.attributes.position.count);
+  assert.equal(cap.geometry.index.count,original.index.count);assert.equal(cap.material,material);
+  assert.deepEqual(original.attributes.position.array,points,'the shared cap remains unchanged');
+  assert(cap.geometry.attributes.position.array.some((v,i)=>v!==points[i]),'front cap moves to the reference');
+  const fitted=cap.geometry;fitPhotoHairline(root,face);assert.equal(cap.geometry,fitted,'repeated dressing allocates no geometry');
+  const child=figure();assert.equal(fitPhotoHairline(child.root,{...face,population:'child'}),null);
+  const known=figure();assert.equal(fitPhotoHairline(known.root,{...face,historical:{shape_mode:'existing_fit'}}),null,'curated historical hair is preserved');
+  let disposed=false;fitted.addEventListener('dispose',()=>{disposed=true;});original.dispose();assert(disposed,'the source cap releases its fitted geometry');
+}
+
+// Published meshes carry normalized integer normals. Triangle cross-products
+// must accumulate as floats; otherwise small hair triangles round to zero.
+{
+  const {root,cap}=figure();cap.geometry.translate(0,.04/UNIT,0);
+  const n=cap.geometry.attributes.normal;
+  const packed=new Int16Array(n.count*3);
+  for(let i=0;i<n.count;i++)for(let k=0;k<3;k++)packed[i*3+k]=Math.round(n.getComponent(i,k)*32767);
+  cap.geometry.setAttribute('normal',new THREE.Int16BufferAttribute(packed,3,true));
+  fitPhotoHairline(root,{id:'compressed-woman',sex:'female',eyes:{centres_uv:[[.4,.5],[.6,.5]]},hair_projection:{hairline_v:.34}});
+  const fitted=cap.geometry.attributes.normal;
+  assert(fitted.array instanceof Float32Array,'fitted cap normals accumulate in float precision');
+  for(const i of new Set(cap.geometry.index.array))assert(Math.hypot(fitted.getX(i),fitted.getY(i),fitted.getZ(i))>.99,'every drawn cap vertex has a usable lighting normal');
+  const surface=metricSurface(cap,root),p=new THREE.Vector3();let inspected=0;
+  for(const i of new Set(surface.index)){
+    p.fromArray(surface.P,3*i);
+    if(Math.abs(p.x)>.07||p.y<1.68||p.y>1.72||p.z<.1)continue;
+    assert(p.distanceTo(FACE)>=R_HEAD+.001,'frontal hair stays outside the independently defined skin sphere');inspected++;
+  }
+  assert(inspected>4,'the clearance assertion examines the frontal cap');
+}
+
+// A child keeps its native head/eyes. An intersecting cap clears an independently
+// defined sphere without changing its topology, texture or shared source bytes.
+{
+  const makeChild = () => {
+    const f = figure();
+    f.skin.geometry.translate(0, .04 / UNIT, -.04 / UNIT); // skin sphere is now centred on C
+    const a = f.cap.geometry.attributes.position, v = new THREE.Vector3();
+    for (let i=0;i<a.count;i++) { v.fromBufferAttribute(a,i).multiplyScalar(UNIT).sub(C).multiplyScalar(.98).add(C).multiplyScalar(1/UNIT); a.setXYZ(i,v.x,v.y,v.z); }
+    return f;
+  };
+  const {root,cap,skin,skeleton}=makeChild(),source=cap.geometry,skinBytes=skin.geometry.attributes.position.array.slice(),capBytes=source.attributes.position.array.slice();
+  const eyes=skeleton.boneInverses.slice(3).map(m=>m.toArray());
+  const photo={id:'child-cap-clearance',population:'child',sex:'female'};
+  const result=fitChildHairCap(root,photo);assert(result);assert.equal(result.addedTriangles,0);
+  assert.equal(cap.geometry.index.count,source.index.count);assert.equal(cap.geometry.attributes.position.count,source.attributes.position.count);
+  assert.deepEqual(source.attributes.position.array,capBytes,'the shared cap remains untouched');
+  assert.deepEqual(skin.geometry.attributes.position.array,skinBytes,'the child head is unchanged');
+  assert.deepEqual(skeleton.boneInverses.slice(3).map(m=>m.toArray()),eyes,'eye proportions are unchanged');
+  const surface=metricSurface(cap,root),v=new THREE.Vector3();let checked=0;
+  for(const i of new Set(surface.index)){
+    v.fromArray(surface.P,3*i);if(v.y<1.67)continue;
+    assert(v.distanceTo(C)>=R_HEAD+.0023,'cap clears the independent skin sphere');checked++;
+  }
+  assert(checked>100);const fitted=cap.geometry;fitChildHairCap(root,photo);assert.equal(cap.geometry,fitted);
+  const sliced=makeChild(),steps=fitChildHairCapSteps(sliced.root,{...photo,id:'sliced-child'});let r=steps.next(),slices=1;
+  while(!r.done){r=steps.next();slices++;}assert(slices>2,'the cap repair is divided across native build slices');
+  assert.equal(fitChildHairCap(figure().root,{...photo,population:'adult'}),null);
+  let disposed=false;fitted.addEventListener('dispose',()=>disposed=true);source.dispose();assert(disposed,'source disposal releases the fitted cap');
+}
+
 // 1. The cards lie over the cap, a few millimetres off it, and are skinned exactly as the cap.
+{
+  const fig=figure();dressSkin(fig.root);const original=fig.cap.material,key=original.customProgramCacheKey();
+  fig.root.userData.chiPhotoFace={id:'reference-hair',sex:'female',reference_pool:'european',hair_projection:{fallback_gain:[1.2,1,.9]}};
+  dressHair(fig.root,{lod:2,style:{cut:'drawn_back_bun_1904',colour:'dark_brown',facial:[]}});
+  assert.notEqual(fig.cap.material,original,'the source hair tint is owned');
+  assert.equal(fig.cap.material.onBeforeCompile,original.onBeforeCompile,'colour-only clones retain the native strand-lighting shader');
+  assert.equal(fig.cap.material.customProgramCacheKey(),key,'the shader variant remains shared');
+  assert.equal(fig.cap.material.map,original.map,'no extra hair texture');
+}
 {
   const { root, cap } = figure();
   const style = PEOPLE_HAIR.pa1904_otis_f_r_c1900_hans_johnson;
@@ -152,8 +229,9 @@ function figure() {
   for (const marker of ['if ( vChiSkinP.y > chiCards.z ) discard;', 'void chiHairDirect(', 'normal = normalize( normal * faceDirection );', 'float tipAt = 1.0 - h * 0.45;'])
     assert.equal(shader.fragmentShader.split(marker).length, 2, `once: ${marker}`);
   assert(shader.vertexShader.includes('attribute vec3 chiStrandT;') && shader.vertexShader.includes('tObj = ( skinMatrix * vec4( tObj, 0.0 ) ).xyz;'));
-  assert.deepEqual(Object.keys(shader.uniforms).sort(), ['chiCards', 'chiHair', 'chiSkinRest']);
-  assert.equal(mesh.material.customProgramCacheKey(), '|chicago-strands-v1');
+  assert.deepEqual(Object.keys(shader.uniforms).sort(), ['chiCards', 'chiHair', 'chiHairMotion', 'chiSkinRest']);
+  assert.equal(mesh.material.customProgramCacheKey(), '|chicago-strands-v2-motion');
+  assert(shader.uniforms.chiHairMotion, 'the near scalp has its own motion uniform');
   // A hat put on later: strands above its band are cut; taken off, none are.
   skeleton.bones[1].rotation.set(0, 0, 0); root.updateMatrixWorld(true);
   const hatGeo = new THREE.CylinderGeometry(.1, .1, .15, 24, 1, true);
@@ -173,6 +251,37 @@ function figure() {
   assert(mesh.material.userData.chiCards.value.z > 100, 'no hat, no cut');
   // The far levels keep the cap alone.
   assert.equal(dressHair(figure().root, { lod: 2, person: 'pa1904_otis_f_r_c1900_hans_johnson', year: 1904 }), null);
+}
+
+// T-3792: per-body uniforms retain one shared program, and motion never rewrites
+// CPU geometry or moves another body's hair. Light tails keep the static path.
+{
+  const a = figure(), b = figure(), style = { cut: 'short_side_part_1904', colour: 'dark_brown', facial: [] };
+  const ha = dressHair(a.root, { lod: 1, person: 'shared-hair-test', year: 1904, style });
+  const hb = dressHair(b.root, { lod: 1, person: 'shared-hair-test', year: 1904, style });
+  assert(ha?.runtime && hb?.runtime);
+  assert.notEqual(ha.mesh.material, hb.mesh.material, 'two bodies own independent material uniforms');
+  assert.equal(ha.mesh.material.customProgramCacheKey(), hb.mesh.material.customProgramCacheKey(), 'the GPU program remains shared');
+  assert.equal(ha.mesh.material.alphaToCoverage,true,'existing MSAA resolves strand edges');
+  assert.equal(ha.mesh.material.alphaHash,false,'no noisy hashing without temporal accumulation');
+  assert.equal(ha.mesh.material.alphaTest,.5,'MSAA-off devices retain the original deterministic cutoff');
+  assert(ha.runtime.triangles>0,'existing styles also count against the near-card triangle budget');
+  assert.equal(ha.runtime.triangles,(ha.mesh.geometry.index.count+(ha.face?.geometry.index.count??0))/3);
+  assert.equal(ha.runtime.addedTriangles,0,'existing style triangles are distinct from newly introduced geometry');
+  ha.runtime.enable(false);assert(!ha.mesh.visible&&a.cap.visible&&a.skin.visible,'admission changes only optional cards');
+  ha.runtime.enable(true);assert(ha.mesh.visible,'a close head can regain its detail');
+  const before = ha.mesh.geometry.attributes.position.array.slice();
+  ha.runtime.advance(.1, { root: a.root, heading: 0 }, { motion_m: .008 });
+  assert.notEqual(ha.mesh.material.userData.chiHairMotion.value.x,0);
+  assert.equal(hb.mesh.material.userData.chiHairMotion.value.x,0,'a neighbouring body remains still');
+  assert.deepEqual(ha.mesh.geometry.attributes.position.array,before,'motion is a GPU deformation, without CPU buffer rewrites');
+  assert(Array.from(ha.mesh.geometry.attributes.chiHairFree.array).every(x=>x===1),'scalp vertices can bend');
+  let disposedA=0,disposedB=0;
+  ha.mesh.material.addEventListener('dispose',()=>disposedA++);hb.mesh.material.addEventListener('dispose',()=>disposedB++);
+  ha.dispose();ha.dispose();assert.equal(disposedA,1);assert.equal(disposedB,0);hb.dispose();assert.equal(disposedB,1);
+  const far = dressHair(figure().root,{lod:2,person:'static-tail-test',year:1812,style:{cut:'tied_high_1812',colour:'dark_brown',facial:[],tail_cm:20}});
+  assert(far?.mesh);assert.equal(far.runtime,null);assert.equal(far.mesh.material.userData.chiHairMotion,null);
+  assert(!far.mesh.geometry.attributes.chiHairFree,'Light adds no dynamic vertex buffer');far.dispose();
 }
 
 // 3. The table: every row's cut, pieces and colour exist; every choice is graded and said why;
@@ -236,7 +345,11 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
     if (r > .004) assert(tilt > .4 && (nn.getX(i) * px + nn.getY(i) * py) > 0, `the rim tilts outward: ${tilt}`);
   }
   dressSkin(root);
-  assert(iris.material.roughness <= .1 && iris.material.envMapIntensity > 1, 'the cornea is glossy and mirrors the sky');
+  // T-3762: the reviewed broader reflection replaces the old sharp glare.
+  // Keep exact calibration checks and the eye's gloss relative to the skin.
+  assert.equal(iris.material.roughness, .14, 'the cornea has the reviewed softer highlight');
+  assert.equal(iris.material.envMapIntensity, 1.4, 'the cornea retains a bounded sky catchlight');
+  assert(iris.material.roughness < SKIN.roughness, 'the cornea remains glossier than skin');
 }
 
 // 4b. A worn-up bun shares the cap's material and comes first in the file (T-3423): the
@@ -355,6 +468,14 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
     const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
     for (let i = 0; i < si.count; i++) assert(si.getX(i) === head && sw.getX(i) === 1, 'wholly on the head bone');
   }
+  const reference=(JSON.parse(await fs.readFile(new URL('data/humans/variation/person_photo_references.json',here)))).people.find(p=>p.person_id.endsWith('alice_m_sterling'));
+  const light=figure().root;light.userData.chiPhotoFace={historical:{spectacles:reference.spectacles}};
+  const lightSpecs=dressSpectacles(light,{lod:2,person:reference.person_id});
+  assert.equal(lightSpecs?.meshes.length,2,'Alice’s explicit photographic wire spectacles remain in the close Light model');
+  const triangles=lightSpecs.meshes.reduce((n,m)=>n+m.geometry.index.count/3,0);
+  assert(triangles<=1600,'the existing small spectacle geometry budget also bounds Light');
+  assert(lightSpecs.meshes.every(m=>!m.material.map),'spectacles add no texture');
+  assert.equal(dressSpectacles(light,{lod:3,person:reference.person_id}),null,'the far silhouette still has no spectacle geometry');
   assert.equal(dressSpectacles(figure().root, { lod: 2, person: 'glessner_john_j' }), null, 'none far off');
   assert.equal(dressSpectacles(figure().root, { lod: 0, person: 'rc_flynn_mary' }), null, 'none for someone without');
 }

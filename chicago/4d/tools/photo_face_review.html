@@ -26,7 +26,7 @@
 <div class="notes"><div><b id="faceTitle">Preparing faces</b><p id="faceNote"></p><p>Check the nose, lips, cheeks and jaw from every angle. A front photo supplies visible proportions and colour; profile depth, hair, ears, body and dress remain reconstructed.</p></div><div class="metrics" id="metrics">Texture budget loading…</div></div>
 <div class="choices" id="choices" aria-label="Choose a pilot face"></div>
 </main>
-<footer><p>Fictional samples are labelled synthetic. Historical imports retain their source credit. This page changes no resident assignments.</p><p>Import another photo with the <a href="../docs/PHOTO-FACE-PILOT.md">single-photo command</a>. Up to 256 faces; each review page loads at most sixteen. Changing pages releases the previous renderer and textures.</p></footer>
+<footer><p>Fictional samples are labelled synthetic. Historical imports retain their source credit. This page changes no resident assignments.</p><p>Import another photo with the <a href="../docs/PHOTO-FACE-PILOT.md">single-photo command</a>. Up to 512 catalog entries; each review page loads at most sixteen. Changing pages releases the previous renderer and textures.</p></footer>
 <script type="module">
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -56,7 +56,7 @@ const percent = (values,p) => [...values].sort((a,b)=>a-b)[Math.min(values.lengt
 try {
   library = await checkedJSON(manifestURL);
   if(!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library.format)
-    ||!(library.review_only===true||library.review_only===false&&library.activation?.tier==='dev')||!library.faces?.length||library.faces.length>256)throw Error('Unsupported review library');
+    ||!(library.review_only===true||library.review_only===false&&library.activation?.tier==='dev')||!library.faces?.length||library.faces.length>512)throw Error('Unsupported review library');
   if(library.activation)document.querySelector('.tag').textContent='Dev population · photo faces';
   if(library.faces.every(f=>f.texture_only))document.querySelector('.captions span:last-child').textContent='After · photo on existing child head';
   const pages=library.pages??[{first:0,count:library.faces.length,cols:library.cols,size_px:library.size_px,textures:library.textures,hair_textures:library.hair_textures}];
@@ -171,7 +171,8 @@ try {
     if(figures.has(key))return figures.get(key);
     const face=library.faces[index],own=assets.get(face.base_body),fig=cloneSkinned(own.scene);
     const rec={sex:face.sex,age:{years:face.age},scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
-    const v=personVariation({kit,key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
+    const v=personVariation({kit:{...kit,photoFaces:null,photoChildren:null,photoPortraits:null},
+      key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
     v.height=1;
     // Preserve the same body/build in the before/after pair; the photo changes
     // the face only. No resident or ordinary library selection is changed.
@@ -180,7 +181,8 @@ try {
     // then keep their different face geometries in separate cache entries.
     v.key+=after?':after':':before';
     v.lib=after?{url:textureURL,index:face.page_index??face.index,id:face.id,cols:page.cols,size_px:page.size_px,
-      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0}:null;
+      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0,
+      ...(library.face_mask?{mask:library.face_mask}:{})}:null;
     v.even=after?face.body_gain:null;
     applyVariation(fig,kit,v,{scope:'full'});
     if(after&&!photoHairMode)fig.traverse(o=>{

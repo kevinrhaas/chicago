@@ -908,6 +908,8 @@ step "A mouth that opens: the teeth a strip of their own behind the lips, the sm
   node tools/test_human_mouth.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
+step "Hair secondary motion is stable at low frame rates, bounded across a crowd and disabled on Light without hiding people (T-3792)" \
+  node tools/test_human_hair_dynamics.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
   python3 tools/human_wardrobe.py --check
 step "The shared body-and-face kit reproduces from its pinned MakeHuman targets, and each drawn person's age from their record (T-3412)" \
@@ -932,6 +934,10 @@ step "Default photo faces cover every year and child proportions survive the sha
   node tools/test_photo_face_deployment.mjs
 step "Child photo sources, untouched child shapes and bounded atlas pages reproduce (T-3768)" \
   python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/children/review.json
+step "Named photo references preserve exact people, existing head fits, scene ages, source identity and bounded shared textures (T-3762)" \
+  python3 tools/historical_photo_faces.py --check
+step "Personal portraits and owner-chosen Stirling references stay with their exact person and scene (T-3762)" \
+  node tools/test_historical_photo_faces.mjs
 step "Each photo-face library's runtime.json is the part of its review.json the walk reads, and gives every drawn person the same face (T-3775)" \
   node tools/photo_face_runtime.mjs --check
 step "The You tab's face library pictures are the photo library's own source previews, one sheet in its order (T-3553)" \

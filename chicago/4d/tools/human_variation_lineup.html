@@ -20,7 +20,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
-import { dressSkin, dressPhotoLooks, restingLid, likenessSheetsReady } from '../renderers/web/js/human-skin.js';
+import { dressSkin, dressPhotoLooks, restingLid, likenessSheetsReady, photoFacePagesReady, photoFaceTextureStats } from '../renderers/web/js/human-skin.js';
 import { dressHair, dressHeadcloth } from '../renderers/web/js/human-hair.js';
 import { dressCloth, looksHairStyle, dressInSeason } from '../renderers/web/js/human-looks.js';
 import { dressFinery } from '../renderers/web/js/human-finery.js';
@@ -79,7 +79,7 @@ const assetOf = async (key) => {
     const doc = await fetch(`../${file}`).then((r) => r.json());
     return [...(doc.people ?? []), ...(doc.care ?? [])].find((x) => x.person === id)?.asset_id ?? 'glessner_frances_m_1904';
   }
-  return inst ? (await fetch(`../${inst}`).then((r) => r.json())).appearance.asset_id : 'settler_1812';
+  return inst ? (await fetch(`../${inst}`).then((r) => r.json())).appearance.asset_id : (q.get('fallback_asset')??'settler_1812');
 };
 const gltfs = new Map();
 // As humans.js parses a body (T-3553: the belted waist refitted and the silver engraved, once, before any clone); &waist=0 leaves both as drawn.
@@ -162,8 +162,11 @@ if (headBone) {
 else { camera.position.set(0, 1.0, Math.max(3.2, span * 1.6)); camera.lookAt(0, 0.92, 0); }
 await likenessSheetsReady();   // T-3553: a person's own skin sheet arrives after their body is built
 renderer.render(scene, camera);
+await photoFacePagesReady();
+renderer.render(scene, camera);
 window.__scene = scene;
 window.__render = () => renderer.render(scene, camera);
+window.__lineupStats = () => ({calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,textures:renderer.info.memory.textures,photoPages:photoFaceTextureStats()});
 // T-3553: the body's skin as drawn, for a side-view trace (tools/trace_portrait_profile.py):
 // every vertex's world position (morphs, variation and pose applied), its kit index by
 // texture coordinate as applyVariation finds it, and the head bone the camera aims at.

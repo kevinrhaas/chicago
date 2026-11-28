@@ -30,6 +30,7 @@ import { restMatrix, boneRest, STRAND_GLSL, chainPatch, HAIR, headFrame, lidEdge
 
 export { headFrame };
 import { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, hairFor } from './human-hair-styles.js';
+import { HairDynamics } from './human-hair-dynamics.js';
 
 /** How much hair a near level grows. */
 export const CARDS = Object.freeze({
@@ -47,7 +48,7 @@ export const CARDS = Object.freeze({
   sheen: .5,            // the cap's strand lobes, scaled: cards lie in layers, the cap is one sheet
 });
 
-const KEY = 'chicago-strands-v1';
+const KEY = 'chicago-strands-v2';
 const NO_CLIP = 1e6;
 
 /** A small seeded random of a string (FNV-1a into mulberry32). */
@@ -370,6 +371,8 @@ export function* growHairSteps({ hair, skin = null, root, style, lod, seed = 'pe
   const cut = HAIR_CUTS[style?.cut];
   if (!level || !cut || !hair) return null;
   if (level.tail_only && !(style.tail_cm > 0 && cut.knot_cm)) return null;   // T-3506: the middle level grows a tail or nothing
+  if ((cut.scalp_cards===false || style.no_scalp) && !(style.facial?.length)
+      && !(style.tail_cm>0 && cut.knot_cm)) return null;
   const rand = seeded(`${seed}|${style.cut}|${lod}`);
   const scalp = metricSurface(hair, root);
   const f = headFrame(hair, root);
@@ -697,21 +700,32 @@ const STRAND_COLOR = `
 const STRAND_NORMAL = `
   normal = normalize( normal * faceDirection );`;
 
-const materials = new Map();
-function strandMaterial(colour, personKey) {
-  const key = `${personKey}|${colour.join(',')}`;
-  if (materials.has(key)) return materials.get(key);
+function strandMaterial(colour, personKey, dynamic = false) {
+  // Per-body uniforms: two actors/LODs of one person must not move or clip each
+  // other's hair. The compiled program is still shared through its stable key.
   const m = new THREE.MeshStandardMaterial({ name: 'hair_cards', color: new THREE.Color().setRGB(...colour, THREE.LinearSRGBColorSpace),
-    roughness: .62, metalness: 0, side: THREE.DoubleSide, alphaTest: .5, alphaToCoverage: false });
+    // Use the renderer's existing multisampling for strand edges. Alpha hashing
+    // without temporal accumulation turned quiet updos into noisy stippled hair;
+    // with MSAA off the original deterministic cutoff remains the cheap fallback.
+    roughness: .62, metalness: 0, side: THREE.DoubleSide, alphaTest: .5, alphaToCoverage: true });
   const G = STRAND_GLSL;
   const uniforms = {
     chiSkinRest: { value: new THREE.Matrix4() },
     chiHair: { value: new THREE.Vector4(HAIR.primary * CARDS.sheen, HAIR.secondary * CARDS.sheen, HAIR.shift, HAIR.roughness_floor) },
     chiCards: { value: new THREE.Vector3(CARDS.strands, 1, NO_CLIP) },
   };
-  chainPatch(m, KEY, uniforms, shader => {
-    shader.vertexShader = G.VERTEX_DECLARE + STRAND_VERTEX_DECLARE + shader.vertexShader
-      .replace('#include <begin_vertex>', `#include <begin_vertex>${G.VERTEX}${STRAND_VERTEX}`);
+  if (dynamic) uniforms.chiHairMotion = { value: new THREE.Vector4(0, 0, 0, 1) };
+  const motion = dynamic ? `
+    // Root vertices stay exact. Only free tips bend, outward from the scalp;
+    // the existing hat-band clipping then sees the displaced position.
+    vec3 chiSway = vec3(chiHairMotion.x, 0.0, chiHairMotion.y) * chiCard.y * chiCard.y * chiHairFree;
+    vec3 chiOut = normalize(normal);
+    chiSway -= chiOut * min(dot(chiSway, chiOut), 0.0);
+    transformed += chiSway;
+  ` : '';
+  chainPatch(m, KEY + (dynamic ? '-motion' : ''), uniforms, shader => {
+    shader.vertexShader = G.VERTEX_DECLARE + STRAND_VERTEX_DECLARE + (dynamic ? 'uniform vec4 chiHairMotion;\nattribute float chiHairFree;\n' : '') + shader.vertexShader
+      .replace('#include <begin_vertex>', `#include <begin_vertex>${motion}${G.VERTEX}${dynamic ? 'vChiSkinP = (chiSkinRest * vec4(transformed, 1.0)).xyz;' : ''}${STRAND_VERTEX}`);
     shader.fragmentShader = G.HAIR_DECLARE + STRAND_DECLARE + shader.fragmentShader
       .replace('#include <color_fragment>', `#include <color_fragment>${STRAND_COLOR}${G.HAIR_COLOR}`)
       .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>${G.HAIR_ROUGHNESS}`)
@@ -719,7 +733,7 @@ function strandMaterial(colour, personKey) {
       .replace(G.PHYSICAL, `${G.PHYSICAL}${G.HAIR_LIGHT}`);
   });
   m.userData.chiCards = uniforms.chiCards;
-  materials.set(key, m);
+  m.userData.chiHairMotion = uniforms.chiHairMotion ?? null;
   return m;
 }
 
@@ -749,6 +763,139 @@ function hatBand(hat, hair, root, frame) {
 // The hair_bun cap's texture: where clean hair lies (uv centre) and how much of it a radian
 // round the head takes (T-3553, the place a bun turned to the crown left behind).
 const BUN_PATCH_UV = Object.freeze({ u: .74, v: .29, span: .09 });
+const photoHairlines = new WeakMap();
+
+/** Lower the stock front hairline to the frontal reference, preserving its
+ * own strand texture and silhouette. No new triangles, texture or draw call;
+ * the crown, bun and back keep their existing period style at every LOD.
+ * Frontal landmarks estimate the hairline; unseen volume remains reconstructed.
+ */
+export function fitPhotoHairline(root, face) {
+  if (face?.sex !== 'female' || face.population === 'child'
+      || face.historical && face.historical.shape_mode !== 'new_photo_fit') return null;
+  let hair=null,skin=null;
+  root.traverse(o=>{
+    if(!o.isSkinnedMesh)return;
+    if(/^hair($|__)/.test(o.material?.name??'')&&(!hair||o.geometry.attributes.position.count>hair.geometry.attributes.position.count))hair=o;
+    if(/^skin($|__)/.test(o.material?.name??'')&&(!skin||o.geometry.attributes.position.count>skin.geometry.attributes.position.count))skin=o;
+  });
+  if(!hair?.visible||!skin||hair.userData.chiPhotoHairline)return null;
+  const f=headFrame(skin,root);if(!f)return null;
+  const bones=skin.skeleton.bones,a=bones.findIndex(b=>b.name==='eye_l'),b=bones.findIndex(b=>b.name==='eye_r');
+  const gap=a>=0&&b>=0?boneRest(skin,root,a).distanceTo(boneRest(skin,root,b)):.062;
+  const eyes=face.eyes?.centres_uv,top=face.hair_projection?.hairline_v;
+  const ratio=eyes&&Number.isFinite(top)?((eyes[0][1]+eyes[1][1])*.5-top)/Math.max(.05,Math.abs(eyes[0][0]-eyes[1][0])):.9;
+  const line=Math.min(.075,Math.max(.042,ratio*gap)),src=hair.geometry,key=`${face.id}:${line.toFixed(5)}`;
+  let cache=photoHairlines.get(src);
+  if(!cache){cache=new Map();photoHairlines.set(src,cache);src.addEventListener('dispose',()=>{for(const g of cache.values())g.dispose();cache.clear();});}
+  let geometry=cache.get(key);
+  if(!geometry){
+    const scalp=metricSurface(hair,root),uv=src.attributes.uv,mask=capMask(hair.material);
+    const coords=P=>Array.from({length:P.length/3},(_,i)=>{const d=new THREE.Vector3().fromArray(P,3*i).sub(f.o);return[d.dot(f.x),d.dot(f.y),d.dot(f.z)];});
+    const used=new Set(scalp.index),local=coords(scalp.P),front=local.filter(([x,y,z],i)=>used.has(i)&&Math.abs(x)<.04&&z>-.05&&y>.03&&y<.13&&(!mask||mask(uv.getX(i),uv.getY(i))>.5));
+    if(!front.length)return null;
+    const edge=front.map(p=>p[1]).sort((a,b)=>a-b),native=edge[Math.floor(edge.length*.1)],drop=Math.max(0,native-line);
+    const forehead=[],R=restMatrix(skin,root),Rn=new THREE.Matrix3().getNormalMatrix(R),sp=skin.geometry.attributes.position,sn=skin.geometry.attributes.normal,v=new THREE.Vector3(),normal=new THREE.Vector3();
+    for(let i=0;i<sp.count;i++){
+      v.fromBufferAttribute(sp,i).applyMatrix4(R).sub(f.o);const x=v.dot(f.x),y=v.dot(f.y),z=v.dot(f.z);
+      normal.copy(f.z);if(sn)normal.fromBufferAttribute(sn,i).applyMatrix3(Rn).normalize();
+      if(Math.abs(x)<.08&&y>.025&&y<.14&&z>-.045&&normal.dot(f.z)>.1)forehead.push([x,y,z,normal.dot(f.x),normal.dot(f.y),normal.dot(f.z)]);
+    }
+    geometry=new THREE.BufferGeometry();geometry.setIndex(src.index?.clone()??null);
+    for(const [name,attribute]of Object.entries(src.attributes))geometry.setAttribute(name,name==='normal'?new THREE.Float32BufferAttribute(new Float32Array(attribute.count*3),3):name==='position'?attribute.clone():attribute);
+    const attr=geometry.attributes.position,inv=scalp.R.clone().invert();
+    for(let i=0;i<local.length;i++){
+      const [x,y,z]=local[i],w=smooth(-.065,-.012,z)*(1-smooth(.04,.085,Math.abs(x)))*smooth(.025,.05,y)*(1-smooth(native+.02,native+.06,y));
+      if(!used.has(i)||w<.001||drop<.001)continue;
+      const up=y-drop*w,p=new THREE.Vector3().fromArray(scalp.P,3*i).addScaledVector(f.y,up-y);
+      const nearest=[];for(const q of forehead){const d=(q[0]-x)**2+(q[1]-up)**2;if(nearest.length===3&&d>=nearest[2].d)continue;let j=0;while(j<nearest.length&&nearest[j].d<d)j++;nearest.splice(j,0,{q,d});if(nearest.length>3)nearest.pop();}
+      if(nearest.length){let sum=0,depth=0;for(const q of nearest){const gain=1/Math.max(1e-8,q.d);sum+=gain;depth+=gain*q.q[2];}p.addScaledVector(f.z,(depth/sum+.0018-z)*w);}
+      p.applyMatrix4(inv);attr.setXYZ(i,p.x,p.y,p.z);
+    }
+    // Lowering the edge must also keep the whole frontal cap outside the fitted
+    // forehead. A weighted depth alone left parts of its triangles 2.5 mm inside
+    // real exported heads. Keep 3.8 mm of ease, in metres, using their own skin.
+    for(const i of used){
+      v.fromBufferAttribute(attr,i).applyMatrix4(scalp.R).sub(f.o);
+      let x=v.dot(f.x),y=v.dot(f.y),z=v.dot(f.z);
+      if(Math.abs(x)>.08||y<.03||y>.14||z<-.065)continue;
+      let changed=false;
+      for(let pass=0;pass<2;pass++){
+        let nearest=null,distance=Infinity;
+        for(const q of forehead){const d=(q[0]-x)**2+(q[1]-y)**2+(q[2]-z)**2;if(d<distance){nearest=q;distance=d;}}
+        if(!nearest)continue;
+        const gap=(x-nearest[0])*nearest[3]+(y-nearest[1])*nearest[4]+(z-nearest[2])*nearest[5];
+        if(gap<.0038){const lift=.0038-gap;x+=lift*nearest[3];y+=lift*nearest[4];z+=lift*nearest[5];changed=true;}
+      }
+      if(changed){v.copy(f.o).addScaledVector(f.x,x).addScaledVector(f.y,y).addScaledVector(f.z,z).applyMatrix4(inv);attr.setXYZ(i,v.x,v.y,v.z);}
+    }
+    // computeVertexNormals accumulates small triangle cross-products before it
+    // normalizes them. Accumulating into normalized Int16 rounds many to zero.
+    attr.needsUpdate=true;geometry.computeVertexNormals();geometry.computeBoundingSphere();cache.set(key,geometry);
+  }
+  hair.geometry=geometry;hair.userData.chiPhotoHairline={face:face.id,line_m:line,addedTriangles:0};
+  return hair.userData.chiPhotoHairline;
+}
+
+// A child keeps its native head, eyes and hairline. Only the existing cap needs
+// clearance: the native Light review found it up to 1.15 mm inside the skull.
+// Work in build slices and retain the same UVs, indices and vertex count.
+const childHairCaps = new WeakMap();
+export function fitChildHairCap(root, face) { return drive(fitChildHairCapSteps(root, face)); }
+export function* fitChildHairCapSteps(root, face) {
+  if (face?.population !== 'child' || root?.userData?.chiLikenessSkin) return null;
+  let hair = null, skin = null;
+  root.traverse(o => {
+    if (!o.isSkinnedMesh) return;
+    if (/^hair($|__)/.test(o.material?.name ?? '') && (!hair || o.geometry.attributes.position.count > hair.geometry.attributes.position.count)) hair = o;
+    if (/^skin($|__)/.test(o.material?.name ?? '') && (!skin || o.geometry.attributes.position.count > skin.geometry.attributes.position.count)) skin = o;
+  });
+  if (!hair?.visible || !skin || hair.userData.chiPhotoChildCap) return null;
+  const source = hair.geometry, key = `${face.id}:${skin.geometry.uuid}`, ease = .0025;
+  let cache = childHairCaps.get(source);
+  if (!cache) {
+    cache = new Map(); childHairCaps.set(source, cache);
+    source.addEventListener('dispose', () => { for (const g of cache.values()) g.dispose(); cache.clear(); });
+  }
+  let geometry = cache.get(key);
+  if (!geometry) {
+    const f = headFrame(skin, root); if (!f) return null;
+    const scalp = metricSurface(hair, root), head = metricSurface(skin, root), points = [];
+    const v = new THREE.Vector3();
+    for (let i = 0; i < head.count; i++) {
+      v.fromArray(head.P, 3 * i).sub(f.o);
+      if (v.dot(f.y) > 0 && v.lengthSq() < .2 ** 2) points.push(i);
+    }
+    if (!points.length) return null;
+    geometry = new THREE.BufferGeometry(); geometry.setIndex(source.index?.clone() ?? null);
+    for (const [name, attr] of Object.entries(source.attributes)) geometry.setAttribute(name,
+      name === 'normal' ? new THREE.Float32BufferAttribute(new Float32Array(attr.count * 3), 3) : name === 'position' ? attr.clone() : attr);
+    const position = geometry.attributes.position, inverse = scalp.R.clone().invert();
+    let count = 0;
+    for (const i of new Set(scalp.index)) {
+      v.fromArray(scalp.P, 3 * i).sub(f.o);
+      if (v.dot(f.y) < .025 || v.lengthSq() > .2 ** 2) continue;
+      let x = scalp.P[3 * i], y = scalp.P[3 * i + 1], z = scalp.P[3 * i + 2], moved = false;
+      for (let pass = 0; pass < 2; pass++) {
+        let best = -1, distance = Infinity;
+        for (const j of points) {
+          const d = (x - head.P[3 * j]) ** 2 + (y - head.P[3 * j + 1]) ** 2 + (z - head.P[3 * j + 2]) ** 2;
+          if (d < distance) { distance = d; best = j; }
+        }
+        if (best < 0) break;
+        const nx = head.N[3 * best], ny = head.N[3 * best + 1], nz = head.N[3 * best + 2];
+        const gap = (x - head.P[3 * best]) * nx + (y - head.P[3 * best + 1]) * ny + (z - head.P[3 * best + 2]) * nz;
+        if (gap < ease) { const lift = ease - gap; x += nx * lift; y += ny * lift; z += nz * lift; moved = true; }
+      }
+      if (moved) { v.set(x, y, z).applyMatrix4(inverse); position.setXYZ(i, v.x, v.y, v.z); }
+      if ((++count & 127) === 0) yield;
+    }
+    position.needsUpdate = true; geometry.computeVertexNormals(); geometry.computeBoundingSphere();
+    cache.set(key, geometry);
+  }
+  hair.geometry = geometry;
+  return hair.userData.chiPhotoChildCap = { face: face.id, clearance_m: ease, addedTriangles: 0 };
+}
 const turnedBuns = new WeakMap();
 
 /** A geometry of `src`'s triangles `tris` (indices into src) alone; `from` maps its points back to src's. */
@@ -915,10 +1062,24 @@ const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
 export function dressHair(root, options) { return drive(dressHairSteps(root, options)); }
 
 /** T-3639: dressHair in steps (growHairSteps), for a build taken a frame at a time. */
-export function* dressHairSteps(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
+export function* dressHairSteps(root, { lod = 0, person = null, year = null, style: given = null, budgeted = false } = {}) {
   if (!root) return null;
   let style = given ?? hairFor(person, year);
   if (!style) return null;
+  const photo=root.userData?.chiPhotoFace;
+  const sourceHair=photo?.reference_pool&&!photo.customize_colour;
+  if(photo?.historical?.hair_style)style={...style,...photo.historical.hair_style};
+  // New fictional references keep the hair colour visible in their creation
+  // source. Tint the existing cap even at low LOD or when no cards are grown.
+  // A visitor's selected hair colour and curated portrait hair retain priority.
+  if(sourceHair&&photo.hair_projection?.fallback_gain){
+    const made=new Map();
+    root.traverse(o=>{if(!o.isMesh||!/^hair($|__)/.test(o.material?.name??'')||o.userData.chiPhotoHairTint)return;
+      const was=o.material;let material=made.get(was);
+      if(!material){material=was.clone();material.onBeforeCompile=was.onBeforeCompile;material.customProgramCacheKey=was.customProgramCacheKey;material.color.multiply(new THREE.Color().setRGB(...photo.hair_projection.fallback_gain,THREE.LinearSRGBColorSpace));material.userData.chiPhotoOwned=true;made.set(was,material);}
+      o.material=material;o.userData.chiPhotoHairTint=true;
+    });
+  }
   // The photograph already contains brows and lid margins. Growing a second
   // dark set over them makes the eyes look outlined; keep other facial hair.
   if (root.userData?.chiPhotoFace) style = { ...style, facial: (style.facial ?? []).filter(name => !/^(brow|lash)/.test(name)) };
@@ -927,11 +1088,17 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
   // also says how far the hair stands out from the skin (`grow`), the skin itself is the hair,
   // in the pictures' own shape: the cap, its bun and the scalp's cards are not drawn at all.
   const like = root.userData?.chiLikenessSkin, grown = like?.grow?.reach_m > 0;
+  const layered = !like && photo?.sex === 'female' && style.cut === 'drawn_back_bun_1904';
+  if (layered && lod <= 1) style = { ...style, cut: 'layered_back_bun_1904' };
   if (like && (grown || style.facial?.length)) style = { ...style, facial: [], ...(grown ? { no_scalp: true } : {}) };
   if (grown) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
   // A bald crown (T-3440): the cap, a full head of hair in its own texture, is never drawn;
   // the fringe is cards over the skin (near levels), and far off the head reads bare.
   if (HAIR_CUTS[style.cut]?.bald) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
+  if(!grown&&!HAIR_CUTS[style.cut]?.bald){
+    fitPhotoHairline(root,root.userData?.chiPhotoFace);
+    yield* fitChildHairCapSteps(root,root.userData?.chiPhotoFace);yield;
+  }
   // T-3553: a cut that wears the cap's own bun high on the crown (`bun_to_crown_deg`, Sarah
   // Grey's top knot) turns the bun up over the back of the head, at every level.
   if (!grown && HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1, HAIR_CUTS[style.cut].cap_puff ?? 0);
@@ -968,6 +1135,11 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
       g.setAttribute('normal', new THREE.Float32BufferAttribute(at(grown.normal, 3), 3));
       g.setAttribute('chiStrandT', new THREE.Float32BufferAttribute(at(grown.strand, 3), 3));
       g.setAttribute('chiCard', new THREE.Float32BufferAttribute(at(grown.card, 4), 4));
+      if (lod <= 1) {
+        const free = new Float32Array(to - from);
+        free.fill(1, 0, Math.max(0, Math.min(to, grown.facialFrom < 0 ? to : grown.facialFrom) - from));
+        g.setAttribute('chiHairFree', new THREE.Float32BufferAttribute(free, 1));
+      }
       g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(at(grown.skinIndex, 4), 4));
       g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(at(grown.skinWeight, 4), 4));
       g.setIndex(grown.index.slice(i0, i1).map(i => i - from));
@@ -1000,7 +1172,7 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
     under.bind(hair.skeleton, hair.bindMatrix);
     hair.parent.add(under);
   }
-  const colour = HAIR_COLOURS[style.colour] ?? HAIR_COLOURS.dark_brown;
+  const colour = sourceHair&&photo.hair_rgb?photo.hair_rgb:HAIR_COLOURS[style.colour] ?? HAIR_COLOURS.dark_brown;
   const bind = hair.bindMatrix.clone().multiply(entry.R.clone().invert());
   const cards = (geometry, material, name) => {
     const m = new THREE.SkinnedMesh(geometry, material);
@@ -1014,7 +1186,7 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
     hair.parent.add(m);
     return m;
   };
-  const material = strandMaterial(colour, person ?? 'anon');
+  const material = strandMaterial(colour, person ?? 'anon', lod <= 1 && !!entry.geometry);
   const mesh = entry.geometry ? cards(entry.geometry, material, 'hair_cards') : null;
   // Brows and lashes (T-3493) may take a colour of their own, nearer a cap's own texture.
   const faceMaterial = entry.face ? strandMaterial(HAIR_COLOURS[style.brow_colour] ?? colour, person ?? 'anon') : null;
@@ -1030,6 +1202,7 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
   if (tint && (entry.grown.scalp || HAIR_CUTS[style.cut].scalp_cards === false) && hair.material && !hair.userData.capTinted) {
     // The cap's own top knot and the patch a turned bun leaves (bunToCrown) share its material.
     const was = hair.material, tinted = was.clone();
+    tinted.onBeforeCompile=was.onBeforeCompile;tinted.customProgramCacheKey=was.customProgramCacheKey;
     tinted.color.setRGB(...(Array.isArray(tint) ? tint : colour.map(c => c * tint)), THREE.LinearSRGBColorSpace);
     hair.parent.traverse(o => { if (o.isMesh && o.material === was) o.material = tinted; });
     hair.userData.capTinted = true;
@@ -1047,7 +1220,26 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
     material.userData.chiCards.value.z = z;
     if (faceMaterial) faceMaterial.userData.chiCards.value.z = z;
   };
-  return { mesh: mesh ?? face, face, grown: entry.grown, style };
+  const runtime = lod <= 1 && (mesh || face) ? new HairDynamics({
+    uniform: material.userData.chiHairMotion,
+    // Every optional near card draw is charged, including existing scalp and
+    // facial styles. The body's cap, full likeness skin and Light tails remain.
+    triangles: ((mesh?.geometry.index.count ?? 0) + (face?.geometry.index.count ?? 0)) / 3,
+    addedTriangles: layered ? mesh.geometry.index.count / 3 : 0,
+    tied: !HAIR_CUTS[style.cut]?.hang,
+    phase: seeded(person ?? 'anon')() * Math.PI * 2,
+    setVisible: on => { if (mesh) mesh.visible = on; if (face) face.visible = on; },
+  }) : null;
+  // A newly built layer enters the next frame's shared admission pass before
+  // it can draw. Standalone one-person review scenes have no crowd budget.
+  if (budgeted) runtime?.enable(false);
+  let disposed = false;
+  return { mesh: mesh ?? face, face, grown: entry.grown, style, runtime,
+    dispose() {
+      if (disposed) return; disposed = true;
+      runtime?.dispose(); material.dispose(); faceMaterial?.dispose();
+    },
+  };
 }
 
 const cloths = new WeakMap();   // cap geometry -> Map(person -> { geometry, R })

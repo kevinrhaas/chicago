@@ -204,8 +204,12 @@ function materialsFor(spec) {
  * Returns { group, fit } or null. Call after the variation, like dressHair.
  */
 export function dressSpectacles(root, { lod = 0, person = null, spec: given = null } = {}) {
-  if (!root || lod > 1) return null;
-  const spec = given ?? spectaclesFor(person);
+  if (!root || lod > 2) return null;
+  const reference=root.userData?.chiPhotoFace?.historical?.spectacles;
+  // Explicit photographic spectacles stay visible in a close Light portrait.
+  // Existing far-crowd spectacle policy remains with the older records.
+  if(lod>1&&!reference)return null;
+  const spec = given ?? reference ?? spectaclesFor(person);
   if (!spec) return null;
   let skin = null;
   root.traverse(o => { if (o.isSkinnedMesh && /^skin($|__)/.test(o.material?.name ?? '')) skin ??= o; });

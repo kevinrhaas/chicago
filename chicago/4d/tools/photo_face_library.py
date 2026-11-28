@@ -20,7 +20,7 @@ from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 from PIL import Image, ImageOps, ImageDraw
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
-from scipy.ndimage import distance_transform_edt, gaussian_filter
+from scipy.ndimage import distance_transform_edt, gaussian_filter, label, binary_dilation
 
 import face_library as L
 import fit_portrait_face as F
@@ -32,9 +32,87 @@ FORMAT = 'chicago4d_photo_face_review_v2'
 BASE = {'male': 'glessner_john_j_1904', 'female': 'glessner_frances_m_1904'}
 TILE = 256
 PAD = 8  # duplicated texels: bilinear filtering and the near mip levels stay inside a face
-LIMIT = 256
+LIMIT = 512  # catalogue/disk only: crowd edge and ONE resident detail page stay fixed
 PAGE_FACES = 16
 CROWD_EDGE = 1024
+# The stock replacement mask starts inside the forehead. Photographic skin
+# covers the whole forehead; its margins still fit inside the same atlas tile.
+PHOTO_FACE_MASK = {'centre': [.859375,.515625], 'half': [.125,.125], 'round': .07, 'feather': .035}
+FACE_OVAL = (10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,
+             152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109)
+
+
+def skin_outline(points):
+    """The measured facial oval; unpictured forehead is reconstructed as skin."""
+    return np.asarray(points)[list(FACE_OVAL)].copy()
+
+
+def skin_support(rgb, points, colour_limits=True):
+    """Reliable skin for lighting/edge estimates, excluding face features."""
+    points=np.asarray(points);height,width=rgb.shape[:2]
+    eye=float(np.linalg.norm(points[468]-points[473]));margin=max(2,eye*.065)
+    mask=Image.new('L',(width,height));ImageDraw.Draw(mask).polygon([tuple(p) for p in skin_outline(points)],fill=255)
+    distance=distance_transform_edt(np.asarray(mask)>0)
+    valid=distance>margin
+    feature=Image.new('L',(width,height));draw=ImageDraw.Draw(feature)
+    for indices in ((33,133,159,145,70,63,105,66,107),(263,362,386,374,336,296,334,293,300),
+                    (61,291,0,17,13,14),(98,327,2,4)):
+        p=points[list(indices)];lo=p.min(0)-eye*.045;hi=p.max(0)+eye*.045
+        draw.rectangle([tuple(lo),tuple(hi)],fill=255)
+    valid&=np.asarray(feature)==0
+    luma=np.maximum(.004,rgb@np.array([.2126,.7152,.0722]))
+    cheeks=points[[50,101,118,205,280,330,347,425]]
+    samples=[luma[min(height-1,max(0,round(y))),min(width-1,max(0,round(x)))]for x,y in cheeks]
+    anchor=float(np.median(samples))
+    if colour_limits:valid&=(luma>anchor*.4)&(luma<anchor*1.8)
+    return distance,valid,eye,margin,luma,cheeks
+
+
+def photo_skin_edges(im, points):
+    """Extend unpictured margins from this person's skin, without stretching hair.
+
+    The original source is immutable. Central brows, lips, freckles and facial
+    hair stay photographed; the few border pixels and unseen sides are a smooth
+    reconstruction from nearby skin, rather than stretched curls/background.
+    """
+    rgb=clean_reference_forehead(L.linear(np.asarray(im,dtype=float)),points)
+    distance,valid,eye,margin,_,_=skin_support(rgb,points)
+    if valid.sum()<8:return im
+    nearest=distance_transform_edt(~valid,return_distances=False,return_indices=True)
+    radius=max(1,eye*.045);weight=gaussian_filter(valid.astype(float),radius)
+    soft=gaussian_filter(rgb*valid[...,None],(radius,radius,0))/np.maximum(weight[...,None],1e-9)
+    soft=np.where((weight>1e-4)[...,None],soft,soft[nearest[0],nearest[1]])
+    edge=np.clip(distance/margin-1,0,1)[...,None]
+    return Image.fromarray(L.srgb8(rgb*edge+soft[nearest[0],nearest[1]]*(1-edge)))
+
+
+def reference_skin_field(rgb, points):
+    """Feature-free colour continuation from this face's reliable skin only.
+
+    This is the fallback outside the measured photo hull. It must never import
+    another template face or extrapolate eyebrows, eyes or hair onto the scalp.
+    """
+    _,valid,eye,_,_,_=skin_support(rgb,points)
+    if valid.sum()<8:return np.broadcast_to(np.median(rgb.reshape(-1,3),axis=0),rgb.shape).copy()
+    nearest=distance_transform_edt(~valid,return_distances=False,return_indices=True)
+    radius=max(3,eye*.08);weight=gaussian_filter(valid.astype(float),radius)
+    field=gaussian_filter(rgb*valid[...,None],(radius,radius,0))/np.maximum(weight[...,None],1e-9)
+    return np.where((weight>1e-4)[...,None],field,field[nearest[0],nearest[1]])
+
+
+def soften_fictional_child_skin(im, points, age):
+    """Keep fictional children's pigment subtle at the portable head's texel scale.
+
+    Only skin contrast is reduced, toward this same face's skin field. Eyes,
+    brows, nose detail and lips are excluded, and no source file is overwritten.
+    This is never applied to an actual person's historical/reference photograph.
+    """
+    rgb=L.linear(np.asarray(im,dtype=float))
+    _,domain,eye,_,_,_=skin_support(rgb,points,colour_limits=False)
+    strength=float(np.clip(.7*(18-age)/10,.35,.7))
+    weight=np.clip(distance_transform_edt(domain)/max(2,eye*.04),0,1)[...,None]*strength
+    field=reference_skin_field(rgb,points)
+    return Image.fromarray(L.srgb8(rgb*(1-weight)+field*weight)),strength
 
 
 def digest(path):
@@ -86,6 +164,9 @@ def detect(im, model):
 
 
 def portrait(entry, points, size):
+    if entry.get('shape_from'):
+        import historical_photo_shape as H
+        return H.portrait(entry, points, size)
     base = BASE[entry['sex']]
     table = json.loads(F.MP_TABLE.read_text())['bodies'][base]
     axes = json.loads((F.PORTRAITS / ('pa1904_grey_w_l.json' if entry['sex'] == 'male' else 'pa1904_grey_mrs_w_l.json')).read_text())['axes']
@@ -93,6 +174,11 @@ def portrait(entry, points, size):
              for k, i in [('pupil_r', 468), ('pupil_l', 473)]]
     marks += [{'landmark': k, 'x': points[int(k[3:])][0], 'y': points[int(k[3:])][1], 'sigma_px': 3.5}
               for k in table['points']]
+    outline_fields={}
+    if entry.get('population')!='child' and (entry.get('reference_pool') or entry.get('historical',{}).get('shape_mode')=='new_photo_fit'):
+        outline=min(table['outline'],key=lambda o:abs(o['solved_yaw_deg']))
+        marks += [{'landmark':k,'x':points[int(k[4:])][0],'y':points[int(k[4:])][1],'sigma_px':5.0} for k in outline['points']]
+        outline_fields={'outline_yaw_deg':outline['solved_yaw_deg']}
     child=entry.get('population')=='child'
     if child:
         import photo_face_child as C
@@ -101,7 +187,8 @@ def portrait(entry, points, size):
     else:actual,reference_age=base,entry['age']
     return {'base_body': actual, **({'calibration_body':base} if child else {}),
             'sex': entry['sex'], 'age_at_picture_years': reference_age,
-            'axes': axes, 'marks': marks, 'scan_size_px': list(size),
+            'axes': axes, 'marks': marks, 'scan_size_px': list(size), **outline_fields,
+            **({'read_by_eye':entry['historical']['fit_controls']} if entry.get('historical',{}).get('fit_controls') else {}),
             'grade': 'reconstructed', 'source': entry['source'],
             'not_modelled': ['profile depth from a single front photograph', 'ears and hair outside the face patch']}
 
@@ -127,11 +214,121 @@ def blend_face_photo(photo, fallback, covered):
     return L.srgb8(joined + front * weight + back * (1 - weight))
 
 
-def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
+def clean_reference_forehead(rgb, points):
+    """Keep photographic bangs in the hair layer, rather than painting them on skin.
+
+    Only dark connected intrusions above the eyebrows are filled, from this
+    face's own nearby skin. The source photograph and the eyebrows stay intact.
+    """
+    boundary=(10,338,297,332,284,251,389,300,293,334,296,336,
+              107,66,105,63,70,162,21,54,103,67,109)
+    mask=Image.new('L',(rgb.shape[1],rgb.shape[0]))
+    forehead={i:p for i,p in zip(FACE_OVAL,skin_outline(points))}
+    ImageDraw.Draw(mask).polygon([tuple(forehead.get(i,points[i])) for i in boundary],fill=255)
+    inside=distance_transform_edt(np.asarray(mask)>0)>2
+    if not inside.any():return rgb
+    light=rgb@np.array([.2126,.7152,.0722])
+    cheeks=[points[i] for i in (50,101,118,205,280,330,347,425)]
+    anchor=float(np.median([light[min(rgb.shape[0]-1,max(0,round(y))),min(rgb.shape[1]-1,max(0,round(x)))] for x,y in cheeks]))
+    if anchor<=.004:return rgb
+    components,_=label(inside&(light<anchor*.35))
+    sizes=np.bincount(components.ravel())
+    keep=sizes>=8;keep[0]=False
+    bad=keep[components]
+    valid=inside&(light>anchor*.6)
+    if not bad.any() or not valid.any():return rgb
+    # A soft reconstruction from nearby skin removes strand edges too, without
+    # changing freckles, facial outlines, brows or an individual's skin colour.
+    bad=binary_dilation(bad,iterations=1)&inside
+    valid&=~bad
+    if not valid.any():return rgb
+    nearest=distance_transform_edt(~valid,return_distances=False,return_indices=True)
+    weight=gaussian_filter(valid.astype(float),3)
+    smooth=gaussian_filter(rgb*valid[...,None],(3,3,0))/np.maximum(weight[...,None],1e-6)
+    fill=np.where((weight>1e-4)[...,None],smooth,rgb[nearest[0],nearest[1]])
+    blend=gaussian_filter(bad.astype(float),.6)*inside
+    return rgb*(1-blend[...,None])+fill*blend[...,None]
+
+
+def reference_albedo(im, points):
+    """Reduce broad studio illumination before the 3D face is lit again.
+
+    One smooth scalar gain per pixel preserves chroma and fine facial detail;
+    the cheek exposure anchors it. The original source remains unchanged.
+    """
+    rgb=clean_reference_forehead(L.linear(np.asarray(im,dtype=float)),points)
+    _,valid,eye,_,luma,cheeks=skin_support(rgb,points)
+    radius=max(2,eye*.06)
+    if valid.sum()<8:
+        broad=gaussian_filter(np.log(luma),radius)
+    else:
+        # A dark brow, lash or background is not the illumination of the skin.
+        weight=gaussian_filter(valid.astype(float),radius)
+        broad=gaussian_filter(np.log(luma)*valid,radius)/np.maximum(weight,1e-9)
+        nearest=distance_transform_edt(~valid,return_distances=False,return_indices=True)
+        broad=np.where(weight>1e-4,broad,broad[nearest[0],nearest[1]])
+    target=np.median([broad[min(im.height-1,max(0,round(y))),min(im.width-1,max(0,round(x)))] for x,y in cheeks])
+    gain=np.clip(np.exp(.9*(target-broad)),.45,2.5)
+    return Image.fromarray(L.srgb8(rgb*gain[...,None]))
+
+
+LIP_OUTLINE = (61,146,91,181,84,17,314,405,321,375,291,409,270,269,267,0,37,39,40,185,
+               78,95,88,178,87,14,317,402,318,324,308,415,310,311,312,13,82,81,80,191)
+
+
+def restore_archive_skin(im, points, contrast):
+    """Suppress scan contrast on reviewed skin, preserving photographed features.
+
+    This optional display calibration never edits the source or fitted head.
+    The reconstruction uses only this person's own feature-free skin field.
+    """
+    if isinstance(contrast,bool) or not isinstance(contrast,(int,float)) or not 0<=contrast<=1:
+        raise ValueError('archive skin contrast must be between zero and one')
+    if contrast==1:return im
+    rgb=L.linear(np.asarray(im,dtype=float))
+    distance,_,eye,margin,_,_=skin_support(rgb,points)
+    features=((70,63,105,66,107,55,65,52,53,46),
+              (336,296,334,293,300,276,283,282,295,285),
+              (33,7,163,144,145,153,154,155,133,173,157,158,159,160,161,246),
+              (263,249,390,373,374,380,381,382,362,398,384,385,386,387,388,466),
+              LIP_OUTLINE[:20])
+    mask=Image.new('L',im.size);draw=ImageDraw.Draw(mask)
+    for indices in features:draw.polygon([tuple(points[i]) for i in indices],fill=255)
+    for i in (98,327,2):
+        x,y=points[i];r=max(1,eye*.025);draw.ellipse((x-r,y-r,x+r,y+r),fill=255)
+    preserve=binary_dilation(np.asarray(mask)>0,iterations=max(1,round(eye*.012)))
+    skin=(distance>margin)&~preserve
+    weight=np.clip(distance_transform_edt(skin)/max(2,eye*.025),0,1)[...,None]*(1-contrast)
+    field=reference_skin_field(rgb,points)
+    return Image.fromarray(L.srgb8(rgb*(1-weight)+field*weight))
+
+
+def mouth_uv_registration(target, members, controls):
+    """Calibrate painted lip bounds independently of lip depth on coarse LODs."""
+    if not controls:return target
+    height=controls.get('lip_height_scale',1);width=controls.get('lip_width_scale',1)
+    if any(isinstance(v,bool) or not isinstance(v,(int,float)) or not .5<=v<=1.2 for v in (height,width)):
+        raise ValueError('lip texture registration scales must be between .5 and 1.2')
+    if height==1 and width==1:return target
+    at={landmark:i for i,group in enumerate(members) for landmark in group}
+    if not all(k in at for k in (0,17,61,291)):raise ValueError('lip registration needs calibrated outer lip landmarks')
+    centre=(target[at[61]]+target[at[291]])*.5
+    vertical=target[at[17]]-target[at[0]];horizontal=target[at[291]]-target[at[61]]
+    basis=np.column_stack([vertical,horizontal])
+    if abs(np.linalg.det(basis))<1e-10:raise ValueError('degenerate lip texture registration')
+    transform=basis@np.diag([height,width])@np.linalg.inv(basis)
+    result=target.copy()
+    for i,group in enumerate(members):
+        if any(k in LIP_OUTLINE for k in group):result[i]=centre+transform@(target[i]-centre)
+    return result
+
+
+def bake_face(im, points, sex, size=TILE - PAD * 2, body=None, texture_controls=None):
     """Landmark correspondence warps a front photo onto the existing hm08 UV island.
 
-    The measured hull supplies the facial detail. Its broad lighting joins the
-    existing skin outside that hull; no additional photographic view is invented.
+    The measured hull supplies the facial detail. Unseen forehead and margins
+    use a feature-free continuation of that reference's skin, never a second
+    template face or an uncalibrated projection of eyes/hair onto the forehead.
     """
     header, _, _ = F.load_kit()
     blob = (F.KIT_JSON.parent / header['bin']).read_bytes()
@@ -142,10 +339,12 @@ def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
     correspond = [(int(k[3:]), v['vertex']) for k, v in table['points'].items()]
     outline = min(table['outline'], key=lambda x: abs(x['solved_yaw_deg']))
     correspond += [(int(k[4:]), v['vertex']) for k, v in outline['points'].items()]
-    groups = {}
+    groups = {};members={}
     for landmark, vertex in correspond:
         groups.setdefault(index[vertex], []).append(points[landmark])
+        members.setdefault(index[vertex], []).append(landmark)
     target = np.array([uvs[i] for i in groups])
+    target=mouth_uv_registration(target,list(members.values()),texture_controls)
     photo = np.array([np.mean(p, axis=0) for p in groups.values()])
     box = np.array(L.box_uv(json.loads(L.RECORD.read_text())))
     u, v = np.meshgrid(box[0] + (np.arange(size) + .5) / size * (box[2] - box[0]),
@@ -157,7 +356,8 @@ def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
         raise ValueError('too little of the face could be mapped to the head')
     mapped[~covered] = NearestNDInterpolator(target, photo)(query[~covered])
     from scipy.ndimage import map_coordinates
-    rgb = np.asarray(im, dtype=float).copy()
+    rgb = np.asarray(photo_skin_edges(im,points), dtype=float).copy()
+    field=L.srgb8(reference_skin_field(L.linear(rgb),points))
     # The portable head has separate eyeballs. Painting the photograph's pupils
     # onto the skin as well leaves dark crescents on the lids when their openings
     # differ. Keep the photographic lid/brow surround, and fill only the opening
@@ -173,6 +373,7 @@ def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
             a, b = rgb[max(0,top-2),x].copy(), rgb[min(im.height-1,bottom+2),x].copy()
             rgb[top:bottom+1,x] = np.linspace(a,b,bottom-top+1)
     warped = np.stack([map_coordinates(rgb[:, :, c], [mapped[:, :, 1], mapped[:, :, 0]], order=1, mode='nearest') for c in range(3)], -1)
+    skin_field = np.stack([map_coordinates(field[:, :, c].astype(float), [mapped[:, :, 1], mapped[:, :, 0]], order=1, mode='nearest') for c in range(3)], -1)
     # Both cheeks, away from the lips, eyebrows and nose, measure the photo's skin.
     cheeks = np.array([points[i] for i in (50, 101, 118, 205, 280, 330, 347, 425)])
     samples = []
@@ -184,12 +385,12 @@ def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
     from io import BytesIO
     fallback = Image.open(BytesIO(L.glb_skin(ROOT / 'assets/humans/web' / f'{body or BASE[sex]}.lod0.glb')))
     fallback = np.asarray(L.cut_of(Image, fallback, record).resize((size,size)), dtype=float)
-    mask = L.mask_over(record, size)
+    mask = L.mask_over({**record,'mask':PHOTO_FACE_MASK}, size)
     ring = (mask > .05) & (mask < .95)
     original = L.linear(fallback)
     base_tone = original[ring].mean(axis=0)
     fallback = L.srgb8(original * (tone / np.maximum(base_tone, .001)))
-    tile = blend_face_photo(warped, fallback, covered)
+    tile = blend_face_photo(warped, skin_field, covered)
     return np.pad(tile, ((PAD,PAD),(PAD,PAD),(0,0)), mode='edge'), tone.tolist(), base_tone.tolist()
 
 
@@ -204,6 +405,9 @@ def validate_entry(entry):
     if child and entry.get('fitted',{}).get('values'):
         raise ValueError('a cached child photo cannot transfer head morphs')
     source_record(entry['source'])
+    if entry.get('shape_from'):
+        import historical_photo_shape as H
+        H.record(entry)
 
 
 @lru_cache(maxsize=2)
@@ -282,7 +486,10 @@ def eye_appearance(im, points, sex, fit, portrait_record):
     # Use a conservative closure when no fitted aperture can be measured.
     # A measured aperture can also open lids that start narrower than the source.
     rest=float(np.clip((.36-float(np.mean(apertures)))/.36,0,.42))
-    gain=np.clip(iris/np.maximum(native_iris_tone(sex,portrait_record['base_body']),.002),.4,3)
+    # The shared iris is dark brown: its blue channel is only about .005 linear.
+    # A gain capped at three turned blue/grey reference eyes brown and almost
+    # black. Transfer each measured channel, preserving the existing iris detail.
+    gain=np.clip(iris/np.maximum(native_iris_tone(sex,portrait_record['base_body']),.002),.05,64)
     measured=measured_lid_rest(portrait_record,fit,points)
     if measured is not None:rest=measured['rest']
     centres=[np.array(points[mid]) for mid in (468,473)]
@@ -391,14 +598,32 @@ def prepare_face(task):
     if len(points) != 478 or not np.isfinite(points).all():
         raise ValueError(f"{e['id']}: expected 478 finite detected landmarks")
     p = portrait(e, points, im.size)
-    fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
+    analytic = e.get('population')!='child' and bool(e.get('reference_pool') or e.get('historical',{}).get('shape_mode')=='new_photo_fit')
+    non_fit=(relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))
+    fit_inputs = {k:v for k,v in inputs.items() if k not in non_fit
+                  and (analytic or k!='tools/photo_reference_fit.py')}
     signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
     fit = e.get('fitted') if e.get('fit_signature') == signature else None
+    if fit is None and e.get('shape_from'):
+        import historical_photo_shape as H
+        fit = H.fit(e, p)
     if fit is None and e.get('population')=='child':
         import photo_face_child as C
         fit=C.pose(e,p)
+    if fit is None and analytic:
+        import photo_reference_fit as R
+        fit=R.fit(e['id'],p)
     fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
-    tile, tone, base_tone = bake_face(im, points, e['sex'],body=p['base_body'])
+    skin_photo=im
+    if e.get('historical'):
+        import historical_photo_shape as H
+        skin_photo=H.texture_photo(im,e,points)
+    else:
+        skin_photo=reference_albedo(im,points)
+    child_softening=None
+    if e.get('population')=='child' and e.get('synthetic') is True:
+        skin_photo,child_softening=soften_fictional_child_skin(skin_photo,points,e['age'])
+    tile, tone, base_tone = bake_face(skin_photo, points, e['sex'],body=p['base_body'],texture_controls=e.get('historical',{}).get('texture_controls'))
     hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit,body=p['base_body'])
     face = {'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
             'source': e['source'], 'source_url': source_record(e['source'])['url'],
@@ -408,10 +633,19 @@ def prepare_face(task):
             'tone_rgb':tone, 'body_gain':(np.array(tone)/np.maximum(base_tone,.001)).tolist(),
             'hair_rgb':hair_rgb, 'hair_shell':hair_shell, 'hair_projection':hair_projection,
             'eyes':eye_appearance(im,points,e['sex'],fit,p), 'limits':p['not_modelled']}
+    if e.get('selection_tone_rgb'):face['selection_tone_rgb']=e['selection_tone_rgb']
+    if child_softening is not None:
+        face['skin_calibration']={'fictional_child_pigment_softening':child_softening}
+        face['limits'].append('Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.')
+    if e.get('reference_pool'):
+        face['reference_pool']=e['reference_pool']
     if e.get('population')=='child':
         face.update(population='child',texture_only=True)
         face['eyes']['centres_uv']=None
         face['limits'].append('Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs.')
+    if e.get('historical'):
+        import historical_photo_shape as H
+        H.appearance(face, e, p)
     e.update(landmarks=points, fitted={k:fit[k] for k in ('values','rms_px','camera','projection_centre_m')},
              fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
     return face, tile, hair_tile, e, round(time.monotonic()-began,1)
@@ -464,6 +698,18 @@ def build(recipe, output, model=None, fast=False, jobs=1):
         dependencies.append(pathlib.Path(C.__file__))
         for asset in sorted({C.body(e) for e in entries}):
             dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
+    if any(e.get('population')!='child' and (e.get('reference_pool') or e.get('historical',{}).get('shape_mode')=='new_photo_fit') for e in entries):
+        dependencies.append(ROOT/'tools/photo_reference_fit.py')
+    if any(e.get('historical') for e in entries):
+        dependencies += [ROOT/'tools/historical_photo_shape.py',ROOT/'tools/historical_photo_faces.py',ROOT/'data/humans/variation/person_photo_references.json']
+    for e in entries:
+        if e.get('shape_from'):
+            import historical_photo_shape as H
+            dependencies.extend([pathlib.Path(H.__file__), H.record(e)[0], F.PORTRAITS/f"{e['id']}.json",
+                                 ROOT/'tools/historical_photo_state.mjs', ROOT/'renderers/web/js/human-variation.js',
+                                 ROOT/'assets/humans/web/hm08_variation_persons.json'])
+            asset=e['historical']['reference_asset']
+            dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
     inputs = {relative(p):digest(p) for p in dependencies}
     output.mkdir(parents=True, exist_ok=True)
     faces = []
@@ -488,7 +734,8 @@ def build(recipe, output, model=None, fast=False, jobs=1):
             print(f"{i+1}/{len(entries)} {face['id']}: fitted {face['fit_rms_px']} px, {elapsed}s",flush=True)
     finally:
         if pool:pool.shutdown(cancel_futures=True)
-    scale=min(.5,CROWD_EDGE/max(atlas.size))
+    crowd_edge = 256 if all(e.get('historical') for e in entries) else 512 if all(e.get('population')=='child' for e in entries) else CROWD_EDGE
+    scale=min(.5,crowd_edge/max(atlas.size))
     crowd=atlas.resize((round(atlas.width*scale),round(atlas.height*scale)),Image.Resampling.LANCZOS)
     shared={}
     textures={'light':save_texture(crowd,output,'faces_light.jpg',shared)}
@@ -501,12 +748,14 @@ def build(recipe, output, model=None, fast=False, jobs=1):
                 page[kind][tier]=save_texture(image,output,name,shared)
     shells={tier:write_hair_shell(output/f'hair_shell_{tier}.glb',*segments) for tier,segments in [('light',(20,12)),('full',(32,20))]}
     result = {'format':FORMAT, 'review_only':not bool(activation),
-              'rollout':'Default generic faces on dev in all four years.' if activation else 'No population assignments; review the renders first.',
-              'tile_px':TILE, 'padding_px':PAD, 'cols':cols, 'size_px':list(atlas.size),
+              'rollout':('Registered person photographs on dev.' if all(e.get('historical') for e in entries)
+                         else 'Default generic faces on dev in all four years.') if activation else 'No population assignments; review the renders first.',
+              'tile_px':TILE, 'padding_px':PAD, 'cols':cols, 'size_px':list(atlas.size), 'face_mask':PHOTO_FACE_MASK,
               'textures':textures, 'pages':pages, 'hair_shells':shells, 'faces':faces, 'capacity':LIMIT, 'inputs_sha256':inputs,
-              'budget':{'crowd_edge_px':CROWD_EDGE,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
+              'budget':{'crowd_edge_px':crowd_edge,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
                         'town_face_gpu_bytes':textures['light']['gpu_bytes_rgba8_mipmaps']+max(p['textures']['full']['gpu_bytes_rgba8_mipmaps'] for p in pages)},
               'limits':['Front photo fits do not establish profile depth.', 'Hair, ears, bodies and dress are reconstructed.',
+                        'Unpictured forehead/face-edge skin extends the same reference; it is reconstructed, not another photographic view.',
                         'Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass.']}
     if activation:result['activation']=activation
     (output/'recipe.json').write_text(json.dumps(recipe,indent=1)+'\n')
@@ -519,6 +768,7 @@ def build(recipe, output, model=None, fast=False, jobs=1):
 def check(manifest):
     result = json.loads(manifest.read_text())
     assert result['format'] == FORMAT and isinstance(result['review_only'],bool)
+    assert result['face_mask']==PHOTO_FACE_MASK,'stale photo forehead mask; rebuild the library'
     assert 1 <= len(result['faces']) <= LIMIT
     assert len({f['id'] for f in result['faces']}) == len(result['faces'])
     for shell in result['hair_shells'].values():

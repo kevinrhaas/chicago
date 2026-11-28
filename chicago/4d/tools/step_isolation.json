@@ -4315,6 +4315,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/historical_photo_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/horse_walk_v2.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6158,6 +6162,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_historical_photo_faces.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_hoof_audio.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6339,6 +6347,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_hair.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_dynamics.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

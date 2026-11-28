@@ -1006,6 +1006,54 @@ for (const phone of [true, false]) {
   assert.equal(tagEl.hidden, false, 'with a full hold of its own');
 }
 
+// ---- T-2942: delayed browser timers retain the original hold/fade deadline ------------------
+{
+function delayedTagScene() {
+  let clock = 0, hear;
+  const timers = [];
+  const targetValue = { id: 'glessner_house', record: { sidecar: { name: 'Glessner House' } }, distance: 10 };
+  const target = { on(fn) { hear = fn; return () => {}; }, current: () => targetValue };
+  const cls = new Set();
+  const tagEl = { hidden: true, classList: { add: c => cls.add(c), remove: c => cls.delete(c), contains: c => cls.has(c) }, setAttribute() {}, addEventListener() {} };
+  const keyEl = { hidden: true, setAttribute() {}, addEventListener() {} };
+  const wait = (fn, ms) => { const t = { fn, at: clock + ms, live: true }; timers.push(t); return t; };
+  const cancel = t => { t.live = false; };
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel, now: () => clock });
+  const runNextAt = at => {
+    clock = at;
+    const t = timers.find(t => t.live && t.at <= clock);
+    assert(t, 'a scheduled callback is due'); t.live = false; t.fn();
+  };
+  hear(targetValue); runNextAt(DWELL_MS);
+  assert.equal(tagEl.hidden, false);
+  return { tag, tagEl, keyEl, hear: () => hear(targetValue), runNextAt, timers };
+}
+{
+  const s = delayedTagScene();
+  s.runNextAt(DWELL_MS + HOLD_MS + FADE_MS + 30000);
+  assert.equal(s.tagEl.hidden, true, 'a callback delayed past the complete deadline hides immediately, without waiting another event-loop turn');
+  assert.equal(s.tagEl.classList.contains('is-fading'), false);
+  assert.equal(s.keyEl.hidden, false, 'Inspect remains available');
+  assert.equal(s.timers.filter(t => t.live).length, 0);
+  s.hear(); assert.equal(s.tagEl.hidden, true, 'the same building stays spent');
+}
+{
+  const s = delayedTagScene();
+  s.runNextAt(DWELL_MS + HOLD_MS + 250);
+  assert.equal(s.tagEl.hidden, false);
+  assert.equal(s.tagEl.classList.contains('is-fading'), true);
+  assert.equal(s.timers.find(t => t.live).at, DWELL_MS + HOLD_MS + FADE_MS, 'a partially delayed callback only schedules the remaining fade');
+  s.runNextAt(DWELL_MS + HOLD_MS + FADE_MS);
+  assert.equal(s.tagEl.hidden, true);
+}
+{
+  const s = delayedTagScene();
+  s.tag.setHold('always');
+  assert.equal(s.timers.filter(t => t.live).length, 0, 'Always cancels the deadline');
+  assert.equal(s.tagEl.hidden, false);
+}
+}
+
 // ---- T-2736 (owner, 2026-10-17): Settings › Show turns the tag off; on by default; the Inspect
 // key stays either way ------------------------------------------------------------------------
 {

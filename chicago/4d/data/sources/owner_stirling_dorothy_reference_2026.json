@@ -1,0 +1,30 @@
+{
+ "id": "owner_stirling_dorothy_reference_2026",
+ "type": "photograph",
+ "citation": "Owner-supplied likeness model for Dorothy Sterling, supplied 26 November 2026 with instructions to match and apply the face in 1904, and to store a period portrait without modern clothing or background.",
+ "author": "Original photographer and sitter not recorded; period reference edited with OpenAI image generation at the owner’s request.",
+ "date": "2026-11-26",
+ "describes_date": "1904 (reconstructed styling only)",
+ "repository": "Period portrait: assets/authored/humans/historical_photo_faces/stirling_period_reference.png, SHA-256 c09033b03b50f3b65605ce1d235cceb43b0581f9c61a1a9f03f6f0809c6df46f; neutral texture companion: assets/authored/humans/historical_photo_faces/stirling_period_neutral.png, SHA-256 3e1b22e227e2d347227d20425c76c89a4d683a1b4a9be125ade017da92941970. Original upload SHA-256 c61b1308432ac8954e9787b9bb5730ec5efc328e9cbabea448106ae7942a6160; original modern picture retained only in task work, not published.",
+ "url": "https://github.com/kevinrhaas/chicago/blob/dev/chicago/4d/assets/authored/humans/historical_photo_faces/stirling_period_reference.png",
+ "locator": "Left half: owner-chosen reference model, not an identified photograph of the historical person.",
+ "tier": 5,
+ "rights_status": "cleared",
+ "rights_note": "Supplied directly by the project owner with an explicit request to match, apply and make period reference portraits for this project.",
+ "rights_checked": {
+  "date": "2026-11-26",
+  "method": "Direct owner instruction in this project thread.",
+  "outcome": "cleared for the requested project likeness and derivative period reference"
+ },
+ "asset_use": "texture",
+ "verified": true,
+ "access_notes": "Read the original and both period edits side by side. Two identities are kept separate. Facial identity is the visual reference; generated neutral expression, hidden depth, Edwardian hair and clothing are reconstructed. No claim of an authentic historical photograph or measured profile.",
+ "note": "STAND-IN for Dorothy Sterling. Not a verified photograph of this historical person. The owner chose a reference model. Modern background and clothing are replaced in the stored reference. The neutral companion removes the smile and (for Alice) spectacles only for the separate 3D eyes/mouth/spectacle layers. No original modern clothing/background is published.",
+ "what_it_supplies": [
+  "Owner-chosen reconstructed facial likeness and colouring."
+ ],
+ "what_it_does_not_supply": [
+  "The historical person’s actual appearance, ancestry, measurements or photographic profile.",
+  "Historical clothing or hairstyle evidence."
+ ]
+}

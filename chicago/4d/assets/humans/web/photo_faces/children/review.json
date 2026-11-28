@@ -4,11 +4,23 @@
  "rollout": "Default generic faces on dev in all four years.",
  "tile_px": 256,
  "padding_px": 8,
- "cols": 4,
+ "cols": 8,
  "size_px": [
-  1024,
-  1024
+  2048,
+  2048
  ],
+ "face_mask": {
+  "centre": [
+   0.859375,
+   0.515625
+  ],
+  "half": [
+   0.125,
+   0.125
+  ],
+  "round": 0.07,
+  "feather": 0.035
+ },
  "textures": {
   "light": {
    "file": "faces_light.jpg",
@@ -16,8 +28,8 @@
     512,
     512
    ],
-   "bytes": 66590,
-   "sha256": "872f0261523709658ae9e54c7cb2fcf3f90a142a988f5f0fc002b4150efde124",
+   "bytes": 58526,
+   "sha256": "ef71a600bac20eee7cebab0a90846e2ad3abf5c24329713f2c45161bc9680e0a",
    "gpu_bytes_rgba8_mipmaps": 1398102
   }
  },
@@ -37,18 +49,18 @@
       1024,
       1024
      ],
-     "bytes": 207425,
-     "sha256": "60e8e1a958e8801db1db9bb0becc2e79da1b1e01557db9092bb8aa09d586d7f7",
+     "bytes": 112798,
+     "sha256": "1b5cbd491a96a4cf2181ff8fa5a65f827076e649e6fb17161dff28ddb8872e01",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
-     "file": "faces_light.jpg",
+     "file": "page_00_face_light.jpg",
      "size_px": [
       512,
       512
      ],
-     "bytes": 66590,
-     "sha256": "872f0261523709658ae9e54c7cb2fcf3f90a142a988f5f0fc002b4150efde124",
+     "bytes": 41679,
+     "sha256": "ee5582a143f989723ce525ee173800cd238399bc79875226d0f0c07e45a58943",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -71,6 +83,165 @@
      ],
      "bytes": 345060,
      "sha256": "78c8d8a02a9b8cb1ed3f62618ea40602e724db7b7fa1028e8bcb1962245060b4",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   }
+  },
+  {
+   "first": 16,
+   "count": 16,
+   "cols": 4,
+   "size_px": [
+    1024,
+    1024
+   ],
+   "textures": {
+    "full": {
+     "file": "page_01_face_full.jpg",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 116324,
+     "sha256": "e93b86ec2cc5b4f35e1712e866aaa727f33883fac06a10431dc455b49c3d4769",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_01_face_light.jpg",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 41143,
+     "sha256": "6d091af16a29ecfe6c1b71f3e2eabf3bd1bfb1009e7a2e17a1bd1ec586021381",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   },
+   "hair_textures": {
+    "full": {
+     "file": "page_01_hair_full.png",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 1685847,
+     "sha256": "bcbf01a55f8ed8c51831442a8ab3e2c68d2fffb766a8df6db07df27334af7136",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_01_hair_light.png",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 500807,
+     "sha256": "3d334def94f83f3a41b9a34cd3858e65d3c51eb0dd69c0a708d229e6de3ac9a5",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   }
+  },
+  {
+   "first": 32,
+   "count": 16,
+   "cols": 4,
+   "size_px": [
+    1024,
+    1024
+   ],
+   "textures": {
+    "full": {
+     "file": "page_02_face_full.jpg",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 123199,
+     "sha256": "3f9777ec0bff8096cf952010fc0ed404dff5ccbd740704c806a144031053a6c8",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_02_face_light.jpg",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 43987,
+     "sha256": "501df72a91a182a4eed9a9398f270dc3d0f93c02027505128f27e2aee91c8158",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   },
+   "hair_textures": {
+    "full": {
+     "file": "page_02_hair_full.png",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 1219816,
+     "sha256": "847e4247ae03371008570eb3d0c0a32daff88e2f0d6efae7ab414c170c9bb27b",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_02_hair_light.png",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 381098,
+     "sha256": "a90378bdc0283773467f7f105a80f4ec4e09a30f1a0de9dc7006b9b21989ae86",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   }
+  },
+  {
+   "first": 48,
+   "count": 16,
+   "cols": 4,
+   "size_px": [
+    1024,
+    1024
+   ],
+   "textures": {
+    "full": {
+     "file": "page_03_face_full.jpg",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 96680,
+     "sha256": "e843c14a46cbf2e8b8c35623194bd9e0c1a8d2d5f5f2c480fa7527eea147429e",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_03_face_light.jpg",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 35082,
+     "sha256": "0f2fec655af25887ea87ef720486365f0bc3936e1c7e92fa4c64a9f9f2d8e873",
+     "gpu_bytes_rgba8_mipmaps": 1398102
+    }
+   },
+   "hair_textures": {
+    "full": {
+     "file": "page_03_hair_full.png",
+     "size_px": [
+      1024,
+      1024
+     ],
+     "bytes": 1423030,
+     "sha256": "ab09759456a49f7ef5b24be33169cb525e4e5338e9a2a1210de2d802d5f1499d",
+     "gpu_bytes_rgba8_mipmaps": 5592406
+    },
+    "light": {
+     "file": "page_03_hair_light.png",
+     "size_px": [
+      512,
+      512
+     ],
+     "bytes": 458158,
+     "sha256": "aec00cd0ae7525b1716dc99abaad3df07f3c251678eb8a2c82ae9691c8364af0",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    }
@@ -120,14 +291,14 @@
     ]
    },
    "tone_rgb": [
-    0.3419144249086609,
-    0.13843161503245183,
-    0.08650046203654976
+    0.33716361504833037,
+    0.13563332965520566,
+    0.08437621154414882
    ],
    "body_gain": [
-    0.48476771251207573,
-    0.4737074199651897,
-    0.6687142507864795
+    0.4988776039952674,
+    0.49882869895920995,
+    0.7292437406795222
    ],
    "hair_rgb": [
     0.04518620438567554,
@@ -194,7 +365,7 @@
      0.00939743435326082
     ],
     "iris_gain": [
-     0.4,
+     0.2604315929837684,
      0.6203279874222536,
      1.813645481258377
     ],
@@ -220,8 +391,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.13843161503245183,
+    0.08650046203654976
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -252,14 +432,14 @@
     ]
    },
    "tone_rgb": [
-    0.7454042095403874,
-    0.38132601143253014,
-    0.30946892281750854
+    0.7379104087727308,
+    0.386429433787049,
+    0.31398871337571754
    ],
    "body_gain": [
-    1.0568372295269384,
-    1.304882277064921,
-    2.3924297511401305
+    1.091834825175129,
+    1.4212000264651732,
+    2.7137305608163103
    ],
    "hair_rgb": [
     0.09758734714186246,
@@ -327,8 +507,8 @@
     ],
     "iris_gain": [
      1.9651765551046274,
-     3.0,
-     3.0
+     3.0544788086722576,
+     5.73449230451214
     ],
     "lid_rest": 0.036,
     "centres_uv": null,
@@ -352,8 +532,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.7454042095403874,
+    0.38132601143253014,
+    0.30946892281750854
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -386,12 +575,12 @@
    "tone_rgb": [
     0.6795424696330938,
     0.3564001441459435,
-    0.25415209433082675
+    0.25818285292159576
    ],
    "body_gain": [
-    0.9634581771355303,
-    1.219586961540677,
-    1.9647886652263302
+    1.0054718360253367,
+    1.3107590933964255,
+    2.2314136413358776
    ],
    "hair_rgb": [
     0.020288563056652397,
@@ -484,8 +673,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6795424696330938,
+    0.3564001441459435,
+    0.25415209433082675
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -516,14 +714,14 @@
     ]
    },
    "tone_rgb": [
-    0.6307571363461467,
-    0.31398871337571754,
-    0.21586050011389926
+    0.6239603916750761,
+    0.30946892281750854,
+    0.20863687014525575
    ],
    "body_gain": [
-    0.8942901260128837,
-    1.074456750912951,
-    1.6687655673685065
+    0.9232308923434412,
+    1.138156679702518,
+    1.8031993715288452
    ],
    "hair_rgb": [
     0.017641954488384078,
@@ -616,8 +814,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6307571363461467,
+    0.31398871337571754,
+    0.21586050011389926
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.48999999999999994
+   },
    "population": "child",
    "texture_only": true
   },
@@ -648,14 +855,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
-    0.3277780980565422,
-    0.20685780326778636
+    0.665387298282272,
+    0.33245153634617935,
+    0.21223075741405523
    ],
    "body_gain": [
-    0.9334465904249996,
-    1.1216434707856453,
-    1.599167885058296
+    0.984527411263999,
+    1.222681532364713,
+    1.834260493467326
    ],
    "hair_rgb": [
     0.027320891639074894,
@@ -722,7 +929,7 @@
      0.009651904350739952
     ],
     "iris_gain": [
-     0.4,
+     0.39236709767496236,
      0.6872715513861404,
      1.8627565836821698
     ],
@@ -748,8 +955,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3277780980565422,
+    0.20685780326778636
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -780,14 +996,14 @@
     ]
    },
    "tone_rgb": [
-    0.5520114015120001,
+    0.5457244613701866,
     0.25015828472995344,
     0.14702726649759498
    ],
    "body_gain": [
-    0.7826440913191752,
-    0.856031590865741,
-    1.1366324068833256
+    0.8074706153893302,
+    0.9200255720546704,
+    1.270722065383207
    ],
    "hair_rgb": [
     0.020288563056652397,
@@ -880,8 +1096,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5520114015120001,
+    0.25015828472995344,
+    0.14702726649759498
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -912,14 +1137,14 @@
     ]
    },
    "tone_rgb": [
-    0.6514056374198242,
-    0.31854677812509186,
+    0.6444796819705821,
+    0.32546065358474646,
     0.2704977910130658
    ],
    "body_gain": [
-    0.9235656578508976,
-    1.090054265194311,
-    2.0911533117622985
+    0.9535918622744287,
+    1.1969706472797057,
+    2.3378487532674126
    ],
    "hair_rgb": [
     0.07421356838014963,
@@ -1012,8 +1237,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6514056374198242,
+    0.31854677812509186,
+    0.2704977910130658
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1044,14 +1278,14 @@
     ]
    },
    "tone_rgb": [
-    0.3662525955988395,
+    0.3564001441459435,
     0.15292615199615017,
     0.09084171118340768
    ],
    "body_gain": [
-    0.5192744734811636,
-    0.5233071425939694,
-    0.7022754029742202
+    0.527340561197891,
+    0.562427786967996,
+    0.7851235325783114
    ],
    "hair_rgb": [
     0.017641954488384078,
@@ -1118,7 +1352,7 @@
      0.006262748254036828
     ],
     "iris_gain": [
-     0.4,
+     0.37125576901406254,
      0.5550637489845557,
      1.2086708610261723
     ],
@@ -1144,8 +1378,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.15292615199615017,
+    0.09084171118340768
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1181,9 +1424,9 @@
     0.1119324278369056
    ],
    "body_gain": [
-    0.6155448549544416,
-    0.6312660129870675,
-    0.8653226567511358
+    0.6423870077132877,
+    0.6784572916634181,
+    0.9674056334754484
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -1250,7 +1493,7 @@
      0.009409015731463124
     ],
     "iris_gain": [
-     0.4,
+     0.3089500174663446,
      0.6084131954770604,
      1.8158806141099373
     ],
@@ -1276,8 +1519,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.184474994500441,
+    0.1119324278369056
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1308,14 +1560,14 @@
     ]
    },
    "tone_rgb": [
-    0.7156935005064807,
-    0.386429433787049,
-    0.3162677457504047
+    0.7011018919329731,
+    0.3915724777497232,
+    0.31854677812509186
    ],
    "body_gain": [
-    1.0147132610534633,
-    1.3223459831409146,
-    2.4449898147139013
+    1.0373718171040904,
+    1.440114978528302,
+    2.753124841825881
    ],
    "hair_rgb": [
     0.2788942634768104,
@@ -1383,8 +1635,8 @@
     ],
     "iris_gain": [
      2.0759890959636627,
-     3.0,
-     3.0
+     3.922537615335942,
+     9.052620049772862
     ],
     "lid_rest": 0.051,
     "centres_uv": null,
@@ -1408,8 +1660,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.7156935005064807,
+    0.386429433787049,
+    0.3162677457504047
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1440,14 +1701,14 @@
     ]
    },
    "tone_rgb": [
-    0.5972017883637634,
+    0.5906188409193369,
     0.26635560480286247,
     0.1651321945016676
    ],
    "body_gain": [
-    0.7786708483262198,
-    0.7926004057724305,
-    1.0161500532381589
+    0.8438810466203377,
+    0.8880133068885437,
+    1.1332600684403784
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -1540,8 +1801,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5972017883637634,
+    0.26635560480286247,
+    0.1651321945016676
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1572,14 +1842,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
+    0.6514056374198242,
     0.3467040563550296,
-    0.2704977910130658
+    0.26635560480286247
    ],
    "body_gain": [
-    0.8584322543510903,
-    1.0316951128298197,
-    1.6645230542004057
+    0.930733720286626,
+    1.155890133505436,
+    1.8279304761817479
    ],
    "hair_rgb": [
     0.052860647023180246,
@@ -1672,8 +1942,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3467040563550296,
+    0.2704977910130658
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.48999999999999994
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1709,9 +1988,9 @@
     0.18782077230067787
    ],
    "body_gain": [
-    0.8561089456443739,
-    1.0133732542233187,
-    1.4519971809874912
+    0.8934414112027154,
+    1.0891295576823368,
+    1.6232907363729736
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -1778,7 +2057,7 @@
      0.008797830922861186
     ],
     "iris_gain": [
-     0.4,
+     0.37504046488823506,
      0.6095374987097137,
      1.6979258059499802
     ],
@@ -1804,8 +2083,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6038273388553378,
+    0.2961382707983211,
+    0.18782077230067787
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1836,14 +2124,14 @@
     ]
    },
    "tone_rgb": [
-    0.6938717612919899,
+    0.6866853124353135,
     0.37626212299090644,
     0.29177064981753587
    ],
    "body_gain": [
-    0.9047154973784837,
-    1.1196517211646961,
-    1.7954267624198939
+    0.9811416094595395,
+    1.2544349210948835,
+    2.002347437935703
    ],
    "hair_rgb": [
     0.042311410620809675,
@@ -1936,8 +2224,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6938717612919899,
+    0.37626212299090644,
+    0.29177064981753587
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1968,14 +2265,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
-    0.3564001441459435,
-    0.2788942634768104
+    0.6514056374198242,
+    0.35153259950043936,
+    0.27467731206038465
    ],
    "body_gain": [
-    0.8584322543510903,
-    1.0605479808712919,
-    1.7161912099273655
+    0.930733720286626,
+    1.1719882012340384,
+    1.885040227339964
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -2068,8 +2365,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3564001441459435,
+    0.2788942634768104
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -2100,14 +2406,14 @@
     ]
    },
    "tone_rgb": [
-    0.5906188409193369,
-    0.2874408377269175,
+    0.5775804404296506,
+    0.2852947890784548,
     0.20863687014525575
    ],
    "body_gain": [
-    0.7700875698248565,
-    0.8553442109338851,
-    1.2838584707563097
+    0.8252516730054275,
+    0.9511553897096953,
+    1.4318215442695588
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -2200,19 +2506,6844 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5906188409193369,
+    0.2874408377269175,
+    0.20863687014525575
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_01",
+   "sex": "male",
+   "age": 4,
+   "label": "Fictional child reference european native 1",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 16,
+   "page": 1,
+   "page_index": 0,
+   "photo": "child_ref_european_native_01_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.31,
+   "camera": {
+    "yaw_deg": 2.717,
+    "pitch_deg": -2.171,
+    "roll_deg": 0.189,
+    "px_per_m": 1242.702,
+    "shift_px": [
+     160.144,
+     186.393
+    ]
+   },
+   "tone_rgb": [
+    0.5647115057049292,
+    0.30946892281750854,
+    0.24620132670783548
+   ],
+   "body_gain": [
+    0.8355644273011242,
+    1.138156679702518,
+    2.127860129803773
+   ],
+   "hair_rgb": [
+    0.1119324278369056,
+    0.07036009569659588,
+    0.04518620438567554
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.845301983817467,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09995443021048293,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9532026415351553,
+     -0.01304559503112514,
+     0.18710876279233202,
+     0.5045213242818123
+    ],
+    "v": [
+     -0.005933516418211857,
+     -3.954787436139398,
+     -0.15037330228737944,
+     3.720149607952596
+    ],
+    "toward": [
+     -0.04736880034005783,
+     -0.037882031780409324,
+     0.9981588793486394
+    ],
+    "fallback_gain": [
+     6.99739778955595,
+     4.186263027082531,
+     2.688474694088569
+    ],
+    "hairline_v": 0.3274308917197452
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21673625434990165,
+     0.20840024456721312,
+     0.2000642347845246
+    ],
+    "iris_linear": [
+     0.06702415845140094,
+     0.058003852011494404,
+     0.05358233201814148
+    ],
+    "iris_gain": [
+     1.532505170114047,
+     3.6260807854749193,
+     10.341051683565956
+    ],
+    "lid_rest": -0.014,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.006215213834607019,
+     0.006255347724402058
+    ],
+    "aperture_ratio": 0.42524343399304043,
+    "opening_fit": {
+     "rest": -0.014,
+     "picture_open_mm": [
+      9.8,
+      9.8
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.30946892281750854,
+    0.24620132670783548
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_02",
+   "sex": "male",
+   "age": 8,
+   "label": "Fictional child reference european native 2",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 17,
+   "page": 1,
+   "page_index": 1,
+   "photo": "child_ref_european_native_02_source.jpg",
+   "values": {},
+   "fit_rms_px": 2.76,
+   "camera": {
+    "yaw_deg": 0.797,
+    "pitch_deg": -7.371,
+    "roll_deg": 1.311,
+    "px_per_m": 1269.359,
+    "shift_px": [
+     162.744,
+     186.782
+    ]
+   },
+   "tone_rgb": [
+    0.5028864580325687,
+    0.26635560480286247,
+    0.20155625379439707
+   ],
+   "body_gain": [
+    0.7440861945586641,
+    0.9795956505828207,
+    1.742003270643052
+   ],
+   "hair_rgb": [
+    0.0382043715953465,
+    0.02518685962736163,
+    0.019382360956935723
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1391115347389107,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.09873184347152711,
+     0.10770163073483588,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.054171819792729,
+     -0.09201920322273131,
+     0.04449327709237531,
+     0.6163448097853758
+    ],
+    "v": [
+     -0.08526931738879392,
+     -4.008088454736218,
+     -0.5197334049464201,
+     4.996118706350279
+    ],
+    "toward": [
+     -0.013794877873037391,
+     -0.12829365022181763,
+     0.9916402778514142
+    ],
+    "fallback_gain": [
+     2.388326515548956,
+     1.4985599178405178,
+     1.1532056664828223
+    ],
+    "hairline_v": 0.3079697452229299
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.05392750912959235,
+     0.041595242567323526,
+     0.022307045434210433
+    ],
+    "iris_gain": [
+     1.2330507157713566,
+     2.6003050592338477,
+     4.305118890023727
+    ],
+    "lid_rest": 0.11,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0057200039863648565,
+     0.005688702127327281
+    ],
+    "aperture_ratio": 0.3692773928243241,
+    "opening_fit": {
+     "rest": 0.11,
+     "picture_open_mm": [
+      8.7,
+      8.6
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_03",
+   "sex": "male",
+   "age": 12,
+   "label": "Fictional child reference european native 3",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 18,
+   "page": 1,
+   "page_index": 2,
+   "photo": "child_ref_european_native_03_source.jpg",
+   "values": {},
+   "fit_rms_px": 2.76,
+   "camera": {
+    "yaw_deg": 0.77,
+    "pitch_deg": -3.51,
+    "roll_deg": 0.693,
+    "px_per_m": 1254.833,
+    "shift_px": [
+     157.437,
+     176.841
+    ]
+   },
+   "tone_rgb": [
+    0.45641102318040466,
+    0.24228112246555486,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.6753197187324922,
+    0.8910551514815755,
+    1.7118665186119182
+   ],
+   "hair_rgb": [
+    0.13286832155381798,
+    0.08865558628577294,
+    0.0595112381629812
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1332668494520561,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.09461269187961302,
+     0.10150626433077012,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.008435768721384,
+     -0.04839786024957351,
+     0.05090386612077619,
+     0.5513858118283168
+    ],
+    "v": [
+     -0.04504233014850835,
+     -3.9884951635656907,
+     -0.24527300596167986,
+     4.912588808364795
+    ],
+    "toward": [
+     -0.01341342156401793,
+     -0.061222745990261916,
+     0.9980339951601638
+    ],
+    "fallback_gain": [
+     8.306194348767177,
+     5.27480241944032,
+     3.54078108551584
+    ],
+    "hairline_v": 0.2817028662420382
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.06764676114478652,
+     0.06127627608988734,
+     0.05909952870601705
+    ],
+    "iris_gain": [
+     1.546740960142387,
+     3.830654682915983,
+     11.405835800808248
+    ],
+    "lid_rest": 0.238,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005284657473924391,
+     0.005261544851211883
+    ],
+    "aperture_ratio": 0.3198792843614269,
+    "opening_fit": {
+     "rest": 0.238,
+     "picture_open_mm": [
+      7.5,
+      7.3
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.238397573812271,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_04",
+   "sex": "male",
+   "age": 16,
+   "label": "Fictional child reference european native 4",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 19,
+   "page": 1,
+   "page_index": 3,
+   "photo": "child_ref_european_native_04_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.32,
+   "camera": {
+    "yaw_deg": 0.021,
+    "pitch_deg": -3.402,
+    "roll_deg": 0.264,
+    "px_per_m": 1314.801,
+    "shift_px": [
+     164.458,
+     170.761
+    ]
+   },
+   "tone_rgb": [
+    0.4341536361747489,
+    0.23074004852434915,
+    0.18116424424986022
+   ],
+   "body_gain": [
+    0.6423870077132877,
+    0.8486096927339458,
+    1.5657599308665364
+   ],
+   "hair_rgb": [
+    0.04091519690685319,
+    0.026241221894849898,
+    0.019382360956935723
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1276673950936706,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.0890847201366662,
+     0.09557084271088147,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.187220020567986,
+     -0.01925946096456805,
+     0.00038979881274765174,
+     0.5462836571984617
+    ],
+    "v": [
+     -0.019202388688921625,
+     -4.179840983817432,
+     -0.24848178543684138,
+     5.100941352896819
+    ],
+    "toward": [
+     -0.0003658732389817709,
+     -0.05934121868326667,
+     0.9982376900828568
+    ],
+    "fallback_gain": [
+     2.557792356763873,
+     1.5612920351555684,
+     1.1532056664828223
+    ],
+    "hairline_v": 0.2534248407643312
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.06731263943557342,
+     0.04059967155398664,
+     0.026657237843431363
+    ],
+    "iris_gain": [
+     1.5391012782926297,
+     2.538067452646594,
+     5.144678551629704
+    ],
+    "lid_rest": 0.28,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005094956248047909,
+     0.005105478984659299
+    ],
+    "aperture_ratio": 0.3056859338051707,
+    "opening_fit": {
+     "rest": 0.28,
+     "picture_open_mm": [
+      7.0,
+      7.0
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4396571738409188,
+    0.23074004852434915,
+    0.184474994500441
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_05",
+   "sex": "female",
+   "age": 4,
+   "label": "Fictional child reference european native 5",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 20,
+   "page": 1,
+   "page_index": 4,
+   "photo": "child_ref_european_native_05_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.21,
+   "camera": {
+    "yaw_deg": 0.318,
+    "pitch_deg": 0.481,
+    "roll_deg": 1.111,
+    "px_per_m": 1282.971,
+    "shift_px": [
+     161.917,
+     181.201
+    ]
+   },
+   "tone_rgb": [
+    0.5394794890121071,
+    0.2831487404299921,
+    0.22696587351009836
+   ],
+   "body_gain": [
+    0.7982303631558002,
+    1.0413570039140527,
+    1.9616126343678817
+   ],
+   "hair_rgb": [
+    0.11697066775851084,
+    0.07818742180518633,
+    0.05126945837404324
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8397704247546566,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.07972649049636668,
+     0.09409097760390386,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.085060178653601,
+     -0.07922022990804312,
+     0.023337999757208624,
+     0.5756707517105558
+    ],
+    "v": [
+     -0.0796658521275325,
+     -4.098033900431492,
+     0.033962309100930455,
+     3.804430255502432
+    ],
+    "toward": [
+     -0.0055499229512412955,
+     0.008394935093547627,
+     0.9999493604278221
+    ],
+    "fallback_gain": [
+     7.312360750442153,
+     4.651970834397172,
+     3.0504142424039946
+    ],
+    "hairline_v": 0.3029856230031949
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.24654965114667074,
+     0.23706697225641415,
+     0.22758429336615757
+    ],
+    "iris_linear": [
+     0.06282147820467013,
+     0.06044477073067579,
+     0.06580192923380954
+    ],
+    "iris_gain": [
+     1.4364110250287159,
+     3.778673555775342,
+     12.699356774072262
+    ],
+    "lid_rest": 0.035,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005979914133700023,
+     0.005952091195820557
+    ],
+    "aperture_ratio": 0.4147521965386578,
+    "opening_fit": {
+     "rest": 0.035,
+     "picture_open_mm": [
+      9.3,
+      9.2
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.27467731206038465,
+    0.2232279573168085
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_06",
+   "sex": "female",
+   "age": 8,
+   "label": "Fictional child reference european native 6",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 21,
+   "page": 1,
+   "page_index": 5,
+   "photo": "child_ref_european_native_06_source.jpg",
+   "values": {},
+   "fit_rms_px": 2.98,
+   "camera": {
+    "yaw_deg": 1.126,
+    "pitch_deg": -0.343,
+    "roll_deg": 1.974,
+    "px_per_m": 1305.287,
+    "shift_px": [
+     164.558,
+     170.351
+    ]
+   },
+   "tone_rgb": [
+    0.5149176653765214,
+    0.2704977910130658,
+    0.20863687014525575
+   ],
+   "body_gain": [
+    0.7357185857885374,
+    0.9018231025449679,
+    1.4318215442695588
+   ],
+   "hair_rgb": [
+    0.13843161503245183,
+    0.07227185068231748,
+    0.0382043715953465
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.121993469991808,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07984858129625559,
+     0.09697101619485649,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.166983312267021,
+     -0.14364565299679108,
+     0.08104168972304128,
+     0.6732130642892541
+    ],
+    "v": [
+     -0.1431301897046881,
+     -4.1676965378773625,
+     -0.027768161084759383,
+     5.058312488161643
+    ],
+    "toward": [
+     -0.019650790258740364,
+     -0.005986443577228593,
+     0.9997889822034967
+    ],
+    "fallback_gain": [
+     8.653980761001222,
+     4.300008028909671,
+     2.2730717844981405
+    ],
+    "hairline_v": 0.2632907348242811
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.20094424789327656,
+     0.19321562297430436,
+     0.18548699805533217
+    ],
+    "iris_linear": [
+     0.09686679186762202,
+     0.06367680182380271,
+     0.035274146964544194
+    ],
+    "iris_gain": [
+     2.214855997888164,
+     3.98072230665007,
+     6.807687592442807
+    ],
+    "lid_rest": 0.164,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005130183015857203,
+     0.005112309190626474
+    ],
+    "aperture_ratio": 0.3759230857522098,
+    "opening_fit": {
+     "rest": 0.164,
+     "picture_open_mm": [
+      8.5,
+      8.3
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.260216755225646,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_07",
+   "sex": "female",
+   "age": 12,
+   "label": "Fictional child reference european native 7",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 22,
+   "page": 1,
+   "page_index": 6,
+   "photo": "child_ref_european_native_07_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.95,
+   "camera": {
+    "yaw_deg": 1.693,
+    "pitch_deg": 2.2,
+    "roll_deg": 0.53,
+    "px_per_m": 1321.662,
+    "shift_px": [
+     162.17,
+     165.967
+    ]
+   },
+   "tone_rgb": [
+    0.4793201831008268,
+    0.2704977910130658,
+    0.22696587351009836
+   ],
+   "body_gain": [
+    0.6848566109942644,
+    0.9018231025449679,
+    1.5576088122845533
+   ],
+   "hair_rgb": [
+    0.05126945837404324,
+    0.03560131487502034,
+    0.027320891639074894
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07672786404027512,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.2204941808057175,
+     -0.03903038904088065,
+     0.12624531118344642,
+     0.5480247142156696
+    ],
+    "v": [
+     -0.04383087618412692,
+     -4.219269397324336,
+     0.16086325613600747,
+     5.08212955490422
+    ],
+    "toward": [
+     -0.029522348100205053,
+     0.038387809087519945,
+     0.9988267152394905
+    ],
+    "fallback_gain": [
+     3.2050836529784927,
+     2.1181959276958686,
+     1.6255298888276097
+    ],
+    "hairline_v": 0.23830990415335462
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.08247106811741096,
+     0.0516168079800368,
+     0.02443580739417888
+    ],
+    "iris_gain": [
+     1.8856982496304404,
+     3.226798033807648,
+     4.71595650423189
+    ],
+    "lid_rest": 0.205,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005100414459687318,
+     0.005142186532190511
+    ],
+    "aperture_ratio": 0.34466272391088987,
+    "opening_fit": {
+     "rest": 0.205,
+     "picture_open_mm": [
+      8.1,
+      7.8
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.2232279573168085
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_08",
+   "sex": "female",
+   "age": 16,
+   "label": "Fictional child reference european native 8",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 23,
+   "page": 1,
+   "page_index": 7,
+   "photo": "child_ref_european_native_08_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.43,
+   "camera": {
+    "yaw_deg": 0.712,
+    "pitch_deg": 2.411,
+    "roll_deg": 1.124,
+    "px_per_m": 1298.521,
+    "shift_px": [
+     165.235,
+     170.9
+    ]
+   },
+   "tone_rgb": [
+    0.4969329950608704,
+    0.25818285292159576,
+    0.2232279573168085
+   ],
+   "body_gain": [
+    0.7100219412563897,
+    0.8607658516309954,
+    1.531956448287239
+   ],
+   "hair_rgb": [
+    0.1119324278369056,
+    0.07618538148130784,
+    0.052860647023180246
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1207960378711626,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.08032653609025543,
+     0.09570173814697226,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.134259828619649,
+     -0.08104953582914425,
+     0.054790867736882486,
+     0.6084430757479747
+    ],
+    "v": [
+     -0.08354250831694852,
+     -4.144159350476682,
+     0.17346402331829658,
+     5.0153863225316275
+    ],
+    "toward": [
+     -0.01241542422831256,
+     0.04206747076946779,
+     0.9990376294936497
+    ],
+    "fallback_gain": [
+     6.99739778955595,
+     4.532854063682116,
+     3.1450862883278594
+    ],
+    "hairline_v": 0.26617923322683706
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.1050022320604826,
+     0.10192032724492578,
+     0.10632074119886957
+    ],
+    "iris_gain": [
+     2.400872569297303,
+     6.371496503351273,
+     20.519231589254108
+    ],
+    "lid_rest": 0.203,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005031019794183924,
+     0.005050462401591808
+    ],
+    "aperture_ratio": 0.3457372468250312,
+    "opening_fit": {
+     "rest": 0.203,
+     "picture_open_mm": [
+      8.1,
+      7.9
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25015828472995344,
+    0.2195261997292692
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_09",
+   "sex": "male",
+   "age": 4,
+   "label": "Fictional child reference european native 9",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 24,
+   "page": 1,
+   "page_index": 8,
+   "photo": "child_ref_european_native_09_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.96,
+   "camera": {
+    "yaw_deg": 0.237,
+    "pitch_deg": -4.476,
+    "roll_deg": 0.141,
+    "px_per_m": 1319.667,
+    "shift_px": [
+     163.288,
+     182.013
+    ]
+   },
+   "tone_rgb": [
+    0.5332764040105052,
+    0.2704977910130658,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7890520887369116,
+    0.99482967427991,
+    1.7118665186119182
+   ],
+   "hair_rgb": [
+    0.030713443732993635,
+    0.021219010376003555,
+    0.017641954488384078
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8407236940136795,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.07511758506442821,
+     0.0951014430184682,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.202715804482242,
+     -0.010311080481000004,
+     0.016577179425745568,
+     0.5283770442248737
+    ],
+    "v": [
+     -0.009014545666868885,
+     -4.203316864194394,
+     -0.3290767861873956,
+     3.920301897473298
+    ],
+    "toward": [
+     -0.004123802914686317,
+     -0.07804150110060226,
+     0.9969415822180784
+    ],
+    "fallback_gain": [
+     1.9200350375679125,
+     1.2624820607320737,
+     1.0496555052833467
+    ],
+    "hairline_v": 0.30632300319488814
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2319420715227701,
+     0.22302122261804816,
+     0.21410037371332621
+    ],
+    "iris_linear": [
+     0.026205398129864922,
+     0.016314247330777437,
+     0.013600223298861285
+    ],
+    "iris_gain": [
+     0.5991855630389574,
+     1.0198767275644844,
+     2.6247572053031485
+    ],
+    "lid_rest": 0.088,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005610328225873986,
+     0.005608107245177655
+    ],
+    "aperture_ratio": 0.39891122129928763,
+    "opening_fit": {
+     "rest": 0.088,
+     "picture_open_mm": [
+      8.8,
+      8.9
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5271151257058131,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_10",
+   "sex": "male",
+   "age": 8,
+   "label": "Fictional child reference european native 10",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 25,
+   "page": 1,
+   "page_index": 9,
+   "photo": "child_ref_european_native_10_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.25,
+   "camera": {
+    "yaw_deg": 2.837,
+    "pitch_deg": -10.004,
+    "roll_deg": 1.565,
+    "px_per_m": 1322.59,
+    "shift_px": [
+     162.921,
+     171.063
+    ]
+   },
+   "tone_rgb": [
+    0.45641102318040466,
+    0.23074004852434915,
+    0.1651321945016676
+   ],
+   "body_gain": [
+    0.6753197187324922,
+    0.8486096927339458,
+    1.4271986976092828
+   ],
+   "hair_rgb": [
+    0.027320891639074894,
+    0.021219010376003555,
+    0.018500220128379697
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1321308716261855,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07817684910859844,
+     0.1003021278353472,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.219766273545594,
+     -0.11364876330436643,
+     0.18904048768450232,
+     0.6242711250425756
+    ],
+    "v": [
+     -0.07894410005570009,
+     -4.159728447867364,
+     -0.7385843349319288,
+     5.136565970183724
+    ],
+    "toward": [
+     -0.04874222366018779,
+     -0.17371692979486134,
+     0.9835886456925514
+    ],
+    "fallback_gain": [
+     1.70795139941499,
+     1.2624820607320737,
+     1.1007203266221675
+    ],
+    "hairline_v": 0.2638865814696486
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.026487354860653633,
+     0.017118282813606948,
+     0.013538450151745582
+    ],
+    "iris_gain": [
+     0.6056324943793259,
+     1.0701405896016194,
+     2.612835378034344
+    ],
+    "lid_rest": 0.263,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004967863373617534,
+     0.004920019275529839
+    ],
+    "aperture_ratio": 0.3299679654162121,
+    "opening_fit": {
+     "rest": 0.263,
+     "picture_open_mm": [
+      7.3,
+      7.0
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.2232279573168085,
+    0.1651321945016676
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_11",
+   "sex": "male",
+   "age": 12,
+   "label": "Fictional child reference european native 11",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 26,
+   "page": 1,
+   "page_index": 10,
+   "photo": "child_ref_european_native_11_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.97,
+   "camera": {
+    "yaw_deg": 0.977,
+    "pitch_deg": -5.647,
+    "roll_deg": 0.908,
+    "px_per_m": 1353.426,
+    "shift_px": [
+     162.358,
+     167.075
+    ]
+   },
+   "tone_rgb": [
+    0.45641102318040466,
+    0.23074004852434915,
+    0.1714411007328226
+   ],
+   "body_gain": [
+    0.6753197187324922,
+    0.8486096927339458,
+    1.4817250895319225
+   ],
+   "hair_rgb": [
+    0.03433980680868217,
+    0.028426039504420793,
+    0.027320891639074894
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1260069882180175,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.09242511788360575,
+     0.09381081142268902,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.322988175796614,
+     -0.06819027797149349,
+     0.06697858922868259,
+     0.5868880646744342
+    ],
+    "v": [
+     -0.06125884299046826,
+     -4.3025198776591065,
+     -0.4265358953311737,
+     5.243710362487048
+    ],
+    "toward": [
+     -0.016968292050914994,
+     -0.09839925659781248,
+     0.9950023433971764
+    ],
+    "fallback_gain": [
+     2.146735248224683,
+     1.6912836318029845,
+     1.6255298888276097
+    ],
+    "hairline_v": 0.23604249201277955
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.028247294110851598,
+     0.017518860311624758,
+     0.013734680503250881
+    ],
+    "iris_gain": [
+     0.645873447228748,
+     1.0951824845497025,
+     2.650706596594103
+    ],
+    "lid_rest": 0.275,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.00489738531741575,
+     0.004948709803738898
+    ],
+    "aperture_ratio": 0.31742777014173895,
+    "opening_fit": {
+     "rest": 0.275,
+     "picture_open_mm": [
+      7.1,
+      7.1
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.44520119451622786,
+    0.2232279573168085,
+    0.16826940018969075
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_12",
+   "sex": "male",
+   "age": 16,
+   "label": "Fictional child reference european native 12",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 27,
+   "page": 1,
+   "page_index": 11,
+   "photo": "child_ref_european_native_12_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.98,
+   "camera": {
+    "yaw_deg": 0.674,
+    "pitch_deg": -4.204,
+    "roll_deg": 1.129,
+    "px_per_m": 1409.604,
+    "shift_px": [
+     169.679,
+     165.066
+    ]
+   },
+   "tone_rgb": [
+    0.4341536361747489,
+    0.21223075741405523,
+    0.15292615199615017
+   ],
+   "body_gain": [
+    0.6423870077132877,
+    0.7805367078217833,
+    1.3217047446014574
+   ],
+   "hair_rgb": [
+    0.028426039504420793,
+    0.024157632448504756,
+    0.02315336617811041
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.08535852193507942,
+     0.09167583584785462,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.488078948464378,
+     -0.08821462166433577,
+     0.046313320788257416,
+     0.6326256384819912
+    ],
+    "v": [
+     -0.08484626326350533,
+     -4.490537865100603,
+     -0.33110065461570387,
+     5.430363335877454
+    ],
+    "toward": [
+     -0.01173159720961303,
+     -0.07330782263431956,
+     0.9972403585733615
+    ],
+    "fallback_gain": [
+     1.7770391461881745,
+     1.4373232801887381,
+     1.3775717588828722
+    ],
+    "hairline_v": 0.21777923322683707
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.03115034871354305,
+     0.019214600359350874,
+     0.015874726128813296
+    ],
+    "iris_gain": [
+     0.7122516948717071,
+     1.201190795911532,
+     3.0637218870006024
+    ],
+    "lid_rest": 0.334,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0048761258701418226,
+     0.00486441948824203
+    ],
+    "aperture_ratio": 0.2986633517637872,
+    "opening_fit": {
+     "rest": 0.334,
+     "picture_open_mm": [
+      6.6,
+      6.4
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_13",
+   "sex": "female",
+   "age": 4,
+   "label": "Fictional child reference european native 13",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 28,
+   "page": 1,
+   "page_index": 12,
+   "photo": "child_ref_european_native_13_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.74,
+   "camera": {
+    "yaw_deg": 5.317,
+    "pitch_deg": -0.602,
+    "roll_deg": 1.504,
+    "px_per_m": 1363.964,
+    "shift_px": [
+     168.771,
+     174.879
+    ]
+   },
+   "tone_rgb": [
+    0.4851499400560704,
+    0.24228112246555486,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7178426997199161,
+    0.8910551514815755,
+    1.7118665186119182
+   ],
+   "hair_rgb": [
+    0.03954623527673283,
+    0.028426039504420793,
+    0.02518685962736163
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8339541681892524,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.07366438516852186,
+     0.08792574564457542,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.323764919926385,
+     -0.11400518800049057,
+     0.4011944474664925,
+     0.5898804351270209
+    ],
+    "v": [
+     -0.10929316104401085,
+     -4.342098239364189,
+     -0.05599227638171805,
+     3.9830764237070304
+    ],
+    "toward": [
+     -0.09266090597581296,
+     -0.01050668878094861,
+     0.9956422881711091
+    ],
+    "fallback_gain": [
+     2.4722124290368637,
+     1.6912836318029845,
+     1.4985599178405178
+    ],
+    "hairline_v": 0.2738732484076433
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.20583179810200458,
+     0.1979151904826967,
+     0.18999858286338883
+    ],
+    "iris_linear": [
+     0.031208284044726853,
+     0.01966842102592948,
+     0.01588827412332208
+    ],
+    "iris_gain": [
+     0.7135763843064253,
+     1.2295611599833183,
+     3.0663365643792684
+    ],
+    "lid_rest": 0.033,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005574838539877617,
+     0.005506286281510421
+    ],
+    "aperture_ratio": 0.41924332380373874,
+    "opening_fit": {
+     "rest": 0.033,
+     "picture_open_mm": [
+      9.4,
+      9.3
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.19120168274079138
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_14",
+   "sex": "female",
+   "age": 8,
+   "label": "Fictional child reference european native 14",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 29,
+   "page": 1,
+   "page_index": 13,
+   "photo": "child_ref_european_native_14_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.32,
+   "camera": {
+    "yaw_deg": 2.902,
+    "pitch_deg": -3.098,
+    "roll_deg": 1.429,
+    "px_per_m": 1328.947,
+    "shift_px": [
+     167.965,
+     169.053
+    ]
+   },
+   "tone_rgb": [
+    0.45078578283822346,
+    0.21586050011389926,
+    0.1574436493843539
+   ],
+   "body_gain": [
+    0.6440864257411021,
+    0.7196657140916245,
+    1.0804955473114237
+   ],
+   "hair_rgb": [
+    0.03433980680868217,
+    0.026241221894849898,
+    0.024157632448504756
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.12222436751823,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.08115897075390109,
+     0.0972157675728638,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.239363088466356,
+     -0.10572866132884302,
+     0.20917552524287197,
+     0.6308249489072549
+    ],
+    "v": [
+     -0.09383429242370325,
+     -4.2248156553887295,
+     -0.2337102670841699,
+     5.133918694219913
+    ],
+    "toward": [
+     -0.050553812302816796,
+     -0.05404395744663749,
+     0.9972580221412899
+    ],
+    "fallback_gain": [
+     2.146735248224683,
+     1.5612920351555684,
+     1.4373232801887381
+    ],
+    "hairline_v": 0.25582738853503184
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.02951815208987599,
+     0.018798339522153526,
+     0.013421667672203466
+    ],
+    "iris_gain": [
+     0.6749315729603491,
+     1.1751684651323988,
+     2.590297097015311
+    ],
+    "lid_rest": 0.242,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004969492271345179,
+     0.004957564988438201
+    ],
+    "aperture_ratio": 0.34596237872202074,
+    "opening_fit": {
+     "rest": 0.242,
+     "picture_open_mm": [
+      7.8,
+      7.6
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_15",
+   "sex": "female",
+   "age": 12,
+   "label": "Fictional child reference european native 15",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 30,
+   "page": 1,
+   "page_index": 14,
+   "photo": "child_ref_european_native_15_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.99,
+   "camera": {
+    "yaw_deg": 1.545,
+    "pitch_deg": -0.78,
+    "roll_deg": 1.522,
+    "px_per_m": 1370.113,
+    "shift_px": [
+     170.257,
+     159.449
+    ]
+   },
+   "tone_rgb": [
+    0.41254261348390375,
+    0.19806931955994886,
+    0.1559264637078274
+   ],
+   "body_gain": [
+    0.5894442715379486,
+    0.6603510055130015,
+    1.0700834895730411
+   ],
+   "hair_rgb": [
+    0.02518685962736163,
+    0.020288563056652397,
+    0.018500220128379697
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07231221330161304,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.374265375106337,
+     -0.11625529628480354,
+     0.11639881441529071,
+     0.6583839133615188
+    ],
+    "v": [
+     -0.11425268505182413,
+     -4.361473598612848,
+     -0.062482090101132426,
+     5.2349267692833
+    ],
+    "toward": [
+     -0.026959570789304478,
+     -0.01361314767074941,
+     0.999543827830151
+    ],
+    "fallback_gain": [
+     1.574543492786161,
+     1.207122596349818,
+     1.1007203266221675
+    ],
+    "hairline_v": 0.21174968152866244
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.032335780104565864,
+     0.01638360501034231,
+     0.012247853132534544
+    ],
+    "iris_gain": [
+     0.7393565444891063,
+     1.0242125870026728,
+     2.3637583040130252
+    ],
+    "lid_rest": 0.258,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005029947220596699,
+     0.0050650007099337264
+    ],
+    "aperture_ratio": 0.3352352102370022,
+    "opening_fit": {
+     "rest": 0.258,
+     "picture_open_mm": [
+      7.4,
+      7.5
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.19806931955994886,
+    0.15292615199615017
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_european_native_16",
+   "sex": "female",
+   "age": 16,
+   "label": "Fictional child reference european native 16",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 31,
+   "page": 1,
+   "page_index": 15,
+   "photo": "child_ref_european_native_16_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.58,
+   "camera": {
+    "yaw_deg": 2.488,
+    "pitch_deg": -1.967,
+    "roll_deg": 1.294,
+    "px_per_m": 1449.116,
+    "shift_px": [
+     170.33,
+     160.231
+    ]
+   },
+   "tone_rgb": [
+    0.4341536361747489,
+    0.21586050011389926,
+    0.17464740365558504
+   ],
+   "body_gain": [
+    0.6203222781022143,
+    0.7196657140916245,
+    1.1985605182377925
+   ],
+   "hair_rgb": [
+    0.030713443732993635,
+    0.02518685962736163,
+    0.02315336617811041
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.06732242651442062,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.609648165599328,
+     -0.10415790811222778,
+     0.19671372437202872,
+     0.6361104286493269
+    ],
+    "v": [
+     -0.097246427288111,
+     -4.61112353300471,
+     -0.1627398707807619,
+     5.517218934501421
+    ],
+    "toward": [
+     -0.04338456732881409,
+     -0.034323883151040284,
+     0.9984686526692389
+    ],
+    "fallback_gain": [
+     1.9200350375679125,
+     1.4985599178405178,
+     1.3775717588828722
+    ],
+    "hairline_v": 0.19965573248407642
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.037124431213439245,
+     0.020140647982777638,
+     0.015569296004491907
+    ],
+    "iris_gain": [
+     0.8488488939908466,
+     1.2590821837641366,
+     3.0047758019318134
+    ],
+    "lid_rest": 0.345,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0048335348273101705,
+     0.004820993116641592
+    ],
+    "aperture_ratio": 0.3085487455966297,
+    "opening_fit": {
+     "rest": 0.345,
+     "picture_open_mm": [
+      6.8,
+      6.5
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4286904966139066,
+    0.21223075741405523,
+    0.17464740365558504
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_01",
+   "sex": "male",
+   "age": 4,
+   "label": "Fictional child reference black asian 1",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 32,
+   "page": 2,
+   "page_index": 0,
+   "photo": "child_ref_black_asian_01_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.61,
+   "camera": {
+    "yaw_deg": -0.062,
+    "pitch_deg": -4.399,
+    "roll_deg": -0.305,
+    "px_per_m": 1232.867,
+    "shift_px": [
+     161.177,
+     190.424
+    ]
+   },
+   "tone_rgb": [
+    0.4178850708481375,
+    0.17788841598362912,
+    0.09989872824711389
+   ],
+   "body_gain": [
+    0.6183155405432107,
+    0.6542333461148848,
+    0.8634011997319203
+   ],
+   "hair_rgb": [
+    0.02518685962736163,
+    0.018500220128379697,
+    0.014443843596092545
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.841244345439623,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.08338680148901333,
+     0.09565333352996834,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.926271831371492,
+     0.020839171827122374,
+     -0.002645514690838282,
+     0.4988118941587013
+    ],
+    "v": [
+     0.020574854080890423,
+     -3.9147059544681477,
+     -0.30117391833100027,
+     3.7155040691474506
+    ],
+    "toward": [
+     0.0010789161454440505,
+     -0.07670162626179212,
+     0.9970535073248313
+    ],
+    "fallback_gain": [
+     1.574543492786161,
+     1.1007203266221675,
+     0.8593753009663747
+    ],
+    "hairline_v": 0.3423248407643312
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.28969548749914686,
+     0.27855335336456427,
+     0.2674112192299817
+    ],
+    "iris_linear": [
+     0.015656662931939038,
+     0.010294819342618732,
+     0.008610243764972797
+    ],
+    "iris_gain": [
+     0.3579890810166227,
+     0.643575302564523,
+     1.661722669172725
+    ],
+    "lid_rest": 0.035,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005995919690083274,
+     0.0060818046659051935
+    ],
+    "aperture_ratio": 0.4022242530562795,
+    "opening_fit": {
+     "rest": 0.035,
+     "picture_open_mm": [
+      9.3,
+      9.5
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.1714411007328226,
+    0.09530746663096469
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_02",
+   "sex": "male",
+   "age": 8,
+   "label": "Fictional child reference black asian 2",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 33,
+   "page": 2,
+   "page_index": 1,
+   "photo": "child_ref_black_asian_02_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.34,
+   "camera": {
+    "yaw_deg": 0.783,
+    "pitch_deg": -10.353,
+    "roll_deg": 0.56,
+    "px_per_m": 1314.094,
+    "shift_px": [
+     158.928,
+     179.747
+    ]
+   },
+   "tone_rgb": [
+    0.33245153634617935,
+    0.13563332965520566,
+    0.07421356838014963
+   ],
+   "body_gain": [
+    0.4919054681305204,
+    0.49882869895920995,
+    0.6414104073207686
+   ],
+   "hair_rgb": [
+    0.026241221894849898,
+    0.017641954488384078,
+    0.013702083047289686
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1333181436947206,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07289239320620938,
+     0.1015606362279945,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.197891614321364,
+     -0.040365629703306045,
+     0.04999671061503582,
+     0.5476239780816655
+    ],
+    "v": [
+     -0.030621882759787198,
+     -4.116680832591455,
+     -0.7525508934527084,
+     5.1174137655597045
+    ],
+    "toward": [
+     -0.013443017643116636,
+     -0.17971225625745785,
+     0.9836273635007826
+    ],
+    "fallback_gain": [
+     1.6404564041961023,
+     1.0496555052833467,
+     0.8152422632031517
+    ],
+    "hairline_v": 0.2819831210191083
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.23442045202833126,
+     0.22540428079647234,
+     0.21638810956461343
+    ],
+    "iris_linear": [
+     0.015129868599662984,
+     0.008974928249119695,
+     0.006696887149350017
+    ],
+    "iris_gain": [
+     0.3459439460018323,
+     0.561062994035291,
+     1.2924569260440202
+    ],
+    "lid_rest": 0.155,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005288850874226857,
+     0.005321025088430575
+    ],
+    "aperture_ratio": 0.35357268514536155,
+    "opening_fit": {
+     "rest": 0.155,
+     "picture_open_mm": [
+      8.3,
+      8.1
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.3467040563550296,
+    0.14126329114027164,
+    0.07618538148130784
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_03",
+   "sex": "male",
+   "age": 12,
+   "label": "Fictional child reference black asian 3",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 34,
+   "page": 2,
+   "page_index": 2,
+   "photo": "child_ref_black_asian_03_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.02,
+   "camera": {
+    "yaw_deg": 1.257,
+    "pitch_deg": -10.147,
+    "roll_deg": 0.349,
+    "px_per_m": 1365.126,
+    "shift_px": [
+     159.996,
+     173.01
+    ]
+   },
+   "tone_rgb": [
+    0.3049873140698863,
+    0.12213877222960187,
+    0.06301001765316767
+   ],
+   "body_gain": [
+    0.45126856428540485,
+    0.44919876993839775,
+    0.5445807548450564
+   ],
+   "hair_rgb": [
+    0.019382360956935723,
+    0.014443843596092545,
+    0.012286488356915872
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1308247772291213,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07066657077918716,
+     0.09891766777445923,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.3603971431495445,
+     -0.026150622032527628,
+     0.09099578502516012,
+     0.5311192973108134
+    ],
+    "v": [
+     -0.009673384970146711,
+     -4.279455821998079,
+     -0.7663061700965353,
+     5.273889929730588
+    ],
+    "toward": [
+     -0.021593911658506274,
+     -0.1761742596326791,
+     0.9841221129626962
+    ],
+    "fallback_gain": [
+     1.2116782628359988,
+     0.8593753009663747,
+     0.7310176518666303
+    ],
+    "hairline_v": 0.2511646496815287
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.015630490677613268,
+     0.009481492131762867,
+     0.0065147223308683255
+    ],
+    "iris_gain": [
+     0.35739065328557007,
+     0.5927305729592559,
+     1.257300266527805
+    ],
+    "lid_rest": 0.282,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.00498938133196051,
+     0.005049652507510121
+    ],
+    "aperture_ratio": 0.30986094423046,
+    "opening_fit": {
+     "rest": 0.282,
+     "picture_open_mm": [
+      6.9,
+      7.1
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.31398871337571754,
+    0.12477181756095049,
+    0.06301001765316767
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_04",
+   "sex": "male",
+   "age": 16,
+   "label": "Fictional child reference black asian 4",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 35,
+   "page": 2,
+   "page_index": 3,
+   "photo": "child_ref_black_asian_04_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.13,
+   "camera": {
+    "yaw_deg": 2.692,
+    "pitch_deg": -10.709,
+    "roll_deg": 0.985,
+    "px_per_m": 1399.722,
+    "shift_px": [
+     162.899,
+     162.471
+    ]
+   },
+   "tone_rgb": [
+    0.3049873140698863,
+    0.12477181756095049,
+    0.06301001765316767
+   ],
+   "body_gain": [
+    0.45126856428540485,
+    0.4588825149314326,
+    0.5445807548450564
+   ],
+   "hair_rgb": [
+    0.017641954488384078,
+    0.013702083047289686,
+    0.011612245179743885
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.125850247134331,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07313566353048735,
+     0.0936446658739815,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.452804836092729,
+     -0.0752963399076302,
+     0.19511046516752037,
+     0.5804007662008954
+    ],
+    "v": [
+     -0.037647689346527714,
+     -4.379428901415663,
+     -0.8308993258417248,
+     5.355862545707305
+    ],
+    "toward": [
+     -0.04614898416018437,
+     -0.18582096155151964,
+     0.9814992824801513
+    ],
+    "fallback_gain": [
+     1.1028776532957776,
+     0.8152422632031517,
+     0.6909017416207278
+    ],
+    "hairline_v": 0.22133184713375795
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.014587718703458014,
+     0.00932518071971836,
+     0.006289720350917614
+    ],
+    "iris_gain": [
+     0.33354770652478827,
+     0.5829588459426999,
+     1.2138763053835384
+    ],
+    "lid_rest": 0.326,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004820579187096485,
+     0.004828019270706463
+    ],
+    "aperture_ratio": 0.29227423138859365,
+    "opening_fit": {
+     "rest": 0.326,
+     "picture_open_mm": [
+      6.6,
+      6.5
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.31854677812509186,
+    0.12743768043564743,
+    0.06480326669290577
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_05",
+   "sex": "female",
+   "age": 4,
+   "label": "Fictional child reference black asian 5",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 36,
+   "page": 2,
+   "page_index": 4,
+   "photo": "child_ref_black_asian_05_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.72,
+   "camera": {
+    "yaw_deg": 0.955,
+    "pitch_deg": -3.256,
+    "roll_deg": 0.466,
+    "px_per_m": 1248.945,
+    "shift_px": [
+     163.211,
+     175.044
+    ]
+   },
+   "tone_rgb": [
+    0.38132601143253014,
+    0.1651321945016676,
+    0.09989872824711389
+   ],
+   "body_gain": [
+    0.5642216373117946,
+    0.6073188496437134,
+    0.8634011997319203
+   ],
+   "hair_rgb": [
+    0.033104766570885055,
+    0.02315336617811041,
+    0.018500220128379697
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8398512691310395,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.0941766726428697,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9768784306036813,
+     -0.032297620411721836,
+     0.0644546885666738,
+     0.5390203175081774
+    ],
+    "v": [
+     -0.028671459791015527,
+     -3.9836665230309145,
+     -0.2271369161264621,
+     3.718843264365374
+    ],
+    "toward": [
+     -0.016640217326286635,
+     -0.056797338583587695,
+     0.9982470463252848
+    ],
+    "fallback_gain": [
+     2.0695273470205175,
+     1.3775717588828722,
+     1.1007203266221675
+    ],
+    "hairline_v": 0.2963041533546326
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.24640852677313826,
+     0.23693127574340217,
+     0.22745402471366608
+    ],
+    "iris_linear": [
+     0.019666135584295284,
+     0.012737051359122849,
+     0.011231409831281186
+    ],
+    "iris_gain": [
+     0.44966554083554333,
+     0.7962501729673083,
+     2.1675911661565275
+    ],
+    "lid_rest": -0.012,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005811051916843687,
+     0.00583993947321742
+    ],
+    "aperture_ratio": 0.4301892086754784,
+    "opening_fit": {
+     "rest": -0.012,
+     "picture_open_mm": [
+      9.8,
+      9.8
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.386429433787049,
+    0.1651321945016676,
+    0.09758734714186246
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_06",
+   "sex": "female",
+   "age": 8,
+   "label": "Fictional child reference black asian 6",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 37,
+   "page": 2,
+   "page_index": 5,
+   "photo": "child_ref_black_asian_06_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.73,
+   "camera": {
+    "yaw_deg": 2.785,
+    "pitch_deg": -4.165,
+    "roll_deg": 1.88,
+    "px_per_m": 1315.235,
+    "shift_px": [
+     170.376,
+     155.866
+    ]
+   },
+   "tone_rgb": [
+    0.41254261348390375,
+    0.17464740365558504,
+    0.09530746663096469
+   ],
+   "body_gain": [
+    0.5894442715379486,
+    0.5822637694238889,
+    0.6540707975390916
+   ],
+   "hair_rgb": [
+    0.0382043715953465,
+    0.027320891639074894,
+    0.024157632448504756
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.08272223575211747,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.195293014499563,
+     -0.1374889604165955,
+     0.19405916016467809,
+     0.6743525533995065
+    ],
+    "v": [
+     -0.12286958097923471,
+     -4.188675461989634,
+     -0.3113624729876766,
+     5.061797275955908
+    ],
+    "toward": [
+     -0.04845996108695137,
+     -0.07262895875518464,
+     0.9961810410370139
+    ],
+    "fallback_gain": [
+     2.388326515548956,
+     1.6255298888276097,
+     1.4373232801887381
+    ],
+    "hairline_v": 0.21097891373801916
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.24770562519750072,
+     0.2381784857668276,
+     0.22865134633615447
+    ],
+    "iris_linear": [
+     0.025370788440873034,
+     0.014546034750669989,
+     0.012553893027038833
+    ],
+    "iris_gain": [
+     0.5801022400557263,
+     0.9093378333529057,
+     2.4228220708761476
+    ],
+    "lid_rest": 0.222,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005084289912208719,
+     0.005151563289428892
+    ],
+    "aperture_ratio": 0.34630354028223115,
+    "opening_fit": {
+     "rest": 0.222,
+     "picture_open_mm": [
+      7.9,
+      7.9
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.16826940018969075,
+    0.09084171118340768
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_07",
+   "sex": "female",
+   "age": 12,
+   "label": "Fictional child reference black asian 7",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 38,
+   "page": 2,
+   "page_index": 6,
+   "photo": "child_ref_black_asian_07_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.92,
+   "camera": {
+    "yaw_deg": 3.028,
+    "pitch_deg": -0.789,
+    "roll_deg": -0.033,
+    "px_per_m": 1320.538,
+    "shift_px": [
+     167.932,
+     154.694
+    ]
+   },
+   "tone_rgb": [
+    0.3712376804741491,
+    0.162029375639111,
+    0.08437621154414882
+   ],
+   "body_gain": [
+    0.5304274442985766,
+    0.5401960352246611,
+    0.5790523862280308
+   ],
+   "hair_rgb": [
+    0.0382043715953465,
+    0.027320891639074894,
+    0.02217388479338738
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.09977296636998655,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.213078417970208,
+     0.002429722468975497,
+     0.22289619806331112,
+     0.5123343319803557
+    ],
+    "v": [
+     0.005495428166738294,
+     -4.218570529296522,
+     -0.05788665000529175,
+     5.066222546661685
+    ],
+    "toward": [
+     -0.05281896398361216,
+     -0.013770212579337986,
+     0.998509157839435
+    ],
+    "fallback_gain": [
+     2.388326515548956,
+     1.6255298888276097,
+     1.3192948809737934
+    ],
+    "hairline_v": 0.19927028753993611
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.20355862282802992,
+     0.19572944502695183,
+     0.18790026722587375
+    ],
+    "iris_linear": [
+     0.02283124238419005,
+     0.013133013580187243,
+     0.009315609972783419
+    ],
+    "iris_gain": [
+     0.5220356033156112,
+     0.8210035462655341,
+     1.797853892583101
+    ],
+    "lid_rest": 0.241,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0050310916810857725,
+     0.005045637460939458
+    ],
+    "aperture_ratio": 0.3449555272271124,
+    "opening_fit": {
+     "rest": 0.241,
+     "picture_open_mm": [
+      7.8,
+      7.6
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.37626212299090644,
+    0.1651321945016676,
+    0.08437621154414882
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_08",
+   "sex": "female",
+   "age": 16,
+   "label": "Fictional child reference black asian 8",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 39,
+   "page": 2,
+   "page_index": 7,
+   "photo": "child_ref_black_asian_08_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.0,
+   "camera": {
+    "yaw_deg": 2.729,
+    "pitch_deg": -0.447,
+    "roll_deg": -0.019,
+    "px_per_m": 1392.482,
+    "shift_px": [
+     172.232,
+     162.399
+    ]
+   },
+   "tone_rgb": [
+    0.3049873140698863,
+    0.1301364766903643,
+    0.07227185068231748
+   ],
+   "body_gain": [
+    0.4357683771188256,
+    0.4338670594079136,
+    0.49598324964868556
+   ],
+   "hair_rgb": [
+    0.033104766570885055,
+    0.024157632448504756,
+    0.021219010376003555
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.09977296636998655,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.429625936778814,
+     0.0014705428557654006,
+     0.21115441741907337,
+     0.5264632168602192
+    ],
+    "v": [
+     0.003126116388476258,
+     -4.448688647715858,
+     -0.03459808710921456,
+     5.337713233183336
+    ],
+    "toward": [
+     -0.047610579299528014,
+     -0.007801542615311413,
+     0.9988355063130189
+    ],
+    "fallback_gain": [
+     2.0695273470205175,
+     1.4373232801887381,
+     1.2624820607320737
+    ],
+    "hairline_v": 0.21211277955271565
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.018476230573029433,
+     0.010948562211034907,
+     0.008043061541543032
+    ],
+    "iris_gain": [
+     0.42245840203898877,
+     0.6844436996036608,
+     1.552260082055366
+    ],
+    "lid_rest": 0.278,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004945932068878,
+     0.004987414708197521
+    ],
+    "aperture_ratio": 0.3285466717530414,
+    "opening_fit": {
+     "rest": 0.278,
+     "picture_open_mm": [
+      7.2,
+      7.4
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.3005437944157765,
+    0.13150239912209113,
+    0.07324270953123355
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_09",
+   "sex": "male",
+   "age": 4,
+   "label": "Fictional child reference black asian 9",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 40,
+   "page": 2,
+   "page_index": 8,
+   "photo": "child_ref_black_asian_09_source.jpg",
+   "values": {},
+   "fit_rms_px": 5.44,
+   "camera": {
+    "yaw_deg": 10.706,
+    "pitch_deg": 0.138,
+    "roll_deg": 2.286,
+    "px_per_m": 1273.346,
+    "shift_px": [
+     172.295,
+     186.558
+    ]
+   },
+   "tone_rgb": [
+    0.5647115057049292,
+    0.3049873140698863,
+    0.238397573812271
+   ],
+   "body_gain": [
+    0.8355644273011242,
+    1.1216743367083317,
+    2.0604141299330343
+   ],
+   "hair_rgb": [
+    0.02518685962736163,
+    0.019382360956935723,
+    0.018500220128379697
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8424343358488076,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.08072747303031647,
+     0.09691472336370395,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.98141037579337,
+     -0.16175357382270852,
+     0.753123621591621,
+     0.6075294541977461
+    ],
+    "v": [
+     -0.16126504505509506,
+     -4.064948703723447,
+     -0.020524726824323214,
+     3.797108850686243
+    ],
+    "toward": [
+     -0.18576897450211674,
+     0.0024085520390283543,
+     0.9825904981168438
+    ],
+    "fallback_gain": [
+     1.574543492786161,
+     1.1532056664828223,
+     1.1007203266221675
+    ],
+    "hairline_v": 0.31722619808306707
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21770366507206912,
+     0.20933044718468183,
+     0.20095722929729454
+    ],
+    "iris_linear": [
+     0.023175915219030563,
+     0.01493097537963826,
+     0.010512033221597251
+    ],
+    "iris_gain": [
+     0.529916536304482,
+     0.9334021975260622,
+     2.028756023666437
+    ],
+    "lid_rest": 0.074,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005925533638961784,
+     0.005906759791368864
+    ],
+    "aperture_ratio": 0.43207739453309457,
+    "opening_fit": {
+     "rest": 0.074,
+     "picture_open_mm": [
+      8.9,
+      8.9
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.3049873140698863,
+    0.238397573812271
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_10",
+   "sex": "male",
+   "age": 8,
+   "label": "Fictional child reference black asian 10",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 41,
+   "page": 2,
+   "page_index": 9,
+   "photo": "child_ref_black_asian_10_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.23,
+   "camera": {
+    "yaw_deg": 3.815,
+    "pitch_deg": -4.604,
+    "roll_deg": 1.415,
+    "px_per_m": 1299.992,
+    "shift_px": [
+     169.797,
+     174.043
+    ]
+   },
+   "tone_rgb": [
+    0.5332764040105052,
+    0.2704977910130658,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7890520887369116,
+    0.99482967427991,
+    1.7118665186119182
+   ],
+   "hair_rgb": [
+    0.024157632448504756,
+    0.01599629336550963,
+    0.013702083047289686
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1305386179132617,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07505127479177684,
+     0.09861433889964796,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.143409680317536,
+     -0.10223094799677415,
+     0.2680437407532919,
+     0.6250113566602362
+    ],
+    "v": [
+     -0.08015980045418596,
+     -4.138664998578801,
+     -0.3393653320011932,
+     5.07867143056896
+    ],
+    "toward": [
+     -0.06632043153684289,
+     -0.08026851242673606,
+     0.9945645108657184
+    ],
+    "fallback_gain": [
+     1.5102018884319899,
+     0.9517424731080689,
+     0.8152422632031517
+    ],
+    "hairline_v": 0.26412172523961663
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.017594586624577357,
+     0.010290144805735198,
+     0.007427061589029023
+    ],
+    "iris_gain": [
+     0.40229964226608894,
+     0.6432830763108076,
+     1.4333759815301257
+    ],
+    "lid_rest": 0.24,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005231285425782243,
+     0.005226003192729552
+    ],
+    "aperture_ratio": 0.34930612053122945,
+    "opening_fit": {
+     "rest": 0.24,
+     "picture_open_mm": [
+      7.4,
+      7.4
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5209955732043543,
+    0.26635560480286247,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_11",
+   "sex": "male",
+   "age": 12,
+   "label": "Fictional child reference black asian 11",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 42,
+   "page": 2,
+   "page_index": 10,
+   "photo": "child_ref_black_asian_11_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.85,
+   "camera": {
+    "yaw_deg": 6.982,
+    "pitch_deg": -3.998,
+    "roll_deg": 0.534,
+    "px_per_m": 1368.77,
+    "shift_px": [
+     174.064,
+     166.932
+    ]
+   },
+   "tone_rgb": [
+    0.4969329950608704,
+    0.26225065752969623,
+    0.18116424424986022
+   ],
+   "body_gain": [
+    0.7352772685351083,
+    0.9644985832707149,
+    1.5657599308665364
+   ],
+   "hair_rgb": [
+    0.021219010376003555,
+    0.01599629336550963,
+    0.012983032342173012
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1241347076239316,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.06953660431147722,
+     0.09182619399295808,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.3407950286910735,
+     -0.04065746785622583,
+     0.5287355539700992,
+     0.5428844672696278
+    ],
+    "v": [
+     -0.0033934446514917197,
+     -4.3622357002356535,
+     -0.307577595017329,
+     5.294699673574712
+    ],
+    "toward": [
+     -0.12126170773144969,
+     -0.06972165214728118,
+     0.9901689196596235
+    ],
+    "fallback_gain": [
+     1.3264954506120068,
+     0.9517424731080689,
+     0.7724604086359301
+    ],
+    "hairline_v": 0.22394153354632587
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.02516903990092178,
+     0.013104937933121815,
+     0.008972199826311872
+    ],
+    "iris_gain": [
+     0.5754892663506935,
+     0.819248411721305,
+     1.7315779030998348
+    ],
+    "lid_rest": 0.328,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004800105567656163,
+     0.004802003483925596
+    ],
+    "aperture_ratio": 0.31802894801639436,
+    "opening_fit": {
+     "rest": 0.328,
+     "picture_open_mm": [
+      6.7,
+      6.5
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.18782077230067787
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_12",
+   "sex": "male",
+   "age": 16,
+   "label": "Fictional child reference black asian 12",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 43,
+   "page": 2,
+   "page_index": 11,
+   "photo": "child_ref_black_asian_12_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.03,
+   "camera": {
+    "yaw_deg": 5.309,
+    "pitch_deg": -1.508,
+    "roll_deg": 2.2,
+    "px_per_m": 1363.28,
+    "shift_px": [
+     173.454,
+     163.078
+    ]
+   },
+   "tone_rgb": [
+    0.47353149614800955,
+    0.238397573812271,
+    0.16826940018969075
+   ],
+   "body_gain": [
+    0.7006516945215172,
+    0.8767723382011893,
+    1.4543128281129736
+   ],
+   "hair_rgb": [
+    0.02315336617811041,
+    0.01599629336550963,
+    0.012983032342173012
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07852707119017767,
+     0.09167583584785462,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.320250508422505,
+     -0.16660894031542217,
+     0.3970570113721961,
+     0.6903538087020709
+    ],
+    "v": [
+     -0.15588404620855115,
+     -4.350809388612663,
+     -0.12951694691392707,
+     5.250054515639123
+    ],
+    "toward": [
+     -0.09249494859912573,
+     -0.026316526545953102,
+     0.995365322338588
+    ],
+    "fallback_gain": [
+     1.4474207023504886,
+     0.9517424731080689,
+     0.7724604086359301
+    ],
+    "hairline_v": 0.21470862619808306
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.026507970856668193,
+     0.011111671542066201,
+     0.00673710401330525
+    ],
+    "iris_gain": [
+     0.6061038784475387,
+     0.6946403950070461,
+     1.3002185268002395
+    ],
+    "lid_rest": 0.324,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004660792995359227,
+     0.004682981001854142
+    ],
+    "aperture_ratio": 0.31519957983892827,
+    "opening_fit": {
+     "rest": 0.324,
+     "picture_open_mm": [
+      6.5,
+      6.6
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.16826940018969075
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_13",
+   "sex": "female",
+   "age": 4,
+   "label": "Fictional child reference black asian 13",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 44,
+   "page": 2,
+   "page_index": 12,
+   "photo": "child_ref_black_asian_13_source.jpg",
+   "values": {},
+   "fit_rms_px": 5.02,
+   "camera": {
+    "yaw_deg": 4.272,
+    "pitch_deg": 1.358,
+    "roll_deg": 1.011,
+    "px_per_m": 1256.647,
+    "shift_px": [
+     169.703,
+     182.807
+    ]
+   },
+   "tone_rgb": [
+    0.5647115057049292,
+    0.31854677812509186,
+    0.238397573812271
+   ],
+   "body_gain": [
+    0.8355644273011242,
+    1.1715429776274686,
+    2.0604141299330343
+   ],
+   "hair_rgb": [
+    0.05126945837404324,
+    0.03560131487502034,
+    0.028426039504420793
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8414442849919704,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.07848547523910715,
+     0.0958652694554566,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9901954617678737,
+     -0.07059397550949334,
+     0.2997415380650065,
+     0.5680664584542577
+    ],
+    "v": [
+     -0.07748174885716116,
+     -4.00031361310952,
+     0.08930788037702922,
+     3.725583729601562
+    ],
+    "toward": [
+     -0.07447047897306266,
+     0.023699352187608474,
+     0.9969415672281955
+    ],
+    "fallback_gain": [
+     3.2050836529784927,
+     2.1181959276958686,
+     1.6912836318029845
+    ],
+    "hairline_v": 0.3107550955414013
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.02448612370893167,
+     0.013733524635612362,
+     0.009979484332974315
+    ],
+    "iris_gain": [
+     0.5598744101680784,
+     0.8585441840685335,
+     1.9259774514420918
+    ],
+    "lid_rest": 0.178,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005537524280201851,
+     0.005547803519065819
+    ],
+    "aperture_ratio": 0.39129323015627293,
+    "opening_fit": {
+     "rest": 0.178,
+     "picture_open_mm": [
+      7.8,
+      8.0
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.31854677812509186,
+    0.24228112246555486
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_14",
+   "sex": "female",
+   "age": 8,
+   "label": "Fictional child reference black asian 14",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 45,
+   "page": 2,
+   "page_index": 13,
+   "photo": "child_ref_black_asian_14_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.63,
+   "camera": {
+    "yaw_deg": 3.891,
+    "pitch_deg": -0.01,
+    "roll_deg": 0.27,
+    "px_per_m": 1321.273,
+    "shift_px": [
+     165.595,
+     170.484
+    ]
+   },
+   "tone_rgb": [
+    0.5394794890121071,
+    0.2831487404299921,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7708127209574035,
+    0.9440005946811637,
+    1.3592991440453488
+   ],
+   "hair_rgb": [
+    0.04817182422688942,
+    0.03560131487502034,
+    0.030713443732993635
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1210192241223358,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07223996420151814,
+     0.09593831557321607,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.211542610907379,
+     -0.019892425514728824,
+     0.2864460762383428,
+     0.5229683005466841
+    ],
+    "v": [
+     -0.01973353148604156,
+     -4.20782901084774,
+     -0.002078284568164128,
+     5.097985434844974
+    ],
+    "toward": [
+     -0.06785857291319285,
+     -0.0001745329243133368,
+     0.9976949351482363
+    ],
+    "fallback_gain": [
+     3.0114366576168816,
+     2.1181959276958686,
+     1.827378895109029
+    ],
+    "hairline_v": 0.2550936305732484
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.027481251089036964,
+     0.015287235811748325,
+     0.010567396838931757
+    ],
+    "iris_gain": [
+     0.6283578988267198,
+     0.9556736340376115,
+     2.039440852166463
+    ],
+    "lid_rest": 0.283,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005147770144060761,
+     0.005155297597941128
+    ],
+    "aperture_ratio": 0.3467479817688133,
+    "opening_fit": {
+     "rest": 0.283,
+     "picture_open_mm": [
+      7.3,
+      7.2
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.2831487404299921,
+    0.20155625379439707
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_15",
+   "sex": "female",
+   "age": 12,
+   "label": "Fictional child reference black asian 15",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 46,
+   "page": 2,
+   "page_index": 14,
+   "photo": "child_ref_black_asian_15_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.69,
+   "camera": {
+    "yaw_deg": 2.469,
+    "pitch_deg": 2.506,
+    "roll_deg": 1.49,
+    "px_per_m": 1378.787,
+    "shift_px": [
+     165.643,
+     168.387
+    ]
+   },
+   "tone_rgb": [
+    0.5209955732043543,
+    0.2704977910130658,
+    0.20155625379439707
+   ],
+   "body_gain": [
+    0.7444027503692506,
+    0.9018231025449679,
+    1.3832290829715703
+   ],
+   "hair_rgb": [
+    0.043735029256973465,
+    0.033104766570885055,
+    0.0295568344378088
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07239147260496252,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.399277137111562,
+     -0.11443318597829005,
+     0.19470478936465524,
+     0.6341981150906748
+    ],
+    "v": [
+     -0.122340028995542,
+     -4.385358735679966,
+     0.18683218245823333,
+     5.265462427184831
+    ],
+    "toward": [
+     -0.04303764537483469,
+     0.04372400721109151,
+     0.998116211808021
+    ],
+    "fallback_gain": [
+     2.734072716575244,
+     1.9696570754180884,
+     1.7585633160329122
+    ],
+    "hairline_v": 0.225306050955414
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.028544873322869476,
+     0.01645464518121497,
+     0.011484640821157858
+    ],
+    "iris_gain": [
+     0.6526775860866276,
+     1.028653626514103,
+     2.216463147937922
+    ],
+    "lid_rest": 0.251,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004860670241988872,
+     0.004915922710259696
+    ],
+    "aperture_ratio": 0.36130913254588326,
+    "opening_fit": {
+     "rest": 0.251,
+     "picture_open_mm": [
+      7.4,
+      7.6
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_black_asian_16",
+   "sex": "female",
+   "age": 16,
+   "label": "Fictional child reference black asian 16",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 47,
+   "page": 2,
+   "page_index": 15,
+   "photo": "child_ref_black_asian_16_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.58,
+   "camera": {
+    "yaw_deg": 1.625,
+    "pitch_deg": 2.713,
+    "roll_deg": 1.515,
+    "px_per_m": 1410.968,
+    "shift_px": [
+     171.18,
+     168.734
+    ]
+   },
+   "tone_rgb": [
+    0.4851499400560704,
+    0.25015828472995344,
+    0.18782077230067787
+   ],
+   "body_gain": [
+    0.6931862155718552,
+    0.8340124317377402,
+    1.288965982159472
+   ],
+   "hair_rgb": [
+    0.03433980680868217,
+    0.026241221894849898,
+    0.02315336617811041
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07850578219064472,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.489991928912471,
+     -0.11866970453414315,
+     0.1330030808671757,
+     0.6606124282994307
+    ],
+    "v": [
+     -0.12478447067003452,
+     -4.486923132813011,
+     0.20916375427062545,
+     5.374377522073955
+    ],
+    "toward": [
+     -0.028326013723002856,
+     0.047333090418547906,
+     0.9984774486677171
+    ],
+    "fallback_gain": [
+     2.146735248224683,
+     1.5612920351555684,
+     1.3775717588828722
+    ],
+    "hairline_v": 0.21588980891719745
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.037616907995698404,
+     0.016643063238332156,
+     0.009426064900214906
+    ],
+    "iris_gain": [
+     0.8601093593575329,
+     1.040432483828851,
+     1.8191709960060505
+    ],
+    "lid_rest": 0.31,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.004919051562232192,
+     0.004935740316738697
+    ],
+    "aperture_ratio": 0.3402702464793882,
+    "opening_fit": {
+     "rest": 0.31,
+     "picture_open_mm": [
+      7.0,
+      6.8
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25415209433082675,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_01",
+   "sex": "male",
+   "age": 2,
+   "label": "Fictional toddler/child companion 1",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 48,
+   "page": 3,
+   "page_index": 0,
+   "photo": "child_ref_toddler_01_source.jpg",
+   "values": {},
+   "fit_rms_px": 5.0,
+   "camera": {
+    "yaw_deg": 1.435,
+    "pitch_deg": -2.052,
+    "roll_deg": 0.649,
+    "px_per_m": 1339.194,
+    "shift_px": [
+     157.727,
+     195.193
+    ]
+   },
+   "tone_rgb": [
+    0.5028864580325687,
+    0.2874408377269175,
+    0.238397573812271
+   ],
+   "body_gain": [
+    0.7440861945586641,
+    1.0571423666702007,
+    2.0604141299330343
+   ],
+   "hair_rgb": [
+    0.12477181756095049,
+    0.07818742180518633,
+    0.052860647023180246
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8431082300367191,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09762905120289014,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.346434146248576,
+     -0.04921834105994196,
+     0.10711725325171988,
+     0.5426981399631119
+    ],
+    "v": [
+     -0.044898535966424076,
+     -4.303052649286885,
+     -0.15534923222264477,
+     4.028713525760145
+    ],
+    "toward": [
+     -0.025026797504119232,
+     -0.035806500548057944,
+     0.9990453212568435
+    ],
+    "fallback_gain": [
+     7.800045592435616,
+     4.651970834397172,
+     3.1450862883278594
+    ],
+    "hairline_v": 0.33516270096463024
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2534616255735972,
+     0.2437131015130742,
+     0.23396457745255123
+    ],
+    "iris_linear": [
+     0.06402662989580282,
+     0.04029600321659922,
+     0.028570538941807447
+    ],
+    "iris_gain": [
+     1.4639667786570396,
+     2.519083783714754,
+     5.513933580280413
+    ],
+    "lid_rest": -0.103,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.006225294226492984,
+     0.0062187170679318254
+    ],
+    "aperture_ratio": 0.45939258699380886,
+    "opening_fit": {
+     "rest": -0.103,
+     "picture_open_mm": [
+      10.7,
+      10.6
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.2874408377269175,
+    0.238397573812271
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_02",
+   "sex": "female",
+   "age": 2,
+   "label": "Fictional toddler/child companion 2",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 49,
+   "page": 3,
+   "page_index": 1,
+   "photo": "child_ref_toddler_02_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.5,
+   "camera": {
+    "yaw_deg": 1.915,
+    "pitch_deg": -0.963,
+    "roll_deg": 1.586,
+    "px_per_m": 1333.31,
+    "shift_px": [
+     158.995,
+     197.959
+    ]
+   },
+   "tone_rgb": [
+    0.47353149614800955,
+    0.25818285292159576,
+    0.20863687014525575
+   ],
+   "body_gain": [
+    0.7006516945215172,
+    0.9495381182770639,
+    1.8031993715288452
+   ],
+   "hair_rgb": [
+    0.1119324278369056,
+    0.06124605423161761,
+    0.03560131487502034
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8442458447335599,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09883492278154134,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.324920709841247,
+     -0.11979650882945543,
+     0.14259111679613815,
+     0.5971339161771848
+    ],
+    "v": [
+     -0.11618453385814141,
+     -4.284922735159391,
+     -0.07595064736895575,
+     4.019464680139145
+    ],
+    "toward": [
+     -0.033412112808593165,
+     -0.01680672937408672,
+     0.9993003375189123
+    ],
+    "fallback_gain": [
+     6.99739778955595,
+     3.6439986308449126,
+     2.1181959276958686
+    ],
+    "hairline_v": 0.35243633440514466
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2195056916830417,
+     0.2110631650798478,
+     0.20262063847665387
+    ],
+    "iris_linear": [
+     0.08461495584775544,
+     0.07291066234299283,
+     0.06577120976285632
+    ],
+    "iris_gain": [
+     1.9347181718019257,
+     4.557972317524444,
+     12.693428110185227
+    ],
+    "lid_rest": 0.002,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005956375785346054,
+     0.005939941150626474
+    ],
+    "aperture_ratio": 0.42835514524769797,
+    "opening_fit": {
+     "rest": 0.002,
+     "picture_open_mm": [
+      9.6,
+      9.6
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4851499400560704,
+    0.25818285292159576,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_03",
+   "sex": "male",
+   "age": 6,
+   "label": "Fictional toddler/child companion 3",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 50,
+   "page": 3,
+   "page_index": 2,
+   "photo": "child_ref_toddler_03_source.jpg",
+   "values": {},
+   "fit_rms_px": 2.75,
+   "camera": {
+    "yaw_deg": 3.296,
+    "pitch_deg": -5.191,
+    "roll_deg": 0.094,
+    "px_per_m": 1340.878,
+    "shift_px": [
+     157.259,
+     194.902
+    ]
+   },
+   "tone_rgb": [
+    0.4620769996544071,
+    0.24620132670783548,
+    0.1946178304415758
+   ],
+   "body_gain": [
+    0.6837032709352965,
+    0.9054727757248373,
+    1.6820361103779569
+   ],
+   "hair_rgb": [
+    0.09989872824711389,
+    0.06124605423161761,
+    0.042311410620809675
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1366110460608434,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.09873184347152711,
+     0.10505111273608454,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.360487314417872,
+     -0.007136266300304669,
+     0.2504692912327618,
+     0.49377783810075127
+    ],
+    "v": [
+     0.015366045462841321,
+     -4.293815937216509,
+     -0.3898492298411751,
+     5.323120733636579
+    ],
+    "toward": [
+     -0.05725852348409156,
+     -0.09047614592476298,
+     0.9942512401335101
+    ],
+    "fallback_gain": [
+     6.245117288390715,
+     3.6439986308449126,
+     2.517431111370309
+    ],
+    "hairline_v": 0.3191591639871383
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.10075390386551393,
+     0.08649998913600412,
+     0.07821233129971887
+    ],
+    "iris_gain": [
+     2.303734685382631,
+     5.407502048100147,
+     15.09448599565879
+    ],
+    "lid_rest": 0.056,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005570555860734333,
+     0.0056158218454957646
+    ],
+    "aperture_ratio": 0.3938382132046927,
+    "opening_fit": {
+     "rest": 0.056,
+     "picture_open_mm": [
+      9.2,
+      9.1
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.24620132670783548,
+    0.19120168274079138
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_04",
+   "sex": "female",
+   "age": 6,
+   "label": "Fictional toddler/child companion 4",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 51,
+   "page": 3,
+   "page_index": 3,
+   "photo": "child_ref_toddler_04_source.jpg",
+   "values": {},
+   "fit_rms_px": 2.76,
+   "camera": {
+    "yaw_deg": -0.833,
+    "pitch_deg": 2.081,
+    "roll_deg": 0.632,
+    "px_per_m": 1324.439,
+    "shift_px": [
+     155.63,
+     197.741
+    ]
+   },
+   "tone_rgb": [
+    0.4341536361747489,
+    0.24228112246555486,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.6203222781022143,
+    0.8077504541965375,
+    1.3592991440453488
+   ],
+   "hair_rgb": [
+    0.2831487404299921,
+    0.1946178304415758,
+    0.14412847085805777
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1298265177061522,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.09023363087311599,
+     0.10527404677206129,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.299435639527529,
+     -0.04740022107765323,
+     -0.06078961814931346,
+     0.5620997467931255
+    ],
+    "v": [
+     -0.04472094852773744,
+     -4.2555787794311595,
+     0.1552984754993528,
+     5.227541415540069
+    ],
+    "toward": [
+     0.014528492498053346,
+     0.03631231685301065,
+     0.9992348765683174
+    ],
+    "fallback_gain": [
+     17.700896949070874,
+     11.579310970550646,
+     8.575310802657432
+    ],
+    "hairline_v": 0.3372977491961415
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.22604407943269797,
+     0.21735007637759418,
+     0.2086560733224904
+    ],
+    "iris_linear": [
+     0.11693957836195448,
+     0.10180535640898453,
+     0.10210903847040209
+    ],
+    "iris_gain": [
+     2.6738195983556747,
+     6.364309161051765,
+     19.706399561410453
+    ],
+    "lid_rest": 0.113,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0055371365482742825,
+     0.005593441367470066
+    ],
+    "aperture_ratio": 0.3806663971064162,
+    "opening_fit": {
+     "rest": 0.113,
+     "picture_open_mm": [
+      9.0,
+      8.8
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.45641102318040466,
+    0.25415209433082675,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "european",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_05",
+   "sex": "male",
+   "age": 2,
+   "label": "Fictional toddler/child companion 5",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 52,
+   "page": 3,
+   "page_index": 4,
+   "photo": "child_ref_toddler_05_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.79,
+   "camera": {
+    "yaw_deg": 5.669,
+    "pitch_deg": -4.262,
+    "roll_deg": -2.063,
+    "px_per_m": 1348.113,
+    "shift_px": [
+     160.692,
+     185.193
+    ]
+   },
+   "tone_rgb": [
+    0.5028864580325687,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7440861945586641,
+    0.9795956505828207,
+    1.7118665186119182
+   ],
+   "hair_rgb": [
+    0.06480326669290577,
+    0.043735029256973465,
+    0.03560131487502034
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8401331663962175,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09447548374395846,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.351603323560107,
+     0.15712876197257625,
+     0.44373731013145723,
+     0.358561003963252
+    ],
+    "v": [
+     0.18708302314593464,
+     -4.319979486409573,
+     -0.30495086567539625,
+     4.023918631097279
+    ],
+    "toward": [
+     -0.09850819253717784,
+     -0.07431735215884451,
+     0.9923573283707621
+    ],
+    "fallback_gain": [
+     4.051142674879368,
+     2.602133128930619,
+     2.1181959276958686
+    ],
+    "hairline_v": 0.3091244372990354
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21778079994101512,
+     0.20940461532789914,
+     0.20102843071478316
+    ],
+    "iris_linear": [
+     0.041185928477290364,
+     0.024005021051338452,
+     0.017745192802599258
+    ],
+    "iris_gain": [
+     0.941714894833947,
+     1.5006614659304023,
+     3.4247101422236015
+    ],
+    "lid_rest": 0.079,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.006059108194912989,
+     0.0059903417952326754
+    ],
+    "aperture_ratio": 0.4180965638357473,
+    "opening_fit": {
+     "rest": 0.079,
+     "picture_open_mm": [
+      8.9,
+      9.0
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_06",
+   "sex": "female",
+   "age": 2,
+   "label": "Fictional toddler/child companion 6",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 53,
+   "page": 3,
+   "page_index": 5,
+   "photo": "child_ref_toddler_06_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.63,
+   "camera": {
+    "yaw_deg": 1.868,
+    "pitch_deg": -2.866,
+    "roll_deg": 0.55,
+    "px_per_m": 1382.796,
+    "shift_px": [
+     157.44,
+     188.229
+    ]
+   },
+   "tone_rgb": [
+    0.5028864580325687,
+    0.26635560480286247,
+    0.20155625379439707
+   ],
+   "body_gain": [
+    0.7440861945586641,
+    0.9795956505828207,
+    1.742003270643052
+   ],
+   "hair_rgb": [
+    0.15292615199615017,
+    0.11443537382697373,
+    0.07227185068231748
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8391987838170303,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09348503821001998,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.487075030641941,
+     -0.04304247456012106,
+     0.14418686549994872,
+     0.5314568010639037
+    ],
+    "v": [
+     -0.03541149140618501,
+     -4.440523389371127,
+     -0.22357859034085364,
+     4.124442745198363
+    ],
+    "toward": [
+     -0.032556202770648975,
+     -0.05000027920672136,
+     0.9982184459027024
+    ],
+    "fallback_gain": [
+     9.560099236857054,
+     6.808640177352766,
+     4.300008028909671
+    ],
+    "hairline_v": 0.3169315112540193
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21327478066293643,
+     0.20507190448359272,
+     0.19686902830424902
+    ],
+    "iris_linear": [
+     0.03155881804341659,
+     0.021192519301768332,
+     0.014867666977915266
+    ],
+    "iris_gain": [
+     0.7215913326131959,
+     1.324839374818077,
+     2.8693658308976566
+    ],
+    "lid_rest": 0.073,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005743205489266371,
+     0.005647898497146969
+    ],
+    "aperture_ratio": 0.4152889405212648,
+    "opening_fit": {
+     "rest": 0.073,
+     "picture_open_mm": [
+      9.1,
+      8.8
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_07",
+   "sex": "male",
+   "age": 6,
+   "label": "Fictional toddler/child companion 7",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 54,
+   "page": 3,
+   "page_index": 6,
+   "photo": "child_ref_toddler_07_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.45,
+   "camera": {
+    "yaw_deg": 4.129,
+    "pitch_deg": -8.44,
+    "roll_deg": 0.939,
+    "px_per_m": 1404.119,
+    "shift_px": [
+     160.252,
+     177.076
+    ]
+   },
+   "tone_rgb": [
+    0.4396571738409188,
+    0.21223075741405523,
+    0.13563332965520566
+   ],
+   "body_gain": [
+    0.6505302104844497,
+    0.7805367078217833,
+    1.172246950514336
+   ],
+   "hair_rgb": [
+    0.026241221894849898,
+    0.019382360956935723,
+    0.01599629336550963
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.1294021273120551,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.0944764293981447,
+     0.09740965886236905,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.561985891370935,
+     -0.0741412736786158,
+     0.31829843849080364,
+     0.5686412072378646
+    ],
+    "v": [
+     -0.026090222860646342,
+     -4.465356986802945,
+     -0.6661799122976559,
+     5.482535507963286
+    ],
+    "toward": [
+     -0.07122250823255863,
+     -0.14677363528312667,
+     0.9866026831034056
+    ],
+    "fallback_gain": [
+     1.6404564041961023,
+     1.1532056664828223,
+     0.9517424731080689
+    ],
+    "hairline_v": 0.25293086816720256
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.20387603992886064,
+     0.19603465377775062,
+     0.1881932676266406
+    ],
+    "iris_linear": [
+     0.030312084846066564,
+     0.019945741563395014,
+     0.014690391938383
+    ],
+    "iris_gain": [
+     0.6930848192180724,
+     1.246897709840767,
+     2.8351528678375812
+    ],
+    "lid_rest": 0.145,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005094038073884251,
+     0.005124648035382952
+    ],
+    "aperture_ratio": 0.38224408849488134,
+    "opening_fit": {
+     "rest": 0.145,
+     "picture_open_mm": [
+      8.3,
+      8.3
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20863687014525575,
+    0.13286832155381798
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_08",
+   "sex": "female",
+   "age": 6,
+   "label": "Fictional toddler/child companion 8",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 55,
+   "page": 3,
+   "page_index": 7,
+   "photo": "child_ref_toddler_08_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.63,
+   "camera": {
+    "yaw_deg": 2.322,
+    "pitch_deg": -0.545,
+    "roll_deg": 0.431,
+    "px_per_m": 1461.065,
+    "shift_px": [
+     159.813,
+     178.147
+    ]
+   },
+   "tone_rgb": [
+    0.4232676699860717,
+    0.20863687014525575,
+    0.14126329114027164
+   ],
+   "body_gain": [
+    0.6047683202798136,
+    0.6955825732808951,
+    0.9694538818965472
+   ],
+   "hair_rgb": [
+    0.04817182422688942,
+    0.03433980680868217,
+    0.0295568344378088
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07132379296986623,
+     0.09383624434471131,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.73970217118977,
+     -0.03568204323849384,
+     0.19184928472410948,
+     0.5388635607523616
+    ],
+    "v": [
+     -0.03349998231020894,
+     -4.697612754927809,
+     -0.046080351882630766,
+     5.662237055431882
+    ],
+    "toward": [
+     -0.04051361978530839,
+     -0.009511900983990709,
+     0.9991337099465527
+    ],
+    "fallback_gain": [
+     3.0114366576168816,
+     2.0431391142536244,
+     1.7585633160329122
+    ],
+    "hairline_v": 0.25425369774919615
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.24900258453368096,
+     0.2394255620516163,
+     0.22984853956955165
+    ],
+    "iris_linear": [
+     0.03153109927381197,
+     0.02076571195900224,
+     0.015495629287925802
+    ],
+    "iris_gain": [
+     0.7209575438613522,
+     1.2981577347022268,
+     2.990558590872191
+    ],
+    "lid_rest": 0.207,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0050015011069958985,
+     0.004978093116767531
+    ],
+    "aperture_ratio": 0.36373033690849244,
+    "opening_fit": {
+     "rest": 0.207,
+     "picture_open_mm": [
+      8.2,
+      7.8
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4232676699860717,
+    0.20863687014525575,
+    0.14126329114027164
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "native_metis",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_09",
+   "sex": "male",
+   "age": 2,
+   "label": "Fictional toddler/child companion 9",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 56,
+   "page": 3,
+   "page_index": 8,
+   "photo": "child_ref_toddler_09_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.72,
+   "camera": {
+    "yaw_deg": 1.22,
+    "pitch_deg": -4.088,
+    "roll_deg": 1.695,
+    "px_per_m": 1268.85,
+    "shift_px": [
+     155.853,
+     175.034
+    ]
+   },
+   "tone_rgb": [
+    0.3662525955988395,
+    0.18116424424986022,
+    0.12743768043564743
+   ],
+   "body_gain": [
+    0.5419185499099763,
+    0.6662811013105426,
+    1.1014138829376925
+   ],
+   "hair_rgb": [
+    0.04970656598412723,
+    0.033104766570885055,
+    0.02518685962736163
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8404943330879606,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09485832043720613,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.117091779296549,
+     -0.1215449503417207,
+     0.07898972277049646,
+     0.5960604778160932
+    ],
+    "v": [
+     -0.11409540473097035,
+     -4.054704907182269,
+     -0.29228680530365075,
+     3.779362733497202
+    ],
+    "toward": [
+     -0.021237236920424812,
+     -0.07128853925702898,
+     0.9972296244790287
+    ],
+    "fallback_gain": [
+     3.107380244182188,
+     1.9696570754180884,
+     1.4985599178405178
+    ],
+    "hairline_v": 0.2919451923076923
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.20045265419895258,
+     0.1927429367297621,
+     0.1850332192605716
+    ],
+    "iris_linear": [
+     0.027419746587084053,
+     0.01851277944112875,
+     0.013596043258039448
+    ],
+    "iris_gain": [
+     0.6269516004202061,
+     1.1573168244741645,
+     2.6239504838233256
+    ],
+    "lid_rest": -0.079,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0063287806339747685,
+     0.006311838132389012
+    ],
+    "aperture_ratio": 0.4632524107508475,
+    "opening_fit": {
+     "rest": -0.079,
+     "picture_open_mm": [
+      10.4,
+      10.5
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.184474994500441,
+    0.13286832155381798
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_10",
+   "sex": "female",
+   "age": 2,
+   "label": "Fictional toddler/child companion 10",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 57,
+   "page": 3,
+   "page_index": 9,
+   "photo": "child_ref_toddler_10_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.89,
+   "camera": {
+    "yaw_deg": 4.838,
+    "pitch_deg": -4.604,
+    "roll_deg": 0.633,
+    "px_per_m": 1290.619,
+    "shift_px": [
+     161.198,
+     172.72
+    ]
+   },
+   "tone_rgb": [
+    0.4232676699860717,
+    0.2195261997292692,
+    0.1559264637078274
+   ],
+   "body_gain": [
+    0.6262797989665719,
+    0.8073676940379392,
+    1.3476357326819455
+   ],
+   "hair_rgb": [
+    0.05780543019106723,
+    0.03954623527673283,
+    0.030713443732993635
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.839172255772689,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09761850300058725,
+     0.09345691848301822,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.175450491709241,
+     -0.04614407737406404,
+     0.3496821273002781,
+     0.5270801343224388
+    ],
+    "v": [
+     -0.017535115994799868,
+     -4.123000066040604,
+     -0.334689754553807,
+     3.832926106686276
+    ],
+    "toward": [
+     -0.08406658627903113,
+     -0.08026851242673606,
+     0.9932219162826549
+    ],
+    "fallback_gain": [
+     3.613676548074835,
+     2.3529095712600507,
+     1.827378895109029
+    ],
+    "hairline_v": 0.28305160256410256
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21038428561646105,
+     0.20229258232352024,
+     0.19420087903057942
+    ],
+    "iris_linear": [
+     0.023737337292550443,
+     0.01661068715565329,
+     0.013168730941326985
+    ],
+    "iris_gain": [
+     0.5427534334795391,
+     1.0384085097781706,
+     2.541481905362579
+    ],
+    "lid_rest": 0.018,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005755976205105441,
+     0.005736164671684943
+    ],
+    "aperture_ratio": 0.4483099343219608,
+    "opening_fit": {
+     "rest": 0.018,
+     "picture_open_mm": [
+      9.5,
+      9.6
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4314220663943278,
+    0.22137707852303884,
+    0.1559264637078274
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_11",
+   "sex": "male",
+   "age": 6,
+   "label": "Fictional toddler/child companion 11",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 58,
+   "page": 3,
+   "page_index": 10,
+   "photo": "child_ref_toddler_11_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.69,
+   "camera": {
+    "yaw_deg": 2.761,
+    "pitch_deg": -10.045,
+    "roll_deg": -1.299,
+    "px_per_m": 1339.046,
+    "shift_px": [
+     154.475,
+     172.543
+    ]
+   },
+   "tone_rgb": [
+    0.27467731206038465,
+    0.11443537382697373,
+    0.06847816984440017
+   ],
+   "body_gain": [
+    0.40642095764960456,
+    0.42086741353421636,
+    0.5918407074497409
+   ],
+   "hair_rgb": [
+    0.03433980680868217,
+    0.02518685962736163,
+    0.021219010376003555
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.13172470512323,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.08306264115282636,
+     0.09987159134221438,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.354699680711778,
+     0.09736382125757041,
+     0.22727597482013884,
+     0.374058939396446
+    ],
+    "v": [
+     0.1332319810991037,
+     -4.22493910209845,
+     -0.742837205409145,
+     5.214286439292891
+    ],
+    "toward": [
+     -0.04743149966860467,
+     -0.17442159023046658,
+     0.983528017750721
+    ],
+    "fallback_gain": [
+     2.146735248224683,
+     1.4985599178405178,
+     1.2624820607320737
+    ],
+    "hairline_v": 0.2541980769230769
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21951084987501615,
+     0.2110681248798232,
+     0.20262539988463027
+    ],
+    "iris_linear": [
+     0.02315766281345553,
+     0.014065305964982375,
+     0.009917895530935373
+    ],
+    "iris_gain": [
+     0.5294991956536325,
+     0.879285322142769,
+     1.9140912016088825
+    ],
+    "lid_rest": 0.141,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.0051953638374162584,
+     0.005235797931814968
+    ],
+    "aperture_ratio": 0.3694695082512757,
+    "opening_fit": {
+     "rest": 0.141,
+     "picture_open_mm": [
+      8.4,
+      8.3
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.27467731206038465,
+    0.11443537382697373,
+    0.06662593864377289
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_12",
+   "sex": "female",
+   "age": 6,
+   "label": "Fictional toddler/child companion 12",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 59,
+   "page": 3,
+   "page_index": 11,
+   "photo": "child_ref_toddler_12_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.56,
+   "camera": {
+    "yaw_deg": 3.443,
+    "pitch_deg": -1.757,
+    "roll_deg": 0.184,
+    "px_per_m": 1347.112,
+    "shift_px": [
+     165.558,
+     176.452
+    ]
+   },
+   "tone_rgb": [
+    0.3467040563550296,
+    0.1651321945016676,
+    0.09989872824711389
+   ],
+   "body_gain": [
+    0.4953736008302473,
+    0.5505406436696546,
+    0.6855794531894734
+   ],
+   "hair_rgb": [
+    0.0382043715953465,
+    0.0295568344378088,
+    0.02518685962736163
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1231439650892057,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.08826198286342127,
+     0.09819054099809797,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.365849174619962,
+     -0.014039227184852154,
+     0.26223604680334556,
+     0.5273997133908517
+    ],
+    "v": [
+     -0.005890476467999663,
+     -4.315614472182686,
+     -0.13297546472481767,
+     5.2497551582235324
+    ],
+    "toward": [
+     -0.06002729242544576,
+     -0.03066062904661675,
+     0.9977257388634091
+    ],
+    "fallback_gain": [
+     2.388326515548956,
+     1.7585633160329122,
+     1.4985599178405178
+    ],
+    "hairline_v": 0.2683144230769231
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.23954559455954202,
+     0.2303323024610981,
+     0.22111901036265416
+    ],
+    "iris_linear": [
+     0.028674733912509374,
+     0.018256523098462422,
+     0.014170621265757875
+    ],
+    "iris_gain": [
+     0.6556468441812519,
+     1.1412970918516774,
+     2.7348404106007735
+    ],
+    "lid_rest": 0.156,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005057299998040664,
+     0.005130082400960546
+    ],
+    "aperture_ratio": 0.37276900291052506,
+    "opening_fit": {
+     "rest": 0.156,
+     "picture_open_mm": [
+      8.5,
+      8.5
+     ],
+     "fitted_open_mm": [
+      10.1,
+      10.1
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.162029375639111,
+    0.09989872824711389
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "black",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_13",
+   "sex": "male",
+   "age": 2,
+   "label": "Fictional toddler/child companion 13",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 60,
+   "page": 3,
+   "page_index": 12,
+   "photo": "child_ref_toddler_13_source.jpg",
+   "values": {},
+   "fit_rms_px": 5.29,
+   "camera": {
+    "yaw_deg": 4.374,
+    "pitch_deg": -0.766,
+    "roll_deg": -0.77,
+    "px_per_m": 1340.065,
+    "shift_px": [
+     158.43,
+     180.211
+    ]
+   },
+   "tone_rgb": [
+    0.5088813208549338,
+    0.2831487404299921,
+    0.20863687014525575
+   ],
+   "body_gain": [
+    0.752956377068343,
+    1.0413570039140527,
+    1.8031993715288452
+   ],
+   "hair_rgb": [
+    0.04518620438567554,
+    0.033104766570885055,
+    0.0295568344378088
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8366906458274863,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.0785956223412956,
+     0.09082641194110337,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.3377369857507215,
+     0.0584643808180782,
+     0.3325746359938983,
+     0.4392203589802294
+    ],
+    "v": [
+     0.062129862342501244,
+     -4.308116535102613,
+     -0.05301557658802766,
+     3.975035673585089
+    ],
+    "toward": [
+     -0.07625975636314049,
+     -0.013368823813403,
+     0.9969983571246648
+    ],
+    "fallback_gain": [
+     2.8247921786120567,
+     1.9696570754180884,
+     1.7585633160329122
+    ],
+    "hairline_v": 0.28877009646302254
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.026960714818811904,
+     0.01688748894322328,
+     0.012318746094999654
+    ],
+    "iris_gain": [
+     0.6164558541941085,
+     1.0557126302544062,
+     2.37744019804863
+    ],
+    "lid_rest": 0.003,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.006306854991728738,
+     0.006332279216899982
+    ],
+    "aperture_ratio": 0.45097671994765814,
+    "opening_fit": {
+     "rest": 0.003,
+     "picture_open_mm": [
+      9.5,
+      9.7
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.2831487404299921,
+    0.20863687014525575
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_14",
+   "sex": "female",
+   "age": 2,
+   "label": "Fictional toddler/child companion 14",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_toddler_1812",
+   "index": 61,
+   "page": 3,
+   "page_index": 13,
+   "photo": "child_ref_toddler_14_source.jpg",
+   "values": {},
+   "fit_rms_px": 5.05,
+   "camera": {
+    "yaw_deg": 3.267,
+    "pitch_deg": -0.216,
+    "roll_deg": 1.152,
+    "px_per_m": 1333.714,
+    "shift_px": [
+     160.25,
+     182.871
+    ]
+   },
+   "tone_rgb": [
+    0.467783796112159,
+    0.26225065752969623,
+    0.20155625379439707
+   ],
+   "body_gain": [
+    0.6921472216353857,
+    0.9644985832707149,
+    1.742003270643052
+   ],
+   "hair_rgb": [
+    0.07227185068231748,
+    0.04817182422688942,
+    0.03954623527673283
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0001075156033039093,
+     0.8381384729717566,
+     0.011633262038230896
+    ],
+    "radius_m": [
+     0.09537629127230446,
+     0.09236110871402989,
+     0.08093625128269195
+    ],
+    "base_centre_m": [
+     -0.0001075156033039093,
+     0.8291170299053192,
+     0.011633262038230896
+    ],
+    "base_radius_m": [
+     0.06821698322892189,
+     0.0781116783618927,
+     0.07782331854104996
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.322347663784674,
+     -0.08705816168347855,
+     0.24639857332147028,
+     0.5657975352253531
+    ],
+    "v": [
+     -0.08515770093762758,
+     -4.287572188237104,
+     -0.021051108462937278,
+     3.967949124720776
+    ],
+    "toward": [
+     -0.056988608865443456,
+     -0.0037699022545064132,
+     0.9983677109645388
+    ],
+    "fallback_gain": [
+     4.518037337208772,
+     2.866112172128588,
+     2.3529095712600507
+    ],
+    "hairline_v": 0.299308038585209
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.023569759522671926,
+     0.016430803290895222,
+     0.013435593499264464
+    ],
+    "iris_gain": [
+     0.5389217733040335,
+     1.027163163081421,
+     2.5929846936903758
+    ],
+    "lid_rest": 0.105,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005635577721741266,
+     0.005607223137545377
+    ],
+    "aperture_ratio": 0.42267182987835916,
+    "opening_fit": {
+     "rest": 0.105,
+     "picture_open_mm": [
+      8.5,
+      8.7
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_15",
+   "sex": "male",
+   "age": 6,
+   "label": "Fictional toddler/child companion 15",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_boy_1812",
+   "index": 62,
+   "page": 3,
+   "page_index": 14,
+   "photo": "child_ref_toddler_15_source.jpg",
+   "values": {},
+   "fit_rms_px": 3.74,
+   "camera": {
+    "yaw_deg": 2.922,
+    "pitch_deg": -1.82,
+    "roll_deg": 0.51,
+    "px_per_m": 1362.237,
+    "shift_px": [
+     155.973,
+     177.582
+    ]
+   },
+   "tone_rgb": [
+    0.44520119451622786,
+    0.24620132670783548,
+    0.18116424424986022
+   ],
+   "body_gain": [
+    0.6587333131549498,
+    0.9054727757248373,
+    1.5657599308665364
+   ],
+   "hair_rgb": [
+    0.0295568344378088,
+    0.02315336617811041,
+    0.020288563056652397
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0005568712949752808,
+     1.126886102960686,
+     0.024754613637924194
+    ],
+    "radius_m": [
+     0.07789107713647808,
+     0.09474267304991782,
+     0.08582231163978576
+    ],
+    "base_centre_m": [
+     0.0005568712949752808,
+     1.1239928603172302,
+     0.024754613637924194
+    ],
+    "base_radius_m": [
+     0.06899499893188477,
+     0.08648663759231567,
+     0.082521453499794
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.431373397907448,
+     -0.039476347537448365,
+     0.22493359637354934,
+     0.5275143934249036
+    ],
+    "v": [
+     -0.03184638503009111,
+     -4.377800196350769,
+     -0.1409142034351798,
+     5.33061312841492
+    ],
+    "toward": [
+     -0.05095070122589267,
+     -0.03175965076486348,
+     0.9981960481928807
+    ],
+    "fallback_gain": [
+     1.8477302061449872,
+     1.3775717588828722,
+     1.207122596349818
+    ],
+    "hairline_v": 0.24662025723472666
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.021740956477166257,
+     0.016945552000013197,
+     0.013409699487795506
+    ],
+    "iris_gain": [
+     0.4971062520485156,
+     1.0593424121959596,
+     2.58798731300891
+    ],
+    "lid_rest": 0.105,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005828662652295262,
+     0.005862711880797466
+    ],
+    "aperture_ratio": 0.41427108174407246,
+    "opening_fit": {
+     "rest": 0.105,
+     "picture_open_mm": [
+      8.6,
+      8.8
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.24620132670783548,
+    0.18116424424986022
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
+   "population": "child",
+   "texture_only": true
+  },
+  {
+   "id": "child_ref_toddler_16",
+   "sex": "female",
+   "age": 6,
+   "label": "Fictional toddler/child companion 16",
+   "source": "synthetic_photo_reference_pools_3762",
+   "source_url": "https://github.com/kevinrhaas/chicago/tree/dev/chicago/4d/assets/authored/humans/photo_face_pilot",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "child_girl_1812",
+   "index": 63,
+   "page": 3,
+   "page_index": 15,
+   "photo": "child_ref_toddler_16_source.jpg",
+   "values": {},
+   "fit_rms_px": 4.08,
+   "camera": {
+    "yaw_deg": 2.078,
+    "pitch_deg": 3.056,
+    "roll_deg": -0.255,
+    "px_per_m": 1382.286,
+    "shift_px": [
+     161.854,
+     183.385
+    ]
+   },
+   "tone_rgb": [
+    0.4178850708481375,
+    0.23455058216100522,
+    0.1714411007328226
+   ],
+   "body_gain": [
+    0.5970776184610446,
+    0.7819773053080088,
+    1.176556480317412
+   ],
+   "hair_rgb": [
+    0.03688945040110004,
+    0.026241221894849898,
+    0.02217388479338738
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.00016789883375167847,
+     1.1209398819263363,
+     0.00961153581738472
+    ],
+    "radius_m": [
+     0.07661053714090099,
+     0.09585421284545659,
+     0.08304413110017776
+    ],
+    "base_centre_m": [
+     -0.00016789883375167847,
+     1.1190361380577087,
+     0.00961153581738472
+    ],
+    "base_radius_m": [
+     0.06972254812717438,
+     0.08852475881576538,
+     0.07985012605786324
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.484984437186669,
+     0.019945515249024135,
+     0.1616669619980485,
+     0.48817235142273235
+    ],
+    "v": [
+     0.011176406824812893,
+     -4.438284849168717,
+     0.23751214837647674,
+     5.371307074170132
+    ],
+    "toward": [
+     -0.036208426320620594,
+     0.05331197599958539,
+     0.9979212308987138
+    ],
+    "fallback_gain": [
+     2.306124897699059,
+     1.5612920351555684,
+     1.3192948809737934
+    ],
+    "hairline_v": 0.2705530546623794
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.19872007520141863,
+     0.19107699538597944,
+     0.18343391557054026
+    ],
+    "iris_linear": [
+     0.028584075834866694,
+     0.018615032579540874,
+     0.014734929454841022
+    ],
+    "iris_gain": [
+     0.6535739502291295,
+     1.1637091264953687,
+     2.843748327240023
+    ],
+    "lid_rest": 0.112,
+    "centres_uv": null,
+    "iris_radius_m": [
+     0.005524413193832524,
+     0.005527244071228877
+    ],
+    "aperture_ratio": 0.41883223891582877,
+    "opening_fit": {
+     "rest": 0.112,
+     "picture_open_mm": [
+      8.8,
+      9.0
+     ],
+     "fitted_open_mm": [
+      10.0,
+      10.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
+    "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.23074004852434915,
+    0.1714411007328226
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
+   "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
   }
  ],
- "capacity": 256,
+ "capacity": 512,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "0ad1c661a1348638b583e656310ef870358c086c6b683d3b573cb34b7be1c4d0",
+  "tools/photo_face_library.py": "c1185db9281d33a7f2469c28ca3e1a889a4c5c1c41ea2c19a65c935ddd94440e",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
-  "renderers/web/js/human-skin.js": "839736d7c44655d9ec10239568f2f594edb8553eb2f9a80f49a65143c5f1a023",
+  "renderers/web/js/human-skin.js": "49406c90c17f394faa6dbe37e5ed8983aa5092045d2e01d2076022a9159b1981",
   "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
   "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
   "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
@@ -2235,7 +9366,7 @@
   "assets/humans/web/child_toddler_1812.lod0.glb": "1327ebfbf45ad09012b53c3899c808cd46757df76dbc34ea155a146eab2c0286"
  },
  "budget": {
-  "crowd_edge_px": 1024,
+  "crowd_edge_px": 512,
   "resident_detail_pages": 1,
   "detail_page_faces": 16,
   "town_face_gpu_bytes": 6990508
@@ -2243,6 +9374,7 @@
  "limits": [
   "Front photo fits do not establish profile depth.",
   "Hair, ears, bodies and dress are reconstructed.",
+  "Unpictured forehead/face-edge skin extends the same reference; it is reconstructed, not another photographic view.",
   "Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass."
  ],
  "activation": {
@@ -2257,5 +9389,5 @@
   ],
   "request": "Ok yes let\u2019s roll the faces out so I can see them on dev; children faces of the same type so people look consistent."
  },
- "recipe_sha256": "b1b103632794e6da21029b04f031b58b3a8b157cf4b222731154e2b966947bb7"
+ "recipe_sha256": "0e4b40f24ef9794b2689397194821bc98d6c8b423fe3ddff7966ccc518b518ec"
 }

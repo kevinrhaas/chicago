@@ -28,6 +28,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { register } from 'node:module';
+import { HairBudget } from '../renderers/web/js/human-hair-dynamics.js';
 
 const vendor = new URL('../renderers/web/vendor/three-0.185.1/', import.meta.url).href;
 register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, c, next) {
@@ -499,15 +500,17 @@ const hitAlong = (from, dir, far = 3) => { ray.set(from, dir.clone().normalize()
   const source = fs.readFileSync(new URL('renderers/web/js/humans.js', ROOT), 'utf8');
   const start = source.indexOf('export function createHumanLayer('), end = source.indexOf('\n/**\n * THE SCENE PATH.', start);
   class Actor {
-    constructor({ instance, identity, person }) {
+    constructor({ instance, identity, person, hairBudget = null }) {
       Object.assign(this, { instance, identity, person, id: instance.id, personId: instance.person_id, root: new THREE.Group(),
         body: {}, disposed: false, tier: 'full', e: instance.placement?.local_e ?? 0, n: instance.placement?.local_n ?? 0, heading: 0, indoors: false, walked: 0 });
+      this.hairBudget = hairBudget;
+      hairBudget?.register(this);
     }
-    update() {} dispose() { this.disposed = true; this.root.removeFromParent(); }
+    update() {} dispose() { this.disposed = true; this.hairBudget?.unregister(this); this.root.removeFromParent(); }
     walkPath() { this.walked++; return true; } setState() {} place() {} turnTo() {} stopPath() {} setIndoors(v) { this.indoors = v; }
   }
-  const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS',
-    source.slice(start, end).replace('export function', 'function') + '\nreturn createHumanLayer;')(THREE, Actor, () => ({}), () => null, { full: [0], balanced: [1], light: [3] });
+  const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'HairBudget',
+    source.slice(start, end).replace('export function', 'function') + '\nreturn createHumanLayer;')(THREE, Actor, () => ({}), () => null, { full: [0], balanced: [1], light: [3] }, HairBudget);
   const humans = createLayer({ assets: {} });
   const person = { id: 'glessner_john_j', name: 'John J. Glessner', household: 'hh_glessner_john_j' };
   const standing = humans.add(standingRec, { person });

@@ -47466,6 +47466,97 @@ of the row nearer 1904, ingested as a source, would settle 213's storey count an
 **Review:** `docs/RESEARCH/k01-213-215-e20th-3782/README.md`.
 **Recorded:** 2026-11-27 (T-3782).
 
+### L-person-photo-deployment-3762 — Named photographic faces and the Stirling references
+
+**Decision:** the owner requested applying every existing usable person photograph, then supplied separate likeness models for Dorothy Sterling (the younger daughter, age 19 in 1904) and Alice May Stirling (older daughter, age 20), and requested stored period face portraits without modern clothing/backgrounds. Bind each source to its exact existing person and scene. Twenty own-person portraits and five previously labelled staff stand-ins receive photographic texture on their existing fitted heads. The two Grey skin sheets remain intact. Dorothy and Alice receive two new fitted heads and photographic textures from separately edited period reference models; neither is represented as a historical photograph.
+**Not invented:** existing person IDs, scene membership, ages and household links; archive identities/credits and retained source hashes; the owner's two reference choices; the 25 existing fitted heads, body/stature values and child proportions remain unchanged. No living person is identified from a picture.
+**Reconstructed:** colours of monochrome archive portraits, unseen profile depth, hair/clothing and differences between photographic and scene ages. Broad archive lighting is reduced offline so it is not drawn again as a moving sun. Existing eye placement and resting lids remain with the 25 reviewed heads. The two owner references are edited with image generation into 1904 studio portraits and neutral texture companions: updos, collars, background, neutral expressions and eyes without spectacles are edited. Alice's wire spectacles are period reconstruction. Chosen blue/hazel iris tones and bounded resting lids are visual rendering decisions. The original modern photographs remain outside published assets; their SHA-256 values remain in the source records.
+**Budget:** three crowd sheets and one globally shared nearby detail page across generic adults, children and named people; at most 13 MiB conservative added RGBA8 texture memory including mipmaps. Other pages remain on disk. Original body/scene texture costs and image/driver overhead are outside this bound. Added spectacles use the existing bounded geometry path. No hardware frame-rate claim is made from software rendering.
+**Left out on purpose:** substituting another person's photograph, backdating scene presence, George Pullman in 1904, replacing the Grey full skins with a frontal atlas, generating details in archive portraits, or declaring a perfect likeness/profile from one view.
+**Re-opens on:** better source photographs, real profiles, owner visual corrections and full-town measurements on a real low-power GPU. The Ira Couch candidate remains uncleared and is not imported.
+**Ticket:** T-3762.
+**Recorded:** 2026-11-26.
+
+### L-person-photo-display-3762 — Skin white balance and softer eyes
+
+**Decision:** following the owner's review of actual app faces as too dark, orange and harsh around the eyes, reduce the shared base skin maps' colour cast halfway toward linear RGB `[0.60, 0.40, 0.30]` at the original base luminance. Apply the same gain through the existing face and body uniforms, then retain each person's recorded complexion tint. Colour reference photographs and the Grey full skin sheets retain their own colour. Increase the existing skin/eye environment fill and soften corner shading and corneal highlights. No texture, light, draw call or demographic record is added.
+**Reconstructed:** the display white point, its half-strength blend and material response are visual calibration, bounded by same-pose renders in the actual town. They do not establish anyone's complexion from a monochrome photograph, name or social role, or change documented identities. The stronger neutral correction was rejected because it looked grey.
+**Unchanged:** source pixels, head fits, body proportions, recorded eye colours, complexion distinctions and the globally bounded nearby texture cache.
+**Re-opens on:** owner visual feedback, calibrated colour photographs and observations on real target GPUs. Software-rendered stills do not establish a hardware frame-rate result.
+**Ticket:** T-3762.
+**Recorded:** 2026-11-27.
+
+
+### L-photo-population-reference-pools-3762 — appearance references and NPC context
+
+**Decision:** Owner steering, 26 November 2026: use the approved sixteen natural period references in
+the existing library, keep variety, align default NPC appearances with their existing
+historical community/year/neighborhood context, and keep the visitor creator broadly
+diverse. Source `synthetic_photo_reference_pools_3762` records 64 original fictional
+references and the explicit briefs behind their four artistic pools. The original 256
+unclassified adult choices remain available to visitors. This is not an ancestry classifier.
+`tools/human_variation_kit.py` reads the existing compiled community and explicit Community
+or People card facts; unknown town residents take the existing European-majority
+reconstruction, while 1812 camps retain their recorded Indigenous context. A pool is a
+reconstructed rendering choice, not a newly attested racial/ethnic fact. No surname, face
+photo or occupation determines ancestry. Personal portraits override this choice. Existing
+community populations, household memberships, scene dates and historical counts are not
+changed to match the library. Visitor face choices are independent of all NPC pool rules.
+Colour references also supply matching neck/exposed-skin colour; a second stock lip/pigment
+layer is suppressed over the photo. New fictional heads include frontal outline landmarks.
+The reference-estimated female hairline moves only the existing cap, keeping its texture,
+bun and crown; unseen profile/hair depth remains reconstructed. Children retain their
+approved head geometry. The additional catalog pages remain on disk behind the same one
+resident-or-loading detail page and the same fixed GPU memory ceilings.
+
+**T-3762 rendering supplement:** measured photo iris transfer now permits the full channel
+gain needed to turn the shared dark-brown iris texture into its reference colour. The old
+maximum of three suppressed blue/grey eyes. Photo brows suppress the second painted stock
+shadow. New fictional reference albedos reduce broad studio illumination by a smooth scalar
+gain anchored at the cheeks before the 3D model is lit; chroma and fine detail are retained,
+original source pixels preserved, and no missing facial detail is generated. New fitted
+heads use the existing hm08 constraints with an independently derivative-checked analytic
+solver; existing curated portrait values remain protected.
+
+**T-3762 child companions:** the same fictional-reference source preserves two additional
+unchanged sheets (32 child/teen references, four ages of each sex in each of the four
+creation briefs). They join the original sixteen. Children select within the same existing
+community context as adults; no adult morph or eye repositioning is transferred. The child
+crowd edge is explicitly held at 512 pixels, so these extra disk pages do not raise the
+shared texture budget. Colour and unseen appearance remain reconstructed.
+
+**Ticket:** T-3762.
+**Recorded:** 2026-11-26.
+
+**Toddler coverage:** sixteen further fictional companions in the same source (boys and
+girls of two and six in each background) close the youngest resolved-age fallback gap.
+The child catalog totals 64 entries in four disk detail pages; the 512-pixel crowd edge,
+one global resident-or-loading slot, recorded/seeded ages and child geometry are unchanged.
+
+### L-photo-face-surface-review-3762 — Forehead clearance and photographic eye fill
+
+**Decision:** The native frontal cap keeps 3.8 mm of reconstructed ease above the fitted forehead, using existing triangles and the existing period hair. Normals accumulate in float precision before normalization so the published compressed geometry retains valid lighting. Photographic eyes retain their source-measured muted whites; their environment fill uses the photographic skin scale, without another stock-eye darkening. New fictional reference albedos fill connected dark hair intrusions above the brows with that face’s nearby skin. Original photos, freckles and eyebrows are preserved; the native hairstyle remains reconstructed. No geometry is changed on child heads or eyes, and no extra hair mesh or texture is introduced.
+
+**Ticket:** T-3762.
+**Recorded:** 2026-11-27.
+
+### L-hair-quality-motion-3792 — Layered period hair and restrained secondary motion
+
+**Decision:** Near photographic bun hairstyles may add fine layered cards over their existing fitted caps, retaining the same period bun, crown and hair colour. Body movement and a small seeded breeze drive a critically damped tip spring. This movement is reconstruction, not evidence of a particular person's grooming or the scene's wind. Updos move much less than loose cuts; roots and facial hair stay fixed, outward motion protects the scalp and the displaced hair remains cut under its hat. Existing and new optional near scalp/facial cards share Full/Balanced triangle and head budgets; the body's cap and existing Light tails remain their low-cost fallback. No texture is added. A child's existing cap may take 2.5 mm of clearance above its own native skull to remove intersections; its topology, UVs and the child's head/eye proportions are retained. The original Grey fitted-head/full-skin mappings are retained. Rendered hair-card bounds, parked geometry and physical-GPU timing are reported separately.
+
+**Ticket:** T-3792.
+**Recorded:** 2026-11-27.
+
+
+### L-photo-forehead-join-3762 — Continuous photographic skin and restrained expression
+
+**Decision:** following the owner's actual-app review, photographic face masks extend over the upper forehead inside the same atlas tile. Photographic features remain inside the measured landmark hull; unpictured forehead/face edges continue a feature-free field of nearby skin from that reference. Eyes, brows, curls, background and another template face are excluded from that fill. Skin-only illumination estimates reduce broad studio shading while preserving central source features and chroma. Original photographs, existing curated historical heads and child head/eye geometry are retained; pre-calibration selection tones keep existing NPC face assignments stable.
+**Reconstructed:** the 6.5-percent interocular skin margin, feature-excluded local illumination estimate, feather and reconstructed border skin are display calibration rather than another photographic view. Fictional children retain 30–65 percent of skin pigment contrast, according to source age, blended toward the same face's own skin field with all measured eye/brow/lip feature boxes protected. Real person photographs are exempt. Added skin relief is reduced over photos and scales with age; no age-dependent procedural grain is left at full adult strength on children. Photographic lips keep their pictured parting. Bounded warm-neutral photographic sclera albedo and restrained resting/greeting smiles replace double-shaded eyes and a permanent maximum smile. These choices do not establish a person's ancestry, complexion or personality.
+**Owner-requested refinement:** Dorothy’s stand-in alone uses finer upper/lower lip volume and lower-lip height, with the photographed lip-height UV bounds scaled to 0.6 and width to 0.98. This is display calibration of the owner-selected reference, not new historical evidence. Frances Glessner alone retains 20 percent of scan skin contrast outside protected eye/brow/lip/nostril features, using her own feature-free skin field; her original scan and head are unchanged. Monochrome portraits use a warm-neutral sclera prior because scan exposure cannot establish eye-white albedo. The existing intended sky fill is applied through a per-material shader uniform because r185 substitutes scene intensity for material intensity; no material owns or disposes the shared sky texture.
+**Budget:** the existing three crowd sheets, one resident-or-loading nearby page and texture dimensions are unchanged. Only uniform values and offline texture baking change; no skin geometry, light or draw call is added. Physical-GPU performance remains unmeasured.
+**Ticket:** T-3762.
+**Recorded:** 2026-11-27.
+
 ### L-leaf-light-3747 — Rounded foliage and thin-leaf light in every wood
 **Liberty:** for grown woodland and street trees, yard shrubs and vines, and bank thickets in 1812, 1835, 1871 and 1904, a spray's vertex normals curve across its existing cutout, suggesting a volume. Full adds a close level within 14 m: each large spray becomes three smaller sprays at different depths and turns, each joined to its existing attachment by fine round wood. This botanical detail is reconstructed within the original clump; the species, skeleton, trunk, height, crown dimensions and planting remain the records' own. The existing near mesh is retained beyond that short ring. Balanced and Light retain their geometry counts. Balanced woodland uses the existing half-size atlases and omits additional leaf-relief sampling; Full retains the larger sheets and relief. A small green-filtered backlight term uses the light already attenuated and shadowed by the renderer. The existing time-of-day skylight term is distributed toward the backlit face. These coefficients are artistic approximations of a thin leaf, not measured species transmittances or an archival lighting reconstruction. Capable devices reuse the existing leaf colour sheet for subtle bump relief; a weak device or Light omits that extra sampling. Bark, fruit, solid flowers and bare winter branches retain their existing materials and receive no leaf transmission.
 **Evidence:** species, crown dimensions, colour, season, placement and confidence remain the existing records' claims. No new historical assertion or external asset is introduced. The atlases retain their current photographic and procedural provenance in assets/LICENSES.md.

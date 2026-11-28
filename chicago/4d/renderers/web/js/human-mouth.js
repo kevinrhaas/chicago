@@ -332,7 +332,7 @@ export function teethOf(src, key, opts) {
  *   teeth_m, teeth_deg  a figure's drawn teeth (a mesh of their own) are drawn for a visitor this near, and for a
  *                       still, while its jaw is this far open: behind shut lips they are not drawn at all
  */
-export const MOUTH = Object.freeze({ within_m: 3.2, front_deg: 60, in_s: .3, out_s: .7, after_s: 2.2, talk: .4, jaw_deg: 7, syllable_hz: 3.6, say_deg: 12, teeth_m: 6, teeth_deg: .3 });
+export const MOUTH = Object.freeze({ within_m: 3.2, front_deg: 60, in_s: .3, out_s: .7, after_s: 2.2, attention_smile: .18, greeting_smile: .6, talk: .4, jaw_deg: 7, syllable_hz: 3.6, say_deg: 12, teeth_m: 6, teeth_deg: .3 });
 const DEG = Math.PI / 180;
 
 export function createMouth({ id = 'human', scene = null } = {}) {
@@ -421,7 +421,10 @@ export function createMouth({ id = 'human', scene = null } = {}) {
       if (rest && (talking <= 1e-3 || (dt > 1e-3 && talking >= last))) rest = false;
       last = talking;
       // (A mouth with no smile to give keeps none: its jaw is all of it.)
-      const want = !faces.length ? 0 : greeting || after > 0 || facing ? 1 : (talking > .05 && !rest) || said > 0 ? MOUTH.talk * (said > 0 ? 1 : talking) : 0;
+      const speech = (talking > .05 && !rest) || said > 0 ? MOUTH.talk * (said > 0 ? 1 : talking) : 0;
+      // Attention is a small closed-mouth response, rather than a permanent
+      // maximum toothy smile whenever someone stands in front of the person.
+      const want = !faces.length ? 0 : Math.max(greeting || after > 0 ? MOUTH.greeting_smile : facing ? MOUTH.attention_smile : 0, speech);
       smile += (want - smile) * (1 - Math.exp(-dt / (want > smile ? MOUTH.in_s : MOUTH.out_s)));
       if (Math.abs(want - smile) < 1e-3) smile = want;
       // Talk with no words: syllables at about the rate of speech, uneven in height, with a

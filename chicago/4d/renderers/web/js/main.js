@@ -7077,7 +7077,7 @@ async function boot() {
   }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
-  let humanPersons = null;
+  let humanPersons = null, humanPhotoReferences = null;
   function personFace(id) {
     // The asset base, as humans.js reads it: data/ when published, assets/ in the source tree.
     const base = resolveBases().assetBase;
@@ -7087,7 +7087,22 @@ async function boot() {
     // T-3491: and how he looks (`looks`), for the card's Looks section.
     // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
     // T-3522: and what they wear today (`dress.worn`), a row of that section; T-3553: in this season.
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: (r?.dress?.seasons?.[api.season?.current ?? 'summer']?.worn ?? r?.dress?.worn) ?? '' } : null, base: String(base) }; });
+    humanPhotoReferences ??= fetch(new URL('humans/web/photo_faces/historical/review.json',base))
+      .then(r=>r.ok?r.json():null).catch(()=>null);
+    return Promise.all([humanPersons,humanPhotoReferences]).then(([d,photos])=>{
+      const r=d?.persons?.[id],photo=photos?.faces?.find(f=>f.id===id&&f.historical?.scene===String(YEAR));
+      let looks = r?.looks ? { ...r.looks, worn: (r?.dress?.seasons?.[api.season?.current ?? 'summer']?.worn ?? r?.dress?.worn) ?? '' } : null;
+      if(looks&&photo?.historical?.shape_mode==='new_photo_fit'){
+        const h=photo.historical;
+        looks={...looks,grade:'reconstructed',basis:h.limits.join(' '),
+          complexion:{...looks.complexion,value:'owner-chosen reference model'},
+          hair:{...looks.hair,value:h.hair_style?.colour?.replaceAll('_',' ')??looks.hair.value,drawn:h.hair_style?.colour??looks.hair.drawn},
+          eyes:{...looks.eyes,value:'matched to the reference model'},
+          reference:{image:`humans/web/photo_faces/historical/${id}_reference.jpg`,title:h.stand_in.label,
+            artist:'owner-chosen model',date:'1904 styling',page_url:photo.source_url,why:h.stand_in.card_note}};
+      }
+      return{face:r?.face??null,looks,base:String(base)};
+    });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.

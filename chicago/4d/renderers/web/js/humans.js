@@ -47,6 +47,7 @@ import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, dressPhotoLooks, restingLid } from './human-skin.js';
 import { dressHairSteps, dressHeadcloth } from './human-hair.js';
+import { HairBudget } from './human-hair-dynamics.js';
 import { hairFor } from './human-hair-styles.js';
 import { dressCloth, looksHairStyle, dressInSeason, EYE_COLOUR } from './human-looks.js';
 import { dressFinery } from './human-finery.js';
@@ -392,7 +393,7 @@ export function pendingBuilds() { return buildQueue.length; }
 let dressSeason = 'summer';
 
 export class HumanActor {
-  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null }) {
+  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null, hairBudget = null }) {
     this.instance = instance;
     this.person = person;
     this.identity = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
@@ -401,6 +402,8 @@ export class HumanActor {
     this.assets = assets;
     this.heightAt = heightAt;
     this.tier = tier;
+    this.hairBudget = hairBudget;
+    hairBudget?.register(this);
     this.state = instance.behaviour?.state ?? 'standing';
     this.root = new THREE.Group();
     this.root.name = `human:${instance.id}`;
@@ -678,6 +681,7 @@ export class HumanActor {
     this.body = next;
     this.lod = next.lod;
     this.hair = next.hair ?? null;
+    next.hair?.runtime?.takePoseFrom(prev?.hair?.runtime);
     this.root.add(next.scene);
     this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
     if (this.life) this.life.bind(next.scene);
@@ -816,7 +820,10 @@ export class HumanActor {
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
     // T-3639: a near level's first head of hair grows over a few frames (dressHairSteps).
-    const hair = yield* dressHairSteps(scene, { lod, person: this.personId ?? null, year, style });
+    const hair = yield* dressHairSteps(scene, { lod, person: this.personId ?? null, year, style, budgeted: !!this.hairBudget });
+    if (this.variation?.photoFace) scene.traverse(o => {
+      if (o.isMesh && o.material?.userData?.chiPhotoOwned && !looked.includes(o.material)) looked.push(o.material);
+    });
     yield;
     // T-3506: a handkerchief tied round the head, at every level.
     if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
@@ -853,6 +860,7 @@ export class HumanActor {
   }
 
   teardown(body) {
+    body.hair?.dispose?.();
     body.mixer.stopAllAction();
     body.mixer.uncacheRoot(body.scene);
     body.scene.removeFromParent();
@@ -1231,6 +1239,8 @@ export class HumanActor {
   dispose() {
     if (this.disposed) return;
     this.disposed = true;
+    this.hairBudget?.unregister(this);
+    this.hairBudget = null;
     this.wanted = -1;
     if (this.body) this.teardown(this.body);
     this.prune(true);
@@ -1259,6 +1269,7 @@ function hashPhase(id) {
  * card is the person record's own.
  */
 export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null, sceneId = null } = {}) {
+  const hairBudget = new HairBudget();
   const group = new THREE.Group();
   group.name = 'humans';
   const events = new EventTarget();
@@ -1408,7 +1419,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const identity = validatedIdentity ?? (instance.anonymous_profile_id
         ? resolveHumanIdentity(instance, { profiles: profile ? [profile] : [] })
         : { kind: 'person', personId: instance.person_id, person, profile: null, role: null });
-      const actor = new HumanActor({ instance, person, identity, assets: store, heightAt, clipLibrary, tier, prepare });
+      const actor = new HumanActor({ instance, person, identity, assets: store, heightAt, clipLibrary, tier, prepare, hairBudget });
       actors.set(instance.id, actor);
       group.add(actor.root);
       return actor;
@@ -1419,7 +1430,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     createActor(instance, { person = null, identity = null } = {}) {
       if (disposed) throw Error('humans: layer disposed');
       const id = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
-      return new HumanActor({ instance, person: person ?? id.person ?? null, identity: id, assets: store, heightAt, clipLibrary, tier, prepare });
+      return new HumanActor({ instance, person: person ?? id.person ?? null, identity: id, assets: store, heightAt, clipLibrary, tier, prepare, hairBudget });
     },
 
     /** Transfer only the standing depiction; the vehicle owns its seated actor.
@@ -1493,7 +1504,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
      * interaction radius; it defaults to the camera's ground position.
      */
     update(dt, camera, visitor = null, visualDt = dt) {
-      if (!actors.size || !shown) return;
+      if (!shown || !hairBudget.actors.size) return;
       const eye = camera.getWorldPosition ? camera.getWorldPosition(new THREE.Vector3()) : camera.position;
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
@@ -1518,7 +1529,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
           emit('leave', a);
         }
       }
+      hairBudget.update(null, visualDt, tier);
     },
+    get hairStats() { return { ...hairBudget.stats }; },
 
     /** The selectable, drawn figure under `ndc` (the crosshair when null), nearest first. */
     pickAt(ndc, camera) {
@@ -1555,6 +1568,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
 
     dispose() {
       disposed = true;
+      hairBudget.dispose();
       for (const token of [...withheld.values()]) token.release();
       for (const id of [...actors.keys()]) layer.remove(id);
       group.removeFromParent();

@@ -123,14 +123,21 @@ a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no
   w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05);
   assert.equal(w.walks.length, 2, 'a requested walk advances once on the re-entry frame'); }
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
-const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
+const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},/), 'human layer update')[1];
 // T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.
 // T-3553: `hide` takes a figure a stop's neighbourhood no longer keeps out of sight.
-const layerOf = (shown, kept = () => true) => new Function('actors','near','emit','THREE','shown','kept','hide',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},root:{visible:true},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown,kept,(a)=>{a.root.visible=false;});
-const forwarded=[]; const layer = layerOf(true);
+const layerOf = (shown, kept = () => true) => {
+  const actors = new Map([['one',{inRange:true,instance:{},root:{visible:true},update(...args){forwarded.push(args);}}]]);
+  const hairBudget = {actors,update(...args){hairFrames.push(args);}};
+  return new Function('actors','near','emit','THREE','shown','kept','hide','hairBudget','tier',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(actors,new Set(),()=>{},{},shown,kept,(a)=>{a.root.visible=false;},hairBudget,'full');
+};
+const forwarded=[], hairFrames=[]; const layer = layerOf(true);
 const eye={}; layer(.05,{position:eye},{e:1,n:2},3); assert.deepEqual(forwarded.at(-1),[.05,eye,3]);
 layer(.05,{position:eye}); assert.deepEqual(forwarded.at(-1),[.05,eye,.05],'Optional visual argument retains existing callers');
+assert.deepEqual(hairFrames.at(-1),[null,.05,'full'],'The native layer forwards the same cosmetic interval to its hair budget');
+const beforeHiddenHair = hairFrames.length;
 const beforeHidden = forwarded.length; layerOf(false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'People hidden (T-3439): no figure is updated or loaded');
+assert.equal(hairFrames.length,beforeHiddenHair,'People hidden also stops the native hair-budget tick');
 layerOf(true, () => false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'Held by a jaunt (T-3495): the figure is not updated or loaded');
 
 // Actual shared horse-layer activation: reduced motion, ancestor/range visibility and tier changes cannot bank unseen time.

@@ -375,13 +375,43 @@ def skin_of(bodies, sex):
     return next((b for b in known if lib['bodies'][b]['tone_rgb'] == tone), known[0])
 
 
+def photo_pool(person, scene):
+    """An artistic reference pool, NEVER a new claim about a person's ancestry.
+
+    Read the existing compiled community and explicit card facts. Unknown
+    individuals take the scene's existing European-majority town reconstruction;
+    the 1812 camps keep their recorded Indigenous context. No name or photograph
+    is inspected. Portraits and the visitor's own choices override this field.
+    """
+    row = _ROWS[scene][person['id']]
+    community = row.get('community') or person.get('community')
+    if community in ('free_black', 'black', 'african_american'):
+        return 'black'
+    if community in ('native', 'potawatomi', 'ottawa', 'ojibwe', 'metis'):
+        return 'native_metis'
+    if community in ('chinese', 'east_asian'):
+        return 'east_asian'
+    for fact in person.get('card_facts', []):
+        if fact.get('label') not in ('Community', 'People'):
+            continue
+        value = str(fact.get('value', '')).casefold()
+        if value == 'black chicagoan':
+            return 'black'
+        if any(word in value for word in ('potawatomi', 'ottawa', 'odawa', 'ojibwe', 'miami', 'métis', 'metis')):
+            return 'native_metis'
+        if value in ('chinese', 'chinese american', 'east asian'):
+            return 'east_asian'
+    return 'native_metis' if scene == '1812' and row.get('division') == 'camp' else 'european'
+
+
 def persons():
     """Age and sex of each drawn person as their own record states them, and any fitted face."""
     out = {}
     for pid, drawn in sorted(drawn_people().items()):
         person, file = person_record(pid, drawn['scene'])
         year = int(drawn['scene'])
-        rec = {'scene': drawn['scene'], 'record': f"{RESIDENTS[drawn['scene']].relative_to(ROOT)}/{file}", 'drawn_as': drawn['drawn_as']}
+        rec = {'scene': drawn['scene'], 'record': f"{RESIDENTS[drawn['scene']].relative_to(ROOT)}/{file}", 'drawn_as': drawn['drawn_as'],
+               'photo_pool': photo_pool(person, drawn['scene'])}
         born = person.get('born') or {}
         band = person.get('age_band') or {}
         if str(born.get('value', ''))[:4].isdigit():
@@ -536,7 +566,7 @@ def persons_tables():
     # person keeps a diff readable person by person at 2.6 MB.
     head = {'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
             'generated_by': 'tools/human_variation_kit.py',
-            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), their dress (T-3506, T-3553), and for a person drawn on bodies of more than one skin the body whose skin they wear on all of them (`skin_of`, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
+            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), their dress (T-3506, T-3553), and for a person drawn on bodies of more than one skin the body whose skin they wear on all of them (`skin_of`, T-3553). photo_pool is a reconstructed artistic reference group from existing community/card facts; unknown town residents take the existing European-majority reconstruction, never an ancestry claim. Personal portraits and unrestricted visitor choices override it. One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
     tables = {PERSONS: persons_text({k: v for k, v in out.items() if not own_table(drawn[k])}, head)}
     for scene, path in SCENE_PERSONS.items():
         rows = {k: v for k, v in out.items() if own_table(drawn[k]) and drawn[k]['scene'] == scene}

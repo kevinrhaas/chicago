@@ -43,6 +43,24 @@ function geometryOnly(bytes) {
 const header = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_kit.json', here)));
 const binBytes = await fs.readFile(new URL('assets/humans/web/hm08_variation_kit.bin', here));
 const kit = V.parseVariationKit(header, binBytes.buffer.slice(binBytes.byteOffset, binBytes.byteOffset + binBytes.byteLength));
+// Colour calibration reduces the shared map's cast, not its luminance or the
+// distinctions encoded by each person's complexion. It uses existing gains.
+{
+  assert.equal(V.SKIN_BALANCE_STRENGTH, 0.5, 'retain the reviewed half-strength colour correction');
+  const y = rgb => rgb.reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
+  const { COMPLEXION_TINT } = await import(data((await fs.readFile(new URL('renderers/web/js/human-looks.js', here), 'utf8')).replace("from 'three'", `from '${three}'`)));
+  for (const body of Object.values(header.faces.bodies)) {
+    const tone = body.tone_rgb, gain = V.skinColourBalance(tone), balanced = tone.map((v, i) => v * gain[i]);
+    assert(gain.every(v => Number.isFinite(v) && v > 0));
+    assert(Math.abs(y(balanced) - y(tone)) < 1e-12, 'base luminance is retained');
+    const exposure = y(tone) / y(V.SKIN_WHITE_POINT);
+    const expected = tone.map((v, i) => v * (1 - V.SKIN_BALANCE_STRENGTH) + V.SKIN_WHITE_POINT[i] * exposure * V.SKIN_BALANCE_STRENGTH);
+    balanced.forEach((v, i) => assert(Math.abs(v - expected[i]) < 1e-12, 'bounded white balance retains half the source colour'));
+    const worn = name => y(balanced.map((v, i) => v * COMPLEXION_TINT[name][i]));
+    assert(worn('deep_brown') < worn('copper') && worn('copper') < worn('fair'), 'recorded complexion differences remain ordered');
+  }
+  for (const invalid of [null, [], [1, 2], [1, NaN, 1], [1, 0, 1]]) assert.deepEqual(V.skinColourBalance(invalid), [1, 1, 1]);
+}
 const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here))).persons;
 const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive && !a.rest);   // a rest axis is never drawn (T-3434)
 
@@ -526,8 +544,11 @@ let faceCensus = '';
   const drawn = Object.entries(persons).filter(([, r]) => !r.face?.values && !r.skin).slice(0, 300);
   const given = drawn.map(([key, record]) => [key, record, V.personVariation({ kit: based, key, record, assetId: 'bardwell_otis_1835' })]);
   assert(given.filter(([, , v]) => v.lib).length > given.length / 2, 'most people with no pictures take a face from the library');
-  for (const [key, record, v] of given.slice(0, 40))
-    assert.deepEqual(v.lib, V.libraryFace(based, { key, assetId: 'bardwell_otis_1835', sex: record.sex ?? 'male', age: v.age, complexion: record.looks?.complexion?.drawn ?? null }), `${key}: by the record`);
+  for (const [key, record, v] of given.slice(0, 40)) {
+    const raw = V.libraryFace(based, { key, assetId: 'bardwell_otis_1835', sex: record.sex ?? 'male', age: v.age, complexion: record.looks?.complexion?.drawn ?? null });
+    const balance = V.skinColourBalance(F.bodies[record.skin_of ?? 'bardwell_otis_1835']?.tone_rgb ?? F.bodies.bardwell_otis_1835?.tone_rgb);
+    assert.deepEqual(v.lib, raw ? { ...raw, gain: raw.gain.map((g, i) => g * balance[i]) } : null, `${key}: same recorded face, with the body's neutral colour calibration`);
+  }
   const fitted = Object.entries(persons).filter(([, r]) => r.face?.values);
   assert(fitted.length >= 20 && fitted.some(([k]) => k === 'pa1904_grey_w_l'));
   for (const [key, record] of fitted) assert.equal(V.personVariation({ kit: based, key, record, assetId: 'glessner_john_j_1904' }).lib, null, `${key}: a face fitted to pictures keeps its own skin`);
@@ -597,15 +618,17 @@ let faceCensus = '';
         if (file.endsWith('loops.json')) assert.equal((await read(file)).rows.find(r => r.id === row).person_id, key, `${at} is driven by ${key}`);
         const v = V.personVariation({ kit: based, key, record, assetId, sceneYear: Number(record.scene) || null });
         worn.push(v.lib?.id ?? null); on.push(assetId);
-        // T-3553 (Kevin, 2026-11-15): the skin they wear on every body. On the body it is from
-        // nothing is brought; on another, the skin round the face is brought to that body's.
+        // T-3553: one skin on every body; T-3762 calibrates that source body's
+        // display white point equally on its face and the skin around it.
         const skinOf = record.skin_of ?? null;
-        if (!skinOf || skinOf === assetId) assert.equal(v.even, null, `${key}: on ${assetId}, their own skin's body, nothing brought`);
-        else v.even.forEach((e, k) => assert(Math.abs(e * F.bodies[assetId].gain[k] - F.bodies[skinOf].gain[k]) < 1e-9, `${key}: on ${assetId}, the skin round the face is ${skinOf}'s`));
+        const balance = v.skin ? [1, 1, 1] : V.skinColourBalance(F.bodies[skinOf ?? assetId].tone_rgb);
+        const baseEven = v.skin ? null : V.skinEven(based, assetId, skinOf);
+        const expectedEven = (baseEven ?? [1, 1, 1]).map((n, i) => n * balance[i]);
+        assert.deepEqual(v.even, expectedEven.some(n => n !== 1) ? expectedEven : null, `${key}: body and face share the source skin's calibration`);
         if (!v.lib) continue;
         const f = F.faces[v.lib.index], sex = record.sex ?? header.assets[assetId]?.sex ?? 'male', complexion = record.looks?.complexion?.drawn ?? null;
         assert(!record.face?.values && !record.skin, `${key}: a person with a face or a sheet of their own takes none`);
-        assert.deepEqual(v.lib.gain, F.bodies[skinOf ?? assetId].gain, `${key}: the gain of the body whose skin they wear`);
+        assert.deepEqual(v.lib.gain, F.bodies[skinOf ?? assetId].gain.map((n, i) => n * balance[i]), `${key}: the gain and calibration of the body whose skin they wear`);
         const third = !Number.isFinite(v.age) || v.age < F.ages.middle_from ? 0 : v.age < F.ages.old_from ? 1 : 2;
         assert(thirds.indexOf(f.age) <= third, `${key}, ${v.age}, wears a face older than they are (${f.id})`);
         if (v.age < F.ages.child_under) assert(f.sex === 'female' && f.age === 'young', `${key}, a child, wears ${f.id}`);
@@ -659,13 +682,15 @@ let faceCensus = '';
   assert(disposed >= 4, 'disposeVariants frees them with their source'); }
 
 // T-3553 (Kevin, 2026-11-15): a coachman at his door, on a body of a lighter skin than the
-// box's, is given the box's skin to wear (human-skin.js reads it); on the box, nothing.
+// box's, is given the box's skin to wear (human-skin.js reads it). T-3762 applies
+// the same display calibration to that source skin on both bodies.
 { const daniels = 'pa1904_armour_mrs_philip_d_c1900_joseph_daniels', record = persons[daniels];
-  for (const [asset, brought] of [['nelson_charles_1904_coachman', true], ['anonymous_working_driver_1904', false]]) {
+  for (const asset of ['nelson_charles_1904_coachman', 'anonymous_working_driver_1904']) {
     const s1 = await figure(asset, 2);
     V.applyVariation(s1, kit, V.personVariation({ kit, key: daniels, record, assetId: asset, sceneYear: 1904 }));
-    if (brought) assert.deepEqual(s1.userData.chiSkinEven, V.skinEven(kit, asset, record.skin_of), 'at his door: the box\'s skin');
-    else assert.equal(s1.userData.chiSkinEven, undefined, 'on the box: his own body\'s skin');
+    const even = V.skinEven(kit, asset, record.skin_of) ?? [1, 1, 1];
+    const balance = V.skinColourBalance(header.faces.bodies[record.skin_of ?? asset].tone_rgb);
+    assert.deepEqual(s1.userData.chiSkinEven, even.map((v, i) => v * balance[i]), `${asset}: the box's skin with its shared display calibration`);
   } }
 
 // T-3572: the fit a source keeps for all its wearers, and the bounded search for where a

@@ -89,6 +89,11 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
         const url=new URL('photo_faces/children/runtime.json',jsonURL),r=await fetchImpl(url);
         if(r.ok)attachChildPhotoLibrary(kit,await r.json(),url);
       }catch{/* Keep the child's existing appearance if its own source library fails. */}
+      const portraitsOff=typeof location!=='undefined'&&new URLSearchParams(location.search).get('personPhotos')==='off';
+      if(!portraitsOff)try{
+        const url=new URL('photo_faces/historical/review.json',jsonURL),r=await fetchImpl(url);
+        if(r.ok)attachPhotoPortraits(kit,await r.json(),url);
+      }catch{/* A missing personal photograph never substitutes another person's face. */}
     }
     return kit;
   } catch { return null; }
@@ -98,7 +103,8 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
 export function attachPhotoLibrary(kit, library, manifestURL) {
   if (!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library?.format)
       || !(library.review_only===true||library.review_only===false&&library.activation?.requested_by==='owner'&&library.activation?.tier==='dev')
-      || !Array.isArray(library.faces) || !library.faces.length || library.faces.length > 256 || !library.textures?.light
+      || !Array.isArray(library.faces) || !library.faces.length || library.faces.length > 512
+      || new Set(library.faces.map(f=>f.id)).size!==library.faces.length || !library.textures?.light
       || !(library.textures.light.gpu_bytes_rgba8_mipmaps > 0)
       || library.textures.light.gpu_bytes_rgba8_mipmaps > 5_600_000
       || library.pages?.some(p => !p.textures?.full || p.textures.full.gpu_bytes_rgba8_mipmaps > 5_600_000)) return false;
@@ -114,24 +120,40 @@ export function attachChildPhotoLibrary(kit,library,manifestURL){
   kit.photoChildren=checked.photoFaces;return true;
 }
 
-/** Stable age-compatible assignment. Personal portraits and visitor-selected faces win.
- * T-3553 (Kevin, 2026-11-27, the You tab's face library): a visitor who chose a face of this
- * library (`pick`, its id) wears that face; one who chose a painted face (face_library.json)
- * or the body's own wears none of these. A visitor's Style 3 on Auto draws from the other
- * body's faces (`faceOf`, as libraryFace does since T-3756); nobody of the town has either. */
-export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null, faceOf = null }) {
-  if (typeof pick === 'string' && !own) return kit?.photoFaces?.faces?.find(f => f.id === pick && f.population !== 'child') ?? null;
+/** Exact person and scene bindings; a labelled stand-in remains a stand-in. */
+export function attachPhotoPortraits(kit,library,manifestURL){
+  const checked={};
+  if(!attachPhotoLibrary(checked,library,manifestURL)
+    ||library.textures.light.gpu_bytes_rgba8_mipmaps>350_000
+    ||!library.faces.every(f=>f.synthetic===false&&(f.texture_only===true||f.historical?.shape_mode==='new_photo_fit')&&f.population==='person'
+      &&f.historical?.person_id===f.id&&/^\d{4}$/.test(f.historical.scene)
+      &&['own_portrait','labelled_stand_in'].includes(f.historical.identity_basis)
+      &&(f.historical.identity_basis!=='labelled_stand_in'||f.historical.stand_in?.label?.startsWith('STAND-IN')))
+    ||new Set(library.faces.map(f=>f.id)).size!==library.faces.length)return false;
+  kit.photoPortraits=checked.photoFaces;return true;
+}
+
+/** Stable age-compatible assignment. Personal portraits and visitor-selected faces win. */
+export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null, pool = null, visitor = false, faceOf = null }) {
   const child=Number.isFinite(age)&&age<18,P=child?kit?.photoChildren:kit?.photoFaces;
-  if (!P || own || pick || !Number.isFinite(age)) return null;
+  if (!P || own || !Number.isFinite(age)) return null;
+  if (pick) return visitor ? P.faces.find(f=>f.id===pick)??null : null;
   const wears = !child && (faceOf === 'male' || faceOf === 'female') ? faceOf : sex;
-  const candidates = P.faces.filter(f => (f.sex===wears||child&&sex==='either')
+  let candidates = P.faces.filter(f => (f.sex===wears||child&&sex==='either')
     &&(child?f.population==='child'&&f.age>=2&&f.age<18&&f.age>=age-4&&f.age<=age+3:f.age>=18));
+  // Community belongs to the population records, never to a guess from a name
+  // or a face. New fictional references declare their creation brief. Visitors
+  // can choose ANY compatible face independently of NPC historical defaults.
+  if (!visitor && pool) {
+    const grouped=candidates.filter(f=>f.reference_pool===pool);
+    if(grouped.length)candidates=grouped;
+  }
   if (!candidates.length) return null;
   const tint = kit.header.faces?.complexions?.[complexion] ?? [1, 1, 1];
   const body = kit.header.faces?.person_tone_rgb?.[sex] ?? [.6, .3, .15];
   const target = body.reduce((sum, v, i) => sum + v * tint[i] * [0.2126, 0.7152, 0.0722][i], 0);
   const weighted = candidates.map(f => {
-    const tone = f.tone_rgb.reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+    const tone = (f.selection_tone_rgb ?? f.tone_rgb).reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
     return [f, Math.exp(-.5*((f.age-age)/(child?3:12))**2) * Math.exp(-.5*(Math.log2(tone/target)/.8)**2)];
   });
   let at = seededRandom(`photo-face-pilot:${key}`)() * weighted.reduce((sum,[,w])=>sum+w,0);
@@ -245,6 +267,20 @@ export function skinEven(kit, assetId, skinOf) {
   return even.every((x) => Number.isFinite(x) && x > 0) ? even : null;
 }
 
+// T-3762: the shared body maps have a strong orange cast. Reduce that base cast
+// before applying each person's existing complexion tint. Keep the body's
+// luminance, and leave colour photographs/owned skin sheets at their own colour.
+// This is a reconstructed display white point, not evidence of anyone's ancestry.
+export const SKIN_WHITE_POINT = Object.freeze([0.60, 0.40, 0.30]);
+export const SKIN_BALANCE_STRENGTH = 0.5;
+export function skinColourBalance(tone) {
+  if (!Array.isArray(tone) || tone.length !== 3 || !tone.every(v => Number.isFinite(v) && v > 0)) return [1, 1, 1];
+  const weights = [0.2126, 0.7152, 0.0722];
+  const luminance = rgb => rgb.reduce((sum, v, i) => sum + v * weights[i], 0);
+  const exposure = luminance(tone) / luminance(SKIN_WHITE_POINT);
+  return SKIN_WHITE_POINT.map((v, i) => 1 + SKIN_BALANCE_STRENGTH * (v * exposure / tone[i] - 1));
+}
+
 /**
  * T-3553: a smile the face moves into. A person whose front picture grins rests with their
  * mouth shut, as their other pictures show it, and their row (`skin.smile`, fitted to the front
@@ -351,26 +387,45 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
       else values[k] = v;
     }
   }
-  const photo = photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
+  const portrait=!childBody&&age>=18&&!record?.skin&&!record?.looks?.face_pick?kit.photoPortraits?.faces.find(f=>
+    f.id===key&&f.historical.scene===String(sceneYear??record?.scene)&&f.sex===(record?.sex??asset.sex??'male')):null;
+  const photo = portrait??photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
     own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn,
-    faceOf: record?.looks?.face_of ?? null });
+    pool:record?.photo_pool??null,visitor:!!record?.visitor,faceOf:record?.looks?.face_of??null });
   if (photo&&!photo.texture_only) for (const [k,v] of Object.entries(photo.values)) {
     if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
     else values[k] = v;
   }
   const photoBody = kit.header.faces?.bodies?.[record?.skin_of ?? assetId] ?? kit.header.faces?.bodies?.[assetId];
-  const photoRegistry=photo?.population==='child'?kit.photoChildren:kit?.photoFaces;
+  const referenceBody = kit.header.faces?.bodies?.[photo?.base_body];
+  const actualBody = kit.header.faces?.bodies?.[assetId];
+  const ownSkin = !!(face?.values && record?.skin);
+  const colourPhoto = !!(photo && !photo.historical?.monochrome && photo.body_gain);
+  const balance = ownSkin || colourPhoto ? [1, 1, 1] : skinColourBalance(photoBody?.tone_rgb);
+  const photoRegistry=portrait?kit.photoPortraits:photo?.population==='child'?kit.photoChildren:kit?.photoFaces;
   const page = photo && photoRegistry.pages?.[photo.page];
   const photoLib = photo && photoBody ? {
     url: photoRegistry.url, index: photo.index, id: photo.id, cols: photoRegistry.cols,
     size_px: photoRegistry.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px,
-    gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])), lines: 0,
+    ...(photoRegistry.face_mask ? { mask: photoRegistry.face_mask } : {}),
+    gain: colourPhoto?[1,1,1]:photo.body_gain&&referenceBody
+      ?photo.body_gain.map((v,i)=>photoBody.gain[i]/referenceBody.gain[i]/v)
+      :photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])),
+    lines: portrait?Math.min(1,Math.max(0,age-photo.age)/Math.max(1,age-28)):0,
     ...(page ? { detail: { url: new URL(page.textures.full.file, photoRegistry.url).href,
       bytes: page.textures.full.gpu_bytes_rgba8_mipmaps, index: photo.page_index,
       cols: page.cols, size_px: page.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px } } : {}),
   } : null;
+  const library = photoLib ?? libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null, faceOf: record?.looks?.face_of ?? null });
+  // Carry a colour reference to the WHOLE skin. Repainting a photograph to the
+  // stock orange body, then applying its complexion again, lost the source and
+  // left the face looking pasted on. Correct the reference/actual body ratio too
+  // (a coachman may wear the same face seated and on foot).
+  const even = colourPhoto ? photo.body_gain.map((v,i)=>v*(referenceBody?.gain[i]??1)/(actualBody?.gain[i]??1))
+    : ownSkin ? null : skinEven(kit, assetId, record?.skin_of ?? null);
+  const balancedEven = (even ?? [1, 1, 1]).map((v, i) => v * balance[i]);
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
-    photoFace: photoLib ? photo : null,
+    photoFace: photoLib ? { ...photo, customize_colour:!!record?.visitor } : null,
     trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear,
     // T-3553: a standing collar worn lower on the neck than the body's own (`dress.collar`).
     collar: record?.dress?.collar ?? null,
@@ -378,10 +433,10 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: photoLib ?? libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null, faceOf: record?.looks?.face_of ?? null }),
+    lib: library ? { ...library, gain: library.gain.map((v, i) => v * balance[i]) } : null,
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
-    even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
+    even: balancedEven.some(v => v !== 1) ? balancedEven : null };
 }
 
 /** The axes a scope may use. */

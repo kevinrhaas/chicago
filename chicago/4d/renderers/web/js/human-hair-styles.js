@@ -59,6 +59,13 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 5.5, back: 17 }), scalp_cards: false,
     lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
   }),
+  // T-3792: the same period bun and fitted cap, with fine overlapping hair at
+  // close range. The original cap remains the Light/crowd silhouette underneath.
+  layered_back_bun_1904: Object.freeze({
+    flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 6, side: 5, back: 4 }),
+    knot_cm: Object.freeze({ up: 5.5, back: 17 }), scalp_cards: true, layered: true,
+    lift_mm: Object.freeze({ root: .25, tip: .8 }), density: 1.15, curl: .02, hang: false, card_mm: 1.8,
+  }),
   // An older man's fringe of about 1900 (T-3440, John J. Glessner): the crown bald from the
   // brow back over the top; short hair left at the sides and around the back, brushed back and
   // a little full over the ears, as his 1897 portrait plate shows it. `bald` keeps hair only
