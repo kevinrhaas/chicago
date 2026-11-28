@@ -215,6 +215,7 @@ export default {
  "every viewpoint, building, corner and photo": "cada mirador, edificio, esquina y foto",
  "rise above the town: ▲ ▼ appear bottom-right": "elévate sobre el pueblo: ▲ ▼ aparecen abajo a la derecha",
  "Click to look around": "Haz clic para mirar alrededor",
+ "Drag to look around": "Arrastra para mirar alrededor",
  "Quick controls": "Controles rápidos",
  "Inspect": "Examinar",
  "Interact ·": "Interactuar ·",

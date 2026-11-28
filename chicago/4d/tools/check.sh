@@ -4932,6 +4932,11 @@ step "1871 city, infrastructure and terrain are reproducible" \
 step "1871 street furniture and street trees re-lay from the city (T-3686)" \
   python3 tools/lay_1871_street_furniture.py --check
 
+# T-3805: the street dress round the jaunt stops is laid clear of doorways, board crossings,
+# carriage ways and the walk's through-path; the furniture check refuses each of those.
+selftest "1871 street furniture check refuses doorways, crossings and the through-path (T-3805)" \
+  python3 tools/lay_1871_street_furniture.py --self-test
+
 # T-3803. The shop signs round the 1871 jaunt stops carry firms of Edwards' 1871 directory at
 # their listed numbers: every firm sits on its face's parity and number span, every street's
 # numbering carries its evidence, and every listing keeps its page and line.
@@ -5086,6 +5091,11 @@ step "launch access: rights by email, owner-only admin, the Admin panel's import
 # the budget; the machine scripts parse and gate the stream by the session's token.
 step "cloud play starter: tokens, rights, the machine, hours cap, budget stop (T-3793..T-3795)" \
   node tools/test_stream_starter.mjs
+
+# Cloud play looks by dragging (?look=drag): a streamed browser cannot pass the pointer lock to
+# the player's own, so the left button held turns the view and a plain click stays a click.
+step "cloud play drag look: ?look=drag turns by dragging, asks for no lock (T-3794)" \
+  node tools/test_drag_look.mjs
 
 # The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
 # site/js/films.js names each by the hash of its bytes, and every film has its poster.
