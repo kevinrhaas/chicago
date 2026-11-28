@@ -23,6 +23,8 @@
  *   5c. a command refuses over local edits to tickets it was not asked to change,
  *      pushing nothing and discarding nothing, while an edit to the ticket it names
  *      still rides it (T-2280);
+ *   5d. `claim --force` passes the advisory questions but never a LIVE claim; only
+ *      `--steal --why "…"` takes one, and the reason rides the claim's commit (T-3832);
  *   6. `check` refuses a checkout with no tickets at all rather than passing it.
  */
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, readdirSync, cpSync, existsSync, chmodSync } from 'node:fs';
@@ -322,6 +324,27 @@ exec ${JSON.stringify(realGit)} "$@"
   const closed = remote('T-1500-1749/T-1502-second.md');
   check('an edit to the ticket the command names still rides it',
     r.status === 0 && front(closed, 'state') === 'review' && /A finding added before closing\./.test(closed), r.stdout + r.stderr);
+
+  // T-3832: T-1938's shape. Two slices, one ticket, 33 s apart: the second forced past a
+  // branch it judged litter, and the same `--force` silently took the first slice's live
+  // claim. T-1503 is A's claim from minutes ago, carrying a pending question besides —
+  // an advisory refusal `--force` is allowed to pass. The live claim is not one.
+  console.log('5d. --force never takes a live claim; --steal does, and says why (T-3832)');
+  const heldBy = front(remote('T-1500-1749/T-1503-third.md'), 'claimed_by');
+  check('T-1503 is a live claim of run A', front(remote('T-1500-1749/T-1503-third.md'), 'state') === 'claimed' && !!heldBy);
+  r = tool(B, 'claim', 'T-1503', '--force');
+  check('claim --force on a live claim is REFUSED', r.status === 1 && /IS ALREADY CLAIMED/.test(r.stderr), r.stdout + r.stderr);
+  check('…saying --force never takes one, and naming --steal as the way',
+    /never takes a live claim \(T-3832\)/.test(r.stderr) && /--steal --why/.test(r.stderr), r.stderr);
+  check('…and the claim on the remote is still run A\'s', front(remote('T-1500-1749/T-1503-third.md'), 'claimed_by') === heldBy);
+  r = tool(B, 'claim', 'T-1503', '--force', '--steal');
+  check('--steal with no --why is refused before anything is read',
+    r.status === 1 && /must say why/.test(r.stderr) && front(remote('T-1500-1749/T-1503-third.md'), 'claimed_by') === heldBy, r.stderr);
+  r = tool(B, 'claim', 'T-1503', '--force', '--steal', '--why', 'run A was cancelled', '--by', 'run b');
+  check('--steal --why takes the live claim', r.status === 0 && /claimed_by: run b /.test(remote('T-1500-1749/T-1503-third.md')), r.stdout + r.stderr);
+  check('…and says so on the console, never silently', /STEALING A LIVE CLAIM .*because: run A was cancelled/.test(r.stdout), r.stdout);
+  check('…and the reason rides the claim\'s commit on the tickets repo',
+    /STOLE the live claim on T-1503: run A was cancelled/.test(git(root, '--git-dir', bare, 'log', '-1', '--format=%s', 'main').stdout), git(root, '--git-dir', bare, 'log', '-1', '--format=%s', 'main').stdout);
 
   console.log('6. no tickets is a failure, not a pass');
   const empty = path.join(root, 'empty', 'chicago', '4d');

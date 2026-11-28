@@ -513,7 +513,14 @@ is the contract. The short form:
   `claim/t-NNNN` before you do any work, and the push is a compare-and-swap the GitHub
   server decides — two runs claiming in the same second cannot both win. **If it tells
   you the ticket is already claimed, it is: take the next workable ticket.** That
-  message is not advisory and `--force` is not the way past it.
+  message is not advisory and `--force` is not the way past it — and since T-3832 the
+  code agrees. `--force` passes the ADVISORY refusals (a rival branch, an open PR
+  carrying the ticket, a busy house, a pending decision); it never takes a LIVE claim,
+  which `claim` now asks about first. On 2026-11-28 two slices took T-1938 33 s apart:
+  the second forced past a branch it read as litter, the same flag swept the first
+  slice's seconds-old claim away with it, and 2021 Prairie's stable was built twice
+  (#2426, #2428). Taking a live claim is `claim T-NNNN --steal --why "…"`, for a run
+  you KNOW is dead (its Actions run ended); the reason rides the claim's commit.
   - This exists because six open PRs on 2026-09-11 were six runs working tickets another
     run had already finished. Claiming EARLIER is no protection: T-1008's loser claimed
     an hour BEFORE the winner. A claim reaches `dev` only when its PR merges, so until
@@ -617,7 +624,8 @@ is the contract. The short form:
   top of the queue and the next run rebuilds the same work. It cost about seventy minutes
   on 2026-08-19 (run 943's PR #258 left open, run 944 redoing T-0062 as #259). `claim` now
   checks `git ls-remote` for a rival branch carrying the ticket's number and refuses with a
-  `--force` escape — but that only protects the NEXT run; finishing the PR is your half.
+  `--force` escape (which passes the branch, never a live claim — T-3832) — but that only
+  protects the NEXT run; finishing the PR is your half.
   That scan skips `claim/*` (the lock is the authority on a live claim and says who holds
   it) and, since T-1666, `idlock/*` — the ID-MINT LEASE every ticket carries from the day
   it was filed. Reading those as work refused EVERY unclaimed ticket, so `--force` became

@@ -23,7 +23,8 @@
  *      branch scan always had and must keep: no remote ⇒ claim succeeds.
  *   3. IT STRANDS A TICKET — a run dies holding a claim and nobody can ever take
  *      it again. A marker older than RUN_HOURS must be stolen automatically.
- *   4. IT STEALS A LIVE ONE — a claim younger than RUN_HOURS is never stolen.
+ *   4. IT STEALS A LIVE ONE — a claim younger than RUN_HOURS is never stolen, and
+ *      `--force` does not steal it either (T-3832): only `--steal --why "…"` does.
  *   5. THE STEAL ITSELF RACES — two runs stealing one dead claim both win. The
  *      steal leases on the sha the marker holds, so exactly one can succeed;
  *      asserted directly against the remote with a stale expected value.
@@ -202,7 +203,12 @@ const boxes = [];
   ageMarker(s.clones[0], s.origin, 'T-0001', 1);
   const r = claim(s.clones[1], 'T-0001');
   check('a claim younger than a run is NOT stolen', r.code !== 0, `exit ${r.code}`);
-  check('--force takes it anyway', claim(s.clones[1], 'T-0001', ['--force']).code === 0);
+  // T-3832: `--force` used to take it too, and that is how two slices built T-1938's
+  // stable twice. `--force` passes the advisory checks; only `--steal --why` takes a lock.
+  check('--force does NOT take it (T-3832)', claim(s.clones[1], 'T-0001', ['--force']).code !== 0);
+  check('--steal without --why is refused', claim(s.clones[1], 'T-0001', ['--steal']).code !== 0);
+  check('--steal --why takes it, deliberately',
+    claim(s.clones[1], 'T-0001', ['--steal', '--why', 'that run was cancelled']).code === 0);
 }
 
 /* 5. two runs stealing ONE dead claim: the lease decides, and only one wins. */
