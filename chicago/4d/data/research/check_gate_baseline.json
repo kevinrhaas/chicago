@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 431,
-    "gated": 417,
-    "ungated": 14
+    "check_capable": 403,
+    "gated": 390,
+    "ungated": 13
   },
   "ungated": [
     {
@@ -36,13 +36,6 @@
       "tool": "tools/rename_household_ids.py",
       "other_modes_in_check_sh": [],
       "why_not_gated": "A spent one-shot. `--check` exits 2 refusing: no household carries a legacy hh_doc_/hh_placed_/hh_ll_ prefix any more, so the migration is done and there is no committed file left for it to re-derive. Retire the mode, or the tool, rather than gate it."
-    },
-    {
-      "tool": "tools/restamp_stale.py",
-      "other_modes_in_check_sh": [
-        "--self-test"
-      ],
-      "why_not_gated": "An action, not a derivation check: the steward batch (.github/steward/pr-batch.sh) runs it once on the merged branch to re-stamp the meshes validate lists as stale. Its --check lists what is stale right now and exits 1 if anything is, which on any branch carrying an un-restamped mesh edit is the expected state before the batch runs, so gating it would fail ordinary PRs for work the batch does after them. The gate runs its --self-test (routing each stale id to the emitter its manifest entry names)."
     },
     {
       "tool": "tools/trace_shoreline.py",
