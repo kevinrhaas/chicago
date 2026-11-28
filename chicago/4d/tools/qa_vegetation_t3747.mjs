@@ -2,8 +2,9 @@
 // only those files are substituted, so both renders use the same assets/data.
 // QA_YEAR=1812,1835,1871,1904 QA_VIEWPORT=desktop|mobile QA_TIERS=light,balanced,full
 // QA_SEASONS=summer,spring,fall,winter QA_FRAMES=9 (3 for shader/image checks)
+// QA_PAIRS=light:summer,balanced:winter limits cases without rebooting the scene.
 // QA_MODES=1 also checks night and Confidence view once per scene/viewport.
-// QA_STAND=water_tower|pumping_tree selects a diagnostic 1871 viewpoint.
+// QA_STAND=water_tower|context_tree selects a diagnostic 1871 viewpoint.
 // QA_TAG=before|after QA_OUT=/path QA_BEFORE=/path/to/old/js PW_EXECUTABLE=... node ...
 import fs from 'node:fs';
 import http from 'node:http';
@@ -18,6 +19,7 @@ fs.mkdirSync(out, { recursive: true });
 const tag = process.env.QA_TAG || 'after';
 const frames = Math.max(3, Number(process.env.QA_FRAMES || 9));
 const stand = process.env.QA_STAND || null;
+const probeId = process.env.QA_CONTEXT_TREE_ID || 'tree1871_9715';
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
   '.css': 'text/css', '.glb': 'model/gltf-binary', '.wasm': 'application/wasm',
   '.webp': 'image/webp', '.ktx2': 'image/ktx2', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
@@ -85,6 +87,7 @@ try {
       });
       const seasons = (process.env.QA_SEASONS || 'summer').split(',');
       const tiers = (process.env.QA_TIERS || 'light,balanced,full').split(',');
+      const pairs = process.env.QA_PAIRS ? new Set(process.env.QA_PAIRS.split(',')) : null;
       // Hold each tier while exercising every season; this avoids rebuilding
       // the entire placement plan once per season while keeping all cases.
       for (const detail of tiers) {
@@ -102,6 +105,7 @@ try {
           });
         }, detail);
       for (const season of seasons) {
+        if (pairs && !pairs.has(`${detail}:${season}`)) continue;
         await page.evaluate(async season => {
           const a = __chicago4d;
           a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
@@ -113,16 +117,23 @@ try {
           !layer?.stats?.grown?.stems || layer.stats.mode === 'hidden'
             || layer.group.children.some(o => o.name?.endsWith('s-grown'))));
         console.log(tag, year, viewport, detail, 'built');
-        const row = await page.evaluate(({ year, detail, season, frames, stand }) => {
+        const row = await page.evaluate(({ year, detail, season, frames, stand, probeId }) => {
           const a = __chicago4d;
           console.info('[vegetation] positioning');
           const trunks = a.trees?.trunks?.() || [];
           const spawn = a.scene.spawn;
           let eye, target;
-          if (year === '1904') { eye = [1401, -3240, 1.7]; target = [1403, -3300, 18]; }
+          if (year === '1904' && stand === 'back_yard') { eye = [1460, -3285, 1.7]; target = [1465, -3292, .4]; }
+          else if (year === '1904') { eye = [1401, -3240, 1.7]; target = [1403, -3300, 18]; }
+          else if (stand === 'garden' && year === '1812') { eye = [1128, 101, 1.7]; target = [1140, 122, 1]; }
           else if (year === '1871') {
             if (stand === 'water_tower') { eye = [1138, 1084, 1.7]; target = [1150, 1154, 10]; }
-            else if (stand === 'pumping_tree') { eye = [1168, 1127.5, 1.7]; target = [1175.08, 1137.74, 6]; }
+            else if (stand === 'context_tree') {
+              const record = a.contextCity.doc.trees.find(t => t.id === probeId);
+              if (!record) throw Error(`context probe ${probeId} is missing from the current dataset`);
+              eye = [record.e + 3, record.n - 5, 1.7];
+              target = [record.e, record.n, Math.min(5, record.height_m * .6)];
+            }
             else { eye = [901, -573, 1.7]; target = [900, -500, 8]; }
           }
           else {
@@ -144,6 +155,7 @@ try {
           a.trees?.update?.(0, a.camera); a.trees?.settle?.();
           a.streetTrees?.update?.(0, a.camera); a.streetTrees?.settle?.();
           a.frontYards?.update?.(0, a.camera); a.contextCity?.update?.(0, a.camera);
+          a.gardens?.settle?.(a.camera); a.backYards?.settle?.(a.camera);
           document.getElementById('nav-close')?.click();
           document.getElementById('panel-close')?.click();
           console.info('[vegetation] reading frames');
@@ -167,14 +179,51 @@ try {
             }
             for (const m of [].concat(o.material || [])) for (const v of Object.values(m)) if (v?.isTexture) textures.add(v);
           });
-          return { year, detail, season, stand, sunDate: a.season.sunDate, eye, target, triangles: a.renderer.info.render.triangles,
+          let portableContextMeshes=0;
+          a.contextCity?.group?.traverse(o=>{if(o.isMesh&&o.userData.treeCount>0)portableContextMeshes++;});
+          const probeStem=a.contextCity?.treeStems?.().find(t=>t.id===`context:1871:${probeId}`);
+          const probeInstances=[];
+          if(probeStem) {
+            const m=a.camera.matrixWorld.clone();
+            a.streetTrees?.group?.traverse(o=>{
+              if(!o.isBatchedMesh)return;
+              for(const [i,instance] of o._instanceInfo.entries()) {
+                if(!instance.active||!o.getVisibleAt(i))continue;
+                o.getMatrixAt(i,m);
+                if(Math.hypot(m.elements[12]-probeStem.e,m.elements[14]+probeStem.n)<.001)
+                  probeInstances.push({batch:o.name,y:m.elements[13],geometry:o.getGeometryIdAt(i)});
+              }
+            });
+          }
+          const contextAudit=year==='1871'?{
+            handedOff:a.contextCity?.census?.handedOffTrees ?? 0,
+            grownContext:a.streetTrees?.stats?.context ?? 0,
+            portableContextMeshes,
+            probeTreeName:a.streetTrees?.cardFor?.(`context:1871:${probeId}`)?.sidecar?.name ?? null,
+            probeStem:probeStem?{...probeStem,card:undefined,ground:a.terrain.surfaceHeight(probeStem.e,probeStem.n)}:null,
+            probeInstances,
+            recordedContext:a.contextCity.doc.trees.length,
+            currentStreetRecords:(a.streetTrees?.records ?? []).length,
+            oldPumpingTreeStillPresent:a.contextCity.doc.trees.some(t=>t.id==='tree1871_8387'),
+            priorCandidateContainsBuilding:[[548.89,800.34],[539.6,800.24]].map(([e,n])=>a.contextCity?.containsBuilding?.(e,n) ?? null),
+          }:null;
+          return { year, detail, season, stand, contextAudit, sunDate: a.season.sunDate, eye, target, triangles: a.renderer.info.render.triangles,
             calls: a.renderer.info.render.calls, memory: { ...a.renderer.info.memory },
             keptGeometryBytes: geometryBytes, materialTextures: textures.size, frameSamples: samples.length,
             frameMs: { median: samples[Math.floor(samples.length / 2)], max: samples.at(-1) },
             pixelRatio: a.renderer.getPixelRatio(), device: a.device, problems: a.problems,
+            gardens: { ...a.gardens?.stats }, backYards: { ...a.backYards?.stats },
             treeCount: a.trees?.stats?.grown?.stems, streetTreeCount: a.streetTrees?.stats?.grown?.stems };
-        }, { year, detail, season, frames, stand });
+        }, { year, detail, season, frames, stand, probeId });
         console.log('metrics', JSON.stringify({ year, detail, triangles: row.triangles, calls: row.calls, frameMs: row.frameMs }));
+        if (year === '1871' && tag === 'after') {
+          const audit = row.contextAudit;
+          if (audit.handedOff !== audit.recordedContext || audit.grownContext !== audit.recordedContext
+            || audit.portableContextMeshes !== 0 || audit.oldPumpingTreeStillPresent)
+            throw Error(`current context planting handoff failed: ${JSON.stringify(audit)}`);
+          if (stand === 'context_tree' && audit.probeInstances.length !== 2)
+            throw Error(`the current context probe must have wood and leaf instance slots: ${JSON.stringify(audit)}`);
+        }
         const image = `${tag}-${year}-${viewport}-${detail}-${season}${stand ? `-${stand}` : ''}.jpg`;
         await page.screenshot({ path: path.join(out, image), type: 'jpeg', quality: 90, timeout: 400000 });
         row.image = image; row.viewport = viewport; row.errors = [...errors];
