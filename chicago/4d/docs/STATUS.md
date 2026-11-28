@@ -10,7 +10,9 @@ carriage blocks; Lake Street's poles at 15 m with eight crossarms (the late-1860
 the fire-alarm wires from the Court House cupola to the roofs round the square (Andreas). Sunday:
 no display goods. `tools/lay_1871_street_furniture.py` checks every item clear of doorways,
 crossings, carriage ways and the walk's through-path (`--self-test` in check.sh).
-`L-1871-street-dress-3805`.
+Cost (swiftshader, published): light tier +1 to +4 draws at the walk stands (coal plates and cellar
+doors are not drawn there), full +5 to +17; data file +29 KB gzipped. Shots:
+`tools/street_dress_shots_1871.mjs`. `L-1871-street-dress-3805`.
 
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
