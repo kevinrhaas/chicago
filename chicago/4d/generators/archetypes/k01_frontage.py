@@ -5812,6 +5812,16 @@ class Assembly:
         return (("south" in flanks and min(zs) >= -t - 1e-6 and max(zs) <= 1e-6)
                 or ("north" in flanks and min(zs) >= -W - 1e-6 and max(zs) <= -W + t + 1e-6))
 
+    def _on_raised_front(self, tri, n):
+        """T-3730: whether a parapet-role face is the raised front's street face or the cheek
+        over the lower slope (k01_gable_roof.raised): inside its box and not its north end,
+        which is the north side wall carried up and keeps that wall's brick."""
+        box = (getattr(self, "gable_roof", None) or {}).get("raised_front_box")
+        if not box or not self.p.stone or n[2] < -0.5:
+            return False
+        x0, x1, z0, z1, y0 = box
+        return all(x0 - 1e-6 <= q[0] <= x1 and z0 <= q[2] <= z1 and q[1] >= y0 - 1e-6 for q in tri)
+
     def _in_gable_dormer(self, tri, boxes=None):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box
         (T-3307: or in one of `boxes`, and then only those, never a turned one)."""
@@ -5854,6 +5864,9 @@ class Assembly:
             elif role == "parapet" and self._on_stone_flank((pts[a], pts[b], pts[c])):
                 mat = "rough_stone_trim"                  # T-3730: a gable roof's parapet carried up on a
                                                           # flank laid in the front's stone (2130's south gable)
+            elif role == "parapet" and self._on_raised_front((pts[a], pts[b], pts[c]), n):
+                mat = "rough_stone_trim"                  # T-3730: the raised front's wall and its cheek,
+                                                          # the front's stone (2130's, beside its tower)
             elif role == "parapet" and self.front_brick != "brick" and min(
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_gable_u", math.inf):
                 mat = self.front_brick                    # T-3093: the shaped gable's brick, the front's

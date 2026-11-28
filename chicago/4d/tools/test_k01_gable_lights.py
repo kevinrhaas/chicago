@@ -6,7 +6,11 @@
     flat lintel, all on the gable's own wall component (`k01.wall.gable_end.<side>`);
   * a light that does not stand wholly in the parapet is refused: a sill under the soffit the
     parapet rises from, a lintel past the gable's top line, one at a corner, two lights with
-    no pier between their lintels, or any spec the kit does not take.
+    no pier between their lintels, or any spec the kit does not take;
+  * `gable_roof.raised_front` carries the front's high-v part up as wall to its own eave (2130's
+    beside its tower): the roof's solid reaches that eave over the front there and keeps the
+    house's eave south of it, its wall faces are the front's stone and its north end the north
+    wall's brick, and a raised front out of the house's bounds is refused.
 
     python3 tools/test_k01_gable_lights.py
 """
@@ -80,6 +84,50 @@ refused(lambda ls: ls[0].update(back_m=0.4), "a light at the front corner", "cor
 refused(lambda ls: ls.append(dict(ls[0], back_m=3.3)), "two lights with no pier between their lintels", "leaves no")
 refused(lambda ls: ls[0].update(head="round"), "a key the kit does not take", "takes")
 refused(lambda ls: ls[0].update(clear_width_m=2.0), "a light wider than 1.5 m", "0.4-1.5 m wide")
+
+
+# T-3730: the front's north part carried up to the cone's eave, roofed and hipped to the ridge
+rf = p.gable["raised_front"]
+check(rf["from_v_m"] == 3.8 and rf["eave_m"] == 11.2, f"the raised front resolves from v 3.8 to an 11.2 m eave ({rf})")
+check(rf["ridge_m"] < p.gable["ridge_m"], "its ridge stands just under the attic's, so the two never share an edge")
+D, W = p.depth_m, p.width_m
+
+
+def top_over_front(v0, v1):
+    """The roof shell's highest point out over the front wall's plane (u D..D+0.3), v0..v1."""
+    ys = [pts[i][1] for t in tris for i in t[:3]
+          if D - 1e-3 <= pts[i][0] <= D + 0.3 + 1e-3 and v0 <= -pts[i][2] <= v1]
+    return max(ys) if ys else None
+
+
+hi = top_over_front(rf["from_v_m"] - p.eave_overhang_m - 1e-3, W)
+lo = top_over_front(0.0, rf["from_v_m"] - p.eave_overhang_m - 0.05)
+check(hi is not None and abs(hi - rf["fascia_top_m"]) < 0.01,
+      f"north of from_v_m the eave box over the front tops out at the raised eave's fascia ({hi} vs {rf['fascia_top_m']})")
+check(lo is not None and lo < 9.0, f"south of it the front keeps the house's own eave ({lo})")
+box = a.gable_roof.get("raised_front_box")
+check(box is not None and abs(box[3] + rf["from_v_m"]) < 0.01, f"the raised front's box is published for its stone ({box})")
+check(any(t[3] == "parapet" and abs(-pts[t[0]][2] - rf["from_v_m"]) < 1e-3 and pts[t[0]][1] > 9.5 for t in tris),
+      "its cheek over the lower slope is a wall face at v from_v_m")
+
+
+def refused_raised(change, why, says):
+    st_, phase_ = record()
+    change(phase_["form"]["gable_roof"]["value"]["raised_front"])
+    try:
+        KP.from_phase(phase_, st_)
+    except KP.ParamError as e:
+        check(says in str(e), f"refused: {why} ({e})")
+        return
+    check(False, f"refused: {why} (accepted)")
+
+
+refused_raised(lambda r: r.update(from_v_m=W - 0.5), "a raised front past 1 m short of the north wall", "short of the width")
+refused_raised(lambda r: r.update(eave_m=9.0), "an eave under 0.5 m over the house's", "over the eave")
+refused_raised(lambda r: r.update(eave_m=13.5), "an eave too near the ridge", "under the ridge")
+refused_raised(lambda r: r.update(south_pitch_deg=80), "a hip steeper than 70 degrees", "30-70")
+refused_raised(lambda r: r.update(south_pitch_deg=30, from_v_m=7.5), "a hip that reaches the ridge past the north parapet", "past the north parapet")
+refused_raised(lambda r: r.update(flare=1), "a key the part does not take", "takes")
 
 if failures:
     print(f"\n{len(failures)} failure(s)")

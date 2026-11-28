@@ -787,8 +787,18 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
             ln = k01_gable_roof.line(out[side]["style"], out[side].get("steps", 0), depth, depth - r, eave, tf, tb,
                                      float(pp["upstand_min_m"]), eave + rise + top, fall=fall.get("rear_fall"))
             out[side]["lights"] = k01_gable_lights.resolve(side, e["lights"], depth=depth, soffit=soffit, ln=ln)
+    # T-3730: the front's high-v part carried up as wall to its own eave (2130's, beside its
+    # tower, both photographs), roofed to the ridge and hipped down over the lower part
+    raised = {}
+    if g.get("raised_front"):
+        from . import k01_gable_roof
+        if hm or fall:
+            raise ParamError("gable_roof.raised_front stands on a plain gable roof (no hip_mass, no rear_fall)")
+        raised = {"raised_front": k01_gable_roof.resolve_raised(
+            g["raised_front"], depth=depth, width=width, eave=eave, ridge_back=r, ridge=eave + rise,
+            overhang=overhang, side_wall=side_wall, fascia=float(k5["parts"]["eave"]["fascia_depth_m"]))}
     return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
-            **hip, **fall, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
+            **hip, **fall, **raised, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
             "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}
 
 
