@@ -387,10 +387,17 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
       }
       if (storeys === 1) wallQuad(0, w, gf, h, O);
       const band = signOf('band'), upper = signOf('upper'), frieze = signOf('frieze'), hanging = signOf('hanging');
+      // A board nailed to the wall stands in front of everything on it: proud of the string
+      // courses (0.07), sills (0.06) and hoods (0.12) it crosses, on a dark edge of its own
+      // thickness, so the trim never reads over the lettering (the owner, 2026-11-27).
+      const wallBoard = (sg, a0, a1, y0, y1) => {
+        box('trim', a0 - .03, a1 + .03, y0 - .03, y1 + .03, O, O + .15, [.16, .14, .12], 'ftblr');
+        sign(sg, a0, a1, y0, y1, O + .155);
+      };
       // A board on the wall between the storefront and the first upper windows.
       if (band && storeys > 1) {
         const bh = Math.min(band.hM, sh * .2 - .2), bw2 = band.wM * bh / band.hM;
-        sign(band, w / 2 - bw2 / 2, w / 2 + bw2 / 2, gf + .06, gf + .06 + bh, O + .025);
+        wallBoard(band, w / 2 - bw2 / 2, w / 2 + bw2 / 2, gf + .06, gf + .06 + bh);
       }
       // An upstairs office's board between the first and second upper storeys' windows.
       // It clears the first upper windows' arches and hoods and the next storey's sills.
@@ -398,7 +405,7 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         const rise = style === 'round' ? ww / 2 : style === 'segmental' ? ww * .2 : 0;
         const crown = gf + sh * .2 + Math.max(.8, sh * .5 - (style === 'round' ? ww * .25 : 0)) + rise;
         const y0 = crown + .4, uh = Math.min(upper.hM, gf + sh * 1.2 - .22 - y0), uw = upper.wM * uh / upper.hM;
-        if (uh > .3) sign(upper, w / 2 - uw / 2, w / 2 + uw / 2, y0, y0 + uh, O + .025);
+        if (uh > .3) wallBoard(upper, w / 2 - uw / 2, w / 2 + uw / 2, y0, y0 + uh);
       }
       // A board hung at right angles to the walk off an iron bracket, above the storefront.
       if (hanging && storeys > 1) {
