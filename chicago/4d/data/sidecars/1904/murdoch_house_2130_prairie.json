@@ -545,13 +545,18 @@
               }
             ]
           }
+        },
+        "raised_front": {
+          "from_v_m": 3.8,
+          "eave_m": 11.2,
+          "south_pitch_deg": 52
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2140_photo_a"
       ],
-      "note": "The ridge 4.0 m behind the front's plane, at about 13.9 m (the Chicagology print's rake and ridge on its solved camera, see roof_pitch_deg), so the rear slope falls about 16 degrees to the rear wall's head, the kit's plain gable; no picture sees it (L-k01-2130-murdoch-3730). Both side walls are carried up as K05 coped parapets: the south one, the print's stone gable over the front part, in the flank's rock-faced stone (stone_front.flanks); the north one, which neither picture sees, to match in the north wall's brick. The print shows a plain verge on the rake; the coping is the kit's. T-3730: the south gable carries the print's one attic light (ends.south.lights): on the solved camera the print's light (x 1460-1493 px, y 787-867) cast onto the south wall's plane has its jambs at u 19.04 and 19.82 and its clear head and sill at about 10.87 and 9.39 m, so a 0.75 by 1.5 m light 2.5 m behind the front, its sill at 9.35 m; its sash, sill and lintel are the kits' (L-k01-2130-murdoch-3730)."
+      "note": "The ridge 4.0 m behind the front's plane, at about 13.9 m (the Chicagology print's rake and ridge on its solved camera, see roof_pitch_deg), so the rear slope falls about 16 degrees to the rear wall's head, the kit's plain gable; no picture sees it (L-k01-2130-murdoch-3730). Both side walls are carried up as K05 coped parapets: the south one, the print's stone gable over the front part, in the flank's rock-faced stone (stone_front.flanks); the north one, which neither picture sees, to match in the north wall's brick. The print shows a plain verge on the rake; the coping is the kit's. T-3730: the south gable carries the print's one attic light (ends.south.lights): on the solved camera the print's light (x 1460-1493 px, y 787-867) cast onto the south wall's plane has its jambs at u 19.04 and 19.82 and its clear head and sill at about 10.87 and 9.39 m, so a 0.75 by 1.5 m light 2.5 m behind the front, its sill at 9.35 m; its sash, sill and lintel are the kits' (L-k01-2130-murdoch-3730). T-3730 (a later pass): the front's north part, from v 3.8 to the north wall, is carried up as wall to its own eave at 11.2 m (raised_front), the cone's eave course both pictures run on to the left of the drum (the Chicagology print's course at about y 790-800 px; the Van Osdel print, whose source is not yet resolved and is not cited here, agrees at about y 280 px); it starts where the Chicagology print's raised eave stops short of the valley (about x 1596 px), and its hip falls south at the roof's own 52 degrees, which puts the valley where that print draws it climbing to the ridge near x 1554 px. The hip, the street face's 34 degrees (only what joins that eave to the ridge) and the eave box's section are the kit's (L-k01-2130-murdoch-3730)."
     },
     "function": {
       "value": "residence",
