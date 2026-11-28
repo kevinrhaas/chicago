@@ -73,6 +73,10 @@ What the record's `boundary` names, and what is built for it:
             and 1625's 1890 photograph show each front yard running straight out to the
             public walk with no fence, wall or coping across it, so nothing is laid; the
             yard's walk (K14) comes out from the stoop across the lot's whole open front.
+            (T-3634) an open front may name `side_pickets`: a low timber picket fence, pointed
+            pickets on two rails between square posts, along a SIDE lot line from `u_m[0]` to
+            `u_m[1]` (2021's photograph: white pickets before the south wing, the street front
+            itself open).
             (T-3634) an open front may name `area_railing`: a LOW iron railing close before
             the house, not on the street line: the kit's spear or scroll run on its own curb,
             its rails and curb lowered to the picture's, parallel to the street front
@@ -106,7 +110,10 @@ STREET_FRONT = "k01.wall.street_front"
 # the kit's roles, worn in the house's own slots; the wall's brick has its own slot,
 # because "brick" is an envelope material and the contract reads grade off its lowest
 # vertex (k01_contract.json measures): a wall sunk 0.10 m would move the house's origin
-ROLE_MATERIAL = {"iron": "iron", "stone": "stoop_stone", "brick": "k11_wall_brick", "timber": "fence_boards"}
+ROLE_MATERIAL = {"iron": "iron", "stone": "stoop_stone", "brick": "k11_wall_brick", "timber": "fence_boards",
+                 "paint": "fence_pickets"}
+# T-3634: a low timber picket fence along a side lot line (2021's photograph), its pickets painted
+PICKETS = "k11.fence.side_pickets"
 CLEAR_M = 0.05          # a swinging leaf keeps this far from the stoop; nothing comes nearer the walk
 # T-2447: a front garden enclosed close before the house rather than on the street line
 # (1637's engraving): a brick wall north of the stoop, an iron fence south of it, no gates
@@ -1186,14 +1193,85 @@ def coping_wall(a, t):
 def open_spec(params, t):
     """`layout: open`: the lot's sides (`lot_s_m`, holding the street front) and nothing else.
     No fence, wall, gate or coping is named, so none may be."""
-    extra = set(t) - {"layout", "lot_s_m", "area_railing"}
+    extra = set(t) - {"layout", "lot_s_m", "area_railing", "side_pickets"}
     if extra:
         raise ValueError(f"boundary layout open lays nothing, so it names no {sorted(extra)}")
     s0, s1 = t["lot_s_m"]
     if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
         raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
     _check_area_railing(params, t)
+    _check_side_pickets(params, t)
     return t
+
+
+SIDE_PICKETS = {"s_m", "u_m", "height_m"}
+PICKET = {"post_m": 0.1, "post_pitch_m": 2.4, "rail_m": (0.045, 0.09), "width_m": 0.075, "thickness_m": 0.022,
+          "pitch_m": 0.13, "point_m": 0.07}
+
+
+def _check_side_pickets(params, t):
+    """T-3634: an open front's low timber picket fence along a SIDE lot line (2021's photograph:
+    pointed pickets on two rails between square posts, before the south wing, its line
+    receding from the street). `s_m` is the line, inside the lot's side within 0.25 m and at
+    least 0.3 m clear of the house and of every rear wing the run passes; `u_m` [a, b] its
+    reach along X (out of the house), at least 1.0 m long and stopped 0.3 m short of the
+    public walk; `height_m` the pickets' points, 0.6-1.2 m."""
+    f = t.get("side_pickets")
+    if f is None:
+        return
+    if not isinstance(f, dict) or set(f) != SIDE_PICKETS:
+        raise ValueError(f"boundary.side_pickets takes {sorted(SIDE_PICKETS)}")
+    s, (a, b), h = float(f["s_m"]), (float(x) for x in f["u_m"]), float(f["height_m"])
+    s0, s1 = t["lot_s_m"]
+    if not (s1 - 0.25 <= s <= s1 or s0 <= s <= s0 + 0.25):
+        raise ValueError(f"boundary.side_pickets.s_m {s}: on a side lot line {t['lot_s_m']}, within 0.25 m inside it")
+    public = params.depth_m + params.entrance_kit["front_yard_m"]
+    if not (b - a >= 1.0 and b <= public - 0.3):
+        raise ValueError(f"boundary.side_pickets.u_m {f['u_m']}: at least 1.0 m long, stopped 0.3 m short of the "
+                         f"public walk at X {public}")
+    if not 0.6 <= h <= 1.2:
+        raise ValueError(f"boundary.side_pickets.height_m {h}: a low picket fence, 0.6-1.2 m")
+    bodies = [(0.0, params.depth_m, 0.0, params.width_m)] + [tuple(w["rect"]) for w in
+                                                             (getattr(params, "rear_wings", None) or ())]
+    for u0, u1, w0, w1 in bodies:
+        if u1 > a and u0 < b and w0 - 0.3 < s < w1 + 0.3:
+            raise ValueError(f"boundary.side_pickets at s {s} runs within 0.3 m of the house (s {w0}..{w1}) "
+                             f"over X {max(a, u0)}..{min(b, u1)}")
+
+
+def side_pickets(a, t):
+    """Lay `side_pickets` (_check_side_pickets): square posts let into the ground at no more
+    than 2.4 m, two rails on the yard side let into them, and pointed pickets nailed to the
+    rails' outer face, that face on the lot line. Built in the kit's frame (x along the run =
+    the assembly's X, z across it toward the yard) and moved onto the line, which is a
+    translation, so windings carry over. Returns the posts' X."""
+    from .k09_trim import prism
+    f = t["side_pickets"]
+    K, P = _kit(), PICKET
+    s, (x0, x1), H = float(f["s_m"]), (float(x) for x in f["u_m"]), float(f["height_m"])
+    var = K.Variant({"id": PICKETS, "kind": "fence"}, K.load())
+    post, (rt, rh), pw, pt, pp, tip = (P[k] for k in ("post_m", "rail_m", "width_m", "thickness_m", "pitch_m",
+                                                      "point_m"))
+    n = max(1, math.ceil((x1 - x0 - post) / P["post_pitch_m"]))
+    xs = [x0 + post / 2 + (x1 - x0 - post) * i / n for i in range(n + 1)]
+    # the pickets' outer face is z = 0, the rails behind it, the posts behind those
+    names = [var.member(f"picket post {i + 1}", "paint", "ground", x - post / 2, x + post / 2, -0.15, H - 0.02,
+                        pt + rt, pt + rt + post).name for i, x in enumerate(xs)]
+    rails = [var.member(f"picket rail {k + 1}", "paint", names[0], x0, x1, y, y + rh, pt, pt + rt)
+             for k, y in enumerate((0.15, H - tip - 0.2))]
+    m = max(1, round((x1 - x0) / pp))
+    w = (x1 - x0) / m
+    for j in range(m):
+        c = x0 + (j + 0.5) * w
+        pc = var.piece(f"picket {j + 1}", "paint", "rooted", rails[0].name)
+        prism(pc.mesh, [(c - pw / 2, 0.03), (c + pw / 2, 0.03), (c + pw / 2, H - tip), (c, H), (c - pw / 2, H - tip)],
+              0.0, pt, back=True)
+    for pc in var.pieces:
+        pc.mesh.pos = [(x, y, -s + z) for x, y, z in pc.mesh.pos]
+    a.instance(PICKETS, "fence", {"length_m": round(x1 - x0, 4), "height_m": H, "posts": len(xs), "pickets": m},
+               {"street_end": (x1, 0.0, -s), "rear_end": (x0, 0.0, -s)})
+    _lay(a, var.pieces, a.p.conf("boundary"), PICKETS)
+    return xs
 
 
 AREA_RAILING = {"fence", "line_m", "runs_s_m", "rail_top_m", "curb_height_m"}
@@ -1289,11 +1367,13 @@ def open_front(a, t):
             if max(xs) > D + 0.05 and abs((ss[0] + ss[1] + ss[2]) / 3 - axis) < reach:
                 stoop.append((min(xs), max(xs), min(ss), max(ss)))
         posts = area_railing(a, t, stoop)
+    pickets = side_pickets(a, t) if t.get("side_pickets") else []
     a.boundary = {"line_x_m": round(public, 4), "stoop_foot_x_m": round(max(feet), 4) if feet else None,
                   "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [],
                   "fence_posts_s_m": [round(x, 3) for x in posts],
                   "wall_piers_x_m": [], "inner_x_m": round(public, 4),
-                  "openings_s_m": [[round(south, 4), round(north, 4)]]}
+                  "openings_s_m": [[round(south, 4), round(north, 4)]],
+                  **({"side_pickets_x_m": [round(x, 3) for x in pickets]} if pickets else {})}
 
 
 ALLEY_WALL = "k11.wall.alley_return"

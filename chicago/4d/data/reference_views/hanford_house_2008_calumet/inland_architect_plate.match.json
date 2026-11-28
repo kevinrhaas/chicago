@@ -1,0 +1,93 @@
+{
+  "structure_id": "hanford_house_2008_calumet",
+  "view": "inland_architect_plate",
+  "glb": "assets/gltf/hanford_house_2008_calumet__as_mapped_1904.glb",
+  "glb_sha256": "3c496abc35393f25d1f98a2aadb942fc92a9e8927290fc12f5def1a0d1f2ec7c",
+  "camera_sha256": "a16bbe2f494d98edde080f82f3880a68d5bf0f2696c32279458368b46f20a59b",
+  "photo_sha256": "342efa2d6fe8dec844f726a69e558c26e26ab9053cd93cd6b232049c34842847",
+  "side_by_side": "docs/RESEARCH/photo-match/hanford_house_2008_calumet/inland_architect_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the south flank's projecting bay (T-3791): T-3790 built it with one light a storey under a flat top and a roof dormer over it; the plate's leftmost block (x 622-752 px) has three lights between mullions on each main storey and rises past the main cornice into an attic of three short lights under a coped stone gable whose apex stands at about 13.0 m (x 690, y 670 px). Now built so: the gable's apex renders at about x 685, y 645 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the round oriel on corbels on the flank's chamber storey (T-3791): not built by T-3790; the plate draws it at x 920-1000 px (u about 17.5-20.1 m), its corbelled base at about 5.0 m and its head under the main cornice. Now K08's bowed oriel at u 19.3 m, 2.0 m across, base at the chamber floor on four corbel courses, capped at the eave",
+      "status": "fixed"
+    },
+    {
+      "what": "the flank's principal lights east of the oriel (T-3791): T-3790 ran three lights at u 17.0-20.6, under where the oriel stands; the plate's three narrow principal lights stand at u 20.75-23.8 (x 1020-1130 px). Now at u 21.15, 22.2 and 23.25",
+      "status": "fixed"
+    },
+    {
+      "what": "the chamber storey over them: the plate draws one light (x 1045-1085 px, u about 21.5-22.6); the record repeats the principal storey's three, because K01's side bays run one set of centres up every storey (a 0.15-0.3 m K08 projection carrying them per storey was tried, and the bay kit refuses its recesses as open to the wall behind)",
+      "status": "open"
+    },
+    {
+      "what": "the south roof dormer (T-3791): T-3790 stood it over the projecting bay (u 10.7); the plate's stands between the bay and the oriel (x 830-920 px). Now at u 15.3, rendering at x 825-880 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the two stacks (T-3791): T-3790's stood at u 8.3 and 19.2 (rendering at x 720-790 and 980-1075 px); the plate's stand just east of the projecting bay (x 770-840 px, top y about 545) and beside the pointed roof's south-west hip (x 1160-1240 px, top y about 395). Now at (11.2, 1.1) and (20.5, 3.75), rendering at x 765-845 and 1145-1245 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the stone's dressing (T-3791): smooth in T-3790; the plate draws every block of the front and the flank with the broken, hatched face of quarry-faced ashlar. Now rock-faced",
+      "status": "fixed"
+    },
+    {
+      "what": "the window bay's lights on the front (T-3791): T-3790's at v 5.45; the plate's at x 1420-1470 px, which on the corner block's face (u 24.55) is v 5.1-6.2. Now a 1.1 m light at v 5.25 in the 6.0 m corner block (as far north as its surround clears the block's end), rendering at x 1401-1453 px, about 18 px (0.4 m) south of the plate's, inside the camera's 26 px rms",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the pointed roof's mass (T-3791): T-3790 stood it on the 4.05 m pavilion alone, its apex at about x 1190, y 270 px, about 95 px left of and 95 px over the plate's (x 1285, y 365 px). Now on a 6.0 m corner block (the pavilion and the window bay together) at 55 degrees on its sides, its apex at about x 1245, y 390 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the pointed roof's apex still stands about 40 px (about 0.8 m) behind the plate's and about 25 px low: its street end is held at K05's slated maximum of 65 degrees, and the apex's place along the front is the corner block's middle. Moving it to the plate's needs a crown steeper at its end than K01 allows, or a pointed crown not centred on the bay under it",
+      "status": "open"
+    },
+    {
+      "what": "the pointed roof's two dormers: the plate draws a gabled dormer on its street face over the window bay (x 1370-1475 px, y 500-640) and one on its south face (x 1100-1160 px, y 500-640); neither is built, because K01's hipped crown carries no dormer, so the street face shows one dormer where the plate has two",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's face: the plate draws it 4.05 m wide (x 1150-1375 px), the front stepped back north of it under a jog in the cornice; the record carries the 0.45 m projection on to v 6.0 so that the pointed roof stands over the corner block the plate draws it over. K01 stands a pointed crown only on the full width of its own pavilion",
+      "status": "open"
+    },
+    {
+      "what": "the stoop: the plate's flight runs north along the front from the porch, its foot past the house's corner (x 1600-1790 px); K01's side stoop refuses a flight whose foot passes the front's end, so it runs out to the walk (liberty L-k01-2008-calumet-3790). From this camera the two flights overlap on the picture, but the flight turns the other way",
+      "status": "open"
+    },
+    {
+      "what": "the projecting bay's width: the plate draws its face about 1.5 m wider than the 1911 sheet's 4.3 m (u about 6.0-13.0 on its plane); the sheet, a survey of what stood, controls the plan, and the camera is fitted on its corners with residuals of 23-26 px there",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the oriel's bulge: K08 caps a bowed oriel at the eave only as a half round (1.2 m out on a 2.0 m chord); the plate's reads about 0.9 m out, under a foot less",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the porch: its columns re-read at v 7.3, 8.5 and 9.8 (the plate's at about 7.2, 8.5 and 9.6-9.8 on its front, x 1595-1710 px); its hood's north end stands about 0.5 m past the plate's, where the camera's own residual is largest (32 px at the front's north end)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stacks' sunk panels and the pavilion's rusticated quoins, relief of a few centimetres that K01 lays plain",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the entrance bay's chamber light's crested hood and the porch's carved frieze: ornament under a foot",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: the plate is monochrome; the record's brownstone is the register's",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank, the rear, the flank west of the projecting bay (its rear dormer and the pair of lights there) and the rear range: hidden by the house, the bay and the trees",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
