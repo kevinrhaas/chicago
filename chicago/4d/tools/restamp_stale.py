@@ -3,7 +3,7 @@
 its input hash moved.
 
     python3 tools/restamp_stale.py            re-stamp, then re-check (exit 1 if any stay stale)
-    python3 tools/restamp_stale.py --check    list what is stale, write nothing (exit 1 if any)
+    python3 tools/restamp_stale.py --list     list what is stale, write nothing (exit 1 if any)
     python3 tools/restamp_stale.py --self-test
 
 WHY (2026-11-27, the batch merges). Two pull requests that each change shared archetype
@@ -77,7 +77,8 @@ def load(path: Path) -> dict:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("--check", action="store_true")
+    ap.add_argument("--list", action="store_true",
+                    help="list what is stale and write nothing (not a gate: validate.py --stale is)")
     ap.add_argument("--self-test", action="store_true")
     a = ap.parse_args(argv)
     if a.self_test:
@@ -96,7 +97,7 @@ def main(argv=None) -> int:
           + (f"; {len(orphans)} with no pure emitter" if orphans else ""))
     for o in orphans:
         print(f"  cannot re-stamp here: {o}")
-    if a.check:
+    if a.list:
         return 1
 
     gltf = ROOT / "assets" / "gltf"
