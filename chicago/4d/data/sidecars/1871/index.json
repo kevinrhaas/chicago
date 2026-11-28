@@ -103,6 +103,12 @@
   "streets": [],
   "structures": [
     {
+      "id": "bateham_mills_1871",
+      "name": "Bateham's mills and yard, Canal Street south of Harrison",
+      "sidecar": "sidecars/1871/bateham_mills_1871.json",
+      "asset": "gltf/bateham_mills_1871__mills_1865_1871.glb"
+    },
+    {
       "id": "cemetery_dead_house_1871",
       "name": "The cemetery's dead-house",
       "sidecar": "sidecars/1871/cemetery_dead_house_1871.json",
@@ -175,6 +181,12 @@
       "asset": "gltf/lake_shore_sands_1871__shore_1860_1871.glb"
     },
     {
+      "id": "match_factory_1871",
+      "name": "The match factory by St. Paul's, Mather Street",
+      "sidecar": "sidecars/1871/match_factory_1871.json",
+      "asset": "gltf/match_factory_1871__factory_1865_1871.glb"
+    },
+    {
       "id": "ogden_house_1871",
       "name": "Mahlon D. Ogden's house, Washington Square",
       "sidecar": "sidecars/1871/ogden_house_1871.json",
@@ -211,6 +223,12 @@
       "asset": "gltf/pumping_works_grounds_1871__grounds_1867_1871.glb"
     },
     {
+      "id": "roelle_finishing_works_1871",
+      "name": "The Roelle furniture-finishing works, Mather Street",
+      "sidecar": "sidecars/1871/roelle_finishing_works_1871.json",
+      "asset": "gltf/roelle_finishing_works_1871__works_1865_1871.glb"
+    },
+    {
       "id": "sherman_house_1871",
       "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets",
       "sidecar": "sidecars/1871/sherman_house_1871.json",
@@ -221,6 +239,24 @@
       "name": "St. Michael's Church (German Catholic), Hurlbut and Linden Streets",
       "sidecar": "sidecars/1871/st_michaels_church_1871.json",
       "asset": "gltf/st_michaels_church_1871__church_1869_1871.glb"
+    },
+    {
+      "id": "st_pauls_church_1871",
+      "name": "St. Paul's Church, Clinton and Mather streets",
+      "sidecar": "sidecars/1871/st_pauls_church_1871.json",
+      "asset": "gltf/st_pauls_church_1871__church_1868_1871.glb"
+    },
+    {
+      "id": "st_pauls_residence_1871",
+      "name": "St. Paul's priest's residence, Clinton Street",
+      "sidecar": "sidecars/1871/st_pauls_residence_1871.json",
+      "asset": "gltf/st_pauls_residence_1871__house_1868_1871.glb"
+    },
+    {
+      "id": "st_pauls_school_1871",
+      "name": "St. Paul's parish school, Clinton Street",
+      "sidecar": "sidecars/1871/st_pauls_school_1871.json",
+      "asset": "gltf/st_pauls_school_1871__school_1868_1871.glb"
     },
     {
       "id": "sullivan_house_1871",

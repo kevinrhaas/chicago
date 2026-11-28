@@ -1,0 +1,289 @@
+{
+ "id": "st_pauls_church_1871",
+ "name": "St. Paul's Church, Clinton and Mather streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "church",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "St. Paul's Catholic church, established 1868 by members from St. Francis of Assisi; Rev. John Kilkenny pastor 1870-71 (Andreas vol. 2, p. 406)."
+ },
+ "built": {
+  "value": 1868,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Established in 1868 at the corner of Mather and Clinton streets (Andreas vol. 2, p. 406); the church-edifice is taken to date from then."
+ },
+ "research_note": "ST. PAUL'S CHURCH, built by T-3831 for the 1871 scene: the wooden Catholic church on the north-east corner of Clinton and Mather streets, a hundred feet by forty, that cost $15,000 (Andreas vol. 2, p. 406; Sheahan and Upton). A brand from the O'Leary fire, 'whirling through the air for more than three blocks', lit its cupola (Richard Riley, Andreas pp. 715-716); 'At ten o'clock ... the church had gone down in ruins in advance of the main body of flame' (p. 718). No picture of it is known.",
+ "phases": [
+  {
+   "id": "church_1868_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Established 1868 and destroyed by the fire (Andreas vol. 2, p. 406)."
+   },
+   "position": {
+    "utm_e": 446826.5,
+    "utm_n": 4635864.8,
+    "rotation_deg": 359.29,
+    "symbolic_location": "North-east corner of Clinton and Mather streets.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "On the north-east corner of Clinton and Mather streets (Andreas vol. 2, pp. 406, 716-718), its front on the east walk of Clinton Street and its south side on the line of Mather Street, which the 1871 plan does not draw east of Clinton. The footprint's origin is local E -246.2 N -1531.0; the frame is turned onto the 1871 plan's grid.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from Andreas's description of the block against the 1871 plan's Clinton and Canal streets and the line of Mather Street; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      30.5,
+      0
+     ],
+     [
+      30.5,
+      12.2
+     ],
+     [
+      0,
+      12.2
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2",
+     "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "A hundred feet by forty (Sheahan and Upton, the Catholic losses); laid with its length along Mather Street, reconstructed."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the church",
+        "box": [
+         0,
+         0,
+         30.5,
+         12.2
+        ],
+        "storeys": [
+         1.0,
+         7.0
+        ],
+        "wall": "clapboard",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.15,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 4.6,
+         "eave": 0.35,
+         "covering": "shingle",
+         "ridge": "x"
+        },
+        "faces": {
+         "W": {
+          "bays": {
+           "at": [
+            2.6,
+            6.1,
+            9.6
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "pointed",
+            "w": 1.1,
+            "h": 4.0,
+            "sill": 1.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_pointed",
+            "w": 1.8,
+            "h": 3.3,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "n": 6,
+           "margin": 3.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "pointed",
+            "w": 1.1,
+            "h": 4.2,
+            "sill": 1.6,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "n": 6,
+           "margin": 3.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "pointed",
+            "w": 1.1,
+            "h": 4.2,
+            "sill": 1.6,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            6.1
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "pointed",
+            "w": 1.4,
+            "h": 4.4,
+            "sill": 1.6,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "A frame church a hundred feet by forty (Sheahan and Upton's list of the Catholic losses), 'of wood' (Andreas vol. 2, pp. 717-718), its front on Clinton Street and its length along Mather; the 'high church' of the Board's report (Andreas p. 716). No picture of it is known: its storeys, its pointed lights, door and roof are reconstructed as a plain frame church of its $15,000 cost (Andreas vol. 2, p. 406)."
+       }
+      ],
+      "towers": [
+       {
+        "name": "the cupola",
+        "at": [
+         2.2,
+         6.1
+        ],
+        "z0": 8.0,
+        "plan": "square",
+        "wall": "clapboard",
+        "stages": [
+         {
+          "w": 3.0,
+          "h": 6.6,
+          "cornice_proj": 0.18
+         },
+         {
+          "w": 2.6,
+          "h": 3.2,
+          "openings": {
+           "kind": "round",
+           "w": 1.0,
+           "h": 2.0,
+           "sill": 0.6,
+           "louvre": true
+          },
+          "cornice_proj": 0.2
+         }
+        ],
+        "cap": {
+         "kind": "bell",
+         "h": 2.6,
+         "covering": "tin_dark"
+        },
+        "finial": 1.5,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "Riley saw the brand fall 'on the cupola' (Andreas vol. 2, pp. 715-716): the church had one. Its place over the front, its stages, louvred belfry and bell-shaped cap are reconstructed."
+       }
+      ],
+      "steps": [
+       {
+        "block": 0,
+        "face": "W",
+        "s0": 5.1,
+        "s1": 7.1,
+        "n": 5,
+        "material": "wood_trim",
+        "rise": 0.2
+       }
+      ],
+      "tint": {
+       "clapboard": [
+        0.74,
+        0.72,
+        0.66
+       ]
+      },
+      "note": "ST. PAUL'S CHURCH, built by T-3831: the church whose cupola took the brand that carried the fire north.",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "time": "1871-10-08T21:45",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'In flames while the main fire was yet four blocks away' (Andreas p. 716), and down by ten (p. 718)."
+      }
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "No picture of St. Paul's is known: the church is built from the accounts' words (wood, a cupola, 100 by 40 feet, $15,000) in the archetype's frame vocabulary."
+    },
+    "wall_material": {
+     "value": "Painted weatherboards on a frame, a shingle roof",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "'Of wood' (Andreas p. 718); the paint and shingles are reconstructed.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): the church in place of the generic brick block the context city stood on its lot."
+  }
+ ]
+}

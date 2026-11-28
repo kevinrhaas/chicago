@@ -46,7 +46,8 @@ const JAUNT = 'the-great-fire';
 /** What each stop's words put in front of the visitor. Stop ids are the base jaunt's. */
 export const EXPECT = {
   'oleary-barn': { street: 'DeKoven Street', see: [{ structure: 'oleary_barn_1871', state: 'burning', words: '"saw the flames"' }] },
-  'st-pauls': { street: 'Clinton Street', see: [{ control: 'st_pauls_church', kind: 'frame', state: 'burnt', words: '"The church is down."' }, { control: 'batehams_mills', kind: 'frame', state: 'burning', words: '"Bateham\'s mills ... are going too"' }] },
+  // T-3831: the church and the mills are built, so the stop reads them, not the timed places alone.
+  'st-pauls': { street: 'Clinton Street', see: [{ control: 'st_pauls_church', kind: 'frame', state: 'burnt', words: '"The church is down."' }, { structure: 'st_pauls_church_1871', state: 'burnt', words: '"The church is down."' }, { control: 'batehams_mills', kind: 'frame', state: 'burning', words: '"Bateham\'s mills ... are going too"' }, { structure: 'bateham_mills_1871', state: 'burning', words: '"Bateham\'s mills ... are going too"' }] },
   parmelee: { corner: ['Jackson Street', 'Franklin Street'], within_m: 20, see: [{ control: 'parmelee_stables', kind: 'masonry', state: 'catches', words: '"now one has caught"' }] },
   'court-house': { corner: ['Clark Street', 'Washington Street'], within_m: 20, see: [{ structure: 'cook_county_court_house_1871', state: 'burning', words: '"Now the tower is alight."' }] },
   'sherman-house': { corner: ['Clark Street', 'Randolph Street'], within_m: 40, see: [{ structure: 'sherman_house_1871', state: 'burning', words: '"a spirit of flame came from a window"' }, { structure: 'cook_county_court_house_1871', state: 'caught', min: 20, words: '"the Court House bell comes crashing"' }] },
