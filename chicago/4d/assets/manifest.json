@@ -10083,14 +10083,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "rothschild_house_2112_prairie"
     },
-    "rothschild_house_2112_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "rothschild_house_2112_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 71088,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "9d24399902542caf777ecf5fb9692a241a03bb2605ff3559462a313b44150702",
+      "bytes": 129392,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "52c6fc45e2ec67dc8aa3ca5d32767c2f37b06f8cb6d5828c1ce5625e56dade09",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "rothschild_house_2112_prairie_coach_house"
     },
     "sauganash_hotel__frame_1831.glb": {
