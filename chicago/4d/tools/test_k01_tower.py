@@ -225,6 +225,39 @@ def main() -> int:
             "a square tower all but buried in its wall")
     refused("house_1600_prairie", tower("k08.tower.octagonal", storeys=tall, s=9.0, balcony=bal),
             "a balustrade on an octagonal tower's pitched cap")
+    # T-3800: a ROUND tower across its house's corner (2140's): built from the record as it
+    # stands, its span from its flank junction to the corner, its centre in from the front;
+    # refused off the corner, with its ring short of the end wall, or without cap_at_eave
+    sid = "tucker_smith_house_2140_prairie"
+    st = json.loads((ROOT / "data" / "structures" / f"{sid}.json").read_text())
+    p = KP.from_phase(st["phases"][0], st)
+    rt = next(b for b in p.bays if b["id"] == "round_tower")
+    pl = rt["variant"]["plan"]
+    check(rt.get("across_corner") == "right" and pl.get("across_corner") == "right"
+          and abs(pl["centre_x_m"] + 0.38) < 1e-9 and abs(rt["span_m"][1] - rt["s_m"]) < 1e-9
+          and rt["span_m"][0] < rt["s_m"] - 2.0,
+          f"2140's round tower stands across its right corner, its span {rt['span_m']} ending on the corner")
+
+    def round_across(**over):
+        st2 = copy.deepcopy(st)
+        for b in st2["phases"][0]["form"]["bays"]["value"]:
+            if b["id"] == "round_tower":
+                b.update(over)
+                for k in [k for k, v in over.items() if v is None]:
+                    del b[k]
+        try:
+            KP.from_phase(st2["phases"][0], st2)
+        except KP.ParamError as e:
+            return str(e)
+        return None
+
+    check(round_across(s_m=12.0) is not None, "a round tower across its corner standing off the corner: refused")
+    check(round_across(plan={"radius_m": 2.3, "centre_proud_m": -0.8, "centre_in_m": 2.2}) is not None,
+          "a round tower across its corner whose ring falls short of the end wall's plane: refused")
+    check(round_across(plan={"radius_m": 2.3, "centre_proud_m": -0.8}) is not None,
+          "a round tower across its corner sized without centre_in_m: refused")
+    check(round_across(cap_at_eave=None) is not None,
+          "a round tower across its corner without its cap at the eave: refused")
     if failures:
         print(f"test_k01_tower: {len(failures)} failed")
         return 1

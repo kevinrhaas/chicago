@@ -2,7 +2,7 @@
  "structure_id": "tucker_smith_house_2140_prairie",
  "view": "glessner_2140_vanosdel",
  "glb": "assets/gltf/tucker_smith_house_2140_prairie__as_mapped_1904.glb",
- "glb_sha256": "6e95012f995aeb081468088a150aed56e6bbb50a6141ae424e5b75a5f12048bc",
+ "glb_sha256": "cd770aa3caa909b9af78037b476f4ded6cf5a881f6eb3233f91c307517394149",
  "camera_sha256": "4cb80e4fd93eb1fe8f1fee780086c206c642a0305b0d6a79ac064efe2229245f",
  "photo_sha256": "51d5e6b7c5501d56698d35581dab5edebebf4890f5fa75abb3d7b1989fd91e22",
  "side_by_side": "docs/RESEARCH/photo-match/tucker_smith_house_2140_prairie/glessner_2140_vanosdel-side-by-side.jpg",
@@ -13,8 +13,8 @@
    "status": "within tolerance"
   },
   {
-   "what": "the round tower's place: the print draws its drum at x 303-433 px at the corner, the build's at about x 227-357, about 2 m west on the 22nd Street wall (L-k01-2140-tucker-3770). T-3800's",
-   "status": "open"
+   "what": "the round tower's place (T-3800): the build's drum stood at about x 227-357 px, about 2 m west on the 22nd Street wall. Now set across the corner at the joint fit's axis (13.0, 0.8), it prints at about x 307-432 px against the print's 303-433, and the porch stands against it at about x 430-500 px with no light column between them, as the print draws it",
+   "status": "fixed"
   },
   {
    "what": "the round tower's cap: the print draws a tall concave slated cap from the drum's cornice (y about 183 px) with a gabled dormer in it, up to a moulded ring and an iron crested deck at about y 45-70; the build's cone rises about 2 m lower to a plain top, uncrested (K08 does not crest a cone)",

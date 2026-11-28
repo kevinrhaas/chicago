@@ -25271,7 +25271,7 @@ this refine keeps it: a view dated by July 1904 showing the spires replaces it (
 beyond the photographs' proportion; the walls' thickness; the stone's quarry; the roof's deck pitch; the north
 flank's, the rear's and the rear range's windows, the range's three storeys and flat deck; the second stack; the
 gutters and downpipes; the kits' sash, hoods and door; the stoop; the yard's flagged walk.
-**What is built otherwise than the evidence, and why.** The round tower stands on the 22nd Street wall, its centre 1.3 m out and 10.78 m from the rear, its ring stopping 0.3 m short of the Prairie front's plane, where the sheet's circle stands across the corner about 1.95 m further east and 1.7 m past the front: K08 builds a round tower on one wall, clear of its end, and a many-sided ring across the corner fails the K08 kit's gate (its lights are wider than a face). Its cap is K08's two-stage cone, a steep slate stage to a ledge and a low top, where the second photograph draws a crested deck. The square tower is a K08 projection
+**What is built otherwise than the evidence, and why.** The round tower stands across the corner (T-3800, K08's round tower across its corner), its axis where both photographs put it on T-3799's joint fit, 0.38 m behind the Prairie front's plane and 0.8 m inside the 22nd Street wall; the sheet's circle agrees along the flank but stands 2.1 m further south, 1.3 m out of the wall, and the photographs are followed (the record's note gives the reading). Its cap is K08's two-stage cone, a steep slate stage to a ledge and a low top, where the second photograph draws a crested deck. The square tower is a K08 projection
 under a K01 mansard crown, its walls stopped 0.15 m under the main eave on the crown's soffit. The stack beside the
 round tower stands on the deck just inside the curb (K01 refuses a stack astride the curb), where the photographs'
 rises from the wall. The rear wall's south half (about 0.7 m further in on the sheet) and the cut south-west corner
@@ -25287,6 +25287,7 @@ photo-match down and signs off the image gate; a dated view of the towers settle
 **Review:** `docs/RESEARCH/k01-2140-tucker-3770/README.md`.
 **Recorded:** 2026-11-26 (T-3770).
 **Revised:** 2026-11-27 (T-3771) — the door's kit, the stoop's width and its landing left this entry's covers: T-3771 built the columned porch and its stair there off the second photograph, so they are read now, not invented (`L-k01-2140-tucker-3771` says what of their numbers is still proportion).
+**Revised:** 2026-11-28 (T-3800) — the round tower no longer stands 2 m west of the corner on the flank: K08 now sets a round tower across its house's corner, and it stands at the photographs' axis.
 
 ### L-k01-2108-kimball-3667 — 2108 Prairie, the Mark Kimball house, refined from the district draft onto K01: its plan off the 1911 sheet, its pale stone front, round-arched door, round-headed lights and iron-railed stoop off the Tribune's 1898 cut and the early-1890s street photograph, everything neither shows the kits'
 

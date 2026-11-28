@@ -2,7 +2,7 @@
  "structure_id": "tucker_smith_house_2140_prairie",
  "view": "chicagology_2140_a",
  "glb": "assets/gltf/tucker_smith_house_2140_prairie__as_mapped_1904.glb",
- "glb_sha256": "6e95012f995aeb081468088a150aed56e6bbb50a6141ae424e5b75a5f12048bc",
+ "glb_sha256": "cd770aa3caa909b9af78037b476f4ded6cf5a881f6eb3233f91c307517394149",
  "camera_sha256": "d9766684e10380128a8a636d5e5f37f74ed19d290ef88b2b739daa0147689cea",
  "photo_sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27",
  "side_by_side": "docs/RESEARCH/photo-match/tucker_smith_house_2140_prairie/chicagology_2140_a-side-by-side.jpg",
@@ -13,8 +13,8 @@
    "status": "fixed"
   },
   {
-   "what": "the round tower stands at the Prairie/22nd Street corner, its axis about (13.0, 0.8) on the joint fit (x 773 px), where the build stands it about 2 m further west on the 22nd Street wall (K08's ring clear of the wall's end, L-k01-2140-tucker-3770): its drum prints about 180 px left of the print's x 625-920. T-3800's",
-   "status": "open"
+   "what": "the round tower at the Prairie/22nd Street corner (T-3800): it stood about 2 m west on the 22nd Street wall, its drum printing about 180 px left of the print's x 625-920. Now set across the corner (K08's round tower across its corner) at the joint fit's axis (13.0, 0.8), its drum prints at about x 613-925 px, within about 12 px of both edges, and the front's first light column, which the build stood at 2.6 m, is gone into the drum as the print shows none between the drum and the canopy",
+   "status": "fixed"
   },
   {
    "what": "the towers' caps: this print (no earlier than 1905) draws a tall slated spire on each of the three towers and a gabled dormer on the round tower's cap, where the record stands the flat crested caps the Van Osdel print and the 1898 plate show (the declared 1904 state, L-k01-2140-tucker-3770). The phase is argued at the sign-off with the dated pictures (T-3801); until then it stands open",

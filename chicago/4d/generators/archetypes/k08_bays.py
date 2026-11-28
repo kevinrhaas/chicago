@@ -95,6 +95,11 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                stone shaft on a pedestal from grade with a base and a capital stopped under the
                lowest corbel course over its axis; over its face to the corner a `face_gable`, a
                small coped stone triangle on its eaves, a roundel on it, dying into the cap
+  across round (T-3800) a ROUND tower set across its house's corner (2140 Prairie's, both
+               photographs' drum at the 22nd Street corner): one arc from its junction on the
+               wall's face round to the end wall's plane (its other junction a `side` one), its
+               centre `centre_x_m` along the wall from that plane; each slab trimmed by the plane
+               its own end of the arc meets; its cornice the main cornice's and its cap whole
   tower dress  (T-3329) a square tower's record may add the bracketed bay's `brackets` (1936's
                belvedere, its photograph): consoles at the ring's corners that stand out of
                the wall, never at one inside the house, and the row of modillions along each
@@ -265,13 +270,23 @@ class Run:
             self.n = (-self.e[1], self.e[0])          # outward
         else:
             self.c, self.R = kw["c"], kw["R"]
-            self.phi0 = self.phi_wall(0.0, left=True)
-            self.L = (self.phi0 - self.phi_wall(0.0, left=False)) * self.R
+            self.phi0 = self.phi_at(0.0, start=True)
+            self.L = (self.phi0 - self.phi_at(0.0, start=False)) * self.R
 
     # the arc's junctions: where the circle of radius R + z meets z = 0
     def phi_wall(self, z, left):
         a = math.asin(max(-1.0, min(1.0, -self.c[1] / (self.R + z))))
         return math.pi - a if left else a
+
+    def phi_at(self, z, start):
+        """An arc's start (or end) junction at z out of its face: on the wall plane, or (T-3800,
+        a round tower across its house's corner) on the side wall's plane x = 0, where the circle
+        of radius R + z crosses it behind the wall's face (z < 0): the left corner's at the start,
+        the right corner's at the end, so phi still falls from the one to the other."""
+        if (self.start if start else self.end) != "side":
+            return self.phi_wall(z, left=start)
+        a = math.acos(max(-1.0, min(1.0, -self.c[0] / (self.R + z))))
+        return 2 * math.pi - a if start else -a
 
     def phi(self, s):
         return self.phi0 - s / self.R
@@ -293,21 +308,21 @@ class Run:
     def s_start(self, z):
         """Where a surface z out of the face begins: on the wall plane, or mitred (T-3048: or,
         a chamfer's, on its side wall's plane, square to the wall's)."""
+        if self.kind == "arc":
+            return (self.phi0 - self.phi_at(z, start=True)) * self.R
         if self.start == "side":
             return -z * self.n[0] / self.e[0]
         if self.start == "wall":
-            if self.kind == "line":
-                return -z * self.n[1] / self.e[1]
-            return (self.phi0 - self.phi_wall(z, left=True)) * self.R
+            return -z * self.n[1] / self.e[1]
         return -z * math.tan(self.start[1] / 2)
 
     def s_end(self, z):
+        if self.kind == "arc":
+            return (self.phi0 - self.phi_at(z, start=False)) * self.R
         if self.end == "side":
             return self.L - z * self.n[0] / self.e[0]
         if self.end == "wall":
-            if self.kind == "line":
-                return self.L - z * self.n[1] / self.e[1]
-            return (self.phi0 - self.phi_wall(z, left=False)) * self.R
+            return self.L - z * self.n[1] / self.e[1]
         return self.L + z * math.tan(self.end[1] / 2)
 
     def seg_step(self, max_deg):
@@ -397,6 +412,15 @@ def plan_of(v: dict):
         R = (h * h + rise * rise) / (2 * rise)
         c = (0.0, rise - R)
         return [Run("arc", "wall", "wall", c=c, R=R)], {"centre": c, "kind": "arc", "R": R}
+    if p["kind"] == "circle" and p.get("across_corner"):
+        # T-3800: a round tower set across its house's corner (2140 Prairie's, the 1911 sheet's
+        # circle standing out of both walls at the 22nd Street corner): one arc from its junction
+        # on the wall's face round to the side wall's plane (x = 0, the corner's end wall), its
+        # centre `centre_x_m` along the wall from that plane (inside the house, or on it)
+        R, c, k = p["radius_m"], (float(p.get("centre_x_m", 0.0)), p["centre_proud_m"]), p["across_corner"]
+        run = Run("arc", "wall" if k == "right" else "side", "side" if k == "right" else "wall", c=c, R=R)
+        run.across = k
+        return [run], {"centre": c, "kind": "arc", "R": R, "across_corner": k}
     if p["kind"] == "circle":
         R, c = p["radius_m"], (0.0, p["centre_proud_m"])
         return [Run("arc", "wall", "wall", c=c, R=R)], {"centre": c, "kind": "arc", "R": R}
@@ -486,7 +510,10 @@ def locate(runs, plan, w: dict):
         d = (math.sin(math.radians(b)), math.cos(math.radians(b)))
         for i, r in enumerate(runs):
             if r.kind == "arc":
-                out.append((i, (r.phi0 - math.atan2(d[1], d[0])) * r.R))
+                f = math.atan2(d[1], d[0])
+                if r.phi0 > math.pi and f < r.phi0 - r.L / r.R - 1e-9:
+                    f += 2 * math.pi   # T-3800: a left corner's arc starts past pi
+                out.append((i, (r.phi0 - f) * r.R))
                 break
             # the ray from the centre: c + t d meets A + s e
             den = d[0] * r.e[1] - d[1] * r.e[0]
@@ -591,7 +618,17 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()
                     # wall's side of the corner (trimmed by the wall's plane) or past the end wall
                     # (trimmed by the end wall's plane), whichever side this run stands on
                     k = 1.0 if across == "right" else -1.0
-                    if min(k * run.A[0], k * run.world(run.L, 0.0, 0.0)[0]) >= -1e-9:
+                    if run.kind == "arc":
+                        # T-3800: a round tower's one arc stands on both sides of the corner: a
+                        # slab is trimmed by the plane its own end of the arc meets (the wall's
+                        # face at its "wall" junction, the end wall's at its "side" junction)
+                        sm = sum(q[0] for q in piece) / len(piece)
+                        on_side = (run.end if sm > run.L / 2 else run.start) == "side"
+                        if on_side:
+                            piece = clip_half(piece, lambda q: k * run.world(q[0], q[1], q[2])[0] + 1e-9)
+                        else:
+                            piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[2] + 1e-9)
+                    elif min(k * run.A[0], k * run.world(run.L, 0.0, 0.0)[0]) >= -1e-9:
                         piece = clip_half(piece, lambda q: k * run.world(q[0], q[1], q[2])[0] + 1e-9)
                     else:
                         piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[2] + 1e-9)
@@ -4037,7 +4074,7 @@ class Bay:
         if self.v["roof"].get("upper") is not None:
             return self._two_stage_cone(world, y_e, ov, pitch, cv, tower)
         c, R = self.plan["centre"], self.plan["R"]
-        whole = bool(self.v.get("cap_whole"))
+        whole = bool(self.v.get("cap_whole")) or bool(self.plan.get("across_corner"))   # T-3800
         Re = R + ov
         step = math.radians(cv["max_seg_deg"])
         # T-3289: a half round's centre is ON the wall plane, but chord 1.6 / rise 0.8 computes
@@ -4152,7 +4189,9 @@ class Bay:
 
         # a tower whose centre stands inside its wall (2011's) carries its cap whole over the
         # house's roof behind it, as a corner turret's is (T-2900): nothing is cut at the wall
-        whole = cz < 0
+        # T-3800: and so does a round tower across its house's corner (2140's), which stands past
+        # the eave on both its walls
+        whole = cz < 0 or bool(self.plan.get("across_corner"))
 
         def reach(f):   # how far out from the centre the cap stands in front of the wall
             s = math.sin(f)
