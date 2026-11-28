@@ -1,0 +1,10 @@
+{
+  "title": "Play from the cloud",
+  "kind": "feature",
+  "items": [
+    "Players with cloud play can press Play from the cloud on the launch page: a machine with a fast graphics card opens the year they chose and streams it to their browser, so a slow computer or a phone plays at full detail.",
+    "The page says plainly how it is going while the machine starts, usually in about a minute, and why when it cannot start one.",
+    "Before the stream opens, the page says which machine they got: an NVIDIA L4 graphics card, at full detail.",
+    "A cloud session ends by itself after ten minutes with nobody connected, and after two hours in any case."
+  ]
+}
