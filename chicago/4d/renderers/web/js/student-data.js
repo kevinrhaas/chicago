@@ -6,9 +6,11 @@
  * visitor's page (privacy.html) says it in plain words, and Settings › About gains
  * **Delete my saved data**, which removes every record this account owns.
  *
- * Two shapes of record, both in Firestore's default database (nam5):
- *   ACCOUNT_DOCS  one document per account, keyed by its uid
- *   ACCOUNT_ROWS  many rows per account, each carrying `uid`
+ * Four shapes of record, all in Firestore's default database (nam5):
+ *   ACCOUNT_DOCS    one document per account, keyed by its uid
+ *   ACCOUNT_ROWS    many rows per account, each carrying `uid`
+ *   ACCOUNT_TREES   documents under users/<uid>/<part>/ (T-3777 cloud save, T-3778's note)
+ *   ACCOUNT_CLASSES classes and their codes (T-3778): a student's rows in them, a teacher's whole
  * The rules in docs/SIGN-IN.md let the account read and delete exactly these (and the
  * owner, his visitor list). A new collection that holds a visitor's data is added HERE and
  * to the rules in the same change; tools/test_sign_in.mjs holds the two lists together.
@@ -18,12 +20,22 @@
  * It stays off until this policy has been read by the owner and a school has the
  * agreement (docs/STUDENT-DATA-AGREEMENT.md).
  */
+import { deleteClassData } from './classes.js';
 
 /** Documents keyed by the account's uid: readers (reading age), people (your own person),
  * visitors (the owner's visitor list: your email, how you signed in, when, which years). */
 export const ACCOUNT_DOCS = Object.freeze(['readers', 'people', 'visitors']);
 /** Rows that carry the account's uid: visits (one per year entered), bugs (your reports). */
 export const ACCOUNT_ROWS = Object.freeze(['visits', 'bugs']);
+
+/** Trees under users/<uid>/: T-3777's cloud save (js/cloud-save.js CLOUD_PARTS), and T-3778's
+ * note of the class a student is in. */
+export const ACCOUNT_TREES = Object.freeze({ users: Object.freeze(['notebook', 'metfound', 'settings', 'classes']) });
+/** T-3778: records in classes/ the account wrote or owns (js/classes.js § deleteClassData):
+ * a student's member rows and hand-ins, and every class it teaches with its code. */
+export const ACCOUNT_CLASSES = Object.freeze(['classes', 'codes']);
+/** T-3797: documents keyed by the sign-in address: the launch page's rights and its cloud waitlist. */
+export const ACCOUNT_BY_EMAIL = Object.freeze(['access', 'waitlist']);
 
 /** Is any Stage 1 cloud feature allowed to write? Off unless the config says so. */
 export function cloudFeaturesOn(config) {
@@ -61,6 +73,13 @@ export async function deleteMyData({ projectId, account, fetchFn = globalThis.fe
   try { token = await account.idToken(); } catch { return { deleted: 0, failed: ['not signed in'] }; }
   const auth = { Authorization: `Bearer ${token}` };
 
+  // T-3778 first: a student's classes are found through users/<uid>/classes, which goes below.
+  try {
+    const classes = await deleteClassData({ projectId, account, fetchFn });
+    deleted += classes.deleted;
+    failed.push(...classes.failed);
+  } catch { failed.push('classes'); }
+
   for (const collection of ACCOUNT_DOCS) {
     try {
       const res = await fetchFn(`${base}/${collection}/${encodeURIComponent(uid)}`, { method: 'DELETE', headers: auth });
@@ -87,6 +106,38 @@ export async function deleteMyData({ projectId, account, fetchFn = globalThis.fe
         deleted += names.length;
       }
     } catch { failed.push(collection); }
+  }
+  for (const [tree, parts] of Object.entries(ACCOUNT_TREES)) {
+    for (const part of parts) {
+      try {
+        for (let page = 0; page < 50; page++) {
+          const res = await fetchFn(`${base}/${tree}/${encodeURIComponent(uid)}:runQuery`, {
+            method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ structuredQuery: { from: [{ collectionId: part }], select: { fields: [{ fieldPath: '__name__' }] }, limit: 300 } }),
+          });
+          if (!res.ok) { failed.push(`${tree}/${part}`); break; }
+          const names = (await res.json()).map((row) => row.document?.name).filter(Boolean);
+          if (!names.length) break;
+          const commit = await fetchFn(`${base}:commit`, {
+            method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ writes: names.map((name) => ({ delete: name })) }),
+          });
+          if (!commit.ok) { failed.push(`${tree}/${part}`); break; }
+          deleted += names.length;
+        }
+      } catch { failed.push(`${tree}/${part}`); }
+    }
+  }
+  // T-3797: the launch page's rights and waitlist rows, kept by sign-in address (the rules let
+  // a verified address delete its own). An email-only sign-in never has one, and could not prove it.
+  const email = String(account.email ?? '').trim().toLowerCase();
+  if (email && account.method && account.method !== 'email' && account.method !== 'preview') {
+    for (const collection of ACCOUNT_BY_EMAIL) {
+      try {
+        const res = await fetchFn(`${base}/${collection}/${encodeURIComponent(email)}`, { method: 'DELETE', headers: auth });
+        if (res.ok) deleted += 1; else failed.push(collection);
+      } catch { failed.push(collection); }
+    }
   }
   return { deleted, failed };
 }

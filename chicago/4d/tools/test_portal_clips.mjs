@@ -29,8 +29,9 @@ const CLIP_CAP_KB = 300;
 const TOTAL_CAP_MB = 5;
 const fail = (m) => { console.error(`FAIL portal clips: ${m}`); process.exit(1); };
 
-const html = fs.readFileSync(path.join(PORTAL, 'index.html'), 'utf8');
-if (!html.includes('<script src="walk/portal/clips.js" defer></script>')) fail('index.html does not load walk/portal/clips.js');
+// T-3798: the clips play on the classic console (/4d/console/); the launch page shows stills.
+const html = fs.readFileSync(path.join(PORTAL, 'console.html'), 'utf8');
+if (!html.includes('<script src="../walk/portal/clips.js" defer></script>')) fail('console.html does not load ../walk/portal/clips.js');
 const cards = [...html.matchAll(/data-year="(\d{4})"[^]*?data-clips="([^"]*)"/g)].map(m => ({ year: m[1], names: m[2].split(',').filter(Boolean) }));
 if (cards.length !== 3) fail(`expected 3 cards naming clips, found ${cards.length}`);
 const named = new Set();
@@ -62,7 +63,7 @@ if (process.argv.includes('--browser')) {
     '.webm': 'video/webm', '.mp4': 'video/mp4', '.webp': 'image/webp', '.woff2': 'font/woff2', '.svg': 'image/svg+xml' };
   const server = createServer((req, res) => {
     const rel = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-    const file = rel === '/' ? path.join(PORTAL, 'index.html')
+    const file = rel === '/' ? path.join(PORTAL, 'console.html')
       : rel.startsWith('/walk/') ? path.join(APP, 'renderers/web', rel.slice(6)) : null;
     try { const body = fs.readFileSync(file); res.writeHead(200, { 'content-type': TYPES[path.extname(file)] ?? 'application/octet-stream' }); res.end(body); }
     catch { res.writeHead(404).end(); }
@@ -111,7 +112,8 @@ if (process.argv.includes('--browser')) {
       if (clips.length !== 3 || new Set(clips.map(f => f.slice(0, 4))).size !== 3) fail(`${name}: expected one ${want} per card, fetched ${fetched.join(', ')}`);
       if (name !== 'low-power' && fetched.length !== 3) fail(`${name}: a playing video still fetched a reel (${fetched.join(', ')})`);
       if (name === 'low-power' && (reels.length !== 3 || reels.some(v => v < 8))) fail(`${name}: reels are not drawing (${reels.map(v => v.toFixed(0)).join(', ')})`);
-      if (feeds.some(f => f !== 'live')) fail(`${name}: feeds are ${feeds.join(', ')}, not all live`);
+      // The 1871 card (T-3654) shows its still only: it names no clips, so its feed stays 'none'.
+      if (feeds.filter(f => f === 'live').length !== cards.length || feeds.some(f => f !== 'live' && f !== 'none')) fail(`${name}: feeds are ${feeds.join(', ')}, not one live feed per card that names clips`);
       if (tones.length !== 6 || tones.some(t => !t.includes('grayscale(1)'))) fail(`${name}: the feeds are not black and white (${tones.join(' | ')})`);
     }
     console.log(`PASS portal clips in the page, ${name}: ${reducedMotion === 'reduce' ? 'stills only, nothing fetched' : `${fetched.filter(f => !f.endsWith('.mp4')).join(', ')} playing`}`);

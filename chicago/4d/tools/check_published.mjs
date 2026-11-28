@@ -161,8 +161,8 @@ const TRANSFORMED = [
     what: 'audio_hosting.mjs rewrites media URLs to verified immutable R2 objects and minifies the catalogue; source audio stays outside the mirror',
     gate: 'checkAudio verifies the complete published catalogue against source hashes, host policy and the recorded upload verification, and refuses duplicate local media',
     verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
-  { re: /^(?:\d{4}\/)?index\.html$/,
-    what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
+  { re: /^(?:\d{4}\/|console\/)?index\.html$/,
+    what: 'the front doors — /4d/ (the launch page, T-3798), /4d/console/ (the classic console) and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
         + 'copies the temporal observatory to the root and writes small stamped year doors that load one shared renderer, adding a base into walk/ before parsing, so the address '
         + 'bar keeps the short path and every relative URL resolves from walk/',
     gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the inserted <base>, exact root-template copying, small shared doors, build markers and the honest 1812 status; '
