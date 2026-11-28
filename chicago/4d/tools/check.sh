@@ -349,6 +349,8 @@ step "Hosted audio retains originals and binds published URLs to verified bytes 
   node tools/test_audio_hosting.mjs
 step "Jaunt narration: one script for app and voicer keyed by its words, only changed words or voices voiced, the player follows, queues, ducks and mutes (T-3578)" \
   node tools/test_narration.mjs
+step "Street talk: every scene's lines build to the file the voicer and app read, each line under 140 characters, one recording per words and voice (T-3812)" \
+  node tools/build_street_talk.mjs --check
 step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
   node tools/test_habitat_audio.mjs
 step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \

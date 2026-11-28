@@ -531,4 +531,79 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.equal(p.state.playing, null, 'heard away from its stop, no closing line follows');
 }
 
+// ---- T-3812: street talk -----------------------------------------------------------------
+{
+  const ST = await import('../renderers/web/js/street-talk.js');
+  const B = await import('./build_street_talk.mjs');
+  // The built file is the source's: an edit to the lines (or to who speaks) is rebuilt.
+  for (const scene of B.SCENES) {
+    const { problems, doc } = B.build(scene);
+    assert.deepEqual(problems, [], `street talk ${scene}`);
+    assert.equal(fs.readFileSync(B.outPath(scene), 'utf8'), B.body(doc), `data/narration/street/${scene}.json is stale: node tools/build_street_talk.mjs`);
+    for (const id of Object.keys(loadConfig().voices)) assert.ok(!doc.people[id], `${id} speaks in their own voice, never a stock one`);
+    for (const l of doc.lines) assert.ok(l.text.length <= B.MAX_CHARS && !/\[/.test(l.text), `${l.id}: short, plain words`);
+  }
+  assert.equal(B.voiceOf(B.readTeller('child/m/a9')), null, 'children are not voiced');
+  assert.equal(B.voiceOf(B.readTeller('young_lady,child/f/a17')), null);
+  assert.equal(B.voiceOf(B.readTeller('cook,maid/f/a45/oirish')), 'cook');
+  assert.equal(B.voiceOf(B.readTeller('maid/f/a50')), 'cook', 'an older maid speaks in the older voice');
+  assert.equal(B.voiceOf(B.readTeller('maid/f/a21/oirish')), 'maid');
+  assert.equal(B.voiceOf(B.readTeller('groom,coachman,manservant/m/a30')), 'manservant');
+  assert.equal(B.parseLines('gent greet | Hi.\ngent greet | Hi.').problems.length, 1, 'one voice says the same words once');
+  assert.deepEqual(B.parseLines('gent greet | Hi.\nlady greet | Hi.').problems, [], 'two voices may say the same words');
+  assert.match(B.parseLines('gent remark | In 1912 we shall see.').problems[0], /after 1904/);
+  // Keyed by words AND voice: "Good morning." in two voices is two recordings.
+  const k = await textKey('Good morning.');
+  assert.notEqual(ST.streetKey(k, 'gent'), ST.streetKey(k, 'lady'));
+  // The voicer lists each line once, in its voice, when voices.json lists the scene's street talk.
+  const config = { ...loadConfig(), street: ['1904'] };
+  const street = (await scriptsFor(config, { only: 'street-1904' }));
+  const doc = JSON.parse(fs.readFileSync(B.outPath('1904'), 'utf8'));
+  assert.equal(street.length, doc.lines.length);
+  assert.ok(street.every(s => s.part === 'street' && s.speaker.startsWith('street:') && s.key.endsWith(`@${s.speaker}`)));
+  assert.equal(new Set(street.map(s => s.key)).size, street.length, 'every line its own clip');
+  // Picking: their voice, the hour, the season and where they come from.
+  const lib = { lines: [
+    { id: 'a', voice: 'maid', kind: 'greet', time: 'morning', text: 'Morning.' },
+    { id: 'b', voice: 'maid', kind: 'greet', time: 'evening', text: 'Evening.' },
+    { id: 'c', voice: 'maid', kind: 'remark', season: 'winter', text: 'Cold.' },
+    { id: 'd', voice: 'maid', kind: 'remark', origin: 'irish', text: 'Mayo.' },
+    { id: 'e', voice: 'cook', kind: 'remark', text: 'Soup.' }], people: { p1: 'maid/swedish', p2: 'maid/irish' } };
+  const maid = ST.personVoice(lib, 'p1'), irish = ST.personVoice(lib, 'p2');
+  assert.deepEqual(maid, { voice: 'maid', origin: 'swedish' }); assert.equal(ST.personVoice(lib, 'nobody'), null);
+  assert.deepEqual(ST.linesFor(lib, maid, 'greet', { hour: 8 }).map(l => l.id), ['a']);
+  assert.deepEqual(ST.linesFor(lib, maid, 'greet', { hour: 21 }).map(l => l.id), ['b']);
+  assert.deepEqual(ST.linesFor(lib, maid, 'remark', { season: 'summer' }).map(l => l.id), [], 'winter talk is not had in summer; Mayo is not hers');
+  assert.deepEqual(ST.linesFor(lib, irish, 'remark', { season: 'winter' }).map(l => l.id), ['c', 'd']);
+  assert.deepEqual(ST.linesFor(lib, irish, 'remark', { season: 'winter', heard: new Set(['c']) }).map(l => l.id), ['d'], 'what was heard waits');
+  assert.equal(ST.gainAt(1), 1); assert.ok(ST.gainAt(7) < 1 && ST.gainAt(7) > ST.STREET.floor); assert.equal(ST.gainAt(40), ST.STREET.floor);
+  // The player: someone near says a voiced line through the Narration bus, mouth moving; an
+  // unvoiced line is silent; nobody speaks over a jaunt's voice or with Narration off.
+  {
+    const kp = await textKey('Morning.');
+    const index = { version: 1, clips: { [ST.streetKey(kp, 'maid')]: { text_sha256: kp, file: 'narration/m.mp3' } } };
+    const files = { 'https://data.test/street/1904.json': lib, 'https://media.test/narration/index.json': index };
+    const fetcher = async (u) => new Response(JSON.stringify(files[String(u)] ?? null), { status: files[String(u)] ? 200 : 404 });
+    class FakeAudio extends EventTarget { constructor() { super(); this.src = ''; this.paused = true; } play() { this.paused = false; return Promise.resolve(); } pause() { this.paused = true; } }
+    let el = null, audible = true, busy = false, talk = [], said = [], captions = [];
+    const actor = { id: 'p1', personId: 'p1', e: 2, n: 0, actions: { setTalk: (on) => talk.push(on), mouth: { say: (v) => said.push(v), hush: () => said.push('hush') } } };
+    const gain = { gain: { value: 1 }, connect() {}, disconnect() {} };
+    const ctx = { createMediaElementSource: () => ({ connect() {}, disconnect() {} }), createGain: () => gain };
+    const t = ST.createStreetTalk({ scene: '1904', base: new URL('https://data.test/street/'), fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      humans: { actors: [actor], get: (id) => (id === 'p1' ? actor : null) }, visitor: () => ({ e: 0, n: 0 }), hour: () => 8, season: () => 'summer',
+      speech: () => ({ ctx, bus: 'bus', audible }), busy: () => busy, media: () => (el = new FakeAudio()), random: () => 0, onCaption: (c) => captions.push(c.text) });
+    await t.load();
+    assert.ok(t.state.loaded);
+    t.update(60); // the first remark's wait is over: p1 is 2 m away, so a greeting, the only voiced line
+    assert.equal(el?.src, 'https://media.test/narration/m.mp3', 'a voiced line plays from the media host');
+    assert.deepEqual(talk, [true]); await Promise.resolve(); assert.deepEqual(captions, ['Morning.'], 'and its words are shown');
+    t.update(0.1); assert.ok(said.length >= 1, 'the speaker\'s jaw follows the voice');
+    assert.equal(gain.gain.value, 1, 'near: full');
+    el.dispatchEvent(new Event('ended')); assert.equal(t.state.speaking, null); assert.equal(said.at(-1), 'hush');
+    busy = true; t.update(60); assert.equal(t.state.said, 1, 'nobody speaks over a jaunt\'s voice'); busy = false;
+    audible = false; assert.equal(t.greet('p1'), false, 'with Narration off nobody answers aloud'); audible = true;
+    assert.equal(t.greet('p1'), true, 'a greeting is answered at once, whenever they last spoke');
+  }
+}
+
 console.log('NARRATION PASS — one script for app and voicer, keyed by its words; only changed words or voices are voiced; the index only grows; the player follows, queues, ducks and stops on mute, and says who is speaking and how loud');

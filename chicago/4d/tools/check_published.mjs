@@ -92,6 +92,8 @@ const COPIES = [
   // T-3737: a scene's house numbers; house-numbers.js reads them.
   ['data/house_numbers/', 'data/house_numbers/'],
   ['data/tales/', 'data/tales/'],
+  // T-3812: a scene's street talk (street-talk.js); its clips are on the media host.
+  ['data/street/', 'data/narration/street/'],
   ['data/reading/', 'data/reading/'], // T-3645: the cards' words at other ages
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
