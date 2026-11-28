@@ -2520,6 +2520,13 @@
       "write_mode": "OUT_DIR",
       "measured": "2026-11-26",
       "finding": "Writes nothing in the tree. Its write mode is called only by tools/publish.sh with the untracked published mirror's walk/architecture/ (data.json derived from data/components/prairie_1904/k*.json, data/structures/ and data/sidecars/; the kits' specimen GLBs copied byte for byte; their study pictures at 1600 px), which tools/check_published.mjs then holds. --check builds the same into a temporary folder it removes, in about 1.4 s; run bare it prints its usage, exits 2 and writes nothing. git status --porcelain was identical before and after --check and the bare run (T-3750)."
+    },
+    "lay_horse_railways_1871.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-28",
+      "finding": "Reproduces: a bare write on a clean tree rewrote data/transport/horse_railways_1871.json with identical bytes and left git status clean; a deliberately perturbed output (wheel_d_m 0.76 -> 0.99) failed --check, and the bare write repaired it byte-exact (--check then passed, status clean).",
+      "placed": "Reads only the 1871 street plan (data/context/1871.json) and writes data/transport/horse_railways_1871.json, which nothing else derives from; its slot is after the 1871 street plan's writers and before publish's transport copy. Not appended to the manifest's order until that slot is settled in an ordering pass (T-3806)."
     }
   }
 }
