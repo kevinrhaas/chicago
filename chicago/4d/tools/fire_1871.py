@@ -151,8 +151,8 @@ def footprint_world(side: dict):
 def lay_heaps(goods: dict) -> list:
     """Heaps of goods on a structure's open ground, deterministic from the goods' seed: inside the
     footprint less `margin_m`, clear of its own blocks (graves, fence, gateways) by `clear_m`, of
-    each other by `apart_m`, of the jaunt stands named in `clear_of` and of the stop's people by
-    `stand_r_m`. Each heap is [e, n, bearing_deg, seed]."""
+    each other by `apart_m`, of the jaunt stands named in `clear_of` and of the stop's people
+    and set-down goods (T-3814) by `stand_r_m`. Each heap is [e, n, bearing_deg, seed]."""
     side = json.loads((SIDECARS / f"{goods['within']}.json").read_text())
     to_world, poly = footprint_world(side)
     us, vs = [p[0] for p in poly], [p[1] for p in poly]
@@ -178,6 +178,9 @@ def lay_heaps(goods: dict) -> list:
                     for beat in c.get("beats", []):
                         for q in beat.get("walk", []):
                             keep_out.append((q[0], q[1], 1.4))
+                # T-3814: the stage's own goods set down on the ground.
+                for prop in (stop.get("stage") or {}).get("props", []):
+                    keep_out.append((prop["at"][0], prop["at"][1], 1.6))
     rng = random.Random(goods["seed"])
     heaps, tries = [], 0
     while len(heaps) < goods["heaps"] and tries < 20000:

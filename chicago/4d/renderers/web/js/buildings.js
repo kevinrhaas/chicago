@@ -49,6 +49,7 @@ import { backingTriangles } from './view-occlusion.js';
 import { planarCoverPlanes } from './planar-occluders.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
+import { isWallVineMaterial, patchVineLeafLight } from './leaf-light.js';
 import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
 import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
@@ -348,6 +349,9 @@ function roughnessAttribute(material, count) {
  * spawn ~10 % dark.
  */
 function perVertexScalars(material) {
+  // The batch's base roughness cannot describe its individual finishes.
+  // Keep its varying channel on the physical environment-lighting path.
+  material.userData.chiHasVertexRoughness = true;
   const prior = material.onBeforeCompile;
   const priorKey = programKeyOf(material);
   material.onBeforeCompile = (shader, renderer) => {
@@ -779,7 +783,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // or shader-patch those source materials: each batch owns its own copy.
       // Keep early masonry's native role and colour immutable too: a later detail
       // build must not inherit a whitened/renamed source or an uncloneable hook.
-      const ownMaterial = preserveMaterials || (!masonry.off && masonrySubstrate(bodyRole,
+      const vineLeaves = isWallVineMaterial(sourceMaterial);
+      const ownMaterial = preserveMaterials || vineLeaves || (!masonry.off && masonrySubstrate(bodyRole,
         record.sidecar, !!sourceMaterial.map, sourceMaterial.userData?.chiMasonryFabric) !== null);
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
       if (ownMaterial && !preserveMaterials) material = sourceMaterial.clone();
@@ -793,6 +798,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       // T-3332: a window pane glows by night (night-lights.js); 0 by day, to the bit.
       if (bodyRole === 'glass') patchNightWindows(material);
+      if (vineLeaves) patchVineLeafLight(material, { lowSpec });
       // Before the key is taken, and only ever by name — T-1488 and
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);

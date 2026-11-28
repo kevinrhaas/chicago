@@ -3,7 +3,12 @@ import { register } from './index.js';
 export default register('understanding', {
   title: 'Check your understanding · 3 questions',
   intro: 'Before we part, three questions from our walk. Take your time; you can try again as often as you like.',
-  privacy: 'Nothing here is graded or saved. Your answers stay in this tab until you close the outing or reload.',
+  privacy: 'Nothing here is graded. Your answers stay in this tab unless you save them to your notebook.',
+  // T-3778: a reflection saved by choice, which a student may hand in from the notebook.
+  save: 'Save to my notebook',
+  saveTitle: 'Reflection · {title}',
+  saved: 'Saved to your field notebook. You can hand it in from there.',
+  saveFailed: 'Your notebook could not save it. Check that it is not full.',
   'ask.where.3-5': 'Where on our walk did we hear this?',
   'ask.where.6-8': 'At which stop on our walk did we learn this?',
   'ask.where.9-10': 'Which stop on our route did this claim come from?',

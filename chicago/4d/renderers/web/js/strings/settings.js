@@ -52,4 +52,8 @@ export default register('settings', {
   'look.touch': 'Look sensitivity',
   'look.standard': 'Standard',
   'whatsnew.line': 'Release notes',
+  // T-3777: Settings › About, where cloud save last left the student's work.
+  'cloud.saved': 'Saved to your account at {time}.',
+  'cloud.saving': 'Saving to your account…',
+  'cloud.device': 'Saved on this device. Your account could not be reached.',
 });

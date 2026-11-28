@@ -580,6 +580,12 @@ if [ -d data/tales ]; then
   rm -rf "$SITE/data/tales"
   cp -a data/tales "$SITE/data/tales"
 fi
+# T-3812: the street talk, one file per scene (tools/build_street_talk.mjs), fetched by
+# js/street-talk.js once the scene's people are about; the clips are on the media host.
+if [ -d data/narration/street ]; then
+  rm -rf "$SITE/data/street"
+  cp -a data/narration/street "$SITE/data/street"
+fi
 
 # The signage layer — the boards on the town's business frontages, drawn by
 # renderers/web/js/signage.js straight from these numbers. Same argument as the

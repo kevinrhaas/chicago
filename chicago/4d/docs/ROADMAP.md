@@ -1,3 +1,13 @@
+## T-3814..T-3817 — The fire night's people: a crowd stream for 1871 (27 November 2026)
+
+The owner asked for crowds carrying and loading goods, runaway and burning teams and other scenes
+the accounts tell, rendered cleverly enough to keep the budgets. Four tickets in the 1871 band, one
+PR each: T-3814 people carry what they saved, wagons loaded, goods set down (this PR); T-3815
+runaway teams and burning loads; T-3816 a fire-night crowd for crowd.js (running streams at the
+middle and far tiers, carried bodies baked, phones and the UHD 630 class kept smooth); T-3817 the
+Court House prisoners, the people standing in the lake on the North Side sands, the roof bucket
+lines and the gunpowder rumour. The plan and sources: `docs/RESEARCH/fire-night-scenes-3814/`.
+
 ## T-3776..T-3780 — Stage 1: a classroom database on Firebase (27 November 2026)
 
 The owner's server plan ("Server, cloud GPU and engine plan", 23 November 2026; Google Cloud
@@ -6930,3 +6940,20 @@ T-3544 selected river follow-up: owner chose Light water on rocks; exact MP3 upl
 ### T-1789 - existing Charles coat, near material terminal
 
 Candidate: reproduce the four already validated Charles near MASTER/WEB children through the real canonical-export terminal, protect unknown fresh/active body changes and all four FAR bytes, register the derivation and remeasure only four native fixture rows while retaining every other SHA. Actual integrated full reproduction is PASS with all four prior output hashes unchanged. Fresh-blobless bootstrap, legitimate writer/isolation measurement and actual four-row native fixture now pass with accepted original resource limits; all 244 other fixture rows stay exact. Complete APP gate and ordinary DEV review remain pending. Selected-published research remains strict NONPASS; photographic likeness, clothing fit and phone release budgets stay open. No Joseph placement, Otis/Hans clip replacement, unrelated resident change or new ticket is part of this increment.
+
+
+### Better Trees - T-3747 (November 2026)
+
+The owner requested more realistic vegetation in every year. T-3747 adds close layered tree
+sprays and shadowed thin-leaf light through the existing adaptive renderer. T-3748 follows
+with flora, crop lighting and seasonal controls; T-3760 covers the 1871 context leftovers.
+STATUS and the PR evidence distinguish render checks from hardware FPS acceptance.
+
+### Better Trees - T-3748 and T-3760 (November 2026)
+
+Seasonal flora extends the shared leaf lighting and folded surfaces through all four years.
+The current 1871 context hands its 3,543 recorded trees to the shared grown path; its new
+planting remains intact. The refreshed footprint audit supersedes the old prototype's
+placement deletions. Fire state, cards, confidence and adaptive detail survive rebuilds.
+STATUS and versioned evidence retain the exact inputs and distinguish software checks
+from hardware FPS acceptance.

@@ -11,6 +11,100 @@ per tier (light: 2 cars, one horse each). No car runs from 22:00 on 8 October 18
 fire. The car, its livery and the timetable are reconstructed under
 `L-1871-horse-railways-3806`. Not drawn yet: fire-warped rails, cars on single-track lines.
 
+## T-3805 — 1871 street furniture round the jaunt stops (27 November 2026)
+
+Owner request, 27 November 2026: photo-match the streets round the 1871 jaunt stops. Within the
+detail rings: the fire-alarm telegraph boxes at the stations Edwards' 1871 directory lists (55
+placed; the rest are buildings or corners outside the drawn grid, listed in the data's `unplaced`),
+the year's new hydrants at the corners the Board of Public Works lists and one at about every other
+junction, five barbers' poles and two tobacconists' figures at the directory's corners, the
+wholesale streets' cases, barrels, crates and sacks on the walks, coal-hole plates, cellar doors and
+carriage blocks; Lake Street's poles at 15 m with eight crossarms (the late-1860s stereoview), and
+the fire-alarm wires from the Court House cupola to the roofs round the square (Andreas). Sunday:
+no display goods. `tools/lay_1871_street_furniture.py` checks every item clear of doorways,
+crossings, carriage ways and the walk's through-path (`--self-test` in check.sh).
+Cost (swiftshader, published): light tier +1 to +4 draws at the walk stands (coal plates and cellar
+doors are not drawn there), full +5 to +17; data file +29 KB gzipped. Shots:
+`tools/street_dress_shots_1871.mjs`. `L-1871-street-dress-3805`.
+
+## T-3814 — The Great Fire's people carry what they saved (27 November 2026)
+
+Owner request, 27 November 2026: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... you may have to start a crowd
+development stream". The research is `docs/RESEARCH/fire-night-scenes-3814/README.md` (what the
+accounts say people did, by kind and by stop; what stays out of the student tellings; crowd
+dynamics; the rendering plan), and the stream is four tickets: T-3814 (this), T-3815 (runaway
+teams and burning loads), T-3816 (a fire-night crowd for crowd.js at the jaunt's budgets) and
+T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder), and T-3830 (firemen and their engines, asked for on 28 November).
+
+This first piece restages the Great Fire jaunt with what was carried. A castmate may `carry` a
+thing (`renderers/web/js/stage-props.js` GOODS: a bundle or bolt on the shoulder, a bird cage,
+basket, shawl bundle or papers in the hand, a feather bed on the back, a trunk dragged on a
+1.3 m cord), from the start or from a beat; the hands hold it through `setCarry` in
+`human-actions.js`. A borne castmate with `bier: "mattress"` is carried on a doubled mattress; a
+stage team may carry a `load` on its bed (a streamed wagon row is now built for a stage at any
+hour, `townTransport.stageWant`); `stage.props` sets chairs, trunks and bundles on the ground.
+The jaunt (`docs/RESEARCH/jaunt-great-fire-3691/build.py`) now has 101 castmates (was 82): carriers
+at nine stops, a sick woman borne out at St. Paul's, four men loading an express wagon at
+Field, Leiter & Co.'s door that drives off north, and goods set down at the Ogden house and the
+old cemetery. Reconstructed under `L-1871-fire-night-3814`. Tested in
+`tools/test_jaunt_stage.mjs` and `tools/test_human_actions.mjs`.
+
+## T-3803 — 1871 shop signs from Edwards' 1871 directory (27 November 2026)
+
+Owner request, 27 November 2026: the signs above the 1871 stores should be "varied and be more
+specific based on your research of the citizens and people and businesses in 1871".
+`tools/build_1871_directory_fronts.py` reads the directory's text and writes
+`data/context/1871/directory_fronts.json`: 732 firms (510 at street level, 222 upstairs) on 71
+block faces of Lake, Randolph, Washington, Madison, Clark, LaSalle, Dearborn and State round the
+Court House square, each with its listing's page and line. The pre-1909 numbering of each street
+is calibrated from the directory (corner listings, the Court House square's and the Methodist
+block's gaps) and Carbutt's Lake Street stereograph (118, 120 and 124 on the north side), and
+written with its evidence. `renderers/web/js/city-signs-1871.js` assigns the firms to the
+generated shop fronts in the detail rings by their numbers' share of the block, lets fronts with
+no firm carry a trade from that street's classified list (never their neighbour's), and letters
+fascia boards, wall bands, cornice friezes, upstairs boards, hanging signs, pier boards, gilt
+window letters and awning valances at run time into per-cell atlas pages. A front's card names
+the firm (attested), its place (inferred) and its signs (reconstructed), under the new
+`L-1871-directory-signs`. Sign textures: Full 2 pages of 2048 (42.7 MiB, 38 px/m, the stops'
+fronts at 1.25x), Light 1 page of 2048x1024 (10.7 MiB, 30 px/m); no shipped textures.
+
+## T-3778 — Class codes and a teacher view (27 November 2026)
+
+Stage 1's third piece, behind `cloudFeatures`. `js/classes.js` keeps a class on Firestore:
+`classes/<id>` (teacher, name, year group, code), `classes/<id>/members/<uid>` (the name the
+student gave, joined, last in), `classes/<id>/handins/<uid>_<entry>` (one notebook entry the
+student chose to hand in) and `codes/<code>` (which class, until when; read by name, never
+listed), plus the student's own note `users/<uid>/classes/<id>`. `js/classes-view.js` draws
+Guide › For teachers › Your classes (make, code, roster with joined / last in / handed in /
+reflections, each student's work, CSV, print, remove, close), Settings › About › Your class
+(code, confirm, join under a chosen name, leave) and Hand in / Hand in again / Take back on
+each notebook entry. A jaunt's understanding check gains Save to my notebook, marked as a
+reflection (`topic`), as Make your case and route answers now are. Closing a class deletes it
+with everything handed in, as the school agreement promises; the end-of-school-year deletion
+the agreement also promises is not automatic yet (it needs a scheduled job with database
+access), and the teacher's page asks teachers to close each class when its year ends.
+`tools/test_classes.mjs` (gate) holds the codes, every write against its rule and a whole class
+against a fake Firestore; `tools/test_classes_emulator.mjs` (not a gate step: Java and the
+Firestore emulator) runs the rules themselves, 48 checks, including T-3777's users tree. The
+rules publish when this reaches dev.
+
+## T-3777 — Cloud save: notebook, people met, places found and Settings (27 November 2026)
+
+Stage 1's second piece, behind T-3776's `cloudFeatures` switch (on since the owner's
+27 November "Turn on the cloud features"). `js/cloud-save.js` keeps the browser's own copies as the working copy and reconciles
+them with Firestore `users/<uid>/{notebook,metfound,settings}/…`, one document per notebook
+entry, per year and kind of met/found, and one for the Settings that are the person's (the
+device's graphics stay put). The merge is three-way against the last agreed base (short
+hashes in `chicago4d.cloudsave.v1`): an edit beats a delete, two edits keep the newer,
+met/found joins, and a new browser takes the account's Settings. Writes are debounced (15 s,
+at most 60 s) plus a flush on hide and a two-minute look for Settings; pulls ask only for
+what changed since the last. Never for a sign-in with the email alone; the rules refuse it
+too. The boot waits up to 3 s for the first sync. Settings › About shows where the work was
+last saved. Delete my saved data removes the tree. `tools/test_cloud_save.mjs` measures a
+30-student, 45-minute lesson at about 1,800 writes and 4,200 reads (free tier: 20,000 and
+50,000 a day). Not yet run against the live project: the rules for `users` publish when this reaches dev.
+
 ## T-3776 — Student data policy and Delete my saved data (27 November 2026)
 
 Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
@@ -33,6 +127,134 @@ the visitor's own read and delete of `visitors`, `visits` and `bugs` (`isSelf`) 
 the delete reports "could not be deleted just now". The Firebase sign-in account itself is
 removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
 live delete was run.
+
+
+- **2026-11-27 — T-3748/T-3760, Light fix working source:** seasonal flora and the current 3,543-record 1871 grown handoff are composed on the fully gated Core3bdf source. A local software-renderer prototype kept triangles/calls unchanged and reduced Light frame time about25% against its warm controls, with a small colour change in the sampled view. This is not calibrated hardware acceptance. The earlier actual EPYC7763/4 Light miss remains held; fresh whole Native, actual failed-profile revalidation, seasonal browser evidence, committed preflight and final current-head CI remain required. Full/Balanced physical lighting and all current planting data are retained.
+## T-3748, T-3760 — Seasonal flora and the current 1871 trees (25 November 2026)
+
+All four years offer spring, summer, fall and winter. A fresh 1871 visit resolves to
+fall on 8 October, its target day; other choices use representative seasonal dates.
+Explicit visitor preferences win. Dated jaunts retain their documented dates and restore
+the visitor's choice. The evergreen exemption covers the complete scale/needle row of
+the six-row leaf atlas, rather than the obsolete five-row cutoff.
+
+Prairie leaf normals follow the existing midrib folds, plant size, arch and wind.
+Grass ribbons keep their width in physical metres, without new vertices, attributes,
+density, waves or draw passes. April withholds July flowers and their peduncles.
+Winter withholds legacy deciduous leaf sprays in colour and both shadow passes while
+retaining wood; conifers keep their separate evergreen path. Crop phenology is retained.
+Crop leaves share shadowed thin-leaf light and slight atlas relief on capable devices;
+Light and weak devices omit the extra sampling. Original green ivy masks precede seasonal
+or confidence recolouring so brown stems receive no leaf light. Reused street/front-yard
+materials drop relief on Light and restore the same atlas on Full.
+
+The current upstream 1871 city contains 3,543 context and 6,693 street trees. All current
+planting is preserved. A refreshed audit checked 10,236 trunk centres against 38,598 context
+building plans and 19 named solid footprint parts, with zero centres more than 0.25 m inside.
+No cross-set trunk centres were closer than two metres. These scans do not establish crown
+clearance. The earlier prototype's two deletion edits are superseded: those old serial IDs
+now name valid trees elsewhere, and the old coordinates no longer intrude into buildings.
+The former pumping-works context tree is absent upstream and is not reintroduced.
+
+All 3,543 current context records now use the shared grown-tree path instead of portable
+solid crowns. Their positions, nominal height/crown width, reconstructed grade and lazy
+inspection cards remain. The elm-like habit is a declared generic deciduous proxy, not an
+identified historical elm. Census and triangle accounting distinguish the handoff.
+
+Street trees and front yards keep their live forest and pick records until the latest
+replacement is ready, join duplicate requests and coalesce superseded choices. Detail
+completion waits for both. A replacement receives the latest Great Fire burnt-tree map
+before it mounts. Native regressions reproduce leaf restoration on a burnt tree, then verify
+fire changes during pending season/detail rebuilds, Hide/show, winter wood, relief toggling,
+picking, confidence, independent forests and disposal. Capture checks require actual probe
+instance slots, not just placement totals. The wider Water Tower view is checked separately.
+
+Complete integrated native/CI, published phone/desktop seasonal captures and memory/frame
+receipts belong to the merging PR. Software rendering does not establish hardware FPS.
+Liberties: L-seasonal-flora-3748 and L-1871-grown-context-3760.
+
+## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
+
+The leaf-light implementation retains its rounded foliage and shadowed transmission.
+Unsuccessful leaf-only and shared zero-light guards have been removed. Their actual
+calibrated Light failures (7,323/7,000 and 7,467/7,000 ms on EPYC 7763/four-core)
+remain in the evidence archive. Private draw-order, fused-light and fixed-material
+experiments preserved their sampled pixels but showed no reliable local improvement;
+they were discarded. The unmodified Dev control passed on EPYC 9V74, a different
+calibrated CPU, and does not qualify this feature or settle the earlier CPU's miss.
+The complete current-Dev source requires its own stock calibrated reading, complete
+Native gate and final exact-head CI. No old partial gate is reused. Existing raster,
+sampling, geometry, population, material quality and performance ceilings remain.
+
+The 1904 seasonal capture audit caught a seated-driver metadata read through the released
+human parser. Transport now reads the same source scene extras retained by GLTFLoader on
+the first scene's userData, preserving its identity/date/vehicle checks. The regression
+parses the real 1904 driver's scene extras with the actual loader, then exercises the real
+assembly factory with parser-free human leases, including rejection and disposal for a
+wrong identity or vehicle binding. The former parser read fails that regression.
+
+The UI allocation fixture holds actor updates and finishes pending source/LOD work before
+its strict GPU-resource readings. The grade-row check keeps people visible; the DOM-overlay
+check retains its existing hidden-people isolation. Rendering resumes before counters are
+read, and the original exact program/geometry equalities and performance limits remain.
+
+The shared grown-tree path now has a Full close level within 14 m. Its large sprays become
+three smaller sprays at different depths and angles, sharing a fine round shoot that tapers
+from the existing attachment to one tip. The original near mesh remains beyond that short ring. The
+existing instancing, culling, hysteresis, dissolve, shadows and species skeletons still apply.
+Balanced and Light retain their geometry counts. Woodland at Balanced uses the existing
+half-size atlases and omits additional leaf-relief sampling, as Light already does. Full
+retains the larger sheets and relief. Bare winter templates remain unchanged.
+
+Rounded spray normals and a common thin-leaf light patch cover woodland and street trees,
+yard shrubs, vines and bank thickets. Direct transmission uses the renderer's already
+shadowed incident light, while the existing small sky term follows time of day. Capable
+devices reuse the leaf sheet for subtle relief. Bark, fruit and solid flowers retain their
+materials. These are declared artistic render approximations (L-leaf-light-3747), preserving
+the records' species, planting, historical grades and asset provenance. Herbaceous flora and
+garden crops are T-3748's scope.
+
+The published season/detail sweep exposed overlapping rebuilds sharing scratch templates
+and live instance slots. Each forest now owns a snapshot of the placement plan; a seasonal
+commit discards superseded or late results and retains the prior forest until its replacement
+is ready. Rapid choices grow one candidate at a time and skip obsolete queued choices.
+The regression first reproduced the exact null-template crash, then checks
+overlapping summer/winter growth and a live forest after another rebuild and disposal.
+
+Full woodland and its static thicket batch let go of unused CPU triangle copies after upload using the existing
+upload-release and context-recovery path. All LOD bounds and confidence ranges are cached
+before release; picks and collisions retain their placement records. The native regression
+also changes LOD after discarding the arrays. The published desktop check requires exactly
+the four grown batches and the static thicket batch to release while its building and furniture pick oracles remain.
+The distant horizon keeps its dynamic arrays for its moving-eye solve. Resident-memory
+checks found the initial separate twig per spray too costly; the shared shoot reduces that
+geometry while retaining the three sprays, the existing limits and every planting record.
+The diagnostic `keep-geometry` option retains arrays for geometry-reading smoke tests.
+
+The focused browser test checks shadowed backlight, a wood mask, night, sky and shader-hook
+composition on both shader variants. Seven species/habits also retain their tree dimensions,
+coarse templates and bare templates while adding Full close detail. The tree-gallery
+diagnostic and fixed-camera published-scene captures retain their source versions and costs;
+final local gate, mapped smoke and CI receipts belong to the merging PR. Scripted moving-frame
+readings also suppress unmeasured raster drawing during tier preparation; their measured
+loops, limits, verification, live mode and explicit rendering stay unchanged. Cloud software
+rendering is not evidence of an integrated GPU's or a high-end GPU's FPS.
+
+Integration with the newer clothing passes exposed dense nearest-point work grids retaining
+empty volume. Point grids now use compact typed offsets for sparse shells and retain the
+dense representation when it is smaller. Search order, cell size, reach and garment output
+stay identical; an independent full-scan regression covers both representations, bounds and
+ties. Outline-only samplers are released before the rider passes. The shared human asset cache
+also releases its finished GLTF parser, as the building loader already does; fetched byte
+preparation ends before the sliced clothing work, releasing the raw file and header.
+Decoded geometry, materials, animations and metadata retain their identities and refcounts.
+Source clothing preparation now runs one body at a time per asset store, so several
+long-lived welded work graphs cannot accumulate while their generators yield. Fetching and
+GLTF decoding stay parallel; the separate queue that builds individual actors stays as it
+was. Failed preparation releases the queue for the next source. All clothing passes and
+outputs stay the same; the controlled regression first observes two simultaneous source
+work graphs, then verifies one, parallel decoding and recovery after a rejected pass.
+The unchanged memory and frame-time gates remain required; all people, faces and clothing stay enabled.
 
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 

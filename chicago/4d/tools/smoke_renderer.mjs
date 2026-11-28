@@ -1950,6 +1950,52 @@ for (const [label, viewport, touch] of [
     }
   }, on);
 
+  // T-3747 integration: an actor's requested LOD finishes from its promise, even
+  // with the animation clock held. Finish that work BEFORE the UI-only resource
+  // reading, and prevent its update from asking for another level across it.
+  // Raster is omitted only while awaiting this unmeasured preparation; the
+  // ordinary draw is restored and warmed before any renderer.info is sampled.
+  // Rows keep the people visible, so their materials remain part of the check.
+  const holdHumanResources = (hide = false) => page.evaluate(async (hide) => {
+    const a = window.__chicago4d, h = a.humans;
+    a.setAnimationHold(true);
+    if (!h) return;
+    if (!h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
+    if (hide && h.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
+    const draw = a.renderer.render;
+    let timer, stopped = false;
+    try {
+      try {
+        a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
+        const { pendingBuilds } = await import(`${window.__MODULE_BASE}humans.js`);
+        const settle = async () => {
+          while (!stopped) {
+            const jobs = (h.actors ?? []).map(actor => actor.pending).filter(Boolean);
+            if (jobs.length) await Promise.all(jobs);
+            if (stopped) return;
+            await new Promise(resolve => requestAnimationFrame(resolve));
+            if (!(h.actors ?? []).some(actor => actor.pending) && pendingBuilds() === 0) return;
+          }
+        };
+        await Promise.race([settle(), new Promise((_, reject) => {
+          timer = setTimeout(() => reject(new Error('UI resource fixture: actor preparations did not settle')), 90_000);
+        })]);
+      } finally { stopped = true; clearTimeout(timer); a.renderer.render = draw; }
+      a.step();
+    } catch (error) {
+      if (h.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+      if (h.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+      if (hide) a.setAnimationHold(false);
+      throw error;
+    }
+  }, hide);
+  const releaseHumanResources = (resumeAnimation = false) => page.evaluate((resume) => {
+    const a = window.__chicago4d, h = a.humans;
+    if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+    if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+    if (resume) a.setAnimationHold(false);
+  }, resumeAnimation);
+
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
       const welcome = window.__chicago4d.welcome;
@@ -17616,7 +17662,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Full Ghost40% triangles stay inside the declared view budget (T-2981)`,
       rowLookStats.detail !== 'full' || rowLookStats.triangles <= rowLookStats.budget.triangles, JSON.stringify(rowLookStats));
     // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
-    const rowSweep = await page.evaluate(() => {
+    await holdHumanResources();
+    let rowSweep;
+    try { rowSweep = await page.evaluate(() => {
       const a = window.__chicago4d;
       const before = a.stats();
       const t0 = performance.now();
@@ -17632,7 +17680,7 @@ for (const [label, viewport, touch] of [
       a.step();
       const after = a.stats();
       return { ms: Math.round(ms), programs: [before.programs, after.programs], geometries: [before.geometries, after.geometries] };
-    });
+    }); } finally { await releaseHumanResources(); }
     check(`${label}: ten row changes add no shader program and no geometry (T-2648)`,
       rowSweep.programs[0] === rowSweep.programs[1] && rowSweep.geometries[0] === rowSweep.geometries[1],
       JSON.stringify(rowSweep));
@@ -17687,29 +17735,12 @@ for (const [label, viewport, touch] of [
           streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
       });
       const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
-      // T-3613: the town is held STILL across the two readings, not waited on. T-3556 waited for
-      // no figure to have a level in flight and then held `humans.update`, and dev stayed red on
-      // it (+19 geometries and +19 draws desktop, every content build from f90dc7d7d on): a level
-      // already asked for lands from its own promise (Actor.setLod -> show), not from `update`,
-      // and that wait gave up silently after 20 s on a slow runner, holding nothing. So from the
-      // first reading to the second: the people's layer is not drawn at all (a figure that lands
-      // or comes out meanwhile is never uploaded, so it cannot be counted as the overlays'), its
-      // `update` is held (no level is asked for or let go), and the frame clock is held
-      // (setAnimationHold: traffic, the sun and every walk stand where they are). The overlays
-      // are a DOM layer with their own frame loop and read none of it. Held only after the
-      // teleport has settled, so the camera is already where the labels are read from.
-      const townHeld = () => page.evaluate(() => {
-        const a = window.__chicago4d, h = a.humans;
-        a.setAnimationHold(true);
-        if (h && !h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
-        if (h?.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
-      }).catch(() => {});
-      const townLetGo = () => page.evaluate(() => {
-        const a = window.__chicago4d, h = a.humans;
-        a.setAnimationHold(false);
-        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
-        if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
-      }).catch(() => {});
+      // T-3613 / T-3747 integration: hold the clock and the people's update,
+      // and finish already-requested levels before sampling renderer resources.
+      // Their group stays hidden for this DOM-only overlay check, as before;
+      // the ordinary renderer is restored and warmed before the first reading.
+      const townHeld = () => holdHumanResources(true);
+      const townLetGo = () => releaseHumanResources(true);
       // What each top-level layer of the scene draws, read beside the stats, so a red reading
       // names the layer whose geometry it was instead of leaving it to be guessed.
       const sceneCensus = () => page.evaluate(() => {

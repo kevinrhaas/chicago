@@ -4,6 +4,7 @@
   "note": "Where the 1871 city is built at full detail: the fronts within radius_m of each ring's points or line are modelled (wall textures, storefronts, signboards, awnings, window openings and hoods, cornices, doors, steps and front fences with gates); everything beyond keeps the cheap instanced form with the same silhouette and colour. Points are local east/north metres (data/context/1871.json coordinates). Extend this list as jaunt stops are added; renderers/web/js/city-fronts.js reads it at load.",
   "radius_m": {"full": 200, "balanced": 150, "light": 100},
   "show_m": {"full": 330, "balanced": 270, "light": 200},
+  "directory_fronts": "directory_fronts.json",
   "rings": [
     {"id": "court_house_square", "label": "Court House square", "points": [[516.7, -328.2]]},
     {"id": "state_street_lake_to_monroe", "label": "State Street, Lake to Monroe", "points": [[856.0, -106.8], [860.6, -650.8]]},
