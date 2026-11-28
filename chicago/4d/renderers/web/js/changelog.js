@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 3314, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2008 Calumet: the Hanford house checked against its 1883 drawing', kind: 'improvement',
+    items: [
+      'The Hanford house at 2008 Calumet Avenue has been matched against its 1883 drawing. Its south side now has the round oriel window on carved brackets, and a projecting bay with three windows on each floor that rises to a stone gable. The chimneys and side windows are where the drawing puts them, the pointed corner roof covers the whole corner block, and the stone is rough-faced, as drawn.',
+    ] },
+  { v: 3313, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2130 Prairie\'s south gable gets its attic window', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie now has the tall attic window the 1905 photograph from Prairie and 22nd Street shows high in its stone south gable, with its stone sill and lintel, placed where the photograph puts it to within a few inches.',
+    ] },
+  { v: 3312, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2021 Prairie\'s front opens to the street, and its picket fence appears', kind: 'improvement',
+    items: [
+      'The tall board fence across the High house\'s front at 2021 Prairie is gone. As in the old photograph, its steps and basement windows now face the street with nothing in between.',
+      'The photograph\'s low white picket fence now runs along the side of the lot by the south wing.',
+      'Still different from the photograph: the open porch behind the arch, the steps running along the front, the cut corner of the south wing, and the side yard sloping down to the street.',
+    ] },
+  { v: 3311, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: 'A wooden stable behind 2125 Prairie, the alley\'s first frame building', kind: 'improvement',
+    items: [
+      'The stable on the alley behind 2125 Prairie Avenue is now built at the size and place the 1911 fire-insurance map gives it: 6.9 by 7.2 metres, standing on its own in the yard.',
+      'It is the only wooden building on that alley. Its walls are pale painted boards with cream trim, beside the brick stables to its north.',
+      'It has a carriage door with a hay-loft hatch and hoist above it, stable windows, a door to the yard, and a pointed gable at each end.',
+      'A brick path joins its yard door to the back of the house.',
+    ] },
   { v: 3310, ts: '2026-11-28T04:12:08.127Z', date: 'Nov 27, 2026, 10:12 PM CT', title: 'The people of 1904 talk as you pass', kind: 'feature',
     items: [
       'On Prairie Avenue in 1904, people near you now speak: a greeting when greeted, or a remark about their day. A caption shows who.',
