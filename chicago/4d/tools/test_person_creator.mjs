@@ -10,6 +10,10 @@
  * takes it back, Randomize keeps the body style, Esc closes; the option pictures are drawn for
  * the open category only, the person's own from their own figure; on a phone (390 x 780) nothing
  * runs off the side and the foot's buttons are a finger wide.
+ *
+ * The gate runs it bare: the rules by the source, and the creator's own pure parts in node (the
+ * gate's runners have no browser). `--browser` adds the walk-through in a real browser, desktop
+ * and phone: run it by hand before a creator change ships.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -38,6 +42,29 @@ ok(!/<link[^>]+person-creator\.css/.test(read('renderers/web/index.html')), 'the
 const pc = read('renderers/web/js/person-creator.js');
 ok(pc.includes('faceGroups(') && pc.includes("role: 'tablist'") && pc.includes('pc-band'), 'the creator shows the face library by type, in bands');
 ok(!/\b(men|women|man|woman|male|female|masculine|feminine|gender)\b/i.test(pc.match(/CREATOR_TABS = [\s\S]*?\]\);/)[0]), 'no category named for a sex');
+
+// --- in node: the creator's pure parts, on the real catalog
+{
+  const C = await import('../renderers/web/js/person-creator.js');
+  const P = await import('../renderers/web/js/visitor-person.js');
+  const catalog = JSON.parse(read('data/humans/visitor_person.json'));
+  ok(C.CREATOR_TABS.length === 5 && C.CREATOR_TABS.every((t) => t.id && t.label && C.CREATOR_ICONS.includes(t.icon)), 'five categories, each with its icon');
+  const man = P.normalChoice({ sex: 'male' }, catalog);
+  const navy = P.patchedChoice(man, { outfit: 'working', look: 'navy' }, '1904', catalog);
+  const line = C.summaryOf(catalog, navy, P.yearChoice(navy, '1904', catalog));
+  ok(/Shirt and waistcoat, navy/.test(line) && !/\b(male|female)\b/i.test(line), `the summary names the outfit and its colouring, never a sex (${line})`);
+  const first = P.outfitLooks(P.yearChoice(man, '1904', catalog).outfit)[0].id;
+  ok(C.choiceKey(P.patchedChoice(man, { look: first }, '1904', catalog), '1904', catalog) === C.choiceKey(man, '1904', catalog),
+    'a choice drawn alike keys alike (an outfit\'s first colouring, named or not): its picture is the person\'s own figure');
+  ok(C.choiceKey(navy, '1904', catalog) !== C.choiceKey(man, '1904', catalog), 'and a colouring drawn otherwise keys otherwise');
+  ok(C.choiceKey({ ...navy, saved: 'later' }, '1904', catalog) === C.choiceKey(navy, '1904', catalog), 'when a choice was kept is not how it is drawn');
+  ok(catalog.hair_colours.every((h) => /^rgb\(\d+, \d+, \d+\)$/.test(C.hairSwatch(h.id) ?? '')), 'every hair colour has its swatch');
+}
+
+if (!process.argv.includes('--browser')) {
+  console.log(`person creator (T-3553): ${n} checks PASS (source and node; the browser walk-through runs with --browser)`);
+  process.exit(0);
+}
 
 // --- in a browser
 const types = { '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json', '.css': 'text/css', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
