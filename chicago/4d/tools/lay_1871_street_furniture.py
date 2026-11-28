@@ -4,6 +4,7 @@ posts along the shop walks (the owner, 2026-11-21).
 
     python3 tools/lay_1871_street_furniture.py           # write data/street_furniture/1871.json
     python3 tools/lay_1871_street_furniture.py --check   # the committed file is what this writes
+    python3 tools/lay_1871_street_furniture.py --self-test  # the furniture check refuses what it must (T-3805)
 
 The owner, 2026-11-21: "I think we need trees and other streetscape, analyze street scenes
 from the era and add the correct supporting street furniture and other appropriate items
@@ -65,6 +66,8 @@ TELEGRAPH_STREETS = ("Lake Street", "Clark Street", "State Street", "Randolph St
                      "Wells Street", "Wabash Avenue", "Canal Street", "Halsted Street", "Kinzie Street",
                      "North Clark Street", "West Madison Street", "West Randolph Street", "West Lake Street")
 
+# T-3805: the late-1860s Lake Street stereoview's poles: tall, with eight crossarms of wires.
+TRUNK_STREETS = ("Lake Street",)
 LAMP_KERB_INSET_M = 0.45      # a lamp's centre in from the kerb edge of the walk
 LAMP_END_IN_M = 1.2           # a corner lamp's centre back from the walk's end at the corner
 LAMP_SPACING_M = 46.0         # between corners on a business street, both sides, staggered
@@ -260,7 +263,8 @@ def build() -> dict:
             if END_CLEAR_M < t < w.L - END_CLEAR_M:
                 p = w.at(t, POLE_KERB_INSET_M)
                 if not near_taken(p, CLEAR_M):
-                    it = {"id": f"pole.telegraph.{w.id}.{int(t)}", "kind": "utility_pole", "class": "telegraph",
+                    it = {"id": f"pole.telegraph.{w.id}.{int(t)}", "kind": "utility_pole",
+                          "class": "telegraph_trunk" if name in TRUNK_STREETS else "telegraph",
                           "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y, "heading_deg": r2(w.heading), "place": "walk",
                           "where": f"at the kerb of {name}", "face": w.id, "grade": "reconstructed",
                           "sources": [], "liberty": LIBERTY}
@@ -289,6 +293,14 @@ def build() -> dict:
                      "where": f"at the kerb of {names.get(w.run, 'a shop street')}", "face": w.id,
                      "grade": "reconstructed", "sources": [], "liberty": LIBERTY}, p)
             t += HITCH_SPACING_M
+
+    # 4b. T-3805: the street dress round the jaunt stops (fire-alarm boxes, hydrants, goods ...).
+    posts = [(it["e"], it["n"], {"gas_lamp": 0.15, "utility_pole": 0.2, "hitching_post": 0.08}[it["kind"]]) for it in items]
+    dress, unplaced, radial, fronts, landmarks = build_dress(ctx, walks, names, street_half, posts, core)
+    bad = check_dress(dress, ctx, walks, fronts, landmarks, posts)
+    LAST.update(dress=[dict(it) for it in dress], ctx=ctx, walks=walks, fronts=fronts, landmarks=landmarks, posts=posts)
+    if bad:
+        raise SystemExit("FURNITURE CHECK refuses the laying:\n  " + "\n  ".join(bad[:40]))
 
     # Short ids, numbered per kind in a fixed order (the walk ids they were laid from are long, and
     # ten thousand of them were a third of the file); the walk stays on the item as `face`.
@@ -355,6 +367,34 @@ def build() -> dict:
         w["from"], w["to"] = short[w["from"]], short[w["to"]]
         w.pop("grade", None)
     wires.sort(key=lambda x: (x["from"], x["to"]))
+    # The dress: numbered per kind (a fire-alarm box keeps its station's number); a pile of goods
+    # shares a short group number. Each item states only what differs from its kind's defaults.
+    dress.sort(key=lambda it: it["id"])
+    prefix = {"fire_alarm_box": "firebox", "fire_hydrant": "hydrant", "barber_pole": "barber", "cigar_figure": "tobacco",
+              "coal_hole_plate": "coal", "cellar_door": "cellar", "carriage_block": "block"}
+    count_by = defaultdict(int)
+    groups = {}
+    for it in dress:
+        k = it["kind"]
+        if k != "fire_alarm_box":
+            p = prefix.get(k, "goods")
+            it["id"] = f"{p}.{count_by[p]:04}"
+            count_by[p] += 1
+        if "group" in it:
+            it["group"] = groups.setdefault(it["group"], len(groups))
+        if it.get("grade") == "reconstructed":
+            it.pop("grade")
+        if it.get("liberty") == DRESS_LIBERTY:
+            it.pop("liberty")
+        if it.get("sources") == []:
+            it.pop("sources")
+        if k in FLUSH or k in GOODS:
+            # hundreds of these: the kind's defaults say where they stand
+            for key in ("face", "where", "place"):
+                it.pop(key, None)
+            it["heading_deg"] = round(it["heading_deg"], 1)
+    items.extend(dress)
+    wires.extend(radial)
     lamp = dict(lamp_kind)
     lamp.update({
         "form_grade": "inferred",
@@ -371,7 +411,7 @@ def build() -> dict:
     kinds = {
         "gas_lamp": lamp,
         "utility_pole": {
-            "name": "telegraph pole", "name_by_class": {"telegraph": "telegraph pole"},
+            "name": "telegraph pole",
             "form": "A wooden pole about 12 m, tapering from its butt, with five crossarms of six pins and glass insulators.",
             "form_grade": "inferred",
             "form_sources": ["loc_stereo_1s12371_sherman_house", "loc_stereo_1s47905_tremont_house"],
@@ -379,8 +419,12 @@ def build() -> dict:
                          "wires running down the street; No. 55 a tall pole with short crossarms at Lake and Dearborn. "
                          "Every pole is drawn alike.",
             "model_m": {"telegraph": {"height_m": 12.0, "butt_d_m": 0.32, "top_d_m": 0.2, "arms": 5, "pins": 6,
-                                      "arm_len_m": 2.2, "arm_below_top_m": 0.4}},
+                                      "arm_len_m": 2.2, "arm_below_top_m": 0.4, "wired_arms": 2},
+                        "telegraph_trunk": {"height_m": 15.2, "butt_d_m": 0.38, "top_d_m": 0.2, "arms": 8, "pins": 4,
+                                            "arm_len_m": 2.0, "arm_below_top_m": 0.5, "arm_step_m": 0.66, "wired_arms": 5}},
+            "name_by_class": {"telegraph": "telegraph pole", "telegraph_trunk": "telegraph pole of the Lake Street lines"},
             "what": "A wooden pole carrying the telegraph lines",
+            "form_note_by_class": {"telegraph_trunk": "The late-1860s Lake Street stereoview (a reference picture whose holder is not yet traced; rights check_required, so it is cited in text only) looks down Lake Street past a pole at the kerb taller than the four-storey fronts, with eight crossarms of short pins and the wires running on down the street over the roofs. Lake Street's poles are drawn so, about 15 m with eight arms of four pins, the top five strung; the count of pins and of wires is too small to read and is ours, as are the two strung arms of the other streets' poles (T-3805)."},
             "ticket": TICKET,
             "rule_note": "The 1860s stereographs show telegraph poles at the kerb of the principal business streets",
         },
@@ -398,6 +442,7 @@ def build() -> dict:
             "rule_note": "Horses stand at the kerb in every picture of the business streets",
         },
     }
+    kinds.update(dress_kinds())
     count = defaultdict(int)
     for it in items:
         count[it["kind"]] += 1
@@ -415,27 +460,763 @@ def build() -> dict:
             "gas_lamp": {"liberty": LIBERTY, "note": f"A lamp at each corner of the platted city's named streets, on the walk {LAMP_KERB_INSET_M} m in from the kerb and {LAMP_END_IN_M} m back from the corner; on the business streets one about every {int(LAMP_SPACING_M)} m between, the two sides staggered. Reconstructed."},
             "utility_pole": {"liberty": LIBERTY, "note": f"On one side of each principal business street where it fronts shops, about every {int(POLE_SPACING_M)} m, {POLE_KERB_INSET_M} m in from the kerb; wires join neighbouring poles. Reconstructed."},
             "hitching_post": {"liberty": LIBERTY, "note": f"Along the walks that front shop rows, about every {HITCH_SPACING_M} m at the kerb, clear of the lamps and poles. Reconstructed."},
+            **dress_placement(),
         },
-        "wire_model": {"sag_frac": 0.014},
+        "wire_model": {"sag_frac": 0.014, "radial": {"sag_frac": 0.02, "grade": "inferred", "sources": ["andreas_1885_v2"],
+                                                       "note": "Andreas, vol. 2, 'Fire Alarm Telegraph' (pp. 92-94): the central office was in the dome of the Court House cupola, and 'old citizens and firemen can remember the network of wires that radiated thence to the tops of the buildings that surrounded the Court-house square.' Drawn from the cupola's drum to the cornices of the fronts that face the square; which roofs, and how many wires, are ours (T-3805)."}},
         "item_defaults": {"grade": "reconstructed", "sources": [], "liberty": LIBERTY},
+        "kind_defaults": {k: {"grade": "reconstructed", "sources": [], "liberty": DRESS_LIBERTY,
+                              **({"where": "on the walk before a shop", "place": "front"} if k in FLUSH or k in GOODS else {})}
+                          for k in DRESS_KINDS},
+        "sunday_note": "The scene is Sunday 8 October 1871 and the stores are shut, so nothing a merchant set out only to sell by day is drawn (show cases, sandwich boards, bolts of cloth, rolled carpets, which the weekday pictures show); what stood on a walk through a Sunday is (T-3805).",
+        "unplaced": unplaced,
         "street_names": {},
-        "sources": load_sources(sorted({s for k in kinds.values() for s in k.get("form_sources", [])})),
+        "sources": load_sources(sorted({s for k in kinds.values() for s in k.get("form_sources", [])}
+                                      | {s for it in items for s in it.get("sources", [])} | {"andreas_1885_v2"})),
         "summary": {"items": len(items), "gas_lamps": count["gas_lamp"], "telegraph_poles": count["utility_pole"],
-                    "hitching_posts": count["hitching_post"], "wires": len(wires), "corner_lamps": len(corner_pts)},
+                    "hitching_posts": count["hitching_post"], "wires": len(wires), "corner_lamps": len(corner_pts),
+                    "dress": {k: count[k] for k in DRESS_KINDS}, "radial_wires": len(radial), "unplaced": len(unplaced)},
         "items": items,
         "wires": wires,
     }
     return doc, trees_doc
 
 
+# ----------------------------------------------------------------------------------------
+# T-3805: the street dress round the jaunt stops, from the period photographs and the city's
+# records (the owner, 2026-11-27: "photo match the best you can to the surrounding street ...
+# use period photos to infer and reconstruct the street scape, businessess, street furniture").
+#
+#   * FIRE-ALARM TELEGRAPH BOXES at every station Edwards' 1871 directory lists at a corner
+#     (City and County Record, "Fire Alarm and Police Telegraph"); the box itself is the
+#     "cottage-shaped, of heavy cast-iron, fastened to the side of a house, or post" Andreas
+#     describes, with the sign saying where its key is kept.
+#   * FIRE HYDRANTS: each of the year's new hydrants the Board of Public Works lists at a named
+#     corner (Tenth Annual Report pp. 79-85) at that corner; round the stops, one more at a
+#     corner of every other junction, for a city of 1,552 hydrants.
+#   * The BARBERS' POLES and TOBACCONISTS' FIGURES of the firms the directory's classified
+#     pages put at a named corner near a stop.
+#   * On the walks before the shops round the stops: the packing cases, barrels, crates and
+#     sacks the wholesale streets kept on their walks, coal-hole plates and cellar doors let
+#     into the flags; carriage blocks at the kerb before the houses.
+#   * Lake Street's telegraph poles of eight crossarms, as the late-1860s stereoview shows them,
+#     and the network of wires that "radiated" from the Court House cupola "to the tops of the
+#     buildings that surrounded the Court-house square" (Andreas).
+#
+# SUNDAY. The scene is Sunday 8 October 1871 and the stores are shut (the jaunts say so), so
+# nothing a merchant set out only to sell by day is drawn: no show cases, sandwich boards,
+# bolts of cloth or rolled carpets, though the weekday pictures show them. What stood on a
+# walk through a Sunday stands: the wholesale houses' cases, barrels and crates, the barbers'
+# poles (barbers shaved on Sunday mornings) and a tobacconist's figure at an open cigar store.
+#
+# THE FURNITURE CHECK (`check_dress`): no item in a shop's doorway, a board crossing, an
+# alley's carriage way at a walk's end, or the walk's through-path; the front zone and the
+# kerb zone only, and the front zone only where the walk leaves a clear path between them.
+# `--check` refuses a laying that breaks it, and `--self-test` proves it refuses.
+
+DRESS_LIBERTY = "L-1871-street-dress-3805"
+LAST: dict = {}   # the last laying's parts, for --self-test
+DRESS_TICKET = "T-3805"
+RINGS = ROOT / "data" / "context" / "1871" / "detail-rings.json"
+RECORDS = ROOT / "data" / "research" / "street_furniture_1871.json"
+SIDECARS = ROOT / "data" / "sidecars" / "1871"
+SCENE = ROOT / "data" / "scenes" / "1871.json"
+RING_REACH_M = 215.0          # the dress is laid within this of a detail ring (its full radius, 200 m)
+KERB_ZONE_M = 0.9             # a kerb item's centre is no further than this in from the kerb
+FRONT_ZONE_M = 1.15           # a front item stands within this of the walk's building edge
+THROUGH_PATH_M = 1.4          # the clear path a front item must leave between itself and the kerb zone
+DOOR_HALF_M = 0.76            # city-fronts.js: a shop door is 1.52 m wide
+DOOR_CLEAR_M = 0.6            # and nothing stands within this of its jambs
+END_KERB_M = 1.6              # a kerb item this far from a walk's end at least (the crossing is off the end)
+END_FRONT_M = 3.0             # a front item this far (an alley's carriage way meets the walk's end)
+WHOLESALE_STREETS = ("Lake Street", "South Water Street", "North Water Street", "Market Street")
+# Plan radii, for the clearances; `flush` items lie in the flags and block nothing.
+DRESS_R = {"packing_case": 0.54, "crate": 0.43, "barrel": 0.3, "sack": 0.44, "barber_pole": 0.14,
+           "cigar_figure": 0.3, "carriage_block": 0.5, "fire_alarm_box": 0.2, "fire_hydrant": 0.22,
+           "coal_hole_plate": 0.2, "cellar_door": 0.8}
+FLUSH = {"coal_hole_plate", "cellar_door"}
+# Half the depth across the walk, for "on its walk" (a case is long along the front, shallow across it).
+HALF_D = {"packing_case": 0.32, "crate": 0.27, "barrel": 0.3, "sack": 0.26, "barber_pole": 0.14, "cigar_figure": 0.26,
+          "carriage_block": 0.32, "fire_alarm_box": 0.12, "fire_hydrant": 0.18, "coal_hole_plate": 0.18, "cellar_door": 0.48}
+FRONT_KINDS = {"packing_case", "crate", "barrel", "sack", "cigar_figure", "coal_hole_plate", "cellar_door"}
+KERB_KINDS = {"barber_pole", "carriage_block", "fire_alarm_box", "fire_hydrant"}
+GOODS = ("packing_case", "crate", "barrel", "sack")
+DRESS_KINDS = tuple(DRESS_R)
+
+
+def ring_distance(ring, p):
+    pts = ring["points"]
+    if len(pts) == 1:
+        return math.hypot(p[0] - pts[0][0], p[1] - pts[0][1])
+    best = 1e9
+    for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+        dx, dy = bx - ax, by - ay
+        L = dx * dx + dy * dy
+        t = max(0.0, min(1.0, ((p[0] - ax) * dx + (p[1] - ay) * dy) / L)) if L else 0.0
+        best = min(best, math.hypot(p[0] - ax - t * dx, p[1] - ay - t * dy))
+    return best
+
+
+def walk_local(w, p):
+    """(t, k): metres along the walk and in from its kerb edge (Walk.at's inverse)."""
+    dx, dy = p[0] - w.a[0], p[1] - w.a[1]
+    t = dx * w.ue + dy * w.un
+    off = dx * -w.un + dy * w.ue
+    return t, w.w / 2 + w.side * off
+
+
+def landmark_footprints():
+    """The scene's own structures' footprints in local ENU (walker.js footprintsFrom's frame)."""
+    out = []
+    for sid in json.loads(SCENE.read_text())["structure_ids"]:
+        p = SIDECARS / f"{sid}.json"
+        if not p.exists():
+            continue
+        sc = json.loads(p.read_text())
+        fp = sc.get("footprint") or {}
+        poly = fp.get("polygon") if isinstance(fp, dict) else None
+        if not poly or sc.get("drawn_by"):
+            continue
+        pl = sc.get("placement") or {}
+        th = math.radians(pl.get("rotation_deg", 0))
+        c, s = math.cos(th), math.sin(th)
+        e0, n0 = pl.get("local_e", 0), pl.get("local_n", 0)
+        out.append({"id": sid, "kind": (sc.get("attributes", {}).get("kind", {}) or {}).get("value"),
+                    "pts": [(e0 + u * c + v * s, n0 - u * s + v * c) for u, v in poly]})
+    return out
+
+
+def seg_dist(p, a, b):
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    L = dx * dx + dy * dy
+    t = max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L)) if L else 0.0
+    return math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy)
+
+
+def poly_dist(p, pts):
+    if inside(p, pts):
+        return 0.0
+    return min(seg_dist(p, pts[i], pts[(i + 1) % len(pts)]) for i in range(len(pts)))
+
+
+def shop_fronts(ctx, walks, rings, landmarks):
+    """Every attached shop row within reach of a ring, on the walk its front stands on: the walk,
+    the front's span along it, its door (city-fronts.js: max(2, round(w/2.9)) bays, the door in
+    the middle bay of three or more, else the first), and its district."""
+    cells = defaultdict(list)
+    for w in walks:
+        for k in range(int(w.L // 20) + 1):
+            p = w.a[0] + w.ue * min(w.L, k * 20), w.a[1] + w.un * min(w.L, k * 20)
+            cells[(int(p[0] // 40), int(p[1] // 40))].append(w)
+    fronts = []
+    for b in ctx["buildings"]:
+        if b.get("row") != "attached":
+            continue
+        e, n = b["e"], b["n"]
+        if min(ring_distance(r, (e, n)) for r in rings) > RING_REACH_M:
+            continue
+        rb = math.radians(b["bearing_deg"])
+        out = (math.sin(rb), math.cos(rb))
+        along = (math.cos(rb), -math.sin(rb))       # front-frame +x: a = 0 at +w/2
+        wb, d = b["width_m"], b["depth_m"]
+        F = (e + out[0] * d / 2, n + out[1] * d / 2)
+        # city-context.js drops a row a landmark's footprint overlaps.
+        corners = [(e + along[0] * x + out[0] * z, n + along[1] * x + out[1] * z)
+                   for x, z in ((-wb / 2, -d / 2), (wb / 2, -d / 2), (wb / 2, d / 2), (-wb / 2, d / 2))]
+        if any(inside((e, n), lm["pts"]) or any(inside(c, lm["pts"]) for c in corners)
+               or any(inside(q, corners) for q in lm["pts"]) for lm in landmarks):
+            continue
+        gap = b.get("walk_gap_m", 0.0)
+        best = None
+        seen = set()
+        for i in range(int((F[0] - 40) // 40), int((F[0] + 40) // 40) + 1):
+            for j in range(int((F[1] - 40) // 40), int((F[1] + 40) // 40) + 1):
+                for w in cells[(i, j)]:
+                    if id(w) in seen:
+                        continue
+                    seen.add(id(w))
+                    t, k = walk_local(w, F)
+                    if -1 <= t <= w.L + 1 and w.w - 0.6 <= k <= w.w + gap + 1.6:
+                        err = abs(k - (w.w + gap))
+                        # the walk must run along the front, not across it
+                        if abs(w.ue * along[0] + w.un * along[1]) < 0.9:
+                            continue
+                        if best is None or err < best[0]:
+                            best = (err, w)
+        if not best:
+            continue
+        w = best[1]
+        bays = max(2, int(math.floor(wb / 2.9 + 0.5)))
+        bw = wb / bays
+        door_bay = bays // 2 if bays >= 3 else 0
+        pt = lambda a: (F[0] + along[0] * (wb / 2 - a), F[1] + along[1] * (wb / 2 - a))
+        t0, t1 = sorted((walk_local(w, pt(0))[0], walk_local(w, pt(wb))[0]))
+        td = walk_local(w, pt((door_bay + 0.5) * bw))[0]
+        fronts.append({"id": b["id"], "walk": w, "t0": t0, "t1": t1, "door_t": td, "district": b["district"],
+                       "kit": b["kit"], "e": e, "n": n, "eave": b["eave_m"], "F": F, "out": out})
+    return fronts
+
+
+def junction_index(ctx, core):
+    by = defaultdict(list)
+    for j in ctx["junctions"]:
+        if inside((j[0], j[1]), core):
+            by[frozenset((j[2], j[3]))].append(j)
+    return by
+
+
+DIVISION_OK = {
+    "south": lambda e, n: n < 60 and e > 60,
+    "north": lambda e, n: n > 60 and e > -420,
+    "west": lambda e, n: not (n < 60 and e > 60) and not (n > 60 and e > -420),
+}
+NAME_ALT = {"Market Street": ("Market Street", "South Market Street"), "Halsted Street": ("Halsted Street", "South Halsted Street"),
+            "Indiana Street": ("Indiana Street", "North Indiana Street"), "Erie Street": ("Erie Street", "North Erie Street")}
+
+
+def find_junction(jidx, streets, division):
+    a, b = streets
+    for x in NAME_ALT.get(a, (a,)):
+        for y in NAME_ALT.get(b, (b,)):
+            js = [j for j in jidx.get(frozenset((x, y)), []) if DIVISION_OK[division](j[0], j[1])]
+            if js:
+                return js[0]
+    return None
+
+
+QUAD = {"NE": (1, 1), "NW": (-1, 1), "SE": (1, -1), "SW": (-1, -1)}
+
+
+def corner_walks(walks_by_cell, J, quad, names, street_half):
+    """The walks whose ends stop at junction J in quadrant `quad`, with the end's t (0 or L)."""
+    sx, sy = QUAD[quad]
+    out = []
+    seen = set()
+    for i in range(int((J[0] - 60) // 40), int((J[0] + 60) // 40) + 1):
+        for k in range(int((J[1] - 60) // 40), int((J[1] + 60) // 40) + 1):
+            for w in walks_by_cell[(i, k)]:
+                if id(w) in seen:
+                    continue
+                seen.add(id(w))
+                reach = street_half.get(w.run, 10) + CORNER_REACH_M + 8
+                for tip, t_end in ((w.a, 0.0), (w.b, w.L)):
+                    d = math.hypot(tip[0] - J[0], tip[1] - J[1])
+                    if d < reach and (tip[0] - J[0]) * sx > 0 and (tip[1] - J[1]) * sy > 0:
+                        out.append((d, w, t_end, names.get(w.run)))
+    out.sort(key=lambda x: x[0])
+    return out
+
+
+def build_dress(ctx, walks, names, street_half, taken_pts, core):
+    rings = json.loads(RINGS.read_text())["rings"]
+    rec = json.loads(RECORDS.read_text())
+    landmarks = landmark_footprints()
+    fronts = shop_fronts(ctx, walks, rings, landmarks)
+    jidx = junction_index(ctx, core)
+    walks_by_cell = defaultdict(list)
+    for w in walks:
+        for p in (w.a, w.b):
+            walks_by_cell[(int(p[0] // 40), int(p[1] // 40))].append(w)
+    items, unplaced = [], []
+    pts = list(taken_pts)          # every placed post and item: [(e, n, r)]
+    grid = defaultdict(list)
+    for q in pts:
+        grid[(int(q[0] // 10), int(q[1] // 10))].append(q)
+
+    def clear(p, r, group=None):
+        for i in range(int((p[0] - 3) // 10), int((p[0] + 3) // 10) + 1):
+            for k in range(int((p[1] - 3) // 10), int((p[1] + 3) // 10) + 1):
+                for q in grid[(i, k)]:
+                    if group is not None and len(q) > 3 and q[3] == group:
+                        continue
+                    if math.hypot(q[0] - p[0], q[1] - p[1]) < r + q[2] + 0.12:
+                        return False
+        return True
+
+    def add(it, r):
+        items.append(it)
+        q = (it["e"], it["n"], 0.0 if it["kind"] in FLUSH else r, it.get("group"))
+        grid[(int(q[0] // 10), int(q[1] // 10))].append(q)
+
+    def door_free(w, t, r):
+        for f in fronts:
+            if f["walk"] is w and abs(t - f["door_t"]) < DOOR_HALF_M + DOOR_CLEAR_M + r:
+                return False
+        return True
+
+    def near_landmark(p, reach=3.0):
+        return any(poly_dist(p, lm["pts"]) < reach for lm in landmarks)
+
+    def at_corner(J, quad, prefer, inset, t_from, r, kind):
+        """A kerb spot on a walk ending at J's `quad` corner, `t_from` back from the corner, clear."""
+        cands = corner_walks(walks_by_cell, J, quad, names, street_half)
+        cands.sort(key=lambda c: (c[3] != prefer, c[0]))
+        for _, w, t_end, _name in cands:
+            for step in range(8):
+                dt = t_from + 0.7 * step
+                t = dt if t_end == 0.0 else w.L - dt
+                if not (END_KERB_M <= t <= w.L - END_KERB_M):
+                    continue
+                p = w.at(t, inset)
+                if clear(p, r):
+                    return w, t, p
+        return None
+
+    # 1. Fire-alarm boxes, at the directory's stations.
+    fa = rec["fire_alarm"]
+    for st in fa["stations"]:
+        if st.get("structure"):
+            # A station at a building: the box on a post at the kerb before it, on its street.
+            lm = next((x for x in landmarks if x["id"] == st["structure"]), None)
+            got = None
+            if lm:
+                c = (sum(q[0] for q in lm["pts"]) / len(lm["pts"]), sum(q[1] for q in lm["pts"]) / len(lm["pts"]))
+                cands = sorted((abs(walk_local(w, c)[1] - w.w / 2), w) for w in walks if names.get(w.run) == st["street"]
+                               and 0 < walk_local(w, c)[0] < w.L and abs(walk_local(w, c)[1]) < 60)
+                for _, w in cands[:1]:
+                    t0 = walk_local(w, c)[0]
+                    for step in range(12):
+                        t = t0 + (0.8 * ((step + 1) // 2)) * (1 if step % 2 else -1)
+                        p = w.at(t, 0.42)
+                        if END_KERB_M <= t <= w.L - END_KERB_M and clear(p, DRESS_R["fire_alarm_box"]):
+                            got = (w, t, p)
+                            break
+            if not got:
+                unplaced.append({"kind": "fire_alarm_box", "box": st["box"], "why": "no clear kerb before the building"})
+                continue
+            w, t, p = got
+            add({"id": f"firebox.{st['box']:03}", "kind": "fire_alarm_box", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+                 "heading_deg": r2((w.heading + (180 if w.side < 0 else 0)) % 360), "face": w.id, "box": st["box"],
+                 "place": "walk", "where": f"on {st['street']} before the {st['text']} (box {st['box']})", "grade": "inferred",
+                 "sources": [fa["source_id"]], "liberty": DRESS_LIBERTY,
+                 "note": f"Edwards' 1871 directory lists station {st['box']}: \"{st['text']}\" ('Fire Alarm and Police Telegraph', printed pp. 34-35; djvu.txt line {st.get('djvu_line')}). Where on its front, and that it is on a post, are ours."},
+                DRESS_R["fire_alarm_box"])
+            continue
+        if not st.get("streets"):
+            unplaced.append({"kind": "fire_alarm_box", "box": st["box"], "why": "the station is a building, not a corner"})
+            continue
+        J = find_junction(jidx, st["streets"], st["division"])
+        if not J:
+            unplaced.append({"kind": "fire_alarm_box", "box": st["box"], "why": "the corner is not in the drawn city's named grid"})
+            continue
+        quads = ["NE", "SW", "NW", "SE"]
+        q0 = quads.index(st["corner"]) if st.get("corner") else int(phase(f"box{st['box']}") * 4)
+        got = None
+        for qi in range(4):
+            got = at_corner(J, quads[(q0 + qi) % 4], st["streets"][0], 0.42, 3.4, DRESS_R["fire_alarm_box"], "fire_alarm_box")
+            if got:
+                break
+        if not got:
+            unplaced.append({"kind": "fire_alarm_box", "box": st["box"], "why": "no clear kerb at the corner"})
+            continue
+        w, t, p = got
+        # The box's door looks onto the walk (the renderer's local -z is the walk's normal, `side` +1).
+        add({"id": f"firebox.{st['box']:03}", "kind": "fire_alarm_box", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+             "heading_deg": r2((w.heading + (180 if w.side < 0 else 0)) % 360), "face": w.id, "box": st["box"], "place": "corner",
+             "where": f"at the corner of {J[2]} and {J[3]} (box {st['box']})", "grade": "inferred",
+             "sources": [fa["source_id"]], "liberty": DRESS_LIBERTY,
+             "note": f"Edwards' 1871 directory lists station {st['box']}: \"{st['text']}\" ('Fire Alarm and Police Telegraph', printed pp. 34-35; djvu.txt line {st.get('djvu_line')}). Which corner of the junction is ours."},
+            DRESS_R["fire_alarm_box"])
+
+    # 2. Hydrants: the year's new ones at their corners, then the rest round the stops.
+    hy = rec["hydrants"]
+    listed_at = []
+    for k, h in enumerate(hy["listed"]):
+        J = find_junction(jidx, h["streets"], h["division"])
+        if not J:
+            unplaced.append({"kind": "fire_hydrant", "text": h["text"], "why": "the corner is not in the drawn city's named grid"})
+            continue
+        got = at_corner(J, h["corner"], h["streets"][0], 0.4, 2.3, DRESS_R["fire_hydrant"], "fire_hydrant")
+        if not got:
+            unplaced.append({"kind": "fire_hydrant", "text": h["text"], "why": "no clear kerb at the corner"})
+            continue
+        w, t, p = got
+        listed_at.append(p)
+        add({"id": f"hydrant.listed.{k:03}", "kind": "fire_hydrant", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+             "heading_deg": r2(w.heading), "face": w.id, "place": "corner",
+             "where": f"at the {h['corner']} corner of {J[2]} and {J[3]}", "grade": "inferred",
+             "sources": [hy["source_id"]], "liberty": DRESS_LIBERTY,
+             "note": f"Set in the year to March 31, 1871: \"{h['text']}\" (Board of Public Works, Tenth Annual Report, p. {h['page']})."},
+            DRESS_R["fire_hydrant"])
+    js = sorted({(j[0], j[1], j[2], j[3]) for v in jidx.values() for j in v})
+    for j in js:
+        if min(ring_distance(r, (j[0], j[1])) for r in rings) > RING_REACH_M:
+            continue
+        if any(math.hypot(q[0] - j[0], q[1] - j[1]) < 45 for q in listed_at):
+            continue
+        if phase(f"hyd{j[0]},{j[1]}") > 0.5:      # about every other junction
+            continue
+        quads = ["NE", "SW", "NW", "SE"]
+        q0 = int(phase(f"hydq{j[0]},{j[1]}") * 4)
+        for qi in range(4):
+            got = at_corner(j, quads[(q0 + qi) % 4], None, 0.4, 2.3, DRESS_R["fire_hydrant"], "fire_hydrant")
+            if got:
+                w, t, p = got
+                add({"id": f"hydrant.{j[0]:.0f}.{j[1]:.0f}", "kind": "fire_hydrant", "e": r2(p[0]), "n": r2(p[1]),
+                     "y_m": w.y, "heading_deg": r2(w.heading), "face": w.id, "place": "corner",
+                     "where": f"at the corner of {j[2]} and {j[3]}"}, DRESS_R["fire_hydrant"])
+                break
+
+    # 3. The barbers' poles and the tobacconists' figures at the directory's corners.
+    tr = rec["trades"]
+    for k, f in enumerate(tr["firms"]):
+        J = find_junction(jidx, [f["fronts"], f["at"]], "south")
+        if not J or min(ring_distance(r, (J[0], J[1])) for r in rings) > RING_REACH_M:
+            unplaced.append({"kind": f["trade"], "text": f["text"], "why": "not at a corner round the stops"})
+            continue
+        cands = [c for c in corner_walks(walks_by_cell, J, f["corner"], names, street_half) if c[3] == f["fronts"]]
+        placed = False
+        for _, w, t_end, _n in cands:
+            for step in range(10):
+                dt = (3.2 if f["trade"] == "barber" else 4.2) + 0.8 * step
+                t = dt if t_end == 0.0 else w.L - dt
+                if f["trade"] == "barber":
+                    kind, r, inset = "barber_pole", DRESS_R["barber_pole"], 0.4
+                else:
+                    kind, r = "cigar_figure", DRESS_R["cigar_figure"]
+                    inset = w.w - 0.5 if w.w >= FRONT_ZONE_M + THROUGH_PATH_M + KERB_ZONE_M else 0.45
+                p = w.at(t, inset)
+                front = inset > KERB_ZONE_M
+                if not (END_FRONT_M <= t <= w.L - END_FRONT_M) or not clear(p, r):
+                    continue
+                if front and (not door_free(w, t, r) or near_landmark(p)):
+                    continue
+                add({"id": f"{'barber' if kind == 'barber_pole' else 'tobacco'}.{k:02}", "kind": kind, "e": r2(p[0]),
+                     "n": r2(p[1]), "y_m": w.y, "face": w.id, "place": "front" if front else "walk",
+                     # the figure faces the street from the front, the pole is round
+                     "heading_deg": r2((w.heading + (180 if w.side > 0 and kind == "cigar_figure" else 0)) % 360),
+                     "where": f"on {f['fronts']} at the {f['corner']} corner of {f['at']}", "grade": "inferred" if kind == "barber_pole" else "reconstructed",
+                     "sources": [tr["source_id"]], "liberty": DRESS_LIBERTY,
+                     "note": f"Edwards' 1871 directory, classified pages: \"{f['text']}\" (djvu.txt line {f['djvu_line']}). "
+                             + ("The pole stands at his corner; its form is ours." if kind == "barber_pole"
+                                else "The shop is the directory's; whether it kept a carved figure, and which, is ours.")}, r)
+                placed = True
+                break
+            if placed:
+                break
+        if not placed:
+            unplaced.append({"kind": f["trade"], "text": f["text"], "why": "no clear spot on the walk at the corner"})
+
+    # 4. Before the shops: goods, coal-hole plates and cellar doors.
+    for f in sorted(fronts, key=lambda x: x["id"]):
+        w = f["walk"]
+        name = names.get(w.run, "")
+        key = f["id"]
+        wholesale = name in WHOLESALE_STREETS or f["district"] == "river_industry"
+        roomy = w.w >= FRONT_ZONE_M + THROUGH_PATH_M + KERB_ZONE_M
+        lo, hi = max(f["t0"], END_FRONT_M) + 0.25, min(f["t1"], w.L - END_FRONT_M) - 0.25
+        if hi - lo < 1.0:
+            continue
+        # the coal hole: one plate in the flags before most fronts, clear of the door
+        if phase("coal" + key) < 0.7:
+            for t in (lo + 0.6 + (hi - lo - 1.2) * phase("coalt" + key), lo + 0.6, hi - 0.6):
+                p = w.at(t, w.w - 0.75)
+                if lo <= t <= hi and door_free(w, t, 0.2) and clear(p, 0.2) and not near_landmark(p):
+                    add({"id": f"coal.{key}", "kind": "coal_hole_plate", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+                         "heading_deg": r2(w.heading), "face": w.id, "place": "front", "where": f"in the walk of {name or 'a shop street'}"}, 0.2)
+                    break
+        # a cellar door at one end of a third of the fronts
+        if phase("cellar" + key) < 0.33 and hi - lo > 3.2:
+            t = lo + 0.85 if phase("cside" + key) < 0.5 else hi - 0.85
+            p = w.at(t, w.w - 0.55)
+            if door_free(w, t, 0.8) and clear(p, 0.8) and not near_landmark(p):
+                add({"id": f"cellar.{key}", "kind": "cellar_door", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+                     "heading_deg": r2(w.heading), "face": w.id, "place": "front", "where": f"in the walk of {name or 'a shop street'}"}, 0.8)
+        if not roomy:
+            continue
+        share = 0.8 if wholesale else 0.28
+        if phase("goods" + key) >= share:
+            continue
+        # One lot of goods at the end of the front away from its door, packed along the front.
+        u = phase("kind" + key)
+        if wholesale and name == "South Water Street":
+            pile = ["sack", "sack", "barrel", "sack", "crate"] if u < 0.5 else ["barrel", "barrel", "crate", "crate", "sack"]
+        elif wholesale:
+            pile = [["packing_case", "packing_case", "barrel", "crate"], ["barrel", "barrel", "barrel", "packing_case"],
+                    ["crate", "crate", "packing_case", "barrel"], ["packing_case", "crate", "barrel", "sack"]][int(u * 4)]
+        else:
+            pile = [["packing_case", "barrel"], ["barrel", "crate"], ["packing_case", "packing_case"]][int(u * 3)]
+        n_items = 2 + int(phase("n" + key) * (len(pile) - 1)) if wholesale else len(pile)
+        far_end = abs(f["door_t"] - lo) < abs(f["door_t"] - hi)
+        t = hi if far_end else lo
+        sgn = -1 if far_end else 1
+        placed_here = []
+        for i, kind in enumerate(pile[:n_items]):
+            r = DRESS_R[kind]
+            size = {"packing_case": 0.9, "crate": 0.72, "barrel": 0.6, "sack": 0.78}[kind]
+            # a case or crate may go up on the one before it, if that is one too
+            if placed_here and kind in ("packing_case", "crate") and placed_here[-1]["kind"] in ("packing_case", "crate") \
+                    and "lift_m" not in placed_here[-1] and phase(f"stack{key}{i}") < 0.55:
+                below = placed_here[-1]
+                top = dict(below, id=f"{below['id']}u", kind=kind, lift_m={"packing_case": 0.6, "crate": 0.5}[below["kind"]],
+                           heading_deg=r2(w.heading + (phase(f"yaw{key}{i}") - 0.5) * 16))
+                items.append(top)
+                placed_here.append(top)
+                continue
+            tc = t + sgn * size / 2
+            depth = {"packing_case": 0.32, "crate": 0.27, "barrel": 0.32, "sack": 0.26}[kind]
+            p = w.at(tc, w.w - depth - 0.06)
+            if not (lo <= tc <= hi) or not door_free(w, tc, size / 2) or not clear(p, r, group=key) or near_landmark(p):
+                break
+            it = {"id": f"goods.{key}.{i}", "kind": kind, "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+                  "heading_deg": r2(w.heading + (phase(f"yaw{key}{i}") - 0.5) * (40 if kind in ("barrel", "sack") else 8)),
+                  "face": w.id, "place": "front", "group": key, "where": f"on the walk of {name or 'a shop street'}"}
+            add(it, r)
+            placed_here.append(it)
+            t = tc + sgn * (size / 2 + 0.06)
+
+    # 5. Carriage blocks at the kerb before the houses round the stops.
+    for b in ctx["buildings"]:
+        if b.get("row") == "attached" or b.get("yard_m", 0) < 2 or b["kit"] not in ("brick_rowhouse", "brick_mansard", "villa_hip", "timber_house", "timber_hip"):
+            continue
+        if min(ring_distance(r, (b["e"], b["n"])) for r in rings) > RING_REACH_M or phase("block" + b["id"]) > 0.45:
+            continue
+        rb = math.radians(b["bearing_deg"])
+        F = (b["e"] + math.sin(rb) * (b["depth_m"] / 2 + b["yard_m"]), b["n"] + math.cos(rb) * (b["depth_m"] / 2 + b["yard_m"]))
+        best = None
+        for w in walks_by_cell[(int(F[0] // 40), int(F[1] // 40))] + walks_by_cell[(int(F[0] // 40) + 1, int(F[1] // 40))] + walks_by_cell[(int(F[0] // 40) - 1, int(F[1] // 40))] + walks_by_cell[(int(F[0] // 40), int(F[1] // 40) + 1)] + walks_by_cell[(int(F[0] // 40), int(F[1] // 40) - 1)]:
+            t, k = walk_local(w, F)
+            if END_FRONT_M < t < w.L - END_FRONT_M and w.w - 1.0 <= k <= w.w + 3.0:
+                if best is None or abs(k - w.w) < best[0]:
+                    best = (abs(k - w.w), w, t)
+        if not best:
+            continue
+        _, w, t = best
+        p = w.at(t, 0.45)
+        if clear(p, DRESS_R["carriage_block"]) and not near_landmark(p, 1.0):
+            add({"id": f"block.{b['id']}", "kind": "carriage_block", "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
+                 "heading_deg": r2(w.heading), "face": w.id, "place": "walk", "where": f"at the kerb of {names.get(w.run, 'a house street')}"},
+                DRESS_R["carriage_block"])
+
+    # 6. The fire-alarm wires from the Court House cupola to the roofs round the square.
+    radial = []
+    ch = json.loads((SIDECARS / "cook_county_court_house_1871.json").read_text())
+    pl = ch["placement"]
+    th = math.radians(pl["rotation_deg"])
+    cu = (44.62, 19.81)       # the cupola's axis in the house's footprint frame (its sidecar's `towers`)
+    C = (pl["local_e"] + cu[0] * math.cos(th) + cu[1] * math.sin(th), pl["local_n"] - cu[0] * math.sin(th) + cu[1] * math.cos(th))
+    C_Y = 3.2 + 25.9 + 9.1 + 1.2       # the drum's head, under the gallery (ground 3.2 m)
+    facing = []
+    for f in fronts:
+        v = (C[0] - f["F"][0], C[1] - f["F"][1])
+        d = math.hypot(*v)
+        if 60 < d < 150 and (v[0] * f["out"][0] + v[1] * f["out"][1]) / d > 0.6:
+            facing.append((math.atan2(v[1], v[0]), d, f))
+    facing.sort(key=lambda x: x[0])
+    last = None
+    for ang, d, f in facing:
+        if last is not None and abs(ang - last) < math.radians(9):
+            continue
+        last = ang
+        u = ((C[0] - f["F"][0]) / d, (C[1] - f["F"][1]) / d)
+        a = (C[0] - u[0] * 4.6, C[1] - u[1] * 4.6)
+        radial.append({"kind": "radial", "a": [r2(a[0]), r2(a[1]), r2(C_Y)],
+                       "b": [r2(f["F"][0]), r2(f["F"][1]), r2(3.38 + f["eave"] + 0.9)], "to": f["id"]})
+    return items, unplaced, radial, fronts, landmarks
+
+
+def check_dress(items, ctx, walks, fronts, landmarks, posts):
+    """The furniture check: every T-3805 item on its walk, in its zone, clear of doors, board
+    crossings, carriage ways, landmarks' fronts, the through-path and each other. Returns the
+    list of violations (empty when the laying is good)."""
+    byid = {w.id: w for w in walks}
+    crossings = []
+    for s in ctx["walk_surfaces"]:
+        if s["kind"] == "crossing":
+            crossings.append(s)
+    ccell = defaultdict(list)
+    for s in crossings:
+        m = ((s["a"][0] + s["b"][0]) / 2, (s["a"][1] + s["b"][1]) / 2)
+        ccell[(int(m[0] // 30), int(m[1] // 30))].append(s)
+    doors = defaultdict(list)
+    for f in fronts:
+        doors[f["walk"].id].append(f["door_t"])
+    bad = []
+    solid = [(it, DRESS_R[it["kind"]]) for it in items if it["kind"] not in FLUSH]
+    grid = defaultdict(list)
+    for it, r in solid:
+        grid[(int(it["e"] // 5), int(it["n"] // 5))].append((it, r))
+    for it in items:
+        kind = it["kind"]
+        r = DRESS_R[kind]
+        w = byid.get(it.get("face"))
+        p = (it["e"], it["n"])
+        if not w:
+            bad.append(f"{it['id']}: not on a walk")
+            continue
+        t, k = walk_local(w, p)
+        hd = HALF_D[kind]
+        if not (-0.05 <= k - hd and k + hd <= w.w + 0.05):
+            bad.append(f"{it['id']}: off its walk ({k:.2f} m in from the kerb of a {w.w} m walk)")
+        front = (w.w - k) <= FRONT_ZONE_M
+        if kind in KERB_KINDS or (kind == "cigar_figure" and not front):
+            if k > KERB_ZONE_M:
+                bad.append(f"{it['id']}: in the walk's through-path ({k:.2f} m in from the kerb)")
+            if not (END_KERB_M <= t <= w.L - END_KERB_M):
+                bad.append(f"{it['id']}: at the walk's end, in a crossing or carriage way")
+        else:
+            if not front:
+                bad.append(f"{it['id']}: in the walk's through-path ({w.w - k:.2f} m out from the fronts)")
+            if kind not in FLUSH and w.w < FRONT_ZONE_M + THROUGH_PATH_M + KERB_ZONE_M:
+                bad.append(f"{it['id']}: on a {w.w} m walk, which leaves no through-path past it")
+            if not (END_FRONT_M <= t <= w.L - END_FRONT_M):
+                bad.append(f"{it['id']}: at the walk's end, in an alley's carriage way")
+            for td in doors[w.id]:
+                if abs(t - td) < DOOR_HALF_M + DOOR_CLEAR_M + (r if kind not in FLUSH else 0.2) - 0.01:
+                    bad.append(f"{it['id']}: in a shop's doorway")
+                    break
+            if any(poly_dist(p, lm["pts"]) < 2.9 for lm in landmarks):
+                bad.append(f"{it['id']}: before a landmark's front, whose doors are its own")
+        for i in range(int((p[0] - 30) // 30), int((p[0] + 30) // 30) + 1):
+            for j in range(int((p[1] - 30) // 30), int((p[1] + 30) // 30) + 1):
+                for s in ccell[(i, j)]:
+                    dx, dy = s["b"][0] - s["a"][0], s["b"][1] - s["a"][1]
+                    L = math.hypot(dx, dy)
+                    if not L:
+                        continue
+                    tt = ((p[0] - s["a"][0]) * dx + (p[1] - s["a"][1]) * dy) / L
+                    off = abs((p[0] - s["a"][0]) * -dy + (p[1] - s["a"][1]) * dx) / L
+                    if -r <= tt <= L + r and off <= s["width_m"] / 2 + r:
+                        bad.append(f"{it['id']}: on a board crossing")
+        if kind not in FLUSH:
+            for q in posts:
+                if abs(q[0] - p[0]) < 2 and abs(q[1] - p[1]) < 2 and math.hypot(q[0] - p[0], q[1] - p[1]) < r + 0.15:
+                    bad.append(f"{it['id']}: against a lamp, pole or hitching post")
+            for i in range(int(p[0] // 5) - 1, int(p[0] // 5) + 2):
+                for j in range(int(p[1] // 5) - 1, int(p[1] // 5) + 2):
+                    for o, ro in grid[(i, j)]:
+                        if o is it or (o.get("group") and o.get("group") == it.get("group")):
+                            continue
+                        if math.hypot(o["e"] - p[0], o["n"] - p[1]) < r + ro:
+                            bad.append(f"{it['id']}: against {o['id']}")
+    return sorted(set(bad))
+
+
+def dress_kinds() -> dict:
+    """The T-3805 kinds' forms and grades, for the cards and the renderer's measures."""
+    rec = "data/research/street_furniture_1871.json"
+    return {
+        "fire_alarm_box": {
+            "name": "fire-alarm telegraph box",
+            "form": "A cast-iron box shaped like a little house, about 0.3 m wide and half a metre high with a gabled top, on a painted post at the kerb, a small board under it saying where its key is kept.",
+            "form_grade": "inferred", "form_sources": ["andreas_1885_v2"],
+            "form_note": "Andreas (vol. 2, pp. 92-94): the signal boxes were 'cottage-shaped, of heavy cast-iron, and fastened to the side of a house, or post', and 'at first all the boxes were provided with signs stating where the keys could be found'; Chicago's system (Gamewell's, built by Kinnard & Co.) opened on 2 June 1865 with 106 boxes. No picture of a Chicago box of 1871 has been read: its size, its red paint and its post are ours.",
+            "model_m": {"post_h_m": 1.95, "post_w_m": 0.13, "box_w_m": 0.3, "box_h_m": 0.42, "box_d_m": 0.2, "box_at_m": 1.2},
+            "what": "A fire-alarm telegraph box", "ticket": DRESS_TICKET,
+            "rule_note": f"Edwards' 1871 directory lists the fire-alarm stations by number and corner ({rec})",
+        },
+        "fire_hydrant": {
+            "name": "fire hydrant",
+            "form": "A cast-iron post hydrant at the kerb with two hose nozzles, under a metre high.",
+            "form_grade": "reconstructed", "form_sources": ["chicago_public_works_1871", "andreas_1885_v2"],
+            "form_note": "The Board of Public Works' Tenth Annual Report counts 1,552 fire hydrants in the city at March 31, 1871, all made in the Water Department's own shops (p. 61: 335 that year, eight of them a new 'triple' hydrant of three nozzles); Andreas says all the city's hydrants were of DeWitt C. Cregier's design. No picture of one has been read: it is drawn as the 1904 layer's post hydrant, painted grey.",
+            "model_m": {"height_m": 0.85, "barrel_d_m": 0.2, "foot_d_m": 0.34, "band_at_m": 0.62, "nozzles_at_m": 0.5},
+            "what": "A fire hydrant", "ticket": DRESS_TICKET,
+            "rule_note": "The city had 1,552 hydrants in March 1871, at its corners (Board of Public Works)",
+        },
+        "barber_pole": {
+            "name": "barber's pole",
+            "form": "A turned wooden post about 2.3 m tall at the kerb before the shop, painted in a red, white and blue spiral under a gilt ball.",
+            "form_grade": "reconstructed", "form_sources": [],
+            "form_note": "The barber is the directory's, at his corner; the free-standing striped pole at the kerb is the American barber's sign of the time, not read off a picture of his shop.",
+            "model_m": {"height_m": 2.35}, "what": "A barber's pole", "ticket": DRESS_TICKET,
+            "rule_note": "The directory's classified pages put this barber at this corner",
+        },
+        "cigar_figure": {
+            "name": "tobacconist's figure",
+            "form": "A carved and painted wooden Highlander taking snuff, life-size on a pedestal, on the walk beside the cigar store's front.",
+            "form_grade": "reconstructed", "form_sources": [],
+            "form_note": "The cigar store is the directory's. A carved figure stood before many tobacconists' doors, the commonest in American cities by the 1870s a carved 'Indian', the older one a Highlander with his snuff mull; nothing records whether these shops had one or which, so the Highlander is our choice.",
+            "model_m": {"height_m": 1.95}, "what": "A tobacconist's carved figure", "ticket": DRESS_TICKET,
+            "rule_note": "The directory's classified pages put this cigar store at this corner",
+        },
+        "packing_case": {"name": "packing case", "form": "A nailed pine packing case, about 0.9 by 0.6 by 0.6 m.", "form_grade": "reconstructed", "form_sources": [],
+                         "form_note": "Goods in cases stand on the walks of the wholesale streets in the period street views; their sizes and stacks are ours.",
+                         "model_m": {"height_m": 0.6}, "what": "A packing case of goods", "ticket": DRESS_TICKET,
+                         "rule_note": "The wholesale houses kept their cases, barrels and crates on the walk before the door"},
+        "crate": {"name": "crate", "form": "An open-slatted wooden crate, about 0.72 by 0.5 by 0.5 m.", "form_grade": "reconstructed", "form_sources": [],
+                  "form_note": "As the packing case.", "model_m": {"height_m": 0.5}, "what": "A crate", "ticket": DRESS_TICKET,
+                  "rule_note": "The wholesale houses kept their cases, barrels and crates on the walk before the door"},
+        "barrel": {"name": "barrel", "form": "A hooped oak barrel about 0.86 m tall, standing on end.", "form_grade": "reconstructed", "form_sources": ["loc_stereo_1s47905_tremont_house"],
+                   "form_note": "Carbutt's No. 55 shows barrels on the far corner's walk at Lake and Dearborn; the rest are placed by our rule.",
+                   "model_m": {"height_m": 0.86}, "what": "A barrel", "ticket": DRESS_TICKET,
+                   "rule_note": "The wholesale houses kept their cases, barrels and crates on the walk before the door"},
+        "sack": {"name": "sack", "form": "A filled grain or produce sack of coarse cloth, lying on the walk.", "form_grade": "reconstructed", "form_sources": [],
+                 "form_note": "South Water Street was the commission merchants' street; its sacks are ours.", "model_m": {"height_m": 0.32},
+                 "what": "A sack of produce", "ticket": DRESS_TICKET, "rule_note": "The commission houses of South Water Street kept their produce on the walk"},
+        "coal_hole_plate": {"name": "coal-hole plate", "form": "A round cast-iron plate about 0.36 m across, let into the walk over the chute to the cellar's coal vault.", "form_grade": "reconstructed", "form_sources": [],
+                            "form_note": "The raised business streets had cellars and vaults under the walks; the plates are the period's kind, placed by our rule.", "model_m": {"height_m": 0.01},
+                            "what": "A coal-hole plate", "ticket": DRESS_TICKET, "rule_note": "The shops' cellars ran under the walk"},
+        "cellar_door": {"name": "cellar door", "form": "A pair of iron-strapped plank doors about 1.5 by 0.9 m, flush in the walk against the front, over the steps down to the cellar.", "form_grade": "reconstructed", "form_sources": [],
+                        "form_note": "As the coal-hole plate.", "model_m": {"height_m": 0.02}, "what": "A cellar door in the walk", "ticket": DRESS_TICKET,
+                        "rule_note": "The shops' cellars ran under the walk"},
+        "carriage_block": {"name": "carriage block", "form": "A dressed stone block at the kerb, about 0.9 by 0.6 by 0.4 m, to step from into a carriage.", "form_grade": "reconstructed", "form_sources": [],
+                           "form_note": "The houses' carriage blocks are the period's kind; which houses had one is ours.", "model_m": {"height_m": 0.42},
+                           "what": "A carriage block", "ticket": DRESS_TICKET, "rule_note": "A house of the period kept a block at its kerb"},
+    }
+
+
+def dress_placement() -> dict:
+    lib = DRESS_LIBERTY
+    return {
+        "fire_alarm_box": {"liberty": lib, "note": f"At the kerb of one corner of each junction Edwards' 1871 directory lists as a station, {3.4} m back from the corner; the directory names the junction, the corner is ours. Box 6 stands at the Tremont House's corner and box 139 before the Water Works on Pine Street; the other stations at a building (the engine houses) are not placed."},
+        "fire_hydrant": {"liberty": lib, "note": f"The year's new hydrants the Board of Public Works lists at a named corner stand at that corner; round the stops one more stands at a corner of about every other junction, {2.3} m back from it at the kerb. Reconstructed but for the listed ones."},
+        "barber_pole": {"liberty": lib, "note": "At the kerb on the directory's street, near its corner."},
+        "cigar_figure": {"liberty": lib, "note": "On the walk against the front near the directory's corner, clear of the doors."},
+        "packing_case": {"liberty": lib, "note": f"Before about four fronts in five on the wholesale streets (Lake, South Water, Market) and one in four elsewhere round the stops, a lot of goods packed against the front at the end away from the door, within {FRONT_ZONE_M} m of it, on walks wide enough to leave a clear path of {THROUGH_PATH_M} m. Reconstructed."},
+        "coal_hole_plate": {"liberty": lib, "note": "One in the flags before most fronts round the stops, clear of the door. Reconstructed."},
+        "cellar_door": {"liberty": lib, "note": "At one end of about one front in three round the stops. Reconstructed."},
+        "carriage_block": {"liberty": lib, "note": "At the kerb before about half the houses round the stops. Reconstructed."},
+        **{k: {"liberty": lib, "note": "As the packing case."} for k in ("crate", "barrel", "sack")},
+    }
+
+
 def encode(doc: dict) -> str:
     return json.dumps(doc, separators=(",", ":"), ensure_ascii=False) + "\n"
+
+
+def self_test() -> int:
+    """Prove the furniture check refuses what it must: a case in a shop's doorway, a hydrant in the
+    walk's through-path, a barrel on a board crossing, a crate on a walk too narrow to pass it, and
+    two posts in one spot."""
+    build()
+    L = LAST
+    good = check_dress(L["dress"], L["ctx"], L["walks"], L["fronts"], L["landmarks"], L["posts"])
+    fails = 0
+    if good:
+        print("FAIL the committed laying is not clean:", good[:3])
+        fails += 1
+    byid = {w.id: w for w in L["walks"]}
+    f = next(f for f in L["fronts"] if f["walk"].w >= 4 and END_FRONT_M + 2 < f["door_t"] < f["walk"].L - END_FRONT_M - 2)
+    w = f["walk"]
+    narrow = next(x for x in L["walks"] if x.w < 3 and x.L > 12)
+    xs = next(s for s in L["ctx"]["walk_surfaces"] if s["kind"] == "crossing" and byid.get(s["id"].split("_x")[0] + "_walk_1") is None
+              and abs(s["a"][0] - w.a[0]) < 400 and abs(s["a"][1] - w.a[1]) < 400)
+    xm = ((xs["a"][0] + xs["b"][0]) / 2, (xs["a"][1] + xs["b"][1]) / 2)
+    box = next(it for it in L["dress"] if it["kind"] == "fire_alarm_box")
+    cases = {
+        "a case in a shop's doorway": ("doorway", [{"id": "t.door", "kind": "packing_case", "face": w.id, **dict(zip(("e", "n"), w.at(f["door_t"], w.w - 0.4)))}]),
+        "a hydrant in the through-path": ("through-path", [{"id": "t.path", "kind": "fire_hydrant", "face": w.id, **dict(zip(("e", "n"), w.at(w.L / 2, w.w / 2)))}]),
+        "a barrel on a board crossing": ("board crossing", [{"id": "t.cross", "kind": "barrel", "face": w.id, "e": xm[0], "n": xm[1]}]),
+        "a crate on a narrow walk": ("no through-path", [{"id": "t.narrow", "kind": "crate", "face": narrow.id, **dict(zip(("e", "n"), narrow.at(narrow.L / 2, narrow.w - 0.3)))}]),
+        "two boxes in one spot": ("against", [dict(box), dict(box, id="t.twin")]),
+    }
+    for what, (why, its) in cases.items():
+        bad = check_dress(its, L["ctx"], L["walks"], L["fronts"], L["landmarks"], L["posts"])
+        hit = [b for b in bad if why in b]
+        print(f"   {what}: {'refused' if hit else 'FAIL — not refused for it'} {hit[:1] or bad[:1]}")
+        fails += 0 if hit else 1
+    print("SELF-TEST PASS: the furniture check refuses all five" if not fails else f"SELF-TEST FAIL ({fails})")
+    return 1 if fails else 0
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
+    if args.self_test:
+        return self_test()
     doc, trees = build()
     outs = ((OUT, encode(doc)), (TREES_OUT, encode(trees)))
     if args.check:

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1256,
+  "count": 1257,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -82309,6 +82309,52 @@
         "T-1909",
         "T-3785",
         "T-1945"
+      ]
+    },
+    {
+      "id": "L-1871-street-dress-3805",
+      "title": "The 1871 street dress round the jaunt stops: fire-alarm boxes, hydrants, Lake Street's telegraph poles, goods on the walks, barbers' poles and a tobacconist's figure",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-27: \"do more street improvements to the areas around the jaunt stops... use period photos to infer and reconstruct the street scape, businessess, street furniture etc.... make it photographic match perfect with 1871\". Round every 1871 jaunt stop (the detail rings, the detail rings data) the walks get the furniture the pictures and the city's records show."
+        },
+        {
+          "label": "Not invented",
+          "text": "the fire-alarm telegraph's stations, each by number and corner, as Edwards' 1871 directory lists them (\"Fire Alarm and Police Telegraph\", printed pp. 34-35; Edwards’ Annual Directory of the City of Chicago, 1871, transcribed in the street furniture 1871 data); the box's description, \"cottage-shaped, of heavy cast-iron, and fastened to the side of a house, or post\", with signs saying where its key was kept, and the wires that \"radiated\" from the Court House cupola \"to the tops of the buildings that surrounded the Court-house square\" (Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time, \"Fire Alarm Telegraph\", pp. 92-94); the city's 1,552 hydrants at March 31, 1871, and each of the year's 258 new ones by corner (Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…, Tenth Annual Report pp. 8-9 and 79-85); the barbers and cigar stores the directory's classified pages put at a named corner (Becker at Clark and Randolph, Delight at Clark and Madison, Pettillon Bros. at Dearborn and Madison, Tress at Randolph and LaSalle, Glass at Randolph and Fifth Avenue; Daniel at Dearborn and Madison, Frost at State and Randolph); Lake Street's tall telegraph poles of eight crossarms (the late-1860s Lake Street stereoview in `/mnt/project-files/1871-references/`, a reference picture whose holder is not yet traced, so cited in text only, rule 6)."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "which corner of a station's or hydrant's junction it stands at (the records name the junction; the listed hydrants name the corner too, and stand there); the box's size, its red paint and its post; the hydrant's form (the 1904 layer's post hydrant: no picture of Cregier's hydrant has been read); one more hydrant at a corner of about every other junction round the stops; the barber's pole's form and that it stands at the kerb; that a cigar store had a carved figure at all, and that it is a Highlander (the commonest American figure of the 1870s was a carved \"Indian\"; the choice is ours); every lot of goods (packing cases, crates, barrels and sacks) before about four fronts in five on Lake, South Water and Market Streets and one in four elsewhere round the stops, coal-hole plates and cellar doors in the walks, and carriage blocks before about half the houses; Lake Street's pole height (15.2 m), the four pins on each arm and the wires on its top five arms (the other streets' poles now string their top two arms); which roofs round the square the cupola's wires run to, and how many. Box 6 (\"Tremont House, Dearborn and Lake streets\") stands at the Tremont's own corner and box 139 (\"Water Works\") at the kerb of Pine Street before the pumping works; the other stations at a building (the engine houses, the mills) and corners outside the drawn city's named core grid (92 of them: 46 in the West Division, 24 in the South, 22 in the North) are listed in the data file's `unplaced`, not placed."
+        },
+        {
+          "label": "Sunday",
+          "text": "the scene is Sunday 8 October 1871 and the stores are shut, so nothing a merchant set out only to sell by day is drawn: no show cases, sandwich boards, bolts of cloth or rolled carpets, which the weekday pictures show. Awning posts at the kerb are not drawn either: the fronts' awnings (the walkthrough's city fronts code) reach about 2 m over a 3.5 to 4.2 m walk, and posts at the kerb would stand clear of them."
+        },
+        {
+          "label": "The furniture check",
+          "text": "the lay 1871 street furniture tool refuses any item in a shop's doorway (the walkthrough's city fronts code's door bay, with 0.6 m clear at each jamb), on a board crossing, within 3 m of a walk's end where an alley's carriage way meets it, before a landmark's front (whose doors are its own), against another item or post, or in the walk's through-path: kerb things within 0.9 m of the kerb, front things within 1.15 m of the fronts and only on walks that leave 1.4 m clear between them; `--self-test` proves it refuses each."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of a pre-fire Chicago fire-alarm box or hydrant (the Chicago History Museum's fire department pictures); the Board of Public Works' hydrant register for the downtown streets; Western Union's 1871 line map for the pole lines; a picture of the shops at the directory's corners; a weekday 1871 moment, for the display goods."
+        },
+        {
+          "label": "Review",
+          "text": "the lay 1871 street furniture tool (build dress, check dress), the street furniture 1871 data, the walkthrough's street furniture code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-3805)."
+        }
+      ],
+      "work_refs": [
+        "T-3805"
       ]
     },
     {

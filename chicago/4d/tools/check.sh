@@ -4902,6 +4902,11 @@ step "1871 city, infrastructure and terrain are reproducible" \
 step "1871 street furniture and street trees re-lay from the city (T-3686)" \
   python3 tools/lay_1871_street_furniture.py --check
 
+# T-3805: the street dress round the jaunt stops is laid clear of doorways, board crossings,
+# carriage ways and the walk's through-path; the furniture check refuses each of those.
+selftest "1871 street furniture check refuses doorways, crossings and the through-path (T-3805)" \
+  python3 tools/lay_1871_street_furniture.py --self-test
+
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
 
