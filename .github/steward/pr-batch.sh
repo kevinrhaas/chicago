@@ -102,6 +102,20 @@ chicago/4d/tickets/tickets.json
 site/4d/tickets.json
 '
 
+# THE 1904 TABLES A TOOL LAYS FROM THE MODELS, which the research layer's manifest
+# (rederive.mjs) does not list: each has a `--check` in check.sh saying the committed
+# file is what the tool writes, so a conflict in one is cleared like a tool-owned
+# file (either side) and the tool lays it again on the combined tree. Every house
+# PR re-lays them, so nearly every pair of house PRs conflicts here (the dry run of
+# tonight's six: doors_1904.json in five, back_yards/1904.json in one). They run in
+# the order the #2399 batch ran them: doors, people, back yards, walk joins, numbers.
+LAID_PATHS='^chicago/4d/data/(humans/doors_(1835|1904)\.json|back_yards/1904\.json|street_section/walk_joins_1904\.json|house_numbers/1904\.json)$'
+LAID_TOOLS='tools/derive_doors_scene.py
+tools/prairie_people.py
+tools/lay_prairie_1904_back_yards.py
+tools/lay_prairie_1904_walk_joins.py
+tools/place_prairie_1904_house_numbers.py'
+
 # --- merge drivers and the lock tool, from the BASE (as pr-lap.sh does) ----------
 git fetch origin "$BASE" -q || { echo "::error::cannot fetch $BASE"; exit 1; }
 for f in merge-queue.mjs merge-changelog.mjs merge-generated.mjs merge-smoke-state.mjs; do
@@ -152,6 +166,15 @@ resolve_conflicts() {
       sed 's/^/      /' /tmp/batch-registry.log | tail -4
     fi
   fi
+  if [ -n "$REAL" ]; then
+    local L
+    L=$(echo "$REAL" | grep -E "$LAID_PATHS" || true)
+    if [ -n "$L" ]; then
+      say "    1904 tables a tool lays, taken either side and laid again below: $(echo $L)"
+      git checkout --ours $L >/dev/null 2>&1; git add $L
+      REAL=$(comm -23 <(echo "$REAL" | sort -u) <(echo "$L" | sort -u))
+    fi
+  fi
   if [ -n "$REAL" ] && [ -f chicago/4d/tools/rederive.mjs ]; then
     local D=""
     for p in $REAL; do
@@ -173,6 +196,14 @@ resolve_conflicts() {
   fi
   LEFT="$REAL"
   [ -z "$REAL" ]
+}
+
+# Back to the last member's commit. `merge --abort` can refuse once a resolver has
+# rewritten files (the dry run of 2026-11-28 left one merge half-done that way), and
+# this is a scratch clone, so a hard reset to HEAD is the fallback, never a guess.
+abort_merge() {
+  git merge --abort >/dev/null 2>&1
+  [ -z "$(git status --porcelain --untracked-files=no)" ] || git reset -q --hard HEAD
 }
 
 # --- build ------------------------------------------------------------------------
@@ -198,12 +229,12 @@ for N in $MEMBERS; do
   fi
   if [ -z "$(git diff --name-only --diff-filter=U)" ]; then
     say "    the merge failed with no conflict to resolve — left out:"; tail -3 /tmp/batch-merge.log | sed 's/^/      /'
-    git merge --abort 2>/dev/null
+    abort_merge
   elif resolve_conflicts && git -c core.editor=true commit -q --no-edit; then
     IN="$IN $N"; continue
   else
     say "    REAL CONFLICT with the batch so far — left out:"; echo "$LEFT" | sed 's/^/      /'
-    git merge --abort 2>/dev/null
+    abort_merge
   fi
   release "$N"; LOCKED=$(echo $LOCKED | tr ' ' '\n' | grep -vx "$N" | tr '\n' ' ')
   DROPPED="$DROPPED $N(conflict)"
@@ -239,6 +270,9 @@ if [ -f chicago/4d/tools/resolve_id_collisions.mjs ]; then
 fi
 step "publish the mirror the rebuild reads" publish
 step "re-stamp stale meshes (pure emitters, byte-identical)" bash -c 'cd chicago/4d && python3 tools/restamp_stale.py'
+for t in $LAID_TOOLS; do
+  [ -f "chicago/4d/$t" ] && step "lay again: $t" bash -c "cd chicago/4d && python3 $t"
+done
 step "rebuild the derived layer" bash -c 'cd chicago/4d && node tools/rederive.mjs --run'
 step "the lap's regeneration tail" bash -c 'cd chicago/4d \
   && node tools/stamp-changelog.mjs \
