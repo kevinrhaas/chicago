@@ -47362,6 +47362,43 @@ lot lines; then the houses' `lot_s_m` and this cut move together.
 **Review:** `renderers/web/js/human-wear.js`, `renderers/web/js/human-hats.js`, `renderers/web/js/humans.js`, `renderers/web/js/crowd.js`, `data/humans/visitor_person.json`, `data/jaunts/the-great-fire*.json`, `data/jaunts/bronze-at-eighteenth*.json`, `tools/test_riding.mjs`, `tools/test_visitor_person.mjs`, `tools/test_person_creator.mjs`.
 **Recorded:** 2026-11-27.
 
+### L-1871-fire-night-3814 — What the Great Fire's people carry, who carries it where, and the express wagon loading on State Street
+
+**Decision:** the owner, 2026-11-27: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... or other descriptions or
+likely actions and scenarios or mini scenes to integrate into jaunts". So the Great Fire jaunt's
+stops are restaged with people carrying what the accounts say they carried, a sick woman borne
+out on her mattress, an express wagon loaded at Field, Leiter & Co.'s door, and goods set down on
+the ground where the refugees stop.
+**What is read, not invented:** what was carried and how. Horace White: men and women "some with
+bundles of clothing on their shoulders; others, dragging trunks along the sidewalk by means of strings
+and ropes fastened to the handles ... Now and then a sick man or women would be observed, half
+concealed in a mattress doubled up and borne by two men" (Andreas vol. 2 p. 734). "One woman carrying
+an empty bird cage" (p. 732); on the North Side at dawn, a man with "a huge feather bed" on his back
+and "numbers had canary birds in cages" (p. 746); "Elegant ladies ... astonished themselves by dragging
+trunks for a long distance" (p. 729). Expressmen asked "from twenty to fifty dollars for conveying a
+small load a few blocks" (p. 729). Field, Leiter and Co.'s men carried goods from the store into
+wagons (the jaunt's `field-leiter` claim). Sources and pages are listed in
+`docs/RESEARCH/fire-night-scenes-3814/README.md`.
+**What is reconstructed:** every carrier and what each one carries, at which stop and on which
+path; the two mattress bearers and the woman on it; the express wagon's place at the kerb, its
+four loaders, its load and the moment it drives off north; the number and place of the chairs,
+trunks and bundles set down at the Ogden house and the old cemetery. The things themselves are
+drawn as the period's ordinary kinds in plain boxes and cylinders (`renderers/web/js/stage-props.js`
+GOODS), not from a picture of any one. How each is held (in the hand, on the right shoulder, on
+the back, dragged on a 1.3 m cord) is a pose chosen to read at a distance, not a record.
+**Evidence and limits:** `andreas_1885_v2`, `sheahan_upton_1871_great_conflagration`,
+`colbert_chamberlin_1871_chicago_great_conflagration`. No account places one named person with
+one thing at one corner at one hour; all the carriers are unnamed figures.
+**How to resolve:** a photograph or engraving of a street on the fire night with people carrying
+goods (the period's engravings are artists' composites), or a first-hand account placing one
+family's goods at one stop, to stage that family by name.
+**Ticket:** T-3814.
+**Review:** `docs/RESEARCH/jaunt-great-fire-3691/build.py` (`crowd`, `mattress`, `loaders`, the
+stops' `carry`, `teams`, `props`), `renderers/web/js/stage-props.js` (GOODS),
+`renderers/web/js/jaunt-stage.js` (`take`, `goodsFrame`, `loadFrame`).
+**Recorded:** 2026-11-27 (T-3814).
+
 ### L-k01-213-215-e20th-3782 — 213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'
 
 **Decision:** 213 and 215 East Twentieth Street (T-3782, piece 2 of T-1939, the X01 package of T-1837) are no

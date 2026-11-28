@@ -81,6 +81,15 @@
  * (`bier()`, stage-props.js) carried at the hands of the castmates named, front pair first, and
  * `borne: false` sets it down. Both are laid back or taken away when the stop is let go.
  *
+ * The Great Fire (T-3814; the owner, 2026-11-27: "crowds running around existing buildings carrying
+ * things or dumping things into wagons"): a castmate may `carry` a thing (goods, stage-props.js
+ * GOODS: a bundle on the shoulder, a bolt of cloth, a bird cage or a basket in the hand, a feather
+ * bed on the back, a trunk dragged on a cord), from the start or from a beat (`carry` a kind, or
+ * null to put it down: it is gone, into the wagon or the house); the arm holds it (human-actions.js
+ * setCarry). One borne (`borne`) with `bier: "mattress"` is carried in a doubled mattress, not on a
+ * bier. A stage team may carry a `load` on its bed, and a stage's `props` stand on the ground
+ * (chairs, trunks, bundles), all handed in as `goods`.
+ *
  * The owner, 2026-11-16: "make sure there are interactive people". A castmate is picked as anyone
  * of the town is: a person opens their own card, an unnamed figure says who it stands for. One
  * standing free (not posed, armed, walking or talking) turns to the visitor and greets them; the
@@ -114,6 +123,11 @@ const SEAT_EYE_TO_FEET_M = 0.92;
 /** A bier carried at the bearers' hands, and set down on the ground; half a body's length. */
 export const BIER_Y = 0.8;
 const BIER_DOWN_Y = 0.1, BODY_HALF_M = 0.86;
+/** T-3814: the cord a trunk is dragged on, hand to handle (m). */
+export const CORD_M = 1.3;
+/** T-3814: a team's load stands on its bed: the farm-box wagon's bed top (vehicle-local metres:
+ *  the planks' top 0.955 m, the bed's middle a little behind the seat; loops.json passenger_basis). */
+export const LOAD_SEAT = Object.freeze([0, 0.955, 0]);
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
 const pt = (p) => (Array.isArray(p) && p.length === 2 && p.every(Number.isFinite) ? { e: p[0], n: p[1] } : null);
@@ -137,7 +151,7 @@ export function castFor(stop, tier = 'full') {
 export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
   const at = pt(c.at);
   const s = { e: at.e, n: at.n, heading: Number.isFinite(c.heading) ? c.heading : 0, pose: c.pose ?? 'stand', hidden: !!c.hidden, talk: !!c.talk,
-    arm: c.arm ?? 'none', act: null, mounted: !!c.mount, horse: null, speed: 0 };
+    arm: c.arm ?? 'none', act: null, mounted: !!c.mount, horse: null, speed: 0, carry: typeof c.carry === 'string' ? c.carry : null };
   for (const b of sortedBeats(c)) {
     if (b.t > t) break;
     const to = pt(b.place);
@@ -168,6 +182,7 @@ export function castAt(c, t, { walkSpeed = 1.3 } = {}) {
     if (typeof b.talk === 'boolean') s.talk = b.talk;
     if (b.arm) s.arm = b.arm;
     if (b.act) s.act = { act: b.act, t: b.t };
+    if (b.carry !== undefined) s.carry = typeof b.carry === 'string' ? b.carry : null;
   }
   return s;
 }
@@ -213,13 +228,15 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
 export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null,
-  doors = () => null, gates = null, boats = null, bier = null, horses = null } = {}) {
+  doors = () => null, gates = null, boats = null, bier = null, horses = null, goods = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
   // T-3553: the hung doors' ways (house-doors.js passages), read once a build; the gates a stage opened.
   let ways = new Map(), shutGates = null;
   // T-3553: the boats castmates crossed in (crossings.js carry handles), laid back on their
   // banks when the stop is let go or watched again; and the biers the dead are carried on.
   let crossed = [], biers = [];
+  // T-3814: the stage's still things (props on the ground, the teams' loads), let go with it.
+  let stills = [];
   // The burning of the fort (fort-fire.js createFortFire): made the first time a stop has a `fire`.
   let burn = null;
   // Adults jaunts: the guns' flash and smoke (human-fight.js createFightFx), made once.
@@ -394,9 +411,18 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       if (c.mount && typeof c.mount.horse === 'string' && horses?.create) m.mount = { spec: c.mount, handle: null, loading: false, seating: false, failed: false, heading: null, face: null };
       begin(c, actor);
       arm(m, castAt(c, 0).arm);
+      take(m, castAt(c, 0).carry);
       cast.push(m);
     });
-    wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null }));
+    wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null, load: still(c.load) }));
+    for (const p of Array.isArray(next.stage?.props) ? next.stage.props : []) {
+      const g = pt(p?.at) ? still(p.kind) : null;
+      if (!g) continue;
+      const at = pt(p.at), h = ((Number.isFinite(p.heading) ? p.heading : 0) * Math.PI) / 180;
+      g.position.set(at.e, groundAt(at.e, at.n) + (Number.isFinite(p.y) ? p.y : 0), -at.n);
+      g.rotation.set(0, Math.PI - h, 0);
+      g.userData.groundAt = at;
+    }
     const open = Array.isArray(next.stage?.open_gates) ? next.stage.open_gates.filter((id) => typeof id === 'string') : [];
     if (open.length && gates?.open) { try { shutGates = gates.open(open); } catch { shutGates = null; } }
     askedLoad = -Infinity;
@@ -418,12 +444,15 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     crossed = [];
     for (const b of biers) b.removeFromParent?.();
     biers = [];
+    for (const m of cast) { m.goods?.removeFromParent?.(); m.cord?.removeFromParent?.(); }
+    for (const g of stills) g.removeFromParent?.();
+    stills = [];
     try { shutGates?.(); } catch { /* gone already */ }
     shutGates = null;
     fx?.clear();
     gore?.clear();
     burn?.clear();
-    for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } }
+    for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } try { teams?.release?.(w.c.team); } catch { /* gone already */ } }
     cast = []; wagons = []; stop = null; playing = false; clock = 0;
   }
 
@@ -447,7 +476,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     }
     // Asked again every two seconds of the page's own time (a held stage's frames carry none).
     const now = Date.now();
-    if (missing && now - askedLoad >= 2000) { askedLoad = now; try { teams?.load?.(); } catch { /* asked again later */ } }
+    if (missing && now - askedLoad >= 2000) { askedLoad = now; try { teams?.load?.(wagons.filter((w) => !w.actor).map((w) => w.c.team)); } catch { /* asked again later */ } }
   }
 
   /**
@@ -514,7 +543,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     const list = by.map((id) => cast.find((x) => x.c.person === id || x.c.extra === id)).filter(Boolean);
     if (list.length < 2) return;
     let prop = m.borne?.prop ?? null;
-    if (!prop && bier) { try { prop = bier(); parent?.add?.(prop); biers.push(prop); } catch { prop = null; } }
+    // T-3814: a sick man or woman "half concealed in a mattress doubled up and borne by two men".
+    const make = m.c.bier === 'mattress' && goods?.mattress ? goods.mattress : bier;
+    if (!prop && make) { try { prop = make(); parent?.add?.(prop); biers.push(prop); } catch { prop = null; } }
     m.borne = { by: list, lifted: true, since: clock, y: BIER_Y, heading: m.actor.heading, e: m.actor.e, n: m.actor.n, prop };
     m.actor.path = null;
   }
@@ -532,7 +563,12 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     // Lying, a figure is tipped about its feet with its head to its heading: the feet go behind.
     a.path = null; a.heading = k.heading; a.e = k.e - Math.sin(h) * BODY_HALF_M; a.n = k.n - Math.cos(h) * BODY_HALF_M;
     a.standY = ground + k.y; a.place?.();
-    if (k.prop) { k.prop.position.set(k.e, ground + k.y - 0.02, -k.n); k.prop.rotation.set(0, Math.PI - h, 0); }
+    if (k.prop) {
+      // T-3814: the bier or mattress only once the one on it is drawn (never an empty mattress
+      // going along the street while the figures load).
+      k.prop.visible = !!a.body && !a.indoors && humans?.shown !== false;
+      k.prop.position.set(k.e, ground + k.y - 0.02, -k.n); k.prop.rotation.set(0, Math.PI - h, 0);
+    }
   }
   function boatFrame(m) {
     const a = m.actor, h = m.boat;
@@ -615,6 +651,110 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     // A motion is begun on the hands once they are there (a figure still loading takes it then).
     if (b.act) { if (a.actions?.act) { a.actions.wield?.(m.arm); a.actions.act(b.act); } else m.pendingAct = b.act; }
     if (b.wound) wound(m, b.wound);
+    if (b.carry !== undefined) take(m, typeof b.carry === 'string' ? b.carry : null);
+  }
+
+  /** T-3814: the ground's height at (e, n), as the figures stand on it. */
+  function groundAt(e, n, a = null) {
+    const f = a?.heightAt ?? humans?.heightAt ?? cast.find((x) => x.actor.heightAt)?.actor.heightAt;
+    try { return f ? f.call(a ?? null, e, n) : 0; } catch { return 0; }
+  }
+
+  /** T-3814: a still thing (a ground prop or a team's load) of `kind`, added to the stage, or null. */
+  function still(kind) {
+    if (typeof kind !== 'string' || !goods?.create) return null;
+    let g = null;
+    try { g = goods.create(kind, { still: true }); } catch { g = null; }
+    if (!g) return null;
+    parent?.add?.(g); stills.push(g);
+    return g;
+  }
+
+  /** T-3814: `m` takes up a thing of `kind` to carry (null: puts it down, out of sight). */
+  function take(m, kind) {
+    const spec = kind ? goods?.spec?.(kind) ?? null : null;
+    if (m.goods) { m.goods.removeFromParent(); m.goods = null; }
+    if (m.cord) { m.cord.removeFromParent(); m.cord = null; }
+    m.load = spec ? { kind, spec } : null;
+    if (spec && goods?.create) {
+      try { m.goods = goods.create(kind); } catch { m.goods = null; }
+      if (m.goods) { m.goods.visible = false; parent?.add?.(m.goods); }
+      if (m.goods && spec.mode === 'drag' && goods.cord) { m.cord = goods.cord(); m.cord.visible = false; parent?.add?.(m.cord); }
+      m.dragAt = null;
+    }
+    m.held = undefined; // the hold is told to the hands once they are there (goodsFrame)
+  }
+
+  /** T-3814: after the figure's frame, what it carries where its hand, shoulder or back is. */
+  function goodsFrame(m) {
+    const a = m.actor, want = m.load?.spec?.hold ?? null;
+    if (a.actions?.setCarry && m.held !== want) { a.actions.setCarry(want); m.held = want; }
+    const g = m.goods;
+    if (!g) return;
+    const mode = m.load.spec.mode;
+    const down = !!a.posture?.kind?.match?.(/lie|prone|fallen/);
+    const on = a.root.visible && !a.indoors && !!a.body && !(down && mode !== 'drag');
+    g.visible = on;
+    if (m.cord) m.cord.visible = false;
+    if (!on) return;
+    // Whoever dragged it lies down: it stays where it was let go, on the ground.
+    if (down) { g.visible = !!m.dragAt; return; }
+    const h = ((a.heading ?? 0) * Math.PI) / 180, yaw = Math.PI - h;
+    const bone = (name) => {
+      if (m.bonesOf !== a.body) { m.bonesOf = a.body; m.bones = {}; }
+      if (!(name in m.bones)) m.bones[name] = a.body?.scene?.getObjectByName?.(name) ?? null;
+      return m.bones[name];
+    };
+    const side = m.load.spec.hold?.side ?? 'r';
+    if (mode === 'hand') {
+      const f = a.actions?.gripFrame?.(side);
+      if (!f) { g.visible = false; return; }
+      g.position.copy(f.pos); g.rotation.set(0, yaw, 0);
+    } else if (mode === 'shoulder' || mode === 'back') {
+      const b = bone(mode === 'back' ? 'spine_03' : `upperarm_${side}`);
+      if (!b) { g.visible = false; return; }
+      b.getWorldPosition(g.position);
+      g.rotation.set(0, yaw, 0);
+      // The shoulder's top, over the joint; the back's middle, behind the spine.
+      if (mode === 'shoulder') g.position.y += 0.05;
+    } else if (mode === 'drag') {
+      // Pulled along on its cord: it stays where it is until the cord is taut, then follows the
+      // hand, its front toward it, on the ground.
+      const f = a.actions?.gripFrame?.(side);
+      if (!f) { g.visible = false; return; }
+      const he = f.pos.x, hn = -f.pos.z;
+      if (!m.dragAt) m.dragAt = { e: a.e - Math.sin(h) * CORD_M, n: a.n - Math.cos(h) * CORD_M, heading: a.heading };
+      const d = m.dragAt, de = he - d.e, dn = hn - d.n, L = Math.hypot(de, dn);
+      if (L > CORD_M) { d.e = he - (de / L) * CORD_M; d.n = hn - (dn / L) * CORD_M; d.heading = bearing(de, dn); }
+      const ground = groundAt(d.e, d.n, a);
+      const th = (d.heading * Math.PI) / 180;
+      g.position.set(d.e, ground, -d.n); g.rotation.set(0, Math.PI - th, 0);
+      if (m.cord) {
+        // From the hand to the handle, 0.32 m up the trunk's front.
+        const hx = d.e, hy = ground + 0.32, hz = -d.n;
+        const dx = f.pos.x - hx, dy = f.pos.y - hy, dz = f.pos.z - hz, len = Math.hypot(dx, dy, dz);
+        if (len > 0.05) {
+          m.cord.visible = true;
+          m.cord.position.set((f.pos.x + hx) / 2, (f.pos.y + hy) / 2, (f.pos.z + hz) / 2);
+          m.cord.scale.set(0.012, len, 0.012);
+          // The cylinder stands along +y: turn +y onto the cord.
+          const ux = dx / len, uy = dy / len, uz = dz / len;
+          m.cord.quaternion.set(uz, 0, -ux, 1 + uy).normalize();
+          if (1 + uy < 1e-6) m.cord.quaternion.set(1, 0, 0, 0);
+        }
+      }
+    }
+  }
+
+  /** T-3814: a team's load on its bed, where the bed is now. */
+  function loadFrame(w) {
+    const g = w.load;
+    if (!g) return;
+    g.visible = !!w.pose && Number.isFinite(w.pose.height) && humans?.shown !== false;
+    if (!g.visible) return;
+    const at = seatAt(w.pose, LOAD_SEAT);
+    g.position.set(at.e, at.y, -at.n);
+    g.rotation.set(0, Math.PI - (w.pose.heading * Math.PI) / 180, 0);
   }
 
   const api = {
@@ -695,6 +835,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         }
       }
       driveTeams(step);
+      for (const w of wagons) loadFrame(w);
       // The doors: held open for whoever is coming out or going in, let go behind them.
       for (const m of cast) {
         if (m.emerging && (m.emerging.p.isOpen?.() || clock - m.emerging.since >= EMERGE_WAIT_S)) emerge(m);
@@ -712,12 +853,14 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       for (const m of cast) {
         if (m.ride) seatRider(m);
         const up = m.mount ? mountFrame(m, step, shown, at) : false;
-        if (!shown) { m.actor.root.visible = false; if (m.weapon) m.weapon.visible = false; continue; }
+        if (!shown) { m.actor.root.visible = false; if (m.weapon) m.weapon.visible = false; if (m.goods) m.goods.visible = false; if (m.cord) m.cord.visible = false; continue; }
         if (up) { m.actor.root.visible = !m.actor.indoors; continue; }
         if (at) m.actor.update(step, at, step);
         wieldFrame(m);
+        goodsFrame(m);
         if (m.pendingWounds && m.actor.body && m.actor.root.visible) { const due = m.pendingWounds; m.pendingWounds = null; for (const k of due) wound(m, k); }
       }
+      for (const g of stills) if (!wagons.some((w) => w.load === g)) g.visible = shown;
       fx?.update(step);
       if (gore) { gore.visible = shown; gore.update(step); }
       if (burn?.active) { burn.holdTorch(!!stop?.stage?.fire?.visitor && playing); burn.update(playing ? step : 0, view()); }
@@ -727,14 +870,16 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         e: +m.actor.e.toFixed(2), n: +m.actor.n.toFixed(2), heading: +m.actor.heading.toFixed(1), posture: m.actor.posture?.kind ?? 'stand',
         hidden: !!m.actor.indoors, drawn: !!m.actor.root.visible, lod: m.actor.lod, ...(m.ride ? { ride: m.ride.team } : {}),
         ...(m.mount ? { mount: m.mount.handle ? (m.mount.handle.seated ? 'up' : 'down') : m.mount.failed ? 'failed' : 'coming' } : {}),
-        ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}) })),
+        ...(m.arm && m.arm !== 'none' ? { arm: m.arm, armed: !!m.weapon?.visible, act: m.actor.actions?.fight?.act ?? null } : {}),
+        ...(m.load ? { carry: m.load.kind, carried: !!m.goods?.visible, held: m.actor.actions?.carrying ?? null } : {}) })),
+        props: stills.length,
         smoke: fx?.count ?? 0,
         doors: cast.filter((m) => m.door || m.emerging).map((m) => ({ door: (m.door ?? m.emerging).p.id, swing: +((m.door ?? m.emerging).p.swing ?? 0).toFixed(2),
           who: m.c.person ?? m.c.extra, out: !!m.emerging })),
         ...(gore ? { blood: gore.counts } : {}),
         ...(burn?.active ? { fire: burn.snapshot() } : {}),
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
-          n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null })) };
+          n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null, ...(w.c.load ? { load: w.c.load, loaded: !!w.load?.visible } : {}) })) };
     },
   };
   return api;
