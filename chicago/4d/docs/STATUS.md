@@ -141,6 +141,134 @@ the delete reports "could not be deleted just now". The Firebase sign-in account
 removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
 live delete was run.
 
+
+- **2026-11-27 — T-3748/T-3760, Light fix working source:** seasonal flora and the current 3,543-record 1871 grown handoff are composed on the fully gated Core3bdf source. A local software-renderer prototype kept triangles/calls unchanged and reduced Light frame time about25% against its warm controls, with a small colour change in the sampled view. This is not calibrated hardware acceptance. The earlier actual EPYC7763/4 Light miss remains held; fresh whole Native, actual failed-profile revalidation, seasonal browser evidence, committed preflight and final current-head CI remain required. Full/Balanced physical lighting and all current planting data are retained.
+## T-3748, T-3760 — Seasonal flora and the current 1871 trees (25 November 2026)
+
+All four years offer spring, summer, fall and winter. A fresh 1871 visit resolves to
+fall on 8 October, its target day; other choices use representative seasonal dates.
+Explicit visitor preferences win. Dated jaunts retain their documented dates and restore
+the visitor's choice. The evergreen exemption covers the complete scale/needle row of
+the six-row leaf atlas, rather than the obsolete five-row cutoff.
+
+Prairie leaf normals follow the existing midrib folds, plant size, arch and wind.
+Grass ribbons keep their width in physical metres, without new vertices, attributes,
+density, waves or draw passes. April withholds July flowers and their peduncles.
+Winter withholds legacy deciduous leaf sprays in colour and both shadow passes while
+retaining wood; conifers keep their separate evergreen path. Crop phenology is retained.
+Crop leaves share shadowed thin-leaf light and slight atlas relief on capable devices;
+Light and weak devices omit the extra sampling. Original green ivy masks precede seasonal
+or confidence recolouring so brown stems receive no leaf light. Reused street/front-yard
+materials drop relief on Light and restore the same atlas on Full.
+
+The current upstream 1871 city contains 3,543 context and 6,693 street trees. All current
+planting is preserved. A refreshed audit checked 10,236 trunk centres against 38,598 context
+building plans and 19 named solid footprint parts, with zero centres more than 0.25 m inside.
+No cross-set trunk centres were closer than two metres. These scans do not establish crown
+clearance. The earlier prototype's two deletion edits are superseded: those old serial IDs
+now name valid trees elsewhere, and the old coordinates no longer intrude into buildings.
+The former pumping-works context tree is absent upstream and is not reintroduced.
+
+All 3,543 current context records now use the shared grown-tree path instead of portable
+solid crowns. Their positions, nominal height/crown width, reconstructed grade and lazy
+inspection cards remain. The elm-like habit is a declared generic deciduous proxy, not an
+identified historical elm. Census and triangle accounting distinguish the handoff.
+
+Street trees and front yards keep their live forest and pick records until the latest
+replacement is ready, join duplicate requests and coalesce superseded choices. Detail
+completion waits for both. A replacement receives the latest Great Fire burnt-tree map
+before it mounts. Native regressions reproduce leaf restoration on a burnt tree, then verify
+fire changes during pending season/detail rebuilds, Hide/show, winter wood, relief toggling,
+picking, confidence, independent forests and disposal. Capture checks require actual probe
+instance slots, not just placement totals. The wider Water Tower view is checked separately.
+
+Complete integrated native/CI, published phone/desktop seasonal captures and memory/frame
+receipts belong to the merging PR. Software rendering does not establish hardware FPS.
+Liberties: L-seasonal-flora-3748 and L-1871-grown-context-3760.
+
+## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
+
+The leaf-light implementation retains its rounded foliage and shadowed transmission.
+Unsuccessful leaf-only and shared zero-light guards have been removed. Their actual
+calibrated Light failures (7,323/7,000 and 7,467/7,000 ms on EPYC 7763/four-core)
+remain in the evidence archive. Private draw-order, fused-light and fixed-material
+experiments preserved their sampled pixels but showed no reliable local improvement;
+they were discarded. The unmodified Dev control passed on EPYC 9V74, a different
+calibrated CPU, and does not qualify this feature or settle the earlier CPU's miss.
+The complete current-Dev source requires its own stock calibrated reading, complete
+Native gate and final exact-head CI. No old partial gate is reused. Existing raster,
+sampling, geometry, population, material quality and performance ceilings remain.
+
+The 1904 seasonal capture audit caught a seated-driver metadata read through the released
+human parser. Transport now reads the same source scene extras retained by GLTFLoader on
+the first scene's userData, preserving its identity/date/vehicle checks. The regression
+parses the real 1904 driver's scene extras with the actual loader, then exercises the real
+assembly factory with parser-free human leases, including rejection and disposal for a
+wrong identity or vehicle binding. The former parser read fails that regression.
+
+The UI allocation fixture holds actor updates and finishes pending source/LOD work before
+its strict GPU-resource readings. The grade-row check keeps people visible; the DOM-overlay
+check retains its existing hidden-people isolation. Rendering resumes before counters are
+read, and the original exact program/geometry equalities and performance limits remain.
+
+The shared grown-tree path now has a Full close level within 14 m. Its large sprays become
+three smaller sprays at different depths and angles, sharing a fine round shoot that tapers
+from the existing attachment to one tip. The original near mesh remains beyond that short ring. The
+existing instancing, culling, hysteresis, dissolve, shadows and species skeletons still apply.
+Balanced and Light retain their geometry counts. Woodland at Balanced uses the existing
+half-size atlases and omits additional leaf-relief sampling, as Light already does. Full
+retains the larger sheets and relief. Bare winter templates remain unchanged.
+
+Rounded spray normals and a common thin-leaf light patch cover woodland and street trees,
+yard shrubs, vines and bank thickets. Direct transmission uses the renderer's already
+shadowed incident light, while the existing small sky term follows time of day. Capable
+devices reuse the leaf sheet for subtle relief. Bark, fruit and solid flowers retain their
+materials. These are declared artistic render approximations (L-leaf-light-3747), preserving
+the records' species, planting, historical grades and asset provenance. Herbaceous flora and
+garden crops are T-3748's scope.
+
+The published season/detail sweep exposed overlapping rebuilds sharing scratch templates
+and live instance slots. Each forest now owns a snapshot of the placement plan; a seasonal
+commit discards superseded or late results and retains the prior forest until its replacement
+is ready. Rapid choices grow one candidate at a time and skip obsolete queued choices.
+The regression first reproduced the exact null-template crash, then checks
+overlapping summer/winter growth and a live forest after another rebuild and disposal.
+
+Full woodland and its static thicket batch let go of unused CPU triangle copies after upload using the existing
+upload-release and context-recovery path. All LOD bounds and confidence ranges are cached
+before release; picks and collisions retain their placement records. The native regression
+also changes LOD after discarding the arrays. The published desktop check requires exactly
+the four grown batches and the static thicket batch to release while its building and furniture pick oracles remain.
+The distant horizon keeps its dynamic arrays for its moving-eye solve. Resident-memory
+checks found the initial separate twig per spray too costly; the shared shoot reduces that
+geometry while retaining the three sprays, the existing limits and every planting record.
+The diagnostic `keep-geometry` option retains arrays for geometry-reading smoke tests.
+
+The focused browser test checks shadowed backlight, a wood mask, night, sky and shader-hook
+composition on both shader variants. Seven species/habits also retain their tree dimensions,
+coarse templates and bare templates while adding Full close detail. The tree-gallery
+diagnostic and fixed-camera published-scene captures retain their source versions and costs;
+final local gate, mapped smoke and CI receipts belong to the merging PR. Scripted moving-frame
+readings also suppress unmeasured raster drawing during tier preparation; their measured
+loops, limits, verification, live mode and explicit rendering stay unchanged. Cloud software
+rendering is not evidence of an integrated GPU's or a high-end GPU's FPS.
+
+Integration with the newer clothing passes exposed dense nearest-point work grids retaining
+empty volume. Point grids now use compact typed offsets for sparse shells and retain the
+dense representation when it is smaller. Search order, cell size, reach and garment output
+stay identical; an independent full-scan regression covers both representations, bounds and
+ties. Outline-only samplers are released before the rider passes. The shared human asset cache
+also releases its finished GLTF parser, as the building loader already does; fetched byte
+preparation ends before the sliced clothing work, releasing the raw file and header.
+Decoded geometry, materials, animations and metadata retain their identities and refcounts.
+Source clothing preparation now runs one body at a time per asset store, so several
+long-lived welded work graphs cannot accumulate while their generators yield. Fetching and
+GLTF decoding stay parallel; the separate queue that builds individual actors stays as it
+was. Failed preparation releases the queue for the next source. All clothing passes and
+outputs stay the same; the controlled regression first observes two simultaneous source
+work graphs, then verifies one, parallel decoding and recovery after a rejected pass.
+The unchanged memory and frame-time gates remain required; all people, faces and clothing stay enabled.
+
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
 Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish

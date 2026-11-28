@@ -38,6 +38,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { patchSeason } from './season.js';
+import { patchLeafLight } from './leaf-light.js';
 
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
 
@@ -641,9 +642,11 @@ function leafCard(b, { base, dir, side, len, wid, tile, rise = 0.2, droop = 0.4,
     const lift = mul(n, fold * half * 0.6);
     const shade = 0.78 + 0.22 * t;     // a leaf's foot sits in the plant's shade
     const c = tint(col, shade);
-    const l = b.v(add(add(p, mul(sv, -half)), [0, 0, 0]), n, atlasUV(tile, 0, t), c);
+    const leftNormal = norm(add(n, mul(sv, fold * 0.6)));
+    const rightNormal = norm(add(n, mul(sv, -fold * 0.6)));
+    const l = b.v(add(add(p, mul(sv, -half)), [0, 0, 0]), leftNormal, atlasUV(tile, 0, t), c);
     const m = b.v(add(p, mul(lift, -1)), n, atlasUV(tile, 0.5, t), tint(c, 0.92));
-    const r = b.v(add(p, mul(sv, half)), n, atlasUV(tile, 1, t), c);
+    const r = b.v(add(p, mul(sv, half)), rightNormal, atlasUV(tile, 1, t), c);
     ids.push([l, m, r]);
   }
   for (let i = 0; i < segs; i += 1) {
@@ -1700,8 +1703,10 @@ export async function createGardens({
     /* ---- the crops: every plant one instance of its kind's variant ---- */
     const atlas = cropAtlas(lowSpec);
     const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
+      bumpMap: lowSpec || current === 'light' ? null : atlas, bumpScale: 0.002,
       side: THREE.DoubleSide, alphaTest: LEAF_CUTOFF });
     leafMat.name = 'garden-leaves';
+    patchLeafLight(leafMat, { lowSpec });
     const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
     solidMat.name = 'garden-solid';
     confidence?.patch?.(leafMat);
@@ -1899,6 +1904,10 @@ export async function createGardens({
   out.setDetail = (d) => {
     if (!LEVELS[d] || d === current) return;
     current = d; stats.detail = d;
+    if (!lowSpec && leaves?.material) {
+      const m=leaves.material, bump=d==='light'?null:m.map;
+      if (m.bumpMap!==bump) { m.bumpMap=bump; m.needsUpdate=true; }
+    }
     applyCast();
     if (lastEye) deal(lastEye);
   };

@@ -77,11 +77,11 @@ export function cityContextCard(r, doc, definition, sign = null) {
   const id=`context:1871:${r.id}`;
   const libertyIds=typeof doc.liberty==='string' && doc.liberty ? [doc.liberty] : [];
   if (r.isTree) {
-    return {id,libertyIds,sidecar:{name:'Reconstructed deciduous tree',phase:null,
+    return {id,libertyIds:[...libertyIds,'L-1871-grown-context-3760'],sidecar:{name:'Reconstructed deciduous tree',phase:null,
       change_note:definition.vegetation_note,
       placement:{symbolic_location:'City context planting',position_confidence:'reconstructed',position_sources:doc.sources ?? [],position_note:'Sparse district planting chosen for the context city; no individual historical tree is identified.'},
       attributes:{height:{value:`${r.h.toFixed(1)} m`,confidence:'reconstructed',sources:[],note:'A context dimension, not a measured historical tree.'}},
-      citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form with early-autumn colour, recorded among the city baseline liberties.'}};
+      citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form, recorded among the city baseline liberties. Its seasonal appearance is a viewing choice; no individual species is identified.'}};
   }
   const district=doc.districts?.[r.district] ?? {};
   const sources=[...new Set([...(definition.sources ?? []),...(district.sources ?? [])])];
@@ -253,7 +253,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   }
   out.census.streetSurfaces=surfacing.census;
   out.census.infrastructureMeshes=infrastructureMeshes.length;
-  const templates = new Map([...definition.templates,...(definition.vegetation ?? [])].map(t => [t.id, t]));
+  const templates = new Map(definition.templates.map(t => [t.id, t]));
   const columns = Object.fromEntries((doc.fields?.buildings ?? []).map((key, index) => [key, index]));
   const value = (row, key, fallback) => Array.isArray(row) ? (columns[key] == null ? fallback : row[columns[key]]) : (row[key] ?? fallback);
   const enumValue = (kind, v) => typeof v === 'number' ? doc.enums?.[kind]?.[v] : v;
@@ -356,23 +356,19 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   // T-3684: where two named 1871 streets meet, `[e, n, name, name]`, for the
   // where card's "State and Madison streets".
   out.junctions = () => (doc.junctions ?? []).filter(j=>Array.isArray(j) && j.length>=4 && Number.isFinite(j[0]) && Number.isFinite(j[1]));
-  // The city's own sparse planting positions, with generic portable deciduous
-  // crowns. No other year's species palette or planting record is imported.
+  // T-3760: retain the city's own planting records, but hand their stems to the
+  // shared seasonal renderer. No portable blob crown is drawn over it here.
+  const treeStems=[];
   const treeFields=Object.fromEntries((doc.fields?.trees ?? []).map((key,index)=>[key,index]));
   for (const [index,row] of (doc.trees ?? []).entries()) {
     const read=(key,fallback)=>Array.isArray(row)?(treeFields[key]==null?fallback:row[treeFields[key]]):(row[key] ?? fallback);
-    const family=definition.vegetation?.[index%(definition.vegetation?.length || 1)];
-    if (!family) continue;
     const e=+read('e'),n=+read('n'),h=+read('height_m'),radius=+read('crown_m',h*.32);
     if (![e,n,h,radius].every(Number.isFinite) || h<=0 || radius<=0) throw Error('1871 context: invalid tree dimensions');
-    const t=templates.get(family.id), bearing=(index*137.507)%360;
-    const r={row,t,e,n,w:radius*2,d:radius*2,h,base:+read('base_m',terrain.surfaceHeight(e,n)),bearing,
+    const r={row,e,n,w:radius*2,d:radius*2,h,base:+read('base_m',terrain.surfaceHeight(e,n)),
       id:read('id',`tree_${index}`),isTree:true};
-    const key=`${Math.floor(e/tileM)},${Math.floor(n/tileM)}`;
-    if (!tiles.has(key)) tiles.set(key,{e:(Math.floor(e/tileM)+.5)*tileM,n:(Math.floor(n/tileM)+.5)*tileM,sets:new Map()});
-    const tile=tiles.get(key);
-    if (!tile.sets.has(t.id)) tile.sets.set(t.id,[]);
-    tile.sets.get(t.id).push(r); out.census.trees++;
+    treeStems.push({id:`context:1871:${r.id}`,e,n,y:r.base,h,crownW:radius*2,
+      card:()=>cityContextCard(r,doc,definition)});
+    out.census.trees++;
   }
   const matrix=new THREE.Matrix4(), quaternion=new THREE.Quaternion(), up=new THREE.Vector3(0,1,0);
   const position=new THREE.Vector3(), scale=new THREE.Vector3(), color=new THREE.Color();
@@ -615,7 +611,9 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   out.census.triangles=meshes.reduce((sum,m)=>sum+m.userData.triangles,0);
   out.census.kitBytes=definition.asset_bytes;
   out.census.templates=definition.templates.length;
-  out.census.treeTemplates=definition.vegetation?.length ?? 0;
+  out.census.treeTemplates=0;
+  out.census.treeRepresentation='shared-grown-seasonal';
+  out.census.handedOffTrees=treeStems.length;
   out.census.tiles=tiles.size;
   const frustum=new THREE.Frustum(), viewProjection=new THREE.Matrix4();
   out.setDetail=level=>{ if (['full','balanced','light'].includes(level)) detail=level; };
@@ -657,8 +655,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     out.census.visibleBuildings=activeBuildings; out.census.nearTiles=nearTiles; out.census.farTiles=farTiles;
     out.census.visibleTrees=activeTrees;
   };
-  // These trees already draw here; handing stems to a second layer duplicates them.
-  out.treeStems=()=>[];
+  out.treeStems=()=>treeStems;
   const raycaster=new THREE.Raycaster();
   out.pickAt=(ndc,camera)=>{
     if (!camera || !group.visible || confidence?.hidden?.reconstructed) return null;
@@ -679,7 +676,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     for (const geometry of geometries) geometry.dispose();
     for (const material of materials) material.dispose();
     for (const texture of textures) { texture.dispose(); texture.source?.data?.close?.(); }
-    depthMaterials.clear(); collisions.clear(); tiles.clear(); floors.clear(); group.clear();
+    depthMaterials.clear(); collisions.clear(); tiles.clear(); floors.clear(); treeStems.length=0; group.clear();
   };
   return out;
 }

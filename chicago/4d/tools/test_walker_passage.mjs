@@ -39,6 +39,8 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
   const liberties=read('data/liberties.json').liberties;
   const declared=liberties.find(lib=>lib.id===doc.liberty);
   assert(declared,'the generated document declares an existing liberty');
+  const treeLiberty=liberties.find(lib=>lib.id==='L-1871-grown-context-3760');
+  assert(treeLiberty,'the grown context tree declares its additional renderer liberty');
   const building=doc.buildings[0],tree=doc.trees[0];
   const buildingInput={...building,w:building.width_m,d:building.depth_m,h:building.eave_m,
     t:definition.templates.find(t=>t.id===building.kit)};
@@ -56,13 +58,15 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
   const popup=createPopup(mount,{});
   try {
     popup.setLiberties(liberties);
-    for(const record of records) {
-      assert.deepEqual(record.libertyIds,[doc.liberty],'the card uses the generated document’s declared liberty');
+    for(const [i,record] of records.entries()) {
+      const expected=i===0 ? [doc.liberty] : [doc.liberty,treeLiberty.id];
+      assert.deepEqual(record.libertyIds,expected,'building keeps only its scene liberty; tree also declares its grown proxy');
       assert(!Object.hasOwn(record.sidecar,'liberty_ids'),'runtime metadata does not invent a compiled sidecar field');
       assert.equal(popup.show(record),true,'the real popup opens the generated context card');
-      assert.match(mount.innerHTML,/Liberties taken here <span class="pop-count">1<\/span>/,'the actual pane counts its liberty');
+      assert(mount.innerHTML.includes(`Liberties taken here <span class="pop-count">${expected.length}</span>`),'the actual pane counts every declared liberty');
       assert(mount.innerHTML.includes(declared.title),'the actual pane renders its declared liberty');
-      assert.deepEqual(popup.sections(record).liberties.map(lib=>lib.id),[doc.liberty],'Inspect Sources receives the same liberty');
+      if(i===1) assert(mount.innerHTML.includes(treeLiberty.title),'the tree pane renders its additional proxy liberty');
+      assert.deepEqual(popup.sections(record).liberties.map(lib=>lib.id),expected,'Inspect Sources receives the exact declared liberties');
       assert.deepEqual(record.sidecar.citations,definition.citations,'the source citations remain intact');
       const missing={...record,libertyIds:[]};
       assert.deepEqual(popup.sections(missing).liberties,[],'a missing runtime binding is observable, never silently guessed');
@@ -73,7 +77,7 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
     popup.setLiberties([{id:'L-native-fixture',subjects:[native.id]}]);
     assert.deepEqual(popup.sections(native).liberties.map(lib=>lib.id),['L-native-fixture'],'ordinary structure subject lookup remains unchanged');
   } finally {globalThis.document=savedDocument;}
-  console.log('CITY CONTEXT CARDS PASS — building and tree declare the generated scene liberty in actual popup counts, panes and Sources; citations and native subject lookup preserved; missing bindings stay missing');
+  console.log('CITY CONTEXT CARDS PASS — building retains only scene liberty; tree also declares grown proxy in actual popup counts, panes and Sources; citations and native subject lookup preserved; missing bindings stay missing');
 }
 
 const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
