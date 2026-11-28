@@ -304,8 +304,24 @@ def build() -> dict:
 
     # Short ids, numbered per kind in a fixed order (the walk ids they were laid from are long, and
     # ten thousand of them were a third of the file); the walk stays on the item as `face`.
-    # 5. Street trees along the house streets (the street_trees layer draws them).
+    # 5. Street trees along the house streets (the street_trees layer draws them), each box clear
+    # of the houses' ways in, the board crossings, the posts and the kerb's dress (T-3740).
+    ways = house_ways(ctx, walks, landmarks)
+    ccell = tree_crossings(ctx)
+    solid = posts + [(it["e"], it["n"], DRESS_R[it["kind"]]) for it in dress if it["kind"] not in FLUSH]
+    scell = defaultdict(list)
+    for q in solid:
+        scell[(int(q[0] // 5), int(q[1] // 5))].append(q)
+
+    def tree_blocked(w, t, p):
+        if tree_in_way(w, t, ways) or on_crossing(p, TREE_BOX_R_M, ccell):
+            return True
+        return any(math.hypot(q[0] - p[0], q[1] - p[1]) < TREE_BOX_R_M + q[2] + 0.3
+                   for i in range(int(p[0] // 5) - 1, int(p[0] // 5) + 2)
+                   for j in range(int(p[1] // 5) - 1, int(p[1] // 5) + 2) for q in scell[(i, j)])
+
     trees = []
+    moved = dropped = 0
     for w in walks:
         mid = ((w.a[0] + w.b[0]) / 2, (w.a[1] + w.b[1]) / 2)
         if shop[w.id] is not None or math.hypot(mid[0] - STATE_MADISON[0], mid[1] - STATE_MADISON[1]) > TREE_REACH_M:
@@ -318,8 +334,22 @@ def build() -> dict:
             key = f"{w.id}#{k}"
             u = phase("gap" + key)
             if u >= TREE_GAP_SHARE:
-                p = w.at(t + (phase("jit" + key) - 0.5) * 1.2, TREE_KERB_INSET_M)
-                if not near_taken(p, CLEAR_M):
+                tt = t + (phase("jit" + key) - 0.5) * 1.2
+                p = w.at(tt, TREE_KERB_INSET_M)
+                if tree_blocked(w, tt, p):
+                    # T-3740: a spot before a way in, on a crossing or against the dress gives way
+                    # to the nearest clear one within half a spacing, else stands empty.
+                    for dt in (0.6, -0.6, 1.2, -1.2, 1.8, -1.8, 2.4, -2.4, 3.0, -3.0, 3.6, -3.6, 4.2, -4.2):
+                        q = w.at(tt + dt, TREE_KERB_INSET_M)
+                        if TREE_END_CLEAR_M <= tt + dt <= w.L - TREE_END_CLEAR_M and not tree_blocked(w, tt + dt, q) \
+                                and not near_taken(q, CLEAR_M):
+                            p = q
+                            moved += 1
+                            break
+                    else:
+                        p = None
+                        dropped += 1
+                if p is not None and not near_taken(p, CLEAR_M):
                     young = phase("young" + key) < TREE_YOUNG_SHARE
                     trees.append({"id": key, "face": w.id, "e": r2(p[0]), "n": r2(p[1]), "y_m": w.y,
                                   "kind": "young" if young else "mature", "variant": int(phase("var" + key) * 12) % 12,
@@ -327,6 +357,11 @@ def build() -> dict:
                                   "scale": r2((0.55 if young else 0.78) + phase("sc" + key) * 0.25)})
             t += TREE_SPACING_M
             k += 1
+    bad = check_trees(trees, walks, ways, ccell, solid)
+    LAST.update(trees=[dict(tr) for tr in trees], ways=ways, ccell=ccell, solid=solid)
+    if bad:
+        raise SystemExit("TREE CHECK refuses the planting:\n  " + "\n  ".join(bad[:40]))
+    LAST.update(trees_moved=moved, trees_dropped=dropped)
     trees.sort(key=lambda x: x["id"])
     for i, tr in enumerate(trees):
         tr["id"] = f"tree.{i:05}"
@@ -347,7 +382,7 @@ def build() -> dict:
                             "broad-crowned trees, and the Court House stereograph shows the square's trees; neither "
                             "picture names the kind. Every street tree is drawn as the American elm the 1904 layer grows."},
         "placement": {"tier": "reconstructed", "liberty": LIBERTY, "spacing_ft": 30, "variants": 12,
-                      "note": f"On the house streets within about {TREE_REACH_M / 1000:.1f} km of State and Madison: one file a side at about 30 ft, {TREE_KERB_INSET_M} m in from the kerb, clear of the corners, with about one place in three empty and one tree in five young, as a city planting its streets for twenty years would show. Reconstructed."},
+                      "note": f"On the house streets within about {TREE_REACH_M / 1000:.1f} km of State and Madison: one file a side at about 30 ft, {TREE_KERB_INSET_M} m in from the kerb, clear of the corners, with about one place in three empty and one tree in five young, as a city planting its streets for twenty years would show; each box clear of the houses' doors, gates and steps, the board crossings, the corners and the posts (T-3740). Reconstructed."},
         "summary": {"trees": len(trees), "young": sum(1 for t in trees if t["kind"] == "young")},
         "trees": trees,
     }
@@ -655,6 +690,151 @@ def shop_fronts(ctx, walks, rings, landmarks):
         fronts.append({"id": b["id"], "walk": w, "t0": t0, "t1": t1, "door_t": td, "district": b["district"],
                        "kit": b["kit"], "e": e, "n": n, "eave": b["eave_m"], "F": F, "out": out})
     return fronts
+
+
+# T-3740 (owner, 2026-11-23): the street trees off the walk's way. A boxed tree at the kerb stands
+# clear of every house's way in (its door, the gate in its front fence and the steps or porch that
+# come down to the walk), of the board crossings and of the corners, and `check_trees` refuses a
+# laying that puts one there. The ways in are where the renderer draws them:
+#   * the stand-in's own steps or porch (generators/city_context_emit.py `entrance`): at the
+#     front's middle, the stair 1.5 m wide on a raised masonry house and 1.3 m on the others,
+#     scaled with the front as city-context.js scales the kit;
+#   * the detail's door, and the gate in the picket fence before a front yard of 2 m or more
+#     (city-fronts.js): on the middle bay's line, floor(bays / 2), the gate 1.07 m wide.
+KIT = ROOT / "data" / "context" / "1871" / "kit.json"
+HOUSE_KITS = {"brick_rowhouse", "brick_mansard", "villa_hip", "brick_cottage", "timber_cottage", "timber_house", "timber_hip"}
+RAISED_KITS = {"brick_rowhouse", "brick_mansard", "villa_hip"}
+HOUSE_GATE_W_M = 1.07         # city-fronts.js GATE_W_M
+HOUSE_YARD_FENCE_M = 2.0      # city-fronts.js: a fence and gate before a yard this deep or deeper
+TREE_BOX_R_M = 0.45           # half a tree box's side, about 3 ft square, for the clearances
+TREE_WAY_CLEAR_M = 0.6        # and the box stands this far clear of a way in's edge
+TREE_CORNER_M = TREE_END_CLEAR_M - 0.6 - 0.01   # the planted file's corner clearance, less its jitter
+
+
+def house_ways(ctx, walks, landmarks):
+    """Every house's way in on the walk before it, {walk id: [(t, half width, what)]}: the walk
+    whose building edge the front stands `yard_m` behind (13,622 of the 1871 houses front one,
+    every one to 5 cm), the way's place along it and its half width there."""
+    templates = {t["id"]: t for t in json.loads(KIT.read_text())["templates"]}
+    cells = defaultdict(list)
+    for w in walks:
+        for k in range(int(w.L // 20) + 1):
+            p = w.a[0] + w.ue * min(w.L, k * 20), w.a[1] + w.un * min(w.L, k * 20)
+            cells[(int(p[0] // 40), int(p[1] // 40))].append(w)
+    lmcell = defaultdict(list)
+    for lm in landmarks:
+        for q in lm["pts"]:
+            lmcell[(int(q[0] // 100), int(q[1] // 100))].append(lm)
+    ways = defaultdict(list)
+    for b in ctx["buildings"]:
+        if b.get("row") == "attached" or b["kit"] not in HOUSE_KITS:
+            continue
+        e, n = b["e"], b["n"]
+        rb = math.radians(b["bearing_deg"])
+        out = (math.sin(rb), math.cos(rb))
+        along = (math.cos(rb), -math.sin(rb))       # front-frame +x: a = 0 at +w/2
+        wb, d, yard = b["width_m"], b["depth_m"], b.get("yard_m", 0.0)
+        corners = [(e + along[0] * x + out[0] * z, n + along[1] * x + out[1] * z)
+                   for x, z in ((-wb / 2, -d / 2), (wb / 2, -d / 2), (wb / 2, d / 2), (-wb / 2, d / 2))]
+        near = {id(lm): lm for c in corners for lm in lmcell[(int(c[0] // 100), int(c[1] // 100))]}
+        if any(inside((e, n), lm["pts"]) or any(inside(c, lm["pts"]) for c in corners)
+               or any(inside(q, corners) for q in lm["pts"]) for lm in near.values()):
+            continue    # city-context.js drops a row a landmark's footprint overlaps
+        F = (e + out[0] * d / 2, n + out[1] * d / 2)
+        best = None
+        seen = set()
+        for i in range(int((F[0] - 60) // 40), int((F[0] + 60) // 40) + 1):
+            for j in range(int((F[1] - 60) // 40), int((F[1] + 60) // 40) + 1):
+                for w in cells[(i, j)]:
+                    if id(w) in seen:
+                        continue
+                    seen.add(id(w))
+                    t, k = walk_local(w, F)
+                    if -1 <= t <= w.L + 1 and abs(w.ue * along[0] + w.un * along[1]) >= 0.9:
+                        err = abs(k - (w.w + yard))
+                        if err < 1.0 and (best is None or err < best[0]):
+                            best = (err, w)
+        if not best:
+            continue
+        w = best[1]
+        tpl = templates[b["kit"]]
+        sx = wb / tpl["width_m"]
+        pt = lambda a: (F[0] + along[0] * (wb / 2 - a), F[1] + along[1] * (wb / 2 - a))
+        stair = (1.5 if b["kit"] in RAISED_KITS else 1.3) * sx
+        ways[w.id].append((walk_local(w, pt(wb / 2))[0], stair / 2, f"the steps of {b['id']}"))
+        bays = max(1, tpl.get("front_bays", 3))
+        door_a = (bays // 2 + 0.5) * wb / bays
+        fenced = yard >= HOUSE_YARD_FENCE_M
+        half = HOUSE_GATE_W_M / 2 if fenced else min(1.1, wb / bays * 0.8) / 2
+        ways[w.id].append((walk_local(w, pt(door_a))[0], half, f"the {'gate' if fenced else 'door'} of {b['id']}"))
+    return ways
+
+
+def tree_crossings(ctx):
+    """The board crossings by 30 m cell, for the trees' clearance."""
+    ccell = defaultdict(list)
+    for s in ctx["walk_surfaces"]:
+        if s["kind"] == "crossing":
+            m = ((s["a"][0] + s["b"][0]) / 2, (s["a"][1] + s["b"][1]) / 2)
+            ccell[(int(m[0] // 30), int(m[1] // 30))].append(s)
+    return ccell
+
+
+def on_crossing(p, r, ccell):
+    for i in range(int((p[0] - 30) // 30), int((p[0] + 30) // 30) + 1):
+        for j in range(int((p[1] - 30) // 30), int((p[1] + 30) // 30) + 1):
+            for s in ccell[(i, j)]:
+                dx, dy = s["b"][0] - s["a"][0], s["b"][1] - s["a"][1]
+                L = math.hypot(dx, dy)
+                if not L:
+                    continue
+                tt = ((p[0] - s["a"][0]) * dx + (p[1] - s["a"][1]) * dy) / L
+                off = abs((p[0] - s["a"][0]) * -dy + (p[1] - s["a"][1]) * dx) / L
+                if -r <= tt <= L + r and off <= s["width_m"] / 2 + r:
+                    return s["id"]
+    return None
+
+
+def tree_in_way(w, t, ways):
+    """The way in a boxed tree at `t` on walk `w` would stand before, or None."""
+    for tc, half, what in ways.get(w.id, ()):
+        if abs(t - tc) < half + TREE_WAY_CLEAR_M + TREE_BOX_R_M:
+            return what
+    return None
+
+
+def check_trees(trees, walks, ways, ccell, solid):
+    """T-3740, the trees' check: every boxed tree on its walk at the kerb, clear of the corners,
+    of every house's door, gate and steps, of the board crossings, and of the posts and the kerb's
+    dress. `solid` is [(e, n, r)]. Returns the violations (empty when the laying is good)."""
+    byid = {w.id: w for w in walks}
+    grid = defaultdict(list)
+    for q in solid:
+        grid[(int(q[0] // 5), int(q[1] // 5))].append(q)
+    bad = []
+    for tr in trees:
+        w = byid.get(tr.get("face"))
+        p = (tr["e"], tr["n"])
+        if not w:
+            bad.append(f"{tr['id']}: not on a walk")
+            continue
+        t, k = walk_local(w, p)
+        if not (-0.05 <= k - TREE_BOX_R_M and k + TREE_BOX_R_M <= w.w + 0.05):
+            bad.append(f"{tr['id']}: its box off its walk ({k:.2f} m in from the kerb of a {w.w} m walk)")
+        if not (TREE_CORNER_M <= t <= w.L - TREE_CORNER_M):
+            bad.append(f"{tr['id']}: at the corner ({min(t, w.L - t):.1f} m from the walk's end)")
+        for tc, half, what in ways.get(w.id, ()):
+            if abs(t - tc) < half + TREE_WAY_CLEAR_M + TREE_BOX_R_M - 0.01:
+                bad.append(f"{tr['id']}: before {what}")
+        x = on_crossing(p, TREE_BOX_R_M, ccell)
+        if x:
+            bad.append(f"{tr['id']}: on a board crossing ({x})")
+        for i in range(int(p[0] // 5) - 1, int(p[0] // 5) + 2):
+            for j in range(int(p[1] // 5) - 1, int(p[1] // 5) + 2):
+                for q in grid[(i, j)]:
+                    if math.hypot(q[0] - p[0], q[1] - p[1]) < TREE_BOX_R_M + q[2] - 0.01:
+                        bad.append(f"{tr['id']}: against a post or the kerb's dress at ({q[0]:.1f}, {q[1]:.1f})")
+    return sorted(set(bad))
 
 
 def junction_index(ctx, core):
@@ -1207,6 +1387,46 @@ def self_test() -> int:
         print(f"   {what}: {'refused' if hit else 'FAIL — not refused for it'} {hit[:1] or bad[:1]}")
         fails += 0 if hit else 1
     print("SELF-TEST PASS: the furniture check refuses all five" if not fails else f"SELF-TEST FAIL ({fails})")
+    return (1 if fails else 0) | tree_self_test()
+
+
+def tree_self_test() -> int:
+    """T-3740: prove the trees' check refuses a box before a house's gate, before its steps, on a
+    board crossing, at the corner and against a lamp, and passes the committed planting."""
+    L = LAST
+    args = (L["walks"], L["ways"], L["ccell"], L["solid"])
+    fails = 0
+    good = check_trees(L["trees"], *args)
+    if good:
+        print("FAIL the committed planting is not clean:", good[:3])
+        fails += 1
+    byid = {w.id: w for w in L["walks"]}
+    gate = next((wid, tc) for wid, ws in sorted(L["ways"].items()) for tc, _, what in ws
+                if what.startswith("the gate") and 12 < tc < byid[wid].L - 12)
+    steps = next((wid, tc) for wid, ws in sorted(L["ways"].items()) for tc, _, what in ws
+                 if what.startswith("the steps") and 12 < tc < byid[wid].L - 12)
+    tw = byid[L["trees"][0]["face"]]
+    xs = next(s for c in sorted(L["ccell"]) for s in L["ccell"][c])
+    xm = ((xs["a"][0] + xs["b"][0]) / 2, (xs["a"][1] + xs["b"][1]) / 2)
+    xw = min(L["walks"], key=lambda w: abs(walk_local(w, xm)[1] - TREE_KERB_INSET_M) + (0 if -1 <= walk_local(w, xm)[0] <= w.L + 1 else 1e6))
+    lamp = L["solid"][0]
+    lw = min(L["walks"], key=lambda w: abs(walk_local(w, lamp[:2])[1] - 0.5) + (0 if 0 <= walk_local(w, lamp[:2])[0] <= w.L else 1e6))
+
+    def at(wid, t, inset=TREE_KERB_INSET_M):
+        return dict(zip(("e", "n"), byid[wid].at(t, inset)))
+    cases = {
+        "a tree before a house's gate": ("before the gate", [{"id": "t.gate", "face": gate[0], **at(*gate)}]),
+        "a tree before a house's steps": ("before the steps", [{"id": "t.steps", "face": steps[0], **at(*steps)}]),
+        "a tree on a board crossing": ("board crossing", [{"id": "t.cross", "face": xw.id, "e": xm[0], "n": xm[1]}]),
+        "a tree at the corner": ("at the corner", [{"id": "t.corner", "face": tw.id, **at(tw.id, 2.0)}]),
+        "a tree against a lamp": ("against a post", [{"id": "t.lamp", "face": lw.id, "e": lamp[0] + 0.2, "n": lamp[1]}]),
+    }
+    for what, (why, its) in cases.items():
+        bad = check_trees(its, *args)
+        hit = [b for b in bad if why in b]
+        print(f"   {what}: {'refused' if hit else 'FAIL — not refused for it'} {hit[:1] or bad[:1]}")
+        fails += 0 if hit else 1
+    print("SELF-TEST PASS: the trees' check refuses all five" if not fails else f"SELF-TEST FAIL, trees ({fails})")
     return 1 if fails else 0
 
 

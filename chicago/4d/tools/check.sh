@@ -4937,6 +4937,8 @@ step "1871 street furniture and street trees re-lay from the city (T-3686)" \
 
 # T-3805: the street dress round the jaunt stops is laid clear of doorways, board crossings,
 # carriage ways and the walk's through-path; the furniture check refuses each of those.
+# T-3740: and the street trees' boxes clear of the houses' doors, gates and steps, the board
+# crossings, the corners and the posts; the trees' check refuses each of those.
 selftest "1871 street furniture check refuses doorways, crossings and the through-path (T-3805)" \
   python3 tools/lay_1871_street_furniture.py --self-test
 
