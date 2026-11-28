@@ -15,7 +15,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import { execSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 
 const root = path.resolve(new URL('..', import.meta.url).pathname);
 const web = path.join(root, 'renderers/web');
@@ -71,9 +71,7 @@ const server = http.createServer((req, res) => {
 await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const base = `http://127.0.0.1:${server.address().port}/`;
 
-let ns;
-try { ns = await import('playwright'); } catch { ns = await import(path.join(execSync('npm root -g').toString().trim(), 'playwright', 'index.js')); }
-const { chromium } = ns.chromium ? ns : ns.default;
+const { chromium } = createRequire(import.meta.url)('playwright');
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined });
 try {
   for (const [name, width, height] of [['desktop', 1280, 800], ['phone', 390, 780]]) {
