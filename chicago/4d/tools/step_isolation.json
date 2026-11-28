@@ -2652,6 +2652,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/build_street_talk.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/build_survey_tracts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5758,6 +5762,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_1871_tree_handoff.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_about.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5855,6 +5863,14 @@
       "wrote_ignored": []
     },
     "tools/test_claim_value.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_classes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_cloud_save.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6414,6 +6430,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_preparation_memory.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_regulars.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6587,6 +6607,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_front_read_light.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_gable_lights.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6794,6 +6818,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k11_side_pickets.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_keyboard_ownership.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6803,6 +6831,14 @@
       "wrote_ignored": []
     },
     "tools/test_ktx2_texture_policy.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_launch_page.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_launch_rights.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6975,6 +7011,10 @@
       "wrote_ignored": []
     },
     "tools/test_person_card.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_person_creator.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -7234,6 +7274,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_stream_starter.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_street_confidence.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7402,6 +7446,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_tree_rebuilds.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_underpinning.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7411,6 +7459,10 @@
       "wrote_ignored": []
     },
     "tools/test_validate.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_vegetation_seasons.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -7611,6 +7663,10 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_drag_look.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

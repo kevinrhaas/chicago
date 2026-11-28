@@ -533,8 +533,16 @@ const COVERAGE = [
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
   ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
   // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
-  ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
-  ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['renderers/web/js/tree-model.js', [5, 10, 11, 14], 'the grown species trees, their detail ceilings, the timber parts and the 1904 parkway elms'],
+  ['renderers/web/js/tree-instances.js', [5, 10, 11, 14], 'the grown trees\' instancing, detail ceilings, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['renderers/web/js/leaf-light.js', [10, 11, 14], 'the shared thin-leaf lighting of grown trees, vines and woody shrubs (T-3747)'],
+  ['tools/test_tree_rebuilds.mjs', NONE, 'a native regression for overlapping seasonal tree builds'],
+  ['tools/test_leaf_lighting_browser.mjs', NONE, 'a rendering test of shadowed leaf light, not a shipped renderer'],
+  ['tools/test_vegetation_seasons.mjs', NONE, 'a focused contract test of seasonal dates and evergreen atlas UVs'],
+  ['tools/test_1871_tree_handoff.mjs', NONE, 'a native contract test of context tree handoff, picking and rebuild ownership'],
+  ['tools/test_flora_leaf_browser.mjs', NONE, 'a real-shader fixture for plant normals, fetched instances and seasonal flowers'],
+  ['tools/qa_vegetation_t3747.mjs', NONE, 'captures fixed-camera vegetation evidence; no runtime consumer'],
+  ['tools/qa_tree_gallery_t3747.mjs', NONE, 'isolated tree geometry/material diagnostic; no runtime consumer'],
   // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
   ['renderers/web/js/batch-instance.js', [10, 11, 14], 'the grown trees\' copies of one template drawn as one instanced draw'],
   ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
@@ -732,6 +740,7 @@ const COVERAGE = [
   // tools/qa_city_fire_1871.mjs drives it at both viewports; tools/fire_1871.py holds the data.
   ['renderers/web/js/city-fire.js', NONE, 'the 1871 Great Fire as drawn: qa_city_fire_1871.mjs'],
   ['renderers/web/js/fire-map.js', NONE, 'the 1871 Great Fire\u2019s map and clock: qa_city_fire_1871.mjs, fire_1871.py --check'],
+  ['renderers/web/js/fire-mass.js', NONE, 'where a named structure\u2019s flames may stand (T-3802): qa_city_fire_1871.mjs --self-test'],
   ['renderers/web/js/fire-goods.js', NONE, 'the 1871 families\u2019 goods the fire burns (T-3751): qa_city_fire_1871.mjs, check_fire_jaunt.mjs'],
   ['data/fire/', NONE, 'the 1871 Great Fire\u2019s district and hours: fire_1871.py --check'],
   // The fort's burning (T-3553) and the city's share these flames; a jaunt stage loads them.

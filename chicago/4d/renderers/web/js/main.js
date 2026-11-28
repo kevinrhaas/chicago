@@ -42,6 +42,9 @@ import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
 import { showSavedData } from './student-data.js';
+import { cloudSaveFor, startCloudSave, cloudSaveLine } from './cloud-save.js';
+import { startClasses } from './classes-view.js';
+import { fieldNotebook } from './field-notebook.js';
 import { SIGN_IN } from './sign-in-config.js';
 import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -52,6 +55,7 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
+import { createRoughSurfaceLighting } from './rough-surface-lighting.js';
 import { renderBudget } from './render-budget.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
@@ -113,7 +117,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
-import { createMetFoundWatch, placeIndex, sceneTitle } from './met-found.js';
+import { createMetFoundWatch, placeIndex, sceneTitle, metFound } from './met-found.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
 import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
@@ -137,7 +141,8 @@ import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
-import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
+import { isWallVineMaterial as isWallVine } from './leaf-light.js';
+import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonForDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { inertStreetGrid, inertStreetTrees, inertStreetFurniture, inertBackYards, inertFrontYards, inertRailway, inertContext, inertCrossings } from './inert-layers.js';
 import { createViewOcclusion } from './view-occlusion.js';
@@ -1693,11 +1698,11 @@ const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
 /** T-2481: the Season setting and whether the street trees show, from the
  *  chicago4d.settings blob. T-2473 stored the season in `streetTrees` itself
  *  ('summer' | 'spring' | 'winter' | 'hidden'); such a blob still reads right. */
-function readSeasonPreference() {
+function readSeasonPreference(fallback = 'summer') {
   let saved = {};
   try { saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { /* none */ }
   const legacy = SEASONS.includes(saved.streetTrees) ? saved.streetTrees : null;
-  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
+  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? fallback);
   return { season, treesShown: saved.streetTrees !== 'hidden' };
 }
 /** T-3331: the visitor's Time of day, a name or 'HH:MM'; daytime unless chosen. */
@@ -2040,6 +2045,9 @@ boot().catch((err) => {
   console.error('[4D Chicago] boot failed', err);
 });
 
+/** T-3777: the longest the boot waits for cloud save's first sync, in ms. */
+const CLOUD_WAIT_MS = 3000;
+
 async function boot() {
   // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
   // once, loads nothing) until js/sign-in-config.js names a Firebase project.
@@ -2054,6 +2062,18 @@ async function boot() {
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
   // words at each age, fetched the first time a card opens.
   void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });
+  // T-3777: cloud save, behind T-3776's cloudFeatures switch. The first sync is waited for a
+  // moment (never more than CLOUD_WAIT_MS), so the Settings and notebook another device left
+  // are the ones the town reads; past that the town boots on this browser's copy.
+  if (cloudSaveFor(api.signIn.account, SIGN_IN)) {
+    const line = document.getElementById('s-cloud-save');
+    api.cloudSave = startCloudSave({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId,
+      sources: [fieldNotebook, metFound], onStatus: (s) => { if (line) { line.hidden = false; line.textContent = cloudSaveLine(s); } } });
+    await Promise.race([api.cloudSave.ready.catch(() => {}), new Promise((r) => setTimeout(r, CLOUD_WAIT_MS))]);
+  }
+  // T-3778: the class a student is in (Settings › About › Your class, Hand in in the notebook),
+  // read once per visit, not waited for.
+  void startClasses({ account: api.signIn.account, config: SIGN_IN, projectId: SIGN_IN.firebase?.projectId }).catch(() => {});
   setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();
@@ -2464,7 +2484,8 @@ async function boot() {
     renderer, scene: scene3d, sceneJson: loaded.scene, datum: loaded.datum, lowSpec: lowMem,
   });
 
-  const confidence = createConfidenceView();
+  const roughSurfaceLighting = createRoughSurfaceLighting();
+  const confidence = createConfidenceView({ prepareMaterial: roughSurfaceLighting.prepare });
   // T-2981: public and frame statistics read the same current view/tier policy.
   const currentBudget = () => renderBudget(BUDGET, detailLevel, confidence.ghosting);
   Object.defineProperty(api, 'budget', { get: currentBudget });
@@ -2741,7 +2762,7 @@ async function boot() {
   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
   // listing `street_trees` is handed a data base. The Season and Street trees
   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
-  const seasonPref = readSeasonPreference();
+  const seasonPref = readSeasonPreference(seasonForDate(loaded.scene.target_date) ?? 'summer');
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
@@ -2889,8 +2910,7 @@ async function boot() {
   // uniforms), the elms, the context city's crowns and the sun's date. A viewing
   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
-  // The new city kit currently models only its early-autumn scene day.
-  const seasonal = YEAR !== '1871';
+  // T-3748: 1871 shares the same four-season view; its own October day is fall.
 
   // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
   // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
@@ -3074,9 +3094,8 @@ async function boot() {
   /** T-3399: a GLB's wall creepers (Glessner's Boston ivy and Virginia creeper,
    *  masonry_house_v4_vines.py) are batched under their own atlas; they take the
    *  creeper's season (season.js FOLIAGE.vine), never the ground's. */
-  const isWallVine = (m) => /vines/.test(m?.userData?.texture_generator ?? '') || /vine/i.test(m?.map?.name ?? '');
   const applySeason = async (season) => {
-    const s = seasonal && SEASONS.includes(season) ? season : 'summer';
+    const s = SEASONS.includes(season) ? season : 'summer';
     // The lawns, steps and roofs inside the building GLBs take the season too.
     // Their materials learn it the first time a season other than summer is
     // chosen, so a summer visit compiles nothing for it.
@@ -3140,7 +3159,9 @@ async function boot() {
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
-  if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
+  if (seasonPref.season !== 'summer'
+    || seasonDate(seasonPref.season, loaded.scene.target_date) !== loaded.scene.target_date)
+    await applySeason(seasonPref.season);
   api.season = {
     get current() { return seasonState.season; },
     /** The visitor's own Season, under any season a jaunt holds. */
@@ -3157,7 +3178,7 @@ async function boot() {
     async restore() {
       if (!seasonState.held) return seasonState.season;
       seasonState.held = null;
-      if (seasonState.season !== (SEASONS.includes(seasonState.own) && seasonal ? seasonState.own : 'summer'))
+      if (seasonState.season !== (SEASONS.includes(seasonState.own) ? seasonState.own : 'summer'))
         await applySeason(seasonState.own);
       gateFrame.invalidate();
       return seasonState.season;
@@ -3798,6 +3819,7 @@ async function boot() {
   /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
    *  before the 15 m base carries the ground alone. Null is terrain.js's own. */
   function applyGroundDetailReach(level) {
+    roughSurfaceLighting.set(level === 'light');
     return terrain.setDetailReach((DETAIL[level] ?? DETAIL.full).groundDetailReachM);
   }
   applyGroundDetailReach(detailLevel);
@@ -4151,7 +4173,9 @@ async function boot() {
     if (inspectionSwitch) {
       if (!DETAIL[level]) return false;
       if (level !== detailLevel) hud.say(`Loading ${level} detail…`, 9000);
-      return inspectionSwitch.set(level);
+      const changed = await inspectionSwitch.set(level);
+      await Promise.all([streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
+      return changed;
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
@@ -4231,7 +4255,7 @@ async function boot() {
       scene3d.remove(trees.group);
       trees.dispose?.();
       trees = nextTrees;
-      await streetsRebuilt;
+      await Promise.all([streetsRebuilt, streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
       if (lowMem) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
@@ -4602,6 +4626,20 @@ async function boot() {
       assetIds: [...new Set([...(inside?.people ?? []).map((x) => x.asset_id),
         ...(api.humans.records ?? []).map((r) => r.appearance?.asset_id)].filter(Boolean))] });
     scene3d.add(api.crowd.group);
+    // T-3812 (the owner, 2026-11-27: "street talk"): people near the visitor say short things
+    // aloud now and then, and answer a greeting, in the stock voice for their kind (street-talk.js).
+    if (daysScene === '1904') {
+      void import('./street-talk.js').then(({ createStreetTalk }) => {
+        api.streetTalk = createStreetTalk({ scene: daysScene, base: new URL('street/', resolveBases().dataBase),
+          humans: api.humans, hour: sunHour, season: () => api.humans?.season ?? null,
+          visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+          speech: () => api.sound?.speech ?? null,
+          // Nobody speaks over a jaunt's voice, nor while a story or question card is open.
+          busy: () => !!api.narration?.voice?.() || !!api.tales?.card?.open || !!api.tales?.askCard?.open,
+          host: (id) => !!api.jauntHosts?.active?.includes?.(id),
+          onCaption: ({ actor, text }) => hud.say(`${actor?.person?.name ?? 'Someone'}: “${text}”`, 4200) });
+      }).catch(() => { api.streetTalk = null; });
+    }
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
     if (daysScene === '1812') {
@@ -4769,14 +4807,15 @@ async function boot() {
   // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
   api.person = null;
   void (async () => {
-    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT, EYE_COLOUR }] = await Promise.all([
       import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
     personHost(document);   // the You tab's group, with its "loads with the town" line until then
     const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
       account: api.signIn?.account ?? null });
     api.person = person;
     const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
-    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    api.personPortrait = portrait;   // its stats() for the QA run: builds and renders, and their time
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT, eyes: EYE_COLOUR });
     person.onChange(() => { void api.riding?.reseat?.(); });
   })().catch((error) => { problems.push(`person: ${error.message}`); });
 
@@ -4915,6 +4954,7 @@ async function boot() {
     onTravelStop: () => { if (api.getDown?.()) return; api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
+    resolvedSeason: seasonPref.season,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
     lowered: crashBoot.lowered,
     device,
@@ -5080,7 +5120,7 @@ async function boot() {
   paintChipDay(timeState.transient?.date);
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
-  document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  document.getElementById('row-season')?.removeAttribute('hidden');
   // T-2864: every year has its own day, so the choice says which one it is.
   const seasonDay = String(loaded.scene.target_date ?? '').match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (seasonDay) {
@@ -5088,9 +5128,7 @@ async function boot() {
       .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
     const summer = document.querySelector('#s-season option[value="summer"]');
-    if (summer) summer.textContent = YEAR === '1871'
-      ? `Scene day — ${day.replace(/ \d{4}$/, '')}, early autumn`
-      : `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+    if (summer) summer.textContent = `Summer — ${spokenDay(seasonDate('summer', loaded.scene.target_date))}, full leaf`;
     // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
     for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
       const opt = document.querySelector(`#s-season option[value="${season}"]`);
@@ -5515,7 +5553,16 @@ async function boot() {
     inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
+    // Cloud play (tools/stream): the stream cannot pass the pointer lock to the player's
+    // browser, so the look is a drag. The machine opens the year with ?look=drag.
+    dragLook: params.get('look') === 'drag',
+    // The first drag is the look engaged: the tag goes, as it does on the first lock.
+    onDragLook: () => { gesture.setLook({ locked: true }); gesture.setLook({ locked: false }); },
   });
+  if (pointerlock.dragLook) {
+    const tag = document.getElementById('look-tag');
+    if (tag) tag.textContent = 'Drag to look around';
+  }
 
   const touch = createTouchBackend({
     intent,
@@ -5691,6 +5738,16 @@ async function boot() {
 
   canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // Drag look (cloud play): the end of a drag is not a click; a plain click picks what is
+    // under it, as a tap does, since there is no crosshair to inspect down.
+    if (pointerlock.dragLook) {
+      if (pointerlock.dragged) return;
+      if (popup.openId) { popup.close(); return; }
+      if (inspectingByHand()) { releaseInspect(); return; }
+      const r = canvas.getBoundingClientRect();
+      inspect(new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1), { by: 'hand' });
+      return;
+    }
     // T-3614: with the mouse free, a click on a person's name card opens their card, where a
     // click anywhere else takes the look (a touch tap reaches the same card through Interact).
     if (!pointerlock.isLocked && api.nameCards?.shown) {
@@ -6575,7 +6632,7 @@ async function boot() {
   }
   function ensureJaunts() {
     return jauntReady ??= loadJauntModules()
-      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
+      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier, createGoods, createCord, createMattress, GOODS }]) => {
       useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
@@ -6843,7 +6900,10 @@ async function boot() {
               resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
-              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3814: a streamed team a stage takes is built for it at any hour, wherever the visitor is.
+              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null,
+                load: (ids = []) => { for (const id of ids) void api.townTransport?.stageWant?.(id)?.catch?.(() => {}); void api.townTransport?.ready?.()?.catch?.(() => {}); },
+                release: (id) => api.townTransport?.stageRelease?.(id) },
               // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
               horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
@@ -6872,6 +6932,8 @@ async function boot() {
               boats: { carry: (id, o) => crossings?.carry?.(id, o) ?? null },
               // ... and the dead are carried on a bier (stage-props.js).
               bier: createBier,
+              // T-3814: the goods the Great Fire's people carried, wagons' loads and things set down.
+              goods: { create: createGoods, cord: createCord, mattress: createMattress, spec: (kind) => GOODS[kind] ?? null },
               gates: { open: (ids) => {
                 const opened = fortGates.gates.filter((g) => ids.includes(g.id) && g.state === 'closed');
                 for (const g of opened) { g.actions.closed[0].steps[0].run(1); g.state = 'open'; }
@@ -7357,6 +7419,10 @@ async function boot() {
   interactions.extend?.((thing, actions) => withStory(thing, actions,
     (who) => { api.loadTales().then((teller) => teller.tell(who), () => hud.say('Stories could not be loaded just now')); },
     (who) => { api.loadTales().then((teller) => teller.ask(who), () => hud.say('Questions could not be loaded just now')); }));
+  // T-3812: someone greeted answers aloud, where their scene has street talk (1904). After the
+  // story's extension, so Tell me a story's own wave (Greet's first beat) stays silent.
+  interactions.extend?.((thing, actions) => (thing?.kind !== 'person' || !Array.isArray(actions) ? actions : actions.map((a) => (a.id !== 'greet' ? a : {
+    ...a, steps: (a.steps ?? []).map((st, i) => (i ? st : { ...st, run(t) { st.run?.(t); if (t === 0) api.streetTalk?.greet(thing.personId ?? thing.actor?.personId); } })) }))));
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -8278,6 +8344,8 @@ async function boot() {
     api.jauntHosts?.update(frameDt);
     // T-3553: the host whose voice is reading their stop aloud moves their mouth with it.
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
+    // T-3812: and now and then someone near the visitor says something aloud.
+    api.streetTalk?.update(frameDt);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
     // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).
@@ -8366,6 +8434,7 @@ async function boot() {
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
   if (lowMem) releaseAfterUpload(scene3d);
+  roughSurfaceLighting.prepareScene(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -8463,6 +8532,8 @@ async function boot() {
   Object.assign(api, {
     renderer, camera, scene3d, world, terrain, buildings, walker, intent, popup, hud,
     confidence,
+    roughSurfaceLighting: { get light() { return roughSurfaceLighting.light; },
+      get materials() { return roughSurfaceLighting.materials; } },
     backends, streets, flora, trees, navigation,
     // Where the dataset was loaded from, so a gate can re-read an authored
     // record and ask whether what it says reached the renderer — rather than

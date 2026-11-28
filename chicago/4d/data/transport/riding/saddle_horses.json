@@ -1482,6 +1482,18 @@
         "knee_forward": 0.15,
         "knee_out": 1.2,
         "thigh_roll_rad": -1.0
+      },
+      "glessner_frances_m_1904": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
+      },
+      "williamson_mattie_1904_cook_study": {
+        "seat_above_m": 0.03,
+        "knee_forward": 0.15,
+        "knee_out": 1.2,
+        "thigh_roll_rad": -1.0
       }
     },
     "side": {
@@ -1555,6 +1567,72 @@
           }
         },
         "reynolds_mary_1904_maid": {
+          "leather_m": 0.385,
+          "iron_back_m": -0.016,
+          "off_foot_m": [
+            0.42,
+            -0.36,
+            0.326
+          ],
+          "legs": {
+            "l": {
+              "forward": 0.882,
+              "out": 0.984,
+              "up": -0.388,
+              "roll": 0,
+              "toe": [
+                1,
+                0.2,
+                -0.1
+              ]
+            },
+            "r": {
+              "forward": 1.0,
+              "out": 0.6,
+              "up": 2.0,
+              "roll": 0,
+              "toe": [
+                0.4,
+                0.3,
+                -0.9
+              ]
+            }
+          }
+        },
+        "glessner_frances_m_1904": {
+          "leather_m": 0.385,
+          "iron_back_m": -0.016,
+          "off_foot_m": [
+            0.42,
+            -0.36,
+            0.326
+          ],
+          "legs": {
+            "l": {
+              "forward": 0.882,
+              "out": 0.984,
+              "up": -0.388,
+              "roll": 0,
+              "toe": [
+                1,
+                0.2,
+                -0.1
+              ]
+            },
+            "r": {
+              "forward": 1.0,
+              "out": 0.6,
+              "up": 2.0,
+              "roll": 0,
+              "toe": [
+                0.4,
+                0.3,
+                -0.9
+              ]
+            }
+          }
+        },
+        "williamson_mattie_1904_cook_study": {
           "leather_m": 0.385,
           "iron_back_m": -0.016,
           "off_foot_m": [

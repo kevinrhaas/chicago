@@ -25587,7 +25587,7 @@ darker than its brown sandstone, which a buff brick cannot do) and laid in the f
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25658,6 +25658,10 @@ marks the sheet draws, each between two party walls; their draft attributes are 
 `L-k12-2109-stable-1938` and `L-k12-2123-stable-1938`, under the same ids, on the outlines, storeys, brick and window
 marks the sheet draws (2109's between two party walls, 2123's with its party wall on the north lot line and its open
 gable to the south); their draft attributes are gone.
+**2125's alley building retired from this liberty by T-1938 (2026-11-27):**
+`house_2125_prairie_coach_house` now stands as a K12 coach house under `L-k12-2125-stable-1938`, under the same id,
+on the outline, storeys, frame and stable's X the sheet draws, in the kit's frame with an open gable at each end;
+its draft attributes are gone.
 **Recorded:** 2026-10-11 (T-2352).
 
 ### L-k01-2115-armour-3712 — 2115 Prairie, the Kelley/Armour house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, roof and stoop off the Armour photograph, its unseen flanks and rear the kits'
@@ -44929,6 +44933,14 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
 
+### L-street-talk-3812 — The people of 1904 say short things aloud as you pass or greet them
+
+**Decision:** the owner, 2026-11-27, after asking about *"adding voices background dialog for the people in 1904"*: *"Let's do great fire plus street talk"*. On the 1904 street, now and then someone within about 9 m of the visitor, out of doors and not a jaunt's host, says a short line aloud: a greeting fit for the hour when the visitor greets them or passes close in front, otherwise a remark to the street (`renderers/web/js/street-talk.js`). The 141 lines are written in `docs/RESEARCH/street-talk-3812/1904.txt` and built into `data/narration/street/1904.json` (`tools/build_street_talk.mjs`). Each is voiced once by the narration workflow in one of seven stock synthetic voices (`data/narration/voices.json` `street:<voice>`): gentleman, lady, young man, young lady, manservant, maid and cook. Who speaks in which voice is read off the roles, sex, age and origin the tales library already holds for each person (`data/tales/1904.json` `tellers`); a person with a voice of their own (the Glessner household) keeps it and is left out, and children are not voiced. A caption names who said what, for anyone without sound.
+**Invented:** every line. They are what such a person might say on this street in 1904, kept to the town's own business (callers and calling days, carriages and the first automobiles, the Illinois Central's smoke, the stockyards on a southwest wind, the Iroquois Theater fire of December 1903, the St. Louis fair, servants' half days, the coal and ice men) and to things the tales and asks libraries already record; none is a quotation or anything a source says a person said. The voices are chosen by ear and shared by everyone of a kind: none is a recording of anyone, or claims to be how a particular person sounded. The 9 m reach, the 16-34 s between remarks and the 150 s before the same person speaks again unasked are listening choices.
+**Re-opens on:** a diary, letter or memoir of Prairie Avenue that records what its people talked about in the street, which replaces a line; a recording or description of how one of them sounded.
+**Ticket:** T-3812.
+**Recorded:** 2026-11-27.
+
 ### L-kimball-1801-return-slate-lean-1890 — 1801 Prairie's slate over its south return leans in as one face to the deck, read off HABS photograph 1's coursing
 
 **Decision:** HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), read at full size on 2026-11-13 for the one open difference on its match record: the slate courses over the south return run parallel to the return's moulded top (both falling to the right, as the long flank's do), so the slate over the return is a face turned the way the return faces, rising from the return's top to the hip and the deck's corner hood in one plane. The build (L-kimball-1801-south-return-1890) carried the set-back cut up to the curb with its side on the return's plane, which stood an upright slate cheek over the return and left a sliver of the front slope folded between the cheek and the set-back face. K01 `return_setback` now leans that side in, from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m), so the face over the return is one plane and the hip runs as one straight line from the hood down past the return's back end to the balcony.
@@ -45089,7 +45101,7 @@ which the cresting and the dormer are re-read on it.
 
 ### L-1812-staged-jaunts-3553 — The 1812 story jaunts played by their people: who stands where at each stop, when they move, and what is left out
 
-**Decision:** the owner, 2026-11-14: *"place all the right people at the right scenes from history so we can witness the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch the event unfold, like the argument between la lime and kiznie, you should see the column coming down the shore and they can come from the distance and pass you, for the natives they can be in groups collected, laying down or kneeling in preparation for the attack"*; and, for students, his pick the same day of *"Build-up and aftermath"*: the lead-up is watched, the fallen are shown lying still afterwards, and no blow, shot or blood is staged. Twenty-one stops of the two 1812 story jaunts (*The Battle of Fort Dearborn*, *The Killing of Jean Lalime*) carry a `stage`: a cast and the beats they play, run by `renderers/web/js/jaunt-stage.js` and written by `docs/RESEARCH/jaunt-stage-1812-3553/build.py` and `scenes.py`. **What is read.** Who is present at each event, and what they do, from the stop's own text and its sources: the eleven men at Lee's place, White and Cardin going in, Kelso and the Lee boy crossing and making for the haystacks (Heald's and Kinzie's letters); Ronan's party bringing Mrs. Burns off by water; Heald reading Hull's order and his officers' objections; the council on the esplanade; the goods given out at the factory; the powder and liquor carried down the covered way; Wells and his Miamis coming in on the 14th and Black Partridge's medal; the column's order of march (Heald's report, Wau-Bun); the halt at the bank and Wells riding back; Black Bird's handshake on the elevation; the guard on the Kinzie green; the searchers at the Ouilmette house; Helm's and Irwin's accounts of the quarrel, the meeting at the gate, Kinzie's flight across the river and Lalime's burial by soldiers headed by Helm. Who died in the battle and who lived is each soldier's card (Quaife's count). **What is invented.** Every mark: where each person stands, the ways they walk, when each beat falls, their speeds; the size of every crowd and which carded people of the gathering fill it (men already graded *likely among the warriors*, L-1812-native-cards-3507); the eleven men's and the Wabash searchers' dress (a carded man's, as `dress_of`) and their being drawn at all as men with no recorded names; poses (lying, kneeling, crouched, sitting) for waiting, wounded and dead; which of the women and children ride in the column's wagons and where each sits (the town's own two wagons, the fort wagon and the shore-road haul, driven by Privates Mills and Moffett as every day: the accounts (Helm's narrative, Wau-Bun) put the children, and some of the women, in the baggage wagons, and say nothing of who sat where), and that the rest walk beside them (Wells, Mrs. Heald and Mrs. Helm rode; no saddle horse is drawn, so they walk); the column halting where it does; who carries Mrs. Burns. At the river's mouth (the owner, 2026-11-26: the warriors about to attack *"would either be at camp preparing, or taking up positions to attack the column"*, not seen walking along with it), a party of eight of the gathering is seen out on the prairie side going off south ahead of the column at a jog and dropping down into the grass: Wau-Bun has the escort take to the prairie rather than keep the beach; that they hurry ahead, and who and how many, is invented. **What is left out on purpose.** The fighting itself, the killings at Lee's place, the blow and the shots at the gate, the attack on the wagons, and any dead child.
+**Decision:** the owner, 2026-11-14: *"place all the right people at the right scenes from history so we can witness the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch the event unfold, like the argument between la lime and kiznie, you should see the column coming down the shore and they can come from the distance and pass you, for the natives they can be in groups collected, laying down or kneeling in preparation for the attack"*; and, for students, his pick the same day of *"Build-up and aftermath"*: the lead-up is watched, the fallen are shown lying still afterwards, and no blow, shot or blood is staged. Twenty-one stops of the two 1812 story jaunts (*The Battle of Fort Dearborn*, *The Killing of Jean Lalime*) carry a `stage`: a cast and the beats they play, run by `renderers/web/js/jaunt-stage.js` and written by `docs/RESEARCH/jaunt-stage-1812-3553/build.py` and `scenes.py`. **What is read.** Who is present at each event, and what they do, from the stop's own text and its sources: the eleven men at Lee's place, White and Cardin going in, Kelso and the Lee boy crossing and making for the haystacks (Heald's and Kinzie's letters); Ronan's party bringing Mrs. Burns off by water; Heald reading Hull's order and his officers' objections; the council on the esplanade; the goods given out at the factory; the powder and liquor carried down the covered way; Wells and his Miamis coming in on the 14th and Black Partridge's medal; the column's order of march (Heald's report, Wau-Bun); the halt at the bank and Wells riding back; Black Bird's handshake on the elevation; the guard on the Kinzie green; the searchers at the Ouilmette house; Helm's and Irwin's accounts of the quarrel, the meeting at the gate, Kinzie's flight across the river and Lalime's burial by soldiers headed by Helm. Who died in the battle and who lived is each soldier's card (Quaife's count). **What is invented.** Every mark: where each person stands, the ways they walk, when each beat falls, their speeds; the size of every crowd and which carded people of the gathering fill it (men already graded *likely among the warriors*, L-1812-native-cards-3507); the eleven men's and the Wabash searchers' dress (a carded man's, as `dress_of`) and their being drawn at all as men with no recorded names; poses (lying, kneeling, crouched, sitting) for waiting, wounded and dead; which of the women and children ride in the column's wagons and where each sits (the town's own two wagons, the fort wagon and the shore-road haul, driven by Privates Mills and Moffett as every day: the accounts (Helm's narrative, Wau-Bun) put the children, and some of the women, in the baggage wagons, and say nothing of who sat where), and that the rest walk beside them (Wells, Mrs. Heald and Mrs. Helm rode; no saddle horse is drawn, so they walk); the column halting where it does; who carries Mrs. Burns. At the river's mouth (the owner, 2026-11-26: the warriors about to attack *"would either be at camp preparing, or taking up positions to attack the column"*, not seen walking along with it), a party of eight of the gathering is seen out on the prairie side going off south ahead of the column at a jog and dropping down into the grass: Wau-Bun has the escort take to the prairie rather than keep the beach; that they hurry ahead, and who and how many, is invented. At the factory and the covered way (the owner, 2026-11-28: *"the fort dearborn people should be carrying goods out of the factor and piling them and handing out when they distribute the goods to natives and also the soldiers are carrying and dumping arms and whiskey out the sally port"*), what each soldier carries (a bale of blankets, a bolt of cloth, a keg, an armful of muskets) and how it is made (renderers/web/js/stage-props.js), the pile on the grass and what is in it, the soldier handing the goods out and who of the gathering comes up for them and in what order, the stack of kegs and muskets on the parade by the north range, how many trips each man makes, which kegs go down the well and which to the river, and the well's place and make: Wau-Bun puts the well 'in the sally-port', dug 'to supply the garrison with water in case of emergency', and no plan draws it, so it stands in the passage between the inner and outer east pickets, just south of the inner postern, as a plain timber curb. **What is left out on purpose.** The fighting itself, the killings at Lee's place, the blow and the shots at the gate, the attack on the wagons, and any dead child.
 **How to resolve:** a fuller account placing any of these people at a stop puts them where it says; a drawn saddle horse or canoe for the column and the crossings replaces the walking.
 **Ticket:** T-3553.
 **Review:** `docs/RESEARCH/jaunt-stage-1812-3553/` (build.py, scenes.py).
@@ -45357,7 +45369,8 @@ eave (11.0 m) and its south-facing gable (to 14.6 m); the places of two of its t
 north flank's and rear's common brick and every light there; the plain stone heads over the street lights;
 the stoop's width, tread and landing; the turret's rounded apron; the slopes behind the gable (a hip at 49
 degrees, its street end hidden by the gable); the body behind the front block (a slate hip, two storeys)
-and the ranges' storeys, flat roofs and lights; the boarded street-line fence and its gate; the yard.
+and the ranges' storeys, flat roofs and lights; the picket fence's run past the print's right edge, to the south
+wing's rear corner, and its pale paint's colour (T-3634); the yard.
 
 **What is built otherwise than the evidence, and why.** The front gable is K01's coped wall gable, with a
 pale coping where the photograph's slate runs past brick rakes, and the slopes behind it pitch at 49 degrees
@@ -45371,8 +45384,10 @@ lights are built at the contract's widest, 1.15 m, against about 1.3 m; the narr
 the porch is not built (a brick K01 front lays its principal storey's lights only in its bays). The south
 wing's cut south-west corner (about a metre on the sheet) is built square, and its lights take one row of
 sizes a storey, so its low broad light of small panes stands about half a metre lower than the photograph's.
-The third stack, on the ridge about 11 m back, is not built: K01 lays stacks in the front block only. K11
-draws no picket fence, so the photograph's low pickets are the kit's lowest boarded fence. The photograph is
+The third stack, on the ridge about 11 m back, is not built: K01 lays stacks in the front block only. The
+street front is open and the photograph's low pickets run along the south lot line (T-3634: they were the
+kit's lowest boarded fence across the whole street line until K11 drew pickets), but on a level yard: the
+photograph's side yard falls toward the street, so they stand about half a metre higher. The photograph is
 undated and later than 1886 (its form may be High's of 1886-1887 rather than Adams's of the late 1870s); its
 forms are carried to 1904 because the 1911 sheet draws the same plan. Each of these is written into the match
 record (`data/reference_views/high_house_2021_prairie/chicagology_photo.match.json`).
@@ -45995,6 +46010,7 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3654; materials T-3683; fronts T-3686.
 **Review:** `data/scenes/1871.json`, `data/context/1871/plan.json`, `data/context/1871.json`, `data/context/1871/kit.json`, `data/terrain/epochs/e1871_prefire/`, `renderers/web/js/city-context.js`, `renderers/web/js/city-fronts.js`, `data/context/1871/detail-rings.json`.
 **Recorded:** 2026-11-18.
+**Revised:** 2026-11-27 (T-3803). Inside the jaunt stops' rings the sentence "never a firm's name, and no sign is placed at its recorded address" no longer holds on the business streets round the Court House square: there the shop signs carry firms of the 1871 directory at their listed numbers, under `L-1871-directory-signs`. Every other front keeps a trade word, as above.
 
 ### L-1871-street-network — The 1871 streets: today's platted lines, the 1871 names, splined arterials and a lattice in whole blocks
 
@@ -46359,10 +46375,12 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 
 **Decision:** the owner, 2026-11-20, asked for an instrumental score for the whole app ("in the style of John Williams ... no vocals instrumentation only and use native and other instruments to make this a unique and cool and respectful story, maybe not as many native things in 1904 and less in 1835 and 1871, use music and styles from the era"), narrated jaunts first, then "Ok can you go ahead and add the music to the jaunts correctly". The music under the 22 narrated 1812 and 1904 jaunts and their versions is generated for the app (ElevenLabs Music through fal, Stable Audio 2.5 inpainting for joins; `data/music/score.json`, `data/music/jaunts.json`) and chosen by the owner by ear. Its main theme is one recording he fixed and is never regenerated. Everything in it is reconstructed: no piece is a period composition, arrangement or performance, and none was heard in Chicago in 1812 or 1904. The period is suggested by instrument colour only, over a cinematic orchestra: in 1812 a Woodlands cedar flute, a soft hand drum, a Métis fiddle, fife and rope snare; in 1904 a romantic orchestra, salon strings and ragtime piano touches. The Native colour in 1812 is kept to timbre, under rules written into every 1812 cue (`tools/build_music_score.py`): no stereotyped tom-tom beat and no war whoops, and in every cue no vocals, choir, singing or humming. Nothing in it is presented as a Potawatomi or other nation's song. Which cue plays at which stop (the battle's build, march, fight and aftermath), and the scandal jaunts' stand-in bed, are ours.
 
+**Every jaunt (revised 2026-11-27, T-3809 and T-3811):** the owner: *"every jaunt should have music, pull from the existing library and let me know if you need anything to fill in"*, then, of thirteen new cues made for 1835, 1871 and the scandal jaunts, *"These are all fine"*. Every jaunt of every year now has music. 1835 has its own opening and closing (the fixed fanfare phrase and cadence around a fiddle, fife and keyed-bugle bed) and three beds, for the town, the river and the trades; 1871 has its own opening and closing, a bed for the wooden city and one for the inquiry into the fire's start, and the Great Fire three movements of its own (rising from the barn to the river, the inferno through the business district and the North Side, the ruins at the last refuges), closing on the 1812 Remembrance theme as the battle does. The scandal jaunts have their own bed. Like the rest, these are newly made, not period music; which movement plays at which stop of the fire is ours.
+
 **Re-opens on:** a documented piece of music played or sung at Fort Dearborn in 1812 or on Prairie Avenue about 1904, which could be arranged for the stop it belongs to; a Potawatomi musician's or the nation's guidance on how their music may be represented.
 
-**Ticket:** T-3710.
-**Recorded:** 2026-11-20.
+**Ticket:** T-3710, T-3811.
+**Recorded:** 2026-11-20. **Revised:** 2026-11-27.
 
 ### L-k01-2013-reid-porch-3626 — 2013 Prairie's rear block re-stacked under an open, roofed porch on its deck, read off the 2003 nomination photographs
 
@@ -46807,9 +46825,11 @@ ordinances for these blocks.
 
 **The front's roof (a second T-3730 pass, the same day).** The street gable over a hip is gone. Both pictures, on their solved cameras, show no gable on the street front: the Chicagology photograph shows the south flank carried up as a gable in the front's rock-faced stone, its front rake falling from behind 2140's mansard to the front's south eave (x 1482-1590 px, y 740-877 px), and a slated ridge with cresting running along the avenue from it toward the tower (y 670 px at x 1465, 705 px at x 1550). On the camera the rake fits a pitch of about 52 degrees and the ridge stands about 4.0 m behind the front at about 13.9 m, within a few pixels along both lines (the first pass's reading, 2.3 m back and 13.5 m, puts the rake about 40 px off the print's). So the front block is roofed with K01's gable roof (T-2459): `roof_form: "gable"`, `gable_roof.ridge_back_m` 4.0, `roof_pitch_deg` 52, both side walls carried up as K05 coped parapets, the south one laid in the flank's rock-faced stone (k01_frontage now lays a gable parapet on a `stone_front.flanks` wall in that stone). The print's one stack, short and broad just south of the cone, now stands on the ridge (u 17.93, v 9.0) where it reads; it had stood at u 13.0 on the hip. **Invented here:** the rear slope, which no picture sees (2140 hides the flank behind its first few metres): it falls from the ridge to the rear wall's head at about 16 degrees, the kit's plain gable; the north parapet, which neither picture sees, is built to match the south one in the north wall's brick; the coping on both rakes is K05's where the print shows a plain verge. The kit's half-round gutter and the two pipes down the south flank are gone with the hip (a K01 gable roof hangs no gutter, and no picture shows a pipe).
 
-**What is still not as the photographs show** (written in both match records, `open`): the columned porch across the front's south end, its posts and entablature under the second storey's lights, wrapping onto the south flank's first metre in the Chicagology print (no K01 part stands a recessed corner porch, `L-k01-2130-murdoch-3729`); the attic light both pictures place in the south gable (a K05 parapet carries no light); and the front's north part beside the tower, which both pictures carry up as wall to the cone's eave (about 11.2 m) under an eave of its own, where the build's street slope comes down to the 8.8 m eave there. The north flank's stone (the sheet's front 10.1 m) is not laid: K01's `stone_front.flanks` takes one stopping length for both walls, and neither picture sees the north flank.
+**What is still not as the photographs show** (written in both match records, `open`): the columned porch across the front's south end, its posts and entablature under the second storey's lights, wrapping onto the south flank's first metre in the Chicagology print (no K01 part stands a recessed corner porch, `L-k01-2130-murdoch-3729`); the attic light the Chicagology print places in the south gable (built since; see below); and the front's north part beside the tower, which both pictures carry up as wall to the cone's eave (about 11.2 m) under an eave of its own, where the build's street slope comes down to the 8.8 m eave there. The north flank's stone (the sheet's front 10.1 m) is not laid: K01's `stone_front.flanks` takes one stopping length for both walls, and neither picture sees the north flank.
 
-**How to resolve:** a recessed corner porch under a K01 front; a light in a K05 gable parapet; the front's north part carried up to the cone's eave beside the tower; then both cameras re-run; a `to_m` per wall would lay the north flank's stone.
+**The attic light (a later T-3730 pass, 2026-11-27).** The light in the south gable is built. K01 can now stand a light in a gable roof's end parapet (`gable_roof.ends.<side>.lights`, `generators/archetypes/k01_gable_lights.py`): the roof's one solid is cut to K06's reveal depth behind the parapet's face, K06 sets its frame, sashes, dark room and stone sill in the recess, and K01 lays its flat stone lintel over the head; the light must stand wholly in the parapet, its sill 0.15 m over the soffit and its lintel 0.1 m under the gable's top line. **Read:** on the Chicagology camera, the print's light (x 1460-1493 px, y 787-867) cast onto the south wall's plane stands with its jambs at u 19.04 and 19.82 and its clear head and sill at about 10.87 and 9.39 m, so it is built 0.75 m by 1.5 m, its centre 2.5 m behind the front, its sill at 9.35 m; rendered, it stands within about 5 px of the print's. **Invented:** its sash (K06's two-over-two flat sash, the kit's; the print shows two sashes, the upper one pale, at about 33 px across), its lintel and sill (K01's and K06's, the print showing a paler head and sill at that resolution), and its reveal in the kit's dressed stone. The Van Osdel camera cannot see it: 2140's mansard stands in front of it there.
+
+**How to resolve:** a recessed corner porch under a K01 front; the front's north part carried up to the cone's eave beside the tower; then both cameras re-run; a `to_m` per wall would lay the north flank's stone.
 **Ticket:** T-3730 (piece 2 of T-1927, the S16 package of T-1837).
 **Review:** `data/reference_views/murdoch_house_2130_prairie/` (both match records, verdict `differs`); `docs/RESEARCH/photo-match/murdoch_house_2130_prairie/`.
 **Recorded:** 2026-11-26 (T-3730).
@@ -47123,6 +47143,52 @@ for 2013 Reid's coach house only; none for this one.
 **Ticket:** T-1938.
 **Recorded:** 2026-11-27 (T-1938).
 
+### L-k12-2125-stable-1938 — The frame stable behind 2125 Prairie, built from the K12 kit in its new frame with an open gable at each end, on the outline the 1911 sheet draws
+
+**Decision:** the district draft's alley building behind 2125 Prairie Avenue (T-1938) is refined in place, under its
+own id `house_2125_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the alley on
+its east (`alley_side: east`), with its west (kit) end to the south. It is the first frame building on the kit: the kit
+gained, in the same change, a frame construction (`construction: frame`: the same shell on a 0.2 m wall, its walls in
+painted clapboard and its carriage ring, sills and lintels in painted timber trim) and a second open gable where its
+party wall would stand (`west_end: gable`), because the sheet draws this building clear of both its lot lines and a
+party wall is a brick fire wall. Neither addition changes any brick coach house already built: every one re-emits to
+the same bytes.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline,
+6.87 m deep from the alley line by 7.22 m along it, measured between line centres by median darkness profiles (the
+alley line at column 1172.98, on which the alley wall is drawn, the west wall at 1136.00, the north and south walls at
+rows 1381.16 and 1420.03) and carried by the sheet's fitted similarity; the north wall 2.65 m inside the 2123/2125 lot
+line (row 1366.91) and the south wall 5.22 m inside the next (row 1449.07), so it touches nothing; '2' storeys; the
+yellow of frame; one X corner to corner, the key's sign for a stable (the T-1842 census: '2-storey frame stable
+(crossed) on the alley'); and a solid dot in its south half. The same profiles reproduce #2386's readings behind 2123
+(alley line 1172.94 against 1172.93, lot line 1366.91 against 1367.01). The house's one-storey frame rear range stands
+23.43 m west of the yard wall (column 1009.95, rows 1384-1421). The draft had fitted a 6.25 x 5.0 m rectangle.
+Inferred for 1904 as every reading of these sheets is.
+**The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back
+(s35-2125-rear, present_as_mapped), which the district draft already made. It is the one building on this alley the
+1911 sheet still marks as a stable rather than lettering GARAGE.
+**What is invented.** The frame's make: a 0.2 m stud wall, painted flat in K16's frame body colour (a pale buff) with
+its trim in K16's cream (k16_timber.json `paint`, itself reconstructed); the clapboard's laps, corner boards and
+casings are not modelled, and the carriage bay keeps the kit's segmental head, its brick ring turned into a timber
+trim board of the same size, where a frame stable might as well have had a square head. Both gables are the kit's open
+gable; the sheet draws no roof form. Every opening is the kit's laid out for this plan, since the sheet draws no window
+mark on it (the key marks openings only where a wall looks onto a near building, and nothing stands near this one): on
+the alley, counted from the south end, a carriage bay 3.0 m clear under the loft hatch and hoist, a man door and a
+stable sash, each with a loft sash over it; on each gable a stable sash with a loft sash over it, centred; on the yard
+wall a stable sash, a door and a stable sash, each with a loft sash over it, the door in the middle where a walk from it
+meets the house's rear range. The workyard is the kit's: a 2.4 m brick apron along the yard wall and a walk to the
+range's rear wall line. The roof is the kit's gable with the ridge along the alley at the kit's 40 degrees, a verge at
+each gable; no dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m
+basement, reached by nothing, under a frame building that would more likely stand on a brick footing. Flat colours.
+**Left out.** The solid dot, read as the key's vertical steam boiler as the sheet's other dots are read in this project:
+the kit has no stack and the sheet draws none. **What is not.** The outline, its place on the lot, the storeys, the
+frame and the stable's X are the map's.
+**How to resolve:** a photograph of the alley behind the 2100 block of Prairie, a finer copy of sheet 35, or a
+building permit for the building, entered as a source, gives its cladding, colour, openings, roof, use and date their
+true form. T-1938's image gate names pictures for 2013 Reid's coach house only; none for this one.
+**Covers:** `house_2125_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2125_prairie_coach_house.as_standing_1904.form.stories`, `house_2125_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1938.
+**Recorded:** 2026-11-27 (T-1938).
+
 ### L-k01-2140-tucker-3771 — 2140 Prairie's columned porch and its stair, its dormers' crocketed gables and its tall stack's pots, off the two Chicagology photographs; the arched glass canopy left to the spired state
 
 **Decision:** 2140 Prairie (T-3771, piece 2 of T-1928) gains what piece 1 (`L-k01-2140-tucker-3770`) left: a stone
@@ -47223,14 +47289,34 @@ rear range's light and deck. The colour is the register's 'brownstone' (the plat
 **What is built otherwise than the evidence, and why.** The north flank and the rear are laid in the front's stone
 (K01's all-stone house), where the sheet draws them brick. The porch's stoop runs straight out to the walk; the plate
 draws its flight running north along the front past the house's corner, which K01's side stoop refuses (its foot must
-stand inside the front's width). The south flank's projecting bay is built square and flat-topped, where the sheet
-cuts its corners. Not built: the round oriel on corbels on the south flank's chamber storey, the sheet's projection
+stand inside the front's width). The south flank's projecting bay is built square, where the sheet
+cuts its corners (its gable and attic, T-3791's, below). Not built: the sheet's projection
 across the front's south-east corner (rows 447-463), the north flank's small brick projection (columns 1372-1405),
-the pavilion's own dormer and the rear gable's triple lights; the pavilion's rusticated quoins and the stacks'
+the pavilion's own dormer; the pavilion's rusticated quoins and the stacks'
 panelled shafts are K01's plain stone.
 
 **How to resolve:** T-3791 solves the plate's camera and works the photo-match down over these numbers and the
 differences named above; a picture of the north flank or the rear would read first for those faces.
+
+**Re-read through the plate's solved camera (T-3791, 2026-11-27).** The plate's camera
+(`data/reference_views/hanford_house_2008_calumet/inland_architect_plate.json`; the engraving's is the same camera
+scaled, `glessner_blog_engraving.json`) puts several of T-3790's proportional readings elsewhere, and the record now
+stands them there: the flank's projecting bay carries three lights a storey and rises past the main cornice into an
+attic of three short lights under a coped stone gable (the plate's leftmost block; it had one light a storey under a
+flat top and a roof dormer); the round oriel on corbels is built on the flank's chamber storey at u about 19.3 m (K08's
+half-round bowed oriel under the main cornice: the plate's reads a little shallower than a half round, which is the
+only bow K08 caps at an eave); the flank's lights east of the oriel are three narrow ones (u 21.15-23.25), the plate's principal storey's; the
+chamber storey repeats the three, because K01's side bays run one set of centres up every storey, where the plate draws
+one (named open in the match record); the south roof dormer stands between the bay and the oriel (u 15.3), not
+over the bay; the stacks stand at u 11.2 m beside the bay and at (20.5, 3.75) beside the pointed roof's south-west
+hip; the stone is rock-faced. **The pointed roof** is stood on a 6.0 m corner block (the pavilion and the window bay
+together, 0.45 m proud), because through the camera its apex stands over v about 3-4 m, not over the middle of a 4.05 m
+pavilion; the plate draws the pavilion's own face 4.05 m wide and a step to the window bay that the record no longer
+has, and its end pitch is held at K05's slated 65 degrees where the plate's is steeper. **Still not built, and named
+open in the match record:** the chamber storey's one light over the three; the two gabled dormers on the pointed roof's faces (street and south: K01's hipped crown
+carries no dormer), so the street face has one dormer where the plate has two; the pointed roof's apex about 0.8 m
+behind the plate's; the step at the pavilion's north edge. The stoop, the north and rear faces' fabric and the
+unbuilt plan projections stand as above.
 **Covers:** `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_front_m`, `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_side_m`, `hanford_house_2008_calumet.as_mapped_1904.form.service_wall_brick`, `hanford_house_2008_calumet.as_mapped_1904.form.roof_pitch_deg`, `hanford_house_2008_calumet.as_mapped_1904.form.eave_overhang_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_tread_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_landing_depth_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stoop_width_m`, `hanford_house_2008_calumet.as_mapped_1904.form.north_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rear_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rainwater`, `hanford_house_2008_calumet.as_mapped_1904.form.window_kit`, `hanford_house_2008_calumet.as_mapped_1904.form.yard`
 **Ticket:** T-3790 (piece 1 of T-1940, the X02 package of T-1837).
 **Review:** `docs/RESEARCH/k01-2008-calumet-3790/README.md`.
@@ -47266,6 +47352,76 @@ is assigned to 2018 by that rule, not read.
 lot lines; then the houses' `lot_s_m` and this cut move together.
 **Ticket:** T-3785 (piece 1 of T-1945).
 **Recorded:** 2026-11-27 (T-3785).
+
+### L-1871-street-dress-3805 — The 1871 street dress round the jaunt stops: fire-alarm boxes, hydrants, Lake Street's telegraph poles, goods on the walks, barbers' poles and a tobacconist's figure
+
+**Decision:** the owner, 2026-11-27: "do more street improvements to the areas around the jaunt stops ... use period photos to infer and reconstruct the street scape, businessess, street furniture etc. ... make it photographic match perfect with 1871". Round every 1871 jaunt stop (the detail rings, `data/context/1871/detail-rings.json`) the walks get the furniture the pictures and the city's records show.
+**Not invented:** the fire-alarm telegraph's stations, each by number and corner, as Edwards' 1871 directory lists them ("Fire Alarm and Police Telegraph", printed pp. 34-35; `edwards_chicago_directory_1871`, transcribed in `data/research/street_furniture_1871.json`); the box's description, "cottage-shaped, of heavy cast-iron, and fastened to the side of a house, or post", with signs saying where its key was kept, and the wires that "radiated" from the Court House cupola "to the tops of the buildings that surrounded the Court-house square" (`andreas_1885_v2`, "Fire Alarm Telegraph", pp. 92-94); the city's 1,552 hydrants at March 31, 1871, and each of the year's 258 new ones by corner (`chicago_public_works_1871`, Tenth Annual Report pp. 8-9 and 79-85); the barbers and cigar stores the directory's classified pages put at a named corner (Becker at Clark and Randolph, Delight at Clark and Madison, Pettillon Bros. at Dearborn and Madison, Tress at Randolph and LaSalle, Glass at Randolph and Fifth Avenue; Daniel at Dearborn and Madison, Frost at State and Randolph); Lake Street's tall telegraph poles of eight crossarms (the late-1860s Lake Street stereoview in `/mnt/project-files/1871-references/`, a reference picture whose holder is not yet traced, so cited in text only, rule 6).
+**What is reconstructed:** which corner of a station's or hydrant's junction it stands at (the records name the junction; the listed hydrants name the corner too, and stand there); the box's size, its red paint and its post; the hydrant's form (the 1904 layer's post hydrant: no picture of Cregier's hydrant has been read); one more hydrant at a corner of about every other junction round the stops; the barber's pole's form and that it stands at the kerb; that a cigar store had a carved figure at all, and that it is a Highlander (the commonest American figure of the 1870s was a carved "Indian"; the choice is ours); every lot of goods (packing cases, crates, barrels and sacks) before about four fronts in five on Lake, South Water and Market Streets and one in four elsewhere round the stops, coal-hole plates and cellar doors in the walks, and carriage blocks before about half the houses; Lake Street's pole height (15.2 m), the four pins on each arm and the wires on its top five arms (the other streets' poles now string their top two arms); which roofs round the square the cupola's wires run to, and how many. Box 6 ("Tremont House, Dearborn and Lake streets") stands at the Tremont's own corner and box 139 ("Water Works") at the kerb of Pine Street before the pumping works; the other stations at a building (the engine houses, the mills) and corners outside the drawn city's named core grid (92 of them: 46 in the West Division, 24 in the South, 22 in the North) are listed in the data file's `unplaced`, not placed.
+**Sunday:** the scene is Sunday 8 October 1871 and the stores are shut, so nothing a merchant set out only to sell by day is drawn: no show cases, sandwich boards, bolts of cloth or rolled carpets, which the weekday pictures show. Awning posts at the kerb are not drawn either: the fronts' awnings (city-fronts.js) reach about 2 m over a 3.5 to 4.2 m walk, and posts at the kerb would stand clear of them.
+**The furniture check:** `tools/lay_1871_street_furniture.py` refuses any item in a shop's doorway (city-fronts.js's door bay, with 0.6 m clear at each jamb), on a board crossing, within 3 m of a walk's end where an alley's carriage way meets it, before a landmark's front (whose doors are its own), against another item or post, or in the walk's through-path: kerb things within 0.9 m of the kerb, front things within 1.15 m of the fronts and only on walks that leave 1.4 m clear between them; `--self-test` proves it refuses each.
+**How to resolve:** a photograph of a pre-fire Chicago fire-alarm box or hydrant (the Chicago History Museum's fire department pictures); the Board of Public Works' hydrant register for the downtown streets; Western Union's 1871 line map for the pole lines; a picture of the shops at the directory's corners; a weekday 1871 moment, for the display goods.
+**Ticket:** T-3805.
+**Review:** `tools/lay_1871_street_furniture.py` (`build_dress`, `check_dress`), `data/research/street_furniture_1871.json`, `renderers/web/js/street-furniture.js`.
+**Recorded:** 2026-11-27 (T-3805).
+
+### L-wear-3553 — Plain working clothes worn in the colours of the photographs, a flat cap, and the visitor's dress in colourings
+
+**Decision:** the owner, 2026-11-27, of the 1904 working clothes on offer for the visitor's own person: *"That outfit as described does not look very good, when I typed that Description this is image I got, provide better coloring and more options and more people with more clothing options"*, and *"And fix any people with that clothes"*, with a photograph of a working man of the time in a dark sack coat, waistcoat, collarless shirt, dark trousers and a flat cap. The body every 1904 working man, groom and watcher wears (`anonymous_working_driver_1904`) came in a tan shirt and a pale grey waistcoat over pale trousers, with no hat, so at any distance it read as one knit suit. It is now worn as such a man is photographed (`renderers/web/js/human-wear.js` `working_1904`): a collarless shirt gone to oatmeal, a dark wool waistcoat and trousers and a flat cap (`renderers/web/js/human-hats.js` `cap`), in one of four colourings (brown, charcoal, tweed, navy) that each wearer's own key picks, so a crowd is not one suit. A coachman in livery keeps his own hat. The watchers of the Great Fire and the men at the Eighteenth Street bronze wear the coat and cap of the photograph (`working_coat_1904`: the 1904 gentleman's body with its frock coat's skirts, tie and derby set aside, so its body is a short coat, in a working man's wool). The visitor may choose among more dresses in 1904 (a long overcoat and cap on the coachman's body with its livery made plain; a tailored jacket and skirt on the 1904 lady's body, never in her own black; a work dress and bib apron on the cook's study body), each in colourings of its own, shown drawn in the character creator.
+**Not invented:** nothing about anybody. Every body is one the town's own people are already drawn with, and no garment of any person is claimed.
+**Liberties within it:** the colours and the cap's cut are reconstructed, the general run of working dress in photographs of Chicago streets of about 1890 to 1910, not read from any one record; the short coat is a frock coat's body without its skirts, not a sack coat's own cut; the colourings are a selection. The flat cap is drawn only on the figure, not on the far crowd's picture of it.
+**Re-opens on:** a sack coat body of its own to draw; the owner wanting other colours or dresses on offer.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-wear.js`, `renderers/web/js/human-hats.js`, `renderers/web/js/humans.js`, `renderers/web/js/crowd.js`, `data/humans/visitor_person.json`, `data/jaunts/the-great-fire*.json`, `data/jaunts/bronze-at-eighteenth*.json`, `tools/test_riding.mjs`, `tools/test_visitor_person.mjs`, `tools/test_person_creator.mjs`.
+**Recorded:** 2026-11-27.
+
+### L-1871-fire-night-3814 — What the Great Fire's people carry, who carries it where, and the express wagon loading on State Street
+
+**Decision:** the owner, 2026-11-27: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... or other descriptions or
+likely actions and scenarios or mini scenes to integrate into jaunts". So the Great Fire jaunt's
+stops are restaged with people carrying what the accounts say they carried, a sick woman borne
+out on her mattress, an express wagon loaded at Field, Leiter & Co.'s door, and goods set down on
+the ground where the refugees stop.
+**What is read, not invented:** what was carried and how. Horace White: men and women "some with
+bundles of clothing on their shoulders; others, dragging trunks along the sidewalk by means of strings
+and ropes fastened to the handles ... Now and then a sick man or women would be observed, half
+concealed in a mattress doubled up and borne by two men" (Andreas vol. 2 p. 734). "One woman carrying
+an empty bird cage" (p. 732); on the North Side at dawn, a man with "a huge feather bed" on his back
+and "numbers had canary birds in cages" (p. 746); "Elegant ladies ... astonished themselves by dragging
+trunks for a long distance" (p. 729). Expressmen asked "from twenty to fifty dollars for conveying a
+small load a few blocks" (p. 729). Field, Leiter and Co.'s men carried goods from the store into
+wagons (the jaunt's `field-leiter` claim). Sources and pages are listed in
+`docs/RESEARCH/fire-night-scenes-3814/README.md`.
+**What is reconstructed:** every carrier and what each one carries, at which stop and on which
+path; the two mattress bearers and the woman on it; the express wagon's place at the kerb, its
+four loaders, its load and the moment it drives off north; the number and place of the chairs,
+trunks and bundles set down at the Ogden house and the old cemetery. The things themselves are
+drawn as the period's ordinary kinds in plain boxes and cylinders (`renderers/web/js/stage-props.js`
+GOODS), not from a picture of any one. How each is held (in the hand, on the right shoulder, on
+the back, dragged on a 1.3 m cord) is a pose chosen to read at a distance, not a record.
+**Evidence and limits:** `andreas_1885_v2`, `sheahan_upton_1871_great_conflagration`,
+`colbert_chamberlin_1871_chicago_great_conflagration`. No account places one named person with
+one thing at one corner at one hour; all the carriers are unnamed figures.
+**How to resolve:** a photograph or engraving of a street on the fire night with people carrying
+goods (the period's engravings are artists' composites), or a first-hand account placing one
+family's goods at one stop, to stage that family by name.
+**Ticket:** T-3814.
+**Review:** `docs/RESEARCH/jaunt-great-fire-3691/build.py` (`crowd`, `mattress`, `loaders`, the
+stops' `carry`, `teams`, `props`), `renderers/web/js/stage-props.js` (GOODS),
+`renderers/web/js/jaunt-stage.js` (`take`, `goodsFrame`, `loadFrame`).
+**Recorded:** 2026-11-27 (T-3814).
+
+### L-1871-directory-signs — The 1871 shop signs round the jaunt stops: real firms by their listed numbers, set on generated fronts, in reconstructed sign forms
+
+**Decision:** the owner, 2026-11-27, asked that the signs above the 1871 stores be "varied and be more specific based on your research of the citizens and people and businesses in 1871". `tools/build_1871_directory_fronts.py` reads Edwards' 1871 directory (`edwards_chicago_directory_1871`, the fourteenth annual issue, read in its Internet Archive text) and writes `data/context/1871/directory_fronts.json`; `renderers/web/js/city-signs-1871.js` paints the signs at run time, cell by cell, and `renderers/web/js/city-fronts.js` hangs them on the fronts inside the detail rings.
+**What is attested:** each firm's name, its business as the directory gives it, and its listed street number, with the directory's page and line on the front's card (the alphabetical list, with the classified business list where the firm appears in it). Page numbers are counted through the scanned text and may be one page out.
+**What is inferred:** which generated front a firm stands on. The 1871 numbering is not the 1909 grid. Each face's number range is calibrated from the directory itself (the numbers that stop at a corner, the gaps where the Court House square and the Methodist Church block have no shops, corner listings such as "cor. Dearborn" and "S.E. cor. Clark") and, on Lake Street, from John Carbutt's stereograph east from Clark (`nypl_carbutt_lake_street_east_from_clark_stereo`), whose wall signs show 118, 120 and 124 on the north side, so Lake runs even numbers north where Randolph, Washington and Madison run odd. A firm is then set along its face in proportion to its number between the face's corner numbers, on the nearest generated shop front. The generated fronts are not the 1871 lots, so a firm may stand a front or two from its true door; neighbours keep their directory order. The evidence and the conflicts each street's calibration met are written into the data file.
+**What is reconstructed:** every sign's form, size, colours, lettering and placement on the front: fascia boards over the shop, lettered string courses and friezes, boards between the upper windows for a firm upstairs, hanging boards on iron brackets at right angles to the walk, narrow boards on the door piers, gilt letters on the plate glass and painted awning valances. The forms are those the period stereographs show on Lake, Clark and State streets (`nypl_carbutt_lake_street_east_from_clark_stereo`, `nypl_carbutt_clark_street_north_from_washington_stereo`, `nypl_carbutt_booksellers_row_state_street_stereo`); no sign is copied from a picture, and none is claimed for a particular firm. The faces are the project's self-hosted period display types (Old Standard, Abril Fatface, Alfa Slab One, Anton). Fronts the directory does not reach (no listed firm near that number, or a street outside the calibrated faces) carry a trade word drawn from the classified trades listed on that street, never the same as the next front's. On the light detail tier the hanging, pier and valance signs are left off and the lettering is coarser; the firms keep their fascia and upper boards.
+**How to resolve:** a lot-by-lot source for the pre-fire business blocks (an insurance atlas or survey of 1869-71 that gives street numbers), or photographs of particular fronts, entered as sources; then the firm's front, and its sign, move to the recorded ones.
+**Ticket:** T-3803.
+**Review:** `tools/build_1871_directory_fronts.py`, `data/context/1871/directory_fronts.json`, `renderers/web/js/city-signs-1871.js`, `renderers/web/js/city-fronts.js`, `renderers/web/js/city-context.js`.
+**Recorded:** 2026-11-27 (T-3803).
 
 ### L-k01-213-215-e20th-3782 — 213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'
 
@@ -47351,3 +47507,26 @@ of the row nearer 1904, ingested as a source, would settle 213's storey count an
 **How to resolve:** a picture or a directory description of the stable, or a Rascher sheet of the North Division for 1870-71, replaces the size and form.
 **Ticket:** T-3831.
 **Recorded:** 2026-11-28 (T-3831).
+
+### L-leaf-light-3747 — Rounded foliage and thin-leaf light in every wood
+**Liberty:** for grown woodland and street trees, yard shrubs and vines, and bank thickets in 1812, 1835, 1871 and 1904, a spray's vertex normals curve across its existing cutout, suggesting a volume. Full adds a close level within 14 m: each large spray becomes three smaller sprays at different depths and turns, each joined to its existing attachment by fine round wood. This botanical detail is reconstructed within the original clump; the species, skeleton, trunk, height, crown dimensions and planting remain the records' own. The existing near mesh is retained beyond that short ring. Balanced and Light retain their geometry counts. Balanced woodland uses the existing half-size atlases and omits additional leaf-relief sampling; Full retains the larger sheets and relief. A small green-filtered backlight term uses the light already attenuated and shadowed by the renderer. The existing time-of-day skylight term is distributed toward the backlit face. These coefficients are artistic approximations of a thin leaf, not measured species transmittances or an archival lighting reconstruction. Capable devices reuse the existing leaf colour sheet for subtle bump relief; a weak device or Light omits that extra sampling. Bark, fruit, solid flowers and bare winter branches retain their existing materials and receive no leaf transmission.
+**Evidence:** species, crown dimensions, colour, season, placement and confidence remain the existing records' claims. No new historical assertion or external asset is introduced. The atlases retain their current photographic and procedural provenance in assets/LICENSES.md.
+**How to resolve:** measured leaf scattering and a calibrated, licensed surface-normal source could replace the artistic coefficients and albedo-derived relief. The present approximation must remain bounded by sun, shadow and time of day.
+**Ticket:** T-3747.
+**Recorded:** 2026-11-25 (T-3747).
+
+### L-seasonal-flora-3748 — Folded plant lighting and the four seasonal viewing choices
+**Liberty:** prairie leaf and grass normals follow the existing folds, species scales, arch and wind. These normals suggest fine curvature without adding geometry or altering the plant's deterministic placement, outline or wind. Crop leaves use the shared artistic thin-leaf light, shadowed with the sun, and capable devices reuse their existing colour atlas for slight relief; weak devices and Light omit that relief sampling. Native wall ivy derives a leaf mask from its original green atlas and vertex colours before seasonal or evidence recolouring, keeping brown stems out of the leaf-light term. These are render approximations, not measured species scattering. Light uses a cheaper environment response on eligible nonmetal standard materials (base roughness at least 0.65): the existing sky-and-ground diffuse convolution supplies the environment, with a fixed 0.04 dielectric share and 0.96 diffuse share; direct highlights use single-scatter GGX. Thin-leaf transmission, directional and point shadows, wind, maps, instancing and density remain. Full and Balanced compile the original physical lighting unchanged. This Light approximation does not identify historical plant optics or claim hardware FPS. Mid-April withholds the July flora's flower heads and their peduncles; it does not introduce an invented spring species roster. Existing crop phenology is retained. The legacy deciduous thicket and vine leaf cards are withheld in winter in the colour and both shadow passes, retaining their woody tubes; evergreen crowns use the separate grown path. All four scene years offer the same seasonal viewing choice. The scene's own calendar season retains its target date (1871 remains 8 October); choosing summer in an autumn-dated scene uses 15 July. Dated jaunts still take their own documented dates and restore the visitor's choice. Scale/needle leaf tiles retain their own evergreen colour through winter; no new historical evergreen planting is inferred.
+**Evidence:** existing species, flower and crop records remain the authority for what is planted. The other-season appearances are viewing approximations under L-season-view-2481, not records of Chicago on those dates. No new asset, density, historical source or species occurrence is introduced.
+**How to resolve:** observed phenology by species and date, calibrated normals and measured leaf optics could replace these broad seasonal and shading approximations.
+**Ticket:** T-3748.
+**Recorded:** 2026-11-25 (T-3748).
+**Revised:** 2026-11-28 (T-3748).
+**Rendering revision:** The initial fixed dielectric share applies only to uniform matte materials. Materials carrying a packed per-vertex roughness channel or a roughness map retain their original physical lighting: the batch base value cannot describe the smoother finishes it contains. This preserves the recorded finish differences without changing geometry, density, shadows, maps, wind or tier ceilings.
+
+### L-1871-grown-context-3760 — A generic grown deciduous proxy for the pre-fire context planting
+**Liberty:** the 1871 context's existing sparse reconstructed planting now draws through the shared adaptive seasonal tree renderer instead of its portable kit's rounded solid crowns. The proxy uses the grown open deciduous habit also used by the street elms, bounded by each context record's nominal height and crown width. It does not identify any context tree as an elm. Its positions, reconstructed grades, source limits and inspection identities remain those of L-1871-city-baseline. Spring, summer and fall use that renderer's corresponding leaf cover, and winter uses bare wood. The shared Trees setting and confidence hide apply to the handed-off records. No context planting is moved or removed by this renderer change.
+**Evidence:** upstream 172bbb62b9ff07352a683a291bf34ea6d392b57d contains 3,543 context and 6,693 street trees. A refreshed audit of all 10,236 trunk centres finds none strictly more than 0.25 m inside 38,598 context building plans or 19 named solid footprint parts. No cross-set trunk centres are closer than two metres. The old pumping-works record is absent upstream. Earlier prototype placement deletions are superseded, and no current planting is withdrawn. These narrow tests do not prove crown clearance or establish that an individual historical tree occupied a reconstructed position. The upstream fire's bare/charred state is retained across seasonal and detail rebuilds.
+**How to resolve:** period views or parcel planting evidence can replace a generic record with a sourced location and habit. Preserve the generic reconstruction label until that evidence exists.
+**Ticket:** T-3760.
+**Recorded:** 2026-11-25 (T-3760).

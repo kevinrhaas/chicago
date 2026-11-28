@@ -249,8 +249,8 @@ for (const name of ['battle-of-fort-dearborn', 'killing-of-jean-lalime']) {
       const poses = [c.pose, ...(c.beats || []).map((x) => x.pose)].filter(Boolean);
       for (const p of poses) assert.ok(POSES.includes(p), `${where}: ${p} is a pose`);
       if (c.person && young.test(c.person)) assert.ok(!poses.includes('lie'), `${where}: no child is ever shown fallen (${c.person})`);
-      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne', 'dismount'].includes(k)), [],
-        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, a torch put to a building, or getting down from a horse`);
+      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne', 'dismount', 'carry'].includes(k)), [],
+        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, a torch put to a building, getting down from a horse, or a thing taken up or put down (T-3553, 2026-11-28)`);
       if ((c.beats || []).some((b) => b.torch || b.ignite)) assert.ok(st.stage.fire, `${where}: a torch only where the stop burns`);
     }
     assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
@@ -655,3 +655,92 @@ console.log('PASS a wound beat bleeds the one hit, from the armed side, once the
   foot.release();
 }
 console.log('PASS a castmate on a horse rides their own way at their pace, seated, and gets down beside it, where it stands');
+
+// T-3814 (the owner, 2026-11-27: "crowds running around existing buildings carrying things or
+// dumping things into wagons"): a castmate carries a thing, in the hand, on the shoulder or
+// dragged on a cord, takes it up and puts it down by a beat; the sick are carried on a mattress;
+// the ground props stand where the stage says, and a team carries its load on its bed.
+{
+  const c = { extra: 'x', at: [0, 0], carry: 'bundle', beats: [{ t: 2, carry: null }, { t: 4, carry: 'trunk' }] };
+  assert.deepEqual([castAt(c, 0).carry, castAt(c, 3).carry, castAt(c, 5).carry], ['bundle', null, 'trunk'], 'what they carry follows the beats');
+  const v3 = (x = 0, y = 0, z = 0) => ({ x, y, z, set(a, b, d) { this.x = a; this.y = b; this.z = d; return this; }, copy(o) { return this.set(o.x, o.y, o.z); } });
+  const made = [], goodsMade = [], cords = [], beds = [];
+  const thing = (kind, o = {}) => { const g = { kind, still: !!o.still, visible: true, userData: {}, position: v3(), rotation: v3(), scale: v3(1, 1, 1),
+    quaternion: { set() { return this; }, normalize() { return this; } }, removeFromParent() { g.gone = true; } }; return g; };
+  const shoulder = { getWorldPosition(t) { return t.set(1, 1.45, -2); } };
+  const fig = (instance) => {
+    const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, body: { scene: { getObjectByName: (n) => (n.startsWith('upperarm_') || n === 'spine_03' ? shoulder : null) } },
+      root: { visible: true }, heightAt: () => 0.5, held: [], state: 'standing', setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {},
+      setPosture(k) { a.posture = k === 'stand' ? null : { kind: k }; }, update() {}, dispose() {}, walkPath() { return true; },
+      actions: { setCarry(s) { a.held.push(s); }, gripFrame: () => ({ pos: v3(a.e + 0.3, 0.9, -a.n) }) } };
+    made.push(a); return a;
+  };
+  const specs = { bundle: { mode: 'shoulder', hold: { side: 'r' } }, birdcage: { mode: 'hand', hold: { side: 'l' } }, trunk: { mode: 'drag', hold: { side: 'r' } }, featherbed: { mode: 'back', hold: null } };
+  const goods = { create: (k, o) => { const g = thing(k, o); goodsMade.push(g); return g; }, cord: () => { const g = thing('cord'); cords.push(g); return g; },
+    mattress: () => { const g = thing('mattress'); beds.push(g); return g; }, spec: (k) => specs[k] ?? null };
+  const humans = { shown: true, get: () => null, createActor: (i) => fig(i) };
+  const stopG = { id: 'g', stage: { caption: 'x', liberty: 'L-x', props: [{ kind: 'chair', at: [5, 6], heading: 90 }, { kind: 'trunk', at: [7, 8], y: 0.1 }], cast: [
+    { extra: 'porter', dress: 'x', at: [0, 0], carry: 'bundle', beats: [{ t: 1, carry: null }, { t: 2, carry: 'trunk' }] },
+    { extra: 'girl', dress: 'x', at: [3, 0], carry: 'birdcage' },
+    { extra: 'sick', dress: 'x', at: [10, 0], pose: 'lie', bier: 'mattress', beats: [{ t: 0, borne: ['b1', 'b2'] }] },
+    { extra: 'b1', dress: 'x', at: [10, 0.98] }, { extra: 'b2', dress: 'x', at: [10, -0.98] },
+  ] } };
+  const st = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }), goods });
+  st.sync(stopG, { arrived: true });
+  const [porter, girl] = made;
+  const props = goodsMade.filter((g) => g.still);
+  assert.deepEqual(props.map((g) => g.kind), ['chair', 'trunk'], 'the ground props are made, still');
+  assert.deepEqual([props[0].position.x, props[0].position.y, props[0].position.z], [5, 0.5, -6], 'a prop stands on the ground at its mark');
+  near(props[1].position.y, 0.6, 'raised by its y'); near(props[0].rotation.y, Math.PI / 2, 'turned to its heading');
+  st.update(0.1);
+  const bundle = goodsMade.find((g) => g.kind === 'bundle'), cage = goodsMade.find((g) => g.kind === 'birdcage');
+  assert.ok(bundle.visible && bundle.position.y === 1.5, `the bundle on the shoulder, over the joint (${bundle.position.y})`);
+  assert.equal(porter.held.at(-1), specs.bundle.hold, 'the hands told how it is held');
+  assert.ok(cage.visible && near(cage.position.x, 3.3, 'the cage in the hand') === undefined);
+  assert.equal(st.snapshot().cast[1].carry, 'birdcage');
+  assert.ok(beds.length === 1, 'the sick are carried on a mattress, not the dead\'s bier');
+  assert.equal(st.snapshot().props, 2);
+  for (let i = 0; i < 12; i++) st.update(0.1);
+  assert.ok(bundle.gone && porter.held.at(-1) === null, 'put down: the bundle taken away, the hand let go');
+  for (let i = 0; i < 10; i++) st.update(0.1);
+  const trunk = goodsMade.filter((g) => g.kind === 'trunk' && !g.still).at(-1);
+  assert.ok(trunk && trunk.visible && cords.length === 1 && cords[0].visible, 'then a trunk dragged on its cord');
+  near(trunk.position.y, 0.5, 'the trunk on the ground');
+  const d = Math.hypot(trunk.position.x - (porter.e + 0.3), trunk.position.z + porter.n);
+  assert.ok(d <= 1.3 + 1e-6, `the trunk within its cord of the hand (${d.toFixed(2)})`);
+  porter.posture = { kind: 'lie' }; st.update(0.1);
+  assert.equal(trunk.visible, true, 'dragged things stay on the ground');
+  girl.posture = { kind: 'lie' }; st.update(0.1);
+  assert.equal(cage.visible, false, 'nothing held aloft by someone lying down');
+  st.release();
+  assert.ok(goodsMade.every((g) => g.gone || g.kind === 'bundle') && cords[0].gone && beds[0].gone, 'left, every thing taken away with the stage');
+  // No goods handed in: the same stage plays, carrying nothing.
+  const bare = createJauntStage({ humans, parent: { add() {} }, eye: () => ({ x: 0, y: 1.6, z: 0 }) });
+  bare.sync(stopG, { arrived: true }); bare.update(0.1);
+  assert.equal(bare.snapshot().props, 0); bare.release();
+}
+console.log('PASS the fire night\'s people carry their things in hand, on the shoulder or on a cord, the sick on a mattress, among the things set down');
+
+// T-3553 (the owner, 2026-11-28): the schema names exactly the kinds stage-props.js makes, carried
+// and still, so a jaunt can stage the 1812 factory's goods and the kegs and muskets of the sally port.
+{
+  const src = fs.readFileSync(new URL('../renderers/web/js/stage-props.js', import.meta.url), 'utf8');
+  const keysOf = (name) => {
+    const body = src.slice(src.indexOf(`const ${name} = Object.freeze({`)).split('\n});')[0];
+    return [...body.matchAll(/^  ([a-z_]+): /gm)].map((m) => m[1]).sort();
+  };
+  const st = schema.$defs.stop.properties.stage.properties;
+  const carried = keysOf('GOODS'), still = keysOf('STILL');
+  assert.deepEqual([...st.cast.items.properties.carry.enum].sort(), carried, 'a castmate carries what is made to be carried');
+  assert.deepEqual([...st.cast.items.properties.beats.items.properties.carry.anyOf[0].enum].sort(), carried, 'a beat takes up what is made to be carried');
+  assert.deepEqual([...st.props.items.properties.kind.enum].sort(), still, 'a ground prop is a still kind');
+  for (const k of ['keg', 'muskets', 'blanket_bale']) assert.ok(carried.includes(k), `1812 carries ${k}`);
+  const fort = read('data/jaunts/battle-of-fort-dearborn.json').stops;
+  const factory = fort.find((s) => s.id === 'factory').stage, cw = fort.find((s) => s.id === 'covered-way').stage;
+  const takes = (stage, kinds) => stage.cast.filter((c) => (c.beats || []).some((b) => kinds.includes(b.carry))).length;
+  assert.ok(takes(factory, ['blanket_bale', 'bolt', 'bolt_blue']) >= 8, 'the factory\'s goods carried out, and taken away by the gathering');
+  assert.ok(factory.props.length >= 6, 'and piled on the grass');
+  assert.ok(takes(cw, ['keg']) >= 4 && takes(cw, ['muskets']) >= 2, 'kegs and muskets carried out by the sally port');
+  assert.ok(cw.props.some((p) => p.kind === 'well') && cw.props.some((p) => p.kind === 'keg_staved'), 'to the well and to the river, the barrels staved in');
+}
+console.log('PASS the 1812 fort\'s goods are carried out and piled, its kegs and muskets carried out by the sally port and dumped');

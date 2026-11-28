@@ -393,5 +393,100 @@ check('disposing a material disposes its twin', () => {
   assert.equal(twinDisposed, true);
 });
 
+
+// T-3748: the runtime's optional material preparation composes with real
+// confidence/leaf hooks, restores the physical program, and owns no geometry.
+const roughSource = await readFile(path.join(web, 'js/rough-surface-lighting.js'), 'utf8');
+const R = await import(`data:text/javascript;base64,${Buffer.from(roughSource.replace("from 'three'", `from '${threeURL}'`)).toString('base64')}`);
+const leafSource = await readFile(path.join(web, 'js/leaf-light.js'), 'utf8');
+const L = await import(`data:text/javascript;base64,${Buffer.from(leafSource.replace("from 'three'", `from '${threeURL}'`).replace("from './time-of-day.js'", `from '${pathToFileURL(path.join(web, 'js/time-of-day.js')).href}'`)).toString('base64')}`);
+const shaderOf = (material) => {
+  const shader = { uniforms: {}, vertexShader: THREE.ShaderLib.standard.vertexShader,
+    fragmentShader: THREE.ShaderLib.standard.fragmentShader };
+  material.onBeforeCompile(shader, {});
+  return shader;
+};
+
+check('rough Light composes with actual leaf and confidence hooks and Full restores the identical physical shader', () => {
+  const policy = R.createRoughSurfaceLighting();
+  const baseline = new THREE.MeshStandardMaterial({ roughness: 0.9, metalness: 0 });
+  const material = baseline.clone();
+  for (const m of [baseline, material]) L.patchLeafLight(m, { mask: 'vTreeLeaf', lowSpec: true });
+  C.createConfidenceView().patch(baseline);
+  const view = C.createConfidenceView({ prepareMaterial: policy.prepare });
+  view.patch(material);
+  const original = shaderOf(baseline);
+  assert.equal(shaderOf(material).fragmentShader, original.fragmentShader);
+  assert.equal(shaderOf(material).vertexShader, original.vertexShader);
+  const version = material.version;
+  policy.set(true);
+  assert.ok(material.version > version);
+  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
+  const light = shaderOf(material);
+  assert.equal(light.vertexShader, original.vertexShader);
+  assert.ok(light.fragmentShader.includes('chiRoughEnvironment'));
+  assert.ok(light.fragmentShader.endsWith(original.fragmentShader.split('#include <lights_physical_pars_fragment>')[1]),
+    'the complete leaf wrapper, confidence and later shading stages survive');
+  policy.set(false);
+  assert.equal(shaderOf(material).fragmentShader, original.fragmentShader);
+  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, undefined);
+  policy.set(false);
+  assert.equal(policy.light, false);
+  assert.equal(policy.materials, 1);
+  material.dispose(); assert.equal(policy.materials, 0);
+  // Confidence's idempotent patch must still register a deliberately reused material.
+  policy.set(true); view.patch(material);
+  assert.equal(policy.materials, 1);
+  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
+  material.dispose(); baseline.dispose();
+});
+
+check('a leaf hook installed after the Light policy keeps its lighting anchors and transmission wrapper', () => {
+  const policy = R.createRoughSurfaceLighting(); policy.set(true);
+  const material = new THREE.MeshStandardMaterial({ roughness: 0.9 });
+  policy.prepare(material);
+  L.patchLeafLight(material, { mask: 'vTreeLeaf', lowSpec: true });
+  C.createConfidenceView({ prepareMaterial: policy.prepare }).patch(material);
+  const shader = shaderOf(material);
+  assert.ok(shader.fragmentShader.includes('chiLeafDirect'));
+  assert.ok(shader.fragmentShader.includes('#include <lights_physical_pars_fragment>'));
+  policy.set(false);
+  assert.ok(!shaderOf(material).fragmentShader.includes('chiRoughEnvironment'));
+  material.dispose();
+});
+
+check('metals, variable roughness, smooth surfaces, physical glass and unlit materials retain their original hooks and defines', () => {
+  const policy = R.createRoughSurfaceLighting(); policy.set(true);
+  const variable = new THREE.MeshStandardMaterial({ roughness: 0.98 });
+  variable.userData.chiHasVertexRoughness = true;
+  const mapped = new THREE.MeshStandardMaterial({ roughness: 0.98 });
+  mapped.roughnessMap = new THREE.Texture();
+  const excluded = [new THREE.MeshStandardMaterial({ metalness: 0.4, roughness: 0.9 }),
+    new THREE.MeshStandardMaterial({ roughness: 0.1 }),
+    new THREE.MeshPhysicalMaterial({ roughness: 0.9 }), new THREE.MeshBasicMaterial(), variable, mapped];
+  for (const material of excluded) {
+    const hook = material.onBeforeCompile; const defines = material.defines;
+    assert.equal(policy.prepare(material), material);
+    assert.equal(material.onBeforeCompile, hook);
+    assert.equal(material.defines, defines);
+    material.dispose();
+  }
+  mapped.roughnessMap.dispose();
+  assert.equal(policy.materials, 0);
+});
+
+check('late materials inherit Light and a scene walk registers a shared material only once', () => {
+  const policy = R.createRoughSurfaceLighting(); policy.set(true);
+  const material = new THREE.MeshStandardMaterial({ roughness: 1 });
+  const geometry = new THREE.BoxGeometry(); const scene = new THREE.Scene();
+  scene.add(new THREE.Mesh(geometry, material), new THREE.Mesh(geometry, material));
+  policy.prepareScene(scene); policy.prepareScene(scene);
+  assert.equal(policy.materials, 1);
+  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
+  policy.set(false); assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, undefined);
+  material.dispose(); geometry.dispose();
+});
+
+
 if (failures) { console.log(`\n${failures} check(s) failed`); process.exit(1); }
 console.log('\nall checks passed');

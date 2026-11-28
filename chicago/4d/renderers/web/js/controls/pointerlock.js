@@ -10,6 +10,12 @@
  * author (the walker), so desktop and touch cannot fight over it, and the smoke
  * harness can drive the same intent both backends write.
  *
+ * `dragLook` (cloud play, `?look=drag`; the owner, 2026-11-27: "the mouse movements do not
+ * seem to work, I could not look around"): a streamed browser cannot hand the pointer lock
+ * through to the player's own browser, so the look is a drag instead. Hold the left button
+ * and move to look, the way a phone's finger does (the same sign as the mouse under lock);
+ * a click that did not drag is a click. No lock is ever asked for.
+ *
  * Keys are read whether or not the pointer is locked. Walking before you click
  * is the friendlier behaviour, and it is what lets a headless test press W.
  */
@@ -27,7 +33,12 @@ const KEYS = {
   KeyD: 'right', ArrowRight: 'right',
 };
 
-export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false, inspecting = () => false, lookSpeed = () => 1 }) {
+/** Pixels a press may wander before it is a drag (look) rather than a click. */
+export const DRAG_SLOP_PX = 4;
+/** Radians of turn per pixel of drag at sensitivity 1: the mouse's own under lock. */
+export const DRAG_RAD_PER_PX = 0.002;
+
+export function createPointerLockBackend({ intent, domElement, onLockChange, onDragLook, holding = () => false, inspecting = () => false, lookSpeed = () => 1, dragLook = false }) {
   // PointerLockControls connects its document listeners in the constructor, so
   // enabling and disabling this backend flips `controls.enabled` rather than
   // reconnecting — connect() twice would double-register every listener.
@@ -115,6 +126,29 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
     }
   }
 
+  // Drag look (dragLook only): a press on the view, then movement with the button held.
+  let press = null;
+  let lastDragged = false;
+  function onDragDown(e) {
+    if (e.button !== 0 || e.target !== domElement) return;
+    press = { x: e.clientX, y: e.clientY, moved: false };
+    lastDragged = false;
+  }
+  function onDragMove(e) {
+    if (!press) return;
+    if (!(e.buttons & 1)) { press = null; return; }
+    if (!press.moved) {
+      if (Math.hypot(e.clientX - press.x, e.clientY - press.y) < DRAG_SLOP_PX) return;
+      press.moved = true;
+      onDragLook?.();
+    }
+    const k = DRAG_RAD_PER_PX * lookScale(lookSpeed);
+    intent.yawDelta -= (e.clientX - press.x) * k;
+    intent.pitchDelta -= (e.clientY - press.y) * k;
+    press.x = e.clientX; press.y = e.clientY;
+  }
+  function onDragUp() { lastDragged = !!press?.moved; press = null; }
+
   function onLock() { onLockChange?.(true); }
   function onUnlock() { onLockChange?.(false); }
 
@@ -122,8 +156,12 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
     name: 'pointerlock',
     controls,
     get isLocked() { return controls.isLocked; },
+    dragLook,
+    /** Did the press that ended with this click drag the view (then it is not a click)? */
+    get dragged() { return lastDragged; },
 
     lock() {
+      if (dragLook) return;
       try { controls.lock(); } catch { /* a denied lock is not an error worth a page error */ }
     },
     unlock() { controls.unlock(); },
@@ -136,6 +174,12 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       window.addEventListener('keyup', onKeyUp);
       window.addEventListener('blur', onBlur);
       window.addEventListener('focusin', onFocus);
+      if (dragLook) {
+        window.addEventListener('pointerdown', onDragDown);
+        window.addEventListener('pointermove', onDragMove);
+        window.addEventListener('pointerup', onDragUp);
+        window.addEventListener('pointercancel', onDragUp);
+      }
       controls.addEventListener('lock', onLock);
       controls.addEventListener('unlock', onUnlock);
       controls.enabled = true;
@@ -152,6 +196,11 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);
       window.removeEventListener('focusin', onFocus);
+      window.removeEventListener('pointerdown', onDragDown);
+      window.removeEventListener('pointermove', onDragMove);
+      window.removeEventListener('pointerup', onDragUp);
+      window.removeEventListener('pointercancel', onDragUp);
+      press = null;
       controls.removeEventListener('lock', onLock);
       controls.removeEventListener('unlock', onUnlock);
       if (controls.isLocked) controls.unlock();

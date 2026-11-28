@@ -6,7 +6,7 @@
  *   node tools/fal_music.mjs --make --out DIR             make every cue on every trial model into DIR
  *
  *   --cues PATH       the cue file (default data/music/fal_trials.json; the score is data/music/score.json)
- *   --cue ID          only this cue (the cue file's `cues`)
+ *   --cue ID[,ID…]    only these cues (the cue file's `cues`)
  *   --model NAME      only this model (a key of `models`: minimax, cassette, stable-audio, lyria, elevenlabs)
  *   --max-usd N       refuse a run whose list price is over N dollars (default 5)
  *   --env-file PATH   read FAL_KEY from this file when the environment has none
@@ -92,7 +92,10 @@ export function runsOn(name, model, cue) {
 export function planWork(trials, { cue = null, model = null } = {}) {
   const models = model ? [model] : trials.trial_models;
   for (const m of models) if (!trials.models[m]) throw Error(`no model ${m} in fal_trials.json`);
-  const cues = trials.cues.filter(c => !cue || c.id === cue);
+  // `cue` is one id or several, comma-separated (T-3811: a run makes a set of cues).
+  const ids = cue ? String(cue).split(',').map(s => s.trim()).filter(Boolean) : null;
+  for (const id of ids ?? []) if (!trials.cues.some(c => c.id === id)) throw Error(`no cue ${id} in fal_trials.json`);
+  const cues = trials.cues.filter(c => !ids || ids.includes(c.id));
   if (!cues.length) throw Error(`no cue ${cue} in fal_trials.json`);
   const work = [];
   for (const c of cues) for (const name of models) {

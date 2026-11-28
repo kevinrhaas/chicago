@@ -215,6 +215,23 @@ replaced by another age's voiced one.
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices
 (L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
 
+### Street talk — T-3812 (2026-11-27)
+
+The owner, 2026-11-27: *"Let's do great fire plus street talk"*. In 1904 the people about the
+visitor say short lines aloud (`renderers/web/js/street-talk.js`, wired in main.js's days setup):
+an adult out of doors within 9 m, not a jaunt's host, now and then (16-34 s between remarks,
+150 s before the same person again), and a greeting fit for the hour when the visitor greets
+them (the `greet` action) or passes within 3.5 m. Nobody speaks over a jaunt's voice or an open
+tales or ask card, with sound or Narration off, or before their clip is voiced: an unvoiced line
+is silent. The clip plays on the Narration bus (its level and mute), quieter with distance
+(full to 2.5 m, a quarter at 12 m), the speaker's jaw follows it, and a caption names who said
+what. Lines: `docs/RESEARCH/street-talk-3812/<scene>.txt` → `tools/build_street_talk.mjs` →
+`data/narration/street/<scene>.json` (published `data/street/`), which also says which of seven
+voices each person speaks in, from the tales library's tellers (children are not voiced; the
+Glessner household keeps its own voices). The voicer voices each line once, after every jaunt,
+in voices.json `street:<voice>` (stock ElevenLabs voices by id), keyed by the words and the
+voice (`streetKey`). Liberty: L-street-talk-3812.
+
 ## Generated music trials (T-3710)
 
 The owner (2026-11-20) wanted to hear what generated period music might sound like, without
@@ -225,8 +242,14 @@ nothing it makes is played by the app.
 - **Key.** `FAL_KEY`, from the environment, or `--env-file PATH` (a `FAL_KEY='…'` line). Make
   one at <https://fal.ai/dashboard/keys> (API preset); revoke it there. It is sent only to
   `https://queue.fal.run` in an `Authorization: Key …` header, never printed, written or put in
-  a URL, and never committed. A CI job would take it as a repository secret named `FAL_KEY`;
-  there is no workflow yet.
+  a URL, and never committed. CI takes it as the repository secret `FAL_KEY`.
+- **The workflow (T-3811).** `.github/workflows/chicago-4d-music.yml` makes and hosts the
+  score's cues, so no session needs the key: edit `data/music/make.json` (`cues`, comma ids
+  from `data/music/score.json`; `max_usd`; `host`, encoded deliveries under
+  `renderers/web/audio/`) and push it on any branch but main. The takes come back as the
+  run's `music-takes` artifact with fal's receipt; hosted deliveries go to the media host as
+  `media/<sha256>.<ext>` and are verified there. Clear `cues` after a run: every change to the
+  file runs it again, including the merge into dev.
 - **Plan first.** `node tools/fal_music.mjs --plan` lists every clip and its list price
   (read from each model's `https://fal.ai/models/<id>/llms.txt` on 2026-11-20; three cues on
   four models is $2.75). `--make --out DIR` refuses a run over `--max-usd` (default $5).
@@ -273,8 +296,16 @@ nothing it makes is played by the app.
   the era playlist when the jaunt is over. The same gesture-unlocked element plays both; a
   change dips a fader over about a second, and a closing cue is never cut. Narration ducks it
   like any music. Deliveries go to R2 like the rest (`package_audio.py`, then
-  `verify_audio_host.py`). The scandal jaunts use the stories bed until `bed-1904-scandal` is
-  made. Liberty: L-score-3710.
+  `verify_audio_host.py`). Liberty: L-score-3710.
+- **Every jaunt (T-3809, T-3811, 2026-11-27).** Every jaunt of every year has a plan. The
+  owner approved thirteen more cues: 1835's opening, closing and town, river and trades beds;
+  1871's opening, closing, city and inquiry beds; the Great Fire's three movements (rising,
+  inferno, ruins, by stop, closing on Remembrance); the scandal bed. Their openings and closings
+  carry the fixed fanfare phrase (the master's 1.2-7.2 s, crossfaded 2 s into the take) and the
+  cadence (27.4-32.0 s, crossfaded 1 s), as the 1812 and 1904 ones do. `REUSE` in
+  build_jaunt_music.py lists what a scene may borrow from another era: now only Remembrance
+  for 1871. A rebuild keeps every unchanged cue's row and bytes, so hosted deliveries stand;
+  new deliveries are hosted by the music workflow's `host` list.
 
 ## Implemented foundation
 

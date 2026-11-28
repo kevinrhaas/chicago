@@ -2,7 +2,7 @@
   "structure_id": "murdoch_house_2130_prairie",
   "view": "chicagology_2140_a",
   "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
-  "glb_sha256": "61f1df58900eb008af20463ad2389ed5790bae44ea487a1ef450eeaeb9cf0d1c",
+  "glb_sha256": "007a6edd99a2cf74498456d9494c5ffbd4e57352f7de122c28f764255099a4dd",
   "camera_sha256": "4591f702d0147a2cb2300a4bbcab57eacde7a11268a7db9172fdb2effa80e6c6",
   "photo_sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27",
   "side_by_side": "docs/RESEARCH/photo-match/murdoch_house_2130_prairie/chicagology_2140_a-side-by-side.jpg",
@@ -49,8 +49,8 @@
       "status": "open"
     },
     {
-      "what": "the attic light in the south gable (x 1460-1493 px, y 787-867 px, its sill about the front's eave): not built, the gable is a K05 coped parapet and carries no light (L-k01-2130-murdoch-3730)",
-      "status": "open"
+      "what": "the attic light in the south gable (x 1460-1493 px, y 787-867 px, its sill about the front's eave): built (T-3730, k01_gable_lights: gable_roof.ends.south.lights), a K06 two-sash light 0.75 m by 1.5 m cut into the coped stone parapet 2.5 m behind the front, its sill at 9.35 m, under K01's flat stone lintel on K06's stone sill. Read off the print on this camera (the south wall's plane, v 0): its jambs at u 19.04 and 19.82, its clear head and sill at about 10.87 and 9.39 m; rendered, the light stands at x 1463-1493 px and y 787-860, within about 5 px",
+      "status": "fixed"
     },
     {
       "what": "the front's north part beside the tower: both pictures carry it up as wall to about the cone's eave (about 11.2 m) under an eave of its own, which runs on from the cone's eave course to the left of the drum (the Chicagology print's x 1600-1673 px, y 790-880 px, a valley rising from the front's eave near x 1657, y 880 to the ridge near x 1550, y 707; the Van Osdel print's pale wall left of the drum up to y 280 px), where the build's street slope comes down to the 8.8 m eave there: about 1.5 m of wall and eave a visitor would see as slate (L-k01-2130-murdoch-3730)",

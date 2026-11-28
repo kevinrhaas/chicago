@@ -7,7 +7,7 @@
   "describes_date": "1871",
   "repository": "Internet Archive, digitized citydirectory",
   "url": "https://archive.org/details/edwardsannualdir141871chic",
-  "locator": "Printed pages 34, 43, 53, 161, 1016 and 1031, plus other inspected pages identified in chicago/pre_fire_v1/data/field_notebook_1871.json. Preserved page images in chicago/pre_fire_v1/media/research/.",
+  "locator": "Printed pages 34, 43, 53, 161, 1016 and 1031, plus other inspected pages identified in chicago/pre_fire_v1/data/field_notebook_1871.json. Preserved page images in chicago/pre_fire_v1/media/research/. T-3805: City and County Record, 'Fire Alarm and Police Telegraph', printed pp. 34-35 (the fire-alarm stations by number and corner, djvu.txt lines 2348-2700), and the classified business directory's 'Barbers' and 'Cigars and Tobacco (Retail)' (djvu.txt from lines 260830 and 264086), read from the Internet Archive OCR text; transcribed in chicago/4d/data/research/street_furniture_1871.json.",
   "tier": 1,
   "rights_status": "public_domain",
   "rights_note": "Original United States publication dated 1871, public domain by age. The existing notebook records Internet Archive metadata NOT_IN_COPYRIGHT and University of Illinois Urbana-Champaign provenance.",
@@ -16,7 +16,8 @@
   "access_notes": "Uses the existing inspected primary-page notebook. Historical addresses retain their original numbering; they have not been substituted with modern geocodes.",
   "what_it_supplies": [
     "Occupations, business categories, institution names and historical addresses for further location research.",
-    "Evidence for varied commercial, residential and industrial uses."
+    "Evidence for varied commercial, residential and industrial uses.",
+    "The fire-alarm telegraph's street stations by number and corner, and firms the classified pages put at a named corner (T-3805)."
   ],
   "what_it_does_not_supply": [
     "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."

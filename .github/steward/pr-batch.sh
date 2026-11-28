@@ -282,7 +282,7 @@ step "the lap's regeneration tail" bash -c 'cd chicago/4d \
   && node tools/ticket.mjs board \
   && node tools/rederive.mjs --tail tools/compile_scene.py \
   && ./tools/publish.sh'
-step "nothing left stale" bash -c 'cd chicago/4d && python3 tools/restamp_stale.py --check'
+step "nothing left stale" bash -c 'cd chicago/4d && python3 tools/restamp_stale.py --list'
 git add -A
 git commit -q -m "Batch: re-derive the shared files on the $COUNT-member tree
 

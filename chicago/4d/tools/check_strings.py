@@ -142,7 +142,7 @@ def markup_errors(page, table):
     return errs
 
 
-PAGES = [WEB / "index.html", WEB / "portal" / "index.html", WEB / "portal" / "pending.html"]
+PAGES = [WEB / "index.html", WEB / "portal" / "index.html", WEB / "portal" / "console.html", WEB / "portal" / "pending.html"]
 VISIBLE_ATTR = re.compile(r"\b(?:title|aria-label|placeholder|alt)=\"([^\"]*)\"")
 
 

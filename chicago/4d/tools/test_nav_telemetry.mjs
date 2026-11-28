@@ -41,7 +41,7 @@ const D = globalThis.chicagoMachineDrift;
   assert.match(portal, /globalThis\.chicagoMachineDrift/, 'portal.js reads the shared numbers');
   assert.doesNotMatch(portal, /rand\(\.994, \.999\)|rand\(\.3, \.5\)|rand\(5000, 8000\)|rand\(9000, 14000\)/,
     'and keeps no second copy of them');
-  const page = fs.readFileSync(path.join(WEB, 'portal/index.html'), 'utf8');
+  const page = fs.readFileSync(path.join(WEB, 'portal/console.html'), 'utf8'); // T-3798: the classic console
   const drift = page.indexOf('walk/js/machine-drift.js'), main = page.indexOf('walk/portal/portal.js');
   assert.ok(drift > 0 && drift < main, 'the portal page loads machine-drift.js before portal.js');
   const nav = fs.readFileSync(path.join(WEB, 'js/navigator.js'), 'utf8');
