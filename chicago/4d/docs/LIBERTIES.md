@@ -45395,7 +45395,7 @@ record (`data/reference_views/high_house_2021_prairie/chicagology_photo.match.js
 **How to resolve:** T-3635 signs off the image gate for 2021 with 2017's; a picture of the north flank or the
 rear, the 1940 Daily News article's own illustration, or a K01 brick porch behind an arch would replace the
 invented parts.
-**Covers:** `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stair_tread_m`, `high_house_2021_prairie.as_mapped_1904.form.stair_landing_depth_m`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`
+**Covers:** `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3633 (piece 1 of T-1917, S08).
 **Review:** `docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-17 (T-3633).

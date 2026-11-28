@@ -77094,18 +77094,6 @@
           "domain": "structure",
           "structure": "high_house_2021_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.stair_landing_depth_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "high_house_2021_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stair_tread_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "high_house_2021_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.stoop_width_m"
         },
         {
@@ -77146,7 +77134,7 @@
         },
         {
           "label": "Covers",
-          "text": "`high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stair_tread_m`, `high_house_2021_prairie.as_mapped_1904.form.stair_landing_depth_m`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`"
+          "text": "`high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
