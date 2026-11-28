@@ -25104,7 +25104,7 @@ and its draft attributes are gone.
 
 ### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
 
-**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25154,8 +25154,9 @@ buildings are T-1937's.
 **Retired in part:** 2112, the Max M. Rothschild house, by T-3668 (piece 2 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2112-rothschild-3668`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
 **Retired in part:** 2110, the Harriet Rees house, by T-1922 (the S12A package), which refined it in place on the K01 frontage kit under `L-k01-2110-rees-1922`, under the same id; its draft attributes are gone (the coach house it shares with 2108 is still this draft's, T-1937's; its tympanum, loggia colonettes and carved bands are T-1923's).
 **Retired in part:** 2036, the Ebenezer Buckingham house at the 21st Street corner, by T-1911 (the S08 package's corner house), which refined it in place on the K01 frontage kit under `L-k01-2036-buckingham-1911`, under the same id; its draft attributes are gone (its alley stable is still this draft's, T-1938's).
-**Retired in part:** 2100, the John B. Sherman house at the 21st Street corner, by T-1919 (the S10A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2100-sherman-1919`, under the same id; its draft attributes are gone (its alley coach house is still this draft's, T-1938's; the 21st Street wall is still not built).
+**Retired in part:** 2100, the John B. Sherman house at the 21st Street corner, by T-1919 (the S10A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2100-sherman-1919`, under the same id; its draft attributes are gone (the 21st Street wall is still not built).
 **Retired in part:** 2120, the two-storey brick house with an iron-clad north bay, by T-3720 (piece 1 of T-1926, the S15 package), which refined it in place on the K01 frontage kit under `L-k01-2120-prairie-3720`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
+**Retired in part:** 2100's alley building, the Sherman wagon house and stable, by T-1937, which refined it in place on the K12 coach-house kit under `L-k12-2100-wagon-house-1937`, under the same id `sherman_house_2100_prairie_coach_house`, as one rectangle under the hip and deck the sheet draws; its draft attributes are gone.
 **Retired in part:** the coach house 2108 and 2110 shared, by T-1937, which refined it in place on the K12 coach-house kit under `L-k12-2108-2110-coach-house-1937`, under the same id `mark_kimball_house_2108_prairie_coach_house`, as one building divided on the lot line under a flat roof; its draft attributes are gone.
 **Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
 **Review:** `docs/RESEARCH/prairie-draft-20-22-west-2351/README.md`.
@@ -28929,7 +28930,9 @@ tool follows it.
 lays out each lot's yard (`data/back_yards/1904.json`, drawn by `renderers/web/js/back-yards.js`):
 a back door on the main house's rear wall where its model has none, on a stretch of wall with no
 window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's
-windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace
+windows or a shallow yard leave no room, at grade a step up (since T-3786, where no stretch is
+flat beyond the door's casing or wide enough between two windows, a second look slides the door
+along the wall in 5 cm steps and hangs a 2 ft 8 in leaf where a full one will not fit); its steps and landing; a paved terrace
 at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot
 gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach
 house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side
@@ -33191,8 +33194,8 @@ setback or in the court before 1946, when the court was paved for parking.
 
 ### L-draft-district-edges-2982 — The district's four named context buildings stood up as drafts: the three East Twentieth Street rowhouses, the Hanford and Wheeler-Kohn houses on Calumet, and Second Presbyterian with its 1904 spire
 
-**Covers:** `house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`
-**Retired in part:** 217 East Twentieth Street, the corner rowhouse, by T-3781 (piece 1 of T-1939), which refined it in place on the K01 frontage kit under `L-k01-217-e20th-3781`, under the same id; its draft attributes are gone. 213 and 215 are still this draft's (T-3782). 2008 Calumet, the Hanford house, by T-3790 (piece 1 of T-1940, the X02 package), which refined it in place on the K01 frontage kit under `L-k01-2008-calumet-3790`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are T-3791's).
+**Covers:** `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`
+**Retired in part:** 217 East Twentieth Street, the corner rowhouse, by T-3781 (piece 1 of T-1939), which refined it in place on the K01 frontage kit under `L-k01-217-e20th-3781`, under the same id; its draft attributes are gone. 213 and 215 by T-3782 (piece 2 of T-1939), which refined them in place on the K01 frontage kit under `L-k01-213-215-e20th-3782`, under the same ids; their draft attributes are gone. 2008 Calumet, the Hanford house, by T-3790 (piece 1 of T-1940, the X02 package), which refined it in place on the K01 frontage kit under `L-k01-2008-calumet-3790`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are T-3791's).
 **Decision:** the district draft's named context buildings off Prairie Avenue (T-2982, piece 1 of
 T-2162), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word. The five houses are read off sheet 35 in a
@@ -46931,6 +46934,36 @@ plan, and a permit or an older view of the north half, would place the carriage 
 **Ticket:** T-1937.
 **Recorded:** 2026-11-27 (T-1937).
 
+### L-k12-2100-wagon-house-1937 — The Sherman wagon house and stable behind 2100 Prairie, built from the K12 kit as one rectangle under the hip and deck the 1911 sheet draws, its openings the kit's
+
+**Decision:** the district draft's alley building behind 2100 Prairie Avenue (T-1937) is refined in place, under its
+own id `sherman_house_2100_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the
+alley on its west (`alley_side: west`), under the kit's hip and deck (`roof_form: hip_deck`, T-1935) and not its gable.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel and through the committed
+trace (s35fp-2100-b2): one two-storey brick rectangle on the alley line, 22.50 m along the alley and 10.74 m deep (the
+middle of the trace's two readings of each wall line; darkness profiles put the walls 59 and 122 pixels apart, 10.97 and
+22.67 m), lettered PRIVATE WAGON HOUSE, its south 12.3 m crossed as a stable behind a solid line 10.2 m from the north
+wall. A dashed line inside the walls, 2.04 m in from the alley wall, 2.23 m from the yard wall and 1.86 m from the north
+wall, with a diagonal from each of its north corners into the building's: the plan of a roof's deck and hips, as on
+1912's barn. The draft had read that dashed line as an outline and stood a notched block, a 6.5 m deep main body under a
+gable with two flat wings; it is gone.
+**The date.** The 1911 sheet and the T-1842 census's carry-back (present_as_mapped); the range claims 1904 and no more.
+**What is invented.** One deck inset, 2.04 m on all four sides (the three readings' mean), at the kit's 40 degrees, the
+deck 1.71 m over the eave. **The south hip:** the sheet's dashed line runs on to the south wall and draws no hip at that
+end, where the building stands about 0.7 m from 2108 and 2110's taller flat-roofed coach house; the kit hips all four
+sides alike, so a south hip stands where the sheet's deck runs through. The split of the two storeys into the kit's 3.6 m
+carriage room and 2.7 m loft (the two '18' figures in the stable's side walls are not read as heights). Every opening:
+on the alley, two carriage bays 3.0 m clear in the wagon house with the loft hatch and hoist over the northern one, a
+man door and three stable sash in the stable, a loft sash over each; on the yard, a door into each part toward the house
+and three stable sash, a loft sash over each. The kit's 1.8 m basement, its brick colour and 13-inch walls, its slate and
+felt. **Left out.** The division wall, which stands inside under the one roof the dashed line covers. **What is not.**
+The outline, its place, the two storeys, the brick, the wagon house and stable and the roof's plan are the sheet's.
+**How to resolve:** a view down the alley, a permit, or the Sherman estate's papers would place the openings; the kit
+taking a deck that runs through to an end wall (a hip on three sides) would close the south-hip difference.
+**Covers:** `sherman_house_2100_prairie_coach_house.as_standing_1904.form.coach_house`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.stories`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1937.
+**Recorded:** 2026-11-27 (T-1937).
+
 ### L-k12-2031-stable-1938 — The brick stable behind 2031 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark
 
 **Decision:** the district draft's alley building behind 2031 Prairie Avenue (T-1938) is refined in place, under its
@@ -47233,3 +47266,46 @@ is assigned to 2018 by that rule, not read.
 lot lines; then the houses' `lot_s_m` and this cut move together.
 **Ticket:** T-3785 (piece 1 of T-1945).
 **Recorded:** 2026-11-27 (T-3785).
+
+### L-k01-213-215-e20th-3782 — 213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'
+
+**Decision:** 213 and 215 East Twentieth Street (T-3782, piece 2 of T-1939, the X01 package of T-1837) are no
+longer district drafts. Each stands, under the draft's own id (`house_213_e20th`, `house_215_e20th`), as a
+`k01_frontage` record built by `generators/k01_emit.py`. 215: three storeys of K03 pressed red brick set back
+behind its front yard, the ground storey's two round-headed lights and the round-arched door in its west bay
+(the kit's deep-arched double door), the upper storeys' lights on stone sills under flat stone lintels, a K10
+bracketed cornice over a flat deck; both flanks are party walls. 213: four storeys on the street line, a red
+pressed-brick front over buff common flanks, the ground storey's two lights under corniced lintels and the door
+between them under the K07 pedimented hood on consoles, the third storey's lights round-headed, a K10 bracketed
+cornice over a frieze and a flat deck; two bays of lights in the east flank's strip before 215's front, three on
+the west flank, and the sheet's narrower rear range on K01's rear wing.
+**What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size (0.186 m a pixel): 215's
+11.43 by 7.15 m body set 3.25 m behind its neighbours' street line, its '3'; 213's 6.5 m front on the street line,
+its body 15.89 m deep to the east wall's step and the rear range 7.43 m beyond it, 0.46 m narrower on the east.
+From four 2009 photographs (`jyoti_blog_2009_cullerton_rowhouses`, forms only, `check_required`): 215's red brick
+front, its round-headed lights and arched door, its stone sills and lintels (224); 213's four tiers of lights, the
+third round-headed, its red front and buff east flank, its bracketed cornice (220, 225); 213's door with its
+transom under the pedimented hood between two framed lights (222).
+**What is invented.** Both principal floors and every storey height, read by proportion, not through a solved
+camera; 213's storey count against the sheet's illegible figure (the photographs' four is taken); the bays'
+centres (read across the prints at the fronts' own widths); the roofs behind the cornices; the walls'
+thickness; the flanks' and rears' lights beyond what the photographs show; the stacks; the stoops' steps; the
+kits' sash, doors and hood; a shallow key at each round head's crown (the prints are too small to show one); the
+low iron railing on a curb at the walk's inner edge with a walk gate, and the flagged walks (215's yard is closed
+by a tall iron fence and gate in 2009, a later one; no picture shows either strip in 1904); 213's basement lights,
+the kit's least, which photograph 222 does not show.
+**What is not built.** 213's ground-storey pilasters, the moulded frames of its ground lights and the carving of its
+hood's consoles (photograph 222; the kit's corniced lintel and hood stand in); its cornice's return along the east
+flank (photograph 225; K01 runs the cornice on the front); the fourth storey's lights on the east flank where it
+stands over 215's roof (photograph 225; K01 cuts a flank's bays through every storey, so the flank's lights stand
+only in the strip before 215's front); a small rounded bulge on 213's east wall behind 215's rear corner (sheet 35,
+about 0.6 m out at rows 343-358); 215's dashed line over its front on the sheet, unread. 213's red is 2009's paint
+over the front: the register reads red brick and sandstone, and the brick stands red.
+**How to resolve:** T-3783 solves the photographs' cameras, works the photo-match down and signs off the image
+gate, writing into the match record what is under the good-enough bar; a K01 cornice returned along a flank, and
+flank bays limited to the storeys a neighbour leaves clear, would stand the two forms not built; a dated photograph
+of the row nearer 1904, ingested as a source, would settle 213's storey count and its front's colour.
+**Covers:** `house_213_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_213_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_213_e20th.as_mapped_1904.form.stair_tread_m`, `house_213_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_213_e20th.as_mapped_1904.form.service_wall_brick`, `house_213_e20th.as_mapped_1904.form.roof_form`, `house_213_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_213_e20th.as_mapped_1904.form.roof_covering`, `house_213_e20th.as_mapped_1904.form.stoop_width_m`, `house_213_e20th.as_mapped_1904.form.north_bays`, `house_213_e20th.as_mapped_1904.form.basement_lights`, `house_213_e20th.as_mapped_1904.form.window_kit`, `house_213_e20th.as_mapped_1904.form.chimneys`, `house_213_e20th.as_mapped_1904.form.boundary`, `house_213_e20th.as_mapped_1904.form.yard`, `house_215_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_215_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_215_e20th.as_mapped_1904.form.stair_tread_m`, `house_215_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_215_e20th.as_mapped_1904.form.service_wall_brick`, `house_215_e20th.as_mapped_1904.form.eave_overhang_m`, `house_215_e20th.as_mapped_1904.form.wall_head`, `house_215_e20th.as_mapped_1904.form.roof_form`, `house_215_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_215_e20th.as_mapped_1904.form.roof_covering`, `house_215_e20th.as_mapped_1904.form.stoop_width_m`, `house_215_e20th.as_mapped_1904.form.rear_bays`, `house_215_e20th.as_mapped_1904.form.basement_lights`, `house_215_e20th.as_mapped_1904.form.window_kit`, `house_215_e20th.as_mapped_1904.form.chimneys`, `house_215_e20th.as_mapped_1904.form.boundary`, `house_215_e20th.as_mapped_1904.form.yard`.
+**Ticket:** T-3782 (piece 2 of T-1939, the X01 package of T-1837).
+**Review:** `docs/RESEARCH/k01-213-215-e20th-3782/README.md`.
+**Recorded:** 2026-11-27 (T-3782).

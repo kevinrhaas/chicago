@@ -1,0 +1,68 @@
+name: Chicago 4D — publish Firestore rules
+
+# T-3776 (owner, 2026-11-26: "you can push directly to firestore"). The Firestore rules
+# live in chicago/4d/docs/SIGN-IN.md (the one fenced block that starts `rules_version`).
+# Until now the owner pasted them into the Firebase console by hand; this publishes them
+# with tools/publish_firestore_rules.mjs, which carries the live owner address across
+# (never committed), refuses to drop a collection the live rules hold, and lets
+# Firebase's compiler reject a bad source before anything is released.
+#
+# Runs when the rules reach dev, by hand (Actions → this workflow → Run workflow, once
+# the file is on the default branch), or from any branch whose pushed commit message
+# carries "[publish rules]" (the owner's go-ahead for a change he has asked for).
+#
+# NEEDS the repository secret FIREBASE_SERVICE_ACCOUNT: a service-account key (JSON, or
+# the JSON base64-encoded) for the Firebase project chicago-61643 with a role that can
+# publish rules (Firebase Rules Admin, or Firebase Admin). Without it the run explains
+# and stops red, so a missing key is seen.
+on:
+  push:
+    paths:
+      - 'chicago/4d/docs/SIGN-IN.md'
+      - 'chicago/4d/tools/publish_firestore_rules.mjs'
+      - '.github/workflows/chicago-4d-firestore-rules.yml'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Print the rules only; publish nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: chicago-4d-firestore-rules
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || github.ref == 'refs/heads/dev'
+      || contains(github.event.head_commit.message, '[publish rules]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: chicago/4d
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: The rules hold together (the sign-in gate's own test)
+        run: node tools/test_sign_in.mjs
+      - name: Dry run
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: node tools/publish_firestore_rules.mjs --dry-run
+      - name: Publish
+        if: github.event_name != 'workflow_dispatch' || !inputs.dry_run
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "::error::The repository secret FIREBASE_SERVICE_ACCOUNT is not set; nothing was published."
+            exit 1
+          fi
+          node tools/publish_firestore_rules.mjs --project chicago-61643

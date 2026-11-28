@@ -1,4 +1,47 @@
 export const CHANGELOG = [ // newest first
+  { v: 3303, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '213 and 215 East Twentieth Street, built from their photographs', kind: 'feature',
+    items: [
+      '215 East Twentieth Street stands back behind its front yard: three storeys of red brick, two round-headed windows and an arched door on the ground floor, and stone lintels above.',
+      '213 next door is a tall red front of four storeys on the street line. Its third-floor windows are round-headed, and a deep bracketed cornice runs along the top. The door has a pedimented hood on brackets.',
+    ] },
+  { v: 3302, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '2140 Prairie\'s tall chimney brought down to its photographs', kind: 'improvement',
+    items: [
+      'The Tucker/Smith house at 2140 Prairie now has its tall chimney with four pots at the height two old photographs show. It had stood about 1.5 m too tall, and it has moved about half a metre to where both pictures place it.',
+      'Both photographs, taken from the corner of Prairie and 22nd Street, are now matched against the house. The comparison shows what is still wrong: the round tower should stand right at the corner, and the towers\' caps, the dormers and the iron fence still need work.',
+    ] },
+  { v: 3301, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: 'What\'s new opens on the latest days, one line each', kind: 'change',
+    items: [
+      'The last few days of changes, one line per release; tap a line for its notes.',
+      'Every earlier release, as first written, is under Full history.',
+    ] },
+  { v: 3300, ts: '2026-11-27T23:13:28.225Z', date: 'Nov 27, 2026, 5:13 PM CT', title: 'The public home page opens on the march out of Fort Dearborn', kind: 'change',
+    items: [
+      'The first picture under the home page\'s opening film is now the garrison and the families marching out of Fort Dearborn in 1812, each with their name over their head.',
+      'The Kimball household at 1801 Prairie moves to the People page, beside the person cards it shows off.',
+      'The 1812 row on the home page now runs from the order to leave to the burning.',
+    ] },
+  { v: 3299, ts: '2026-11-27T23:13:28.225Z', date: 'Nov 27, 2026, 5:13 PM CT', title: 'Every house on the 20th-22nd block has a kitchen door', kind: 'fix',
+    items: [
+      '2003, 2010 and 2130 Prairie now have back doors with their steps and walks. Before, their rear walls had no stretch where a door fitted.',
+      'The frame houses\' front doors now count as doors, so plantings keep off them.',
+      'Walks no longer cross a slanted lot line into the neighbouring lot.',
+    ] },
+  { v: 3298, ts: '2026-11-27T23:13:28.225Z', date: 'Nov 27, 2026, 5:13 PM CT', title: 'The Sherman wagon house and stable behind 2100 Prairie', kind: 'feature',
+    items: [
+      'Behind 2100 Prairie, the Sherman house at the 21st Street corner, now stands one long two-storey brick building on the alley: a wagon house at its north end and a stable at its south, 22.5 m along the alley and 10.7 m deep, as the 1911 fire-insurance map draws it.',
+      'It is roofed the way that map plans it, slate hips rising from every wall to a flat felted deck, in place of the draft\'s notched block under a gable. Two carriage doors open onto the alley from the wagon house, a man door and stable windows from the stable, with loft windows above.',
+    ] },
+  { v: 3297, ts: '2026-11-27T21:56:53.593Z', date: 'Nov 27, 2026, 3:56 PM CT', title: 'See what your account keeps, and delete it', kind: 'feature',
+    items: [
+      'Settings › About lists what is saved when you are signed in: your visits, reading age, your own person and any bug reports.',
+      'Delete my saved data removes all of it at once and signs you out.',
+      'A new What we keep page, linked from the sign-in panel, says who can see it and that nothing is sold or used for ads.',
+    ] },
+  { v: 3296, ts: '2026-11-27T19:19:58.233Z', date: 'Nov 27, 2026, 1:19 PM CT', title: 'The public site carries a small Preview marker', kind: 'change',
+    items: [
+      'Every page of the public site shows a quiet Preview pill in the corner, with a Feedback link to Contact.',
+      'One click on its × hides it for good on that browser.',
+    ] },
   { v: 3295, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2008 Calumet: the Hanford house, built from its 1883 drawing', kind: 'feature',
     items: [
       '2008 Calumet Avenue is rebuilt from its rough draft. Read off the 1911 fire-insurance map and the architects\' 1883 drawing, it is now a brownstone house of two storeys over a raised basement under a steep slate roof with gabled dormers. A corner pavilion rises to a tall pointed roof with an iron finial, a columned porch with a balcony stands over the front steps, and two tall stone chimneys rise from the south side.',

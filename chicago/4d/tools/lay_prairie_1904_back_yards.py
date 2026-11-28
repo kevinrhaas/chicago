@@ -96,6 +96,9 @@ TREAD_M = 0.28             # ... and its going
 LANDING_M = 1.1            # the landing at the door, out from the wall, where the flight is 3 risers or more
 SILL_MAX_M = 1.5           # a back door stands no higher than this over the house's bed
 DOOR_W_M = 0.95
+NARROW_DOOR_W_M = 0.81     # T-3786: a 2 ft 8 in kitchen door, where a full one fits nowhere between windows
+TIGHT_STEP_M = 0.05        # ... the second look slides a door along the wall in these steps
+CASING_M = 0.15            # ... and asks the wall flat across the leaf and this much either side
 DOOR_H_M = 2.2
 GRADE_DOOR_H_M = 1.9       # a kitchen door at grade, under a high first floor's windows (T-3554: a
                            # basement kitchen's low door, its casing's head 0.14 m over the leaf
@@ -255,8 +258,9 @@ class District:
                 c = tri.mean(axis=1)
                 for (ge, gn), a, b in zip(c, lo, hi):
                     glass.append((float(ge), float(gn), float(a), float(b)))
-            if any(name.startswith(m) for m in F.DOOR_MATS):
-                for i in range(len(tri)):
+            leaf = F.door_leaves(name, pos, idx)      # T-3786: a K16 leaf too
+            if leaf.any():
+                for i in np.nonzero(leaf)[0]:
                     doors.append((float(tri[i, :, 0].mean()), float(tri[i, :, 1].mean()), float(lo[i]), float(hi[i])))
         self.owner[tall & (self.owner < 0)] = k
         rows, cols = np.nonzero(mass)
@@ -408,6 +412,22 @@ class Lot:
 
     def world(self, s, d):
         return (r2(self.A[0] + s * self.su[0] + d * self.nu[0]), r2(self.A[1] + s * self.su[1] + d * self.nu[1]))
+
+    def side_lines(self, d0, d1):
+        """T-3786: the lot's own s-range over d0..d1, from its polygon: the most a surface laid
+        across the lot may span there. A lot whose side line is skewed to the street (2130's runs
+        13.66 m wide at the street and 13.79 m at the alley) loses a raster cell's width to it at
+        one end, and a walk fitted on the raster's cells ran that far into the next lot."""
+        poly = [self.frame(*pt) for pt in self.p["polygon_local_m"]]
+        lo, hi = -math.inf, math.inf
+        for d in (d0, d1):
+            xs = []
+            for (sa, da), (sb, db) in zip(poly, poly[1:] + poly[:1]):
+                if (da - d) * (db - d) <= 0 and da != db:
+                    xs.append(sa + (d - da) / (db - da) * (sb - sa))
+            if len(xs) >= 2:
+                lo, hi = max(lo, min(xs)), min(hi, max(xs))
+        return lo, hi
 
     def frame(self, e, n):
         v = np.array([e, n]) - self.A
@@ -626,23 +646,81 @@ def back_door(L: Lot, rng):
             ok, into, _why = on_wall(model, e_, n_, facing, sill, door_h, DOOR_W_M)
             if not ok or abs(into) > 0.6:
                 continue
-            cands.append((s, rd, rd - into))
+            cands.append((s, rd, rd - into, DOOR_W_M))
         if cands:
             break
+    if not cands:
+        cands = tight_back_door(L, rear_d, cols, tries, glass, gsd, model, facing)
     if not cands:
         return None
     # the rearmost stretch (the kitchen's, in the rear wing) and, on it, nearest the side passage
     # the rearmost stretch (the kitchen's, in the rear wing) and, on it, nearest the side passage
     # the yard is widest on
-    rd_max = max(rd for _s, rd, _w in cands)
+    rd_max = max(c[1] for c in cands)
     back = [c for c in cands if c[1] >= rd_max - 0.3]
     wide_lo = L.s_lo > (L.width - L.s_hi)
     back.sort(key=lambda t: (t[0] if wide_lo else -t[0]))
     pick = back[min(len(back) - 1, int(len(back) * rng.uniform(0.0, 0.25)))]
     # `d` is the raster's rear, where the yard's pieces are fitted from; `wall` is where the leaf
     # stands, in the model's built wall (T-3554)
+    if len(pick) > 5:                         # the tight pass found it, at its own sill and height
+        sill, door_h = pick[4], pick[5]
     return {"s": float(pick[0]), "d": float(pick[1]), "wall": float(pick[2]), "sill": sill, "leaf": True,
-            "height": door_h}
+            "height": door_h, "width": float(pick[3])}
+
+
+def tight_back_door(L: Lot, rear_d, cols, tries, glass, gsd, model, facing):
+    """T-3786: where back_door's pass finds no stretch of rear wall, the second look. Three houses
+    of the 20th-22nd block had a kitchen door nowhere: 2010's rear wall has a window every 2 m,
+    leaving 1.49 m of wall between their glass, and a door on the 0.25 m raster column grid cannot
+    centre in it; 2003's and 2130's rear walls are a narrow wing and a polygonal end, so no stretch
+    is flat across the 1.55 m (the leaf and 0.3 m either side) the pass asks, although the main
+    block's rear beside the wing is. So this pass, run only on a lot the first found nothing on:
+      * slides the door along the wall in TIGHT_STEP_M steps, not raster columns;
+      * asks the raster to be flat across the leaf and its casing only (CASING_M either side): a
+        wing standing out beside the door is the yard's to clear (`fits` checks the steps' and
+        landing's ground), and on_wall's nine rays still require the built wall flat and square
+        across the leaf;
+      * where no full-width door fits between two windows, hangs a NARROW_DOOR_W_M leaf (2 ft 8 in,
+        the narrowest stock door of the period's trade catalogues) with the same WINDOW_CLEAR_M off
+        each window's glass.
+    Returns back_door's candidates, each with its width, sill and height."""
+    s_of = L.S[0]
+    lo, hi = float(s_of[cols].min()), float(s_of[cols].max())
+    found = []
+    for width in (DOOR_W_M, NARROW_DOOR_W_M):
+        half = width / 2
+        for sill, door_h in tries:
+            n = max(1, int(round(sill / RISER_M)))
+            out_m = (LANDING_M if n >= 3 else 0.0) + (n - (1 if n >= 3 else 0)) * TREAD_M
+            need = out_m + 1.2
+            for s in np.arange(math.ceil(lo / TIGHT_STEP_M) * TIGHT_STEP_M, hi + 1e-6, TIGHT_STEP_M):
+                s = round(float(s), 2)
+                if s - half < L.s_lo + 0.5 or s + half > L.s_hi - 0.5:
+                    continue
+                span = np.abs(s_of - s) <= half + CASING_M
+                if not span.any() or np.any(np.isnan(rear_d[span])):
+                    continue
+                rd = float(np.nanmax(rear_d[span]))
+                if rd - float(np.nanmin(rear_d[span])) > 0.3:
+                    continue                  # the leaf and its casing are not on one flat wall
+                if not L.fits(s - half - 0.2, s + half + 0.2, rd + WALL_GAP_M + 0.05, rd + need):
+                    continue
+                if len(gsd):
+                    near = (np.abs(gsd[:, 1] - rd) < 0.7) & (np.abs(gsd[:, 0] - s) < half + WINDOW_CLEAR_M)
+                    z = glass[:, 2:4]
+                    hit = near & (z[:, 1] > sill - 0.05) & \
+                        (z[:, 0] < sill + door_h + (0.15 if door_h >= DOOR_H_M else 0.1))
+                    if hit.any():
+                        continue
+                e_, n_ = L.world(s, rd)
+                ok, into, _why = on_wall(model, e_, n_, facing, sill, door_h, width)
+                if not ok or abs(into) > 0.6:
+                    continue
+                found.append((s, rd, rd - into, width, sill, door_h))
+            if found:
+                return found
+    return found
 
 
 def stoop_extent(sill):
@@ -795,6 +873,12 @@ def lay_lot(p, laundry, disks):
                         s1 = min(s1, t0)
                 if s1 - s0 < 0.3 or d1 - d0 < 0.3:
                     return False
+        # T-3786: never past the lot's own side lines (the check's), whatever the raster allowed
+        side_lo, side_hi = L.side_lines(d0, d1)
+        if s0 < side_lo - 0.05 or s1 > side_hi + 0.05:
+            s0, s1 = max(s0, side_lo), min(s1, side_hi)
+            if s1 - s0 < 0.6:
+                return False
         m = L.cells(s0, s1, d0, d1) & L.inlot
         if not m.any():
             return False
@@ -828,7 +912,7 @@ def lay_lot(p, laundry, disks):
             "id": f"{pid}:back_door", "structure": L.main,
             "e": L.world(ds, dw)[0], "n": L.world(ds, dw)[1],
             "facing_deg": L.bearing((0.0, 1.0)),
-            "sill_m": r2(door["sill"]), "width_m": DOOR_W_M, "height_m": door["height"],
+            "sill_m": r2(door["sill"]), "width_m": door.get("width", DOOR_W_M), "height_m": door["height"],
             "leaf": door["leaf"],
             "stoop": {"depth_m": r2(landing), "width_m": sw, "risers": n, "run_m": r2(out_m),
                       "material": "wood" if (meta["frame"] or not worked) else "stone"},
@@ -1240,6 +1324,23 @@ def self_test() -> int:
         ok = bool(got)
         print(f"   self-test | {'ok  ' if ok else 'FAIL'} {name}: {got[:1] if got else 'not refused'}")
         fails += 0 if ok else 1
+    # T-3786: the second look's houses keep their kitchen doors: 2010 (a window every 2 m along
+    # its rear, the door between two), 2003 and 2130 (a narrow wing and a polygonal end), each in
+    # its built wall; and a 1.2 m walk planted 0.3 m past a skewed side line is clamped back in.
+    by = {l["parcel"]: l for l in data["lots"]}
+    for pid in ("prairie_2010", "prairie_2003", "prairie_2130"):
+        drs = [x for x in by.get(pid, {}).get("doors", []) if x.get("leaf")]
+        ok = bool(drs)
+        print(f"   self-test | {'ok  ' if ok else 'FAIL'} {pid} has its kitchen door on the rear wall: "
+              f"{(drs[0]['width_m'], drs[0]['sill_m']) if drs else 'none laid'}")
+        fails += 0 if ok else 1
+    P = next(p for p in DIST.parcels if p["id"] == "prairie_2130")
+    L = Lot(P, DIST, front_plant_disks(json.loads(FRONT.read_text())["lots"]) if FRONT.exists() else [])
+    lo_, hi_ = L.side_lines(1.0, 39.0)
+    ok = 13.6 < hi_ < 13.7 and -0.05 < lo_ < 0.15
+    print(f"   self-test | {'ok  ' if ok else 'FAIL'} prairie_2130's side lines read off its polygon over "
+          f"d 1-39 m: s {lo_:.2f}..{hi_:.2f}")
+    fails += 0 if ok else 1
     # numpy's default sort puts equal values in an order its build and the CPU choose; the
     # layout takes the first spot that fits in sorted order, so that order is the output
     # (CI's runners disagreed on it, T-3488). Every numpy sort here is a stable one.
