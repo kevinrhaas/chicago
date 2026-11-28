@@ -1,3 +1,19 @@
+## T-3805 — 1871 street furniture round the jaunt stops (27 November 2026)
+
+Owner request, 27 November 2026: photo-match the streets round the 1871 jaunt stops. Within the
+detail rings: the fire-alarm telegraph boxes at the stations Edwards' 1871 directory lists (55
+placed; the rest are buildings or corners outside the drawn grid, listed in the data's `unplaced`),
+the year's new hydrants at the corners the Board of Public Works lists and one at about every other
+junction, five barbers' poles and two tobacconists' figures at the directory's corners, the
+wholesale streets' cases, barrels, crates and sacks on the walks, coal-hole plates, cellar doors and
+carriage blocks; Lake Street's poles at 15 m with eight crossarms (the late-1860s stereoview), and
+the fire-alarm wires from the Court House cupola to the roofs round the square (Andreas). Sunday:
+no display goods. `tools/lay_1871_street_furniture.py` checks every item clear of doorways,
+crossings, carriage ways and the walk's through-path (`--self-test` in check.sh).
+Cost (swiftshader, published): light tier +1 to +4 draws at the walk stands (coal plates and cellar
+doors are not drawn there), full +5 to +17; data file +29 KB gzipped. Shots:
+`tools/street_dress_shots_1871.mjs`. `L-1871-street-dress-3805`.
+
 ## T-3814 — The Great Fire's people carry what they saved (27 November 2026)
 
 Owner request, 27 November 2026: "would there have been more people crowds running around

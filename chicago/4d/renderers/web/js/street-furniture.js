@@ -28,6 +28,16 @@
  * opacity the daylight one and the halos and pools hidden, so the frame is unchanged.
  * What is ours is in docs/LIBERTIES.md L-night-lights-3334.
  *
+ * 1871 (T-3686, T-3805). The pre-fire city's lamps, telegraph poles (Lake Street's of eight
+ * crossarms, as the late-1860s stereoview shows them, every arm strung) and hitching posts,
+ * and round the jaunt stops its street dress: the fire-alarm telegraph boxes at the stations
+ * Edwards' 1871 directory lists, the hydrants, the barbers' poles and a tobacconist's figure
+ * at the directory's corners, the wholesale houses' cases, barrels, crates and sacks on the
+ * walks, coal-hole plates and cellar doors in them, carriage blocks at the kerb, and the
+ * fire-alarm wires from the Court House cupola to the roofs round the square. Each dress
+ * kind is one painted (vertex-coloured) geometry drawn instanced, near only (DRESS_NEAR_M),
+ * in one shared material; a crate or barrel takes its own tint per instance.
+ *
  * A scene that does not list `street_furniture` hands this no data base and it draws
  * nothing; a failed fetch draws nothing and records a problem. A pick on a post opens
  * a card built from the file's own records: what it is, its grade, and its pictures.
@@ -49,9 +59,13 @@ const RINGS = {
 const REDEAL_M = 3;
 // A hydrant is under a metre tall: past this it is a speck, so it is not drawn at all.
 const HYDRANT_FAR_M = { full: 160, balanced: 130, light: 90 };
-const KINDS = ['gas_lamp', 'fire_hydrant', 'utility_pole', 'hitching_post'];
-// 'telegraph': the 1871 business streets' poles of five crossarms (data/street_furniture/1871.json).
-const POLE_CLASSES = ['street', 'alley', 'trolley', 'telegraph'];
+const KINDS = ['gas_lamp', 'fire_hydrant', 'utility_pole', 'hitching_post',
+  // T-3805: the 1871 street dress round the jaunt stops (data/street_furniture/1871.json).
+  'fire_alarm_box', 'barber_pole', 'cigar_figure', 'packing_case', 'crate', 'barrel', 'sack', 'coal_hole_plate',
+  'cellar_door', 'carriage_block'];
+// 'telegraph': the 1871 business streets' poles of five crossarms (data/street_furniture/1871.json);
+// 'telegraph_trunk': Lake Street's of eight, as the late-1860s stereoview shows them (T-3805).
+const POLE_CLASSES = ['street', 'alley', 'trolley', 'telegraph', 'telegraph_trunk'];
 // A hitching post is a little over a metre: past this it is a speck (the 1871 shop walks).
 const HITCH_FAR_M = { full: 120, balanced: 95, light: 60 };
 
@@ -313,8 +327,9 @@ function poleGeometry(m) {
   const pins = pinOffsets(m);
   const wood = [at(new THREE.CylinderGeometry(rt, rb, H, 8), H / 2)];
   const glass = [];
+  const step = m.arm_step_m ?? 0.6;
   for (let k = 0; k < arms; k += 1) {
-    const y = armY - k * 0.6;
+    const y = armY - k * step;
     wood.push(at(new THREE.BoxGeometry(0.09, 0.11, armL), y));
     for (const z of pins) {
       const pin = at(new THREE.CylinderGeometry(0.014, 0.018, 0.12, 4), y + 0.11);
@@ -360,6 +375,222 @@ function sagWire(pos, a, b, sag, seg = 8) {
 }
 
 /* -------------------------------------------------------------------------- */
+/* T-3805: the 1871 street dress round the jaunt stops                         */
+/* -------------------------------------------------------------------------- */
+
+/** Paint a geometry one colour, as a per-vertex `color` attribute. */
+const SRGB = new THREE.Color();
+/** An sRGB triple, as the linear one a vertex colour is read as. */
+const lin = (rgb) => { SRGB.setRGB(rgb[0], rgb[1], rgb[2], THREE.SRGBColorSpace); return [SRGB.r, SRGB.g, SRGB.b]; };
+function paint(g, rgb) {
+  const geo = g.index ? g.toNonIndexed() : g;
+  if (geo !== g) g.dispose();
+  if (!geo.attributes.normal) geo.computeVertexNormals();
+  const n = geo.attributes.position.count;
+  const c = new Float32Array(n * 3);
+  const l = lin(rgb);
+  for (let i = 0; i < n; i += 1) c.set(l, i * 3);
+  geo.setAttribute('color', new THREE.BufferAttribute(c, 3));
+  return geo;
+}
+
+/** Merge painted geometries (position, normal, color). */
+function mergePainted(parts) {
+  let n = 0;
+  for (const g of parts) n += g.attributes.position.count;
+  const pos = new Float32Array(n * 3); const nor = new Float32Array(n * 3); const col = new Float32Array(n * 3);
+  let o = 0;
+  for (const g of parts) {
+    pos.set(g.attributes.position.array, o * 3);
+    nor.set(g.attributes.normal.array, o * 3);
+    col.set(g.attributes.color.array, o * 3);
+    o += g.attributes.position.count;
+    g.dispose();
+  }
+  const out = new THREE.BufferGeometry();
+  out.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  out.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+  out.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  out.computeBoundingSphere();
+  return out;
+}
+
+const box3 = (w, h, d, x, y, z, rgb) => { const g = new THREE.BoxGeometry(w, h, d); g.translate(x, y, z); return paint(g, rgb); };
+const cyl = (rt, rb, h, seg, x, y, z, rgb) => { const g = new THREE.CylinderGeometry(rt, rb, h, seg); g.translate(x, y, z); return paint(g, rgb); };
+const C = {
+  pine: [0.74, 0.61, 0.43], pineDark: [0.55, 0.44, 0.3], oak: [0.52, 0.37, 0.23], iron: [0.17, 0.17, 0.16],
+  burlap: [0.66, 0.59, 0.45], stone: [0.78, 0.75, 0.68], plank: [0.42, 0.34, 0.25], alarmRed: [0.56, 0.1, 0.07],
+  post: [0.2, 0.23, 0.19], cream: [0.9, 0.88, 0.8], gilt: [0.78, 0.62, 0.26], red: [0.66, 0.1, 0.09],
+  white: [0.93, 0.92, 0.88], blue: [0.14, 0.2, 0.5], flesh: [0.84, 0.66, 0.52], tartan: [0.5, 0.11, 0.1],
+  jacket: [0.13, 0.22, 0.17], bonnet: [0.08, 0.08, 0.13], plinth: [0.3, 0.24, 0.18],
+};
+
+/** A goods packing case: nailed pine, battened at the ends; 0.9 along the front, 0.6 deep, 0.6 high. */
+function packingCaseGeometry() {
+  const L = 0.9, D = 0.6, H = 0.6;
+  return mergePainted([
+    box3(L, H, D, 0, H / 2, 0, C.pine),
+    ...[-1, 1].map((s) => box3(0.07, H + 0.012, D + 0.012, s * (L / 2 - 0.08), H / 2, 0, C.pineDark)),
+    box3(L * 0.5, 0.12, 0.004, 0, H * 0.55, -D / 2 - 0.003, [0.3, 0.26, 0.2]),   // the stencilled mark
+  ]);
+}
+
+/** An open crate: corner posts, rails and slats, a board floor; 0.72 by 0.5 by 0.5. */
+function crateGeometry() {
+  const L = 0.72, D = 0.5, H = 0.5, t = 0.035;
+  const parts = [box3(L, 0.02, D, 0, 0.01, 0, C.pineDark)];
+  for (const sx of [-1, 1]) for (const sz of [-1, 1]) parts.push(box3(0.05, H, 0.05, sx * (L / 2 - 0.025), H / 2, sz * (D / 2 - 0.025), C.pineDark));
+  for (const y of [0.08, 0.25, 0.43]) {
+    for (const sz of [-1, 1]) parts.push(box3(L, 0.07, t, 0, y, sz * (D / 2 - t / 2), C.pine));
+    for (const sx of [-1, 1]) parts.push(box3(t, 0.07, D - 2 * t, sx * (L / 2 - t / 2), y, 0, C.pine));
+  }
+  return mergePainted(parts);
+}
+
+/** A hooped barrel standing on end, 0.86 m, bellied, four iron hoops and its head. */
+function barrelGeometry() {
+  const H = 0.86, rEnd = 0.25, rMid = 0.29;
+  const r = (y) => rEnd + (rMid - rEnd) * Math.sin(Math.PI * y / H);
+  const prof = [[0, 0], [rEnd - 0.01, 0]];
+  for (let k = 0; k <= 8; k += 1) prof.push([r((H * k) / 8), (H * k) / 8]);
+  prof.push([rEnd - 0.015, H], [rEnd - 0.03, H - 0.02], [0, H - 0.02]);
+  const parts = [paint(lathe(prof, 10), C.oak)];
+  for (const y of [0.07, 0.24, H - 0.24, H - 0.07]) {
+    const g = new THREE.CylinderGeometry(r(y) + 0.008, r(y) + 0.008, 0.035, 10, 1, true); g.translate(0, y, 0); parts.push(paint(g, C.iron));
+  }
+  return mergePainted(parts);
+}
+
+/** A filled sack lying on the walk, its neck tied. */
+function sackGeometry() {
+  const g = new THREE.SphereGeometry(0.5, 10, 6);
+  const P = g.attributes.position;
+  for (let i = 0; i < P.count; i += 1) {
+    const x = P.getX(i) * 0.75; let y = P.getY(i) * 0.34; const z = P.getZ(i) * 0.46;
+    y = Math.max(y, -0.12) + 0.12;   // a flattened belly on the flags
+    P.setXYZ(i, x, y, z);
+  }
+  g.computeVertexNormals();
+  const neck = new THREE.ConeGeometry(0.07, 0.16, 6); neck.rotateZ(Math.PI / 2); neck.translate(0.42, 0.13, 0);
+  return mergePainted([paint(g, C.burlap), paint(neck, C.burlap)]);
+}
+
+/** A round cast-iron coal-hole plate let into the flags. */
+function coalPlateGeometry() {
+  const g = new THREE.CircleGeometry(0.18, 12); g.rotateX(-Math.PI / 2); g.translate(0, 0.012, 0);
+  return mergePainted([paint(g, C.iron)]);
+}
+
+/** A cellar door in the walk: two plank leaves with iron straps, 1.5 along the front and 0.9 across. */
+function cellarDoorGeometry() {
+  const parts = [];
+  for (const s of [-1, 1]) {
+    parts.push(box3(0.73, 0.02, 0.9, s * 0.375, 0.01, 0, C.plank));
+    for (const z of [-0.3, 0, 0.3]) parts.push(box3(0.6, 0.008, 0.05, s * 0.4, 0.024, z, C.iron));
+  }
+  parts.push(box3(1.56, 0.022, 0.05, 0, 0.011, -0.47, C.iron), box3(1.56, 0.022, 0.05, 0, 0.011, 0.47, C.iron));
+  return mergePainted(parts);
+}
+
+/** A dressed limestone carriage block at the kerb. */
+function carriageBlockGeometry() {
+  return mergePainted([box3(0.9, 0.38, 0.6, 0, 0.19, 0, C.stone), box3(0.86, 0.04, 0.56, 0, 0.4, 0, [0.83, 0.8, 0.73])]);
+}
+
+/** The fire-alarm telegraph box (Andreas: "cottage-shaped, of heavy cast-iron ... fastened to the
+ *  side of a house, or post"), on its post, with the board saying where the key is kept. */
+function fireBoxGeometry(m) {
+  const ph = m.post_h_m ?? 1.95; const pw = m.post_w_m ?? 0.13;
+  const bw = m.box_w_m ?? 0.3; const bh = m.box_h_m ?? 0.42; const bd = m.box_d_m ?? 0.2; const y0 = m.box_at_m ?? 1.2;
+  const z = -(pw / 2 + bd / 2);
+  const roof = new THREE.BoxGeometry(bw + 0.05, 0.19, 0.19); roof.rotateX(Math.PI / 4); roof.scale(1, 0.7, (bd + 0.06) / 0.27);
+  roof.translate(0, y0 + bh, z);
+  return mergePainted([
+    box3(pw, ph, pw, 0, ph / 2, 0, C.post),
+    box3(pw + 0.03, 0.05, pw + 0.03, 0, ph + 0.025, 0, C.post),
+    box3(bw, bh, bd, 0, y0 + bh / 2, z, C.alarmRed),
+    paint(roof, C.alarmRed),
+    box3(bw - 0.08, bh - 0.12, 0.012, 0, y0 + bh / 2, z - bd / 2 - 0.006, [0.48, 0.08, 0.06]),   // the door
+    box3(0.04, 0.04, 0.04, bw / 2 - 0.06, y0 + bh / 2, z - bd / 2 - 0.02, C.gilt),               // the knob
+    box3(bw + 0.04, 0.13, 0.015, 0, y0 - 0.14, -(pw / 2 + 0.008), C.cream),                       // KEY AT ...
+  ]);
+}
+
+/** A barber's pole: a turned post at the kerb, its shaft painted in a red, white and blue spiral. */
+function barberPoleGeometry(m) {
+  const H = m.height_m ?? 2.35;
+  const s0 = 0.55; const s1 = H - 0.3;
+  const shaft = new THREE.CylinderGeometry(0.065, 0.065, s1 - s0, 20, 36, true);
+  shaft.translate(0, (s0 + s1) / 2, 0);
+  const geo = shaft.toNonIndexed(); shaft.dispose();
+  geo.computeVertexNormals();
+  const P = geo.attributes.position; const col = new Float32Array(P.count * 3);
+  const bands = [C.red, C.white, C.blue, C.white];
+  for (let i = 0; i < P.count; i += 1) {
+    const f = ((Math.atan2(P.getZ(i), P.getX(i)) / (Math.PI * 2)) + P.getY(i) / 0.42) * 2;
+    col.set(lin(bands[((Math.floor(f) % 4) + 4) % 4]), i * 3);
+  }
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  return mergePainted([
+    paint(lathe([[0, 0], [0.13, 0], [0.13, 0.06], [0.1, 0.12], [0.085, 0.3], [0.1, 0.42], [0.08, s0], [0, s0]], 10), C.white),
+    geo,
+    paint(lathe([[0, s1], [0.085, s1], [0.09, s1 + 0.04], [0.05, s1 + 0.08], [0, s1 + 0.08]], 10), C.gilt),
+    paint((() => { const g = new THREE.SphereGeometry(0.09, 10, 6); g.translate(0, H - 0.12, 0); return g; })(), C.gilt),
+  ]);
+}
+
+/** A tobacconist's carved Highlander taking snuff, on his pedestal (L-1871-street-dress-3805). */
+function cigarFigureGeometry() {
+  const b = 0.4;   // the pedestal's height
+  const limb = (a, z, len, r, rgb, rot = 0) => {
+    const g = new THREE.CylinderGeometry(r, r * 0.9, len, 6); g.translate(0, -len / 2, 0); g.rotateX(rot); g.translate(a, z, 0); return paint(g, rgb);
+  };
+  const head = new THREE.SphereGeometry(0.105, 10, 8); head.translate(0, b + 1.43, 0);
+  // The right arm raised to the face with the pinch of snuff, the left holding the mull at the waist.
+  const upper = new THREE.CylinderGeometry(0.05, 0.045, 0.3, 6); upper.translate(0, -0.15, 0); upper.rotateZ(0.5); upper.rotateX(-0.9); upper.translate(0.19, b + 1.28, 0);
+  const fore = new THREE.CylinderGeometry(0.042, 0.038, 0.28, 6); fore.translate(0, 0.14, 0); fore.rotateZ(0.5); fore.translate(0.2, b + 1.07, -0.2);
+  return mergePainted([
+    box3(0.5, b, 0.5, 0, b / 2, 0, C.plinth),
+    box3(0.54, 0.05, 0.54, 0, b + 0.025, 0, C.gilt),
+    limb(-0.07, b + 0.55, 0.52, 0.055, C.red), limb(0.07, b + 0.55, 0.52, 0.055, C.red),   // the hose
+    box3(0.1, 0.06, 0.16, -0.07, b + 0.03, -0.03, [0.12, 0.1, 0.08]), box3(0.1, 0.06, 0.16, 0.07, b + 0.03, -0.03, [0.12, 0.1, 0.08]),
+    cyl(0.17, 0.23, 0.34, 10, 0, b + 0.72, 0, C.tartan),                                      // the kilt
+    box3(0.1, 0.12, 0.03, 0, b + 0.78, -0.21, C.white),                                        // the sporran
+    cyl(0.17, 0.16, 0.5, 10, 0, b + 1.12, 0, C.jacket),                                        // the doublet
+    box3(0.08, 0.5, 0.36, -0.1, b + 1.1, 0, C.tartan),                                          // the plaid over the shoulder
+    limb(-0.2, b + 1.33, 0.5, 0.048, C.jacket),
+    paint(upper, C.jacket), paint(fore, C.jacket),
+    box3(0.08, 0.05, 0.1, -0.2, b + 0.84, -0.05, C.gilt),                                      // the snuff mull
+    paint(head, C.flesh),
+    cyl(0.12, 0.11, 0.07, 10, 0, b + 1.53, 0, C.bonnet),                                       // the bonnet
+    box3(0.03, 0.18, 0.02, 0.07, b + 1.62, 0.04, C.white),                                     // its feather
+  ]);
+}
+
+/** Where a T-3805 kind is drawn, and how close: near-only, these are small. */
+const DRESS_NEAR_M = { full: 95, balanced: 75, light: 45 };
+// The plates and cellar doors lie flat in the walk: past 60 m, or on a phone's light tier,
+// they are a few grey pixels, so they are left undrawn there and cost no draw.
+const FLUSH_NEAR_M = { full: 60, balanced: 45, light: 0 };
+const FLUSH_DRESS = new Set(['coal_hole_plate', 'cellar_door']);
+const DRESS_KINDS = {
+  packing_case: packingCaseGeometry, crate: crateGeometry, barrel: barrelGeometry, sack: sackGeometry,
+  coal_hole_plate: coalPlateGeometry, cellar_door: cellarDoorGeometry, carriage_block: carriageBlockGeometry,
+  fire_alarm_box: fireBoxGeometry, barber_pole: barberPoleGeometry, cigar_figure: cigarFigureGeometry,
+};
+const DRESS_PICK = { packing_case: [0.45, 0.6], crate: [0.4, 0.5], barrel: [0.32, 0.86], sack: [0.42, 0.35], coal_hole_plate: [0.2, 0.05],
+  cellar_door: [0.75, 0.05], carriage_block: [0.45, 0.42], fire_alarm_box: [0.22, 1.95], barber_pole: [0.14, 2.35], cigar_figure: [0.3, 2.0] };
+// A crate's or barrel's own tint, so a pile is not one colour (a hash of its id).
+const TINTED = new Set(['packing_case', 'crate', 'barrel', 'sack']);
+function tintOf(id, out) {
+  let h = 2166136261;
+  for (let i = 0; i < id.length; i += 1) h = Math.imul(h ^ id.charCodeAt(i), 16777619);
+  const u = ((h >>> 0) % 1000) / 1000;
+  const k = 0.82 + 0.3 * u;
+  return out.setRGB(k, k * (0.97 + 0.05 * u), k * (0.92 + 0.1 * (1 - u)));
+}
+
+/* -------------------------------------------------------------------------- */
 /* the card                                                                    */
 /* -------------------------------------------------------------------------- */
 
@@ -392,7 +623,7 @@ function itemCard(it, doc) {
       phase: null,
       change_note: attested
         ? `${what} ${where}, where a picture shows one: ${pictures.join('; ')}. ${it.note ?? ''}`.trim()
-        : `${what} ${where}. ${ruleNote}; this one's place is ${it.grade === 'inferred' ? 'inferred' : 'our reconstruction'}.`,
+        : `${what} ${where}. ${ruleNote}; this one's place is ${it.grade === 'inferred' ? 'inferred' : 'our reconstruction'}.${it.note ? ` ${it.note}` : ''}`,
       placement: {
         symbolic_location: it.face ?? (it.faces ?? []).join(' / '),
         position_confidence: it.grade,
@@ -402,11 +633,11 @@ function itemCard(it, doc) {
       attributes: {
         kind: {
           value: name, confidence: kind.form_grade ?? 'inferred',
-          sources: kind.form_sources ?? [], note: `${kind.form ?? ''} ${kind.form_note ?? ''}`.trim(),
+          sources: kind.form_sources ?? [], note: `${kind.form ?? ''} ${kind.form_note_by_class?.[it.class] ?? kind.form_note ?? ''}`.trim(),
         },
         position: {
           value: where, confidence: it.grade, sources: it.sources ?? [],
-          note: attested ? (it.note ?? '') : `${place.note_by_class?.[it.class] ?? place.note ?? ''} ${it.liberty ?? ''}`.trim(),
+          note: attested ? (it.note ?? '') : `${it.note ?? ''} ${place.note_by_class?.[it.class] ?? place.note ?? ''} ${it.liberty ?? ''}`.trim(),
         },
       },
       citations: citationsOf(doc, [...(it.sources ?? []), ...(kind.form_sources ?? [])]),
@@ -441,14 +672,17 @@ export async function createStreetFurniture({
   }
   // A file may state the fields its items share once (1871: grade, sources, liberty).
   const defaults = doc.item_defaults ?? null;
+  // …and per kind (1871's dress: its own liberty, and where the many small things stand).
+  const kindDefaults = doc.kind_defaults ?? {};
   const items = (doc.items ?? []).filter((it) => KINDS.includes(it.kind))
-    .map((it) => (defaults ? { ...defaults, ...it } : it));
+    .map((it) => (defaults || kindDefaults[it.kind] ? { ...defaults, ...kindDefaults[it.kind], ...it } : it));
   out.records = items;
   stats.items = (doc.items ?? []).length;
   stats.lamps = items.filter((it) => it.kind === 'gas_lamp').length;
   stats.hydrants = items.filter((it) => it.kind === 'fire_hydrant').length;
   stats.poles = items.filter((it) => it.kind === 'utility_pole').length;
   stats.hitchingPosts = items.filter((it) => it.kind === 'hitching_post').length;
+  stats.dress = items.filter((it) => DRESS_KINDS[it.kind]).length;
   if (!items.length) return out;
 
   /* ---- the parts, each one instanced geometry per level ------------------ */
@@ -485,6 +719,8 @@ export async function createStreetFurniture({
     // Creosoted cedar, weathered; the insulators are the usual green glass.
     wood: new THREE.MeshStandardMaterial({ color: 0x5a4a3a, roughness: 0.95, metalness: 0 }),
     insulator: new THREE.MeshStandardMaterial({ color: 0x7fa596, roughness: 0.2, metalness: 0.05 }),
+    // T-3805: the dress is painted per vertex (and a crate or barrel tinted per instance).
+    dress: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85, metalness: 0.02 }),
   };
   for (const [k, m] of Object.entries(mats)) { m.name = `street-furniture-${k}`; confidence?.patch(m); }
   const parts = [
@@ -494,6 +730,12 @@ export async function createStreetFurniture({
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
     { name: 'hitching-post', geo: hitch, key: null, mat: mats.iron, lift: () => 0, on: isHitch, far: HITCH_FAR_M },
+    // T-3805: each dress kind is one painted geometry, drawn near only (DRESS_NEAR_M).
+    ...Object.keys(DRESS_KINDS).filter((k) => items.some((it) => it.kind === k)).map((k) => {
+      const g = DRESS_KINDS[k](doc.kinds?.[k]?.model_m ?? {});
+      return { name: `dress-${k}`, geo: { near: g, far: null }, key: null, mat: mats.dress, lift: (it) => it.lift_m ?? 0,
+        on: (it) => it.kind === k, nearM: FLUSH_DRESS.has(k) ? FLUSH_NEAR_M : DRESS_NEAR_M, tint: TINTED.has(k), dress: true };
+    }),
     ...Object.values(poles).flatMap(({ classes, geo }) => [
       { name: `pole-${classes.join('-')}-wood`, geo, key: 'wood', mat: mats.wood, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
       { name: `pole-${classes.join('-')}-glass`, geo, key: 'glass', mat: mats.insulator, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
@@ -527,12 +769,14 @@ export async function createStreetFurniture({
       mesh.castShadow = false;
       mesh.receiveShadow = true;
       mesh.userData = { part, level, max };
+      if (part.tint) mesh.setColorAt(0, new THREE.Color(1, 1, 1));
       group.add(mesh);
       meshes.push(mesh);
     }
   }
   for (const g of [lamp.near.iron, lamp.near.tin, lamp.near.glass, lamp.far.iron, lamp.far.tin, lamp.far.glass, footing.near, footing.far,
     hydrant.near, hydrant.far, hitch.near, hitch.far]) g.dispose();
+  for (const part of parts) if (part.dress) part.geo.near.dispose();
   for (const { geo: g } of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
 
   /* ---- the wires (T-3202): one static set of line segments, off on light -- */
@@ -549,19 +793,29 @@ export async function createStreetFurniture({
       const ma = poleModels[a.it.class] ?? {}; const mb = poleModels[b.it.class] ?? {};
       const za = pinOffsets(ma); const zb = pinOffsets(mb);
       const n = Math.min(za.length, zb.length);
-      const ya = (ma.height_m ?? 9.5) - (ma.arm_below_top_m ?? 0.4) + 0.24;
-      const yb = (mb.height_m ?? 9.5) - (mb.arm_below_top_m ?? 0.4) + 0.24;
-      // Match each wire to the pin on the same side of both arms, seen along the span.
-      const pa = za.map((z) => pinWorld(a, z, ya)); const pb = zb.map((z) => pinWorld(b, z, yb));
-      const dir = new THREE.Vector3(b.x - a.x, 0, b.z - a.z).normalize();
-      const side = (v, p) => (v.x - p.x) * -dir.z + (v.z - p.z) * dir.x;
-      pa.sort((u, v) => side(u, a) - side(v, a)); pb.sort((u, v) => side(u, b) - side(v, b));
-      const span = Math.hypot(b.x - a.x, b.z - a.z);
-      for (let i = 0; i < n; i += 1) {
-        const j = Math.round((i * (pa.length - 1)) / Math.max(1, n - 1));
-        const k = Math.round((i * (pb.length - 1)) / Math.max(1, n - 1));
-        sagWire(wirePos, pa[j], pb[k], (doc.wire_model?.sag_frac ?? 0.012) * span);
+      // T-3805: a wire on every pin of the arms the two poles string (`wired_arms`, from the top).
+      const arms = Math.max(1, Math.min(ma.wired_arms ?? ma.arms ?? 1, mb.wired_arms ?? mb.arms ?? 1));
+      for (let arm = 0; arm < arms; arm += 1) {
+        const ya = (ma.height_m ?? 9.5) - (ma.arm_below_top_m ?? 0.4) - arm * (ma.arm_step_m ?? 0.6) + 0.24;
+        const yb = (mb.height_m ?? 9.5) - (mb.arm_below_top_m ?? 0.4) - arm * (mb.arm_step_m ?? 0.6) + 0.24;
+        // Match each wire to the pin on the same side of both arms, seen along the span.
+        const pa = za.map((z) => pinWorld(a, z, ya)); const pb = zb.map((z) => pinWorld(b, z, yb));
+        const dir = new THREE.Vector3(b.x - a.x, 0, b.z - a.z).normalize();
+        const side = (v, p) => (v.x - p.x) * -dir.z + (v.z - p.z) * dir.x;
+        pa.sort((u, v) => side(u, a) - side(v, a)); pb.sort((u, v) => side(u, b) - side(v, b));
+        const span = Math.hypot(b.x - a.x, b.z - a.z);
+        for (let i = 0; i < n; i += 1) {
+          const j = Math.round((i * (pa.length - 1)) / Math.max(1, n - 1));
+          const k = Math.round((i * (pb.length - 1)) / Math.max(1, n - 1));
+          sagWire(wirePos, pa[j], pb[k], (doc.wire_model?.sag_frac ?? 0.012) * span, 6);
+        }
       }
+    } else if (w.kind === 'radial') {
+      // T-3805: the fire-alarm wires from the Court House cupola to the roofs round the square.
+      const [ae, an, ay] = w.a; const [be, bn, by] = w.b;
+      const span = Math.hypot(be - ae, bn - an);
+      sagWire(wirePos, new THREE.Vector3(ae, ay, -an), new THREE.Vector3(be, by, -bn),
+        (doc.wire_model?.radial?.sag_frac ?? 0.02) * span, 12);
     } else if (w.kind === 'trolley_span') {
       const a = byId.get(w.from); const b = byId.get(w.to);
       if (!a || !b) continue;
@@ -605,10 +859,10 @@ export async function createStreetFurniture({
   /* ---- the deal: which lamps each level draws, from where the eye is ----- */
   let tier = RINGS[detail] ? detail : 'full';
   const last = new THREE.Vector3(Infinity, 0, 0);
-  const m4 = new THREE.Matrix4(); const pos = new THREE.Vector3(); const one = new THREE.Vector3(1, 1, 1);
+  const m4 = new THREE.Matrix4(); const pos = new THREE.Vector3(); const one = new THREE.Vector3(1, 1, 1); const tint = new THREE.Color();
   const deal = (eye) => {
     const ring = RINGS[tier];
-    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0; let poleN = 0; let hitchN = 0;
+    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0; let poleN = 0; let hitchN = 0; let dressN = 0;
     // Only what stands within the far ring can be dealt: the 1871 city lists thousands.
     const reach = ring.far;
     const within = placed.filter((p) => Math.abs(p.x - eye.x) <= reach && Math.abs(p.z - eye.z) <= reach);
@@ -620,15 +874,18 @@ export async function createStreetFurniture({
         if (!part.on(p.it)) continue;
         const d = Math.hypot(p.x - eye.x, p.z - eye.z);
         const farM = part.far ? Math.min(ring.far, part.far[tier] ?? ring.far) : ring.far;
-        const lvl = d <= ring.near ? 'near' : (d <= farM ? 'far' : null);
+        const nearM = part.nearM ? part.nearM[tier] ?? ring.near : ring.near;
+        const lvl = d <= nearM ? 'near' : (d <= farM && !part.nearM ? 'far' : null);
         if (lvl !== level) continue;
         pos.set(p.x, p.y + part.lift(p.it), p.z);
         mesh.setMatrixAt(k, m4.compose(pos, p.q, one));
+        if (part.tint) mesh.setColorAt(k, tintOf(p.it.id, tint));
         conf.array[k] = p.conf;
         k += 1;
       }
       mesh.count = k;
       mesh.instanceMatrix.needsUpdate = true;
+      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
       conf.needsUpdate = true;
       mesh.visible = k > 0;
       mesh.castShadow = level === 'near' && ring.shadow;
@@ -639,6 +896,7 @@ export async function createStreetFurniture({
         if (part.name === 'lamp-iron') { if (level === 'near') nearN = k; else farN = k; }
         if (part.name === 'hydrant') hydN += k;
         if (part.name === 'hitching-post') hitchN += k;
+        if (part.dress) dressN += k;
         if (part.name.startsWith('pole-') && part.name.endsWith('-wood')) poleN += k;
       }
     }
@@ -648,6 +906,7 @@ export async function createStreetFurniture({
       if (wires.visible) { calls += 1; }
     }
     stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.polesDrawn = poleN; stats.hitchingPostsDrawn = hitchN;
+    stats.dressDrawn = dressN;
     stats.wiresShown = !!wires?.visible; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
     last.copy(eye);
   };
@@ -681,14 +940,15 @@ export async function createStreetFurniture({
       const lift = p.it.footing ? footH : 0;
       const hyd = isHydrant(p.it) || isHitch(p.it);
       const isP = isPole(p.it);
+      const dp = DRESS_PICK[p.it.kind];
       const dx = o.x - p.x; const dz = o.z - p.z;
       const tt = -(dx * d.x + dz * d.z) / a;
       if (!(tt > 0 && tt < 200)) continue;
       const px = dx + d.x * tt; const pz = dz + d.z * tt;
       const yy = o.y + d.y * tt;
       // The column is thin; the pick takes a lantern's width so a post can be hit.
-      const r = isP ? 0.25 : (hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16));
-      const top = isP ? poleH(p.it.class) : (isHitch(p.it) ? (hitchModel.height_m ?? 1.1) : (hyd ? hydrantH : height));
+      const r = dp ? dp[0] : (isP ? 0.25 : (hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16)));
+      const top = dp ? dp[1] + (p.it.lift_m ?? 0) : (isP ? poleH(p.it.class) : (isHitch(p.it) ? (hitchModel.height_m ?? 1.1) : (hyd ? hydrantH : height)));
       if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + top
         && (!best || tt < best.distance)) {
         best = { p, distance: tt, point: new THREE.Vector3(o.x + d.x * tt, yy, o.z + d.z * tt) };
