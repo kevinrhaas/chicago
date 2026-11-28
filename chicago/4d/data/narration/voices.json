@@ -1,5 +1,5 @@
 {
-  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A narrator script (a jaunt's opening, its endings, any stop with no host) is voiced once for each narrator in `narrators`, or for the narrators a jaunt entry names ({id, narrators}: the owner, 2026-11-19, T-3696, new jaunts in the Cultivated Essayist only, the Storyteller later); visitors choose which they hear in Settings › Sound, and `essayist` is the default (owner, 2026-11-13). A stop is read by its first host, by person id, in `voices`. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and those scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration. Each script is performed from its direction in data/narration/direction/<jaunt>.json (the same words with ElevenLabs v3 audio tags and pauses; owner, 2026-11-15), so the model is eleven_v3, whose stability takes 0 (creative), 0.5 (natural) or 1 (robust). A run voices the jaunts in this list's order (the narration budget plan's) up to max_chars_per_run and what the ElevenLabs quota has left above quota_reserve; the rest waits for the next run (T-3696).",
+  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A narrator script (a jaunt's opening, its endings, any stop with no host) is voiced once for each narrator in `narrators`, or for the narrators a jaunt entry names ({id, narrators}: the owner, 2026-11-19, T-3696, new jaunts in the Cultivated Essayist only, the Storyteller later); visitors choose which they hear in Settings › Sound, and `essayist` is the default (owner, 2026-11-13). A stop is read by its first host, by person id, in `voices`. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and those scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration. Each script is performed from its direction in data/narration/direction/<jaunt>.json (the same words with ElevenLabs v3 audio tags and pauses; owner, 2026-11-15), so the model is eleven_v3, whose stability takes 0 (creative), 0.5 (natural) or 1 (robust). A run voices the jaunts in this list's order (the narration budget plan's) up to max_chars_per_run and what the ElevenLabs quota has left above quota_reserve; the rest waits for the next run (T-3696). `street` lists the scenes whose street talk is voiced (T-3812, data/narration/street/<scene>.json), each line once in `voices` `street:<voice>`, stock ElevenLabs voices by id (gentleman Brian, lady Matilda, young man Liam, young lady Sarah, manservant Bill, maid Lily, cook Alice), after every jaunt.",
   "version": 1,
   "model_id": "eleven_v3",
   "output_format": "mp3_44100_64",
@@ -50,8 +50,10 @@
     { "id": "prairie-avenue-orientation-grades-3-5", "narrators": ["essayist"] },
     { "id": "frances-glessner-lee-grades-9-10", "narrators": ["essayist"] },
     { "id": "frances-glessner-lee-grades-11-12", "narrators": ["essayist"] },
-    { "id": "frances-glessner-lee-grades-3-5", "narrators": ["essayist"] }
+    { "id": "frances-glessner-lee-grades-3-5", "narrators": ["essayist"] },
+    { "id": "the-great-fire", "narrators": ["essayist"] }
   ],
+  "street": ["1904"],
   "narrators": {
     "essayist": {
       "voice": "Narrator, Cultivated Essayist",
@@ -69,7 +71,14 @@
     "pa1904_glessner_john_j_c1900_christine_nelson": "Character - Nelson, Christine",
     "pa1904_glessner_john_j_c1900_mary_reynolds": "Character - Reynolds, Mary",
     "pa1904_glessner_john_j_c1900_charles_nelson": "Character - Nelson, Charles",
-    "pa1904_glessner_john_j_c1900_august_billings": "Character - Billings, August"
+    "pa1904_glessner_john_j_c1900_august_billings": "Character - Billings, August",
+    "street:gent": "nPczCjzI2devNBz1zQrb",
+    "street:lady": "XrExE9yKIg1WjnnlVkGX",
+    "street:young_man": "TX3LPaxmHKxFdv7VOQHJ",
+    "street:young_lady": "EXAVITQu4vr4xnSz7DtE",
+    "street:manservant": "pqHfZKP75CvOlQylNhV4",
+    "street:maid": "pFZP5JQG7iQjIQuC4Bku",
+    "street:cook": "Xb7hH8MSUJpSbSDYk0k2"
   },
   "speaker_names": {
     "glessner_john_j": "John J. Glessner",
@@ -78,6 +87,13 @@
     "pa1904_glessner_john_j_c1900_christine_nelson": "Christine Nelson (parlor maid)",
     "pa1904_glessner_john_j_c1900_mary_reynolds": "Mary Reynolds (house maid)",
     "pa1904_glessner_john_j_c1900_charles_nelson": "Charles Nelson (coachman)",
-    "pa1904_glessner_john_j_c1900_august_billings": "August Billings (stable helper)"
+    "pa1904_glessner_john_j_c1900_august_billings": "August Billings (stable helper)",
+    "street:gent": "a gentleman (street talk)",
+    "street:lady": "a lady (street talk)",
+    "street:young_man": "a young man (street talk)",
+    "street:young_lady": "a young lady (street talk)",
+    "street:manservant": "a manservant (street talk)",
+    "street:maid": "a maid (street talk)",
+    "street:cook": "a cook (street talk)"
   }
 }

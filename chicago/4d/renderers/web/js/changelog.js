@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 3308, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'A new launch page for the four years', kind: 'feature',
+    items: [
+      'The front door is now a launch page that opens on Chicago 4D itself, with no year chosen for you. Rest the mouse on 1835, 1904, 1812 or 1871 to see it fade in behind the page, then choose one and press Play.',
+      'A system check reads your computer by itself as the page opens and says in plain words how the town will run on it.',
+      'Music on the launch page can be switched on and off, and Settings for sound, appearance, scene detail and language carry into every year.',
+      'Sign in from the launch page; one sign-in opens every year.',
+      'The old machine console is still there, as the Classic console link at the foot of the page.',
+    ] },
+  { v: 3307, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Cloud play access and a waitlist, managed by email', kind: 'feature',
+    items: [
+      'The launch page has an Admin sheet for the owner: add people by the address they sign in with and give them cloud play, before they ever sign in.',
+      'Anyone without cloud play can join the cloud play waitlist from the launch page; the owner sees who is waiting, with the year they chose and what the system check said, and lets them in with one click.',
+      'The cloud button says cloud play is opening soon until the cloud machines are ready.',
+      'The system check no longer calls a computer ready when the browser is drawing without its graphics chip, and says how to turn hardware acceleration on.',
+    ] },
+  { v: 3306, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Play from the cloud', kind: 'feature',
+    items: [
+      'Players with cloud play can press Play from the cloud on the launch page: a machine with a fast graphics card opens the year they chose and streams it to their browser, so a slow computer or a phone plays at full detail.',
+      'The page says plainly how it is going while the machine starts, usually in about a minute, and why when it cannot start one.',
+      'Before the stream opens, the page says which machine they got: an NVIDIA L4 graphics card, at full detail.',
+      'A cloud session ends by itself after ten minutes with nobody connected, and after two hours in any case.',
+    ] },
+  { v: 3305, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Classes: a join code, a teacher\'s page and hand-ins', kind: 'feature',
+    items: [
+      'Teachers make a class in Guide › For teachers and give students its six-character code.',
+      'Students enter the code once in Settings › About and are in the class on every device they sign in on.',
+      'A notebook entry can be handed in to the class, handed in again after an edit, or taken back; a jaunt\'s check can be saved to the notebook as a reflection.',
+      'The teacher\'s page lists who joined, when each was last in and what each handed in, with CSV and print. No grades or scores.',
+      'Closing a class deletes it and everything handed in.',
+    ] },
+  { v: 3304, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Your notebook and finds follow you to another device', kind: 'feature',
+    items: [
+      'Your field notebook, the people you met, the places you found and your settings follow your sign-in to any device.',
+      'It works offline: this browser keeps your work, and it catches up with your account when it can.',
+      'Settings › About says where your work was last saved.',
+    ] },
   { v: 3303, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '213 and 215 East Twentieth Street, built from their photographs', kind: 'feature',
     items: [
       '215 East Twentieth Street stands back behind its front yard: three storeys of red brick, two round-headed windows and an arched door on the ground floor, and stone lintels above.',

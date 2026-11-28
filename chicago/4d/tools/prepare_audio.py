@@ -120,9 +120,10 @@ def score_jaunts(encode=True):
     folder = OUT / 'score'
     folder.mkdir(parents=True, exist_ok=True)
     # Not re-encoding: a committed row whose original and deliveries are unchanged stands
-    # as it is, so a library-only rebuild does not decode the whole score again.
+    # as it is, so a rebuild does not decode the whole score again, and a delivery already on
+    # the media host keeps its bytes (T-3811: new cues are encoded beside them).
     before = OUT / 'catalog.json'
-    kept = {a['id']: a for a in json.loads(before.read_text())['assets']} if not encode and before.exists() else {}
+    kept = {a['id']: a for a in json.loads(before.read_text())['assets']} if before.exists() else {}
     for cid, cue in spec['cues'].items():
         file = ROOT / cue['file']
         key = 'score-' + cid
@@ -172,8 +173,8 @@ def score_jaunts(encode=True):
         out.append({'id': key, 'kind': 'music', 'era': cue['era'], 'title': cue['title'], 'playlist': False,
             'score_role': cue['role'], 'loop': cue['loop'],
             'duration_s': round(len(pcm) / sr, 3), 'original': cue['file'], 'original_integrity': fingerprint(file),
-            'provenance': 'Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme\'s phrases are cut from the owner\'s fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.',
-            'rights': 'Generated on the owner\'s fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.',
+            'provenance': 'Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, ' + cue.get('selected', '2026-11-20 (T-3710)') + '. The main theme\'s phrases are cut from the owner\'s fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.',
+            'rights': 'Generated on the owner\'s fal account for use in the app, ' + cue.get('selected', '2026-11-20 (T-3710)')[:10] + '; owner authorized use and distribution in the app. No open asset licence asserted.',
             'processing': f'MP3 decoded to 48 kHz stereo; static gain {gain_db:+.2f} dB from {source_lufs:.1f} to {cue["lufs"]} LUFS integrated; {shape}; Opus {RAGTIME_OPUS} VBR, AAC-LC {RAGTIME_AAC} fallback. No compression, limiting or EQ.',
             'opus': str(opus.relative_to(OUT)), 'aac': str(aac.relative_to(OUT)),
             'delivery': {'opus': fingerprint(opus), 'aac': fingerprint(aac)}})
