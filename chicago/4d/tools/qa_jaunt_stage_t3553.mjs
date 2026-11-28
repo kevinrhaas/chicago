@@ -23,6 +23,8 @@ const SCENE = process.env.QA_SCENE || '1812', JAUNT = process.env.QA_JAUNT || 'b
 const STOPS = (process.env.QA_STOPS || '1').split(',').map(Number), TIMES = (process.env.QA_TIMES || '0,10').split(',').map(Number);
 const desktop = !!process.env.QA_DESKTOP, BOOT_MS = Number(process.env.QA_BOOT_MS) || 900000;
 const VIEW = process.env.QA_VIEW ? process.env.QA_VIEW.split(',').map(Number) : null;
+// QA_VIEWS="9=e,n,alt,yaw,pitch;11=...": a close view of a stop drawn as well, after its own (T-3814).
+const VIEWS = Object.fromEntries((process.env.QA_VIEWS || '').split(';').filter(Boolean).map((x) => { const [k, v] = x.split('='); return [Number(k), v.split(',').map(Number)]; }));
 const SURVEY = process.env.QA_SURVEY ? process.env.QA_SURVEY.split(';').map((v) => v.split(',').map(Number)) : null;
 const HOUR = process.env.QA_HOUR || null;
 // QA_BEFORE=1: each stop as it was before its stage (the stage taken away), for a before/after pair.
@@ -139,16 +141,29 @@ try {
           const tt = a.townTransport;
           const transport = tt ? { group: tt.group.visible, inScene: !!tt.group.parent, roots: tt.roots.length,
             actors: tt.actors.map((x) => ({ id: x.id, mode: x.mode, visible: x.visible, at: x.at.map((v) => +v.toFixed(1)), height: +(x.pose?.height ?? NaN).toFixed(2), err: x.stageError ?? null })) } : null;
-          return { ...(st?.snapshot() ?? {}), twice, posed, transport, eye: { e: a.walker.state.e, n: a.walker.state.n, yaw: a.walker.state.yaw } };
+          // T-3814: what the carriers carry, which way they face and which way their things lie.
+          const carried = (st?.cast ?? []).map((x, i) => ({ x, c: st.snapshot().cast[i] })).filter(({ c }) => c?.carry).slice(0, 10)
+            .map(({ x, c }) => ({ who: c.extra ?? c.person, carry: c.carry, carried: c.carried, held: c.held, heading: c.heading, root_yaw_deg: +((x.root.rotation.y * 180) / Math.PI).toFixed(1) }));
+          return { ...(st?.snapshot() ?? {}), twice, posed, transport, carried, eye: { e: a.walker.state.e, n: a.walker.state.n, yaw: a.walker.state.yaw } };
         });
         snap.pss_mb = pssMb();
         snap.heap_mb = await page.evaluate(() => Math.round((performance.memory?.usedJSHeapSize ?? 0) / 1048576));
         console.log(JSON.stringify(snap.posed?.slice(0, 4)));
+        if (snap.carried?.length) console.log(`  carried: ${JSON.stringify(snap.carried)}`);
         console.log(`  ${stopId} t=${t} (clock ${snap.clock}): ${snap.cast?.length ?? 0} cast, ${snap.cast?.filter((c) => c.drawn).length ?? 0} drawn, pss ${snap.pss_mb} MB, heap ${snap.heap_mb} MB`);
         if (snap.teams?.length) console.log(`  teams: ${JSON.stringify(snap.teams)}\n  transport: ${JSON.stringify(snap.transport)}`);
         if (snap.twice?.length) fail.push(`${stopId} t=${t}: drawn twice: ${snap.twice.join(', ')}`);
         row.times.push({ t, ...snap });
         await draw(`${JAUNT}-${String(want).padStart(2, '0')}-${stopId}-t${String(t).padStart(3, '0')}`, VIEW);
+        if (VIEWS[want]) {
+          const back = await page.evaluate(() => { const k = window.__chicago4d.walker, w = k.state; return [w.e, w.n, 0, k.bearingDeg, ((w.pitch ?? 0) * 180) / Math.PI]; });
+          // Up close the figures change to their nearer bodies: let those load before drawing.
+          await page.evaluate((v) => { const a = window.__chicago4d; a.setFly?.(false); a.walker.teleport({ local_e: v[0], local_n: v[1], yaw_deg: v[3], pitch_deg: v[4] }); }, VIEWS[want]);
+          await page.waitForFunction(() => { const st = window.__chicago4d.jauntStage; st?.byHand(0); return !st || st.cast.every((a) => (a.body && a.root.visible) || !a.root.parent || a.indoors || (a.distance ?? 0) > 60); }, null, { timeout: 300000, polling: 2000 }).catch(() => console.log('  close view: not every body loaded'));
+          await settle(1500);
+          await draw(`${JAUNT}-${String(want).padStart(2, '0')}-${stopId}-t${String(t).padStart(3, '0')}-close`, VIEWS[want]);
+          await page.evaluate((v) => { const a = window.__chicago4d; a.setFly?.(false); a.walker.teleport({ local_e: v[0], local_n: v[1], yaw_deg: v[3], pitch_deg: v[4] }); }, back);
+        }
       }
       report.stops.push(row);
     }

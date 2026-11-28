@@ -117,10 +117,10 @@ export const GOODS = Object.freeze({
     gp(g, 'box', 'twine', [0.13, 0.43, 0.012], [0, -0.24, 0]);
   } },
   bolt: { mode: 'shoulder', hold: SHOULDER_R, make(g) {
-    gp(g, 'box', 'cloth1', [0.34, 0.16, 1.05], [0, 0.1, -0.2], [0.18, 0, 0]);
+    gp(g, 'box', 'cloth1', [0.34, 0.16, 1.05], [0, 0.05, -0.2], [0.18, 0, 0]);
   } },
   bolt_blue: { mode: 'shoulder', hold: SHOULDER_R, make(g) {
-    gp(g, 'box', 'cloth2', [0.34, 0.16, 1.05], [0, 0.1, -0.2], [0.18, 0, 0]);
+    gp(g, 'box', 'cloth2', [0.34, 0.16, 1.05], [0, 0.05, -0.2], [0.18, 0, 0]);
   } },
   featherbed: { mode: 'back', hold: null, make(g) {
     gp(g, 'cyl', 'ticking', [0.42, 0.95, 0.42], [0, 0.12, -0.22], [0, 0, Math.PI / 2]);

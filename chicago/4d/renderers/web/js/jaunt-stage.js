@@ -562,7 +562,12 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     // Lying, a figure is tipped about its feet with its head to its heading: the feet go behind.
     a.path = null; a.heading = k.heading; a.e = k.e - Math.sin(h) * BODY_HALF_M; a.n = k.n - Math.cos(h) * BODY_HALF_M;
     a.standY = ground + k.y; a.place?.();
-    if (k.prop) { k.prop.position.set(k.e, ground + k.y - 0.02, -k.n); k.prop.rotation.set(0, Math.PI - h, 0); }
+    if (k.prop) {
+      // T-3814: the bier or mattress only once the one on it is drawn (never an empty mattress
+      // going along the street while the figures load).
+      k.prop.visible = !!a.body && !a.indoors && humans?.shown !== false;
+      k.prop.position.set(k.e, ground + k.y - 0.02, -k.n); k.prop.rotation.set(0, Math.PI - h, 0);
+    }
   }
   function boatFrame(m) {
     const a = m.actor, h = m.boat;

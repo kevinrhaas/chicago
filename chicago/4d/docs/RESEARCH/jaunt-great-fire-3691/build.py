@@ -112,7 +112,9 @@ def landmarks():
             f = ROOT / f'data/sidecars/1871/{sid}.json'
             if not f.exists(): continue
             sc = json.loads(f.read_text())
-            if (sc.get('form', {}).get('kind') or {}).get('value') == 'open_ground': continue
+            # Open ground (Washington Square, the old cemetery, the sands) is what the crowd stands on.
+            form = json.loads((ROOT / f'data/structures/{sid}.json').read_text())['phases'][-1].get('form') or {}
+            if (form.get('kind') or {}).get('value') == 'open_ground': continue
             pl, poly = sc.get('placement') or {}, (sc.get('footprint') or {}).get('polygon') or []
             th = math.radians(pl.get('rotation_deg', 0)); c, sn = math.cos(th), math.sin(th)
             _LANDMARKS.append([(pl.get('local_e', 0) + u * c + v * sn, pl.get('local_n', 0) - u * sn + v * c) for u, v in poly])
@@ -145,6 +147,21 @@ def clearance(p):
         de, dn = p[0] - b['e'], p[1] - b['n']
         u, v = de * math.cos(th) - dn * math.sin(th), de * math.sin(th) + dn * math.cos(th)
         best = min(best, math.hypot(max(0, abs(u) - b['width_m'] / 2), max(0, abs(v) - b['depth_m'] / 2)))
+    return best
+
+
+def _clear_of_cast(p, cast):
+    """T-3814: metres from p to the nearest castmate's mark or the lines they walk."""
+    best = 1e9
+    for c in cast:
+        cur = c['at']
+        best = min(best, math.hypot(p[0] - cur[0], p[1] - cur[1]))
+        for b in c.get('beats', []):
+            for q in b.get('walk', []):
+                dx, dy = q[0] - cur[0], q[1] - cur[1]
+                t = max(0, min(1, ((p[0] - cur[0]) * dx + (p[1] - cur[1]) * dy) / ((dx * dx + dy * dy) or 1)))
+                best = min(best, math.hypot(p[0] - cur[0] - t * dx, p[1] - cur[1] - t * dy))
+                cur = q
     return best
 
 
@@ -385,7 +402,7 @@ STOPS = [
          caption="Wagons wait at the kerb while men carry bolts of cloth out of the store; shoppers' carriages and porters hurry the goods away up State Street.",
          cast=lambda: crowd('fire_field_leiter', [(7, -8, 'm'), (9, 6, 'w'), (5, 10, 'm')],
                             [(40, -6, -6, -24, 1, 'hurry', 'm', 'bolt'), (42, 4, -8, 20, 2, 'hurry', 'm', 'bolt_blue'), (38, 0, -10, -4, 5, 'brisk', 'w', 'shawl_bundle'), (44, 8, -6, 26, 8, 'hurry', 'm', 'bolt')], 9)
-         + loaders('fire_field_leiter', [846.3, -371.0], [841.4, -371.6], ['bolt', 'bolt_blue', 'bolt', 'bolt_blue'], seed=2),
+         + loaders('fire_field_leiter', [844.7, -371.0], [841.4, -371.6], ['bolt', 'bolt_blue', 'bolt', 'bolt_blue'], seed=2),
          teams=lambda: [{'team': 'express_wagon_state_madison_1871', 'at': [839.4, -371.2], 'heading': 0.0, 'load': 'load_dry_goods',
                          'beats': [{'t': 34, 'walk': [[839.4, -350.0], [839.6, -330.0]], 'pace': 'brisk'}]}]),
     dict(id='ogden-house', anchor='fire_ogden_house', date='1871-10-09', hour='12:00', hour_evidence=['ogden-hour'], since='Four hours later',
@@ -415,12 +432,13 @@ STOPS = [
          caption="Families sit among the old graves with their bundles and chairs, looking south at the glow; others are still coming in from the burning streets.",
          cast=lambda: crowd('fire_old_cemetery', [(8, -8, 'w'), (10, -3, 'm'), (7, 3, 'c'), (9, 8, 'w'), (12, 12, 'm'), (6, -12, 'm')],
                             [(60, -8, 6, -6, 1, 'slow', 'w', 'shawl_bundle'), (64, 6, 8, 10, 3, 'slow', 'm', 'featherbed'), (62, -2, 7, 2, 6, 'slow', 'm', 'trunk', 'd')], 11),
-         props=lambda: [{'kind': 'bundle', 'at': mark('fire_old_cemetery', 18.4, -3.2), 'heading': 0.0},
-                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 17.2, 3.4), 'heading': 200.0},
-                        {'kind': 'trunk', 'at': mark('fire_old_cemetery', 15.6, 4.6), 'heading': 120.0},
-                        {'kind': 'shawl_bundle', 'at': mark('fire_old_cemetery', 16.2, -4.8), 'heading': 0.0},
-                        {'kind': 'featherbed', 'at': mark('fire_old_cemetery', 19.6, 1.2), 'heading': 80.0},
-                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 20.8, -1.4), 'heading': 160.0}]),
+         # The goods set down between the stand and the watchers, clear of the lines the others walk.
+         props=lambda: [{'kind': 'bundle', 'at': mark('fire_old_cemetery', 9.4, -4.6), 'heading': 0.0},
+                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 10.2, 5.6), 'heading': 200.0},
+                        {'kind': 'trunk', 'at': mark('fire_old_cemetery', 8.6, 6.8), 'heading': 120.0},
+                        {'kind': 'shawl_bundle', 'at': mark('fire_old_cemetery', 11.2, -6.0), 'heading': 0.0},
+                        {'kind': 'featherbed', 'at': mark('fire_old_cemetery', 12.4, 6.4), 'heading': 80.0},
+                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 12.6, -4.4), 'heading': 160.0}]),
 ]
 
 LEGS = [
@@ -518,7 +536,12 @@ def build():
         if 'since' in s: stop['since'] = s['since']
         stop['stage'] = {'caption': s['caption'], 'liberty': C.LIBERTY, 'cast': s['cast']()}
         if 'teams' in s: stop['stage']['teams'] = s['teams']()
-        if 'props' in s: stop['stage']['props'] = s['props']()
+        if 'props' in s:
+            stop['stage']['props'] = s['props']()
+            # T-3814: nothing is set down where someone stands or walks.
+            for pr in stop['stage']['props']:
+                gap = _clear_of_cast(pr['at'], stop['stage']['cast'])
+                assert gap >= 1.2, (s['id'], pr['kind'], round(gap, 2))
         stops.append(stop)
     legs = []
     for leg in LEGS:
