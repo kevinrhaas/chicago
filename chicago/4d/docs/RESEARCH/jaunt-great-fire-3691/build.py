@@ -640,6 +640,16 @@ def main(check=False):
     if misses:
         raise SystemExit('direction refused:\n  ' + '\n  '.join(misses))
     dpath = ROOT / f'data/narration/direction/{ID}.json'
+    # The narration work tunes this file by hand (T-3696 smooth style, T-3809 the voiced reading):
+    # a script whose words still match the panel's is kept as tuned, and so are its other keys
+    # ('style'); only a part whose words changed is written afresh.
+    if dpath.exists():
+        tuned = json.loads(dpath.read_text())
+        for key, script in (tuned.get('scripts') or {}).items():
+            if key in perf['scripts'] and words(script) == words(perf['scripts'][key]):
+                perf['scripts'][key] = script
+        order = list(tuned) + [k for k in perf if k not in tuned]
+        perf = {k: (perf[k] if k in perf else tuned[k]) for k in order}
     dbody = json.dumps(perf, indent=2, ensure_ascii=False) + '\n'
     sbody = json.dumps(scene_with_anchors(), indent=2, ensure_ascii=False) + '\n'
     outs = [(path, body), (dpath, dbody), (SCENE_PATH, sbody)]
