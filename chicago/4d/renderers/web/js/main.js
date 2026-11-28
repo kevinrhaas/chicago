@@ -4620,6 +4620,20 @@ async function boot() {
       assetIds: [...new Set([...(inside?.people ?? []).map((x) => x.asset_id),
         ...(api.humans.records ?? []).map((r) => r.appearance?.asset_id)].filter(Boolean))] });
     scene3d.add(api.crowd.group);
+    // T-3812 (the owner, 2026-11-27: "street talk"): people near the visitor say short things
+    // aloud now and then, and answer a greeting, in the stock voice for their kind (street-talk.js).
+    if (daysScene === '1904') {
+      void import('./street-talk.js').then(({ createStreetTalk }) => {
+        api.streetTalk = createStreetTalk({ scene: daysScene, base: new URL('street/', resolveBases().dataBase),
+          humans: api.humans, hour: sunHour, season: () => api.humans?.season ?? null,
+          visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+          speech: () => api.sound?.speech ?? null,
+          // Nobody speaks over a jaunt's voice, nor while a story or question card is open.
+          busy: () => !!api.narration?.voice?.() || !!api.tales?.card?.open || !!api.tales?.askCard?.open,
+          host: (id) => !!api.jauntHosts?.active?.includes?.(id),
+          onCaption: ({ actor, text }) => hud.say(`${actor?.person?.name ?? 'Someone'}: “${text}”`, 4200) });
+      }).catch(() => { api.streetTalk = null; });
+    }
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
     if (daysScene === '1812') {
@@ -7380,6 +7394,10 @@ async function boot() {
   interactions.extend?.((thing, actions) => withStory(thing, actions,
     (who) => { api.loadTales().then((teller) => teller.tell(who), () => hud.say('Stories could not be loaded just now')); },
     (who) => { api.loadTales().then((teller) => teller.ask(who), () => hud.say('Questions could not be loaded just now')); }));
+  // T-3812: someone greeted answers aloud, where their scene has street talk (1904). After the
+  // story's extension, so Tell me a story's own wave (Greet's first beat) stays silent.
+  interactions.extend?.((thing, actions) => (thing?.kind !== 'person' || !Array.isArray(actions) ? actions : actions.map((a) => (a.id !== 'greet' ? a : {
+    ...a, steps: (a.steps ?? []).map((st, i) => (i ? st : { ...st, run(t) { st.run?.(t); if (t === 0) api.streetTalk?.greet(thing.personId ?? thing.actor?.personId); } })) }))));
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -8301,6 +8319,8 @@ async function boot() {
     api.jauntHosts?.update(frameDt);
     // T-3553: the host whose voice is reading their stop aloud moves their mouth with it.
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
+    // T-3812: and now and then someone near the visitor says something aloud.
+    api.streetTalk?.update(frameDt);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
     // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).

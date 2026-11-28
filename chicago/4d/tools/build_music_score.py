@@ -58,7 +58,7 @@ cue("theme-mystery", "core", "statement", ["mystery"], "Theme suite; mysteries a
   sec("Unanswered", 15, "the motif once more, ending on an unresolved chord")]))
 # Jaunt openings and closings: only the bed is generated. The fixed Portage recording's first
 # phrase is spliced on the front of an opening and its cadence on the end of a closing.
-for era in ("1812", "1904"):
+for era in ("1812", "1835", "1871", "1904"):
     cue(f"jaunt-opening-{era}", "jaunt", "bed", ["portage"], f"Every {era} jaunt opening, after the fixed fanfare phrase", bed("Opening", era, "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"), None, era)
     cue(f"jaunt-closing-{era}", "jaunt", "bed", ["portage"], f"Every {era} jaunt closing scene, before the fixed fanfare cadence", bed("Closing", era, "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"), None, era)
 cue("bed-1812-fort", "jaunt", "bed", ["fort", "waters"], "Fort Dearborn, Building by Building", bed("Fort day", "1812", "a guided walk around the fort by day: a soft distant fife figure now and then, a rolling harp current beneath, warm low strings"), ["first-fort-dearborn-tour"], "1812")
@@ -78,6 +78,34 @@ for id, use, jaunts, txt in [
   ("bed-1904-scandal", "The Scandal at 1612 Prairie; The Sisters of the Levee", ["scandal-at-1612", "sisters-of-the-levee"], "scandalous true stories: a sly slow ragtime piano, soft, pizzicato strings, a muted trumpet sigh in pauses")]:
     themes = {"bed-1904-ghosts": ["mystery"], "bed-1904-bronze": ["remembrance", "first-people"], "bed-1904-scandal": ["mystery", "gilded-age"]}.get(id, ["gilded-age", "portage"])
     cue(id, "jaunt", "bed", themes, use, bed(id.split("-")[-1].title(), "1904", txt), jaunts, "1904")
+# T-3811 (owner, 2026-11-27: "every jaunt should have music ... let me know if you need anything
+# to fill in"): 1835 and 1871 get beds of their own (they borrowed the 1812 and 1904 cues).
+J35 = {"town": ["a-decent-coat", "bed-for-the-night", "calling-on-neighbors", "gossip-or-notice", "household-provisions",
+         "inspect-a-lot", "letter-home", "new-in-chicago", "news-before-breakfast", "notable-women-1835", "outfit-for-the-west",
+         "schoolday-errand", "shopping-south-water", "soap-and-candles", "sunday-circuit", "an-evening-stroll", "from-prairie-to-town",
+         "fort-dearborn-errand"],
+       "river": ["a-parcel-across-the-river", "across-wolf-point", "along-the-harbor", "freight-for-the-store", "over-the-draw",
+         "work-on-waterfront"],
+       "trades": ["apprentice-at-the-democrat", "boots-and-leather", "materials-for-a-roof", "mend-the-harness", "taverns-of-chicago"]}
+for key, use, txt in [
+  ("town", "1835 errands, people and town walks", "a boom town of new frame stores and muddy streets on a bright day: a light fiddle and hammered dulcimer figure, soft reed organ chords, hopeful and busy but quiet"),
+  ("river", "1835 river, harbor and bridge jaunts", "the working river and harbor: a rolling six-eight harp and low string current, a distant keyed bugle call now and then, schooners and the open lake"),
+  ("trades", "1835 trades and workshops", "honest work in small shops: a steady plucked fiddle and dulcimer pattern like a tool in rhythm, warm low strings, homely and unhurried")]:
+    cue(f"bed-1835-{key}", "jaunt", "bed", ["waters", "portage"] if key == "river" else ["portage"], use, bed(key.title(), "1835", txt), J35[key], "1835")
+for id, use, jaunts, txt in [
+  ("bed-1871-city", "The Last Sunday; A Message for the Opera House", ["the-last-sunday", "a-message-for-the-opera-house"],
+   "the proud wooden city on a warm, dry Sunday afternoon in October: a gentle saxhorn band chorale far off, parlor piano, soft strings, a church bell now and then, a faint unease in the low strings"),
+  ("bed-1871-inquiry", "Who Started the Fire?", ["who-started-the-fire"],
+   "weighing the evidence of who started the fire: pizzicato low strings, a curious clarinet, soft muted brass, the mystery left open"),
+  ("fire-1-rising", "The Great Fire: the barn to the river", ["the-great-fire"],
+   "night, a fire spreading on a gale through a wooden city: a low string pedal with a slowly quickening pulse, a distant fire bell, tension that grows but stays under the voice"),
+  ("fire-2-inferno", "The Great Fire: the business district and the North Side burning", ["the-great-fire"],
+   "the whole city on fire: driving low string ostinato, low timpani kept beneath the voice, a minor saxhorn chorale, grief and awe, tragic, never exciting"),
+  ("fire-3-ruins", "The Great Fire: the last refuges and the rain", ["the-great-fire"],
+   "exhausted people in the ruins and then rain: a slow solo cello, soft strings, distant church bell, the first hope at the very end")]:
+    kind = "fire" if id.startswith("fire-") else "jaunt"
+    themes = ["mystery"] if id.endswith("inquiry") else ["remembrance", "portage"] if id.startswith("fire-") else ["portage"]
+    cue(id, kind, "bed", themes, use, bed(id.split("-")[-1].title(), "1871", txt), jaunts, "1871")
 out = {"version": 1,
  "about": "T-3710 (owner, 2026-11-20): the generated part of the Chicago 4D score, as ElevenLabs Music composition plans through fal (the owner picked ElevenLabs over MiniMax v2.5 and Stable Audio). The main theme is a FIXED recording the owner chose (THEME-FINAL-portage-main-title.mp3); the title, ident, stings and overtures are cut from or built around it, never regenerated. Themes and rules: the Chicago 4D Score doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). Nothing here is played by the app yet. Built by a script; re-run it rather than hand-editing.",
  "models": {"elevenlabs": {"endpoint": "fal-ai/elevenlabs/music", "price": {"usd": 0.6, "per": "minute", "rounded_up": True}, "duration_param": "music_length_ms", "duration_scale": 1000, "duration_range": [3, 600], "output": "audio", "plans": True, "extra": {"force_instrumental": True}}},

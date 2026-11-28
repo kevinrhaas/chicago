@@ -1,0 +1,7 @@
+{
+  "about": "T-3811: what .github/workflows/chicago-4d-music.yml makes (cues, one take each, at most max_usd at fal's list price) and hosts (deliveries under renderers/web/audio/). A push that changes this file runs it; clear cues after a run.",
+  "request": "T-3811: the 13 cues are made and hosted (2026-11-27); nothing requested now",
+  "cues": "",
+  "max_usd": 0,
+  "host": []
+}
