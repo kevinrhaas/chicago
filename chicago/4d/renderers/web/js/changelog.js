@@ -1,4 +1,63 @@
 export const CHANGELOG = [ // newest first
+  { v: 3323, ts: '2026-11-28T10:43:27.988Z', date: 'Nov 28, 2026, 4:43 AM CT', title: 'Natural trees through the seasons', kind: 'improvement',
+    items: [
+      'Trees have rounded foliage, warmer backlit leaves and finer close twigs in Full.',
+      'Plants follow spring, summer, fall and winter across every scene, with evergreen colour and bare winter branches.',
+      '1871’s remaining solid crowns become branching trees, keeping their recorded places, sizes and cards.',
+    ] },
+  { v: 3322, ts: '2026-11-28T06:54:39.541Z', date: 'Nov 28, 2026, 12:54 AM CT', title: '1871 streets get fire-alarm boxes, hydrants and goods outside', kind: 'feature',
+    items: [
+      'Red fire-alarm boxes stand at the stations Edwards\' 1871 directory lists; hydrants at the Board of Public Works\' corners.',
+      'Wholesale walks carry cases, crates and barrels, with coal-hole plates and cellar doors.',
+      'Lake Street\'s tall telegraph poles, and alarm wires from the Court House cupola.',
+    ] },
+  { v: 3321, ts: '2026-11-28T06:54:39.541Z', date: 'Nov 28, 2026, 12:54 AM CT', title: 'Fort Dearborn\'s soldiers carry out the goods, kegs and muskets', kind: 'feature',
+    items: [
+      'At the factory, soldiers pile blankets and cloth on the grass, and the gathering carries them away.',
+      'On the night of the 13th, muskets and kegs go out the sally port, down the well.',
+      'The rest of the kegs go down the covered way to the river, staved in.',
+    ] },
+  { v: 3320, ts: '2026-11-28T06:32:08.694Z', date: 'Nov 28, 2026, 12:32 AM CT', title: 'Look around in cloud play by dragging', kind: 'fix',
+    items: [
+      'In cloud play, hold the left mouse button and move to look around. On a phone, drag as usual.',
+      'A click that does not drag still opens what you clicked.',
+    ] },
+  { v: 3319, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Great Fire streets fill with people carrying what they saved', kind: 'feature',
+    items: [
+      'At the Great Fire stops people now carry bundles on their shoulders, bird cages, papers and bolts of cloth, and drag trunks on cords, as the accounts describe.',
+      'A sick woman is carried out on her mattress by two men near St. Paul\'s.',
+      'At Field, Leiter & Co. men load an express wagon at the door, and it drives off north.',
+      'Chairs, trunks and bundles lie where families set them down at the Ogden house and the old cemetery.',
+      'Every carrier is an unnamed, reconstructed figure; the sources and pages are listed with the jaunt.',
+    ] },
+  { v: 3318, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: '1871 shop signs name real firms from the 1871 directory', kind: 'feature',
+    items: [
+      'Shops round the 1871 stops carry over 700 firms from Edwards\' 1871 directory, at their old street numbers.',
+      'Signs take period forms: fascia boards, hanging signs, gilt window lettering, awning valances.',
+      'Click a shop to see its firm, trade and directory listing.',
+    ] },
+  { v: 3317, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Great Fire flames sit on the Court House', kind: 'fix',
+    items: [
+      'The Court House\'s flames burn on its own roofs and windows, wing by wing, not in the air above it.',
+      'Every named building in the fire burns on itself; a tower burns only on its tower.',
+    ] },
+  { v: 3316, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Working clothes that look like the photographs, and more to wear', kind: 'improvement',
+    items: [
+      'The 1904 working man\'s clothes now look as he is photographed: a collarless shirt, a dark wool waistcoat and trousers, and a flat cap, in place of a pale knit-looking suit',
+      'Every townsperson in those clothes wears them, each in a colouring of their own (brown, charcoal, tweed or navy), the same near and far; coachmen keep their own hats',
+      'The watchers of the Great Fire and the men at the Eighteenth Street bronze wear a short coat and cap',
+      'Your person has more to wear in 1904: a long coat and cap, a jacket and skirt, and a work dress and apron',
+      'Each outfit comes in colours, shown drawn on your person under the outfits in the creator',
+    ] },
+  { v: 3315, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Your person gets a full-screen character creator', kind: 'feature',
+    items: [
+      'Edit your person opens a full-screen creator: your person large on a lit stage, turned by dragging or the arrows, Front, Side and Back, whole or face up close',
+      'Five categories with an icon each (Body, Face, Skin & eyes, Hair, Clothes), every choice a picture: body styles, ages, cuts, whiskers and the year\'s dress drawn as you would wear them',
+      'Complexion, eye and hair colours are swatches; the face library sits in its own category',
+      'Randomize rolls a person of the year, Undo steps back, Start again and Done',
+      'Faster drawing: your figure is kept between turns, and its picture comes back from the graphics card without holding up the frame',
+      'On a phone the person stands over the choices and the categories run across',
+    ] },
   { v: 3314, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2008 Calumet: the Hanford house checked against its 1883 drawing', kind: 'improvement',
     items: [
       'The Hanford house at 2008 Calumet Avenue has been matched against its 1883 drawing. Its south side now has the round oriel window on carved brackets, and a projecting bay with three windows on each floor that rises to a stone gable. The chimneys and side windows are where the drawing puts them, the pointed corner roof covers the whole corner block, and the stone is rough-faced, as drawn.',

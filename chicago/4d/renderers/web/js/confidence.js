@@ -358,6 +358,7 @@ export function createConfidenceView({
   colors = {},
   looks = {},
   patterns = true,
+  prepareMaterial = null,
 } = {}) {
   const sceneHex = (level) => colors[level] ?? GRADE_COLORS[level].scene;
   const look = Object.fromEntries(GRADE_NAMES.map((level) => [level, { ...GRADE_LOOK[level], ...(looks[level] || {}) }]));
@@ -407,6 +408,7 @@ export function createConfidenceView({
    * compact-streams.js COLOR_LANE_CONFIDENCE).
    */
   function patch(material, { packed = null } = {}) {
+    if (material) prepareMaterial?.(material);
     if (!material || patched.has(material)) return material;
     patched.add(material);
     patchCount += 1;

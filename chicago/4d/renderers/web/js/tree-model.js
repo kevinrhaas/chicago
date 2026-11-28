@@ -516,6 +516,9 @@ export const BARK_TILES = {
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
 const LEAF_GRID = [4, 6];
+// Scale/needle foliage starts in row four. The sixth row holds bare twig tiles;
+// both keep their own colour rather than receiving a deciduous autumn/winter tint.
+export const EVERGREEN_BELOW_V = 1 - Math.floor(LEAF_TILES.scale[0] / LEAF_GRID[0]) / LEAF_GRID[1];
 /**
  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
@@ -1558,7 +1561,9 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
       const c = a + sides + 1;
       const d = b2 + sides + 1;
       buf.tri(a, b2, c);
-      buf.tri(b2, d, c);
+      // A fine supporting shoot ends at one point: one face per side.
+      // Other branches keep both faces and their existing geometry counts.
+      if (!(b.pointTip && i === n - 2 && B.r === 0)) buf.tri(b2, d, c);
     }
   }
 }
@@ -1648,21 +1653,40 @@ function card(buf, at, dir, size, tile, colour, outward, flex, rnd, facing = nul
   const w = size * (0.85 + rnd() * 0.3);
   const h = size * (1.0 + rnd() * 0.35);
   const flip = rnd() < 0.5;
-  const base = buf.count;
   // T-3017: the quad is cut to the tile's opaque box (LEAF_CROP), in the tile's
   // own units, so every leaf stands exactly where the whole tile put it and the
   // GPU no longer shades and alpha-tests the empty margin round each spray.
   const [u0, u1, v0, v1] = LEAF_CROP[tile] ?? FULL_TILE;
   const cardN = norm(cross(side, t));
   const n = norm(add(mul(outward, 0.78), mul(cardN, 0.22 * (rnd() < 0.5 ? 1 : -1))));
-  for (const [tu, tv] of [[u0, v0], [u1, v0], [u1, v1], [u0, v1]]) {
-    const cu = flip ? 0.5 - tu : tu - 0.5;
-    const cv = tv - 0.15;
-    const p = add(at, add(mul(side, cu * w), mul(t, cv * h)));
-    buf.vert(p, n, colour, atlasUV(LEAF_GRID, tile, tu, tv), flex + tv * 0.18);
+  const quad = (root, across, width, height) => {
+    const base = buf.count;
+    for (const [tu, tv] of [[u0, v0], [u1, v0], [u1, v1], [u0, v1]]) {
+      const cu = flip ? 0.5 - tu : tu - 0.5;
+      const cv = tv - 0.15;
+      const p = add(root, add(mul(across, cu * width), mul(t, cv * height)));
+      const cornerN = norm(add(n, add(mul(across, cu * 0.36), mul(t, (tv - 0.5) * 0.28))));
+      buf.vert(p, cornerN, colour, atlasUV(LEAF_GRID, tile, tu, tv), flex + tv * 0.18);
+    }
+    buf.tri(base, base + 1, base + 2);
+    buf.tri(base, base + 2, base + 3);
+  };
+  if (!buf.sprays) { quad(at, side, w, h); return; }
+  // Full's close crown carries smaller sprays at three depths and turns.
+  // One fine round shoot carries their roots along its length, rather than
+  // duplicating a separate tube for each spray. The parent RNG
+  // stream is unchanged, so this does not move any other clump or LOD.
+  const k = 0.62;
+  const shoot = add(mul(t, h * 0.48), add(mul(side, w * 0.18), mul(cardN, w * 0.14)));
+  const tip = add(at, shoot);
+  const twig = { pts: [at, tip], rad: [Math.min(0.008, size * 0.006), 0], pointTip: true };
+  tube(buf.sprays.wood, twig, 3, buf.sprays.barkTile, buf.sprays.tint,
+    (p) => p === at ? buf.sprays.flexOf(p) : flex + 0.15 * 0.18);
+  for (const [along, turn] of [[0.12, -0.38], [0.55, 0.31], [1, -0.12]]) {
+    const root = add(at, mul(shoot, along));
+    const across = norm(add(side, mul(cardN, turn)));
+    quad(root, across, w * k, h * k);
   }
-  buf.tri(base, base + 1, base + 2);
-  buf.tri(base, base + 2, base + 3);
 }
 
 /**
@@ -1725,7 +1749,7 @@ const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.02 };
  *             crownR: number, trunkR: number }}
  */
 export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skeleton = null, leafCover = 1, leafScale = 1,
-  coarse = false } = {}) {
+  coarse = false, fullSprays = false } = {}) {
   if (spec.form === 'vine_drape') return buildVineTemplate(spec, seed, lod, { conf });
   if (spec.form === 'vine_wall') return buildWallVineTemplate(spec, seed, lod, { conf, leafCover });
   const rnd = mulberry32(seed);
@@ -1749,6 +1773,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   // ground does not move at all (T-2810).
   const stiff = spec.dead === 'log' ? 0 : spec.dead ? 0.35 : 1;
   const flexOf = (p) => clamp01((p[1] / Math.max(1, sk.H)) * 0.55 + Math.hypot(p[0], p[2]) / Math.max(1, sk.R) * 0.25) * 0.6 * stiff;
+  if (fullSprays && !coarse && lod === 'near') leaves.sprays = { wood, barkTile, tint: barkUpper, flexOf };
   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
   // the same limb, in fewer, longer segments.
   const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : lod === 'far' ? 4 : 8;
