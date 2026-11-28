@@ -113,6 +113,13 @@ go on `range_alley`, `range_yard` and `range_end`. The gate holds its walls on t
 every other piece, and two self-test cases break it (the range 5 mm off the gable; its sash at its end
 wall).
 
+A named lot may set `gable_upper: tin` (T-1938, first at 2021 Prairie): the open east gable of a brick
+building in two storeys, brick to the loft floor and above it a framed wall clad in sheet tin to the apex, in the
+gable's plane and to its thickness, for a sheet that notes the wall "Tin cl. 2nd". The brick storey's top is closed and
+the tin storey's foot lies on it; an opening goes on `gable` or `gable_upper` and never across the storey line. The
+gate closes both storeys as elevations, and two self-test cases break it (the tin storey 5 mm off the brick; the tin
+storey left out). Every other coach house builds byte-identical.
+
 **Not done, said.**
 
 - No ventilator, by the restriction: the kit has no ventilator geometry for a sourced one to switch

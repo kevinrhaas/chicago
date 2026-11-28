@@ -28,6 +28,9 @@ each variant on a specimen lot the way T-2321 will build one behind a named hous
   frame          (T-1938) the same shell in painted clapboard on a thinner wall, its rings,
                  sills and lintels in painted timber trim, for a building the sheet colours
                  yellow (`construction: frame`)
+  tin gable      (T-1938) the open gable's second storey framed and clad in sheet tin over
+                 its brick first storey, for a building whose sheet notes the wall "Tin cl.
+                 2nd" (`gable_upper: tin`)
 
 EVERY PIECE STANDS ON SOMETHING, as in K09 and K10 (whose mesh primitives this module
 reuses): an open piece leaves its open edges lying on another surface (a wall's foot on the
@@ -71,7 +74,9 @@ ROLE_MATERIAL = {"brick": "brick", "arch": "rubbed_brick", "stone": "dressed_sto
                  "ground": "ground", "backing": "house_wall",
                  # T-1938: a frame building's walls and its trim (FRAME_ROLE). Last, so that a
                  # brick building's file keeps its bytes
-                 "clapboard": "painted_clapboard", "frame_trim": "painted_trim"}
+                 "clapboard": "painted_clapboard", "frame_trim": "painted_trim",
+                 # T-1938: a gable's tin-clad upper storey (`gable_upper: tin`). Last again
+                 "tin": "tin_sheet"}
 BOARD_ROLES = ("ground", "backing")
 MATERIALS = {
     "brick": {"color": (0.52, 0.30, 0.22), "roughness": 0.92, "metallic": 0.0},
@@ -91,6 +96,9 @@ MATERIALS = {
     # frame stable is painted as the district's frame houses are; reconstructed
     "painted_clapboard": {"color": (0.78, 0.71, 0.56), "roughness": 0.78, "metallic": 0.0},
     "painted_trim": {"color": (0.91, 0.88, 0.79), "roughness": 0.7, "metallic": 0.0},
+    # T-1938: sheet tin over a framed wall, weathered to a dull grey, so it reads as metal
+    # beside the brick; the colour is reconstructed, the sheet names only the cladding
+    "tin_sheet": {"color": (0.56, 0.57, 0.55), "roughness": 0.5, "metallic": 0.35},
 }
 
 #: T-1938: what a frame building (`construction: frame`) makes of the kit's masonry roles: its
@@ -370,6 +378,20 @@ class Variant:
         tw = tp if east not in ("hip", "flat") and west == "party" else 0.0
         self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr, east=east,
                          west="hip" if east == "hip" else west, tw=tw)
+        # T-1938: a gable whose second storey is framed and tin-clad (`gable_upper: tin`): the
+        # split is the loft floor, the storey line the sheet's "2nd" names. Only the kit's own
+        # open east gable takes it, in brick, and no opening may cross the split
+        upper = v.get("gable_upper")
+        if upper is not None:
+            if upper != "tin":
+                raise ValueError(f"{v['id']}: gable_upper {upper!r} is not 'tin'")
+            if east != "gable" or construction != "brick":
+                raise ValueError(f"{v['id']}: gable_upper 'tin' is the open east gable of a brick building")
+            hs = P["storeys"]["ground_m"]
+            for op in v["openings"]:
+                if (op["wall"] == "gable" and op["head"] > hs) or (op["wall"] == "gable_upper" and op["sill"] < hs):
+                    raise ValueError(f"{v['id']}: opening {op['id']} crosses the gable's storey line at {hs} m")
+            self.dims["gable_upper"] = hs
         if east == "hip":
             self.hip_deck()
         elif east == "flat":
@@ -427,7 +449,18 @@ class Variant:
         self.wall("yard", Frame((W / 2 - tpe, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
                   [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges=yard_open)
         gable_outline = [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)]
-        if east == "gable":
+        if east == "gable" and d.get("gable_upper"):
+            # T-1938: the open gable in two storeys, brick to the loft floor and framed and
+            # tin-clad above it (2021 Prairie's, whose 1911 sheet notes the wall "Tin cl. 2nd").
+            # The brick storey's top is closed and the tin storey's foot lies on it; both are
+            # the gable's thickness, so the two faces run on in one plane
+            h = d["gable_upper"]
+            fr = Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X)
+            self.wall("gable", fr, [(t, -B), (D - t, -B), (D - t, h), (t, h)], t, open_edges={0, 1, 3})
+            self.wall("gable_upper", fr, [(t, h), (D - t, h), (D - t, E), (D, E), (D / 2, yu(D / 2)),
+                                          (0.0, E), (t, E)], t, open_edges=set(range(7)),
+                      name="gable upper wall", role="tin")
+        elif east == "gable":
             # the open gable: between the eave walls below the eave, over their tops above it
             self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X), gable_outline, t,
                       open_edges=set(range(7)))
@@ -564,10 +597,10 @@ class Variant:
         self.meta["deck"] = {"y": round(E + c, 4), "top": round(top, 4), "x": (-W / 2 + t, W / 2 - t),
                              "z": (-D + t, -t)}
 
-    def wall(self, key, frame, outline, thick, open_edges=(), name=None):
+    def wall(self, key, frame, outline, thick, open_edges=(), name=None, role="brick"):
         name = name or f"{key} wall"
         holes = [self.outline_of(op) for op in self.v["openings"] if op["wall"] == key]
-        p = self.piece(name, "brick", "open", wall=key)
+        p = self.piece(name, role, "open", wall=key)
         slab(p.mesh, outline, holes, -thick, 0.0, open_edges)
         frame.apply(p.mesh)
         self.walls[key] = {"frame": frame, "thick": thick, "piece": name, "outline": outline}

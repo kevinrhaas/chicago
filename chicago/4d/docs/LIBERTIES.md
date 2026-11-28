@@ -25587,7 +25587,7 @@ darker than its brown sandstone, which a buff brick cannot do) and laid in the f
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25662,6 +25662,10 @@ gable to the south); their draft attributes are gone.
 `house_2125_prairie_coach_house` now stands as a K12 coach house under `L-k12-2125-stable-1938`, under the same id,
 on the outline, storeys, frame and stable's X the sheet draws, in the kit's frame with an open gable at each end;
 its draft attributes are gone.
+**2021's alley building retired from this liberty by T-1938 (2026-11-28):**
+`high_house_2021_prairie_coach_house` now stands as a K12 coach house under `L-k12-2021-stable-tin-1938`, under the
+same id, on the outline, storeys, brick and window mark the sheet draws, its one-storey south end as the kit's range and
+its gable's second storey tin-clad; its draft attributes are gone.
 **Recorded:** 2026-10-11 (T-2352).
 
 ### L-k01-2115-armour-3712 — 2115 Prairie, the Kelley/Armour house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, roof and stoop off the Armour photograph, its unseen flanks and rear the kits'
@@ -47188,6 +47192,55 @@ true form. T-1938's image gate names pictures for 2013 Reid's coach house only; 
 **Covers:** `house_2125_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2125_prairie_coach_house.as_standing_1904.form.stories`, `house_2125_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1938.
 **Recorded:** 2026-11-27 (T-1938).
+
+### L-k12-2021-stable-tin-1938 — The brick stable behind 2021 Prairie, built from the K12 kit with its one-storey south end as the kit's range and its gable's second storey tin-clad, on the outline the 1911 sheet draws
+
+**Decision:** the district draft's alley building behind 2021 Prairie Avenue (T-1938) is refined in place, under its
+own id `high_house_2021_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the
+alley on its east (`alley_side: east`) and built in mirror image (`mirror`), so that its party wall is the north end and
+its open gable the south. Its one-storey south end is the kit's range (T-1932), as deep as the stable, as 1730 Prairie's
+is. The kit gained, in the same change, a gable built in two storeys (`gable_upper: tin`): brick to the loft floor, and
+above it a framed wall clad in sheet tin, in the gable's plane and to its thickness. It changes no coach house already
+built: every one re-emits to the same bytes.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel, by median darkness
+profiles carried by the sheet's fitted similarity: the alley line at column 1170.93, on which the alley wall is drawn;
+the yard wall at 1121.22, one line for both parts (9.24 m deep); the north wall at row 601.16, 0.54 m south of 2017's
+stable (598.26); the line between the parts at 659.99 (the two-storey part 10.93 m along the alley); the south wall at
+679.26 (the one-storey part 3.58 m), 0.49 m north of 2027's barn (681.89); '2' and '1'; the pink of brick; GARAGE;
+one of the key's window marks on the two-storey part's alley wall 6.38 m from its north wall; the key's fire-wall sign
+on the alley line at the junction with 2017's stable; a solid dot in each part's south-east corner; and, written along
+the line between the parts on a strip of the sheet's yellow, 'TIN CL. 2ND'. The house's one-storey rear range stands
+11.94 m west of the yard wall (column 1057.02, rows 605.1-639.7). The draft had fitted a 7.75 x 13.5 m rectangle.
+Inferred for 1904 as every reading of these sheets is.
+**The tin note, read one way of two.** The note lies along the one wall line between the two parts, so this record
+reads it as that wall's second storey framed and tin-clad over brick (the gable that rises over the range's roof),
+and builds only that wall in tin. The T-1842 census's own words ('its upper storey tin-clad') can be read as the whole
+upper storey; had the sheet meant that, it would more likely have written it across the part than along one line. A
+finer copy of the sheet settles it.
+**The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back
+(s35-2021-rear, present_as_mapped), which the district draft already made. GARAGE is the 1911 sheet's word; the use is
+backcast as a stable and coach house, as on every lot of this alley.
+**What is invented.** The party wall at the north end, where the sheet draws the fire-wall sign but 2017's record already
+leaves its own south end an open gable (so it is this building's wall, not a shared one); the tin's finish, a weathered
+dull grey, and its sheets, not modelled (flat colour, no seams); the framed wall's thickness, built at the brick gable's
+own so the face runs on in one plane; the split at the loft floor (3.6 m), the storey line the note's '2nd' names, above
+the range's flat roof (3.45 m). Every opening but the mark's place is the kit's laid out for this plan: on the alley,
+counted from the north party wall, a carriage bay 3.0 m clear under the loft hatch and hoist, the mark as a stable sash,
+and a man door, each with a loft sash; on the yard, a stable sash, a door and a stable sash, each with a loft sash, the
+door where the walk to the house's rear range meets the wall; on the range a door on the alley and a sash on the yard;
+none on the gable or on the range's south end, which faces 2027's barn across half a metre. The workyard is the kit's.
+The roof is the kit's gable at 40 degrees, the range's the kit's flat roof at 3.2 m; no dormer and no ventilator. The
+kit's storey heights and its 1.8 m basement. Flat colours.
+**Left out.** The two solid dots, read as the key's vertical steam boilers as the sheet's other dots are read in this
+project: the kit has no stack and the sheet draws none. The small figures inside the north and south walls, too coarse
+to read. **What is not.** The outline, its place on the lot, the storeys, the brick, the tin note's place and the
+window mark's place are the map's.
+**How to resolve:** a photograph of the alley behind the 2000 block of Prairie, a finer copy of sheet 35, or a building
+permit for the building, entered as a source, gives its cladding, openings, roof, use and date their true form.
+T-1938's image gate names pictures for 2013 Reid's coach house only; none for this one.
+**Covers:** `high_house_2021_prairie_coach_house.as_standing_1904.form.coach_house`, `high_house_2021_prairie_coach_house.as_standing_1904.form.stories`, `high_house_2021_prairie_coach_house.as_standing_1904.form.construction`, `high_house_2021_prairie_coach_house.function`
+**Ticket:** T-1938.
+**Recorded:** 2026-11-28 (T-1938).
 
 ### L-k01-2140-tucker-3771 — 2140 Prairie's columned porch and its stair, its dormers' crocketed gables and its tall stack's pots, off the two Chicagology photographs; the arched glass canopy left to the spired state
 

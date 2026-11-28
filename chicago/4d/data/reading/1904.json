@@ -5129,14 +5129,6 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2026-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -5701,14 +5693,6 @@
    "own": "11-13",
    "levels": {
     "8-10": "The 1911 map shows a brick building two floors high on the alley, with the word GARAGE. It was only a garage by 1911. For 1904 it is shown as the lot's stable."
-   }
-  },
-  {
-   "card": "notes:The 1911 sheet reads '2-storey brick building on the alley l…",
-   "text": "The 1911 sheet reads '2-storey brick building on the alley lettered GARAGE, its upper storey tin-clad, with a one-storey south end'. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house.",
-   "own": "14-15",
-   "levels": {
-    "8-10": "The 1911 map shows a brick building two floors high on the alley, with the word GARAGE. Its upper floor is covered in tin, and its south end has one floor. In 1911 it was a garage or barn. For 1904, its size is worked back from that map. That it was a stable for horses and carriages is our guess."
    }
   },
   {
@@ -6405,14 +6389,6 @@
    "own": "11-13",
    "levels": {
     "8-10": "The 1911 map shows a brick building two floors high on the alley, with the word GARAGE. A strip of stone runs along its east side. So it has 2 floors."
-   }
-  },
-  {
-   "card": "notes:The census reading '2-storey brick building on the alley let…",
-   "text": "The census reading '2-storey brick building on the alley lettered GARAGE, its upper storey tin-clad, with a one-storey south end': 2 storeys.",
-   "own": "14-15",
-   "levels": {
-    "8-10": "The 1911 map shows a brick building two floors high on the alley, with the word GARAGE. Its upper floor is covered in tin, and its south end has one floor. So it has 2 floors."
    }
   },
   {
@@ -16154,14 +16130,6 @@
   },
   {
    "card": "why:RECONSTRUCTED by the draft rules, family row 'service' overl…",
-   "text": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is other work's. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1698949506 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. The James L. High house. It was built for Benjamin Adams in the late 1870s, and High owned it from 1886. He added the back part in 1887. Our list says a steep main roof end, a round corner tower with a pointed roof, and an arched door. So the steep roof end faces the avenue, over two and a half floors of brick. A round tower with a pointed roof stands at the north front corner. The side wing's roof we will add later. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row 'service' overl…",
    "text": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The Robbins house (Mann, MacNeille & Lindeberg) RISING on 1 July 1904, in the one working phase census ruling r35-robbins-2126 declares: the brick shell two storeys up over its stone basement, the street wall and its returns 1.6 m into the third, openings empty, no roof, a deck at the principal floor and a pole scaffold along the street and the open side. The five-bay front and central entrance are the register's for the finished house (its 'five-bay red-brick front... fanlit central entry'), laid out as openings only. The May 1905 plate is the finished design and is not read as July 1904 evidence; a 1904 permit or a dated progress photograph replaces this phase. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2729365160 only tints the fabric inside +-6 %. Liberty “The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state”.",
    "own": "16-17",
    "levels": {
@@ -22074,14 +22042,6 @@
   },
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 0.…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 0.500, v -6.000 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.389 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 0.…",
    "text": "The rear corner of the main body's rectangle (lot frame u 0.500, v 17.750 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.593 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
@@ -25931,14 +25891,6 @@
   {
    "card": "why:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2000-b6 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "why:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
     "8-10": "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."

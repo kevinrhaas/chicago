@@ -1,12 +1,14 @@
 {
   "id": "high_house_2021_prairie_coach_house",
-  "phase": "draft_1904",
-  "name": "2021 S. Prairie Avenue — the alley building of the house at 2021 (district draft; refined by T-1938)",
+  "phase": "as_standing_1904",
+  "name": "2021 Prairie Avenue: the brick stable on the alley, its gable tin-clad over a one-storey south end, K12",
   "aka": [
-    "2021 S. Prairie Avenue"
+    "2021 S. Prairie Avenue",
+    "2021 S. Prairie Avenue, alley building",
+    "the stable behind 2021 Prairie"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/high_house_2021_prairie_coach_house__draft_1904.glb",
+  "archetype": "k12_coach_house",
+  "asset": "gltf/high_house_2021_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -21,20 +23,20 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The draft's claim, kept: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Nothing else read dates it, so the range claims the 1904 target and no more. TO is the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1469.436,
-    "local_n": -3544.196,
-    "rotation_deg": 179.389,
+    "local_e": 1470.049,
+    "local_n": -3548.632,
+    "rotation_deg": -0.611,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.500, v -6.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.389 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-    "symbolic_location": "2021 S. Prairie Avenue, parcel prairie_2021 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "position_note": "The middle of the two-storey part's alley (east) wall at grade, read off the committed sheet 35 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_35.jpg) at pixel (1170.93, 630.575): the alley line by a median darkness profile over rows 605-678 (peak at column 1170.93; the building's alley wall is drawn on it), halfway between the north wall line (row 601.16, a profile over columns 1130-1160; 2017's south wall reads row 598.26 on the same rule) and the line between the two parts (row 659.99, the same columns), each peak refined by a parabola through the three highest samples. Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_35_gcps.json): local E 1470.049, N -3548.632. The bearing is the parcel's (prairie_2021, data/street_grid/1904.json, -0.611 degrees, the draft's 179.389 less the half turn its plan frame took). The fit's own residual, 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this coarse copy, is all that is claimed. The draft had stood its fitted 7.75 x 13.5 m rectangle from a corner about 0.6 m west and 4.6 m north of this wall's middle, turned the other way.",
+    "symbolic_location": "2021 S. Prairie Avenue, rear: east side of Prairie Avenue between 20th and 21st Streets, parcel prairie_2021 (data/street_grid/1904.json); on the rear lot line, its alley wall on the alley's west line, its stable 0.54 m south of 2017's and its one-storey range 0.49 m north of 2027's barn (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -43,27 +45,27 @@
   "footprint": {
     "polygon": [
       [
-        0.0,
-        0.0
-      ],
-      [
-        7.75,
-        0.0
-      ],
-      [
-        7.75,
-        13.5
+        -9.239,
+        -9.048
       ],
       [
         0.0,
-        13.5
+        -9.048
+      ],
+      [
+        0.0,
+        5.467
+      ],
+      [
+        -9.239,
+        5.467
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "About the middle of the two-storey part's alley wall, u east (toward the alley, so the building lies at negative u) and v north. The sheet draws the building from the alley line (pixel column 1170.93) back to its west wall line (column 1121.22, a profile over rows 605-678, one line for both parts): 49.71 pixels at the sheet's 0.185854 m a pixel, 9.239 m; the two-storey part from its north wall line (row 601.16) to the line between the parts (row 659.99): 58.83 pixels, 10.934 m along the alley; the one-storey part on from there to its south wall line (row 679.26): 19.27 pixels, 3.581 m. Together a plain rectangle 14.515 m along the alley. 2017's stable stands 0.54 m north (its south wall at row 598.26) and 2027's barn 0.49 m south (its north wall at row 681.89, on the 2021/2027 lot line)."
   },
   "attributes": {
     "stories": {
@@ -72,102 +74,188 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The census reading '2-storey brick building on the alley lettered GARAGE, its upper storey tin-clad, with a one-storey south end': 2 storeys."
+      "geometry": "simplified",
+      "note": "'2' lettered in the two-storey part's north-east corner and '1' in the one-storey part's. Built as the kit's carriage room (3.6 m) under a loft whose walls rise 2.7 m more to the eave, under a 40-degree roof (3.88 m from eave to ridge over the 9.24 m span) dying into the north party wall over the open gable to the south, and the kit's one-storey range at 3.2 m under a flat roof; those heights are RECONSTRUCTED. No dormer: the sheet draws none and the kit builds none."
     },
     "construction": {
       "value": "brick",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The trace's fabric colour on the main part: brick."
+      "geometry": "simplified",
+      "note": "Both parts drawn pink, the sheet's colour for brick. Along the line between them the sheet writes 'TIN CL. 2ND' on a strip of its yellow (frame): the gable's second storey is built as a framed wall clad in sheet tin over the brick first storey (inferred from the note's place along that wall; the cladding's weathered grey is reconstructed). The small figures inside the north and south wall lines are too coarse on this copy to read as wall thicknesses; the kit builds its own 13-inch walls."
     },
-    "draft_plan": {
+    "coach_house": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "gable",
-            "rect": [
-              0.0,
-              0.0,
-              7.75,
-              13.5
-            ],
-            "from": "s35fp-2021-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
-          }
-        ],
-        "lot_v": [
-          -1.69,
-          13.69
-        ],
-        "street_u": 53.925
-      },
-      "confidence": "inferred",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
-      ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2021-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "service",
-        "seed": 1698949506,
-        "principal_floor_m": 0.0,
-        "storey_heights_m": [
-          3.4,
-          2.8,
-          2.6
-        ],
-        "roof_pitch_deg": 40,
-        "mansard_lower_m": 3.0,
-        "front_bays": 5,
-        "entrance": "south",
-        "side_spacing_m": 2.6,
-        "chimneys": 0,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2352",
-          "refined_by": [
-            "T-1938"
-          ]
+        "id": "k12.coach_house.prairie_2021",
+        "kind": "coach_house",
+        "class": "coach_house",
+        "alley_side": "east",
+        "mirror": true,
+        "width_m": 10.934,
+        "depth_m": 9.239,
+        "east_end": "gable",
+        "gable_upper": "tin",
+        "pitch_deg": 40,
+        "ventilator": false,
+        "ramp": null,
+        "stair": null,
+        "lean_to": null,
+        "wing": null,
+        "range": {
+          "length_m": 3.581,
+          "depth_m": 9.239
         },
-        "v_toward": "south"
+        "workyard": {
+          "apron_m": 2.4,
+          "to_house_m": 11.935,
+          "walk_x": -1.519
+        },
+        "confidence": "reconstructed",
+        "note": "Everything but the plan, the storeys, the brick, the tin cladding of the wall between the two parts and the window mark's place is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-2021-stable-tin-1938. The sheet gives the outline of a two-storey part 10.93 m along the alley and 9.24 m deep and, south of it on the same alley and yard lines, a one-storey part 3.58 m long and as deep; '2' and '1'; the brick; the label GARAGE across the two-storey part; along the line between the two parts the note 'TIN CL. 2ND', highlighted in the sheet's yellow (frame), which this record reads as that wall's second storey framed and clad in tin over its brick first storey; one of the key's window marks on the two-storey part's alley wall (its strokes over rows 631-640) 6.38 m from the north wall; the key's fire-wall sign on the alley line at the junction with 2017's stable, whose own record leaves its south end an open gable 0.54 m north of this building; a solid dot in each part's south-east corner (the key's vertical boiler, as this project reads the sheet's dots; not built); and small figures inside the north and south walls (too coarse on this copy to read). The alley is on the EAST, so the kit is turned to face it (alley_side east) and built in mirror image (mirror), as 2017's and 2123's are, so that its party wall stands at the north end, where the fire-wall sign is, and the open gable is the south end, the wall the tin note is written along. The one-storey part is the kit's range (T-1932), carried on south past the gable on the alley wall's line and as deep as the stable (1730 Prairie's form), under its flat roof at the kit's 3.2 m; its south end wall faces 2027's barn's party wall across 0.49 m and carries no opening. The gable is the kit's tin gable (gable_upper tin): brick from the foot to the loft floor at 3.6 m, so the range's roof dies into brick, and above that the gable's second storey framed and clad in sheet tin, weathered grey, to the apex. The census's own words read the note as the whole upper storey tin-clad; it is written along the one wall line, not across the part, so only that wall is built in tin (the liberty records both readings). On the alley wall, counted from the north party wall's inner face: a carriage bay 3.0 m clear under the loft hatch and hoist, the mark as a stable sash with a loft sash over it, and a man door with a loft sash over it toward the gable. On the yard wall, counted from the gable end: a stable sash, a door and a stable sash, each with a loft sash over it, the door where the walk to the house meets the yard wall. On the range, a door on the alley and a sash on the yard. The workyard is the kit's: a brick apron 2.4 m wide along the yard wall and a walk 11.94 m west to the east wall of the house's one-storey rear range (column 1057.02, rows 605.1-639.7). The roof is the kit's gable with the ridge along the alley at 40 degrees, as 2017's and 2027's stables of about this depth take; no dormer and no ventilator, as the sheet draws none. No ramp, stair, lean-to or wing: the sheet draws none.",
+        "openings": [
+          {
+            "id": "carriage",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 0.9,
+            "s1": 3.9,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "loft_hatch",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 1.8,
+            "s1": 3.0,
+            "sill": 3.9,
+            "head": 5.3
+          },
+          {
+            "id": "stable_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 5.55,
+            "s1": 6.55,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 5.6,
+            "s1": 6.5,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "man_door",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 8.0,
+            "s1": 8.95,
+            "sill": 0.0,
+            "head": 2.3
+          },
+          {
+            "id": "loft_sash_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 8.025,
+            "s1": 8.925,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 2.0,
+            "s1": 3.0,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 2.05,
+            "s1": 2.95,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_door",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 6.51,
+            "s1": 7.46,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_loft_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 6.535,
+            "s1": 7.435,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.9,
+            "s1": 9.9,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_3",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.95,
+            "s1": 9.85,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "range_door",
+            "wall": "range_alley",
+            "kind": "door",
+            "s0": 1.3,
+            "s1": 2.25,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "range_sash",
+            "wall": "range_yard",
+            "kind": "sash",
+            "s0": 1.29,
+            "s1": 2.29,
+            "sill": 1.3,
+            "head": 2.5
+          }
+        ]
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1698949506 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-east-2352."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2352",
-        "liberty": "L-draft-prairie-20-22-east-2352",
-        "register_row": "frontage-35-079",
-        "census_ids": [
-          "s35-2021-rear"
-        ],
-        "trace_building": "s35fp-2021-b2",
-        "seed": 1698949506,
-        "replaceable_by": [
-          "T-1938"
-        ],
-        "card": "District draft — refined by T-1938."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The building's dimensions are the footprint's (inferred, above); its openings, roof and loft are the kit's, laid out for this lot, and RECONSTRUCTED. See the value's own note for each choice and what bounds it."
     },
     "function": {
-      "value": "barn_or_carriage_shed",
-      "confidence": "inferred",
+      "value": "stable",
+      "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The 1911 sheet reads '2-storey brick building on the alley lettered GARAGE, its upper storey tin-clad, with a one-storey south end'. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+      "note": "Sheet 35 of the 1911 Sanborn draws a two-storey brick building on the alley behind 2021 with a one-storey brick part south of it, uncrossed, and letters it GARAGE. GARAGE is the 1911 sheet's word and is not read as the 1904 use (the K12 kit's restriction no_1911_use_labels; T-1837 study ruling 11; the T-1842 census row s35-2021-rear backcasts the envelope and reconstructs the use as a stable/coach house). This record builds it as the house's stable and coach house: a carriage bay, a loft with its hatch and hoist, stable sash, a one-storey range, and no motor-garage part. The use is RECONSTRUCTED; no source read names a horse, a carriage or a motor car on this lot."
     }
   },
   "residents": [],
@@ -192,8 +280,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1938 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2021-b2), the T-1842 census (s35-2021-rear) and the T-1837 register row frontage-35-079; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
+  "research_note": "T-1938 refines the district draft (T-2352) in place under the same id onto the K12 coach-house kit, the eleventh of the package's alley buildings on the east side of Prairie Avenue, 20th to 22nd Street, to leave the draft. The sheet census (census row s35-2021-rear, trace s35fp-2021-b2) carries the building into 1904; the draft rules now skip that row. Read afresh off the committed sheet 35 raster by median darkness profiles rather than taken from the draft's fitted rectangle (7.75 x 13.5 m): the sheet draws a two-storey part 9.24 m deep from the alley line and 10.93 m along it, with a one-storey part 3.58 m on south of it, the wall between them noted 'TIN CL. 2ND'. This copy of the sheet is coarse (0.186 m a pixel), so every reading here carries about a pixel. Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back, which the district draft already made. No picture of the alley behind the 2000 block is known to this project. Study: docs/RESEARCH/k12-2021-tin-gable-stable-1938/README.md.",
   "research_doc": "",
   "review_required": false,
-  "called": "2021 S. Prairie Avenue — the alley building of the house at 2021"
+  "called": "2021 Prairie Avenue: the brick stable on the alley, its gable tin-clad over a one-storey south end"
 }
