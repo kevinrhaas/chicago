@@ -1295,7 +1295,7 @@
               "maxItems": 8
             },
             "teams": {
-              "description": "T-3553: the town's horse teams (data/transport/driven/loops.json rows, by id) this stage takes from their rounds for the scene: each team's vehicle root stands `at` a mark, faces `heading`, and walks its beats (`walk`, `pace`) as a castmate does; its own driver drives it. Given back to its round when the stage ends.",
+              "description": "T-3553: the town's horse teams (data/transport/driven/loops.json rows, by id) this stage takes from their rounds for the scene: each team's vehicle root stands `at` a mark, faces `heading`, and walks its beats (`walk`, `pace`) as a castmate does (T-3815: up to a bolting gallop, 12 m/s); its own driver drives it. Given back to its round when the stage ends.",
               "type": "array",
               "items": {
                 "type": "object",
@@ -1346,7 +1346,7 @@
                             {
                               "type": "number",
                               "minimum": 0.4,
-                              "maximum": 6.0
+                              "maximum": 12.0
                             },
                             {
                               "enum": [
@@ -1381,6 +1381,25 @@
                       "load_household"
                     ],
                     "description": "T-3814: goods heaped on the team's bed (a store's dry goods; a family's household goods). Reconstructed make."
+                  },
+                  "burning": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 900
+                      }
+                    ],
+                    "description": "T-3815: the team's load is alight (the fire night: \"Loads of goods passed us, repeatedly, that were burning on the trucks\", Frear, Andreas II p. 736); a number is the stage second it catches. Drawn by the Great Fire's flames (city-fire.js)."
+                  },
+                  "loose": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 900,
+                    "description": "T-3815: a runaway: from this stage second the team has got away from its teamster on foot, who is left standing where it went and holds no lead to it (\"a runaway truck\", Frear, Andreas II p. 736)."
                   }
                 },
                 "required": [

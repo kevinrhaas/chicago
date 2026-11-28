@@ -6906,6 +6906,8 @@ async function boot() {
                 release: (id) => api.townTransport?.stageRelease?.(id) },
               // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
               horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
+              // T-3815: a team's load alight (the fire night), drawn by the Great Fire once it is up.
+              burning: { add: (fn) => fireState.engine?.alight?.(fn) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
               fight: humanFight, blood: humanBlood,
               // The burning of the fort (2026-11-16): its buildings' fire, smoke and fall, and the

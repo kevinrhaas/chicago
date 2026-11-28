@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import { createJaunts, stagedIds, crowdKept } from '../renderers/web/js/jaunts.js';
 import { createJauntStage, castAt, castFor, stageIds, stageLength, teamsFor, seatAt, POSES } from '../renderers/web/js/jaunt-stage.js';
 import { createTransportLoop, routeFor } from '../renderers/web/js/transport-loop.js';
+import { createTeamsterAssembly } from '../renderers/web/js/town-transport.js';
 
 const read = (p) => JSON.parse(fs.readFileSync(new URL(`../${p}`, import.meta.url)));
 const near = (a, b, msg) => assert.ok(Math.abs(a - b) < 1e-6, `${msg}: ${a} vs ${b}`);
@@ -744,3 +745,103 @@ console.log('PASS the fire night\'s people carry their things in hand, on the sh
   assert.ok(cw.props.some((p) => p.kind === 'well') && cw.props.some((p) => p.kind === 'keg_staved'), 'to the well and to the river, the barrels staved in');
 }
 console.log('PASS the 1812 fort\'s goods are carried out and piled, its kegs and muskets carried out by the sally port and dumped');
+// T-3815 (the owner, 2026-11-27: "a runaway horse with a wagon on fire"): one runaway, the team got
+// away from its teamster at a gallop, and loads alight going by (White, Andreas II p. 730; Frear,
+// p. 736), with everyone in the street out of the way (no one struck, in any telling).
+{
+  // The teamster lets go: the loop hands it to its assembly while staged, and takes it back when
+  // given back to its round; the teamster stands where the team got away, holding no lead.
+  const calls = [];
+  const assembly = { pose() {}, advance() {}, stop() {}, visible() {}, loose(v) { calls.push(v); } };
+  const loop = createTransportLoop({ id: 'truck', name: 'Truck', route: routeFor({ kind: 'circle', center_enu_m: [0, 0], radius_m: 18 }), assembly,
+    speed_m_s: 1.3, wheelbase_m: 2.35, track_m: 1.21, root_ahead_of_rear_axle_m: 1.175, driver_local_m: [1.3, 0, 4.4],
+    wheel_radii_m: [0.685, 0.685, 0.535, 0.535], heightAt: () => 0, steering_limit_deg: 30 });
+  loop.loose(true);
+  assert.deepEqual(calls, [], 'a team on its round is never loose');
+  loop.stage(); loop.loose(true); loop.unstage();
+  assert.deepEqual(calls, [true, false], 'staged it may get away; given back, it is its teamster\'s again');
+  const node = () => ({ rotation: { x: 0, y: 0 }, position: { set() {} } });
+  const vehicle = { getObjectByName: () => node(), add() {}, traverse() {}, position: { set() {} }, rotation: { y: 0 }, updateMatrixWorld() {} };
+  const walker = { root: {}, state: 'standing', setState(s) { this.state = s; }, update() {} };
+  let leadless = null;
+  const hitch = { root: {}, setLoose(v) { leadless = v; }, update: () => ({ valid: true }) };
+  const asm = createTeamsterAssembly({ root: { add() {}, updateMatrixWorld() {}, visible: true }, vehicle, walker, hitch,
+    horse: { root: { position: { set() {} } }, poseVehicle() {}, stop() {} }, walkerLocal_m: [1.3, 0, 4.4], horseOffset_m: [0, 0, 3.5], disposeVehicle() {} });
+  const pose = (n) => ({ e: 0, n, yaw: 0, height: 0, steering: 0, wheelRotation: [0, 0, 0, 0] });
+  asm.pose(pose(0)); const there = walker.tow();
+  asm.loose(true); asm.pose(pose(-40)); asm.advance(0.1); asm.updateVisual(0.1, {});
+  assert.deepEqual(walker.tow(), there, 'the teamster stays where his team got away from him');
+  assert.equal(walker.state, 'standing', 'not walking beside a team he has lost');
+  assert.equal(leadless, true, 'and holds no lead to it');
+  asm.loose(false);
+  assert.ok(walker.tow().n !== there.n && leadless === false, 'his again: he walks at its side, leading it');
+  const hitchSrc = fs.readFileSync(new URL('../renderers/web/js/draft-hitch.js', import.meta.url), 'utf8');
+  assert.match(hitchSrc, /if \(!loose\) \{\s*const palm/, 'the hitch draws no lead from a teamster who has lost his team');
+
+  // The stage: the team is let go at its `loose` second; a burning load is drawn alight over its bed.
+  const team = { mode: 'route', disposed: false, pose: null, places: [], lets: [],
+    stage() { this.mode = 'staged'; return true; }, unstage() { this.mode = 'route'; return true; },
+    stageTo(p) { this.places.push(p); this.pose = { e: p.e, n: p.n, height: 2 }; return true; }, loose(v) { this.lets.push(v); } };
+  const lit = new Set();
+  const humans = { shown: true, get: () => null,
+    createActor(instance) { return { instance, e: 0, n: 0, heading: 0, standY: null, root: { visible: true }, path: null,
+      setState() {}, place() {}, setIndoors() {}, setPosture() {}, turnTo() {}, walkPath() {}, actions: {}, update() {}, dispose() {} }; } };
+  const stop = { id: 'run', stage: { caption: 'x', liberty: 'L-x', cast: [{ extra: 'onlooker', dress: 'x', at: [0, 30] }], teams: [
+    { team: 'truck', at: [0, 0], heading: 270, loose: 2, burning: true, load: 'load_household', beats: [{ t: 2, walk: [[-95, 0]], pace: 9.5 }] }] } };
+  const st = createJauntStage({ humans, eye: () => ({ x: 0, y: 1.6, z: 0 }), teams: { get: () => team, load() {}, release() {} },
+    burning: { add: (fn) => { lit.add(fn); return () => lit.delete(fn); } } });
+  st.sync(stop, { arrived: true }); st.update(0.1);
+  assert.equal(team.lets.at(-1), false, 'before its second, the teamster has it');
+  assert.equal(lit.size, 1, 'the load is put alight');
+  const [fn] = lit, fire = fn();
+  assert.ok(fire.flames.length >= 3 && fire.flames.every((f) => f.y >= 2 + 0.955 + 0.6), `its flames stand over the goods on the bed (${fire.flames.map((f) => f.y.toFixed(2))})`);
+  assert.ok(fire.flames.every((f) => Math.hypot(f.x - team.pose.e, -f.z - team.pose.n) < 1.2), 'over its bed, where the bed is');
+  st.update(3);
+  assert.equal(team.lets.at(-1), true, 'from it, the team has got away');
+  assert.ok(team.places.at(-1).e < -5, 'and goes its way at its pace');
+  assert.equal(st.snapshot().teams[0].burning, true);
+  st.release();
+  assert.equal(lit.size, 0, 'the stage let go, the fire on it is put out');
+
+  // The Great Fire: one runaway at the Court House at a gallop, loads alight there and at the Sherman
+  // House, and in every telling nobody stands within reach of a moving team.
+  const rows = new Map(read('data/transport/driven/loops.json').rows.map((r) => [r.id, r]));
+  const GALLOP = 6.8, REACH = 2.0;
+  const boxGap = (p, pose, [x0, z0, x1, z1]) => {
+    const yaw = Math.PI - (pose.heading * Math.PI) / 180, de = p.e - pose.e, dn = p.n - pose.n;
+    const x = Math.cos(yaw) * de + Math.sin(yaw) * dn, z = Math.sin(yaw) * de - Math.cos(yaw) * dn;
+    return Math.hypot(Math.max(x0 - x, 0, x - x1), Math.max(z0 - z, 0, z - z1));
+  };
+  let tellings = 0;
+  for (const f of fs.readdirSync(new URL('../data/jaunts/', import.meta.url)).filter((x) => /^the-great-fire(-.*)?\.json$/.test(x))) {
+    const j = read(`data/jaunts/${f}`), stops = new Map(j.stops.map((s) => [s.id, s]));
+    const ch = stops.get('court-house').stage, sh = stops.get('sherman-house').stage;
+    const runaways = (ch.teams ?? []).filter((w) => Number.isFinite(w.loose) && (w.beats ?? []).some((b) => (Number.isFinite(b.pace) ? b.pace : 0) >= GALLOP));
+    assert.equal(runaways.length, 1, `${f}: one runaway at the Court House, at a gallop ("the only runaway I saw")`);
+    assert.ok([...(ch.teams ?? []), ...(sh.teams ?? [])].filter((w) => w.burning && w.load).length >= 2, `${f}: loads alight going by`);
+    assert.ok(stops.get('court-house').evidence.includes('runaway') && stops.get('sherman-house').evidence.includes('runaway'), `${f}: the accounts are the stops' evidence`);
+    for (const s of j.stops) {
+      const teams = s.stage?.teams ?? [];
+      if (!teams.length) continue;
+      const end = stageLength(s) + 5;
+      for (const w of teams) {
+        const box = rows.get(w.team)?.envelope_local_xz_m;
+        assert.ok(box, `${f}/${s.id}: ${w.team} is a town team`);
+        for (let t = 0; t < end; t += 0.1) {
+          const a = castAt(w, t), b = castAt(w, t + 0.2);
+          if (Math.hypot(b.e - a.e, b.n - a.n) < 0.05) continue;
+          for (const c of s.stage.cast) {
+            const p = castAt(c, t);
+            if (p.hidden) continue;
+            const g = boxGap(p, a, box);
+            assert.ok(g >= REACH - 1e-6, `${f}/${s.id}: ${c.extra ?? c.person} is in ${w.team}'s way at ${t.toFixed(1)} s (${g.toFixed(2)} m)`);
+          }
+        }
+      }
+      if (/grades-(3-5|6-8)/.test(f)) assert.ok(s.stage.cast.every((c) => !['fallen', 'lie'].includes(c.pose) || c.bier), `${f}/${s.id}: no one struck down in a student telling`);
+    }
+    tellings++;
+  }
+  assert.ok(tellings >= 4, `every telling of the Great Fire (${tellings})`);
+}
+console.log('PASS the fire night\'s one runaway gets away from its teamster at a gallop, loads go by alight, and nobody is in their way');

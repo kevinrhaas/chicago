@@ -135,8 +135,11 @@ export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null 
         if (!record) throw Error('draft hitch: this actual driver LOD has no palm-surface binding');
         return record.points_m;
       };
+      // T-3815: a teamster who has lost his team (a runaway) holds no lead to it.
+      let loose = false;
       const out = {
         root,
+        setLoose(value) { loose = !!value; },
         update() {
           if (disposed) return null;
           for (const value of instances.values()) value.segments.length = 0;
@@ -181,10 +184,12 @@ export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null 
             // simulated rein. Fitting reins to its coachman is separate work.
           } else if (row.driver_mode === 'on_foot') {
             // T-3497: a teamster on foot leads the near (left, +x) horse by a line to its bit,
-            // from his hand to the nearer ring of its noseband.
+            // from his hand to the nearer ring of its noseband (none while the team has got away).
+            if (!loose) {
             const palm = driver.root.localToWorld(new THREE.Vector3(...palms.r));
             const near = horseState[1], rings = ['left', 'right'].map(side => bandPoint(near, 'noseband', side));
             segment('unit_rein', palm, rings[0].distanceTo(palm) <= rings[1].distanceTo(palm) ? rings[0] : rings[1]);
+            }
           } else for (const h of horseState) for (const [side, key] of [['left', 'l'], ['right', 'r']]) {
             const palm = driver.root.localToWorld(new THREE.Vector3(...palms[key]));
             segment('unit_rein', palm, bandPoint(h, 'noseband', side));

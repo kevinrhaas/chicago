@@ -194,7 +194,9 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
   });
   const wheelRest = wheels.map(node => node.rotation.x), steerRest = steer.rotation.y;
   let stopped = true, disposed = false, lastPose = null, posed = false, target = null;
-  walker.tow = () => target;
+  // T-3815: a runaway: the teamster has lost his team and stands where it got away from him.
+  let loose = false, held = null;
+  walker.tow = () => (loose ? held : target);
   const place = pose => {
     const [x, , z] = walkerLocal_m, c = Math.cos(pose.yaw), s = Math.sin(pose.yaw);
     target = { e: pose.e + c * x + s * z, n: pose.n + s * x - c * z,
@@ -221,7 +223,7 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
       const held = paused || !root.visible;
       if (!held) horse.updateLod?.(viewer);
       const moving = posed && !stopped && !held;
-      const want = moving ? 'walking' : 'standing';
+      const want = moving && !loose ? 'walking' : 'standing';
       if (walker.state !== want) walker.setState(want);
       if (viewer && !held) walker.update(dt, viewer);
       // The lead follows his hand, after he has walked this frame.
@@ -238,7 +240,14 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
       if (!value && !stopped) { horse.stop(); stopped = true; }
     },
     stop() { if (!stopped) { horse.stop(); stopped = true; } },
-    snapshot() { return { horse: horse.snapshot?.() ?? null, driver: { on_foot: true, at: target }, hitch: hitch?.snapshot?.() ?? null }; },
+    /** T-3815: the team gets away from its teamster (true), or is his again (false). */
+    loose(value) {
+      const v = !!value;
+      if (disposed || v === loose) return;
+      loose = v; held = v && target ? { ...target } : null;
+      hitch?.setLoose?.(v);
+    },
+    snapshot() { return { horse: horse.snapshot?.() ?? null, driver: { on_foot: true, at: loose ? held : target, loose }, hitch: hitch?.snapshot?.() ?? null }; },
     dispose() {
       if (disposed) return;
       disposed = true; walker.tow = null;
@@ -465,6 +474,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     for (const actor of [...actors]) {
       const row = rowById.get(actor.id);
       if (!row?.streamed || actor.mode !== 'route') continue;
+      // T-3815: one a stage has asked for is built where its ghost is, often far off, and is the
+      // stage's to take on its next frame: it is not put away before then.
+      if (staging.has(actor.id)) continue;
       if (pendingApproaches.get(row.person_id)?.rowId === row.id || actor.reason === 'approach') continue;
       if (far(actor.at[0], actor.at[1]) <= range + (stream.drop_m ?? 70)) continue;
       const snap = actor.snapshot();
@@ -499,7 +511,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (load && loadGeneration === generation) return load;
       const ownGeneration = generation; loadGeneration = ownGeneration;
       load = (async () => {
-        for (const row of rows) {
+        // T-3815: a stage's teams first (the scene is waiting on them), then the town's in their order.
+        const order = staging.size ? [...rows.filter(row => staging.has(row.id)), ...rows.filter(row => !staging.has(row.id))] : rows;
+        for (const row of order) {
           if (disposed || ownGeneration !== generation) break;
           if (row.scene !== sceneId || failed.has(row.id) || actors.some(actor => actor.id === row.id)) continue;
           if (row.on_call && !summoned.has(row.id)) continue;
@@ -748,6 +762,12 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       return out.actorById(id);
     },
     stageRelease(id) { staging.delete(id); },
+    /** T-3815: where a stage's team is in being built (for the harness): asked for, building, waiting
+     *  for its spawn to clear, refused, or built. */
+    stageState(id) {
+      return { staging: staging.has(id), building: building.has(id), deferred: deferred.has(id), failed: failed.has(id),
+        built: !!out.actorById(id), loading: !!load, tier, draws: draws(tier), buildingNow: [...building.keys()] };
+    },
     /** T-3557: a scene's loaded team by its row id (the seat, the reins), or null. */
     actorById(id) { return disposed ? null : actors.find(actor => actor.id === id && !actor.disposed) ?? null; },
     driverForPerson(personId) { return actors.find(actor => actor.personId === personId) ?? null; },

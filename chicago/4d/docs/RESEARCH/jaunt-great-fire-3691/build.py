@@ -261,6 +261,146 @@ def loaders(aid, door, kerb, kinds, t0=1.0, rounds=3, seed=0):
     return cast
 
 
+# ── T-3815: a runaway and the burning loads ─────────────────────────────────────────────────
+# Horace White: "a horse came tearing down the avenue, with the wreck of a buggy at his heels ... he
+# made his way, by some means, through the crowd, and disappeared, without doing any injury that I
+# could see. This was the only runaway I saw" (Andreas II p. 730). Alexander Frear, hurrying along
+# toward the St. James Hotel: "a runaway truck"; "Loads of goods passed us, repeatedly, that were
+# burning on the trucks" (p. 736). One runaway, at the Court House stop on Washington Street, which
+# Frear went along; loads alight going by there and at the Sherman House. Nobody is struck: the
+# people in the street get out of the way (White's "by some means, through the crowd"). Which team,
+# its lane, its pace and the moment are the staging's (L-1871-great-fire-jaunt).
+
+PACE = {'walk': 1.3, 'brisk': 1.75, 'hurry': 2.2, 'slow': 0.9, 'jog': 2.6, 'run': 3.6, 'flee': 4.5, 'sprint': 5.6}
+# The farm-box team's ground (data/transport/driven/loops.json envelope_local_xz_m: x across, z ahead
+# of the vehicle root), the stage's teams all being that wagon in 1871.
+TEAM_BOX = (-1.21, -1.86, 1.75, 5.1)
+GIVE_WAY_M = 2.0     # nobody stands nearer a moving team than this
+
+
+def at_time(c, t):
+    """Where castmate (or team) `c` stands `t` s into the stage: jaunt-stage.js castAt, its ground only."""
+    e, n = c['at']
+    h = c.get('heading', 0.0)
+    for b in sorted(c.get('beats', []), key=lambda b: b['t']):
+        if b['t'] > t: break
+        if 'walk' in b:
+            sp = b.get('pace', 'walk')
+            sp = sp if isinstance(sp, (int, float)) else PACE[sp]
+            left, cur = (t - b['t']) * sp, (e, n)
+            for q in b['walk']:
+                L = math.hypot(q[0] - cur[0], q[1] - cur[1])
+                if L > 1e-9: h = hd(cur, q)
+                if left >= L: cur, left = (q[0], q[1]), left - L; continue
+                cur, left = (cur[0] + (q[0] - cur[0]) * left / L, cur[1] + (q[1] - cur[1]) * left / L), 0; break
+            e, n = cur
+        elif 'heading' in b: h = b['heading']
+    return e, n, h
+
+
+def team_gap(p, pose):
+    """Metres from p to a team's ground standing at `pose` (e, n, heading)."""
+    e, n, h = pose
+    yaw = math.pi - math.radians(h)
+    de, dn = p[0] - e, p[1] - n
+    x, z = math.cos(yaw) * de + math.sin(yaw) * dn, math.sin(yaw) * de - math.cos(yaw) * dn
+    x0, z0, x1, z1 = TEAM_BOX
+    return math.hypot(max(x0 - x, 0, x - x1), max(z0 - z, 0, z - z1))
+
+
+def stage_end(cast, teams):
+    end = 0.0
+    for c in cast + teams:
+        for b in c.get('beats', []):
+            end = max(end, b['t'])
+    return end + 60.0
+
+
+def give_way(cast, teams, target):
+    """Everyone in a team's way steps out of it, to the nearer side of its line, a moment before it
+    comes, and after it has gone by goes on as before (a watcher back to the spot and the landmark,
+    one getting away on to where they were going)."""
+    end = stage_end(cast, teams)
+    for c in cast:
+        for _ in range(4):
+            hit = None
+            t = 0.0
+            while t < end and hit is None:
+                p = at_time(c, t)
+                for w in teams:
+                    q, q2 = at_time(w, t), at_time(w, t + 0.2)
+                    if math.hypot(q2[0] - q[0], q2[1] - q[1]) > 0.05 and team_gap(p, q) < GIVE_WAY_M + 0.5:
+                        hit = (t, w); break
+                t += 0.1
+            if hit is None: break
+            t, w = hit
+            t0 = round(max(0.0, t - 1.6), 1)
+            p = at_time(c, t0)
+            e, n, h = at_time(w, t)
+            f = (math.sin(math.radians(h)), math.cos(math.radians(h)))
+            side = (p[0] - e) * f[1] - (p[1] - n) * f[0]
+            r = (f[1], -f[0]) if side >= 0 else (-f[1], f[0])
+            along = (p[0] - e) * f[0] + (p[1] - n) * f[1]
+            back_t = round(t0 + 1.6 + 4.5, 1)
+
+            def clear_for(q):
+                # Out of every team's way while it stands aside (not into the other lane), and on open ground.
+                if clearance(q) < 0.8: return False
+                tt = t0
+                while tt < back_t + 2.0:
+                    for x in teams:
+                        a, a2 = at_time(x, tt), at_time(x, tt + 0.2)
+                        if math.hypot(a2[0] - a[0], a2[1] - a[1]) > 0.05 and team_gap(q, a) < GIVE_WAY_M + 0.5: return False
+                    tt += 0.2
+                return True
+            aside = None
+            for sgn in (1, -1):
+                for off in (5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0):
+                    q = [round(e + along * f[0] + sgn * off * r[0], 2), round(n + along * f[1] + sgn * off * r[1], 2)]
+                    if clear_for(q): aside = q; break
+                if aside: break
+            assert aside, (c.get('extra'), w['team'], t)
+            beats = [b for b in c.get('beats', []) if b['t'] < t0]
+            later = [b for b in c.get('beats', []) if b['t'] >= t0]
+            beats.append({'t': t0, 'walk': [aside], 'pace': 'run', 'heading': hd(aside, [e, n])})
+            walks = [b for b in c.get('beats', []) if 'walk' in b]
+            if walks:
+                last = walks[-1]
+                rest = {'t': back_t, 'walk': [last['walk'][-1]], 'pace': last.get('pace', 'walk')}
+                if 'heading' in last: rest['heading'] = last['heading']
+            else:
+                rest = {'t': back_t, 'walk': [c['at']], 'pace': 'brisk', 'heading': hd(c['at'], target)}
+            beats.append(rest)
+            beats += [dict(b, t=max(b['t'], back_t + 0.1)) for b in later if 'walk' not in b and not ({'carry', 'show', 'hide'} & set(b))]
+            beats += [b for b in later if {'carry', 'show', 'hide'} & set(b)]
+            c['beats'] = sorted(beats, key=lambda b: b['t'])
+    for c in cast:
+        t = 0.0
+        while t < end:
+            p = at_time(c, t)
+            for w in teams:
+                q, q2 = at_time(w, t), at_time(w, t + 0.2)
+                if math.hypot(q2[0] - q[0], q2[1] - q[1]) > 0.05:
+                    assert team_gap(p, q) >= GIVE_WAY_M, (c.get('extra') or c.get('person'), w['team'], round(t, 1), round(team_gap(p, q), 2))
+            t += 0.1
+    return cast
+
+
+def runaway(team, start, end, heading, t, loose=None):
+    """A team that has got away from its teamster: off at a canter, then a bolting gallop (9.5 m/s,
+    past the gallop's band, horse-rig.js GALLOP_FULL_M_S) down the street to `end`."""
+    f = (math.sin(math.radians(heading)), math.cos(math.radians(heading)))
+    kick = [round(start[0] + 12 * f[0], 2), round(start[1] + 12 * f[1], 2)]
+    return {'team': team, 'at': start, 'heading': heading, 'loose': loose if loose is not None else t,
+            'beats': [{'t': t, 'walk': [kick], 'pace': 4.5}, {'t': round(t + 12 / 4.5 + 0.1, 1), 'walk': [end], 'pace': 9.5}]}
+
+
+def burning_load(team, start, end, heading, t, load='load_household', pace=3.2):
+    """A wagon whose load is alight, its team trotting on with it (Frear's "burning on the trucks")."""
+    return {'team': team, 'at': start, 'heading': heading, 'load': load, 'burning': True,
+            'beats': [{'t': t, 'walk': [end], 'pace': pace}]}
+
+
 # ── the stops ───────────────────────────────────────────────────────────────────────────────
 OPENING = ("JAUNT: THE GREAT CHICAGO FIRE. Sunday night, 8 October 1871, at the end of a dry summer. Since the 3rd of July only "
            "two and a half inches of rain have fallen on Chicago, and the West Side is built of wood. A strong wind is blowing "
@@ -312,7 +452,7 @@ STOPS = [
          cast=lambda: crowd('fire_parmelee_stables', [(6, -5, 'm'), (8, 4, 'm'), (5, 8, 'm')],
                             [(52, -8, -10, -18, 1, 'run', 'm'), (50, 6, -12, 14, 2, 'run', 'm'), (48, 0, -14, -2, 5, 'hurry', 'w')], 2)),
     dict(id='court-house', anchor='fire_court_house', date='1871-10-09', hour='01:30', hour_evidence=['tower'], since='Two hours later',
-         evidence=['tower', 'mason', 'prisoners'],
+         evidence=['tower', 'mason', 'prisoners', 'runaway'],
          text="Half past one on Monday morning, the Court House square, in the heart of the city. Mathias Schaffer, the watchman "
               "whose alarm sent the engines astray, is still in the tower. Since ten o'clock sparks have been falling on the roof; "
               "it has caught \"five or six times\", and he has put it out with two Babcock fire-extinguishers. In the basement the "
@@ -321,11 +461,15 @@ STOPS = [
               "truck of ready-made clothing is emptied in an instant; the men charged with murder go out in handcuffs. Now the "
               "tower is alight. Schaffer and his relief, Dennis Denene, set the great bell ringing, and run for the stairs. It "
               "weighs 10,849 pounds, and it is still ringing.",
-         caption="Released prisoners run out of the square, and men who came to save the city's records stand back across Clark Street to watch the tower.",
+         caption="Released prisoners run out of the square and men watch the tower from Clark Street; a runaway team tears along Washington Street, and a wagon goes by with its load alight.",
          cast=lambda: crowd('fire_court_house', [(10, -9, 'm'), (12, -3, 'm'), (9, 4, 'm'), (11, 9, 'w')],
-                            [(70, -10, -6, -24, 1, 'run', 'm'), (68, 8, -8, 20, 2, 'flee', 'm'), (72, 2, -10, -4, 4, 'run', 'm'), (66, -4, -12, 8, 6, 'hurry', 'w')], 3)),
+                            [(70, -10, -6, -24, 1, 'run', 'm'), (68, 8, -8, 20, 2, 'flee', 'm'), (72, 2, -10, -4, 4, 'run', 'm'), (66, -4, -12, 8, 6, 'hurry', 'w')], 3),
+         # T-3815: Frear's runaway truck along Washington Street (the north half of the roadway, west, from
+         # Dearborn toward LaSalle and on), and a load alight going the other way on the south half.
+         teams=lambda: [runaway('express_wagon_clark_dearborn_1871', [700.0, -390.5], [340.0, -390.5], 270.0, 14.0),
+                        burning_load('milk_wagon_court_house_1871', [430.0, -396.5], [720.0, -396.5], 90.0, 1.0)]),
     dict(id='sherman-house', anchor='fire_sherman_house', date='1871-10-09', hour='02:05', hour_evidence=['mason', 'sherman-hour'], since='35 minutes later',
-         evidence=['mason', 'sherman', 'sherman-hour', 'crossing'],
+         evidence=['mason', 'sherman', 'sherman-hour', 'crossing', 'runaway'],
          text="Five past two, at the corner of Clark and Randolph. Behind you the Court House bell comes \"crashing and clanging "
               "down\", and Mayor Mason, who stayed until it fell, comes out to find LaSalle Street \"like a furnace, all fire\". "
               "Across Clark Street is the Sherman House, seven stories, with more than three hundred guests. Hours ago men were "
@@ -333,10 +477,12 @@ STOPS = [
               "Suddenly, a spirit of flame came from a window in the third story on the southern face\". Only the night clerk and "
               "an assistant are left to wake every room, and five ladies are sick in bed. North of the hotel lies the main river, "
               "the last line between the fire and the North Side. The wind is already carrying it over.",
-         caption="Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel.",
+         caption="Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel. A wagon goes up Clark Street with its load alight.",
          cast=lambda: crowd('fire_sherman_house', [(6, -7, 'm'), (7, -2, 'w'), (5, 6, 'm')],
                             [(52, -6, -8, -22, 1, 'hurry', 'w', 'shawl_bundle'), (50, 4, -10, 16, 2, 'hurry', 'm', 'trunk'), (54, 0, -12, -4, 4, 'brisk', 'm', 'bundle'), (48, 8, -6, 24, 6, 'hurry', 'w', 'birdcage'),
-                             (51, -2, -9, -12, 9, 'hurry', 'm', 'trunk', 'd'), (49, 6, -7, 8, 12, 'brisk', 'w', 'basket', 'd')], 4)),
+                             (51, -2, -9, -12, 9, 'hurry', 'm', 'trunk', 'd'), (49, 6, -7, 8, 12, 'brisk', 'w', 'basket', 'd')], 4),
+         # T-3815: a load alight going north up Clark Street past the hotel (the east half of the roadway).
+         teams=lambda: [burning_load('hotel_baggage_wagon_wells_1871', [590.5, -360.0], [590.5, -150.0], 0.0, 1.0, pace=3.4)]),
     dict(id='crosbys', anchor='fire_crosbys', date='1871-10-09', hour='02:20', hour_evidence=['crosbys-hour'], since='Fifteen minutes later',
          evidence=['crosbys', 'reopening', 'crosbys-falls', 'crosbys-hour'],
          text="Twenty past two, Washington Street between Dearborn and State. From the Court House the fire has turned east, "
@@ -540,7 +686,10 @@ def build():
                 'hour': s['hour'], 'date': s['date'], 'hour_evidence': s['hour_evidence']}
         if 'since' in s: stop['since'] = s['since']
         stop['stage'] = {'caption': s['caption'], 'liberty': C.LIBERTY, 'cast': s['cast']()}
-        if 'teams' in s: stop['stage']['teams'] = s['teams']()
+        if 'teams' in s:
+            stop['stage']['teams'] = s['teams']()
+            # T-3815: nobody is in a moving team's way when it comes.
+            give_way(stop['stage']['cast'], stop['stage']['teams'], frame(s['anchor'])[1])
         if 'props' in s:
             stop['stage']['props'] = s['props']()
             # T-3814: nothing is set down where someone stands or walks.

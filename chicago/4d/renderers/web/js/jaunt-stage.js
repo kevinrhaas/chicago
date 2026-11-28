@@ -128,6 +128,8 @@ export const CORD_M = 1.3;
 /** T-3814: a team's load stands on its bed: the farm-box wagon's bed top (vehicle-local metres:
  *  the planks' top 0.955 m, the bed's middle a little behind the seat; loops.json passenger_basis). */
 export const LOAD_SEAT = Object.freeze([0, 0.955, 0]);
+/** T-3815: where a burning load's flames stand (vehicle-local metres: over the heaped goods). */
+export const BURNING_LOAD = Object.freeze([[-0.2, 1.65, 0.55], [0.2, 1.75, -0.3], [0, 1.85, 0.1]].map((p) => Object.freeze(p)));
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
 const pt = (p) => (Array.isArray(p) && p.length === 2 && p.every(Number.isFinite) ? { e: p[0], n: p[1] } : null);
@@ -228,7 +230,7 @@ export function stageLength(stop, { walkSpeed = 1.3 } = {}) {
  * tier now; `eye()` the eye (a world Vector3) each figure is updated from.
  */
 export function createJauntStage({ humans, parent = null, resolve = () => null, tier = () => 'full', eye = () => null, teams = null, fight = null, blood = null, fire = null, view = () => null,
-  doors = () => null, gates = null, boats = null, bier = null, horses = null, goods = null } = {}) {
+  doors = () => null, gates = null, boats = null, bier = null, horses = null, goods = null, burning = null } = {}) {
   let stopKey = null, stop = null, cast = [], clock = 0, playing = false;
   // T-3553: the hung doors' ways (house-doors.js passages), read once a build; the gates a stage opened.
   let ways = new Map(), shutGates = null;
@@ -414,7 +416,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       take(m, castAt(c, 0).carry);
       cast.push(m);
     });
-    wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null, load: still(c.load) }));
+    wagons = teamsFor(next).map((c) => ({ c, actor: null, heading: castAt(c, 0).heading, pose: null, load: still(c.load), out: null }));
     for (const p of Array.isArray(next.stage?.props) ? next.stage.props : []) {
       const g = pt(p?.at) ? still(p.kind) : null;
       if (!g) continue;
@@ -452,7 +454,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     fx?.clear();
     gore?.clear();
     burn?.clear();
-    for (const w of wagons) { try { w.actor?.unstage?.(); } catch { /* gone already */ } try { teams?.release?.(w.c.team); } catch { /* gone already */ } }
+    for (const w of wagons) { try { w.out?.(); } catch { /* out already */ } try { w.actor?.unstage?.(); } catch { /* gone already */ } try { teams?.release?.(w.c.team); } catch { /* gone already */ } }
     cast = []; wagons = []; stop = null; playing = false; clock = 0;
   }
 
@@ -471,6 +473,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       const d = ((s.heading - w.heading + 540) % 360) - 180, most = TURN_DEG_S * step;
       w.heading = (w.heading + (w.pose ? Math.max(-most, Math.min(most, d)) : d) + 360) % 360;
       w.actor.stageTo({ e: s.e, n: s.n, heading_deg: w.heading, dt: step });
+      // T-3815: a runaway: from its `loose` second the team has got away from its teamster.
+      if (Number.isFinite(w.c.loose)) w.actor.loose?.(clock >= w.c.loose);
       const p = w.actor.pose;
       w.pose = { e: s.e, n: s.n, heading: w.heading, height: p?.height ?? null };
     }
@@ -746,8 +750,22 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     }
   }
 
+  /** T-3815: a burning load's flames over its bed, where the bed is now (city-fire.js draws them). */
+  function lightLoad(w) {
+    if (!w.c.burning || w.out || !burning?.add) return;
+    const flames = BURNING_LOAD.map((p, i) => ({ p, w: 1.15 + 0.25 * (i % 2), h: 2.2 + 0.4 * i, seed: 13.7 * (i + 1) + w.c.team.length }));
+    const fn = () => {
+      if (!w.pose || !Number.isFinite(w.pose.height) || humans?.shown === false || clock < (Number.isFinite(w.c.burning) ? w.c.burning : 0)) return null;
+      const at = (p) => { const s = seatAt(w.pose, p); return { x: s.e, y: s.y, z: -s.n }; };
+      return { flames: flames.map((f) => ({ ...at(f.p), w: f.w, h: f.h, heat: 0.95, seed: f.seed })),
+        top: at([0, LOAD_SEAT[1] + 3.0, 0.1]), foot: at([0, 0.05, 0]) };
+    };
+    try { w.out = burning.add(fn) ?? null; } catch { w.out = null; }
+  }
+
   /** T-3814: a team's load on its bed, where the bed is now. */
   function loadFrame(w) {
+    lightLoad(w);
     const g = w.load;
     if (!g) return;
     g.visible = !!w.pose && Number.isFinite(w.pose.height) && humans?.shown !== false;
@@ -879,7 +897,7 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         ...(gore ? { blood: gore.counts } : {}),
         ...(burn?.active ? { fire: burn.snapshot() } : {}),
         teams: wagons.map((w) => ({ team: w.c.team, taken: !!w.actor, e: w.pose ? +w.pose.e.toFixed(2) : null,
-          n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null, ...(w.c.load ? { load: w.c.load, loaded: !!w.load?.visible } : {}) })) };
+          n: w.pose ? +w.pose.n.toFixed(2) : null, heading: w.pose ? +w.pose.heading.toFixed(1) : null, ...(w.c.load ? { load: w.c.load, loaded: !!w.load?.visible } : {}), ...(w.c.burning ? { burning: !!w.out } : {}) })) };
     },
   };
   return api;

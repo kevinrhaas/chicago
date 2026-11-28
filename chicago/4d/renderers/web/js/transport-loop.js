@@ -724,9 +724,12 @@ export function createTransportLoop({
     },
     /** T-3553: why the stage's last pose was refused by the assembly, or null. */
     get stageError() { return stageError; },
+    /** T-3815: a staged team gets away from its teamster on foot (a runaway), or is his again. */
+    loose(value) { if (!disposed && mode === 'staged') assembly.loose?.(value); },
     /** T-3553: back on its round, where it left it. */
     unstage() {
       if (disposed || mode !== 'staged') return false;
+      assembly.loose?.(false);
       mode = 'route'; stagedAt = null; speed = 0; state = 'moving'; reason = null; motionReset = true; audioSpeed = 0;
       try { draw(); } catch { /* the round's pose is drawn on its next step */ }
       return true;

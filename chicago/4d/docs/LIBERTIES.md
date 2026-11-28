@@ -47406,11 +47406,25 @@ one thing at one corner at one hour; all the carriers are unnamed figures.
 **How to resolve:** a photograph or engraving of a street on the fire night with people carrying
 goods (the period's engravings are artists' composites), or a first-hand account placing one
 family's goods at one stop, to stage that family by name.
-**Ticket:** T-3814.
+**The runaway and the loads alight (T-3815, 2026-11-28):** read: Horace White saw "a horse came
+tearing down the avenue, with the wreck of a buggy at his heels ... he made his way, by some means,
+through the crowd, and disappeared, without doing any injury that I could see. This was the only
+runaway I saw" (Andreas vol. 2 p. 730); Alexander Frear, going "toward the St. James Hotel", saw "a
+runaway truck" and "Loads of goods passed us, repeatedly, that were burning on the trucks" (p. 736).
+Reconstructed: that the one runaway is an express wagon's team on Washington Street at the Court
+House stop, west from Dearborn, its teamster left standing where it got away from him; its canter
+and then 9.5 m/s gallop; the two loads alight (a household's goods) and their lanes, on Washington
+Street and up Clark Street past the Sherman House; their flames, drawn as the city fire's own small
+fire over the load; and the people in the street stepping out of the way, which White's words allow
+and the staging holds everywhere (nobody comes within 2 m of a moving team). Frear's runaway
+"dashed her to the ground", a woman kneeling in the street: that is not staged in any telling.
+**Ticket:** T-3814; T-3815 (the runaway and the loads alight).
 **Review:** `docs/RESEARCH/jaunt-great-fire-3691/build.py` (`crowd`, `mattress`, `loaders`, the
-stops' `carry`, `teams`, `props`), `renderers/web/js/stage-props.js` (GOODS),
-`renderers/web/js/jaunt-stage.js` (`take`, `goodsFrame`, `loadFrame`).
-**Recorded:** 2026-11-27 (T-3814).
+stops' `carry`, `teams`, `props`; T-3815 `runaway`, `burning_load`, `give_way`),
+`renderers/web/js/stage-props.js` (GOODS), `renderers/web/js/jaunt-stage.js` (`take`, `goodsFrame`,
+`loadFrame`, `lightLoad`), `renderers/web/js/city-fire.js` (`alight`), `renderers/web/js/town-transport.js`
+(`createTeamsterAssembly` `loose`).
+**Recorded:** 2026-11-27 (T-3814); 2026-11-28 (T-3815).
 
 ### L-1871-directory-signs — The 1871 shop signs round the jaunt stops: real firms by their listed numbers, set on generated fronts, in reconstructed sign forms
 
