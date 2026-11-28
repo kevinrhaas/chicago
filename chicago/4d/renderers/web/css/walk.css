@@ -2147,6 +2147,39 @@ kbd {
 .wn-items { margin: 3px 0 0; padding-left: 15px; display: grid; gap: 5px; }
 .wn-items li { font-size: 12px; color: var(--ink); line-height: 1.5; }
 
+/* T-3813: the tab opens on the latest release days, one line a release, grouped under
+   its day; a tap opens a release's notes. The full history keeps the old open look. */
+.wn-lead, .wn-unread, .wn-history-note { margin: 0 0 12px; color: var(--ink-dim); font-size: 11.5px; line-height: 1.45; }
+.wn-unread { margin: 14px 0 0; color: var(--ink); }
+.wn-latest { display: grid; gap: 14px; min-width: 0; }
+.wn-day { display: grid; gap: 6px; min-width: 0; }
+.wn-day-head {
+  margin: 0; padding-bottom: 4px; border-bottom: 1px solid var(--line, rgba(127, 127, 127, 0.25));
+  color: var(--ink-dim); font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.wn-latest .wn-list { gap: 2px; }
+.wn-fold { min-width: 0; }
+.wn-fold > summary.wn-head {
+  list-style: none; cursor: pointer; flex-wrap: wrap; row-gap: 1px;
+  padding: 5px 0 5px 14px; position: relative; border-radius: 4px;
+}
+.wn-fold > summary.wn-head::-webkit-details-marker { display: none; }
+.wn-fold > summary.wn-head::before {
+  content: ''; position: absolute; left: 2px; top: 11px;
+  border: 4px solid transparent; border-left: 5px solid var(--ink-dim); border-right: 0;
+  transition: transform 0.12s ease;
+}
+.wn-fold[open] > summary.wn-head::before { transform: rotate(90deg); transform-origin: 2px 4px; }
+.wn-fold > summary.wn-head:hover .wn-title { color: var(--accent); }
+.wn-fold > summary.wn-head:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.wn-fold > summary .wn-title { font-weight: 500; flex: 0 1 auto; min-width: 0; }
+.wn-fold > summary .wn-meta { flex: 1 0 100%; font-size: 10.5px; }
+.wn-fold > .wn-items { margin: 0 0 8px 14px; }
+.wn-history { margin-top: 18px; display: grid; gap: 12px; min-width: 0; }
+.wn-history-toggle, .wn-history-more { justify-self: start; }
+.wn-history-body { display: grid; gap: 12px; min-width: 0; }
+.wn-history-body[hidden] { display: none; }
+
 @media (max-width: 560px) {
   /* Chips go icon-only. Four labelled chips overflow 390 px by about forty
      pixels and the help button drops to a second row, which reads as broken

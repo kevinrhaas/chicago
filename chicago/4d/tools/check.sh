@@ -5658,6 +5658,15 @@ step "the lap and the merger leave a PR whose lap lock a live run holds" \
 step "the merger merges what GitHub calls clean, and nothing else" \
   node tools/test_merge_ready.mjs
 
+# THE BATCH (.github/steward/pr-batch.sh, run by the steward janitor, Kevin 2026-11-27).
+# Its two new resolvers: two pure additions at one spot keep both and any edit is
+# refused; the stale-mesh re-stamp reads validate's list and routes each id to the
+# pure emitter its manifest entry names.
+selftest "a batch merge keeps two additions at one spot, and refuses an edit" \
+  python3 tools/merge_additions.py --self-test
+selftest "the batch re-stamps stale meshes through the emitter each entry names" \
+  python3 tools/restamp_stale.py --self-test
+
 # AND THE PULL REQUEST NOTHING CAN MOVE, WHICH IS THE HOLE BETWEEN THOSE TWO
 # (T-1368). A `dirty` PR has no merge ref; the gate runs on `pull_request`, which
 # needs one, so it never starts and the PR carries ZERO check runs; `gate` is a
