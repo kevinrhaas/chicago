@@ -24,6 +24,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { massOf, massEmitters, clearOf, compositionPrisms } from '../renderers/web/js/fire-mass.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -32,6 +33,8 @@ const ROOT = path.resolve(HERE, '..');
 export const STANDS = [
   { id: 'dekoven', label: "DeKoven Street at 9:30 Sunday night: the O'Learys' block alight", at: '1871-10-08T21:30', eye: [-420, -2014, 4.2], target: [-300, -1960, 9] },
   { id: 'court', label: 'Clark and Washington at 1:45 Monday morning, across the Court House square', at: '1871-10-09T01:45', eye: [600, -402, 4.2], target: [500, -300, 14] },
+  { id: 'courtstop', label: 'The Great Fire jaunt\'s Court House stop at 1:32 Monday morning (T-3802)', at: '1871-10-09T01:32', eye: [580, -408, 4.2], target: [516, -328, 18] },
+  { id: 'courtnorth', label: 'The Court House from Clark and Randolph at 2:07 Monday morning, the Sherman House stop (T-3802)', at: '1871-10-09T02:07', eye: [592, -268, 4.2], target: [516, -330, 16] },
   { id: 'state', label: 'State Street at 3:00 Monday morning, the front coming up the street', at: '1871-10-09T03:00', eye: [860, -505, 4.2], target: [860, -300, 12] },
   { id: 'north', label: 'The North Side at noon Monday, the fire at North Avenue', at: '1871-10-09T12:00', eye: [427, 2380, 5], target: [424, 2640, 16] },
   { id: 'burnt', label: 'Washington Street on Tuesday morning, after the rain', at: '1871-10-10T08:30', eye: [440, -396, 4.2], target: [800, -380, 6] },
@@ -48,7 +51,42 @@ export function selfTest() {
   }
   assert.deepEqual(parseArgs(['--stands', 'court,state', '--viewport', 'mobile']).stands, ['court', 'state']);
   assert.throws(() => parseArgs(['--stands', 'nowhere']), /Unknown stand/);
-  console.log(`CITY FIRE QA SELF-TEST PASS — ${STANDS.length} stands, each dated inside the fire`);
+  // T-3802 (the owner: "the fires sometimes appear above the building"): every named 1871
+  // structure that burns and carries its composition keeps its flames on its own roofs and at
+  // its own walls' windows, and its storeys are its main wall head's, not its tower's. The Court
+  // House's pieces are per material, so its Lockport stone piece's box ran from the 1853 house to
+  // the cupola's top (57 m): its whole plan read that tall, and the roof flames floated there.
+  const fireDoc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/fire/1871.json'), 'utf8'));
+  let seed = 1, flamesChecked = 0, massed = 0;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+  for (const id of Object.keys(fireDoc.structures ?? {})) {
+    const file = path.join(ROOT, 'data/sidecars/1871', `${id}.json`);
+    if (!fs.existsSync(file)) continue;
+    const prisms = compositionPrisms(JSON.parse(fs.readFileSync(file, 'utf8')), 0);
+    const mass = prisms && massOf(prisms, 0);
+    if (!mass) continue;
+    massed++;
+    const { roof, wins } = massEmitters(mass, rnd, { spacing: 1 });
+    for (const e of [...roof, ...wins]) {
+      const c = clearOf(e, mass);
+      assert.ok(c.plan <= 2 && c.over <= 1, `${id}: a flame at (${e.x.toFixed(1)}, ${e.y.toFixed(1)}, ${e.z.toFixed(1)}) stands ${c.plan.toFixed(2)} m off and ${c.over.toFixed(2)} m over it`);
+      flamesChecked++;
+    }
+    for (const e of wins) {
+      assert.ok(e.y <= Math.max(...prisms.map((p) => p.wall)), `${id}: a window flame above every wall head`);
+    }
+    if (id === 'cook_county_court_house_1871') {
+      assert.ok(mass.eave > 15 && mass.eave < 32, `the Court House's main wall head is its blocks' (${mass.eave.toFixed(1)} m), not the cupola's`);
+      assert.ok(roof.every((e) => e.y < 40 || Math.hypot(e.x - (475.74 + 44.62), e.z + (-348.83 + 19.81)) < 8), 'a Court House roof flame over 40 m is on the cupola');
+    }
+  }
+  assert.ok(massed >= 8, `the burning landmarks are massed from their compositions (${massed})`);
+  // The old reading, caught: a roof flame at 0.97 x 0.8 of the cupola's height over a wing.
+  const ch = compositionPrisms(JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1871/cook_county_court_house_1871.json'), 'utf8')), 0);
+  const chMass = massOf(ch, 0);
+  assert.ok(clearOf({ x: 475.74 + 15, y: 0.97 * 0.8 * 57, z: 348.83 - 20 }, chMass).over > 10, 'the bounding-box roof flame over the west wing is caught');
+  assert.ok(clearOf({ x: 475.74 + 15, y: 10, z: 348.83 + 30 }, chMass).plan > 2, 'a flame in the air beside the building is caught');
+  console.log(`CITY FIRE QA SELF-TEST PASS — ${STANDS.length} stands, each dated inside the fire; ${massed} burning landmarks keep their ${flamesChecked} flames on their own roofs and walls`);
 }
 
 function parseArgs(args) {
@@ -167,6 +205,8 @@ async function run(opts) {
         check(snap && snap.iso === spec.at, `${vp.name} ${spec.id}: the fire time is ${spec.at}`);
         if (spec.id !== 'burnt') check((snap?.burning ?? 0) + (snap?.collapsing ?? 0) > 0 && (snap?.fx?.flames ?? 0) > 0, `${vp.name} ${spec.id}: buildings burning and flames drawn`);
         else check((snap?.burnt ?? 0) > 1000, `${vp.name} ${spec.id}: the district burnt`);
+        for (const nb of snap?.named ?? []) if (nb.heat > 0.05) check(nb.clear && nb.clear.plan <= 2 && nb.clear.over <= 1,
+          `${vp.name} ${spec.id}: ${nb.id}'s flames stand on it (${nb.clear?.plan} m off, ${nb.clear?.over} m over) (T-3802)`);
       }
       await page.evaluate(async () => { await window.__chicago4d.fire.set(null); });
       check(await page.evaluate(() => window.__chicago4d.fire.time() === null && window.__chicago4d.timeOfDay.current.hhmm === '16:00'),
