@@ -193,7 +193,12 @@ def crowd(aid, watchers, fleers, seed):
     for i, (a, b, who, *more) in enumerate(watchers):
         dress = {'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who][(k + i) % len({'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who])]
         role = {'m': 'A man watching', 'w': 'A woman watching', 'c': 'A child watching'}[who]
-        cast.append(extras({'extra': f'{aid}_watch_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': mark(aid, a, b), 'heading': hd(mark(aid, a, b), target)}, more))
+        entry = {'extra': f'{aid}_watch_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': mark(aid, a, b), 'heading': hd(mark(aid, a, b), target)}
+        if dress == 'anonymous_working_driver_1904':
+            # T-3553 (L-wear-3553): the bronze watchers wear the 1904 working man's short coat and
+            # cap, laid over the working man's body, not the driver's dress.
+            entry['dress'], entry['wear'] = 'glessner_john_j_1904', 'working_coat_1904'
+        cast.append(extras(entry, more))
     for i, (a0, b0, a1, b1, t, pace, who, *more) in enumerate(fleers):
         pool = {'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who]
         dress = pool[(k + 2 * i + 1) % len(pool)]
