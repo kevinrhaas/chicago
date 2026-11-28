@@ -21,6 +21,10 @@ URL=$(md instance/attributes/chicago-url) || { echo "no session on this machine"
 TOKEN=$(md instance/attributes/session-token)
 [[ "$TOKEN" =~ ^[0-9a-f]{32,}$ ]] || { echo "bad session token"; exit 1; }
 [[ "$URL" =~ ^https://[a-z0-9./-]+/$ ]] || { echo "bad town address"; exit 1; }
+# One sign-in: the starter's one-hour pass for the player's own account, which the town reads
+# from the address and forgets (js/sign-in.js). Without one the player signs in in the stream.
+PASS=$(md instance/attributes/sign-in-pass || true)
+[[ "$PASS" =~ ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$ ]] && URL="$URL#cloud-signin=$PASS"
 IP=$(md instance/network-interfaces/0/access-configs/0/external-ip)
 HOST="${IP//./-}.sslip.io"
 NAME=$(md instance/name)

@@ -4,8 +4,9 @@
  *
  * Who may start a machine is decided by the same Firestore rules the launch page reads
  * (renderers/web/js/launch-rights.js, docs/SIGN-IN.md): the starter asks Firestore *with the
- * player's own ID token*, so it needs no access to the Firebase project of its own, and nothing
- * here can touch chicago-61643 beyond what that player could read themself (T-3795 (e)).
+ * player's own ID token*, so it reads nothing in chicago-61643 beyond what that player could read
+ * themself (T-3795 (e)). Its one grant there (the owner's yes, 2026-11-27) is to have IAM sign a
+ * one-hour sign-in pass for the player who pressed the button (signInPass, below).
  *
  *   cloud play   access/<email> lists 'cloud', or the player is an admin
  *   admin        the rules let them list access/ (the owner, or a grant naming admin)
@@ -169,8 +170,25 @@ export function usage(ledger, now = Date.now()) {
 }
 export const hoursUsed = (ledger, now) => usage(ledger, now).hours;
 
+// ---- One sign-in (owner, 2026-11-27: "you should have only one sign in for this") ----------
+/** A Firebase custom token for the player's own account, signed by the Firebase project's admin
+ * account through IAM (the starter holds no key: it may only ask IAM to sign as that account,
+ * which the owner granted). The cloud browser signs in with it, so the player is not asked again
+ * inside the stream. One hour, the most Firebase allows; the browser's own session lasts after. */
+export const CUSTOM_TOKEN_AUD = 'https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit';
+export function passClaims({ sa, uid, now = Math.floor(Date.now() / 1000) }) {
+  return { iss: sa, sub: sa, aud: CUSTOM_TOKEN_AUD, iat: now, exp: now + 3600, uid };
+}
+export async function signInPass(g, { sa, uid, now }) {
+  if (!sa || !uid) return '';
+  const r = await g.call(`https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/${encodeURIComponent(sa)}:signJwt`,
+    { method: 'POST', body: JSON.stringify({ payload: JSON.stringify(passClaims({ sa, uid, now })) }) });
+  const jwt = r.ok ? String(r.body?.signedJwt || '') : '';
+  return /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(jwt) ? jwt : '';
+}
+
 /** The instance the starter asks for. */
-export function machineBody({ project, zone, name, year, token, player, spot = true, machineSA, site, gpu = GPUS[0] }) {
+export function machineBody({ project, zone, name, year, token, player, spot = true, machineSA, site, gpu = GPUS[0], pass = '' }) {
   return {
     name,
     machineType: `zones/${zone}/machineTypes/${gpu.machineType}`,
@@ -186,6 +204,7 @@ export function machineBody({ project, zone, name, year, token, player, spot = t
       { key: 'chicago-url', value: townURL(year, site) },
       { key: 'session-token', value: token },
       { key: 'enable-guest-attributes', value: 'TRUE' },
+      ...(pass ? [{ key: 'sign-in-pass', value: pass }] : []),
     ] },
     serviceAccounts: machineSA ? [{ email: machineSA, scopes: ['https://www.googleapis.com/auth/cloud-platform'] }] : [],
   };
@@ -276,13 +295,13 @@ export function probeSummary(log) {
 }
 /** Start a machine: Spot in each L4 zone in turn, then in each T4 zone; on demand (the same order)
  * only for an admin when Spot is refused everywhere. → { ok, zone, name, spot, gpu } or { ok: false, why } */
-export async function startMachine(g, { year, player, machineSA, admin, site, gpus = GPUS, wait = sleep }) {
+export async function startMachine(g, { year, player, machineSA, admin, site, gpus = GPUS, pass = '', wait = sleep }) {
   const token = crypto.randomBytes(24).toString('hex');
   const name = `stream-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;
   let last = 'no zone';
   for (const spot of admin ? [true, false] : [true]) {
     for (const gpu of gpus) for (const zone of gpu.zones) {
-      const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site, gpu }));
+      const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site, gpu, pass }));
       if (!r.ok) { last = r.body?.error?.message || `insert ${r.status}`; if (/GPUS_ALL_REGIONS/.test(last)) return { ok: false, why: 'quota', detail: last }; continue; }
       // The insert is accepted at once; capacity is known only when its operation ends.
       let op = r.body;

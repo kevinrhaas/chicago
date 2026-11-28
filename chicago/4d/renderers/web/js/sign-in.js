@@ -45,6 +45,17 @@ export function configured(firebase = {}) {
   return ['apiKey', 'authDomain', 'projectId', 'appId'].every(key => String(firebase[key] || '').trim());
 }
 
+/**
+ * One sign-in for cloud play (tools/stream; the owner, 2026-11-27: "you should have only one sign
+ * in for this"). The cloud machine opens the year as #cloud-signin=<pass>, a one-hour Firebase
+ * custom token for the player's own account, made by the starter for the player who pressed the
+ * cloud button. → the pass, or ''. The gate signs in with it and takes it out of the address.
+ */
+export function cloudPass(hash) {
+  const m = /^#cloud-signin=([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.exec(String(hash || ''));
+  return m ? m[1] : '';
+}
+
 /** Should this page ask? Pure, so the self-test can hold every branch. */
 export function gateMode({ config = SIGN_IN, hostname = '', search = '', webdriver = false } = {}) {
   let preview = false;
@@ -372,6 +383,15 @@ export async function signInGate({
       forget(storage, EMAIL_KEY);
     },
   } : null);
+
+  const pass = cloudPass(loc?.hash);
+  if (pass) {
+    try { win.history?.replaceState?.(null, '', `${loc.pathname}${loc.search}`); } catch { /* the pass still works */ }
+    if (!auth.currentUser) {
+      await timeout(authMod.signInWithCustomToken(auth, pass), 8000, 'cloud pass')
+        .catch(err => console.warn('[4D Chicago] sign-in: the cloud pass was not taken; asking instead', err));
+    }
+  }
 
   const current = auth.currentUser;
   const storedEmail = read(storage, EMAIL_KEY);

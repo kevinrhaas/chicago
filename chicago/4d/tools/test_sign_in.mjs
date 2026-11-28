@@ -4,7 +4,7 @@
 // Firestore rules allow.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
+import { configured, gateMode, validEmail, signInGate, cloudPass, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId, MESSAGE_FIELDS } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
 import { ACCOUNT_DOCS, ACCOUNT_ROWS, ACCOUNT_TREES, ACCOUNT_CLASSES, ACCOUNT_BY_EMAIL, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
@@ -24,6 +24,18 @@ assert.equal(gateMode({ config: on, hostname: 'localhost' }), 'off', 'a local se
 assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', webdriver: true }), 'robot', 'automation passes');
 assert.equal(gateMode({ config: { ...on, enabled: false }, hostname: 'localhost', search: '?signin=preview' }), 'preview');
 assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', search: '?signin=preview' }), 'on', 'preview never weakens a live gate');
+
+// One sign-in for cloud play: the machine's pass is read only in its own exact form.
+assert.equal(cloudPass('#cloud-signin=aa.bb-_.cc'), 'aa.bb-_.cc');
+assert.equal(cloudPass(''), '');
+assert.equal(cloudPass('#cloud-signin=aa.bb'), '', 'a pass is a whole token');
+assert.equal(cloudPass('#cloud-signin=aa.bb.cc&x=<script>'), '', 'nothing else rides with it');
+assert.equal(cloudPass('#other=aa.bb.cc'), '');
+{
+  const src = readFileSync(new URL('../renderers/web/js/sign-in.js', import.meta.url), 'utf8');
+  assert.ok(/replaceState\?\.\(null, '', `\$\{loc\.pathname\}\$\{loc\.search\}`\)/.test(src) && /signInWithCustomToken\(auth, pass\)/.test(src),
+    'the gate signs in with the pass and takes it out of the address');
+}
 
 // The shipped config may be on or off, but on means complete.
 if (SIGN_IN.enabled) assert.ok(configured(SIGN_IN.firebase), 'sign-in-config.js is enabled without all four Firebase values');

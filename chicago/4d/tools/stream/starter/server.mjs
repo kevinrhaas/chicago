@@ -15,7 +15,7 @@
  * Every player call carries `Authorization: Bearer <Firebase ID token>`.
  */
 import http from 'node:http';
-import { verifyIdToken, rightsOf, google, usage, startMachine, gpusFrom, playerLabel, emailId, monthKey, sslipHost, probe, probeRow, probeSummary, PROBE_DAYS, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
+import { verifyIdToken, rightsOf, google, usage, startMachine, gpusFrom, signInPass, playerLabel, emailId, monthKey, sslipHost, probe, probeRow, probeSummary, PROBE_DAYS, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
 
 const env = process.env;
 const PROJECT = env.GOOGLE_CLOUD_PROJECT || env.PROJECT || 'chicago-stream';
@@ -23,6 +23,9 @@ const BUCKET = env.LEDGER_BUCKET || `${PROJECT}-ledger`;
 const MACHINE_SA = env.MACHINE_SA || `stream-machine@${PROJECT}.iam.gserviceaccount.com`;
 const MAX_MACHINES = Number(env.MAX_MACHINES || 1);
 const PLAYER_GPUS = gpusFrom(env.GPUS);
+// The Firebase project's admin account, which IAM signs the one-hour sign-in pass as. Empty: the
+// player signs in again inside the stream.
+const FIREBASE_SA = env.FIREBASE_SA || '';
 const SITE = env.SITE || 'https://chicago.polecat.live/4d/';
 const ORIGINS = (env.ALLOWED_ORIGINS || 'https://chicago.polecat.live,https://dev.chicago.polecat.live').split(',');
 const g = google({ project: PROJECT });
@@ -64,7 +67,7 @@ async function player(req) {
   const token = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
   const claims = await verifyIdToken(token);
   const rights = await rightsOf({ token, email: claims.email });
-  return { token, email: emailId(claims.email), label: playerLabel(claims.email), ...rights };
+  return { token, uid: claims.sub, email: emailId(claims.email), label: playerLabel(claims.email), ...rights };
 }
 const describe = async (m) => {
   const ready = m.status === 'RUNNING' && m.ip ? await g.ready(m.zone, m.name) : false;
@@ -89,7 +92,9 @@ const routes = {
     if (mine) return [200, { ok: true, already: true, ...(await describe(mine)) }];
     if (live.length >= MAX_MACHINES) return [429, { ok: false, why: 'busy', message: `All ${MAX_MACHINES} cloud machine${MAX_MACHINES === 1 ? ' is' : 's are'} in use. Try again in a few minutes.` }];
     const t0 = Date.now();
-    const out = await startMachine(g, { year, player: p.label, machineSA: MACHINE_SA, admin: p.admin, site: SITE, gpus: PLAYER_GPUS });
+    // A pass that cannot be made only means signing in once more, inside the stream.
+    const pass = await signInPass(g, { sa: FIREBASE_SA, uid: p.uid }).catch(() => '');
+    const out = await startMachine(g, { year, player: p.label, machineSA: MACHINE_SA, admin: p.admin, site: SITE, gpus: PLAYER_GPUS, pass });
     if (!out.ok) return [503, { ok: false, why: out.why, message: out.why === 'quota' ? 'Google has not given this project the graphics capacity yet.' : 'Google has no free graphics machine anywhere in the US just now. Try again later.' }];
     await withLedger((d) => { d.sessions ??= {}; d.sessions[out.name] = { start: new Date(t0).toISOString(), year, spot: out.spot, gpu: out.gpu, by: p.admin ? 'admin' : 'player' }; return d; });
     return [200, { ok: true, name: out.name, year, status: 'STARTING', ready: false, spot: out.spot, gpu: out.gpu, spentThisMonth: Number(used.dollars.toFixed(2)) }];

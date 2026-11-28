@@ -9,6 +9,8 @@
 # It makes
 #   stream-starter@   the starter's account: may start and delete machines, write the ledger
 #   stream-machine@   each machine's account: may only delete (its own) machines
+#   a sign-in grant   the starter may sign one-hour sign-in passes as chicago-61643's Firebase
+#                     admin account (Token Creator on that one account), so players sign in once
 #   <project>-ledger  the bucket holding each month's machine-hours (hours/YYYY-MM.json)
 #   a firewall rule   HTTPS (and HTTP for the certificate) to machines tagged chicago-stream
 #   chicago-stream-starter  the Cloud Run service (tools/stream/starter), open to the browser;
@@ -26,7 +28,8 @@ gc() { gcloud --project "$PROJECT" "$@"; }
 
 echo "== APIs"
 gc services enable compute.googleapis.com run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com \
-  pubsub.googleapis.com storage.googleapis.com billingbudgets.googleapis.com iam.googleapis.com cloudscheduler.googleapis.com
+  pubsub.googleapis.com storage.googleapis.com billingbudgets.googleapis.com iam.googleapis.com cloudscheduler.googleapis.com \
+  iamcredentials.googleapis.com
 
 echo "== accounts"
 for sa in stream-starter stream-machine; do
@@ -41,6 +44,17 @@ gc iam roles describe streamSelfDelete >/dev/null 2>&1 || gc iam roles create st
 gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$MACHINE" --role "projects/$PROJECT/roles/streamSelfDelete" --condition None >/dev/null
 gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$STARTER" --role roles/compute.instanceAdmin.v1 --condition None >/dev/null
 gcloud iam service-accounts add-iam-policy-binding "$MACHINE" --project "$PROJECT" --member "serviceAccount:$STARTER" --role roles/iam.serviceAccountUser >/dev/null
+# One sign-in (the owner's yes, 2026-11-27): the starter may ask IAM to sign a one-hour Firebase
+# sign-in pass as the Firebase project's admin account, and nothing else there.
+FIREBASE_PROJECT=${FIREBASE_PROJECT:-chicago-61643}
+FIREBASE_SA=$(gcloud iam service-accounts list --project "$FIREBASE_PROJECT" --filter "email~^firebase-adminsdk" --format "value(email)" 2>/dev/null | head -1)
+if [ -n "$FIREBASE_SA" ]; then
+  gcloud iam service-accounts add-iam-policy-binding "$FIREBASE_SA" --project "$FIREBASE_PROJECT" \
+    --member "serviceAccount:$STARTER" --role roles/iam.serviceAccountTokenCreator --condition None >/dev/null
+  echo "the starter signs sign-in passes as $FIREBASE_SA"
+else
+  echo "!! no firebase-adminsdk account readable in $FIREBASE_PROJECT: players sign in again inside the stream"
+fi
 
 echo "== ledger bucket"
 BUCKET="$PROJECT-ledger"
@@ -65,7 +79,7 @@ SECRET=$(gc run services describe "$SERVICE" --region "$REGION" --format=json 2>
 [ -n "$SECRET" ] || SECRET=$(python3 -c 'import secrets; print(secrets.token_hex(24))')
 gc run deploy "$SERVICE" --source "$HERE/starter" --region "$REGION" --service-account "$STARTER" \
   --allow-unauthenticated --max-instances 2 --memory 256Mi --cpu 1 --timeout 600 --quiet \
-  --set-env-vars "LEDGER_BUCKET=$BUCKET,MACHINE_SA=$MACHINE,MAX_MACHINES=1,BUDGET_SECRET=$SECRET,GPUS=${GPUS:-l4}"
+  --set-env-vars "LEDGER_BUCKET=$BUCKET,MACHINE_SA=$MACHINE,MAX_MACHINES=1,BUDGET_SECRET=$SECRET,GPUS=${GPUS:-l4},FIREBASE_SA=$FIREBASE_SA"
 URL=$(gc run services describe "$SERVICE" --region "$REGION" --format "value(status.url)")
 
 echo "== budget stop"

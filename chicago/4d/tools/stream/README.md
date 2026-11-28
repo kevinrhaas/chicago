@@ -52,8 +52,10 @@ launch page ──POST /start (Firebase ID token, year)──▶ chicago-stream-
   tally is at `<starter>/probe`.
 * The $100 budget's 100 % alert reaches `/budget`, which deletes every machine and stops the starter
   until next month or until an admin calls `/resume`.
-* Nothing here touches the Firebase project (chicago-61643): the starter reads rights with the
-  player's own token, as the launch page does.
+* The starter reads rights in the Firebase project (chicago-61643) with the player's own token, as
+  the launch page does. Its one grant there (the owner's yes, 2026-11-27) is Token Creator on the
+  Firebase admin account: it has IAM sign a one-hour sign-in pass for the player who pressed the
+  button, so the cloud browser opens signed in as them (one sign-in, not two). It holds no key.
 
 ## Running it
 

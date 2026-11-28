@@ -109,6 +109,26 @@ g = fakeG([{ code: 'QUOTA_EXCEEDED', message: "Quota 'NVIDIA_L4_GPUS' exceeded. 
 r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
 ok(r.ok && g.tried.length === 2, 'a region\'s own quota only rules out that region');
 
+{
+  // One sign-in: a one-hour custom token for the player's own uid, signed through IAM as the
+  // Firebase admin account; no account set, or IAM refusing, means no pass (sign in in the stream).
+  const c = lib.passClaims({ sa: 'firebase-adminsdk-x@p.iam.gserviceaccount.com', uid: 'U1', now: 1000 });
+  ok(c.uid === 'U1' && c.iss === c.sub && c.aud === lib.CUSTOM_TOKEN_AUD && c.exp - c.iat === 3600, 'the pass is the player\'s own account for one hour');
+  let asked = '';
+  const gi = { call: async (url, init) => { asked = url + ' ' + init.body; return { ok: true, body: { signedJwt: 'aa.bb.cc' } }; } };
+  ok(await lib.signInPass(gi, { sa: 'firebase-adminsdk-x@p.iam.gserviceaccount.com', uid: 'U1' }) === 'aa.bb.cc' && /iamcredentials.*signJwt/.test(asked) && /\\"uid\\":\\"U1\\"/.test(asked), 'IAM signs it as the Firebase admin account');
+  ok(await lib.signInPass(gi, { sa: '', uid: 'U1' }) === '', 'no Firebase account set: no pass');
+  ok(await lib.signInPass({ call: async () => ({ ok: false, status: 403, body: {} }) }, { sa: 's', uid: 'U1' }) === '', 'IAM refusing: no pass');
+  const withPass = lib.machineBody({ project: 'p', zone: 'us-central1-a', name: 'n', year: '1904', token: 't', player: 'x', pass: 'aa.bb.cc' });
+  const noPass = lib.machineBody({ project: 'p', zone: 'us-central1-a', name: 'n', year: '1904', token: 't', player: 'x' });
+  ok(withPass.metadata.items.some((m) => m.key === 'sign-in-pass' && m.value === 'aa.bb.cc') && !noPass.metadata.items.some((m) => m.key === 'sign-in-pass'), 'the pass rides on the machine only when there is one');
+  const sess = fs.readFileSync(path.join(STREAM, 'machine/session.sh'), 'utf8');
+  ok(/sign-in-pass/.test(sess) && /URL="\$URL#cloud-signin=\$PASS"/.test(sess), 'the machine opens the year with the pass');
+  const srv = fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8');
+  ok(/signInPass\(g, \{ sa: FIREBASE_SA, uid: p\.uid \}\)/.test(srv) && /uid: claims\.sub/.test(srv), 'the starter makes the pass for the player who pressed the button');
+  const setup = fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8');
+  ok(/roles\/iam\.serviceAccountTokenCreator/.test(setup) && /FIREBASE_SA=\$FIREBASE_SA/.test(setup) && /iamcredentials\.googleapis\.com/.test(setup), 'setup grants the signing and hands the account to the starter');
+}
 ok(lib.gpusFrom('').length === 1 && lib.gpusFrom('')[0].gpu === 'l4' && lib.gpusFrom('l4,t4').length === 2 && lib.gpusFrom('nonsense')[0].gpu === 'l4', 'players get the measured L4 only unless GPUS=l4,t4; a bad setting never leaves them without an L4');
 ok(/GPUS=\$\{GPUS:-l4\}/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup deploys L4 only by default');
 g = fakeG(lib.ZONES.map(() => stockout));
@@ -184,7 +204,13 @@ const server = fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8');
 ok(/'POST \/probe'[\s\S]*BUDGET_SECRET/.test(server) && /scheduler jobs create http chicago-stream-probe/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'the probe answers only the scheduler, which setup.sh makes');
 ok(/BUDGET_SECRET/.test(server) && /costAmount\) >= Number\(note\.budgetAmount\)/.test(server), 'the budget push stops machines at 100 %');
 ok(/usage\(data\)/.test(server) && /SPEND_CAP/.test(server), 'the starter checks the month\'s spending before it starts one');
-ok(!/chicago-61643/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup touches nothing in the Firebase project');
+{
+  // Setup's one touch of the Firebase project: Token Creator on its admin account, for the pass.
+  const setupSrc = fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8');
+  const firebaseLines = setupSrc.split('\n').filter((l) => /FIREBASE_PROJECT"/.test(l));
+  ok(firebaseLines.length === 2 && /service-accounts list/.test(firebaseLines[0]) && /add-iam-policy-binding "\$FIREBASE_SA"/.test(firebaseLines[1])
+    && !/projects add-iam-policy-binding[^\n]*FIREBASE_PROJECT/.test(setupSrc), 'setup touches the Firebase project only to let the starter sign the pass');
+}
 
 // ---- The launch page's cloud button ------------------------------------------------------
 const { startCloud } = await import('../renderers/web/portal/launch-access.js');
