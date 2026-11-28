@@ -43,13 +43,18 @@ SCENE_PATH = ROOT / 'data/scenes/1871.json'
 # survey's own corner): the stand is in the street, the landmark the building or its corner.
 ANCHORS = [
     ('fire_oleary_barn', "DeKoven Street, before the O'Leary cottage, looking at the barn behind it", "O'Leary barn", (-300.0, -2004.0), (-300.0, -1958.0)),
-    ('fire_st_pauls', "Clinton Street south of Mather, looking at St. Paul's church and Bateham's mills", "St. Paul's church", (-266.0, -1560.0), (-245.0, -1490.0)),
+    # T-3831: the target is where the stand's line meets the church's Mather Street side (the church is built at -246..-216 E,
+    # -1531..-1519 N), so the church and Bateham's mills east of it are framed together and the people getting away start
+    # in the street before it; the old target, up Clinton Street, left the church at the view's right edge.
+    ('fire_st_pauls', "Clinton Street south of Mather, looking at St. Paul's church and Bateham's mills", "St. Paul's church", (-266.0, -1560.0), (-241.6, -1530.9)),
     # T-3751 (the owner, 2026-11-26: "The narration says the user is on Jackson Street, but the scene appears to be
     # elsewhere"): the stand was 60 m up Franklin, on Quincy; now the north-west corner of Jackson and Franklin
     # (the plan's corner at 220.8, -958.4), looking across at the stable on the south-east corner.
     ('fire_parmelee_stables', 'Jackson and Franklin, looking across the corner at the new Parmelee stable', 'Parmelee stable', (212.8, -950.4), (240.0, -985.0)),
     ('fire_court_house', 'Clark Street at Washington, looking at the Court House in its square', 'Court House', (580.0, -408.0), (507.0, -330.0)),
-    ('fire_sherman_house', 'The Court House square at Clark and Randolph, looking at the Sherman House', 'Sherman House', (560.0, -284.0), (596.0, -240.0)),
+    # T-3831: the target is where the stand's line meets the Sherman House's Randolph Street front, looking at the hotel's
+    # middle; the old one, east of Clark Street, put the hotel 56 degrees off the view's centre, outside it.
+    ('fire_sherman_house', 'The Court House square at Clark and Randolph, looking at the Sherman House', 'Sherman House', (560.0, -284.0), (549.2, -248.1)),
     ('fire_crosbys', "Washington Street between Dearborn and State, looking at Crosby's Opera House", "Crosby's Opera House", (770.0, -400.0), (770.0, -366.0)),
     ('fire_state_kinzie', 'The foot of the State Street viaduct, looking at the corner of Kinzie Street', 'State and Kinzie', (835.0, 210.0), (848.0, 268.0)),
     ('fire_water_works', 'Chicago Avenue at the lake shore, looking at the Water Tower and the pumping works', 'Water Works', (1090.0, 1100.0), (1165.0, 1156.0)),

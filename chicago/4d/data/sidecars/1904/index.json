@@ -1724,6 +1724,10 @@
   ],
   "excluded_by_date": [
     "agency_striker_log_house",
+    "batehams_match_factory_1871",
+    "batehams_mill_1871",
+    "batehams_west_mill_1871",
+    "batehams_yard_1871",
     "bates_auction_room",
     "beaubien_barn",
     "beaubien_trading_post",
@@ -1826,6 +1830,7 @@
     "harmon_loomis_store",
     "heacock_house_monroe",
     "hogan_store",
+    "huntoon_house_1871",
     "inf_artisan_dwelling_west_a",
     "inf_artisan_dwelling_west_b",
     "inf_bakery_lake",
@@ -1920,6 +1925,7 @@
     "oleary_cottage_1871",
     "ouilmette_house_1812",
     "palmer_house_1871",
+    "parmelee_stables_1871",
     "peck_store",
     "philo_carpenter_log_shop",
     "physicians_office",
@@ -2549,6 +2555,7 @@
     "recon_1835_west_055",
     "robert_kinzie_store",
     "robinson_caldwell_cabins",
+    "roelle_works_1871",
     "sauganash_hotel",
     "sauganash_hotel_stable",
     "sherman_house_1871",
@@ -2558,6 +2565,9 @@
     "south_pier",
     "st_marys_church",
     "st_michaels_church_1871",
+    "st_pauls_church_1871",
+    "st_pauls_priests_house_1871",
+    "st_pauls_school_1871",
     "steamboat_hotel",
     "steamboat_hotel_stable",
     "sullivan_house_1871",
@@ -2581,6 +2591,7 @@
     "wolf_point_tavern_stable",
     "wolf_point_trading_camp",
     "wright_building_to_let_a",
-    "wright_building_to_let_b"
+    "wright_building_to_let_b",
+    "wrights_stable_1871"
   ]
 }

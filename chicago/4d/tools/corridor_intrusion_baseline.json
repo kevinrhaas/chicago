@@ -587,6 +587,23 @@
       "position_confidence": "inferred",
       "street": "canal",
       "structure": "western_hotel"
+    },
+    "wrights_stable_1871:stable_1871": {
+      "anchor_in": [
+        "wolcott"
+      ],
+      "anchor_offset_m": 21.8,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "kinzie"
+      ],
+      "depth_m": 11.99,
+      "layer": "research",
+      "phase": "stable_1871",
+      "position_confidence": "inferred",
+      "street": "kinzie",
+      "structure": "wrights_stable_1871"
     }
   },
   "measured": "2026-10-15",
@@ -798,6 +815,16 @@
       "street": "lake",
       "ticket": "T-3688",
       "why": "T-3688. TWO TRACINGS OF ONE STREET, TWO AND A HALF METRES APART. The corridor is the 1835 plat's Lake Street, derived from the street control; the Tremont House's Lake Street front stands on the south building line of the 1871 scene's Lake Street (today's centreline, its carriageway and walk), the street a visitor walks in front of it. The two disagree by about 2.5 m here, a measurement about the plat and the georeference rather than a hotel in the road. The only escape (2.5 m south) would set it back from the walk it fronts. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "wrights_stable_1871:stable_1871": {
+      "depth_m": 11.99,
+      "escape_bearing_deg": 180.46,
+      "escape_m": 20.924,
+      "escape_vs_facade": "across",
+      "on": "2026-11-28",
+      "street": "kinzie",
+      "ticket": "T-3831",
+      "why": "T-3831. TWO TRACINGS OF ONE STREET, ABOUT FOURTEEN METRES APART. The corridor is the 1835 plat's Kinzie Street, derived from the street control, which at State Street runs about 14 m south of the 1871 plan's Kinzie Street (traced from Mitchell's 1870 map, the street the 1871 scene draws). Wright's livery stable stood on the south-east corner of State and Kinzie (Andreas vol. 2, p. 719), and it is drawn with its north-west corner on the 1871 plan's building lines. The only escape (20.9 m south, then lapping Wolcott) would set it far back from the corner the accounts put it on, behind the street a visitor sees. Refused rather than repaired; argued in the record's own position.note."
     }
   }
 }

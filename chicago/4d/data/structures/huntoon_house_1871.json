@@ -1,0 +1,527 @@
+{
+ "id": "huntoon_house_1871",
+ "name": "The Huntoon Place, Harrison and Clinton Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "dwelling",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "'The house was occupied for many years by Charles Huntoon, who died there some years before its destruction' (Andreas vol. 2, p. 717)."
+ },
+ "built": {
+  "value": 1838,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "'Built by Judge J. D. Caton, nearly half a century before' its destruction (Andreas vol. 2, p. 717); the year is reconstructed from that."
+ },
+ "research_note": "THE HUNTOON PLACE, built by T-3831 for the 1871 scene: 'The northwest quarter of this large block of ground was known as the \"Huntoon Place,\" having the appearance of a large country farm-house. The residence stood well back from the street, and the lot was filled with large trees. The house was a landmark, having been built by Judge J. D. Caton, nearly half a century before. The quaint old mansion had twelve stacks of chimneys ... a picturesque place in a neighborhood of puffing and impertinent modern factories' (Andreas vol. 2, p. 717). No picture of it is known.",
+ "phases": [
+  {
+   "id": "house_1838_1871",
+   "documented_range": {
+    "from": "1838-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing from Judge Caton's day until the fire destroyed it (Andreas vol. 2, p. 717)."
+   },
+   "position": {
+    "utm_e": 446826.698,
+    "utm_n": 4635943.802,
+    "rotation_deg": 359.11,
+    "symbolic_location": "The south-east corner of Harrison and Clinton Streets, set well back in its grounds.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "The north-west quarter of the block (Andreas vol. 2, p. 717), the house well back from both streets; its place in the grounds is reconstructed. The footprint's origin is local E -246.0 N -1452.0.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      52.0,
+      0
+     ],
+     [
+      52.0,
+      75.0
+     ],
+     [
+      0,
+      75.0
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "The north-west quarter of the block bounded by Harrison, Mather, Canal and Clinton (Andreas vol. 2, p. 717): the house's grounds."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "tint": {
+       "clapboard": [
+        0.84,
+        0.8,
+        0.7
+       ]
+      },
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "The block bounded by Harrison, Mather, Canal and Clinton burned (Andreas vol. 2, p. 717)."
+      },
+      "blocks": [
+       {
+        "name": "the house",
+        "box": [
+         16.0,
+         34.0,
+         33.0,
+         46.0
+        ],
+        "storeys": [
+         0.6,
+         3.4,
+         3.0
+        ],
+        "wall": "clapboard",
+        "trim": "wood_white",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.35,
+         "material": "wood_white"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 3.0,
+         "eave": 0.35,
+         "covering": "shingle",
+         "ridge": "x"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "n": 5,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ],
+          "override": []
+         },
+         "S": {
+          "bays": {
+           "n": 5,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 1.2,
+            "h": 2.4,
+            "sill": 0.0,
+            "hood": "cornice"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "n": 3,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ],
+          "override": []
+         },
+         "W": {
+          "bays": {
+           "n": 3,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ],
+          "override": []
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Having the appearance of a large country farm-house. The residence stood well back from the street' (Andreas vol. 2, p. 717); its form is reconstructed."
+       },
+       {
+        "name": "the wing",
+        "box": [
+         33.0,
+         36.0,
+         42.0,
+         44.0
+        ],
+        "storeys": [
+         0.6,
+         3.2
+        ],
+        "wall": "clapboard",
+        "trim": "wood_white",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.3,
+         "material": "wood_white"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 2.4,
+         "eave": 0.3,
+         "covering": "shingle",
+         "ridge": "x"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "n": 2,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.8,
+            "sill": 0.7,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "n": 2,
+           "margin": 2.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.8,
+            "sill": 0.7,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            4.0
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "door_flat",
+            "w": 1.0,
+            "h": 2.2,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": "none"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A kitchen wing, reconstructed."
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         18.5,
+         37.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         18.5,
+         43.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         18.5,
+         40.0
+        ],
+        "z0": 9.2,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         22.5,
+         37.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         22.5,
+         43.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         22.5,
+         40.0
+        ],
+        "z0": 9.2,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         26.5,
+         37.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         26.5,
+         43.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         26.5,
+         40.0
+        ],
+        "z0": 9.2,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         30.5,
+         37.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         30.5,
+         43.0
+        ],
+        "z0": 7.4,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       },
+       {
+        "at": [
+         30.5,
+         40.0
+        ],
+        "z0": 9.2,
+        "h": 1.8,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "One of the house's 'twelve stacks of chimneys' (Andreas vol. 2, p. 717): the twelve are counted from the account; where each one stands on the roofs is reconstructed."
+       }
+      ],
+      "note": "THE HUNTOON PLACE, built by T-3831: Judge J. D. Caton's old farm-house in its grove at Harrison and Clinton (Andreas vol. 2, p. 717), reconstructed."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "THE HUNTOON PLACE, built by T-3831: Judge J. D. Caton's old farm-house in its grove at Harrison and Clinton (Andreas vol. 2, p. 717), reconstructed."
+    },
+    "wall_material": {
+     "value": "Painted clapboard on a frame, a shingle roof",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Reconstructed as a frame farm-house; Andreas gives its twelve chimney stacks.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

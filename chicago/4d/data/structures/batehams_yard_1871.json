@@ -1,0 +1,408 @@
+{
+ "id": "batehams_yard_1871",
+ "name": "Bateham's yard: kindling wood and furniture lumber",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "lumber_yard",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "The yard of W. B. Bateham's mills, 'in which were a thousand cords of fire-kindling wood, in piles twenty-five feet high, and also six hundred thousand feet of furniture lumber' (Andreas vol. 2, p. 717)."
+ },
+ "built": {
+  "value": 1871,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "In the yard on the night of the fire (Andreas vol. 2, p. 717)."
+ },
+ "research_note": "BATEHAM'S YARD, built by T-3831 for the 1871 scene: on the night of the fire Bateham and his watchman 'flooded everything in the yard, in which were a thousand cords of fire-kindling wood, in piles twenty-five feet high, and also six hundred thousand feet of furniture lumber ... Near by were seven hundred and fifty thousand shingles. The grounds occupied by these mills comprised one and a half acres' (Andreas vol. 2, p. 717). Foreman Swenie of No. 14 'placed one line of hose in the yard' (p. 713). Where in the grounds the piles stood is not recorded.",
+ "phases": [
+  {
+   "id": "yard_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+   },
+   "position": {
+    "utm_e": 446915.598,
+    "utm_n": 4635864.802,
+    "rotation_deg": 359.11,
+    "symbolic_location": "Canal Street south of Harrison, in front of and north of Bateham's mills.",
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "In the mills' yard (Andreas vol. 2, pp. 713, 717); the piles are set along the Canal Street front and north of the mills, the lumber between the mills (reconstructed). The footprint's origin is local E -157.1 N -1531.0.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      15.3,
+      0
+     ],
+     [
+      15.3,
+      101.0
+     ],
+     [
+      -56.0,
+      101.0
+     ],
+     [
+      -56.0,
+      93.0
+     ],
+     [
+      0,
+      93.0
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "The ground between the main mill and Canal Street, and the north yard; their bounds are reconstructed inside Andreas's acre and a half."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'At half-past ten, the heroic men were driven from Bateham's works by the intense heat' (Andreas vol. 2, p. 717); 'At 10:30 Bateham's mills on Canal Street, near Harrison, were deserted, as beyond salvation' (p. 719). Bateham: 'The materials from this mill will fire the South Side, and nothing can prevent it now.'",
+       "time": "1871-10-08T22:20"
+      },
+      "blocks": [
+       {
+        "name": "kindling wood, a pile twenty-five feet high",
+        "box": [
+         3.2,
+         2.0,
+         8.6,
+         18.0
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' (Andreas vol. 2, p. 717): four piles of about 5.4 by 16 m by 7.6 m hold some 2,600 m3, about 720 cords; more is stacked in the north yard (reconstructed)."
+       },
+       {
+        "name": "kindling wood, a pile twenty-five feet high",
+        "box": [
+         3.2,
+         21.0,
+         8.6,
+         37.0
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' (Andreas vol. 2, p. 717): four piles of about 5.4 by 16 m by 7.6 m hold some 2,600 m3, about 720 cords; more is stacked in the north yard (reconstructed)."
+       },
+       {
+        "name": "kindling wood, a pile twenty-five feet high",
+        "box": [
+         3.2,
+         40.0,
+         8.6,
+         56.0
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' (Andreas vol. 2, p. 717): four piles of about 5.4 by 16 m by 7.6 m hold some 2,600 m3, about 720 cords; more is stacked in the north yard (reconstructed)."
+       },
+       {
+        "name": "kindling wood, a pile twenty-five feet high",
+        "box": [
+         3.2,
+         59.0,
+         8.6,
+         75.0
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'A thousand cords of fire-kindling wood, in piles twenty-five feet high' (Andreas vol. 2, p. 717): four piles of about 5.4 by 16 m by 7.6 m hold some 2,600 m3, about 720 cords; more is stacked in the north yard (reconstructed)."
+       },
+       {
+        "name": "kindling wood in the north yard",
+        "box": [
+         -26.0,
+         76.5,
+         -20.0,
+         90.5
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The rest of the thousand cords, in two more piles north of the mills (reconstructed)."
+       },
+       {
+        "name": "kindling wood in the north yard",
+        "box": [
+         -17.5,
+         76.5,
+         -11.5,
+         90.5
+        ],
+        "storeys": [
+         7.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The rest of the thousand cords, in two more piles north of the mills (reconstructed)."
+       },
+       {
+        "name": "furniture lumber, stacked",
+        "box": [
+         -29.0,
+         30.0,
+         -23.5,
+         46.0
+        ],
+        "storeys": [
+         3.4
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' (Andreas vol. 2, p. 717): about 1,400 m3, stacked between the mills (its place is reconstructed)."
+       },
+       {
+        "name": "furniture lumber, stacked",
+        "box": [
+         -29.0,
+         50.0,
+         -23.5,
+         66.0
+        ],
+        "storeys": [
+         3.4
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' (Andreas vol. 2, p. 717): about 1,400 m3, stacked between the mills (its place is reconstructed)."
+       },
+       {
+        "name": "furniture lumber, stacked",
+        "box": [
+         -21.0,
+         30.0,
+         -15.5,
+         46.0
+        ],
+        "storeys": [
+         3.4
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' (Andreas vol. 2, p. 717): about 1,400 m3, stacked between the mills (its place is reconstructed)."
+       },
+       {
+        "name": "furniture lumber, stacked",
+        "box": [
+         -21.0,
+         50.0,
+         -15.5,
+         66.0
+        ],
+        "storeys": [
+         3.4
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Six hundred thousand feet of furniture lumber, belonging to the Frank Mayer Furniture Company' (Andreas vol. 2, p. 717): about 1,400 m3, stacked between the mills (its place is reconstructed)."
+       }
+      ],
+      "note": "BATEHAM'S YARD, built by T-3831: the kindling wood and furniture lumber in the mills' yard (Andreas vol. 2, p. 717)."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "BATEHAM'S YARD, built by T-3831: the kindling wood and furniture lumber in the mills' yard (Andreas vol. 2, p. 717)."
+    },
+    "wall_material": {
+     "value": "Cordwood and stacked lumber",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Kindling wood in piles twenty-five feet high (Andreas vol. 2, p. 717); drawn as weathered wood (reconstructed).",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

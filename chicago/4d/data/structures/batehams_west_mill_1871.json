@@ -1,0 +1,264 @@
+{
+ "id": "batehams_west_mill_1871",
+ "name": "Bateham's west mill, between Canal and Clinton Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "mill",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "The second of W. B. Bateham's mills (Andreas vol. 2, p. 717); which of his trades (the box factory or the furniture factory) it held is not recorded."
+ },
+ "built": {
+  "value": 1865,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "When it was built is not recorded."
+ },
+ "research_note": "BATEHAM'S WEST MILL, built by T-3831 for the 1871 scene: 'Eighty feet west of the main mill was another of the same length, and forty feet in width. The south-west corner of the mills almost touched the church' (Andreas vol. 2, p. 717). No picture of it is known.",
+ "phases": [
+  {
+   "id": "mill_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+   },
+   "position": {
+    "utm_e": 446860.698,
+    "utm_n": 4635883.402,
+    "rotation_deg": 359.11,
+    "symbolic_location": "Between Canal and Clinton Streets south of Harrison, behind St. Paul's Church.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Eighty feet west of the main mill, its south-west corner beside the church's north-east corner (Andreas vol. 2, p. 717). The footprint's origin is local E -212.0 N -1512.4.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      12.2,
+      0
+     ],
+     [
+      12.2,
+      74.7
+     ],
+     [
+      0,
+      74.7
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Two hundred and forty-five by forty feet (Andreas vol. 2, p. 717)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'At half-past ten, the heroic men were driven from Bateham's works by the intense heat' (Andreas vol. 2, p. 717); 'At 10:30 Bateham's mills on Canal Street, near Harrison, were deserted, as beyond salvation' (p. 719).",
+       "time": "1871-10-08T22:20"
+      },
+      "blocks": [
+       {
+        "name": "the west mill",
+        "box": [
+         0,
+         0,
+         12.2,
+         74.7
+        ],
+        "storeys": [
+         4.0,
+         3.6
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.3,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 3.2,
+         "eave": 0.4,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "E": {
+          "bays": {
+           "n": 14,
+           "margin": 2.2
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.8,
+            "sill": 1.2,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.7,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             4,
+             9
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_flat",
+            "w": 3.0,
+            "h": 3.4,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 14,
+           "margin": 2.2
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.8,
+            "sill": 1.2,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.7,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2,
+             11
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_flat",
+            "w": 3.0,
+            "h": 3.4,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "at": [
+            6.1
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "door_flat",
+            "w": 3.2,
+            "h": 3.4,
+            "sill": 0.0
+           },
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.7,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "at": [
+            6.1
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "door_flat",
+            "w": 3.2,
+            "h": 3.4,
+            "sill": 0.0
+           },
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.7,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'Eighty feet west of the main mill was another of the same length, and forty feet in width' (Andreas vol. 2, p. 717). Its two storeys and its boarding are reconstructed."
+       }
+      ],
+      "note": "BATEHAM'S WEST MILL, built by T-3831: the second mill, 245 by 40 feet, eighty feet west of the main mill (Andreas vol. 2, p. 717)."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "BATEHAM'S WEST MILL, built by T-3831: the second mill, 245 by 40 feet, eighty feet west of the main mill (Andreas vol. 2, p. 717)."
+    },
+    "wall_material": {
+     "value": "Unpainted boards on a frame, a shingle roof",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "'Large wooden structures' (Andreas vol. 2, p. 712); the boarding is reconstructed.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

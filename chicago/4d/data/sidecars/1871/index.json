@@ -103,6 +103,30 @@
   "streets": [],
   "structures": [
     {
+      "id": "batehams_match_factory_1871",
+      "name": "The match factory behind Bateham's mills",
+      "sidecar": "sidecars/1871/batehams_match_factory_1871.json",
+      "asset": "gltf/batehams_match_factory_1871__factory_1871.glb"
+    },
+    {
+      "id": "batehams_mill_1871",
+      "name": "Bateham's shingle and planing mill, Canal Street",
+      "sidecar": "sidecars/1871/batehams_mill_1871.json",
+      "asset": "gltf/batehams_mill_1871__mill_1871.glb"
+    },
+    {
+      "id": "batehams_west_mill_1871",
+      "name": "Bateham's west mill, between Canal and Clinton Streets",
+      "sidecar": "sidecars/1871/batehams_west_mill_1871.json",
+      "asset": "gltf/batehams_west_mill_1871__mill_1871.glb"
+    },
+    {
+      "id": "batehams_yard_1871",
+      "name": "Bateham's yard: kindling wood and furniture lumber",
+      "sidecar": "sidecars/1871/batehams_yard_1871.json",
+      "asset": "gltf/batehams_yard_1871__yard_1871.glb"
+    },
+    {
       "id": "cemetery_dead_house_1871",
       "name": "The cemetery's dead-house",
       "sidecar": "sidecars/1871/cemetery_dead_house_1871.json",
@@ -169,6 +193,12 @@
       "asset": "gltf/forbes_cottage_1871__cottage_1871.glb"
     },
     {
+      "id": "huntoon_house_1871",
+      "name": "The Huntoon Place, Harrison and Clinton Streets",
+      "sidecar": "sidecars/1871/huntoon_house_1871.json",
+      "asset": "gltf/huntoon_house_1871__house_1838_1871.glb"
+    },
+    {
       "id": "lake_shore_sands_1871",
       "name": "The lake shore sands",
       "sidecar": "sidecars/1871/lake_shore_sands_1871.json",
@@ -205,10 +235,22 @@
       "asset": "gltf/palmer_house_1871__hotel_1870_1871.glb"
     },
     {
+      "id": "parmelee_stables_1871",
+      "name": "The Parmelee Omnibus and Stage Company's new stable, Jackson and Franklin Streets",
+      "sidecar": "sidecars/1871/parmelee_stables_1871.json",
+      "asset": "gltf/parmelee_stables_1871__stable_1871.glb"
+    },
+    {
       "id": "pumping_works_grounds_1871",
       "name": "The pumping works' grounds",
       "sidecar": "sidecars/1871/pumping_works_grounds_1871.json",
       "asset": "gltf/pumping_works_grounds_1871__grounds_1867_1871.glb"
+    },
+    {
+      "id": "roelle_works_1871",
+      "name": "The Roelle furniture-finishing works, Mather Street",
+      "sidecar": "sidecars/1871/roelle_works_1871.json",
+      "asset": "gltf/roelle_works_1871__works_1871.glb"
     },
     {
       "id": "sherman_house_1871",
@@ -221,6 +263,24 @@
       "name": "St. Michael's Church (German Catholic), Hurlbut and Linden Streets",
       "sidecar": "sidecars/1871/st_michaels_church_1871.json",
       "asset": "gltf/st_michaels_church_1871__church_1869_1871.glb"
+    },
+    {
+      "id": "st_pauls_church_1871",
+      "name": "St. Paul's Church (Catholic), Clinton and Mather Streets",
+      "sidecar": "sidecars/1871/st_pauls_church_1871.json",
+      "asset": "gltf/st_pauls_church_1871__church_1868_1871.glb"
+    },
+    {
+      "id": "st_pauls_priests_house_1871",
+      "name": "St. Paul's priest's house, Clinton Street",
+      "sidecar": "sidecars/1871/st_pauls_priests_house_1871.json",
+      "asset": "gltf/st_pauls_priests_house_1871__house_1868_1871.glb"
+    },
+    {
+      "id": "st_pauls_school_1871",
+      "name": "St. Paul's parish school, Clinton Street",
+      "sidecar": "sidecars/1871/st_pauls_school_1871.json",
+      "asset": "gltf/st_pauls_school_1871__school_1868_1871.glb"
     },
     {
       "id": "sullivan_house_1871",
@@ -251,6 +311,12 @@
       "name": "The Water Tower's grounds",
       "sidecar": "sidecars/1871/water_tower_grounds_1871.json",
       "asset": "gltf/water_tower_grounds_1871__grounds_1867_1871.glb"
+    },
+    {
+      "id": "wrights_stable_1871",
+      "name": "Wright's livery stable, State and Kinzie Streets",
+      "sidecar": "sidecars/1871/wrights_stable_1871.json",
+      "asset": "gltf/wrights_stable_1871__stable_1871.glb"
     }
   ],
   "excluded_by_date": [],

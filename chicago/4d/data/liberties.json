@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1258,
+  "count": 1261,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -24,6 +24,22 @@
     {
       "id": "armour_house_2115_prairie_coach_house",
       "name": "2115 S. Prairie Avenue — the alley building of the house at 2115"
+    },
+    {
+      "id": "batehams_match_factory_1871",
+      "name": "The match factory behind Bateham's mills"
+    },
+    {
+      "id": "batehams_mill_1871",
+      "name": "Bateham's shingle and planing mill, Canal Street"
+    },
+    {
+      "id": "batehams_west_mill_1871",
+      "name": "Bateham's west mill, between Canal and Clinton Streets"
+    },
+    {
+      "id": "batehams_yard_1871",
+      "name": "Bateham's yard: kindling wood and furniture lumber"
     },
     {
       "id": "bates_auction_room",
@@ -1270,6 +1286,10 @@
       "name": "217 East Twentieth Street — red brick corner rowhouse with a copper oriel"
     },
     {
+      "id": "huntoon_house_1871",
+      "name": "The Huntoon Place, Harrison and Clinton Streets"
+    },
+    {
       "id": "ic_16th_street_station_1605_prairie",
       "name": "1605 S. Prairie Avenue — the Illinois Central's 16th Street station"
     },
@@ -1768,6 +1788,10 @@
     {
       "id": "palmer_house_1871",
       "name": "The Palmer House, State and Quincy Streets"
+    },
+    {
+      "id": "parmelee_stables_1871",
+      "name": "The Parmelee Omnibus and Stage Company's new stable, Jackson and Franklin Streets"
     },
     {
       "id": "peck_store",
@@ -3498,6 +3522,10 @@
       "name": "Log cabins at Wolf Point"
     },
     {
+      "id": "roelle_works_1871",
+      "name": "The Roelle furniture-finishing works, Mather Street"
+    },
+    {
       "id": "roloson_house_2109_prairie",
       "name": "2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side"
     },
@@ -3588,6 +3616,18 @@
     {
       "id": "st_michaels_church_1871",
       "name": "St. Michael's Church (German Catholic), Hurlbut and Linden Streets"
+    },
+    {
+      "id": "st_pauls_church_1871",
+      "name": "St. Paul's Church (Catholic), Clinton and Mather Streets"
+    },
+    {
+      "id": "st_pauls_priests_house_1871",
+      "name": "St. Paul's priest's house, Clinton Street"
+    },
+    {
+      "id": "st_pauls_school_1871",
+      "name": "St. Paul's parish school, Clinton Street"
     },
     {
       "id": "steamboat_hotel",
@@ -3736,6 +3776,10 @@
     {
       "id": "wright_building_to_let_b",
       "name": "John Wright's Building to Let (b)"
+    },
+    {
+      "id": "wrights_stable_1871",
+      "name": "Wright's livery stable, State and Kinzie Streets"
     }
   ],
   "liberties": [
@@ -82567,6 +82611,317 @@
         "T-1939",
         "T-1837",
         "T-3783"
+      ]
+    },
+    {
+      "id": "L-1871-st-pauls-block-3831",
+      "title": "St. Paul's church, its priest's house and school, Bateham's mills and yard, the Roelle works, the match factory and the Huntoon Place: the block the brand fell on, laid out from Andreas's description",
+      "section": "per_subject",
+      "subjects": [
+        "batehams_match_factory_1871",
+        "batehams_mill_1871",
+        "batehams_west_mill_1871",
+        "batehams_yard_1871",
+        "huntoon_house_1871",
+        "roelle_works_1871",
+        "st_pauls_church_1871",
+        "st_pauls_priests_house_1871",
+        "st_pauls_school_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "batehams_match_factory_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_match_factory_1871",
+          "phase": "factory_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_match_factory_1871",
+          "phase": "factory_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_match_factory_1871",
+          "phase": "factory_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_mill_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_mill_1871",
+          "phase": "mill_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_west_mill_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_west_mill_1871",
+          "phase": "mill_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_yard_1871",
+          "phase": "yard_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_yard_1871",
+          "phase": "yard_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "batehams_yard_1871",
+          "phase": "yard_1871",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "huntoon_house_1871",
+          "phase": "house_1838_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "huntoon_house_1871",
+          "phase": "house_1838_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "roelle_works_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "roelle_works_1871",
+          "phase": "works_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_church_1871",
+          "phase": "church_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_church_1871",
+          "phase": "church_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_priests_house_1871",
+          "phase": "house_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_priests_house_1871",
+          "phase": "house_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_priests_house_1871",
+          "phase": "house_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_priests_house_1871",
+          "phase": "house_1868_1871",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "st_pauls_school_1871",
+          "phase": "school_1868_1871",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Great Fire jaunt's second stop (Clinton Street at Mather, half past ten on Sunday night) had a generic three-storey brick block from the context fill burning where St. Paul's stood. The block bounded by Harrison, Mather, Canal and Clinton Streets is now built from the one description of it, Andreas vol. 2, pp. 712-718 (Marshal Williams, Foreman Swenie, W. B. Bateham), with Sheahan and Upton (1871) for the church's size and the parish school, Andreas p. 406 for the parish's three buildings and their costs, Riley (pp. 715-716) for the cupola, and Edwards' 1871 directory for the church, its pastor and Bateham & Peters' shingle works at 319 S. Canal. Ten records stand on the landmark 1871 archetype in the 1835 town's clapboard, boards and shingles; the context city gives way to them. No picture of any of them is known (Andreas's plates, Sheahan and Upton's and the Library of Congress's and Chicago History Museum's fire views were searched on 2026-11-28; the St. Paul's pictured after the fire is the Universalist church on Wabash Avenue, a different building). **What the sources give** — the church's 100 by 40 feet, that it was of wood and had a cupola, the parish's three buildings, the main mill's 245 by 60 feet and three storeys and attic, the west mill's 245 by 40 feet eighty feet west of it, the Roelle works' 50 by 70 feet and three storeys eleven feet south of the mills on Mather Street, the match factory behind the shingle mill between Bateham's and Clinton Street, the yard's thousand cords of kindling in piles 25 feet high and 600,000 feet of furniture lumber, the Huntoon Place in the block's north-west quarter with its twelve chimney stacks, and the hours (the church down by ten, the Roelle works going up after ten, the mills given up at half past ten) — is cited in each record."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **The block is wider than Andreas's.** The 1871 plan (a tracing of Mitchell's 1870 map) puts Clinton and Canal Streets about 104 m apart between building lines, more than the accounts' buildings fill. The mills are set where the most of Andreas's relations hold together: the west mill's south-west corner beside the church's north-east corner (\"almost touched\"), the main mill eighty feet east of it, the mills' south end eleven feet north of the Roelle works on Mather Street's line. That leaves about 15 m of yard between the main mill and Canal Street, where the kindling piles are stacked, so the mills front Canal Street across their yard rather than on its walk. The plan draws Mather Street only west of Clinton; its north line is carried east as the block's south edge. - **St. Paul's church.** Its front to Clinton Street, its long side on Mather's line, its painted white clapboard, shingle roof, pointed windows and door, its basement lights and front steps, and the cupola's place over the front gable, its open belfry and spire, are reconstructed as a plain frame parish church of 1868; its $15,000 cost (St. Michael's brick church cost $200,000) bounds it to that. - **The priest's house and the school.** Where they stood on the parish's ground and how they looked are not recorded: they are set on Clinton Street north of the church, a two-storey frame house of the size $3,000 bought and a two-storey frame school with a bell-cote of the size $5,000 bought. - **The mills.** Their windows, doors, unpainted boarding, the west mill's two storeys and the engine house's brick and its stack are reconstructed (Andreas: \"large wooden structures\"; Bateham \"started the steam engine\"). - **The match factory and the Huntoon Place.** The factory's owner, size and form are not recorded: a two-storey frame works. The Huntoon house's form is reconstructed as a large frame farm-house with a kitchen wing, set well back in a 52 by 75 m quarter of the block; its trees are not drawn. - **The yard.** Four kindling piles of about 5.4 by 16 m by 7.6 m (25 ft) along the Canal Street front and two more north of the mills hold about the thousand cords; four stacks of lumber stand between the mills. Their places, and the 750,000 shingles left out, are reconstructed. - **The hours.** The church is pinned alight at 9:50 so it is down by ten and its ruin is smouldering at the stop's half past ten; the Roelle works at 10:10, the match factory at 10:15, the mills and the yard at 10:20 (the 1871 fire data, burning by). The priest's house, the school and the Huntoon house take the fire map's hours. - **The stop's camera.** The stand is unchanged; it now looks north-east (40°, was 16.7°) so the church and the mills behind it fill the frame. - **Left out.** The drug store on the north-west corner of Clinton and Mather and the row north of it (Marshal Williams, Sheahan and Upton p. 163), which \"caught fire several times\" and were held for a while, are not drawn."
+        },
+        {
+          "label": "Covers",
+          "text": "`st_pauls_church_1871.church_1868_1871.form.composition`, `st_pauls_church_1871.church_1868_1871.form.wall_material`, `st_pauls_priests_house_1871.house_1868_1871.form.composition`, `st_pauls_priests_house_1871.house_1868_1871.form.wall_material`, `st_pauls_priests_house_1871.house_1868_1871.footprint`, `st_pauls_priests_house_1871.house_1868_1871.position`, `st_pauls_school_1871.school_1868_1871.form.composition`, `st_pauls_school_1871.school_1868_1871.form.wall_material`, `st_pauls_school_1871.school_1868_1871.footprint`, `st_pauls_school_1871.school_1868_1871.position`, `batehams_mill_1871.built`, `batehams_mill_1871.mill_1871.form.wall_material`, `batehams_west_mill_1871.built`, `batehams_west_mill_1871.mill_1871.form.wall_material`, `batehams_match_factory_1871.built`, `batehams_match_factory_1871.factory_1871.form.composition`, `batehams_match_factory_1871.factory_1871.form.wall_material`, `batehams_match_factory_1871.factory_1871.footprint`, `batehams_yard_1871.yard_1871.footprint`, `batehams_yard_1871.yard_1871.position`, `batehams_yard_1871.yard_1871.form.wall_material`, `roelle_works_1871.built`, `roelle_works_1871.works_1871.form.wall_material`, `huntoon_house_1871.house_1838_1871.form.composition`, `huntoon_house_1871.house_1838_1871.form.wall_material`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Rascher or Sanborn sheet of the West Side before the fire, a Catholic directory's description or picture of St. Paul's, or an insurance survey of Bateham's works replaces the layout and the forms above."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3831)."
+        }
+      ],
+      "work_refs": [
+        "T-3831"
+      ]
+    },
+    {
+      "id": "L-1871-parmelee-stable-3831",
+      "title": "The Parmelee Omnibus and Stage Company's new stable at Jackson and Franklin: its size and form",
+      "section": "per_subject",
+      "subjects": [
+        "parmelee_stables_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "parmelee_stables_1871",
+          "phase": "stable_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "parmelee_stables_1871",
+          "phase": "stable_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "parmelee_stables_1871",
+          "phase": "stable_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Great Fire jaunt's third stop (Jackson and Franklin, half past eleven) had five-storey commercial blocks from the context fill on the corner where the stable stood. The stable is now built on the landmark 1871 archetype in the 1904 kits' brick, stone trim and slate. Andreas (vol. 2, p. 719) gives its corner, its cost ($80,000), that it was \"spacious\", \"the finest of its kind in the country\", just completed and to be occupied for the first time on Wednesday 11 October, and the hour it caught; no picture of it is known."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **Size.** A hundred feet on Jackson Street by a hundred and fifty-three on Franklin, taken from the brick stable Parmelee built in its place within eleven weeks of the fire (Andreas vol. 2, p. 119): the same company, the same corner, the same trade. - **Form.** Three floors (carriages and stalls, more stalls, the hay loft), red brick on a stone water table under a bracketed cornice and a slate hip roof; round-arched carriage doors on both streets and the yard, high stall windows, loft hay doors, and three louvred ventilators on the ridge, as a large city livery and transfer stable of 1871 had them. Brick and slate follow what Andreas says of Parmelee's other buildings (the \"slate-roofed\" State Street building, the \"brick\" 1872 stable). - **The yard.** A stable yard south of the stable on Franklin Street, behind a board fence with a wide gate; its place and size are reconstructed. It stands empty: the stable had not yet been occupied, so no coach, omnibus or horse is drawn in it. - **The hour.** Pinned ablaze at 11:36 (the 1871 fire data, burning by), so at the stop's half past eleven it has just caught and goes up while the stop is read, Andreas's \"but an instant before the edifice was literally engulfed in flame\"."
+        },
+        {
+          "label": "Covers",
+          "text": "`parmelee_stables_1871.stable_1871.form.composition`, `parmelee_stables_1871.stable_1871.form.wall_material`, `parmelee_stables_1871.stable_1871.footprint`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture or description of the stable before the fire, or a Rascher sheet of the South Division for 1870-71, replaces the size and form above."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3831)."
+        }
+      ],
+      "work_refs": [
+        "T-3831"
+      ]
+    },
+    {
+      "id": "L-1871-wrights-stable-3831",
+      "title": "Wright's livery stable at State and Kinzie: its size and form",
+      "section": "per_subject",
+      "subjects": [
+        "wrights_stable_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "wrights_stable_1871",
+          "phase": null,
+          "aspect": "built"
+        },
+        {
+          "domain": "structure",
+          "structure": "wrights_stable_1871",
+          "phase": "stable_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "wrights_stable_1871",
+          "phase": "stable_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "wrights_stable_1871",
+          "phase": "stable_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Great Fire jaunt's fifth stop (the foot of the State Street viaduct, half past two on Monday morning) says \"Wright's stable on this corner is burning\", and a generic three-storey block stood on the corner. Wright's livery stable is now built on the landmark 1871 archetype. Andreas gives its corner (the south-east corner of State and Kinzie Streets, at the north end of the viaduct), that it was a livery stable, and the hour it took fire (vol. 2, pp. 719, 743); no picture or description of it is known."
+        },
+        {
+          "label": "These are this project's",
+          "text": "its size and plan (a stable 52 feet on Kinzie Street by 98 deep on the east of the corner lot, its gable end to Kinzie Street, and an open yard of 43 feet between it and State Street); its frame, painted barn red, two floors and loft under a shingled gable with two ridge ventilators; its carriage and hay doors and high stall windows; and its being frame at all. It is pinned alight at 2:33 (the 1871 fire data, burning by), so it is burning while the stop is read."
+        },
+        {
+          "label": "Covers",
+          "text": "`wrights_stable_1871.built`, `wrights_stable_1871.stable_1871.form.composition`, `wrights_stable_1871.stable_1871.form.wall_material`, `wrights_stable_1871.stable_1871.footprint`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture or a directory description of the stable, or a Rascher sheet of the North Division for 1870-71, replaces the size and form."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3831)."
+        }
+      ],
+      "work_refs": [
+        "T-3831"
       ]
     },
     {

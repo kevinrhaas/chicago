@@ -1,0 +1,271 @@
+{
+ "id": "batehams_match_factory_1871",
+ "name": "The match factory behind Bateham's mills",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "factory",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2",
+   "sheahan_upton_1871_great_conflagration"
+  ],
+  "note": "'A match factory stood at the rear of the shingle mill' (Andreas vol. 2, p. 713); whose it was is not recorded."
+ },
+ "built": {
+  "value": 1865,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2",
+   "sheahan_upton_1871_great_conflagration"
+  ],
+  "note": "When it was built is not recorded."
+ },
+ "research_note": "THE MATCH FACTORY, built by T-3831 for the 1871 scene: 'A match factory stood at the rear of the shingle mill' (Marshal Williams, Andreas vol. 2, p. 713), 'between Bateham's and Clinton street', and was going when Williams reached the mills (Sheahan and Upton, p. 163); Foreman Swenie laid a line of hose 'between the mill and church and match factory' (Andreas p. 713). Its owner, size and form are not recorded.",
+ "phases": [
+  {
+   "id": "factory_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+   },
+   "position": {
+    "utm_e": 446843.698,
+    "utm_n": 4635907.802,
+    "rotation_deg": 359.11,
+    "symbolic_location": "Behind Bateham's west mill, between the mills and Clinton Street.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "At the rear of the shingle mill, between Bateham's and Clinton Street (Andreas vol. 2, p. 713; Sheahan and Upton, p. 163); its place behind the parish's buildings is reconstructed. The footprint's origin is local E -229.0 N -1488.0.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      14.0,
+      0
+     ],
+     [
+      14.0,
+      20.0
+     ],
+     [
+      0,
+      20.0
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2",
+     "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "Reconstructed: its size is not recorded."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "andreas_1885_v2"
+       ],
+       "note": "Marshal Williams (Sheahan and Upton, p. 163): 'I found that the match factory between Bateham's and Clinton street was going, as was the lumber in a yard near by'.",
+       "time": "1871-10-08T22:15"
+      },
+      "blocks": [
+       {
+        "name": "the match factory",
+        "box": [
+         0,
+         0,
+         14.0,
+         20.0
+        ],
+        "storeys": [
+         3.4,
+         3.0
+        ],
+        "wall": "clapboard_bare",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 2.6,
+         "eave": 0.35,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "n": 3,
+           "margin": 2.0
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.6,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.5,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_flat",
+            "w": 2.4,
+            "h": 2.8,
+            "sill": 0.0
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "n": 3,
+           "margin": 2.0
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.6,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.5,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": []
+         },
+         "E": {
+          "bays": {
+           "n": 5,
+           "margin": 2.0
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.6,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.5,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": []
+         },
+         "W": {
+          "bays": {
+           "n": 5,
+           "margin": 2.0
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.6,
+            "sill": 1.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.5,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_flat",
+            "w": 2.4,
+            "h": 2.8,
+            "sill": 0.0
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "'A match factory stood at the rear of the shingle mill' (Andreas vol. 2, p. 713), 'between Bateham's and Clinton street' (Marshal Williams, in Sheahan and Upton). Its size and form are not recorded and are reconstructed as a two-storey frame works."
+       }
+      ],
+      "note": "THE MATCH FACTORY behind Bateham's mills, built by T-3831, reconstructed (Andreas vol. 2, p. 713; Sheahan and Upton)."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration"
+     ],
+     "note": "THE MATCH FACTORY behind Bateham's mills, built by T-3831, reconstructed (Andreas vol. 2, p. 713; Sheahan and Upton)."
+    },
+    "wall_material": {
+     "value": "Unpainted boards on a frame, a shingle roof",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration"
+     ],
+     "note": "Reconstructed as the mills'.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

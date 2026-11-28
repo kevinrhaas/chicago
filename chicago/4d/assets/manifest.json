@@ -49,6 +49,46 @@
       "phase_id": "draft_1904",
       "structure_id": "armour_house_2115_prairie_coach_house"
     },
+    "batehams_match_factory_1871__factory_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 153772,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "6e8b1e3edbf1019ae3b5c5f5ec89c71a5981a3c0256c908c22c8dde3621922b1",
+      "kind": "generated",
+      "phase_id": "factory_1871",
+      "structure_id": "batehams_match_factory_1871"
+    },
+    "batehams_mill_1871__mill_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 671724,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "d83da607c4d2e3a96b3e361a17b333a88dc5a37507f6b9ba20a1f9165c04db80",
+      "kind": "generated",
+      "phase_id": "mill_1871",
+      "structure_id": "batehams_mill_1871"
+    },
+    "batehams_west_mill_1871__mill_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 230928,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "526206b32a10a56e49f39ee8234525dff10e6d11a010dda2c57042f3874c8ded",
+      "kind": "generated",
+      "phase_id": "mill_1871",
+      "structure_id": "batehams_west_mill_1871"
+    },
+    "batehams_yard_1871__yard_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 75028,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "dfe0f67e3555266df558cfc56986249b2d73947e0af95d36847a4f9d64eb4544",
+      "kind": "generated",
+      "phase_id": "yard_1871",
+      "structure_id": "batehams_yard_1871"
+    },
     "bates_auction_room__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -3070,6 +3110,16 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_217_e20th"
     },
+    "huntoon_house_1871__house_1838_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 321924,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "71d3dccd211726f6eed2a5b06a4ad07cd6bc70debe84e540a02dd46df3115e90",
+      "kind": "generated",
+      "phase_id": "house_1838_1871",
+      "structure_id": "huntoon_house_1871"
+    },
     "ic_16th_street_station_1605_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -4226,6 +4276,16 @@
       "kind": "generated",
       "phase_id": "hotel_1870_1871",
       "structure_id": "palmer_house_1871"
+    },
+    "parmelee_stables_1871__stable_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 997432,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "835378848302b688624d1e95900a8a37a38600e31c87efa78487ae13a94716aa",
+      "kind": "generated",
+      "phase_id": "stable_1871",
+      "structure_id": "parmelee_stables_1871"
     },
     "peck_store__frame_1833.glb": {
       "archetype": "frame_storefront",
@@ -10053,6 +10113,16 @@
       "phase_id": "log_1831",
       "structure_id": "robinson_caldwell_cabins"
     },
+    "roelle_works_1871__works_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 274688,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "45a92e87b69a8a839f38424b08a8ec22c457e52aaf6214d4b6e84f0ccd5237d1",
+      "kind": "generated",
+      "phase_id": "works_1871",
+      "structure_id": "roelle_works_1871"
+    },
     "roloson_house_2109_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
@@ -10275,6 +10345,36 @@
       "kind": "generated",
       "phase_id": "church_1869_1871",
       "structure_id": "st_michaels_church_1871"
+    },
+    "st_pauls_church_1871__church_1868_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 400996,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "7d3d71438a9905df0efe1b3ed28fc90102d841a3b7bd533117df3119799955a0",
+      "kind": "generated",
+      "phase_id": "church_1868_1871",
+      "structure_id": "st_pauls_church_1871"
+    },
+    "st_pauls_priests_house_1871__house_1868_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 236396,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "2ae8cde7e6cf644cfbdbf0f525347c632c2a6a356793cb6dd864e8e6da16dfda",
+      "kind": "generated",
+      "phase_id": "house_1868_1871",
+      "structure_id": "st_pauls_priests_house_1871"
+    },
+    "st_pauls_school_1871__school_1868_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 360912,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "b5a860eb5459fef02a0ecae2e92e0eeaf61bd0b6ec8f93a9bd3e64270a6923ab",
+      "kind": "generated",
+      "phase_id": "school_1868_1871",
+      "structure_id": "st_pauls_school_1871"
     },
     "steamboat_hotel__frame_1835.glb": {
       "archetype": "frame_tavern",
@@ -10720,6 +10820,16 @@
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "wright_building_to_let_b"
+    },
+    "wrights_stable_1871__stable_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 452388,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "46529f8d7811bfcdfb1008cc4f305359bdf8572784147364bbacdcb768903bc9",
+      "kind": "generated",
+      "phase_id": "stable_1871",
+      "structure_id": "wrights_stable_1871"
     }
   },
   "blender": "4.5.3",
