@@ -8,6 +8,10 @@
   // then has one short fault (the picture blocks up, tears, flickers or drops to static),
   // then settles again. Calibrating years fault more often than the nominal one, and a card
   // whose hold is slipping (portal.js sets data-hold="drift") breaks up until it recovers.
+  // T-3798: the clips sit beside this script, so the launch page (/4d/) and the classic
+  // console (/4d/console/) both find them.
+  const here = (document.currentScript && document.currentScript.src) || new URL('walk/portal/clips.js', document.baseURI).href;
+  const clip = (file) => new URL(`clips/${file}`, here).href;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const saveData = navigator.connection && navigator.connection.saveData;
   if (reduced.matches || saveData) return;
@@ -34,7 +38,7 @@
     video.preload = 'auto'; video.disablePictureInPicture = true;
     const still = plate.querySelector('img');
     if (still) video.poster = still.currentSrc || still.src;
-    video.src = `walk/portal/clips/${name}.${exts[0]}`;
+    video.src = clip(`${name}.${exts[0]}`);
     // Blocky frames are drawn here: the video at a fraction of its size, scaled back up unsmoothed.
     const canvas = document.createElement('canvas');
     canvas.className = 'era-feed-blocks'; canvas.setAttribute('aria-hidden', 'true');
@@ -48,7 +52,7 @@
     video.addEventListener('playing', () => { plate.dataset.feed = 'live'; });
     video.addEventListener('error', () => {
       if (feed.reel) return;
-      if (++feed.ext < exts.length) { video.src = `walk/portal/clips/${name}.${exts[feed.ext]}`; play(feed); }
+      if (++feed.ext < exts.length) { video.src = clip(`${name}.${exts[feed.ext]}`); play(feed); }
       else toReel(feed);
     });
     feeds.push(feed);
@@ -87,7 +91,7 @@
       feed.plate.dataset.feed = 'live';
     };
     img.onerror = () => { feed.plate.dataset.feed = 'lost'; view.remove(); feed.canvas.remove(); feed.dead = true; };
-    img.src = `walk/portal/clips/${feed.name}.reel.webp`;
+    img.src = clip(`${feed.name}.reel.webp`);
   }
   function stepReel(feed, now) {
     const r = feed.reel; if (!r.frames) return;
