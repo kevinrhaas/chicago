@@ -1,3 +1,16 @@
+## T-3806 — The 1871 horse railways: tracks and running horse cars (27 November 2026)
+
+`tools/lay_horse_railways_1871.py` lays every line the 1871 directory (Edwards, p. 53) and
+Andreas (v. 2 pp. 119-121, v. 3 p. 164) name onto the 1871 street plan:
+`data/transport/horse_railways_1871.json`, 16 sections, about 37.5 km, each section graded
+and located. State, Randolph, Madison and Clark are double track and carry running cars;
+the single-track branches are track only. `renderers/web/js/horse-railway-1871.js` draws the
+strap rails as street decals per 256 m cell and runs closed cars (two horses, a driver and a
+conductor from the people pipeline) on a reconstructed headway, near the camera only, capped
+per tier (light: 2 cars, one horse each). No car runs from 22:00 on 8 October 1871 through the
+fire. The car, its livery and the timetable are reconstructed under
+`L-1871-horse-railways-3806`. Not drawn yet: fire-warped rails, cars on single-track lines.
+
 ## T-3776 — Student data policy and Delete my saved data (27 November 2026)
 
 Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")

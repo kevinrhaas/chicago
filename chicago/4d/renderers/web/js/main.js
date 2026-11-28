@@ -4693,7 +4693,7 @@ async function boot() {
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
-        obstacles: () => api.riding?.obstacles?.() ?? [],
+        obstacles: () => [...(api.riding?.obstacles?.() ?? []), ...(api.horseRailway?.obstacles?.() ?? [])],
         interactions, detail: detailLevel, problems,
         // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
         // a row's lighter horse, vehicle and driver; it no longer means no team at all.
@@ -4728,6 +4728,25 @@ async function boot() {
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
+  }
+
+  // T-3806 (owner, 2026-11-27: "1871 horse railways: tracks and running horse cars"): the
+  // horse-railway tracks on the 1871 streets, and the cars on the double lines near the eye
+  // (horse-railway-1871.js). Read without holding up the boot.
+  api.horseRailway = null;
+  if (String(YEAR) === '1871') {
+    import('./horse-railway-1871.js').then(({ mountHorseRailway1871 }) => mountHorseRailway1871({
+      dataBase: bases.dataBase, confidence, problems, coarse: lowMem,
+      detail: () => detailLevel,
+      height: (e, n) => api.roadHeight1871?.(e, n) ?? api.contextCity?.floorHeight?.(e, n) ?? NaN,
+      humans: () => api.humans ?? null,
+      hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; },
+      date: () => world.sunDate ?? null,
+      hidden: () => confidence.hidden.reconstructed || !shownLayers.vehicles,
+      visitor: () => (walker.state.flying ? null : walker.state),
+      blockers: () => [...(api.townTransport?.footprintsAhead?.([0, 1.5], .2) ?? []), ...(api.riding?.obstacles?.() ?? [])],
+    })).then((rail) => { if (rail) { api.horseRailway = rail; scene3d.add(rail.group); } })
+      .catch((error) => { problems.push(`horse railways: ${error.message}`); });
   }
 
   // T-3560 (owner, 2026-11-17: "definite prioritize the horse riding"): a saddle horse near
@@ -8236,6 +8255,8 @@ async function boot() {
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
+    // T-3806: the horse cars on their runs (their own clock, the scene's hour).
+    api.horseRailway?.update(visualDt, camera.position, { paused: animationHold || gateOpen || document.hidden });
     api.trafficCards?.update(visualDt, camera, { hidden: confidence.hidden.reconstructed || !shownLayers.vehicles || document.hidden,
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })() });
     // T-3557: the team has moved this frame; the eye goes with it, and the bar says so.

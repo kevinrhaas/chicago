@@ -1,0 +1,25 @@
+{
+  "id": "andreas_1886_v3",
+  "type": "book",
+  "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 3, From the Fire of 1871 until 1885. Chicago: A. T. Andreas, 1886.",
+  "author": "Alfred Theodore Andreas",
+  "date": "1886",
+  "describes_date": "1871-1885",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/historyofchicago03andruoft",
+  "locator": "Local Transportation, pp. 164-166: the North Chicago Railway's lines 'constructed entire since the fire', among them 'two and one-fifth miles of double track on Wells Street from Randolph to North Clark, by November, 1875'; the West Division company's losses in the fire, its tracks 'east of the river' and its offices on State Street.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1886 in the United States; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-27 (T-3806) from the Internet Archive's OCR text of this scan (historyofchicago03andruoft_djvu.txt), at the printed page numbers the OCR carries in its running heads; the page images were not opened.",
+  "note": "Used for what the horse railways were NOT in October 1871: lines it records as built after the fire (Wells Street, Lincoln Avenue) are not laid in the 1871 scene.",
+  "what_it_supplies": [
+    "the North Side horse-railway lines built after the fire, and their dates",
+    "the West Division Railway's fire losses (its tracks east of the river)"
+  ],
+  "what_it_does_not_supply": [
+    "the routes of 1871 themselves (vol. 2 and the 1871 directory give those)"
+  ]
+}
