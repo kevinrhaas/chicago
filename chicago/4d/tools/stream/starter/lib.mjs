@@ -170,6 +170,11 @@ export function usage(ledger, now = Date.now()) {
 }
 export const hoursUsed = (ledger, now) => usage(ledger, now).hours;
 
+/** The town a machine opens follows the launch page that asked: the dev preview opens the dev
+ * build (so what is being tested is what streams), anything else the site. */
+export const DEV_ORIGIN = 'https://dev.chicago.polecat.live';
+export const siteFor = (origin, site = 'https://chicago.polecat.live/4d/') => (origin === DEV_ORIGIN ? `${DEV_ORIGIN}/4d/dev/` : site);
+
 // ---- One sign-in (owner, 2026-11-27: "you should have only one sign in for this") ----------
 /** A Firebase custom token for the player's own account, signed by the Firebase project's admin
  * account through IAM (the starter holds no key: it may only ask IAM to sign as that account,

@@ -129,6 +129,9 @@ ok(r.ok && g.tried.length === 2, 'a region\'s own quota only rules out that regi
   const setup = fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8');
   ok(/roles\/iam\.serviceAccountTokenCreator/.test(setup) && /FIREBASE_SA=\$FIREBASE_SA/.test(setup) && /iamcredentials\.googleapis\.com/.test(setup), 'setup grants the signing and hands the account to the starter');
 }
+ok(lib.siteFor('https://dev.chicago.polecat.live') === 'https://dev.chicago.polecat.live/4d/dev/' && lib.siteFor('https://chicago.polecat.live') === 'https://chicago.polecat.live/4d/' && lib.siteFor('https://evil.example') === 'https://chicago.polecat.live/4d/'
+  && /^https:\/\/dev\.chicago\.polecat\.live\/4d\/dev\/1904\/$/.test(lib.townURL('1904', lib.siteFor(lib.DEV_ORIGIN))), 'the dev preview streams the dev build; anything else the site');
+ok(/site: siteFor\(req\.headers\.origin, SITE\)/.test(fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8')), 'the starter opens the town of the page that asked');
 ok(lib.gpusFrom('').length === 1 && lib.gpusFrom('')[0].gpu === 'l4' && lib.gpusFrom('l4,t4').length === 2 && lib.gpusFrom('nonsense')[0].gpu === 'l4', 'players get the measured L4 only unless GPUS=l4,t4; a bad setting never leaves them without an L4');
 ok(/GPUS=\$\{GPUS:-l4\}/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup deploys L4 only by default');
 g = fakeG(lib.ZONES.map(() => stockout));

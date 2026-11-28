@@ -15,7 +15,7 @@
  * Every player call carries `Authorization: Bearer <Firebase ID token>`.
  */
 import http from 'node:http';
-import { verifyIdToken, rightsOf, google, usage, startMachine, gpusFrom, signInPass, playerLabel, emailId, monthKey, sslipHost, probe, probeRow, probeSummary, PROBE_DAYS, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
+import { verifyIdToken, rightsOf, google, usage, startMachine, gpusFrom, signInPass, siteFor, playerLabel, emailId, monthKey, sslipHost, probe, probeRow, probeSummary, PROBE_DAYS, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
 
 const env = process.env;
 const PROJECT = env.GOOGLE_CLOUD_PROJECT || env.PROJECT || 'chicago-stream';
@@ -94,7 +94,7 @@ const routes = {
     const t0 = Date.now();
     // A pass that cannot be made only means signing in once more, inside the stream.
     const pass = await signInPass(g, { sa: FIREBASE_SA, uid: p.uid }).catch(() => '');
-    const out = await startMachine(g, { year, player: p.label, machineSA: MACHINE_SA, admin: p.admin, site: SITE, gpus: PLAYER_GPUS, pass });
+    const out = await startMachine(g, { year, player: p.label, machineSA: MACHINE_SA, admin: p.admin, site: siteFor(req.headers.origin, SITE), gpus: PLAYER_GPUS, pass });
     if (!out.ok) return [503, { ok: false, why: out.why, message: out.why === 'quota' ? 'Google has not given this project the graphics capacity yet.' : 'Google has no free graphics machine anywhere in the US just now. Try again later.' }];
     await withLedger((d) => { d.sessions ??= {}; d.sessions[out.name] = { start: new Date(t0).toISOString(), year, spot: out.spot, gpu: out.gpu, by: p.admin ? 'admin' : 'player' }; return d; });
     return [200, { ok: true, name: out.name, year, status: 'STARTING', ready: false, spot: out.spot, gpu: out.gpu, spentThisMonth: Number(used.dollars.toFixed(2)) }];
