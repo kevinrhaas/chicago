@@ -46709,6 +46709,15 @@ the screen wall's depth and thickness are the scroll pier's, which a square-on v
 **Review:** `tools/place_prairie_1904_house_numbers.py`, `data/house_numbers/1904.json`, `renderers/web/js/house-numbers.js`.
 **Recorded:** 2026-11-23 (T-3737).
 
+### L-1871-house-numbers-3738 — The 1871 DeKoven Street houses' street numbers, painted on their front doors
+
+**Decision:** the owner, 2026-11-23 (thread "Add period street numbers to buildings"): *"yes start with 1904, the other years can come later, you can add tickets for the other years for later to the queue"* (T-3738). **The numbers:** a building shows a number only where its own record reads it from a source: the O'Learys' cottage at No. 137 DeKoven Street (Mountford's 1871 stereograph card, `loc_cph_3b04891_oleary_cottage`, prints "No. 137 DeKoven St."; Andreas gives it), the Forbes house at No. 133 and Dennis Sullivan's at No. 134 (Andreas vol. 2, pp. 708-712, `andreas_1885_v2`) are **attested**; Dalton's cottage at 135 is **inferred**: its record places it next east of the O'Learys, between the printed 133 and 137, and no source read prints "No. 135". These are the old numbers, before the 1909-11 renumbering. The downtown landmarks (the Sherman, Tremont and Palmer houses, the Tribune, Crosby's Opera House, Field & Leiter's, the Court House, the Chamber of Commerce) are known by name and corner in every source read for them, so they show none, and the context city's unnamed fronts show none. **The form (reconstructed):** no picture of these fronts with their numbers is read (Mountford's card looks at the cottages from the burnt lots behind), so each number is white painted figures, about 4 in high, on the front door's top rail, as T-3737's rule puts figures on a door without a transom; a Roman or a block letter, dealt per house.
+
+**How to resolve:** a picture of a DeKoven Street front showing its number's place and form replaces the rule for that house; a directory or a source printing "No. 135" for Dalton's lifts it to attested; a directory entry giving a landmark's street number adds it (tools/place_1871_house_numbers.py reads it from the landmark's own `symbolic_location`).
+**Ticket:** T-3738.
+**Review:** `tools/place_1871_house_numbers.py`, `data/house_numbers/1871.json`, `renderers/web/js/house-numbers.js`.
+**Recorded:** 2026-11-28 (T-3738).
+
 ### L-pullman-corner-elm-withdrawn-3739 — The Pullman corner's parkway elm left out, where the Detroit print shows a trunk near the 18th Street crossing
 
 **Decision:** left out: the pictured elm at the north-east corner of Prairie Avenue and 18th Street

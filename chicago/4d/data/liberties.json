@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1267,
+  "count": 1268,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80993,7 +80993,7 @@
         },
         {
           "label": "What is reconstructed",
-          "text": "- *Fronts:* the city 1871 emit generator (core row) now stands every attached downtown and shop-street row on the walk's outer edge (0.06 m clear of the planks) and runs each row to the cross street's own walk edge, where it had stood 5 m back on the corridor margin the free-standing lots keep. The walk widths themselves are unchanged (16 m roadway and 4.2 m walks on the principal streets, 13 m and 3.5 m elsewhere): no 1871 source in the project gives them, so they stay reconstructed. A front that cannot stand there (a mapped corridor in the way) still steps back, up to 5 m, and records it in walk gap (m). - *Furniture* (the lay 1871 street furniture tool, the 1871 street furniture data): a gas lamp at the walk's end at every downtown corner and every 46 m along the business blocks, drawn as the 1904 lamp (its form inferred from the three LOC stereographs, the positions reconstructed); telegraph poles every 40 m on one side of the named main streets, carrying wires up to 62 m; hitching posts every 7.5 m along the shop walks. Spacing, which side, and the hitching post's form are this project's. - *Street trees* (the 1871 street trees data): one file a side along the house streets within about 3.2 km of State and Madison, about 30 ft apart in boxes at the kerb, a third of the places empty and one tree in five young, all drawn as the American elm of the 1904 layer. Kind, spacing and extent are reconstructed; the opera-house picture shows tall broad-crowned street trees but not their kind. - *The hack stand* (the placements data, rows hack stand clark court house 1 to `_5`): the stand and the rank are attested by the Sherman House picture. The project has no closed carriage of 1871, so each hack is a **stand-in**, the brougham after Studebaker's 1893 catalogue, on the owner's ruling of 2026-11-21 (\"Yes, a labelled stand-in\"); its card says so. the parked placements check allows that design in 1871 for these five rows at this stand only. Its form, the spacing, the horses and their coats, and the absence of drivers are reconstructed."
+          "text": "- *Fronts:* the city 1871 emit generator (core row) now stands every attached downtown and shop-street row on the walk's outer edge (0.06 m clear of the planks) and runs each row to the cross street's own walk edge, where it had stood 5 m back on the corridor margin the free-standing lots keep. The walk widths themselves are unchanged (16 m roadway and 4.2 m walks on the principal streets, 13 m and 3.5 m elsewhere): no 1871 source in the project gives them, so they stay reconstructed. A front that cannot stand there (a mapped corridor in the way) still steps back, up to 5 m, and records it in walk gap (m). - *Furniture* (the lay 1871 street furniture tool, the 1871 street furniture data): a gas lamp at the walk's end at every downtown corner and every 46 m along the business blocks, drawn as the 1904 lamp (its form inferred from the three LOC stereographs, the positions reconstructed); telegraph poles every 40 m on one side of the named main streets, carrying wires up to 62 m; hitching posts every 7.5 m along the shop walks. Spacing, which side, and the hitching post's form are this project's. - *Street trees* (the 1871 street trees data): one file a side along the house streets within about 3.2 km of State and Madison, about 30 ft apart in boxes at the kerb, a third of the places empty and one tree in five young, all drawn as the American elm of the 1904 layer. Kind, spacing and extent are reconstructed; the opera-house picture shows tall broad-crowned street trees but not their kind. Since later work (owner, 2026-11-23) each box stands clear of every house's way in on its walk (the stand-in's steps or porch at the front's middle, and the detail's door or front-yard gate on the middle bay's line), of the board crossings, the corners, the posts and the kerb's dress: a place before one gives way to the nearest clear spot within 4.2 m along the walk. The clearances (a box about 3 ft square, 0.6 m clear of a way's edge) are this project's; the tool's trees check refuses a planting that breaks them. - *The hack stand* (the placements data, rows hack stand clark court house 1 to `_5`): the stand and the rank are attested by the Sherman House picture. The project has no closed carriage of 1871, so each hack is a **stand-in**, the brougham after Studebaker's 1893 catalogue, on the owner's ruling of 2026-11-21 (\"Yes, a labelled stand-in\"); its card says so. the parked placements check allows that design in 1871 for these five rows at this stand only. Its form, the spacing, the horses and their coats, and the absence of drivers are reconstructed."
         },
         {
           "label": "How to resolve",
@@ -81009,6 +81009,7 @@
         }
       ],
       "work_refs": [
+        "T-3740",
         "T-3686"
       ]
     },
@@ -81430,6 +81431,45 @@
       ],
       "work_refs": [
         "T-2216",
+        "T-3737"
+      ]
+    },
+    {
+      "id": "L-1871-house-numbers-3738",
+      "title": "The 1871 DeKoven Street houses' street numbers, painted on their front doors",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-23 (thread \"Add period street numbers to buildings\"): *\"yes start with 1904, the other years can come later, you can add pieces of work for the other years for later to the queue\"*."
+        },
+        {
+          "label": "The numbers",
+          "text": "a building shows a number only where its own record reads it from a source: the O'Learys' cottage at No. 137 DeKoven Street (Mountford's 1871 stereograph card, J. Mountford, 'Mrs. O'Leary's residence, No. 137 DeKoven St., where the great…, prints \"No. 137 DeKoven St.\"; Andreas gives it), the Forbes house at No. 133 and Dennis Sullivan's at No. 134 (Andreas vol. 2, pp. 708-712, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time) are **attested**; Dalton's cottage at 135 is **inferred**: its record places it next east of the O'Learys, between the printed 133 and 137, and no source read prints \"No. 135\". These are the old numbers, before the 1909-11 renumbering. The downtown landmarks (the Sherman, Tremont and Palmer houses, the Tribune, Crosby's Opera House, Field & Leiter's, the Court House, the Chamber of Commerce) are known by name and corner in every source read for them, so they show none, and the context city's unnamed fronts show none."
+        },
+        {
+          "label": "The form (reconstructed)",
+          "text": "no picture of these fronts with their numbers is read (Mountford's card looks at the cottages from the burnt lots behind), so each number is white painted figures, about 4 in high, on the front door's top rail, as earlier work's rule puts figures on a door without a transom; a Roman or a block letter, dealt per house."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of a DeKoven Street front showing its number's place and form replaces the rule for that house; a directory or a source printing \"No. 135\" for Dalton's lifts it to attested; a directory entry giving a landmark's street number adds it (the place 1871 house numbers tool reads it from the landmark's own symbolic location)."
+        },
+        {
+          "label": "Review",
+          "text": "the place 1871 house numbers tool, the 1871 house numbers data, the walkthrough's house numbers code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3738)."
+        }
+      ],
+      "work_refs": [
+        "T-3738",
         "T-3737"
       ]
     },

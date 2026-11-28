@@ -2515,6 +2515,13 @@
       "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1904.json byte for byte and changed no other byte; with the output emptied, --check failed and a bare run restored it to the same bytes; --check writes nothing (T-3737).",
       "placed": "Reads data/street_grid/1904.json (tools/trace_prairie_1904_grid.py's lots and their 1911 numbers), the committed 1904 sidecars and their baked models' door leaves and glass, as tools/plant_prairie_1904_front_yards.py reads them. Its slot is after the grid tracer and every 1904 bake; nothing reads its output but the renderer."
     },
+    "place_1871_house_numbers.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-28",
+      "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1871.json byte for byte and changed no other byte; --check writes nothing (T-3738).",
+      "placed": "Reads data/scenes/1871.json's structure ids, their data/sidecars/1871 placements and data/structures records, data/context/1871.json's named streets and the baked models' door leaves, through tools/place_prairie_1904_house_numbers.py's door finder. Its slot is after every 1871 bake; nothing reads its output but the renderer."
+    },
     "architecture_site.py": {
       "placement": "not_a_writer",
       "write_mode": "OUT_DIR",

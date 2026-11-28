@@ -1439,6 +1439,14 @@ selftest "the house-number check refuses a number shown twice, a second 1800 for
 step "the house numbers read left to right from the street, sit on their doors through each house's placement, in one draw (T-3737)" \
   node tools/test_house_numbers.mjs
 
+# T-3738. ...and 1871's: the old street number each named building's own record reads from its
+# sources (the four DeKoven Street houses round the O'Learys'), on its front door's top rail; no
+# number for a building known only by name and corner, nor for an unnamed context front.
+step "the 1871 house numbers are each building's own record's reading, on its front door (T-3738)" \
+  python3 tools/place_1871_house_numbers.py --check
+selftest "the 1871 house-number check refuses an unread number, a context front's, a sourceless one, an attested unpictured form, a duplicate, a letter and foot-tall figures (T-3738)" \
+  python3 tools/place_1871_house_numbers.py --self-test
+
 # T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
 # rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying
 # yards, kitchen gardens and side-lawn planting. Nothing it lays may stand in a building, a fence or a
