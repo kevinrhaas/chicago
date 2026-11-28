@@ -1,7 +1,7 @@
 /**
  * WHAT A FRAME COSTS WHILE THE VISITOR IS MOVING — T-2096.
  *
- *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light]
+ *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light] [--root mirror]
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate] [--xray]
@@ -282,9 +282,8 @@ const TYPES = {
   '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.md': 'text/markdown',
   '.webp': 'image/webp', '.ktx2': 'image/ktx2',
 };
-const ROOT = wantSource
-  ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/4d');
+const ROOT = argAt('--root') ? path.resolve(argAt('--root'))
+  : wantSource ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);
@@ -332,7 +331,14 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   }
   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
   // the hooks are wrapped on the objects that exist once it has settled.
-  await a.setDetail(tier);
+  // Scripted readings skip raster drawing, including this unmeasured setup.
+  // Otherwise each cooperative rebuild yield redraws the old Full town on
+  // SwiftShader, exhausting the job before Balanced's first measured frame.
+  // Keep camera transforms current; --render and live readings retain draws.
+  const prepareDraw = a.renderer.render;
+  if (!render) a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
+  try { await a.setDetail(tier); }
+  finally { a.renderer.render = prepareDraw; }
   if (xray) {
     a.setConfidenceView(true);
     a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });

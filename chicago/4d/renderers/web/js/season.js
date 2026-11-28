@@ -1,10 +1,10 @@
 /**
- * T-2481 — the Season setting: summer (the scene's own day), spring, fall and
+ * T-2481 — the Season setting: summer, spring, fall and
  * winter, for the ground, the trees and the sun. 1904 first; T-2864 offers it in
  * every year, and adds the woods and the prairie (patchFoliage below).
  *
- * A VIEWING CHOICE, NEVER A CLAIM. The scene is dated 1 July 1904 and that is what
- * it reconstructs. A season other than summer moves the sun to that season's date
+ * A VIEWING CHOICE, NEVER A CLAIM. Each scene retains its own target date.
+ * Choosing another season moves the sun to that season's representative date
  * and repaints the ground and the leaves the way such a day generally looks in
  * Chicago; no record of the district on those days stands behind it (liberty
  * L-season-view-2481).
@@ -21,7 +21,7 @@ export const SEASONS = ['summer', 'spring', 'fall', 'winter'];
 
 /**
  * The day each season shows, as month-day in the scene's own year: the sun is lit for
- * it and the year chip names it (1904 · 02.15). Summer is the scene's own date.
+ * it and the year chip names it (1904 · 02.15). The scene's own season keeps its date.
  * T-3437 (the owner, 2026-11-07): the others are the middle of a season's month,
  * mid-April, mid-October and mid-February (February rather than January, so a winter
  * view is never Christmas). The leaves agree: elms breaking bud in mid-April, elms
@@ -30,10 +30,21 @@ export const SEASONS = ['summer', 'spring', 'fall', 'winter'];
  */
 export const SEASON_DAY = Object.freeze({ spring: '04-15', fall: '10-15', winter: '02-15' });
 
+/** Calendar season of a scene or dated stop; no climate observation is implied. */
+export function seasonForDate(date) {
+  const match = /^\d{4}-(\d{2})-\d{2}/.exec(String(date ?? ''));
+  const month = match ? Number(match[1]) : 0;
+  if (month < 1 || month > 12) return null;
+  return month >= 3 && month <= 5 ? 'spring' : month >= 6 && month <= 8 ? 'summer'
+    : month >= 9 && month <= 11 ? 'fall' : 'winter';
+}
+
 /** The date the sun is computed for, given the scene's own target date. */
 export function seasonDate(season, targetDate) {
-  const day = SEASON_DAY[season];
-  if (!day || !targetDate) return targetDate;
+  // Summer already has a scene date in the earlier years. Only a scene dated
+  // in another season (1871's 8 October) needs a representative July day.
+  const day = season === 'summer' ? '07-15' : SEASON_DAY[season];
+  if (!day || !targetDate || seasonForDate(targetDate) === season) return targetDate;
   return `${String(targetDate).slice(0, 4)}-${day}`;
 }
 
@@ -327,6 +338,31 @@ const vineApply = (xz) => `
  * own varying is added.
  */
 const foliagePatched = new WeakSet();
+const deciduousPatched = new WeakSet();
+
+/** Legacy deciduous sprays share a batch with wood. Winter removes tagged
+ * leaf cards in the colour, directional-shadow and point-shadow materials;
+ * the woody tubes remain. The conifers use the separate grown-tree path. */
+export function patchDeciduousSprays(material) {
+  if (!material || deciduousPatched.has(material)) return false;
+  deciduousPatched.add(material);
+  const prior = material.onBeforeCompile;
+  const key = String(material.customProgramCacheKey());
+  material.onBeforeCompile = (shader, renderer) => {
+    prior?.call(material, shader, renderer);
+    shader.uniforms.uChiWoodyBare = seasonUniforms.uChiBare;
+    const attribute = shader.vertexShader.includes('attribute float aLeaf;') ? '' : 'attribute float aLeaf;\n';
+    shader.vertexShader = attribute + 'varying float vChiWoodyLeaf;\n' + shader.vertexShader.replace(
+      '#include <begin_vertex>', '#include <begin_vertex>\nvChiWoodyLeaf = aLeaf;');
+    shader.fragmentShader = 'varying float vChiWoodyLeaf;\nuniform float uChiWoodyBare;\n'
+      + shader.fragmentShader.replace('#include <alphatest_fragment>',
+        'if (uChiWoodyBare > 0.5 && vChiWoodyLeaf > 0.5) discard;\n#include <alphatest_fragment>');
+  };
+  material.customProgramCacheKey = () => `${key}|deciduous-sprays-1`;
+  material.needsUpdate = true;
+  return true;
+}
+
 export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null, evergreenBelowV = null } = {}) {
   if (!material || foliagePatched.has(material)) return false;
   foliagePatched.add(material);

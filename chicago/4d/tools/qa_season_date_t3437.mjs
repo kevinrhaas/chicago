@@ -17,10 +17,11 @@ const out = process.env.QA_OUT || path.join(root, 'docs/RESEARCH/season-date-343
 fs.mkdirSync(out, { recursive: true });
 const YEAR = process.env.QA_YEAR || '1835';
 const BOOT_SEASON = process.env.QA_BOOT_SEASON || 'winter';
+const EXPECT_BOOT = BOOT_SEASON === 'fresh' ? (YEAR === '1871' ? 'fall' : 'summer') : BOOT_SEASON;
 const desktop = !!process.env.QA_DESKTOP;
 const BOOT_MS = Number(process.env.QA_BOOT_MS) || 300000;
-const SUMMER = { 1812: '1812-08-14', 1835: '1835-07-01', 1904: '1904-07-01' }[YEAR];
-const WANT = { summer: SUMMER, spring: `${YEAR}-04-15`, fall: `${YEAR}-10-15`, winter: `${YEAR}-02-15` };
+const SUMMER = { 1812: '1812-08-14', 1835: '1835-07-01', 1871: '1871-07-15', 1904: '1904-07-01' }[YEAR];
+const WANT = { summer: SUMMER, spring: `${YEAR}-04-15`, fall: YEAR==='1871'?'1871-10-08':`${YEAR}-10-15`, winter: `${YEAR}-02-15` };
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.ktx2': 'image/ktx2' };
 const server = http.createServer((req, res) => {
@@ -36,10 +37,11 @@ const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABL
 const viewport = desktop ? { width: 1280, height: 800 } : { width: 390, height: 780 };
 const context = await browser.newContext({ viewport, deviceScaleFactor: 1, isMobile: !desktop, hasTouch: !desktop });
 await context.addInitScript((season) => {
-  try { if (!sessionStorage.getItem('qa.seeded')) { localStorage.setItem('chicago4d.settings', JSON.stringify({ season })); sessionStorage.setItem('qa.seeded', '1'); } } catch { /* none */ }
+  try { if (!sessionStorage.getItem('qa.seeded')) { localStorage.setItem('chicago4d.settings', JSON.stringify(season==='fresh'?{}:{ season })); sessionStorage.setItem('qa.seeded', '1'); } } catch { /* none */ }
 }, BOOT_SEASON);
 const page = await context.newPage(); page.setDefaultTimeout(BOOT_MS);
 const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
+page.on('console',m=>{if(m.type()==='error'&&/THREE.WebGLProgram|GL_INVALID|shader error/i.test(m.text()))errors.push(m.text());});
 const tag = desktop ? 'desktop' : 'phone';
 const rows = [], fail = [];
 const read = () => page.evaluate(() => ({
@@ -49,10 +51,12 @@ const read = () => page.evaluate(() => ({
   label: document.getElementById('year-badge')?.getAttribute('aria-label'),
   nav: document.getElementById('nav-date')?.textContent,
   option: document.querySelector(`#s-season option[value="${window.__chicago4d.season.current}"]`)?.textContent,
+  selected: document.getElementById('s-season')?.value,
+  seasonVisible: !document.getElementById('row-season')?.hidden,
 }));
 const expect = (r, season, why) => {
   const iso = WANT[season], [, mm, dd] = iso.split('-');
-  const ok = r.season === season && r.sun === iso && r.chip === `${mm}.${dd}` && r.nav === iso.replace(/-/g, '.')
+  const ok = r.seasonVisible && r.season === season && r.sun === iso && r.chip === `${mm}.${dd}` && r.nav === iso.replace(/-/g, '.')
     && new RegExp(`^${+dd} [A-Z][a-z]+ ${YEAR}\\b`).test(r.label ?? '') && (r.option ?? '').includes(`${+dd} `);
   rows.push({ why, want: iso, ...r, ok });
   console.log(ok ? 'ok  ' : 'FAIL', why, JSON.stringify(r));
@@ -61,10 +65,17 @@ const expect = (r, season, why) => {
 try {
   await page.goto(`http://127.0.0.1:${server.address().port}/${YEAR}/`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error, null, { timeout: BOOT_MS, polling: 500 });
+  await page.evaluate(()=>{
+    if(__chicago4d.error)throw Error(String(__chicago4d.error));
+    // Date/UI reads do not need software rasterisation on every arrival tick.
+    __chicago4d.renderer.render=(scene,camera)=>camera?.updateMatrixWorld?.();
+  });
   await page.waitForFunction(() => window.__chicago4d?.welcome.state === 'welcome', null, { timeout: BOOT_MS, polling: 1000 });
   await page.evaluate(async () => { const a = __chicago4d; if (!a.welcome.enter('spawn')) throw Error('welcome entry failed'); document.exitPointerLock?.(); document.getElementById('control-help-gotit')?.click(); });
   await page.waitForFunction(() => document.getElementById('gate').hidden);
-  expect(await read(), BOOT_SEASON, `boot with stored ${BOOT_SEASON}`);
+  const boot=await read();
+  if(boot.selected!==EXPECT_BOOT)fail.push(`boot selector: wanted ${EXPECT_BOOT}, got ${boot.selected}`);
+  expect(boot, EXPECT_BOOT, `boot with ${BOOT_SEASON==='fresh'?'no stored season':`stored ${BOOT_SEASON}`}`);
   await page.screenshot({ path: path.join(out, `${tag}-${YEAR}-boot-${BOOT_SEASON}.jpg`), type: 'jpeg', quality: 80, timeout: 240000 });
   for (const s of ['spring', 'fall', 'winter', 'summer']) {
     await page.evaluate((v) => __chicago4d.season.set(v), s);
@@ -86,6 +97,28 @@ try {
   if (!stopOk) fail.push(`stop date: ${JSON.stringify(stop)}`);
   await page.evaluate(() => __chicago4d.timeOfDay.restore());
   expect(await read(), 'winter', 'stop gives the winter day back');
+  if(YEAR==='1871'&&process.env.QA_FIRE==='1') {
+    await page.evaluate(()=>__chicago4d.timeOfDay.set('14:30'));
+    const started=await page.evaluate(()=>__chicago4d.jaunts.start('the-great-fire',{mode:'instantly'}));
+    if(!started)throw Error('Great Fire jaunt did not start');
+    for(let i=0;i<4;i++) {
+      await page.waitForFunction(()=>__chicago4d.jaunts.state?.phase==='atStop',null,{polling:500});
+      await page.waitForFunction(()=>__chicago4d.season.current==='fall'&&__chicago4d.season.sunDate===
+        (__chicago4d.jaunts.state.stopIndex<3?'1871-10-08':'1871-10-09'),null,{polling:500});
+      const r=await page.evaluate(()=>{
+        const a=__chicago4d,s=a.jaunts.state,stop=s.jaunt.stops.find(x=>x.id===s.visited[s.stopIndex].id);
+        return {id:stop.id,wantDate:stop.date,wantHour:stop.hour,date:a.season.sunDate,season:a.season.current,
+          own:a.season.own,time:a.timeOfDay.current.hhmm};
+      });
+      const ok=r.date===r.wantDate&&r.season==='fall'&&r.own==='winter'&&r.time===r.wantHour;
+      rows.push({why:'actual Great Fire stop',...r,ok});console.log(ok?'ok':'FAIL','Great Fire',JSON.stringify(r));
+      if(!ok)fail.push('Great Fire stop '+r.id);
+      if(i<3)await page.evaluate(()=>__chicago4d.jaunts.next());
+    }
+    await page.evaluate(()=>__chicago4d.jaunts.end());
+    await page.waitForFunction(()=>__chicago4d.season.current==='winter'&&__chicago4d.season.sunDate==='1871-02-15',null,{polling:500});
+    expect(await read(),'winter','Great Fire restores visitor winter');
+  }
   await page.evaluate(() => __chicago4d.season.set('summer'));
 } finally {
   fs.writeFileSync(path.join(out, `${tag}-${YEAR}.json`), JSON.stringify({ viewport, year: YEAR, errors, rows }, null, 1) + '\n');
