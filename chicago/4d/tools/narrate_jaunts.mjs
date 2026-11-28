@@ -8,7 +8,7 @@
  *   node tools/narrate_jaunts.mjs --verify DIR           check DIR's upload on the public media host
  *   node tools/narrate_jaunts.mjs --quota                the account's ElevenLabs credits used, limit, reset
  *
- *   --jaunt ID        only this jaunt (it must be listed in data/narration/voices.json)
+ *   --jaunt ID        only this jaunt (it must be listed in data/narration/voices.json), or street-<scene>
  *   --max-chars N     refuse a run that would spend more characters (default: the config's)
  *   --index PATH|URL  the current narration index (default: the media host's)
  *
@@ -28,6 +28,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { narrationScripts, textKey, clipKey, INDEX_PATH, NARRATOR, NARRATORS, DEFAULT_NARRATOR } from '../renderers/web/js/narration.js';
+import { streetKey, STREET_SPEAKER } from '../renderers/web/js/street-talk.js';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const API = 'https://api.elevenlabs.io';
@@ -139,6 +140,18 @@ export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
         out.push({ ...script, jaunt: id, scene: source.scene, text_sha256, spoken, spoken_sha256, directed: spoken !== script.text, narrator,
           key: clipKey(text_sha256, script.speaker, narrator ?? DEFAULT_NARRATOR) });
       }
+    }
+  }
+  // T-3812: the street talk of each scene voices.json `street` lists, once per line in its voice.
+  for (const scene of config.street ?? []) {
+    const id = `street-${scene}`;
+    if (only && id !== only) continue;
+    const doc = read(path.join(root, 'data/narration/street', `${scene}.json`));
+    for (const line of doc.lines) {
+      const text_sha256 = await textKey(line.text);
+      out.push({ part: 'street', id: line.id, speaker: STREET_SPEAKER(line.voice), text: line.text, jaunt: id, scene,
+        text_sha256, spoken: line.text, spoken_sha256: sha(line.text), directed: false, narrator: null,
+        key: streetKey(text_sha256, line.voice) });
     }
   }
   if (only && !out.length) throw Error(`${only}: not a jaunt listed in data/narration/voices.json`);

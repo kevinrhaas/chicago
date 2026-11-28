@@ -288,7 +288,7 @@
         "cast": [
           {
             "extra": "worker_a",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A working man (unnamed)",
             "at": [
               1402.98,
@@ -330,7 +330,8 @@
                 ],
                 "pace": "walk"
               }
-            ]
+            ],
+            "wear": "working_coat_1904"
           },
           {
             "extra": "worker_b",

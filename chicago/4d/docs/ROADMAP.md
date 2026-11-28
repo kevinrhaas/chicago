@@ -1,3 +1,13 @@
+## T-3814..T-3817 — The fire night's people: a crowd stream for 1871 (27 November 2026)
+
+The owner asked for crowds carrying and loading goods, runaway and burning teams and other scenes
+the accounts tell, rendered cleverly enough to keep the budgets. Four tickets in the 1871 band, one
+PR each: T-3814 people carry what they saved, wagons loaded, goods set down (this PR); T-3815
+runaway teams and burning loads; T-3816 a fire-night crowd for crowd.js (running streams at the
+middle and far tiers, carried bodies baked, phones and the UHD 630 class kept smooth); T-3817 the
+Court House prisoners, the people standing in the lake on the North Side sands, the roof bucket
+lines and the gunpowder rumour. The plan and sources: `docs/RESEARCH/fire-night-scenes-3814/`.
+
 ## T-3776..T-3780 — Stage 1: a classroom database on Firebase (27 November 2026)
 
 The owner's server plan ("Server, cloud GPU and engine plan", 23 November 2026; Google Cloud

@@ -773,6 +773,20 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
         hip = {"hip_mass": {"v_m": vm, "attic_from_m": va, "apex_m": round(apex, 4),
                             "apex_v_m": av, "end_pitch_deg": {"south": round(math.degrees(math.atan(tn)), 4),
                                                              "north": round(math.degrees(math.atan(ts)), 4)}}}
+    # T-3730: a light in an end parapet (2130's south gable, the Chicagology print), checked
+    # against the parapet's own top line and the soffit it stands on (k01_gable_lights)
+    if any(e.get("lights") for e in ends.values()):
+        from . import k01_gable_lights, k01_gable_roof
+        if hm:
+            raise ParamError("gable_roof.ends.<side>.lights: a light stands in a gable roof without a hip_mass")
+        soffit = eave - overhang * tf - float(k5["parts"]["eave"]["fascia_depth_m"])
+        tb = math.tan(math.radians(back_deg))
+        for side, e in ends.items():
+            if not e.get("lights"):
+                continue
+            ln = k01_gable_roof.line(out[side]["style"], out[side].get("steps", 0), depth, depth - r, eave, tf, tb,
+                                     float(pp["upstand_min_m"]), eave + rise + top, fall=fall.get("rear_fall"))
+            out[side]["lights"] = k01_gable_lights.resolve(side, e["lights"], depth=depth, soffit=soffit, ln=ln)
     return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
             **hip, **fall, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
             "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}

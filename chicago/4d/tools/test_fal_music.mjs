@@ -43,6 +43,10 @@ const KEY = 'test-key-000:never-printed';
   assert.equal(planWork(trials, { cue: trials.cues[0].id, model: 'lyria' }).length, 1);
   assert.throws(() => planWork(trials, { cue: trials.cues[0].id, model: 'minimax' }), /nothing to make/);
   assert.throws(() => planWork(trials, { model: 'nope' }), /no model/);
+  // T-3811: a run names a set of cues, comma-separated; an unknown one is refused whole.
+  const two = trials.cues.slice(0, 2).map(c => c.id);
+  assert.deepEqual([...new Set(planWork(trials, { cue: two.join(',') }).map(w => w.cue))], two);
+  assert.throws(() => planWork(trials, { cue: `${two[0]},nope` }), /no cue nope/);
   assert.throws(() => planWork(trials, { cue: 'nope' }), /no cue/);
 }
 

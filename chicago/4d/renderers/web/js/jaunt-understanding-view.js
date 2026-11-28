@@ -1,10 +1,20 @@
 import { t } from './strings/index.js';
 import './strings/understanding.js';
 import { ANSWER_LIMIT, CHECK_AGES, answerQuestion, shortCitation } from './jaunt-understanding.js';
+import { fieldNotebook, LIMITS } from './field-notebook.js';
 
 /** Native details, labels and buttons keep the optional check usable with keyboard and
- * screen reader. `draft` belongs to the completed session, never browser or remote storage. */
-export function renderUnderstandingCheck(doc, questions, draft) {
+ * screen reader. `draft` belongs to the completed session, never browser or remote storage,
+ * until the student chooses Save to my notebook (T-3778: a reflection a student may then
+ * hand in to their teacher from the notebook). */
+export function reflectionEntry(questions, draft, { title = '', year = '' } = {}) {
+  const lines = questions.map((q, i) => `${q.number}. ${q.ask?.stem ?? q.prompt}\n${t('understanding.heard')}: ${q.heard ?? q.claim.text}\n${
+    draft.solved[i] && q.ask ? `${t('understanding.answerIs', { answer: q.ask.options.find(o => o.id === q.ask.answer)?.label ?? '' })}\n` : ''}${
+    t('understanding.answer', { n: q.number, prompt: q.prompt })}\n${draft.answers[i]?.trim() || '—'}`);
+  return { kind: 'note', topic: 'reflection', title: t('understanding.saveTitle', { title }), year: String(year ?? ''),
+    text: lines.join('\n\n').slice(0, LIMITS.noteChars) };
+}
+export function renderUnderstandingCheck(doc, questions, draft, { title = '', year = '', notebook = fieldNotebook } = {}) {
   if (questions.length !== 3) return null;
   const node = (tag, text, cls) => {
     const el = doc.createElement(tag);
@@ -116,6 +126,15 @@ export function renderUnderstandingCheck(doc, questions, draft) {
       compareButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
       status.textContent = t('understanding.reset'); fields[0].focus();
     }));
+  // T-3778: the student's own choice; once saved, a later Save changes the same entry.
+  const save = button('save', () => {
+    const entry = reflectionEntry(questions, draft, { title, year });
+    const r = draft.savedId && notebook.read().entries.some(e => e.id === draft.savedId)
+      ? notebook.update(draft.savedId, entry.text) : notebook.add(entry);
+    if (r.ok && r.entry?.id) draft.savedId = r.entry.id;
+    status.textContent = r.ok ? t('understanding.saved') : t('understanding.saveFailed');
+  });
+  actions.append(save);
   root.append(actions, status);
   return root;
 }

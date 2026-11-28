@@ -35,6 +35,8 @@
  * with the eye's adaptation); the sky glow is unlit and so listens to the daylight.
  */
 import * as THREE from 'three';
+import { massOf, massEmitters, clearOf, boxPrisms, compositionPrisms } from './fire-mass.js';
+import { resolveBases } from './scene-loader.js';
 import { createFireFx } from './fort-fire.js';
 import { onDaylight } from './time-of-day.js';
 import { createFireMap, burnState, minutesOf, isoOf, hash01 } from './fire-map.js';
@@ -136,7 +138,9 @@ function makeSkyGlow() {
  * change builds a new one), `buildings()` the named structures' layer (buildings.js),
  * `tier()` the detail level, `groundAt(e, n)` the ground's height.
  */
-export function createCityFire({ doc, parent, context = () => null, buildings = () => null, tier = () => 'full', groundAt = () => 3.2 } = {}) {
+export function createCityFire({ doc, parent, context = () => null, buildings = () => null, tier = () => 'full', groundAt = () => 3.2,
+  // T-3802: a named structure's record, for its composition (where its flames may stand).
+  sidecar = (id) => fetch(new URL(`sidecars/1871/${encodeURIComponent(id)}.json`, resolveBases().dataBase)).then((r) => (r.ok ? r.json() : null)) } = {}) {
   const map = createFireMap(doc);
   const group = new THREE.Group(); group.name = 'city-fire'; parent?.add?.(group);
   const treeCatch = new Map();
@@ -235,6 +239,22 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
     });
   }
 
+  // T-3802: the named structures' records, fetched as the fire is first drawn (a few small
+  // files), so each one's mass is ready by the time its flames are laid.
+  const records = new Map();
+  const structureRecord = (id) => {
+    if (!sidecar) return Promise.resolve(null);
+    if (!records.has(id)) records.set(id, Promise.resolve().then(() => sidecar(id)).catch(() => null));
+    return records.get(id);
+  };
+  for (const id of Object.keys(doc?.structures ?? {})) structureRecord(id);
+  /** A named structure's mass from its record's composition, or null. */
+  function compositionMass(id, groundY) {
+    return structureRecord(id).then((sc) => {
+      const prisms = compositionPrisms(sc, groundY);
+      return prisms ? massOf(prisms, groundY) : null;
+    }).catch(() => null);
+  }
   // ── the named structures (buildings.js batches) ──────────────────────────────────────────
   function bindNamed() {
     const layer = buildings();
@@ -267,11 +287,20 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       const lo = Math.min(...pieces.map((p) => (p.box.min.y + p.box.max.y) / 2)), hi = Math.max(...pieces.map((p) => (p.box.min.y + p.box.max.y) / 2));
       for (const p of pieces) p.hfrac = hi > lo ? ((p.box.min.y + p.box.max.y) / 2 - lo) / (hi - lo) : 0.5;
       const H = bb.max.y - bb.min.y, sx = bb.max.x - bb.min.x, sz = bb.max.z - bb.min.z;
-      const rec = { key: id, named: id, fate, e: cx, n: -cz, x: cx, z: cz, base: bb.min.y, h: H * 0.8, top: bb.max.y, w: sx, d: sz,
+      // T-3802: the structure's own mass, so its flames stand on its roofs and walls, not on its box.
+      const boxes = pieces.map((p) => ({ minX: p.box.min.x, maxX: p.box.max.x, minY: p.box.min.y, maxY: p.box.max.y, minZ: p.box.min.z, maxZ: p.box.max.z }));
+      const mass = massOf(boxPrisms(boxes), bb.min.y, { smooth: true });
+      const rec = { key: id, named: id, fate, e: cx, n: -cz, x: cx, z: cz, base: bb.min.y, h: mass ? mass.eave : H * 0.8, top: bb.max.y, w: sx, d: sz, mass, massFrom: mass ? 'boxes' : 'ground', boxes,
         pts: [[bb.min.x, -bb.min.z], [bb.max.x, -bb.min.z], [bb.max.x, -bb.max.z], [bb.min.x, -bb.max.z]],
-        storeys: Math.max(1, Math.round(H * 0.8 / 4)), area: sx * sz, kind: fate === 'collapses' ? 'frame' : 'masonry', tc,
+        storeys: Math.max(1, Math.round((mass ? mass.eave : H * 0.8) / 4)), area: mass ? mass.area : sx * sz, kind: fate === 'collapses' ? 'frame' : 'masonry', tc,
         wallsFall: false, st: null, code: -1, m: -1, emit: null, chimney: null };
       named.push({ id, rec, pieces, ground: Math.max(bb.min.y, groundAt(cx, -cz) - 0.3), cx, cz, H });
+      // T-3802: where the record carries its composition (blocks and towers), the mass is those
+      // parts, not the pieces' boxes; it arrives a moment later and the flames are re-laid on it.
+      compositionMass(id, groundAt(cx, -cz)).then((m) => {
+        if (!m || rec.mass === m) return;
+        rec.mass = m; rec.massFrom = 'composition'; rec.h = m.eave; rec.area = m.area; rec.storeys = Math.max(1, Math.round(m.eave / 4)); rec.emit = null;
+      });
       recs.push(rec);
     }
   }
@@ -404,7 +433,26 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
   function emittersOf(rec) {
     if (rec.goodsEmit) return rec.goodsEmit;
     if (rec.emit && rec.emit.cap === budget.perBuilding) return rec.emit;
-    const r = stream(`emit:${rec.key}`), pts = cornersOf(rec), wins = [], roof = [];
+    const r = stream(`emit:${rec.key}`), pts = cornersOf(rec);
+    if (rec.mass) {
+      // A named structure: flames on its own roofs and walls (T-3802).
+      const { roof, wins } = massEmitters(rec.mass, r, { spacing: budget.spacing });
+      for (let i = wins.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [wins[i], wins[j]] = [wins[j], wins[i]]; }
+      const keep = Math.max(1, budget.perBuilding - roof.length);
+      rec.emit = { cap: budget.perBuilding, list: [...roof, ...wins.slice(0, keep)], heap: [], riseMin: rec.kind === 'frame' ? 5 : 9 };
+      return rec.emit;
+    }
+    if (rec.boxes) {
+      // A named ground (a square's lawn, kerb and fence): low fires on its own pieces, never a building's.
+      const low = [];
+      for (let i = 0; i < 4 && rec.boxes.length; i++) {
+        const b = rec.boxes[Math.floor(r() * rec.boxes.length)];
+        low.push({ x: lerp(b.minX, b.maxX, r()), z: lerp(b.minZ, b.maxZ, r()), y: b.maxY, w: 1.6, h: 1.4, lag: 0.3 + 0.6 * r(), seed: r() * 100, roof: false });
+      }
+      rec.emit = { cap: budget.perBuilding, list: low, heap: [], riseMin: 9 };
+      return rec.emit;
+    }
+    const wins = [], roof = [];
     const S = rec.storeys, sh = rec.h / S;
     for (let k = 0; k < 4; k++) {
       const a = pts[k], b = pts[(k + 1) % 4], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
@@ -497,7 +545,8 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       const st = rec.st;
       if (st.heat <= 0.05) continue;
       const down = rec.kind === 'frame' ? st.fall : 0;
-      const H = rec.top - rec.base;
+      // A named structure's one flame stands on its main roofline, not halfway up its tower.
+      const H = rec.mass ? rec.mass.eave : rec.top - rec.base;
       fx.flame(rec.x, rec.base + H * 0.55 * (1 - 0.85 * down), rec.z, Math.max(rec.w, rec.d) * 0.9 + 2, (H * 0.9 + 4) * (0.5 + 0.5 * st.heat) * (1 - 0.5 * down) * flick(rec.tc),
         0.6 + 0.5 * st.heat, (rec.tc * 7.13) % 97);
       flames++;
@@ -707,7 +756,12 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
         else if (rec.st.heat > 0.05) counts[rec.st.fall > 0.05 ? 'collapsing' : 'burning']++;
         else counts.burnt++;
       }
-      return { iso: api.iso, minute, rate, buildings: recs.filter((r) => r.kind !== 'tree').length, named: named.map((nb) => ({ id: nb.id, tc: isoOf(nb.rec.tc), fate: nb.rec.fate, heat: +(nb.rec.st?.heat ?? 0).toFixed(2) })),
+      return { iso: api.iso, minute, rate, buildings: recs.filter((r) => r.kind !== 'tree').length, named: named.map((nb) => {
+          // T-3802: how far its farthest flame stands clear of the structure (plan, and over the roof).
+          let plan = 0, over = 0;
+          if (nb.rec.mass) for (const e of emittersOf(nb.rec).list) { const c = clearOf(e, nb.rec.mass); plan = Math.max(plan, c.plan); over = Math.max(over, c.over); }
+          return { id: nb.id, tc: isoOf(nb.rec.tc), fate: nb.rec.fate, heat: +(nb.rec.st?.heat ?? 0).toFixed(2), mass: nb.rec.massFrom, clear: { plan: +plan.toFixed(2), over: +over.toFixed(2) } };
+        }),
         ...counts, active: active.length, ...(fx ? { fx: fx.counts, plume: plume.counts.smoke } : {}),
         goods: goods?.counts() ?? null,
         lights: lights.filter((l) => l.visible && l.intensity > 0).length, chimneys: chimneys?.count ?? 0, sky: sky?.visible ? +sky.material.uniforms.uK.value.toFixed(3) : 0 };
