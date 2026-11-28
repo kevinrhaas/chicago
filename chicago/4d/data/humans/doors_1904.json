@@ -15324,7 +15324,7 @@
     "rotation_deg": -0.393
    },
    "barrier": {
-    "key": "3b6f2c5e0de25014",
+    "key": "236b3c9bc3f78855",
     "cell": 0.1,
     "u0": -2.9,
     "v0": -7.6,
@@ -15412,7 +15412,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "d2e5e3887736ce04",
+    "key": "35c7023cb7c7953d",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -20.7,
@@ -15428,7 +15428,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "a22310985bb34159",
+    "key": "26debcf03afa422f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.9,
@@ -15500,7 +15500,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "cbeda61d3680c8be",
+    "key": "c14c41f77b314997",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.8,
@@ -15516,7 +15516,7 @@
     "rotation_deg": -0.578
    },
    "barrier": {
-    "key": "5178b0d8e4f92039",
+    "key": "6948ba1c6f5f5edd",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.8,
@@ -15532,7 +15532,7 @@
     "rotation_deg": -0.621
    },
    "barrier": {
-    "key": "b0a83da6c7ff6884",
+    "key": "d2c5de0111509bc5",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -11.3,
@@ -15559,17 +15559,17 @@
   {
    "structure": "high_house_2021_prairie_coach_house",
    "placement": {
-    "local_e": 1469.436,
-    "local_n": -3544.196,
-    "rotation_deg": 179.389
+    "local_e": 1470.051,
+    "local_n": -3548.634,
+    "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "5ff4c595e81c9533",
+    "key": "c683b475a803b866",
     "cell": 0.1,
-    "u0": -0.2,
-    "v0": -0.2,
-    "count": 7,
-    "rects": "1 2 19 30 1 2 54 85 1 2 110 121 2 80 137 138 20 31 1 2 52 62 1 2 80 81 2 138"
+    "u0": -9.4,
+    "v0": -9.2,
+    "count": 9,
+    "rects": "1 2 53 65 1 2 126 138 2 94 147 148 94 95 2 91 94 95 99 109 94 95 138 148 95 96 8 20 95 96 50 62 95 96 73 86"
    }
   },
   {
@@ -15720,7 +15720,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "cb83e566fdbb9e44",
+    "key": "8b8e850b9684cb05",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.1,
@@ -15764,7 +15764,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "014eec01643ed542",
+    "key": "95b20331cad3ab26",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -15780,7 +15780,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "ed6aa31615689c42",
+    "key": "243d2b4caf60bfd7",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -3.7,
@@ -15840,7 +15840,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "ef50419fd7b70567",
+    "key": "da8fb01ded1547ef",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -6.1,
@@ -15856,7 +15856,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "1587540fac299bc0",
+    "key": "f8f17d6e62baee0e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.2,
@@ -15872,7 +15872,7 @@
     "rotation_deg": -0.582
    },
    "barrier": {
-    "key": "8f54b3b29b991f3d",
+    "key": "276cf8a5624e8f4e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -13.4,
@@ -15888,7 +15888,7 @@
     "rotation_deg": -0.618
    },
    "barrier": {
-    "key": "fc8f5efbe85add04",
+    "key": "0149657cb5d5dc10",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -15980,7 +15980,7 @@
     "rotation_deg": -0.601
    },
    "barrier": {
-    "key": "44fb2674e3f8983a",
+    "key": "dbd27d6dc37e3943",
     "cell": 0.1,
     "u0": -16.7,
     "v0": -3.5,
@@ -16012,7 +16012,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "87686e8787e557ef",
+    "key": "6a9a2be21c0711cb",
     "cell": 0.1,
     "u0": -15.3,
     "v0": -4.1,
@@ -16028,7 +16028,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "3e04db8490f2ef4c",
+    "key": "51e4e96f9a219762",
     "cell": 0.1,
     "u0": -11.3,
     "v0": -7.8,
@@ -16076,7 +16076,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "a699f4ec7ad75e62",
+    "key": "da9aae1ef8b2f5fd",
     "cell": 0.1,
     "u0": -11.4,
     "v0": -7.4,
@@ -16124,7 +16124,7 @@
     "rotation_deg": -0.682
    },
    "barrier": {
-    "key": "a43e039ac6d0c194",
+    "key": "04ff4ac74eaf5c16",
     "cell": 0.1,
     "u0": -14.4,
     "v0": -6.0,
@@ -16168,7 +16168,7 @@
     "rotation_deg": -0.682
    },
    "barrier": {
-    "key": "839b2c78bac59972",
+    "key": "232a300d5b03a3c3",
     "cell": 0.1,
     "u0": -7.1,
     "v0": -3.8,
@@ -16200,7 +16200,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "04dae13e86792f32",
+    "key": "8616cd4e6795a711",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -16216,7 +16216,7 @@
     "rotation_deg": -0.391
    },
    "barrier": {
-    "key": "f5214d8842a040ac",
+    "key": "59167daf551aeade",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.0,
@@ -16248,7 +16248,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "e4a8717056bcfd98",
+    "key": "ef7e13d704344d92",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -16292,7 +16292,7 @@
     "rotation_deg": -0.682
    },
    "barrier": {
-    "key": "39b1a25cb6dbce5c",
+    "key": "636dc8fd21669028",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -7.9,
@@ -16308,7 +16308,7 @@
     "rotation_deg": -0.627
    },
    "barrier": {
-    "key": "9b1e37aca5db4944",
+    "key": "c9daad8f4004e22a",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.0,
@@ -16340,7 +16340,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "2f94cc40d76f5e0d",
+    "key": "8164b911fb005246",
     "cell": 0.1,
     "u0": -14.5,
     "v0": -4.4,
@@ -16356,7 +16356,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "d65fd12882c8864d",
+    "key": "1ceb57a1d192d476",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -8.9,
@@ -16416,7 +16416,7 @@
     "rotation_deg": -0.615
    },
    "barrier": {
-    "key": "807344b7f549ba34",
+    "key": "ae23cc811fc26ded",
     "cell": 0.1,
     "u0": -15.4,
     "v0": -4.0,
@@ -16524,7 +16524,7 @@
     "rotation_deg": -0.688
    },
    "barrier": {
-    "key": "31f73d314ed2ae95",
+    "key": "7d970cc477962903",
     "cell": 0.1,
     "u0": -11.0,
     "v0": -7.8,
@@ -16616,7 +16616,7 @@
     "rotation_deg": -0.614
    },
    "barrier": {
-    "key": "14d80a9c6e0cdd04",
+    "key": "67f1c4f81ee4f9db",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -11.4,
@@ -16632,7 +16632,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "c5cd7147ea52a9ea",
+    "key": "a86130bf6886e936",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.7,
@@ -16648,7 +16648,7 @@
     "rotation_deg": -0.397
    },
    "barrier": {
-    "key": "f1aca3832a2259ab",
+    "key": "56c7f70ff819aaa1",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -8.9,
@@ -16680,7 +16680,7 @@
     "rotation_deg": -0.61
    },
    "barrier": {
-    "key": "2d8ca261015ef8db",
+    "key": "8d14d644eb6f4003",
     "cell": 0.1,
     "u0": -15.3,
     "v0": -4.1,
@@ -16728,7 +16728,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "e6afb9f42db4ee5f",
+    "key": "18f9def0432354fd",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -15.4,
@@ -16744,7 +16744,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "0ef717599c79f4ad",
+    "key": "0f28a48351aff5b3",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.4,

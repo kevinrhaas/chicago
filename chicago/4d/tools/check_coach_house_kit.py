@@ -60,7 +60,8 @@ def shell_of(var):
     if var.v.get("roof_form") in ("hip_deck", "flat"):   # T-1935, T-1937: four walls, no gable or party wall
         return ("alley", "yard", "end_west", "end_east")
     if var.v.get("west_end", "party") == "gable":    # T-1938: a gable at both ends, no party wall
-        return ("alley", "yard", "gable", "gable_west")
+        # (and the east one in two walls where its upper part is tin-clad over a range)
+        return ("alley", "yard", "gable", "gable_west") + (("gable_upper",) if var.v.get("gable_upper") else ())
     return SHELL if var.v.get("east_end", "gable") == "gable" else ("alley", "yard", "party", "party_east")
 
 
@@ -443,6 +444,19 @@ def self_test(data) -> int:
     def g_flat_open(built):     # the north end wall left out
         built[0].pieces = [p for p in built[0].pieces if p.name != "west end wall"]
 
+    # T-1938: 2021's garage, free at both gables, its range south and its gable tin-clad over it
+    def tinned(d):
+        st = json.loads((ROOT / "data" / "structures" / "high_house_2021_prairie_coach_house.json").read_text())
+        d["variants"][0] = copy.deepcopy(st["phases"][0]["form"]["coach_house"]["value"])
+        return d["variants"][0]
+
+    def g_tin_open(built):      # the tin-clad upper gable left out
+        built[0].pieces = [p for p in built[0].pieces if p.name != "gable upper wall"]
+
+    def g_tin_gap(built):       # the range's yard wall pulled 5 mm off the yard wall's end
+        p = piece(built, "range yard wall")
+        p.mesh.pos = [(x + 0.005, y, z) for x, y, z in p.mesh.pos]
+
     def g_lift(built):      # the stair's stringers stood 50 mm above the ground
         for name in ("stringer wall", "stringer outer"):
             p = piece(built, name)
@@ -470,7 +484,9 @@ def self_test(data) -> int:
              ("1730: the lean-to's roof 5 mm off the party wall's return", lined, g_return_gap, "seated"),
              ("1730: the full-depth range 5 mm off the yard wall", lined, g_deep_gap, "seated"),
              ("2108/2110: the flat roof lifted off its walls", flat, g_flat_float, "rooted"),
-             ("2108/2110: an end wall left out", flat, g_flat_open, "shell")]
+             ("2108/2110: an end wall left out", flat, g_flat_open, "shell"),
+             ("2021: the tin-clad upper gable left out", tinned, g_tin_open, "shell"),
+             ("2021: the range 5 mm off a free-gabled building", tinned, g_tin_gap, "seated")]
     bad = 0
     for label, dmut, gmut, rule in cases:
         d = copy.deepcopy(data)

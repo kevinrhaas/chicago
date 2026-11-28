@@ -27,6 +27,7 @@
 //   QA_TARGET=2031 node tools/qa_k12_t1932.mjs       T-1938: 2031's and 2033's pair of stables, each between two party walls, on the east alley, 20th-21st (sheet 35)
 //   QA_TARGET=2109 node tools/qa_k12_t1932.mjs       T-1938: 2109's stable between two party walls and 2123's (mirror, open south gable) on the east alley, 21st-22nd (sheet 35)
 //   QA_TARGET=2125 node tools/qa_k12_t1932.mjs       T-1938: 2125's frame stable on the east alley, 21st-22nd (sheet 35), the kit's first in frame, free at both gables
+//   QA_TARGET=2021 node tools/qa_k12_t1932.mjs       T-1938: 2021's brick garage on the east alley, 20th-21st (sheet 35): free at both gables, its one-storey south end the kit's range, the gable over it tin-clad
 //   QA_TARGET=shed node tools/qa_k12_t1932.mjs       T-1935: the open frame shed on the strip between 1834 and 1900 (K16, open on its dashed north and east sides)
 import fs from 'node:fs';
 import http from 'node:http';
@@ -141,6 +142,12 @@ const TARGETS={
   ['yard-south-west',[1453,-3703,1.7],[1466,-3692,4]],
   ['between-stables',[1460,-3684,1.7],[1467,-3691,4]],
   ['air',[1492,-3712,30],[1466,-3692,0]]]},
+ '2021':{dir:'k12-2021-garage-tin-gable-1938',ids:['high_house_2021_prairie_coach_house','high_house_2021_prairie','house_2017_prairie_coach_house','house_2027_prairie_coach_house'],glb:'high_house_2021_prairie_coach',stands:[
+  ['alley-from-north',[1474,-3536,1.7],[1470,-3550,4]],
+  ['alley-from-south',[1474,-3568,1.7],[1470,-3553,3.5]],
+  ['tin-gable-south-west',[1452,-3566,1.7],[1464,-3555,4.5]],
+  ['yard-west',[1449,-3548,1.7],[1460,-3550,4]],
+  ['air',[1490,-3572,30],[1465,-3550,0]]]},
  '2109':{dir:'k12-2109-2123-stables-1938',ids:['roloson_house_2109_prairie_coach_house','house_2123_prairie_coach_house','roloson_house_2109_prairie','house_2123_prairie'],glb:['roloson_house_2109_prairie_coach','house_2123_prairie_coach'],stands:[
   ['alley-from-north',[1474,-3628,1.7],[1470,-3647,4]],
   ['alley-from-south',[1474,-3702,1.7],[1470,-3680,4]],
