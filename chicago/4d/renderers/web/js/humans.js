@@ -202,6 +202,13 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
   // the houses do (T-2464). disposeLoadedAsset closes a bitmap only when its last user goes.
   if (typeof loader?.register === 'function') shareImageSources(loader);
   const entries = new Map();
+  // Loading stays parallel; only one source's clothing work grids are live at once.
+  let preparing = Promise.resolve();
+  function prepare(gltf) {
+    const work = preparing.then(() => dress(gltf));
+    preparing = work.then(() => {}, () => {});
+    return work;
+  }
   let decoder = null;
   let variation = null;
   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);
@@ -217,7 +224,7 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
     const due = createCheckpoint({ budgetMs: 6 });
     for (;;) { const n = steps.next(); if (n.done) return n.value; const wait = due(); if (wait) await wait; }
   }
-  async function parse(href) {
+  async function bodyBytes(href) {
     const res = await fetchImpl(href);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${href}`);
     const buf = await res.arrayBuffer();
@@ -228,7 +235,14 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       decoder ??= loadMeshoptDecoder();
       loader.setMeshoptDecoder(await decoder);
     }
-    const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
+    return buf;
+  }
+  async function parse(href) {
+    const gltf = await loader.parseAsync(await bodyBytes(href), String(new URL('.', href)));
+    gltf.parser = null; // Geometry, materials and clips own the decoded resources.
+    return prepare(gltf);
+  }
+  async function dress(gltf) {
     // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
     // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
     // edge, five bodies are tailored to their period pictures (1830s trousers and shirt, the

@@ -118,10 +118,37 @@ function listCells(box, count, cellsOf) {
   void count;
 }
 
+/** Point-cell offsets: sparse shells must not allocate their whole empty volume. */
+function pointCells(box, P) {
+  const n = P.length / 3, { ny, nz } = box;
+  const cellOf = (i) => (box.ix(P[i * 3]) * ny + box.iy(P[i * 3 + 1])) * nz + box.iz(P[i * 3 + 2]);
+  const counts = new Map();
+  for (let i = 0; i < n; i++) { const c = cellOf(i); counts.set(c, (counts.get(c) ?? 0) + 1); }
+  let capacity = 8, bits = 3;
+  while (capacity < counts.size * 2) { capacity *= 2; bits++; }
+  const volume = box.nx * ny * nz;
+  if (capacity * 3 >= volume + 1) return { ...listCells(box, n, (emit) => { for (let i = 0; i < n; i++) emit(cellOf(i), i); }), keys: null };
+  const shift = 32 - bits, mask = capacity - 1;
+  const keys = new Int32Array(capacity).fill(-1), start = new Int32Array(capacity), end = new Int32Array(capacity);
+  let offset = 0;
+  for (const [c, count] of counts) {
+    let slot = Math.imul(c, 0x9e3779b1) >>> shift;
+    while (keys[slot] !== -1) slot = (slot + 1) & mask;
+    keys[slot] = c; start[slot] = offset; offset += count; end[slot] = offset;
+  }
+  const fill = start.slice(), items = new Int32Array(n);
+  for (let i = 0; i < n; i++) {
+    const c = cellOf(i); let slot = Math.imul(c, 0x9e3779b1) >>> shift;
+    while (keys[slot] !== c) slot = (slot + 1) & mask;
+    items[fill[slot]++] = i;
+  }
+  return { keys, start, end, items, shift, mask };
+}
+
 /** A uniform grid over points, for nearest-point queries. */
 function pointGrid(P, cell) {
   const box = cellBox(P, cell, 1), { nx, ny, nz } = box, n = P.length / 3;
-  const { start, items } = listCells(box, n, (emit) => { for (let i = 0; i < n; i++) emit((box.ix(P[i * 3]) * ny + box.iy(P[i * 3 + 1])) * nz + box.iz(P[i * 3 + 2]), i); });
+  const { start, end, items, keys, shift, mask } = pointCells(box, P);
   return function nearest(x, y, z, reach = 4) {
     const cx = box.ix(x), cy = box.iy(y), cz = box.iz(z);
     let best = Infinity, bi = -1;
@@ -134,7 +161,9 @@ function pointGrid(P, cell) {
           for (let c = cz - r; c <= cz + r; c += (edgeAB || r === 0) ? 1 : 2 * r) {
             if (c < 0 || c >= nz) continue;
             const k = (a * ny + b) * nz + c;
-            for (let j = start[k], e = start[k + 1]; j < e; j++) { const i = items[j], dx = P[i * 3] - x, dy = P[i * 3 + 1] - y, dz = P[i * 3 + 2] - z, d = dx * dx + dy * dy + dz * dz; if (d < best) { best = d; bi = i; } }
+            let slot = k;
+            if (keys) { slot = Math.imul(k, 0x9e3779b1) >>> shift; while (keys[slot] !== k && keys[slot] !== -1) slot = (slot + 1) & mask; if (keys[slot] === -1) continue; }
+            for (let j = start[slot], e = keys ? end[slot] : start[slot + 1]; j < e; j++) { const i = items[j], dx = P[i * 3] - x, dy = P[i * 3 + 1] - y, dz = P[i * 3 + 2] - z, d = dx * dx + dy * dy + dz * dz; if (d < best) { best = d; bi = i; } }
           }
         }
       }
