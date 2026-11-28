@@ -45,7 +45,7 @@ const check = (what, ok, detail) => {
  * Every `gh api -X PUT .../merge` is appended to a file the caller reads back,
  * because "did it merge?" is the only question that matters here.
  */
-function run({ list = '', listExit = 0, states = {}, only = '', dry = '' }) {
+function run({ list = '', listExit = 0, states = {}, refs = {}, only = '', dry = '' }) {
   const box = mkdtempSync(path.join(tmpdir(), 'mergeready-'));
   const bin = path.join(box, 'bin');
   mkdirSync(bin, { recursive: true });
@@ -55,6 +55,9 @@ function run({ list = '', listExit = 0, states = {}, only = '', dry = '' }) {
   const quoteShell = (value) => "'" + String(value).replaceAll("'", "'\\''") + "'";
   const stateCases = Object.entries(states)
     .map(([number, state]) => `  ${quoteShell(number)}) printf '%s\\n' ${quoteShell(state)} ;;`)
+    .join('\n');
+  const refCases = Object.entries(refs)
+    .map(([number, ref]) => `  ${quoteShell(number)}) printf '%s\\n' ${quoteShell(ref)} ;;`)
     .join('\n');
 
   writeFileSync(path.join(bin, 'gh'), `#!/usr/bin/env bash
@@ -82,6 +85,11 @@ ${stateCases}
       *) printf '%s\\n' 'unknown' ;;
     esac ;;
   *".head.sha"*)        echo "deadbeefdeadbeefdeadbeefdeadbeefdeadbeef" ;;
+  *".head.ref"*)
+    case "$N" in
+${refCases}
+      *) printf '%s\\n' 'steward/t0000-a-ticket' ;;
+    esac ;;
   *".title"*)           echo "a pull request" ;;
 esac
 exit 0
@@ -136,6 +144,14 @@ console.log('merge-ready.sh — merges what GitHub calls clean, and nothing else
   check('…with the head sha pinned, so a push mid-read loses the race',
         /sha=deadbeef/.test(r.merges));
   check('…and the run says so', /#1319 {2}MERGED/.test(r.out));
+}
+
+/* 1b. A BATCH (pr-batch.sh) is merged with a MERGE commit, so GitHub marks each
+ *     member merged; a squash would leave them all open with their work landed. */
+{
+  const r = run({ list: '2420\n', states: { 2420: 'clean' }, refs: { 2420: 'steward/batch-20261128-0100' } });
+  check('a clean batch PR is merged with a merge commit, never squashed',
+        /pulls\/2420\/merge/.test(r.merges) && /merge_method=merge/.test(r.merges), r.merges.trim());
 }
 
 /* 2. THE STATE THAT MATTERS MOST: a PR mid-gate must NOT be merged. `blocked`
