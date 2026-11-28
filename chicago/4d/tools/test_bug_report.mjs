@@ -32,7 +32,10 @@ for (const [k, n] of Object.entries(BUG_LIMITS)) {
 assert(/d\.at is timestamp/.test(rule) && 'timestampValue' in fields.at, 'at is a timestamp');
 assert.deepEqual(JSON.parse(`[${/d\.kind in \[([^\]]*)\]/.exec(rule)[1].replace(/'/g, '"')}]`), BUG_KINDS);
 assert(/request\.auth == null && d\.uid == ''/.test(rule) && /d\.uid == request\.auth\.uid/.test(rule), 'a uid is the writer’s own, or none');
-assert(/match \/bugs\/\{id\} \{\s*allow read, delete: if isOwner\(\);/.test(doc), 'only the owner reads');
+// T-3776: the owner reads every report; a signed-in visitor reads and deletes only their own
+// (Delete my saved data), and a report sent signed out (uid '') stays the owner's alone.
+assert(/match \/bugs\/\{id\} \{\s*allow read, delete: if isOwner\(\) \|\| \(resource\.data\.uid != '' && isSelf\(resource\.data\.uid\)\);/.test(doc),
+  'the owner reads; a visitor only their own signed-in reports');
 assert(BUG_LIST_FIELDS.every((f) => BUG_FIELDS.includes(f)) && !BUG_LIST_FIELDS.includes('shot'), 'the list reads short fields, never the picture');
 
 // Every field fits; an over-long JSON field keeps its newest tail; an over-long picture is dropped.

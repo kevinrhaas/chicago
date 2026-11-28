@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1257,
+  "count": 1258,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -3547,7 +3547,7 @@
     },
     {
       "id": "sherman_house_2100_prairie_coach_house",
-      "name": "2100 S. Prairie Avenue — the alley building of the house at 2100"
+      "name": "2100 Prairie Avenue (the Sherman house): the brick wagon house and stable on the alley under a hip and deck"
     },
     {
       "id": "shortall_gregory_house_1638_prairie_coach_house",
@@ -36097,18 +36097,6 @@
         },
         {
           "domain": "structure",
-          "structure": "sherman_house_2100_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "sherman_house_2100_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "tucker_smith_house_2140_prairie_alley_building",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36137,7 +36125,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36169,11 +36157,15 @@
         },
         {
           "label": "Retired in part",
-          "text": "2100, the John B. Sherman house at the 21st Street corner, by earlier work (the S10A envelope package), which refined it in place on the K01 frontage kit under `“2100 Prairie, the John B. Sherman house, refined from the district draft onto K01: Burnham & Root's brick and stone corner house of 1874 as an envelope, off the 1911 sheet, the 1876 plate's plan and the c. 1890 photograph”`, under the same id; its draft attributes are gone (its alley coach house is still this draft's, 's; the 21st Street wall is still not built)."
+          "text": "2100, the John B. Sherman house at the 21st Street corner, by earlier work (the S10A envelope package), which refined it in place on the K01 frontage kit under `“2100 Prairie, the John B. Sherman house, refined from the district draft onto K01: Burnham & Root's brick and stone corner house of 1874 as an envelope, off the 1911 sheet, the 1876 plate's plan and the c. 1890 photograph”`, under the same id; its draft attributes are gone (the 21st Street wall is still not built)."
         },
         {
           "label": "Retired in part",
           "text": "2120, the two-storey brick house with an iron-clad north bay, by later work (the S15 package), which refined it in place on the K01 frontage kit under `“2120 Prairie, the two-storey brick house with an iron-clad bay, refined from the district draft onto K01: its plan off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone (its alley building is still this draft's, 's)."
+        },
+        {
+          "label": "Retired in part",
+          "text": "2100's alley building, the Sherman wagon house and stable, by earlier work, which refined it in place on the K12 coach-house kit under `“The Sherman wagon house and stable behind 2100 Prairie, built from the K12 kit as one rectangle under the hip and deck the 1911 sheet draws, its openings the kit's”`, under the same id 2100 Prairie Avenue (the Sherman house): the brick wagon house and stable on the alley under a hip and deck, as one rectangle under the hip and deck the sheet draws; its draft attributes are gone."
         },
         {
           "label": "Retired in part",
@@ -44876,7 +44868,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "behind and beside the 1904 district's houses, the lay prairie 1904 back yards tool lays out each lot's yard (the 1904 back yards data, drawn by the walkthrough's back yards code): a back door on the main house's rear wall where its model has none, on a stretch of wall with no window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and glasshouse ground, and Field's south lawn are left as their own records draw them."
+          "text": "behind and beside the 1904 district's houses, the lay prairie 1904 back yards tool lays out each lot's yard (the 1904 back yards data, drawn by the walkthrough's back yards code): a back door on the main house's rear wall where its model has none, on a stretch of wall with no window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's windows or a shallow yard leave no room, at grade a step up (since, where no stretch is flat beyond the door's casing or wide enough between two windows, a second look slides the door along the wall in 5 cm steps and hangs a 2 ft 8 in leaf where a full one will not fit); its steps and landing; a paved terrace at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and glasshouse ground, and Field's south lawn are left as their own records draw them."
         },
         {
           "label": "What it stands on",
@@ -44904,6 +44896,7 @@
         }
       ],
       "work_refs": [
+        "T-3786",
         "T-3554",
         "T-3488"
       ]
@@ -81860,6 +81853,64 @@
       ],
       "work_refs": [
         "T-1937"
+      ]
+    },
+    {
+      "id": "L-k12-2100-wagon-house-1937",
+      "title": "The Sherman wagon house and stable behind 2100 Prairie, built from the K12 kit as one rectangle under the hip and deck the 1911 sheet draws, its openings the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "sherman_house_2100_prairie",
+        "sherman_house_2100_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "sherman_house_2100_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 2100 Prairie Avenue is refined in place, under its own id 2100 Prairie Avenue (the Sherman house): the brick wagon house and stable on the alley under a hip and deck, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”), facing the alley on its west (alley side: west), under the kit's hip and deck (roof form: hip deck) and not its gable. **What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel and through the committed trace (s35fp-2100-b2): one two-storey brick rectangle on the alley line, 22.50 m along the alley and 10.74 m deep (the middle of the trace's two readings of each wall line; darkness profiles put the walls 59 and 122 pixels apart, 10.97 and 22.67 m), lettered PRIVATE WAGON HOUSE, its south 12.3 m crossed as a stable behind a solid line 10.2 m from the north wall. A dashed line inside the walls, 2.04 m in from the alley wall, 2.23 m from the yard wall and 1.86 m from the north wall, with a diagonal from each of its north corners into the building's: the plan of a roof's deck and hips, as on 1912's barn. The draft had read that dashed line as an outline and stood a notched block, a 6.5 m deep main body under a gable with two flat wings; it is gone. **The date.** The 1911 sheet and the census's carry-back (present as mapped); the range claims 1904 and no more. **What is invented.** One deck inset, 2.04 m on all four sides (the three readings' mean), at the kit's 40 degrees, the deck 1.71 m over the eave."
+        },
+        {
+          "label": "The south hip",
+          "text": "the sheet's dashed line runs on to the south wall and draws no hip at that end, where the building stands about 0.7 m from 2108 and 2110's taller flat-roofed coach house; the kit hips all four sides alike, so a south hip stands where the sheet's deck runs through. The split of the two storeys into the kit's 3.6 m carriage room and 2.7 m loft (the two '18' figures in the stable's side walls are not read as heights). Every opening: on the alley, two carriage bays 3.0 m clear in the wagon house with the loft hatch and hoist over the northern one, a man door and three stable sash in the stable, a loft sash over each; on the yard, a door into each part toward the house and three stable sash, a loft sash over each. The kit's 1.8 m basement, its brick colour and 13-inch walls, its slate and felt. **Left out.** The division wall, which stands inside under the one roof the dashed line covers. **What is not.** The outline, its place, the two storeys, the brick, the wagon house and stable and the roof's plan are the sheet's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a view down the alley, a permit, or the Sherman estate's papers would place the openings; the kit taking a deck that runs through to an end wall (a hip on three sides) would close the south-hip difference."
+        },
+        {
+          "label": "Covers",
+          "text": "`sherman_house_2100_prairie_coach_house.as_standing_1904.form.coach_house`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.stories`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.construction`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-1937)."
+        }
+      ],
+      "work_refs": [
+        "T-1937",
+        "T-1935",
+        "T-1842"
       ]
     },
     {
