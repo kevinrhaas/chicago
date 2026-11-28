@@ -1,0 +1,53 @@
+{
+ "structure_id": "tucker_smith_house_2140_prairie",
+ "view": "chicagology_2140_a",
+ "glb": "assets/gltf/tucker_smith_house_2140_prairie__as_mapped_1904.glb",
+ "glb_sha256": "6e95012f995aeb081468088a150aed56e6bbb50a6141ae424e5b75a5f12048bc",
+ "camera_sha256": "d9766684e10380128a8a636d5e5f37f74ed19d290ef88b2b739daa0147689cea",
+ "photo_sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27",
+ "side_by_side": "docs/RESEARCH/photo-match/tucker_smith_house_2140_prairie/chicagology_2140_a-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "the tall stack over the 22nd Street flank (T-3799): it stood about 0.55 m off and rose about 1.5 m over the print's, its pots to about y 10 px where the print's stop at y 230. Now at (9.15, 2.25), its cap at 16.65 m and its long pots' lips at about 17.8 m: the shaft within about 15 px (0.3 m) of the print's x 600-690 and the pots' lips within about 10 px of y 230",
+   "status": "fixed"
+  },
+  {
+   "what": "the round tower stands at the Prairie/22nd Street corner, its axis about (13.0, 0.8) on the joint fit (x 773 px), where the build stands it about 2 m further west on the 22nd Street wall (K08's ring clear of the wall's end, L-k01-2140-tucker-3770): its drum prints about 180 px left of the print's x 625-920. T-3800's",
+   "status": "open"
+  },
+  {
+   "what": "the towers' caps: this print (no earlier than 1905) draws a tall slated spire on each of the three towers and a gabled dormer on the round tower's cap, where the record stands the flat crested caps the Van Osdel print and the 1898 plate show (the declared 1904 state, L-k01-2140-tucker-3770). The phase is argued at the sign-off with the dated pictures (T-3801); until then it stands open",
+   "status": "open"
+  },
+  {
+   "what": "the polygonal tower on the 22nd Street flank: the print draws its axis about x 420 px, about 3 m east of where the build's octagon prints (x about 250), and carries it up a full stage over the main cornice under gabled faces with crockets to its spire",
+   "status": "open"
+  },
+  {
+   "what": "the square tower on the Prairie front's north part (x 1200-1450 px): the print carries it up past the main cornice under its own steep cap, gabled dormer and pinnacles; the build's projection stops under the main mansard and reads as a bay",
+   "status": "open"
+  },
+  {
+   "what": "the gabled dormers and wall gables: the print draws a tall gable over the front's middle light column (x 1010-1150 px), the round tower's gabled dormer and the flank tower's gables, each with crockets and a finial; the build has one street and one flank dormer",
+   "status": "open"
+  },
+  {
+   "what": "the iron fence on its curb with tall stone piers along both streets and the corner pier (x 600-1800 px, y 970-1270): not built (the record's boundary is open; the 20th-22nd block's boundaries are T-3786's)",
+   "status": "open"
+  },
+  {
+   "what": "the arched iron-and-glass canopy over the front walk from the gate to the door (x 1030-1280 px, y 950-1100): not built",
+   "status": "open"
+  },
+  {
+   "what": "the porch and stoop behind the canopy and the fence, and the rear ranges: hidden",
+   "status": "not shown"
+  },
+  {
+   "what": "the tone of the brick and the stone: the print is monochrome under an overcast sky",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
