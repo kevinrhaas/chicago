@@ -1160,7 +1160,10 @@
                                 "bolt",
                                 "bolt_blue",
                                 "featherbed",
-                                "trunk"
+                                "trunk",
+                                "keg",
+                                "muskets",
+                                "blanket_bale"
                               ]
                             },
                             {
@@ -1236,9 +1239,12 @@
                       "bolt",
                       "bolt_blue",
                       "featherbed",
-                      "trunk"
+                      "trunk",
+                      "keg",
+                      "muskets",
+                      "blanket_bale"
                     ],
-                    "description": "T-3814: what the castmate carries from the start (renderers/web/js/stage-props.js GOODS): a bundle or a bolt of cloth on the shoulder, a shawl bundle, a bird cage, a basket or tied papers in the hand, a feather bed on the back, a trunk dragged on a cord. Reconstructed make, from the accounts' lists (L-1871-fire-night-3814)."
+                    "description": "T-3814: what the castmate carries from the start (renderers/web/js/stage-props.js GOODS): a bundle or a bolt of cloth on the shoulder, a shawl bundle, a bird cage, a basket or tied papers in the hand, a feather bed on the back, a trunk dragged on a cord. Reconstructed make, from the accounts' lists (L-1871-fire-night-3814); and for 1812 (T-3553) a keg, an armful of muskets or a bale of trade blankets on the shoulder (L-1812-staged-jaunts-3553)."
                   },
                   "bier": {
                     "enum": [
@@ -1444,7 +1450,7 @@
               "additionalProperties": false
             },
             "props": {
-              "description": "T-3814: things standing on the ground for the scene (chairs, trunks, bundles, a feather bed): a kind of stage-props.js's still goods at a mark (local ENU metres), turned to a heading, `y` metres up from the ground (on a heap). Taken away when the stage ends.",
+              "description": "T-3814: things standing on the ground for the scene (chairs, trunks, bundles, a feather bed; for 1812 the factory's goods, kegs, muskets and the sally port's well): a kind of stage-props.js's still goods at a mark (local ENU metres), turned to a heading, `y` metres up from the ground (on a heap). Taken away when the stage ends.",
               "type": "array",
               "maxItems": 40,
               "items": {
@@ -1458,7 +1464,14 @@
                       "shawl_bundle",
                       "featherbed",
                       "load_dry_goods",
-                      "load_household"
+                      "load_household",
+                      "keg",
+                      "keg_staved",
+                      "muskets",
+                      "blanket_bale",
+                      "bolt",
+                      "bolt_blue",
+                      "well"
                     ]
                   },
                   "at": {

@@ -249,8 +249,8 @@ for (const name of ['battle-of-fort-dearborn', 'killing-of-jean-lalime']) {
       const poses = [c.pose, ...(c.beats || []).map((x) => x.pose)].filter(Boolean);
       for (const p of poses) assert.ok(POSES.includes(p), `${where}: ${p} is a pose`);
       if (c.person && young.test(c.person)) assert.ok(!poses.includes('lie'), `${where}: no child is ever shown fallen (${c.person})`);
-      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne', 'dismount'].includes(k)), [],
-        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, a torch put to a building, or getting down from a horse`);
+      for (const b of c.beats || []) assert.deepEqual(Object.keys(b).filter((k) => !['t', 'walk', 'pace', 'heading', 'face', 'pose', 'ease', 'talk', 'greet', 'hide', 'show', 'place', 'torch', 'ignite', 'cross', 'borne', 'dismount', 'carry'].includes(k)), [],
+        `${where}: a beat is only a move, a turn, a pose, a word of the hand, a way in or out, a boat crossed in, a bier carried, a torch put to a building, getting down from a horse, or a thing taken up or put down (T-3553, 2026-11-28)`);
       if ((c.beats || []).some((b) => b.torch || b.ignite)) assert.ok(st.stage.fire, `${where}: a torch only where the stop burns`);
     }
     assert.ok(stageLength(st) < 300, `${where}: the scene plays out in minutes`);
@@ -720,3 +720,27 @@ console.log('PASS a castmate on a horse rides their own way at their pace, seate
   assert.equal(bare.snapshot().props, 0); bare.release();
 }
 console.log('PASS the fire night\'s people carry their things in hand, on the shoulder or on a cord, the sick on a mattress, among the things set down');
+
+// T-3553 (the owner, 2026-11-28): the schema names exactly the kinds stage-props.js makes, carried
+// and still, so a jaunt can stage the 1812 factory's goods and the kegs and muskets of the sally port.
+{
+  const src = fs.readFileSync(new URL('../renderers/web/js/stage-props.js', import.meta.url), 'utf8');
+  const keysOf = (name) => {
+    const body = src.slice(src.indexOf(`const ${name} = Object.freeze({`)).split('\n});')[0];
+    return [...body.matchAll(/^  ([a-z_]+): /gm)].map((m) => m[1]).sort();
+  };
+  const st = schema.$defs.stop.properties.stage.properties;
+  const carried = keysOf('GOODS'), still = keysOf('STILL');
+  assert.deepEqual([...st.cast.items.properties.carry.enum].sort(), carried, 'a castmate carries what is made to be carried');
+  assert.deepEqual([...st.cast.items.properties.beats.items.properties.carry.anyOf[0].enum].sort(), carried, 'a beat takes up what is made to be carried');
+  assert.deepEqual([...st.props.items.properties.kind.enum].sort(), still, 'a ground prop is a still kind');
+  for (const k of ['keg', 'muskets', 'blanket_bale']) assert.ok(carried.includes(k), `1812 carries ${k}`);
+  const fort = read('data/jaunts/battle-of-fort-dearborn.json').stops;
+  const factory = fort.find((s) => s.id === 'factory').stage, cw = fort.find((s) => s.id === 'covered-way').stage;
+  const takes = (stage, kinds) => stage.cast.filter((c) => (c.beats || []).some((b) => kinds.includes(b.carry))).length;
+  assert.ok(takes(factory, ['blanket_bale', 'bolt', 'bolt_blue']) >= 8, 'the factory\'s goods carried out, and taken away by the gathering');
+  assert.ok(factory.props.length >= 6, 'and piled on the grass');
+  assert.ok(takes(cw, ['keg']) >= 4 && takes(cw, ['muskets']) >= 2, 'kegs and muskets carried out by the sally port');
+  assert.ok(cw.props.some((p) => p.kind === 'well') && cw.props.some((p) => p.kind === 'keg_staved'), 'to the well and to the river, the barrels staved in');
+}
+console.log('PASS the 1812 fort\'s goods are carried out and piled, its kegs and muskets carried out by the sally port and dumped');
