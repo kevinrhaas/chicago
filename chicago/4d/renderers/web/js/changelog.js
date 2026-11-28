@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3320, ts: '2026-11-28T06:32:08.694Z', date: 'Nov 28, 2026, 12:32 AM CT', title: 'Look around in cloud play by dragging', kind: 'fix',
+    items: [
+      'In cloud play, hold the left mouse button and move to look around. On a phone, drag as usual.',
+      'A click that does not drag still opens what you clicked.',
+    ] },
   { v: 3319, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Great Fire streets fill with people carrying what they saved', kind: 'feature',
     items: [
       'At the Great Fire stops people now carry bundles on their shoulders, bird cages, papers and bolts of cloth, and drag trunks on cords, as the accounts describe.',
