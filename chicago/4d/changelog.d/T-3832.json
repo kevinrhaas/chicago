@@ -1,0 +1,8 @@
+{
+  "title": "One ticket, one builder: a live claim can't be overridden",
+  "kind": "fix",
+  "items": [
+    "Nothing in the town changed. Two builders took the same ticket 33 seconds apart this morning and built one stable twice.",
+    "Overriding a stale branch warning no longer overrides another builder's fresh claim. Taking a live claim now needs its own flag and a written reason."
+  ]
+}

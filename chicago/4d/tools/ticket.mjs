@@ -3209,11 +3209,29 @@ switch (cmd) {
   case 'claim': {
     const ids = idArgs();
     if (!ids.length) {
-      console.error('usage: ticket.mjs claim T-NNNN [T-NNNN …] [--with T-HELD] [--force] [--no-lock] [--by who] [--run url] [--pr-json file]');
+      console.error('usage: ticket.mjs claim T-NNNN [T-NNNN …] [--with T-HELD] [--force] [--steal --why "…"] [--no-lock] [--by who] [--run url] [--pr-json file]');
       process.exit(1);
     }
     const grouped = ids.length > 1;
     const force = has('force');
+    // `--force` and `--steal` ARE TWO DIFFERENT KEYS (T-3832). `--force` passes the
+    // ADVISORY questions: a rival branch, an open PR carrying the ticket, a busy house,
+    // a pending decision — evidence a run reads and may judge stale. It never takes a
+    // LIVE claim, which is not evidence but the lock itself: on 2026-11-28 two slices
+    // took T-1938 33 s apart (07:06:50Z, then `--force` at 07:07:23Z). The second was
+    // forcing past a T-1938 branch it read as litter, and the same flag silently swept
+    // the first slice's seconds-old claim away with it, so 2021 Prairie's stable was
+    // built twice (#2426, #2428) and one of them had to be binned. AGENTS.md already
+    // said "`--force` is not the way past it"; the code now agrees. Taking a live claim
+    // is `--steal`, named for what it does, and it must say why (`--why`), which rides
+    // the claim's commit on the tickets repo so the holder can find out who and why.
+    const steal = has('steal');
+    const stealWhy = typeof flag('why') === 'string' ? flag('why').trim() : '';
+    if (steal && !stealWhy) {
+      console.error('claim --steal takes a LIVE claim from the run holding it, so it must say why:\n'
+        + `  node tools/ticket.mjs claim ${ids.join(' ')} --steal --why "that run was cancelled at 09:12Z"`);
+      process.exit(1);
+    }
     const claimedBy = `${flag('by') ?? 'run'} ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT`;
     // WHICH run holds it. `claimed_by` says when; when five slices run at once
     // that is not enough to tell whose ticket this is, or to open the log of the
@@ -3275,6 +3293,21 @@ switch (cmd) {
           + `Split it first, and the pieces keep this ticket's place in the queue:\n`
           + `  node tools/ticket.mjs split ${t.id} "first piece" "second piece"`;
       }
+      // A LIVE CLAIM IS ASKED FIRST, AND ONLY `--steal` PASSES IT (T-3832). First, so
+      // the precise answer ("claimed 33 s ago, by this run") is what a run reads, not
+      // the branch scan's vaguer "looks like it is already being worked" — that vaguer
+      // message is the one T-1938's second slice judged stale and forced past.
+      // REPO MODE: the claim is the pushed commit, so its state and age are the lock.
+      if (inRepoMode() && t.state === 'claimed' && !claimIsDead(t) && !steal) {
+        return `${t.id} IS ALREADY CLAIMED — ${t.claimed_by ?? 'by another run'}`
+          + ` (${sinceWords(claimAgeHours(t))})`
+          + `${t.claimed_run ? `\n  ${t.claimed_run}` : ''}\n`
+          + `Take the next workable ticket instead:  node tools/ticket.mjs list --workable\n`
+          + `A claim older than ${RUN_HOURS}h is a dead run and is stolen automatically.`
+          + `${force ? ' --force passes rival branches, open PRs and a busy house; it never takes a live claim (T-3832).' : ''}\n`
+          + `If you KNOW that run is dead (its Actions run ended), take it now and say so:\n`
+          + `  node tools/ticket.mjs claim ${t.id} --steal --why "…"`;
+      }
       // A claim only reaches `dev` when its PR merges, so a run that opens a PR and
       // does not merge it leaves the ticket reading `open` to the NEXT run, which
       // then does the same work twice. That happened to T-0062 on 2026-08-19: run
@@ -3322,17 +3355,14 @@ switch (cmd) {
         return `${t.id} is waiting on an owner decision — see its "## Decision needed" section.\n`
           + `Take the next workable ticket: node tools/ticket.mjs list --workable`;
       }
-      // REPO MODE: the claim is the pushed commit. A live claim refuses; a dead one
-      // (older than RUN_HOURS) is stolen, exactly as the marker branches were.
-      if (inRepoMode() && t.state === 'claimed' && !force) {
-        if (!claimIsDead(t)) {
-          return `${t.id} IS ALREADY CLAIMED — ${t.claimed_by ?? 'by another run'}`
-            + `${t.claimed_run ? `\n  ${t.claimed_run}` : ''}\n`
-            + `Take the next workable ticket instead:  node tools/ticket.mjs list --workable\n`
-            + `A claim older than ${RUN_HOURS}h is a dead run and is stolen automatically. To override now:\n`
-            + `  node tools/ticket.mjs claim ${t.id} --force`;
-        }
-        console.log(`  ${grouped ? `${t.id}: ` : ''}stealing a dead claim (${sinceWords(claimAgeHours(t))}) — ${t.claimed_by}`);
+      // REPO MODE: a live claim was refused above unless `--steal` said otherwise; a
+      // dead one (older than RUN_HOURS) is stolen, exactly as the marker branches were.
+      // Either way the take is reported, never silent — with `--force` too, which used
+      // to skip this line and so took a claim without a word.
+      if (inRepoMode() && t.state === 'claimed') {
+        console.log(claimIsDead(t)
+          ? `  ${grouped ? `${t.id}: ` : ''}stealing a dead claim (${sinceWords(claimAgeHours(t))}) — ${t.claimed_by}`
+          : `  ${grouped ? `${t.id}: ` : ''}STEALING A LIVE CLAIM (${sinceWords(claimAgeHours(t))}) — ${t.claimed_by} — because: ${stealWhy}`);
       }
       return null;
     };
@@ -3362,7 +3392,7 @@ switch (cmd) {
       const taking = [];
       for (const t of passed) {
         if (has('no-lock') || inRepoMode()) { taking.push(t); continue; }
-        const lock = takeClaimLock(t.id, claimedBy, claimedRun, { steal: force });
+        const lock = takeClaimLock(t.id, claimedBy, claimedRun, { steal });
         if (lock.unknown) {
           console.error(`  note: claim lock not taken (${lock.unknown}) — proceeding, as the branch scan does`);
           taking.push(t);
@@ -3374,8 +3404,10 @@ switch (cmd) {
             + `\nThat run's claim will not reach \`dev\` until its PR merges, which is exactly\n`
             + `why this check does not read \`dev\`. Take the next workable ticket instead:\n`
             + `  node tools/ticket.mjs list --workable\n`
-            + `A claim older than ${RUN_HOURS}h is a dead run and is stolen automatically. To override now:\n`
-            + `  node tools/ticket.mjs claim ${t.id} --force`);
+            + `A claim older than ${RUN_HOURS}h is a dead run and is stolen automatically.`
+            + `${force ? ' --force never takes a live claim (T-3832).' : ''}\n`
+            + `If you KNOW that run is dead (its Actions run ended), take it now and say so:\n`
+            + `  node tools/ticket.mjs claim ${t.id} --steal --why "…"`);
         } else {
           if (lock.stolen) {
             console.log(`  stole a dead claim (${sinceWords(lock.stolen.ageHours)}) — ${lock.stolen.by?.split('\n')[0] ?? 'holder unknown'}`);
@@ -3385,6 +3417,9 @@ switch (cmd) {
       }
       if (!taking.length) break;
 
+      // Read before the loop below rewrites them: which of these was a LIVE claim this
+      // run is taking with `--steal`. The reason rides the commit (T-3832).
+      const stoleLive = inRepoMode() ? taking.filter((t) => t.state === 'claimed' && !claimIsDead(t)).map((t) => t.id) : [];
       const members = [...held, ...taking.map((t) => t.id).filter((id) => !held.includes(id))];
       const group = members.length > 1 ? members.join(',') : null;
       // The tickets already held take the grown group too, so every member says the same.
@@ -3401,7 +3436,8 @@ switch (cmd) {
       generateBoard(loadAll());
       if (inRepoMode()) {
         const names = taking.map((t) => t.id).join(', ');
-        const r = pushTickets(`${names}: claim — ${claimedBy}${withId ? ` (joining ${withId}'s group)` : group ? ' (one group, one PR)' : ''}`);
+        const r = pushTickets(`${names}: claim — ${claimedBy}${withId ? ` (joining ${withId}'s group)` : group ? ' (one group, one PR)' : ''}`
+          + `${stoleLive.length ? ` — STOLE the live claim on ${stoleLive.join(', ')}: ${stealWhy}` : ''}`);
         published = true;
         if (r.conflict) {
           if (!grouped) {
