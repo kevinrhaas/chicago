@@ -1,0 +1,291 @@
+{
+ "id": "st_pauls_priests_house_1871",
+ "name": "St. Paul's priest's house, Clinton Street",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "residence",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "The priest's residence of St. Paul's (Andreas vol. 2, p. 406); Rev. John Kilkenny was pastor in 1870-71."
+ },
+ "built": {
+  "value": 1868,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Built with the parish's buildings after its founding in 1868 (Andreas vol. 2, p. 406)."
+ },
+ "research_note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831 for the 1871 scene: 'the priest's residence $3,000' (Andreas vol. 2, p. 406), lost in the fire with the church. Where it stood on the parish's ground and how it looked are not recorded: it is set north of the church on Clinton Street and drawn as a two-storey frame house.",
+ "phases": [
+  {
+   "id": "house_1868_1871",
+   "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+   },
+   "position": {
+    "utm_e": 446826.598,
+    "utm_n": 4635881.302,
+    "rotation_deg": 359.11,
+    "symbolic_location": "Clinton Street north of St. Paul's Church.",
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "On the parish's ground at Clinton and Mather (Andreas vol. 2, p. 406); its place north of the church, fronting Clinton Street, is reconstructed. The footprint's origin is local E -246.1 N -1514.5.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      10.4,
+      0
+     ],
+     [
+      10.4,
+      7.3
+     ],
+     [
+      0,
+      7.3
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Reconstructed: a frame house of the size its $3,000 cost bought."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "tint": {
+       "clapboard": [
+        0.86,
+        0.82,
+        0.72
+       ]
+      },
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration"
+       ],
+       "note": "The priest's residence was lost with the church (Andreas vol. 2, p. 406; Sheahan and Upton: 'with A $3,000 residence')."
+      },
+      "blocks": [
+       {
+        "name": "the priest's house",
+        "box": [
+         0,
+         0,
+         10.4,
+         7.3
+        ],
+        "storeys": [
+         0.6,
+         3.2,
+         2.9
+        ],
+        "wall": "clapboard",
+        "trim": "wood_white",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.3,
+         "material": "wood_white"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 2.7,
+         "eave": 0.3,
+         "covering": "shingle",
+         "ridge": "x"
+        },
+        "faces": {
+         "W": {
+          "bays": {
+           "at": [
+            1.6,
+            3.65,
+            5.7
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.85,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             0
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 1.0,
+            "h": 2.3,
+            "sill": 0.0,
+            "hood": "cornice"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "n": 3,
+           "margin": 1.8
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.85,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "n": 3,
+           "margin": 1.8
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.9,
+            "h": 1.9,
+            "sill": 0.7,
+            "hood": "cornice"
+           },
+           {
+            "kind": "flat",
+            "w": 0.85,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "cornice"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            3.65
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "door_flat",
+            "w": 0.9,
+            "h": 2.2,
+            "sill": 0.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 0.85,
+            "h": 1.6,
+            "sill": 0.6,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A two-storey frame house with its gable to Clinton Street, the size a $3,000 house of 1868 bought (Andreas vol. 2, p. 406). No picture or plan of it is known: its form is reconstructed as the West Side's frame houses."
+       }
+      ],
+      "steps": [
+       {
+        "block": 0,
+        "face": "W",
+        "s0": 1.0,
+        "s1": 2.2,
+        "n": 3,
+        "landing": 1.0,
+        "material": "wood_white",
+        "rise": 0.18
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         5.2,
+         3.65
+        ],
+        "z0": 8.6,
+        "h": 1.6,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ]
+       }
+      ],
+      "note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831: the $3,000 residence beside the church (Andreas vol. 2, p. 406), reconstructed."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831: the $3,000 residence beside the church (Andreas vol. 2, p. 406), reconstructed."
+    },
+    "wall_material": {
+     "value": "Painted clapboard on a frame, a shingle roof",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Reconstructed as the West Side's frame houses.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

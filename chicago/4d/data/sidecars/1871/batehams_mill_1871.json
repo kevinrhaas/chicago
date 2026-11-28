@@ -1,0 +1,462 @@
+{
+  "id": "batehams_mill_1871",
+  "phase": "mill_1871",
+  "name": "Bateham's shingle and planing mill, Canal Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/batehams_mill_1871__mill_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -175.402,
+    "local_n": -1512.398,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+    ],
+    "position_note": "On the block bounded by Harrison, Mather, Canal and Clinton Streets, fronting Canal Street south of Harrison (Andreas vol. 2, pp. 712-717). Set 80 feet east of the west mill, whose south-west corner is put beside the church's north-east corner as Andreas has it, with the mills' south end eleven feet north of the Roelle building on Mather Street's line; the yard runs on to Canal Street. The 1871 plan's block is wider between Clinton and Canal than the accounts' (see L-1871-st-pauls-block-3831), so the yard between the mill and Canal Street is the room that leaves. The footprint's origin is local E -175.4 N -1512.4.",
+    "symbolic_location": "Canal Street south of Harrison, on the West Side.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        18.3,
+        0
+      ],
+      [
+        18.3,
+        74.7
+      ],
+      [
+        0,
+        74.7
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Two hundred and forty-five by sixty feet (Andreas vol. 2, p. 717)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "'At half-past ten, the heroic men were driven from Bateham's works by the intense heat' (Andreas vol. 2, p. 717); 'At 10:30 Bateham's mills on Canal Street, near Harrison, were deserted, as beyond salvation' (p. 719).",
+          "time": "1871-10-08T22:20"
+        },
+        "blocks": [
+          {
+            "name": "the main mill",
+            "box": [
+              0,
+              0,
+              18.3,
+              74.7
+            ],
+            "storeys": [
+              4.2,
+              3.6,
+              3.6
+            ],
+            "wall": "clapboard_bare",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 4.2,
+              "eave": 0.4,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "E": {
+                "bays": {
+                  "n": 16,
+                  "margin": 2.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      3,
+                      8,
+                      12
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.0,
+                    "h": 3.4,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 16,
+                  "margin": 2.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      5,
+                      10
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.0,
+                    "h": 3.4,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    4.0,
+                    9.15,
+                    14.3
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.2,
+                    "h": 3.6,
+                    "sill": 0.0
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "at": [
+                    4.0,
+                    9.15,
+                    14.3
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Bateham's three-story-and-attic mill. The building was two hundred and forty-five by sixty in size' (Andreas vol. 2, p. 717); the Frank Mayer Furniture Company 'occupied the attic'. 'These were large wooden structures' (p. 712). Its long side is set along Canal Street; its windows, doors and unpainted boarding are reconstructed as a West Side planing and shingle mill's."
+          },
+          {
+            "name": "the engine and boiler house",
+            "box": [
+              -8.0,
+              6.0,
+              0.0,
+              16.0
+            ],
+            "storeys": [
+              4.6
+            ],
+            "wall": "brick_red",
+            "trim": "stone_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.15,
+              "material": "stone_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 1.6,
+              "eave": 0.25,
+              "covering": "tin_dark",
+              "ridge": "y"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    7.0
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "segment",
+                    "w": 1.2,
+                    "h": 2.2,
+                    "sill": 1.2,
+                    "hood": "segment"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 1.6,
+                    "h": 2.8,
+                    "sill": 0.0
+                  }
+                ]
+              },
+              "E": "none",
+              "N": "blank",
+              "S": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "Bateham and his watchman 'at once started the steam engine, attaching the force-pump' (Andreas vol. 2, p. 717): the engine and its boiler house are reconstructed in brick against the mill's west side."
+          }
+        ],
+        "towers": [
+          {
+            "name": "the mill stack",
+            "at": [
+              -4.0,
+              3.6
+            ],
+            "z0": 0.0,
+            "plan": "square",
+            "wall": "brick_red",
+            "stages": [
+              {
+                "w": 1.8,
+                "h": 5.0,
+                "cornice_proj": 0.1
+              },
+              {
+                "w": 1.4,
+                "h": 17.0,
+                "cornice_proj": 0.15
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "The steam engine's chimney stack, reconstructed: a steam mill of the period had one; its height is set to draw the boiler and is not recorded."
+          }
+        ],
+        "note": "BATEHAM'S MAIN MILL, built by T-3831: W. B. Bateham's three-storey-and-attic shingle and planing mill, 245 by 60 feet, on Canal Street south of Harrison (Andreas vol. 2, pp. 712-718)."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "BATEHAM'S MAIN MILL, built by T-3831: W. B. Bateham's three-storey-and-attic shingle and planing mill, 245 by 60 feet, on Canal Street south of Harrison (Andreas vol. 2, pp. 712-718)."
+    },
+    "wall_material": {
+      "value": "Unpainted boards on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "'Large wooden structures' (Andreas vol. 2, p. 712); the weathered unpainted boarding is reconstructed.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "mill",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "W. B. Bateham's 'shingle mill, box factory and furniture factory' (Andreas vol. 2, p. 717); 'Bateham & Peters, shingle manufacturers, 319 S. Canal' (Edwards 1871)."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "When it was built is not recorded."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
+    }
+  ],
+  "research_note": "BATEHAM'S MILLS, built by T-3831 for the 1871 scene. William B. Bateham, alderman of the Ninth Ward in 1871 (Edwards 1871), owned 'a shingle mill, box factory and furniture factory' on Canal Street just south of Harrison (Andreas vol. 2, p. 717). 'Bateham's three-story-and-attic mill. The building was two hundred and forty-five by sixty in size ... Eighty feet west of the main mill was another of the same length, and forty feet in width. The south-west corner of the mills almost touched the church on the northeast corner of Clinton and Mather streets ... Eleven feet south of the mills stood a three-story building, fifty by seventy feet, siding on Mather Street' (the Roelle furniture-finishing works). In the yard were 'a thousand cords of fire-kindling wood, in piles twenty-five feet high, and also six hundred thousand feet of furniture lumber'. 'A match factory stood at the rear of the shingle mill' (p. 713). The men were driven from the works by the heat at half-past ten. No picture of the mills is known.",
+  "research_doc": "",
+  "review_required": false
+}

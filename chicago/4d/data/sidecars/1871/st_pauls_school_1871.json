@@ -1,0 +1,360 @@
+{
+  "id": "st_pauls_school_1871",
+  "phase": "school_1868_1871",
+  "name": "St. Paul's parish school, Clinton Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/st_pauls_school_1871__school_1868_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -246.202,
+    "local_n": -1502.998,
+    "rotation_deg": 359.11,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration",
+      "edwards_chicago_directory_1871"
+    ],
+    "position_note": "On the parish's ground at Clinton and Mather (Andreas vol. 2; Edwards 1871); its place on Clinton Street north of the priest's house is reconstructed. The footprint's origin is local E -246.2 N -1503.0.",
+    "symbolic_location": "Clinton Street north of St. Paul's Church.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        15.2,
+        0
+      ],
+      [
+        15.2,
+        9.1
+      ],
+      [
+        0,
+        9.1
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Reconstructed: a frame school of the size its $5,000 cost bought."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "tint": {
+          "clapboard": [
+            0.8,
+            0.76,
+            0.64
+          ]
+        },
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2",
+            "sheahan_upton_1871_great_conflagration"
+          ],
+          "note": "'St. Paul's Parish School, $5,000', among the Catholic losses (Sheahan and Upton 1871); destroyed with the church (Andreas vol. 2, p. 406)."
+        },
+        "blocks": [
+          {
+            "name": "the school",
+            "box": [
+              0,
+              0,
+              15.2,
+              9.1
+            ],
+            "storeys": [
+              0.6,
+              3.6,
+              3.4
+            ],
+            "wall": "clapboard",
+            "trim": "wood_white",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_white"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 3.2,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    1.7,
+                    4.55,
+                    7.4
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.3,
+                    "sill": 0.8,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.2,
+                    "sill": 0.7,
+                    "hood": "cornice"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 1.3,
+                    "h": 2.6,
+                    "sill": 0.0,
+                    "hood": "cornice"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.6
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.3,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.2,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.6
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.3,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.0,
+                    "h": 2.2,
+                    "sill": 0.7,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2",
+              "sheahan_upton_1871_great_conflagration"
+            ],
+            "note": "A two-storey frame schoolhouse with its gable to Clinton Street, the size a $5,000 school of 1868 bought (Andreas vol. 2, p. 406; Sheahan and Upton). No picture or plan is known; its form is reconstructed."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 3.8,
+            "s1": 5.3,
+            "n": 3,
+            "landing": 1.1,
+            "material": "wood_white",
+            "rise": 0.18
+          }
+        ],
+        "towers": [
+          {
+            "name": "the bell-cote",
+            "at": [
+              1.4,
+              4.55
+            ],
+            "z0": 9.95,
+            "plan": "square",
+            "wall": "clapboard",
+            "stages": [
+              {
+                "w": 1.3,
+                "h": 1.4,
+                "openings": {
+                  "kind": "round",
+                  "w": 0.6,
+                  "h": 0.9,
+                  "sill": 0.25
+                },
+                "cornice_proj": 0.1
+              }
+            ],
+            "cap": {
+              "kind": "pyramid",
+              "h": 1.0,
+              "covering": "shingle"
+            },
+            "finial": 0.5,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A small bell-cote on the school's front gable, reconstructed."
+          }
+        ],
+        "note": "ST. PAUL'S PARISH SCHOOL, built by T-3831: the Sisters of Loretto's school at Clinton and Mather, 1868-1871 (Andreas vol. 2, p. 406 and the list of schools), reconstructed."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "ST. PAUL'S PARISH SCHOOL, built by T-3831: the Sisters of Loretto's school at Clinton and Mather, 1868-1871 (Andreas vol. 2, p. 406 and the list of schools), reconstructed."
+    },
+    "wall_material": {
+      "value": "Painted clapboard on a frame, a shingle roof",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "Reconstructed as the West Side's frame buildings.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "school",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "St. Paul's Catholic School (Sisters of Loretto), Clinton Street corner Mather, 1868-1871 (Andreas vol. 2; Edwards 1871 lists St. Paul's school at Clinton corner Mather)."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "The parish school, 1868-1871 (Andreas vol. 2)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
+    },
+    {
+      "source_id": "sheahan_upton_1871_great_conflagration",
+      "citation": "Sheahan, James W., and George P. Upton. The Great Conflagration. Chicago: Its Past, Present and Future. Philadelphia: Union Publishing Co., 1871.",
+      "url": "https://archive.org/details/cu31924028806855",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the authors' count of the people made homeless by the fire of October 1871: 98,860"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the buildings of 1812 or 1835: the town those scenes show was gone long before 1871"
+      ]
+    }
+  ],
+  "research_note": "ST. PAUL'S PARISH SCHOOL, built by T-3831 for the 1871 scene: 'the parish school $5,000' (Andreas vol. 2, p. 406), 'St. Paul's Parish School, $5,000' among the fire's Catholic losses (Sheahan and Upton), kept by the Sisters of Loretto at Clinton Street corner Mather from 1868 to 1871. Where it stood on the parish's ground and how it looked are not recorded: it is set on Clinton Street north of the priest's house and drawn as a two-storey frame school.",
+  "research_doc": "",
+  "review_required": false
+}

@@ -1,0 +1,328 @@
+{
+  "id": "roelle_works_1871",
+  "phase": "works_1871",
+  "name": "The Roelle furniture-finishing works, Mather Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/roelle_works_1871__works_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -195.002,
+    "local_n": -1530.998,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+    ],
+    "position_note": "Eleven feet south of the mills, its long side on Mather Street's line (Andreas vol. 2, p. 717); where along Mather it stood is reconstructed. The footprint's origin is local E -195.0 N -1531.0.",
+    "symbolic_location": "On the line of Mather Street, eleven feet south of Bateham's mills.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        21.3,
+        0
+      ],
+      [
+        21.3,
+        15.2
+      ],
+      [
+        0,
+        15.2
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Fifty by seventy feet, its long side on Mather Street (Andreas vol. 2, p. 717)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "'In the very face of those efforts, the Roelle structure went up in smoke and flame' (Andreas vol. 2, p. 717), after ten and before the men were driven from the mills at half-past ten.",
+          "time": "1871-10-08T22:10"
+        },
+        "blocks": [
+          {
+            "name": "the Roelle works",
+            "box": [
+              0,
+              0,
+              21.3,
+              15.2
+            ],
+            "storeys": [
+              3.8,
+              3.4,
+              3.4
+            ],
+            "wall": "clapboard_bare",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 2.4,
+              "eave": 0.35,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "n": 7,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": []
+              },
+              "S": {
+                "bays": {
+                  "n": 7,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      3
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 2.6,
+                    "h": 3.0,
+                    "sill": 0.0
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": []
+              },
+              "W": {
+                "bays": {
+                  "n": 5,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.9,
+                    "sill": 1.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": []
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A three-story building, fifty by seventy feet, siding on Mather Street. This was used by the Roelle Furniture-finishing Company, and was filled with combustible materials' (Andreas vol. 2, p. 717). Its walls (frame) and windows are reconstructed."
+          }
+        ],
+        "note": "THE ROELLE FURNITURE-FINISHING WORKS, built by T-3831 (Andreas vol. 2, p. 717)."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "THE ROELLE FURNITURE-FINISHING WORKS, built by T-3831 (Andreas vol. 2, p. 717)."
+    },
+    "wall_material": {
+      "value": "Unpainted boards on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "Its walls are not described; frame is reconstructed, as the mills'.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "factory",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "'Used by the Roelle Furniture-finishing Company' (Andreas vol. 2, p. 717); Kraefft, Roelle & Co. are in Edwards 1871."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "When it was built is not recorded."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
+    }
+  ],
+  "research_note": "THE ROELLE WORKS, built by T-3831 for the 1871 scene: 'Eleven feet south of the mills stood a three-story building, fifty by seventy feet, siding on Mather Street. This was used by the Roelle Furniture-finishing Company, and was filled with combustible materials' (Andreas vol. 2, p. 717). Some of the best steamers worked on it and on Bateham's property after ten, 'But in the very face of those efforts, the Roelle structure went up in smoke and flame.' No picture of it is known.",
+  "research_doc": "",
+  "review_required": false
+}

@@ -1,0 +1,333 @@
+{
+  "id": "st_pauls_priests_house_1871",
+  "phase": "house_1868_1871",
+  "name": "St. Paul's priest's house, Clinton Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/st_pauls_priests_house_1871__house_1868_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -246.102,
+    "local_n": -1514.498,
+    "rotation_deg": 359.11,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "On the parish's ground at Clinton and Mather (Andreas vol. 2, p. 406); its place north of the church, fronting Clinton Street, is reconstructed. The footprint's origin is local E -246.1 N -1514.5.",
+    "symbolic_location": "Clinton Street north of St. Paul's Church.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        10.4,
+        0
+      ],
+      [
+        10.4,
+        7.3
+      ],
+      [
+        0,
+        7.3
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Reconstructed: a frame house of the size its $3,000 cost bought."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "tint": {
+          "clapboard": [
+            0.86,
+            0.82,
+            0.72
+          ]
+        },
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2",
+            "sheahan_upton_1871_great_conflagration"
+          ],
+          "note": "The priest's residence was lost with the church (Andreas vol. 2, p. 406; Sheahan and Upton: 'with A $3,000 residence')."
+        },
+        "blocks": [
+          {
+            "name": "the priest's house",
+            "box": [
+              0,
+              0,
+              10.4,
+              7.3
+            ],
+            "storeys": [
+              0.6,
+              3.2,
+              2.9
+            ],
+            "wall": "clapboard",
+            "trim": "wood_white",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_white"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 2.7,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    1.6,
+                    3.65,
+                    5.7
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.7,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.85,
+                    "h": 1.6,
+                    "sill": 0.6,
+                    "hood": "cornice"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      0
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 1.0,
+                    "h": 2.3,
+                    "sill": 0.0,
+                    "hood": "cornice"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 3,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.7,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.85,
+                    "h": 1.6,
+                    "sill": 0.6,
+                    "hood": "cornice"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 3,
+                  "margin": 1.8
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 1.9,
+                    "sill": 0.7,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.85,
+                    "h": 1.6,
+                    "sill": 0.6,
+                    "hood": "cornice"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.65
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "door_flat",
+                    "w": 0.9,
+                    "h": 2.2,
+                    "sill": 0.0,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.85,
+                    "h": 1.6,
+                    "sill": 0.6,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A two-storey frame house with its gable to Clinton Street, the size a $3,000 house of 1868 bought (Andreas vol. 2, p. 406). No picture or plan of it is known: its form is reconstructed as the West Side's frame houses."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 1.0,
+            "s1": 2.2,
+            "n": 3,
+            "landing": 1.0,
+            "material": "wood_white",
+            "rise": 0.18
+          }
+        ],
+        "chimneys": [
+          {
+            "at": [
+              5.2,
+              3.65
+            ],
+            "z0": 8.6,
+            "h": 1.6,
+            "w": 0.6,
+            "d": 0.6,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ]
+          }
+        ],
+        "note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831: the $3,000 residence beside the church (Andreas vol. 2, p. 406), reconstructed."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831: the $3,000 residence beside the church (Andreas vol. 2, p. 406), reconstructed."
+    },
+    "wall_material": {
+      "value": "Painted clapboard on a frame, a shingle roof",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Reconstructed as the West Side's frame houses.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "The priest's residence of St. Paul's (Andreas vol. 2, p. 406); Rev. John Kilkenny was pastor in 1870-71."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Built with the parish's buildings after its founding in 1868 (Andreas vol. 2, p. 406)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "sheahan_upton_1871_great_conflagration",
+      "citation": "Sheahan, James W., and George P. Upton. The Great Conflagration. Chicago: Its Past, Present and Future. Philadelphia: Union Publishing Co., 1871.",
+      "url": "https://archive.org/details/cu31924028806855",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the authors' count of the people made homeless by the fire of October 1871: 98,860"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the buildings of 1812 or 1835: the town those scenes show was gone long before 1871"
+      ]
+    }
+  ],
+  "research_note": "ST. PAUL'S PRIEST'S HOUSE, built by T-3831 for the 1871 scene: 'the priest's residence $3,000' (Andreas vol. 2, p. 406), lost in the fire with the church. Where it stood on the parish's ground and how it looked are not recorded: it is set north of the church on Clinton Street and drawn as a two-storey frame house.",
+  "research_doc": "",
+  "review_required": false
+}

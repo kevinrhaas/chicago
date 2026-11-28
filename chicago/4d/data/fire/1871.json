@@ -1391,7 +1391,16 @@
    }
   },
   "parmelee_stables_1871": {
-   "fate": "walls_stand"
+   "fate": "walls_stand",
+   "note": "Andreas p. 719: the new brick stable, 'literally engulfed in flame' at half past eleven; its walls are drawn standing as the masonry blocks' are.",
+   "burning_by": {
+    "t": "1871-10-08T23:36",
+    "grade": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 719: J. W. Parmelee and J. E. Sullivan fled when 'At half-past eleven ... the fire swept down upon them', and 'It seemed but an instant before the edifice was literally engulfed in flame'. Caught at half past eleven and ablaze a few minutes after, while the stop is read (T-3831)."
+   }
   },
   "south_side_gas_works_1871": {
    "fate": "walls_stand"
@@ -1468,7 +1477,15 @@
   },
   "st_pauls_church_1871": {
    "fate": "collapses",
-   "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten."
+   "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten.",
+   "burning_by": {
+    "t": "1871-10-08T21:50",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Riley (Andreas pp. 715-716): the brand alighted on its cupola and 'The entire building was almost instantaneously enveloped in flames'; Marshal Williams set three engines on it 'until the church was entirely consumed' (p. 712); by ten 'the church had gone down in ruins in advance of the main body of flame' (p. 717). So at the stop's half past ten it is down and smouldering (T-3831)."
+   }
   },
   "dalton_cottage_1871": {
    "fate": "collapses",
@@ -1489,6 +1506,91 @@
   "washington_square_1871": {
    "fate": "collapses",
    "note": "The square's wooden fence and the goods left on its grass burned (Andreas vol. 2, p. 759)."
+  },
+  "st_pauls_priests_house_1871": {
+   "fate": "collapses",
+   "note": "The priest's $3,000 frame house beside the church, lost with it (Andreas vol. 2, p. 406)."
+  },
+  "st_pauls_school_1871": {
+   "fate": "collapses",
+   "note": "The $5,000 parish school, lost with the church (Andreas vol. 2, p. 406; Sheahan and Upton)."
+  },
+  "batehams_mill_1871": {
+   "fate": "collapses",
+   "note": "'Large wooden structures, surrounded by combustible materials' (Andreas p. 712): burned to the ground.",
+   "burning_by": {
+    "t": "1871-10-08T22:20",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 717: 'At half-past ten, the heroic men were driven from Bateham's works by the intense heat'; p. 719, 'At 10:30 Bateham's mills ... were deserted, as beyond salvation'. Burning hard at the stop's half past ten (T-3831)."
+   }
+  },
+  "batehams_west_mill_1871": {
+   "fate": "collapses",
+   "note": "Bateham's second mill, of wood (Andreas pp. 712, 717).",
+   "burning_by": {
+    "t": "1871-10-08T22:20",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 717: 'At half-past ten, the heroic men were driven from Bateham's works by the intense heat'; p. 719, 'At 10:30 Bateham's mills ... were deserted, as beyond salvation'. Burning hard at the stop's half past ten (T-3831)."
+   }
+  },
+  "batehams_yard_1871": {
+   "fate": "collapses",
+   "note": "The yard's thousand cords of kindling wood and its furniture lumber (Andreas p. 717).",
+   "burning_by": {
+    "t": "1871-10-08T22:20",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 717: 'At half-past ten, the heroic men were driven from Bateham's works by the intense heat'; p. 719, 'At 10:30 Bateham's mills ... were deserted, as beyond salvation'. Burning hard at the stop's half past ten (T-3831)."
+   }
+  },
+  "batehams_match_factory_1871": {
+   "fate": "collapses",
+   "note": "The match factory behind the shingle mill (Andreas p. 713).",
+   "burning_by": {
+    "t": "1871-10-08T22:15",
+    "grade": "inferred",
+    "sources": [
+     "sheahan_upton_1871_great_conflagration",
+     "andreas_1885_v2"
+    ],
+    "note": "Marshal Williams (Sheahan and Upton p. 163): after the church had fallen in, 'the next thing I knew the fire was in Bateham's planing mill. When I got there, I found that the match factory between Bateham's and Clinton street was going'. Before the mills were given up at half past ten (Andreas p. 717)."
+   }
+  },
+  "roelle_works_1871": {
+   "fate": "collapses",
+   "note": "'Filled with combustible materials' (Andreas p. 717).",
+   "burning_by": {
+    "t": "1871-10-08T22:10",
+    "grade": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 717: after ten the steamers were working on Bateham's property and the Roelle building, 'But in the very face of those efforts, the Roelle structure went up in smoke and flame', before the men were driven from the mills at half past ten."
+   }
+  },
+  "huntoon_house_1871": {
+   "fate": "collapses",
+   "note": "The old frame farm-house on the block, burned with it (Andreas p. 717)."
+  },
+  "wrights_stable_1871": {
+   "fate": "collapses",
+   "note": "A frame livery stable at the north end of the State Street viaduct (Andreas vol. 2, pp. 719, 743).",
+   "burning_by": {
+    "t": "1871-10-09T02:33",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 719: 'At 2:30, Wright's stable on the southeast corner of State and Kinzie streets, at the northern end of the viaduct, took fire.' Caught at half past two, alight while the stop is read (T-3831)."
+   }
   }
  },
  "model": {

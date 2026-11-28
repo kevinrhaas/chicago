@@ -46,12 +46,13 @@ const JAUNT = 'the-great-fire';
 /** What each stop's words put in front of the visitor. Stop ids are the base jaunt's. */
 export const EXPECT = {
   'oleary-barn': { street: 'DeKoven Street', see: [{ structure: 'oleary_barn_1871', state: 'burning', words: '"saw the flames"' }] },
-  'st-pauls': { street: 'Clinton Street', see: [{ control: 'st_pauls_church', kind: 'frame', state: 'burnt', words: '"The church is down."' }, { control: 'batehams_mills', kind: 'frame', state: 'burning', words: '"Bateham\'s mills ... are going too"' }] },
-  parmelee: { corner: ['Jackson Street', 'Franklin Street'], within_m: 20, see: [{ control: 'parmelee_stables', kind: 'masonry', state: 'catches', words: '"now one has caught"' }] },
+  // T-3831: the church, the mills and the stable are drawn as themselves, so the stop reads them, not their timed places.
+  'st-pauls': { street: 'Clinton Street', see: [{ structure: 'st_pauls_church_1871', state: 'burnt', words: '"The church is down."' }, { structure: 'batehams_mill_1871', state: 'burning', words: '"Bateham\'s mills ... are going too"' }, { structure: 'batehams_west_mill_1871', state: 'burning', words: '"Bateham\'s mills ... are going too"' }, { structure: 'batehams_yard_1871', state: 'burning', words: '"a thousand cords of kindling wood in the yard"' }] },
+  parmelee: { corner: ['Jackson Street', 'Franklin Street'], within_m: 20, see: [{ structure: 'parmelee_stables_1871', state: 'catches', words: '"now one has caught"' }] },
   'court-house': { corner: ['Clark Street', 'Washington Street'], within_m: 20, see: [{ structure: 'cook_county_court_house_1871', state: 'burning', words: '"Now the tower is alight."' }] },
   'sherman-house': { corner: ['Clark Street', 'Randolph Street'], within_m: 40, see: [{ structure: 'sherman_house_1871', state: 'burning', words: '"a spirit of flame came from a window"' }, { structure: 'cook_county_court_house_1871', state: 'caught', min: 20, words: '"the Court House bell comes crashing"' }] },
   crosbys: { street: 'Washington Street', see: [{ structure: 'crosbys_opera_house_1871', state: 'burning', words: '"Now the roof catches."' }] },
-  'north-side': { street: 'State Street', see: [{ control: 'wrights_stable', kind: 'frame', state: 'catches', words: '"Wright\'s stable on this corner is burning"' }] },
+  'north-side': { street: 'State Street', see: [{ structure: 'wrights_stable_1871', state: 'catches', words: '"Wright\'s stable on this corner is burning"' }] },
   'water-works': { see: [{ structure: 'chicago_pumping_station_1871', state: 'burning', words: '"In an instant, the roof was aflame."' }, { structure: 'chicago_water_tower_1871', state: 'standing', words: '"The tower will stand"' }] },
   tribune: { corner: ['Dearborn Street', 'Madison Street'], within_m: 45, see: [{ structure: 'tribune_building_1871', state: 'burning', words: '"The Tribune goes"' }] },
   'state-street': { corner: ['State Street', 'Washington Street'], within_m: 20, see: [{ structure: 'field_leiter_1871', state: 'burning', words: '"The fire comes at it ... it soon yielded."' }, { structure: 'palmer_house_1871', state: 'caught', min: 30, words: '"the Palmer House is already a ruin"' }, { structure: 'crosbys_opera_house_1871', state: 'burnt', words: 'Crosby\'s, burnt at 2:20, across the way' }] },

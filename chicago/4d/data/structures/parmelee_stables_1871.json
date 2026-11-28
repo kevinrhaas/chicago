@@ -1,0 +1,662 @@
+{
+ "id": "parmelee_stables_1871",
+ "name": "The Parmelee Omnibus and Stage Company's new stable, Jackson and Franklin Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "stable_and_wagon_yard",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2",
+   "edwards_chicago_directory_1871"
+  ],
+  "note": "'The new stable owned by the Parmelee Omnibus and Stage Company' (Andreas vol. 2, p. 719); Parmelee's line of omnibuses ran between the hotels and the railroad depots (Edwards 1871)."
+ },
+ "built": {
+  "value": 1871,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2",
+   "edwards_chicago_directory_1871"
+  ],
+  "note": "'Had just been completed at an expense of $80,000, and would have been occupied for the first time on Wednesday, October 11' (Andreas vol. 2, p. 719)."
+ },
+ "research_note": "THE PARMELEE STABLE, built by T-3831 for the 1871 scene: 'The first building to ignite on the South Side was the new stable owned by the Parmelee Omnibus and Stage Company, situated on southeast corner of Jackson and Franklin streets. This spacious structure had just been completed at an expense of $80,000, and would have been occupied for the first time on Wednesday, October 11. The building was the finest of its kind in the country.' J. W. Parmelee and J. E. Sullivan were at the stable: 'At half-past eleven, October 8, 1871, the fire swept down upon them with such rapidity and terrific force as to compel them to flee for their lives' (Andreas vol. 2, p. 719). Not yet occupied, it stood empty of horses and coaches that night. No picture of it is known; its size is reconstructed on the 100 by 153 foot brick stable Parmelee raised within eleven weeks of the fire (Andreas vol. 2, pp. 118-119).",
+ "phases": [
+  {
+   "id": "stable_1871",
+   "documented_range": {
+    "from": "1871-10-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "edwards_chicago_directory_1871"
+    ],
+    "note": "'Had just been completed' and would have been occupied on Wednesday 11 October 1871 (Andreas vol. 2, p. 719); the fire destroyed it on the night of 8 October."
+   },
+   "position": {
+    "utm_e": 447303.898,
+    "utm_n": 4636362.402,
+    "rotation_deg": 359.5,
+    "symbolic_location": "South-east corner of Jackson and Franklin Streets, on the South Side.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "edwards_chicago_directory_1871"
+    ],
+    "note": "On the south-east corner of Jackson and Franklin Streets (Andreas vol. 2, p. 719): its north-west corner on the 1871 plan's building lines of both streets. The footprint's origin is local E 231.2 N -1033.4.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      30.5,
+      0
+     ],
+     [
+      30.5,
+      64.6
+     ],
+     [
+      0,
+      64.6
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2",
+     "edwards_chicago_directory_1871"
+    ],
+    "note": "The stable and its yard: the stable a hundred feet on Jackson Street by a hundred and fifty-three on Franklin (reconstructed on Parmelee's 1872 stable, Andreas vol. 2, p. 119), its yard south of it on Franklin Street (reconstructed)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'At half-past eleven, October 8, 1871, the fire swept down upon them with such rapidity and terrific force as to compel them to flee for their lives. It seemed but an instant before the edifice was literally engulfed in flame' (J. W. Parmelee and J. E. Sullivan, Andreas vol. 2, p. 719).",
+       "time": "1871-10-08T23:30"
+      },
+      "blocks": [
+       {
+        "name": "the stable",
+        "box": [
+         0,
+         18.0,
+         30.5,
+         64.6
+        ],
+        "storeys": [
+         4.8,
+         4.2,
+         3.9
+        ],
+        "wall": "brick_red",
+        "trim": "stone_trim",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 0.6,
+         "brackets": 1.1,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "hip",
+         "h": 3.6,
+         "eave": 0.2,
+         "covering": "slate"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            3.4,
+            9.2,
+            15.25,
+            21.3,
+            27.1
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "segment",
+            "w": 1.3,
+            "h": 2.4,
+            "sill": 1.4,
+            "hood": "segment"
+           },
+           {
+            "kind": "segment",
+            "w": 1.3,
+            "h": 2.3,
+            "sill": 1.0,
+            "hood": "segment"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "segment"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1,
+             3
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 3.8,
+            "h": 4.3,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 4.4,
+            "h": 4.6,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "door_flat",
+            "w": 1.9,
+            "h": 2.7,
+            "sill": 0.4,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 9,
+           "margin": 2.6
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.0,
+            "sill": 2.8,
+            "hood": "none"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 2.3,
+            "sill": 1.0,
+            "hood": "segment"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "segment"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             2,
+             6
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 4.0,
+            "h": 4.4,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "bays": [
+             1,
+             4,
+             7
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "door_flat",
+            "w": 1.8,
+            "h": 2.7,
+            "sill": 0.4,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "at": [
+            3.4,
+            9.2,
+            15.25,
+            21.3,
+            27.1
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.0,
+            "sill": 2.8,
+            "hood": "none"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 2.3,
+            "sill": 1.0,
+            "hood": "segment"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "segment"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1,
+             2,
+             3
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 4.0,
+            "h": 4.4,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "bays": [
+             2
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "door_flat",
+            "w": 1.9,
+            "h": 2.7,
+            "sill": 0.4,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "n": 9,
+           "margin": 2.6
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.0,
+            "sill": 2.8,
+            "hood": "none"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 2.3,
+            "sill": 1.0,
+            "hood": "segment"
+           },
+           {
+            "kind": "segment",
+            "w": 1.2,
+            "h": 1.9,
+            "sill": 0.9,
+            "hood": "segment"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "'This spacious structure had just been completed at an expense of $80,000 ... The building was the finest of its kind in the country' (Andreas vol. 2, p. 719). Its walls stood after the fire (the fire map's fate). Its size is reconstructed on the brick stable Parmelee built in its place within eleven weeks, a hundred by a hundred and fifty-three feet (Andreas vol. 2, pp. 118-119); its three floors (stalls and carriages, more stalls, the hay loft), round-arched carriage doors, high stall windows, loft hay doors and ventilators are reconstructed as a large city livery and transfer stable of 1871."
+       },
+       {
+        "name": "the yard fence on Franklin Street",
+        "box": [
+         0.0,
+         0.0,
+         0.25,
+         6.0
+        ],
+        "storeys": [
+         2.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The stable yard's board fence, reconstructed."
+       },
+       {
+        "name": "the yard fence on Franklin Street",
+        "box": [
+         0.0,
+         11.5,
+         0.25,
+         18.0
+        ],
+        "storeys": [
+         2.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The stable yard's board fence, reconstructed."
+       },
+       {
+        "name": "the yard fence, south side",
+        "box": [
+         0.0,
+         0.0,
+         30.5,
+         0.25
+        ],
+        "storeys": [
+         2.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The stable yard's board fence, reconstructed."
+       },
+       {
+        "name": "the yard fence, east side",
+        "box": [
+         30.25,
+         0.0,
+         30.5,
+         18.0
+        ],
+        "storeys": [
+         2.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "flat",
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The stable yard's board fence, reconstructed."
+       },
+       {
+        "name": "a gate post",
+        "box": [
+         -0.15,
+         5.8,
+         0.4,
+         6.35
+        ],
+        "storeys": [
+         3.0
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "hip",
+         "h": 0.3,
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The yard gate's posts, reconstructed."
+       },
+       {
+        "name": "a gate post",
+        "box": [
+         -0.15,
+         11.15,
+         0.4,
+         11.7
+        ],
+        "storeys": [
+         3.0
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "hip",
+         "h": 0.3,
+         "covering": "shingle"
+        },
+        "faces": {
+         "N": "blank",
+         "S": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The yard gate's posts, reconstructed."
+       }
+      ],
+      "towers": [
+       {
+        "name": "a roof ventilator",
+        "at": [
+         15.25,
+         35.5
+        ],
+        "z0": 15.9,
+        "plan": "square",
+        "wall": "boards",
+        "stages": [
+         {
+          "w": 2.4,
+          "h": 1.9,
+          "openings": {
+           "kind": "flat",
+           "w": 1.4,
+           "h": 1.0,
+           "sill": 0.45
+          },
+          "cornice_proj": 0.18
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.3,
+         "covering": "slate"
+        },
+        "finial": 0.9,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A louvred ventilator on the roof's ridge, as large stables of the period carried to air the stalls and the hay; reconstructed."
+       },
+       {
+        "name": "a roof ventilator",
+        "at": [
+         15.25,
+         41.3
+        ],
+        "z0": 15.9,
+        "plan": "square",
+        "wall": "boards",
+        "stages": [
+         {
+          "w": 2.4,
+          "h": 1.9,
+          "openings": {
+           "kind": "flat",
+           "w": 1.4,
+           "h": 1.0,
+           "sill": 0.45
+          },
+          "cornice_proj": 0.18
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.3,
+         "covering": "slate"
+        },
+        "finial": 0.9,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A louvred ventilator on the roof's ridge, as large stables of the period carried to air the stalls and the hay; reconstructed."
+       },
+       {
+        "name": "a roof ventilator",
+        "at": [
+         15.25,
+         47.1
+        ],
+        "z0": 15.9,
+        "plan": "square",
+        "wall": "boards",
+        "stages": [
+         {
+          "w": 2.4,
+          "h": 1.9,
+          "openings": {
+           "kind": "flat",
+           "w": 1.4,
+           "h": 1.0,
+           "sill": 0.45
+          },
+          "cornice_proj": 0.18
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.3,
+         "covering": "slate"
+        },
+        "finial": 0.9,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A louvred ventilator on the roof's ridge, as large stables of the period carried to air the stalls and the hay; reconstructed."
+       }
+      ],
+      "note": "THE PARMELEE STABLE, built by T-3831: the Parmelee Omnibus and Stage Company's new $80,000 stable at the south-east corner of Jackson and Franklin Streets, finished and to be occupied for the first time on Wednesday 11 October 1871, so standing empty on the night of the fire (Andreas vol. 2, p. 719)."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+     ],
+     "note": "THE PARMELEE STABLE, built by T-3831: the Parmelee Omnibus and Stage Company's new $80,000 stable at the south-east corner of Jackson and Franklin Streets, finished and to be occupied for the first time on Wednesday 11 October 1871, so standing empty on the night of the fire (Andreas vol. 2, p. 719)."
+    },
+    "wall_material": {
+     "value": "Red brick, a slate roof",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2",
+      "edwards_chicago_directory_1871"
+     ],
+     "note": "Its walls stood after the fire (the fire map's fate, masonry); red brick and a slate roof are reconstructed (Parmelee's earlier State Street building was 'slate-roofed' and his 1872 stable 'brick', Andreas vol. 2, p. 119).",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

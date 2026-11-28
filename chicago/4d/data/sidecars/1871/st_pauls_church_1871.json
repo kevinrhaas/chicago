@@ -1,0 +1,367 @@
+{
+  "id": "st_pauls_church_1871",
+  "phase": "church_1868_1871",
+  "name": "St. Paul's Church (Catholic), Clinton and Mather Streets",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/st_pauls_church_1871__church_1868_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration",
+      "edwards_chicago_directory_1871"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -246.002,
+    "local_n": -1530.998,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2",
+      "sheahan_upton_1871_great_conflagration",
+      "edwards_chicago_directory_1871"
+    ],
+    "position_note": "On the north-east corner of Clinton and Mather Streets (Andreas vol. 2, pp. 406, 712, 717; Edwards 1871): its south-west corner set on Clinton Street's east building line and Mather Street's north line as the 1871 plan draws them; its front to Clinton Street is reconstructed. The footprint's origin is local E -246.0 N -1531.0.",
+    "symbolic_location": "North-east corner of Clinton and Mather Streets, on the West Side.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        30.5,
+        0
+      ],
+      [
+        30.5,
+        12.2
+      ],
+      [
+        0,
+        12.2
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "One hundred by forty feet (Sheahan and Upton 1871), the long side on Mather Street's line (reconstructed)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "tint": {
+          "clapboard": [
+            0.92,
+            0.91,
+            0.86
+          ]
+        },
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "Riley (Andreas vol. 2, pp. 715-716): the brand alighted 'on the cupola of the German Catholic Church' and 'The entire building was almost instantaneously enveloped in flames'; Bateham (p. 717): 'At ten o'clock ... the church had gone down in ruins in advance of the main body of flame.'",
+          "time": "1871-10-08T21:50"
+        },
+        "blocks": [
+          {
+            "name": "the church",
+            "box": [
+              0,
+              0,
+              30.5,
+              12.2
+            ],
+            "storeys": [
+              0.9,
+              6.4
+            ],
+            "wall": "clapboard",
+            "trim": "wood_white",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_white"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 5.0,
+              "eave": 0.35,
+              "covering": "shingle",
+              "ridge": "x"
+            },
+            "faces": {
+              "W": {
+                "bays": {
+                  "at": [
+                    2.4,
+                    6.1,
+                    9.8
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.0,
+                    "h": 3.6,
+                    "sill": 1.6,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_pointed",
+                    "w": 1.9,
+                    "h": 3.9,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "n": 6,
+                  "margin": 3.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 0.8,
+                    "h": 0.45,
+                    "sill": 0.25
+                  },
+                  {
+                    "kind": "pointed",
+                    "w": 1.1,
+                    "h": 3.9,
+                    "sill": 1.5,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "n": 6,
+                  "margin": 3.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 0.8,
+                    "h": 0.45,
+                    "sill": 0.25
+                  },
+                  {
+                    "kind": "pointed",
+                    "w": 1.1,
+                    "h": 3.9,
+                    "sill": 1.5,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    6.1
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.6,
+                    "h": 3.4,
+                    "sill": 2.0,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2",
+              "sheahan_upton_1871_great_conflagration"
+            ],
+            "note": "A frame church a hundred by forty feet (Sheahan and Upton: 'St. Paul's Church, 100 by 40 feet, valued at $15,000'; Andreas vol. 2, p. 717: 'which was of wood'), its front gable on Clinton Street and its long side on the line of Mather Street. No picture of it is known. Its walls, roof, pointed windows and door are reconstructed as a plain frame parish church of the late 1860s; its cost, one-thirteenth of St. Michael's, bounds it to that."
+          }
+        ],
+        "towers": [
+          {
+            "name": "the cupola",
+            "at": [
+              2.2,
+              6.1
+            ],
+            "z0": 11.2,
+            "plan": "square",
+            "wall": "clapboard",
+            "stages": [
+              {
+                "w": 2.8,
+                "h": 2.0,
+                "cornice_proj": 0.15
+              },
+              {
+                "w": 2.3,
+                "h": 2.1,
+                "openings": {
+                  "kind": "round",
+                  "w": 0.8,
+                  "h": 1.5,
+                  "sill": 0.3
+                },
+                "cornice_proj": 0.18
+              }
+            ],
+            "cap": {
+              "kind": "pyramid",
+              "h": 2.6,
+              "covering": "shingle"
+            },
+            "finial": 1.4,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "Riley (Andreas vol. 2, pp. 715-716): the brand alighted 'on the cupola'. Its place over the front gable, its open belfry and its spire are reconstructed."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 5.0,
+            "s1": 7.2,
+            "n": 5,
+            "landing": 1.4,
+            "material": "wood_white",
+            "rise": 0.18
+          }
+        ],
+        "note": "ST. PAUL'S CHURCH (Catholic), Clinton Street at the north-east corner of Mather, built by T-3831: a frame church 100 by 40 feet with a cupola, established 1868, Rev. John Kilkenny pastor in 1870-71 (Andreas vol. 2, p. 406; Edwards 1871)."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "ST. PAUL'S CHURCH (Catholic), Clinton Street at the north-east corner of Mather, built by T-3831: a frame church 100 by 40 feet with a cupola, established 1868, Rev. John Kilkenny pastor in 1870-71 (Andreas vol. 2, p. 406; Edwards 1871)."
+    },
+    "wall_material": {
+      "value": "Painted clapboard on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "'Of wood' (Andreas vol. 2, p. 717); clapboard painted white and a shingle roof are reconstructed.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "church",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "St. Paul's Catholic Church, Rev. John Kilkenny, pastor, Clinton corner Mather (Edwards 1871; Andreas vol. 2, p. 406)."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration",
+        "edwards_chicago_directory_1871"
+      ],
+      "note": "Andreas vol. 2, p. 406: 'St. Paul's Church was established in 1868, at the corner of Mather and Clinton streets'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
+    },
+    {
+      "source_id": "sheahan_upton_1871_great_conflagration",
+      "citation": "Sheahan, James W., and George P. Upton. The Great Conflagration. Chicago: Its Past, Present and Future. Philadelphia: Union Publishing Co., 1871.",
+      "url": "https://archive.org/details/cu31924028806855",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the authors' count of the people made homeless by the fire of October 1871: 98,860"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the buildings of 1812 or 1835: the town those scenes show was gone long before 1871"
+      ]
+    }
+  ],
+  "research_note": "ST. PAUL'S CHURCH, built by T-3831 for the 1871 scene: the Catholic parish church at the north-east corner of Clinton and Mather Streets, founded in 1868 by members from St. Francis of Assisi (a German parish). 'The church-edifice cost $15,000, the priest's residence $3,000, and the parish school $5,000' (Andreas vol. 2, p. 406); 'St. Paul's Church, 100 by 40 feet' (Sheahan and Upton, 1871). It was of wood (Andreas p. 717). At about a quarter to ten on the night of the fire a brand 'went whirling through the air for more than three blocks, alighting on the cupola' (Richard Riley, Andreas pp. 715-716); three engines worked on it until it was consumed, and by ten 'the church had gone down in ruins'. No picture of it is known.",
+  "research_doc": "",
+  "review_required": false
+}

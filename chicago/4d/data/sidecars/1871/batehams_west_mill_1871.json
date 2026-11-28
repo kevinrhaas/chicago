@@ -1,0 +1,292 @@
+{
+  "id": "batehams_west_mill_1871",
+  "phase": "mill_1871",
+  "name": "Bateham's west mill, between Canal and Clinton Streets",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/batehams_west_mill_1871__mill_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1868-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+  },
+  "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot.",
+  "placement": {
+    "local_e": -212.002,
+    "local_n": -1512.398,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "Eighty feet west of the main mill, its south-west corner beside the church's north-east corner (Andreas vol. 2, p. 717). The footprint's origin is local E -212.0 N -1512.4.",
+    "symbolic_location": "Between Canal and Clinton Streets south of Harrison, behind St. Paul's Church.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        12.2,
+        0
+      ],
+      [
+        12.2,
+        74.7
+      ],
+      [
+        0,
+        74.7
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Two hundred and forty-five by forty feet (Andreas vol. 2, p. 717)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "'At half-past ten, the heroic men were driven from Bateham's works by the intense heat' (Andreas vol. 2, p. 717); 'At 10:30 Bateham's mills on Canal Street, near Harrison, were deserted, as beyond salvation' (p. 719).",
+          "time": "1871-10-08T22:20"
+        },
+        "blocks": [
+          {
+            "name": "the west mill",
+            "box": [
+              0,
+              0,
+              12.2,
+              74.7
+            ],
+            "storeys": [
+              4.0,
+              3.6
+            ],
+            "wall": "clapboard_bare",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 3.2,
+              "eave": 0.4,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "E": {
+                "bays": {
+                  "n": 14,
+                  "margin": 2.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      4,
+                      9
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.0,
+                    "h": 3.4,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 14,
+                  "margin": 2.2
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.8,
+                    "sill": 1.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      2,
+                      11
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_flat",
+                    "w": 3.0,
+                    "h": 3.4,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": {
+                "bays": {
+                  "at": [
+                    6.1
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "door_flat",
+                    "w": 3.2,
+                    "h": 3.4,
+                    "sill": 0.0
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    6.1
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "door_flat",
+                    "w": 3.2,
+                    "h": 3.4,
+                    "sill": 0.0
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 1.7,
+                    "sill": 0.9,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'Eighty feet west of the main mill was another of the same length, and forty feet in width' (Andreas vol. 2, p. 717). Its two storeys and its boarding are reconstructed."
+          }
+        ],
+        "note": "BATEHAM'S WEST MILL, built by T-3831: the second mill, 245 by 40 feet, eighty feet west of the main mill (Andreas vol. 2, p. 717)."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "BATEHAM'S WEST MILL, built by T-3831: the second mill, 245 by 40 feet, eighty feet west of the main mill (Andreas vol. 2, p. 717)."
+    },
+    "wall_material": {
+      "value": "Unpainted boards on a frame, a shingle roof",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "'Large wooden structures' (Andreas vol. 2, p. 712); the boarding is reconstructed.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "mill",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "The second of W. B. Bateham's mills (Andreas vol. 2, p. 717); which of his trades (the box factory or the furniture factory) it held is not recorded."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "When it was built is not recorded."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "BATEHAM'S WEST MILL, built by T-3831 for the 1871 scene: 'Eighty feet west of the main mill was another of the same length, and forty feet in width. The south-west corner of the mills almost touched the church' (Andreas vol. 2, p. 717). No picture of it is known.",
+  "research_doc": "",
+  "review_required": false
+}

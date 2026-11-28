@@ -28,7 +28,18 @@
     "crosbys_opera_house_1871",
     "field_leiter_1871",
     "palmer_house_1871",
-    "tribune_building_1871"
+    "tribune_building_1871",
+    "st_pauls_church_1871",
+    "st_pauls_priests_house_1871",
+    "st_pauls_school_1871",
+    "batehams_mill_1871",
+    "batehams_west_mill_1871",
+    "batehams_match_factory_1871",
+    "batehams_yard_1871",
+    "roelle_works_1871",
+    "huntoon_house_1871",
+    "parmelee_stables_1871",
+    "wrights_stable_1871"
   ],
   "lighting": {
     "local_time": "16:00",
@@ -187,7 +198,7 @@
       "glyph": "street",
       "local_e": -266.0,
       "local_n": -1560.0,
-      "yaw_deg": 16.7
+      "yaw_deg": 40.0
     },
     {
       "id": "fire_parmelee_stables",
@@ -214,7 +225,7 @@
       "glyph": "street",
       "local_e": 560.0,
       "local_n": -284.0,
-      "yaw_deg": 39.3
+      "yaw_deg": 343.3
     },
     {
       "id": "fire_crosbys",

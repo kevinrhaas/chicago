@@ -50,7 +50,7 @@
    "unsubdivided": 22
   },
   "may_raise_a_slot": 5,
-  "carrying_a_roof": 32,
+  "carrying_a_roof": 33,
   "principal_roofs_standing": 169,
   "ground_m2": 7257850.1
  },
@@ -5726,8 +5726,12 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [],
-   "standing_families": {},
+   "standing": [
+    "huntoon_house_1871"
+   ],
+   "standing_families": {
+    "huntoon_house_1871": null
+   },
    "principal_roofs_standing": 0
   },
   {

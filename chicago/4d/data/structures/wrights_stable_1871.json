@@ -1,0 +1,367 @@
+{
+ "id": "wrights_stable_1871",
+ "name": "Wright's livery stable, State and Kinzie Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "stable_and_wagon_yard",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "'Wright's livery stable, near the north end of State-street bridge' (Andreas vol. 2, p. 743)."
+ },
+ "built": {
+  "value": 1865,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "When it was built is not recorded."
+ },
+ "research_note": "WRIGHT'S LIVERY STABLE, built by T-3831 for the 1871 scene: 'At 2:30, Wright's stable on the southeast corner of State and Kinzie streets, at the northern end of the viaduct, took fire' (Andreas vol. 2, p. 719); a North Side witness saw 'the railroad depot and Wright's livery stable, near the north end of State-street bridge' burning (p. 743). Its size and form are not recorded and no picture of it is known.",
+ "phases": [
+  {
+   "id": "stable_1871",
+   "documented_range": {
+    "from": "1865-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire, which destroyed it (Andreas vol. 2, pp. 406, 712-718)."
+   },
+   "position": {
+    "utm_e": 447910.198,
+    "utm_n": 4637630.802,
+    "rotation_deg": 359.4,
+    "symbolic_location": "South-east corner of State and Kinzie Streets, at the north end of the State Street viaduct.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "On the south-east corner of State and Kinzie Streets (Andreas vol. 2, p. 719): its north-west corner on the building lines of State Street and of Kinzie Street as the 1871 plan draws them (Kinzie's south line about N 267.7 here, traced from Mitchell's 1870 map). IT LAPS THE 1835 PLAT'S KINZIE STREET BY ABOUT 12 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3831; tools/corridor_intrusion_baseline.json `refused`). The corridor is derived from the 1835 street control, whose Kinzie Street runs about 14 m south of the 1871 plan's at State Street; the 1871 scene draws the plan's street, and moving the stable 12 m south to clear the older line would leave it standing well back from the corner the accounts put it on, with the street the visitor sees in front of it. The footprint's origin is local E 837.5 N 235.0.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from the accounts' description of the block against the 1871 plan's streets; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      29.0,
+      0
+     ],
+     [
+      29.0,
+      30.0
+     ],
+     [
+      0,
+      30.0
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Reconstructed: a livery stable and its yard on the corner lot."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "tint": {
+       "clapboard": [
+        0.62,
+        0.3,
+        0.22
+       ]
+      },
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'At 2:30, Wright's stable on the southeast corner of State and Kinzie streets, at the northern end of the viaduct, took fire' (Andreas vol. 2, p. 719).",
+       "time": "1871-10-09T02:30"
+      },
+      "blocks": [
+       {
+        "name": "the livery stable",
+        "box": [
+         13.0,
+         0.0,
+         29.0,
+         30.0
+        ],
+        "storeys": [
+         4.4,
+         3.6
+        ],
+        "wall": "clapboard",
+        "trim": "wood_white",
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 0.5,
+         "brackets": 0.9,
+         "material": "wood_white"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 4.4,
+         "eave": 0.35,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            3.0,
+            8.0,
+            13.0
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.0,
+            "sill": 2.6,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.8,
+            "sill": 0.9,
+            "hood": "cornice"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 4.0,
+            "h": 4.1,
+            "sill": 0.0,
+            "hood": "none"
+           },
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 1.8,
+            "h": 2.5,
+            "sill": 0.4,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 7,
+           "margin": 2.4
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.0,
+            "sill": 2.6,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.8,
+            "sill": 0.9,
+            "hood": "cornice"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1,
+             3,
+             5
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 3.6,
+            "h": 4.0,
+            "sill": 0.0
+           },
+           {
+            "bays": [
+             1,
+             3,
+             5
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 1.6,
+            "h": 2.3,
+            "sill": 0.4
+           }
+          ]
+         },
+         "S": {
+          "bays": {
+           "at": [
+            3.0,
+            8.0,
+            13.0
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.0,
+            "sill": 2.6,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 1.8,
+            "sill": 0.9,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 3.6,
+            "h": 4.0,
+            "sill": 0.0
+           }
+          ]
+         },
+         "E": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A livery stable at the corner (Andreas vol. 2, pp. 719, 743: 'Wright's livery stable, near the north end of State-street bridge'). Its size, two floors and loft, painted clapboard, carriage doors and hay doors are reconstructed as a North Side livery stable of 1871; no picture of it is known."
+       }
+      ],
+      "towers": [
+       {
+        "name": "a roof ventilator",
+        "at": [
+         21.0,
+         9.0
+        ],
+        "z0": 11.6,
+        "plan": "square",
+        "wall": "clapboard",
+        "stages": [
+         {
+          "w": 1.8,
+          "h": 1.5,
+          "openings": {
+           "kind": "flat",
+           "w": 1.0,
+           "h": 0.8,
+           "sill": 0.35
+          },
+          "cornice_proj": 0.15
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.0,
+         "covering": "shingle"
+        },
+        "finial": 0.6,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A louvred ventilator on the ridge, reconstructed."
+       },
+       {
+        "name": "a roof ventilator",
+        "at": [
+         21.0,
+         21.0
+        ],
+        "z0": 11.6,
+        "plan": "square",
+        "wall": "clapboard",
+        "stages": [
+         {
+          "w": 1.8,
+          "h": 1.5,
+          "openings": {
+           "kind": "flat",
+           "w": 1.0,
+           "h": 0.8,
+           "sill": 0.35
+          },
+          "cornice_proj": 0.15
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.0,
+         "covering": "shingle"
+        },
+        "finial": 0.6,
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "A louvred ventilator on the ridge, reconstructed."
+       }
+      ],
+      "note": "WRIGHT'S LIVERY STABLE, built by T-3831: the stable on the south-east corner of State and Kinzie Streets at the north end of the viaduct, which took fire at half past two (Andreas vol. 2, p. 719), reconstructed."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "WRIGHT'S LIVERY STABLE, built by T-3831: the stable on the south-east corner of State and Kinzie Streets at the north end of the viaduct, which took fire at half past two (Andreas vol. 2, p. 719), reconstructed."
+    },
+    "wall_material": {
+     "value": "Painted clapboard on a frame, a shingle roof",
+     "confidence": "reconstructed",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "Its walls are not described; frame painted barn red is reconstructed.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3831 (2026-11-28): drawn in the 1871 scene on the landmark_1871 archetype, in place of the generic context fill that stood on its lot."
+  }
+ ]
+}

@@ -727,8 +727,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1150 -> 1151 on 2026-11-21 (T-3688): Court House Square, open ground round the Court
 # House with its kerb and iron fence, on the same archetype (its photograph shows no
 # other building in the square).
+# 1151 -> 1162 on 2026-11-28 (T-3831): St. Paul's church, priest's house and school,
+# Bateham's two mills, match factory and kindling yard, Roelle's works, Huntoon's house,
+# Parmelee's stable and Wright's livery stable, on the same archetype, restaling on none
+# of the shared rows.
 STATED = {
-    "assets": 1151,
+    "assets": 1162,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
