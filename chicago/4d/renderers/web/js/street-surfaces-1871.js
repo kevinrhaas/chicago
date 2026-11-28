@@ -535,10 +535,15 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
   const made = new Map(), textures = [], materials = [], out = [];
   const px = detail === 'light' ? 256 : 512;
   const dressed = new Set();
-  const grime = new THREE.CanvasTexture(paintGrime(px / 2));
-  grime.wrapS = grime.wrapT = THREE.RepeatWrapping; grime.anisotropy = anisotropy;
-  grime.colorSpace = THREE.NoColorSpace; // a multiplier, read as data
-  textures.push(grime);
+  let grime = null; // painted on first need, as the tiles are (no canvas before a paved street)
+  const grimeTexture = () => {
+    if (grime) return grime;
+    grime = new THREE.CanvasTexture(paintGrime(px / 2));
+    grime.wrapS = grime.wrapT = THREE.RepeatWrapping; grime.anisotropy = anisotropy;
+    grime.colorSpace = THREE.NoColorSpace; // a multiplier, read as data
+    textures.push(grime);
+    return grime;
+  };
   let decals = 0;
   for (const mesh of meshes) {
     const material = mesh.material, kind = String(material?.name ?? '').replace(/^1871_/, '');
@@ -552,7 +557,7 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
     }
     if (dressed.has(material)) continue;
     dress(material, kind, tileTextures(kind, px, anisotropy, made, textures));
-    if (kind === 'woodblock' || kind === 'setts') addGrime(material, grime, ...grimeTransform(kind));
+    if (kind === 'woodblock' || kind === 'setts') addGrime(material, grimeTexture(), ...grimeTransform(kind));
     dressed.add(material);
   }
   const road = heights.road ?? 3.23, ground = heights.ground ?? 3.2, walkY = heights.walk ?? 3.38;
@@ -611,7 +616,8 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
     floors.push({ a: x.a, b: x.b, width_m: x.width_m, y: x.y });
   }
 
-  const flagTile = tileTextures('flags', px, anisotropy, made, textures);
+  // tiles and materials are made only for what is laid (a city with no stops paints no canvas)
+  const flagTile = () => tileTextures('flags', px, anisotropy, made, textures);
   const newMaterial = (name, kind, tile, tint = 1, roughness = null) => {
     const material = new THREE.MeshStandardMaterial({ name });
     dress(material, kind, tile);
@@ -643,7 +649,6 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
     quads += addMesh(plankEdges, material, 'walk_edges', { layers: ['walk_edges'] });
   }
   // The stone walks' kerbstones and the stone crossings' steps.
-  const stoneKerb = newMaterial('1871_kerbstone', 'flags', flagTile, 0.74, 0.88);
   const stoneEdgeSink = quadSink();
   walkEdgeGeometry(stoneSurfaces, { road, ground, walk: walkY, light, sink: stoneEdgeSink });
   const plankEdgeSink = quadSink(); // the raised stretches' faces on plank walks
@@ -676,9 +681,10 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
     pieces += gradeSteps(w, { road, ground, top: flagged ? raisedFlagSink : raisedSink,
       faces: flagged ? stoneEdgeSink : plankEdgeSink, floors });
   }
-  const flagMaterial = newMaterial('1871_flags', 'flags', flagTile);
-  const flagQuads = addMesh(sinkGeometry(flagSink, { upward: true }), flagMaterial, 'flags', { order: DRESS_ORDER.flags, layers: ['flags'] });
-  const kerbstoneQuads = addMesh(sinkGeometry(stoneEdgeSink), stoneKerb, 'kerbstones', { layers: ['kerbstones'] });
+  const flagQuads = flagSink.quads ? addMesh(sinkGeometry(flagSink, { upward: true }), newMaterial('1871_flags', 'flags', flagTile()),
+    'flags', { order: DRESS_ORDER.flags, layers: ['flags'] }) : 0;
+  const kerbstoneQuads = stoneEdgeSink.quads ? addMesh(sinkGeometry(stoneEdgeSink),
+    newMaterial('1871_kerbstone', 'flags', flagTile(), 0.74, 0.88), 'kerbstones', { layers: ['kerbstones'] }) : 0;
   let raisedQuads = 0;
   if (plankEdgeSink.quads) {
     const material = newMaterial('1871_kerb_raised', 'kerb', tileTextures('kerb', px, anisotropy, made, textures));
@@ -689,12 +695,12 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
     raisedQuads += addMesh(sinkGeometry(raisedSink, { upward: true }), material, 'raised_walks', { order: DRESS_ORDER.raised, layers: ['raised_walks'] });
   }
   if (raisedFlagSink.quads) {
-    const material = newMaterial('1871_flags_raised', 'flags', flagTile);
+    const material = newMaterial('1871_flags_raised', 'flags', flagTile());
     raisedQuads += addMesh(sinkGeometry(raisedFlagSink, { upward: true }), material, 'raised_flags', { order: DRESS_ORDER.raisedFlags, layers: ['raised_walks'] });
   }
-  const dirtTile = tileTextures('dirt', px, anisotropy, made, textures);
-  const gutterMaterial = newMaterial('1871_gutter', 'dirt', dirtTile, 0.62, 0.55);
-  const gutterQuads = addMesh(sinkGeometry(gutterSink, { upward: true }), gutterMaterial, 'gutters', { order: DRESS_ORDER.gutters, layers: ['gutters'] });
+  const gutterQuads = gutterSink.quads ? addMesh(sinkGeometry(gutterSink, { upward: true }),
+    newMaterial('1871_gutter', 'dirt', tileTextures('dirt', px, anisotropy, made, textures), 0.62, 0.55),
+    'gutters', { order: DRESS_ORDER.gutters, layers: ['gutters'] }) : 0;
   // The business blocks' yard ground, under the streets, round the square's lawn.
   let yardQuads = 0;
   if (ringList.length) {
