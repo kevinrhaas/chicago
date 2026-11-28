@@ -3010,14 +3010,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_213_e18th"
     },
-    "house_213_e20th__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_213_e20th__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 149888,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "37cdcdeaa47c51e27d104cf6ebeb533a6b263cb4d3fa24b227987ac966ecd64e",
+      "bytes": 3112876,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "24cd583d873bb78c361acb936796539dfc7caf7b287fbf24be6cdde8a6701ceb",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_213_e20th"
     },
     "house_2140_calumet__draft_1904.glb": {
@@ -3050,14 +3050,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2140_calumet_shed"
     },
-    "house_215_e20th__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_215_e20th__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 60004,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "3d397193723b3be260ba8d6bb91c934c478dbe6d4c887506120f9bd08ad14b1b",
+      "bytes": 2090400,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "0921e36b3ac4b78019f4c4f9bd6a3a781381c2374d1e3dbbbeca5f543e42da31",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_215_e20th"
     },
     "house_217_e20th__as_mapped_1904.glb": {
@@ -10468,9 +10468,9 @@
     "tucker_smith_house_2140_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 10044084,
+      "bytes": 10041480,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "be4e265a76cbac7d55c168e187a8e1ab5bd438996279a4a083d024939ef414cb",
+      "inputs_sha256": "9dc980e9a7d6e012385f91cdc8a4a71c3e01ded4e48965dbe5e5e50296c893e2",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "tucker_smith_house_2140_prairie"
