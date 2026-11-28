@@ -41,6 +41,7 @@
         "alarm",
         "wind",
         "drought",
+        "goods",
         "stand",
         "stage"
       ],
@@ -59,128 +60,187 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              -312.5,
-              -1958.0
+              -314.97,
+              -1956.75
             ],
-            "heading": 343.0
+            "heading": 352.3
           },
           {
             "extra": "fire_oleary_barn_watch_1",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              -310.7,
-              -1957.0
+              -314.55,
+              -1950.5
             ],
-            "heading": 341.5
+            "heading": 349.3
           },
           {
             "extra": "fire_oleary_barn_watch_2",
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              -308.5,
-              -1959.0
+              -312.8,
+              -1948.05
             ],
-            "heading": 340.0
+            "heading": 343.6
           },
           {
             "extra": "fire_oleary_barn_watch_3",
             "dress": "child_girl_1904",
             "name": "A child watching (unnamed)",
             "at": [
-              -306.7,
-              -1956.0
+              -310.83,
+              -1948.62
             ],
-            "heading": 338.0
+            "heading": 339.3
           },
           {
             "extra": "fire_oleary_barn_watch_4",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              -305.3,
-              -1960.5
+              -309.51,
+              -1948.32
             ],
-            "heading": 339.0
+            "heading": 336.0
           },
           {
             "extra": "fire_oleary_barn_flee_0",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman getting away (unnamed)",
             "at": [
-              -313.8,
-              -1948.0
+              -316.41,
+              -1957.18
             ],
-            "heading": 170.0,
+            "heading": 193.0,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    -308.0,
-                    -1964.0
+                    -319.11,
+                    -1962.88
                   ],
                   [
-                    -285.0,
-                    -1965.0
+                    -318.88,
+                    -1967.9
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
           },
           {
             "extra": "fire_oleary_barn_flee_1",
             "dress": "glessner_john_j_1904",
             "name": "A man getting away (unnamed)",
             "at": [
-              -303.5,
-              -1956.5
+              -309.1,
+              -1948.33
             ],
-            "heading": 160.0,
+            "heading": 157.4,
             "beats": [
               {
                 "t": 4,
                 "walk": [
                   [
-                    -300.0,
-                    -1964.0
+                    -304.34,
+                    -1955.91
                   ],
                   [
-                    -275.0,
-                    -1965.0
+                    -302.5,
+                    -1964.16
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "trunk"
           },
           {
             "extra": "fire_oleary_barn_flee_2",
             "dress": "child_girl_1904",
             "name": "A child getting away (unnamed)",
             "at": [
-              -297.0,
-              -1956.5
+              -312.05,
+              -1947.98
             ],
-            "heading": 160.0,
+            "heading": 156.7,
             "beats": [
               {
                 "t": 7,
                 "walk": [
                   [
-                    -294.0,
-                    -1964.0
+                    -309.91,
+                    -1956.67
                   ],
                   [
-                    -268.0,
-                    -1965.0
+                    -304.84,
+                    -1964.7
                   ]
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "basket"
+          },
+          {
+            "extra": "fire_oleary_barn_flee_3",
+            "dress": "peck_philip_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              -314.57,
+              -1952.66
+            ],
+            "heading": 180.9,
+            "beats": [
+              {
+                "t": 10,
+                "walk": [
+                  [
+                    -313.22,
+                    -1959.48
+                  ],
+                  [
+                    -314.79,
+                    -1966.97
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "bundle",
+            "tier": "desktop"
+          },
+          {
+            "extra": "fire_oleary_barn_flee_4",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              -310.46,
+              -1948.64
+            ],
+            "heading": 166.8,
+            "beats": [
+              {
+                "t": 13,
+                "walk": [
+                  [
+                    -309.99,
+                    -1957.2
+                  ],
+                  [
+                    -306.6,
+                    -1965.1
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ],
+            "carry": "featherbed",
+            "tier": "desktop"
           }
         ]
       }
@@ -200,6 +260,7 @@
         "st-pauls",
         "bateham",
         "wind",
+        "goods",
         "stand",
         "stage"
       ],
@@ -246,30 +307,31 @@
           },
           {
             "extra": "fire_st_pauls_watch_3",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               -258.1,
               -1547.75
             ],
-            "heading": 12.8
+            "heading": 12.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_st_pauls_flee_0",
             "dress": "ryan_kate_1904_cook",
             "name": "A woman getting away (unnamed)",
             "at": [
-              -262.93,
-              -1532.73
+              -253.45,
+              -1501.12
             ],
-            "heading": 202.1,
+            "heading": 199.3,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    -270.21,
-                    -1546.73
+                    -265.47,
+                    -1530.93
                   ],
                   [
                     -274.62,
@@ -278,7 +340,8 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "bundle"
           },
           {
             "extra": "fire_st_pauls_flee_1",
@@ -304,24 +367,25 @@
                 ],
                 "pace": "run"
               }
-            ]
+            ],
+            "carry": "trunk"
           },
           {
             "extra": "fire_st_pauls_flee_2",
             "dress": "child_boy_1904",
             "name": "A child getting away (unnamed)",
             "at": [
-              -259.3,
-              -1532.78
+              -251.54,
+              -1506.92
             ],
-            "heading": 199.5,
+            "heading": 198.2,
             "beats": [
               {
                 "t": 5,
                 "walk": [
                   [
-                    -266.1,
-                    -1547.44
+                    -262.22,
+                    -1534.51
                   ],
                   [
                     -270.02,
@@ -330,24 +394,25 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "basket"
           },
           {
             "extra": "fire_st_pauls_flee_3",
             "dress": "ryan_kate_1904_cook",
             "name": "A woman getting away (unnamed)",
             "at": [
-              -257.0,
-              -1532.42
+              -247.51,
+              -1500.82
             ],
-            "heading": 195.8,
+            "heading": 196.3,
             "beats": [
               {
                 "t": 8,
                 "walk": [
                   [
-                    -260.06,
-                    -1548.73
+                    -255.32,
+                    -1532.93
                   ],
                   [
                     -266.0,
@@ -355,6 +420,100 @@
                   ]
                 ],
                 "pace": "brisk"
+              }
+            ],
+            "carry": "shawl_bundle"
+          },
+          {
+            "extra": "fire_st_pauls_flee_4",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              -252.97,
+              -1504.4
+            ],
+            "heading": 198.5,
+            "beats": [
+              {
+                "t": 11,
+                "walk": [
+                  [
+                    -264.08,
+                    -1532.91
+                  ],
+                  [
+                    -272.32,
+                    -1562.28
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "featherbed",
+            "tier": "desktop"
+          },
+          {
+            "extra": "fire_st_pauls_mattress_lead",
+            "dress": "peck_philip_1835",
+            "name": "A man carrying a sick neighbour (unnamed)",
+            "at": [
+              -254.79,
+              -1533.09
+            ],
+            "heading": 196.5,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    -265.71,
+                    -1565.31
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "extra": "fire_st_pauls_mattress_tail",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man carrying a sick neighbour (unnamed)",
+            "at": [
+              -254.22,
+              -1531.17
+            ],
+            "heading": 196.5,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    -265.15,
+                    -1563.44
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "extra": "fire_st_pauls_mattress_sick",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A sick woman carried in her mattress (unnamed)",
+            "bier": "mattress",
+            "at": [
+              -254.51,
+              -1532.13
+            ],
+            "heading": 196.5,
+            "pose": "lie",
+            "beats": [
+              {
+                "t": 0,
+                "borne": [
+                  "fire_st_pauls_mattress_lead",
+                  "fire_st_pauls_mattress_tail"
+                ]
               }
             ]
           }
@@ -408,13 +567,14 @@
           },
           {
             "extra": "fire_parmelee_stables_watch_2",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               219.24,
               -964.42
             ],
-            "heading": 134.8
+            "heading": 134.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_parmelee_stables_flee_0",
@@ -535,13 +695,14 @@
           },
           {
             "extra": "fire_court_house_watch_1",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               563.98,
               -392.86
             ],
-            "heading": 317.8
+            "heading": 317.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_court_house_watch_2",
@@ -568,17 +729,17 @@
             "dress": "anonymous_working_driver_1904",
             "name": "A man getting away (unnamed)",
             "at": [
-              544.65,
-              -375.35
+              554.21,
+              -385.57
             ],
-            "heading": 141.0,
+            "heading": 142.4,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    559.97,
-                    -396.62
+                    564.75,
+                    -401.73
                   ],
                   [
                     577.48,
@@ -594,17 +755,17 @@
             "dress": "bardwell_otis_1835",
             "name": "A man getting away (unnamed)",
             "at": [
-              553.34,
-              -375.42
+              554.71,
+              -376.88
             ],
-            "heading": 132.9,
+            "heading": 132.7,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    571.32,
-                    -390.1
+                    572.01,
+                    -390.83
                   ],
                   [
                     587.11,
@@ -620,17 +781,17 @@
             "dress": "glessner_john_j_1904",
             "name": "A man getting away (unnamed)",
             "at": [
-              550.45,
-              -375.4
+              555.23,
+              -380.51
             ],
-            "heading": 139.2,
+            "heading": 139.5,
             "beats": [
               {
                 "t": 4,
                 "walk": [
                   [
-                    565.06,
-                    -394.59
+                    567.45,
+                    -397.15
                   ],
                   [
                     581.86,
@@ -646,17 +807,17 @@
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman getting away (unnamed)",
             "at": [
-              547.55,
-              -375.37
+              555.06,
+              -383.4
             ],
-            "heading": 132.6,
+            "heading": 131.3,
             "beats": [
               {
                 "t": 6,
                 "walk": [
                   [
-                    567.11,
-                    -391.3
+                    570.87,
+                    -395.32
                   ],
                   [
                     584.49,
@@ -683,6 +844,7 @@
         "sherman",
         "sherman-hour",
         "crossing",
+        "goods",
         "stand",
         "stage"
       ],
@@ -700,13 +862,14 @@
         "cast": [
           {
             "extra": "fire_sherman_house_watch_0",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
-              567.69,
-              -269.62
+              559.46,
+              -279.68
             ],
-            "heading": 43.7
+            "heading": 42.6,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_sherman_house_watch_1",
@@ -752,7 +915,8 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
           },
           {
             "extra": "fire_sherman_house_flee_1",
@@ -762,23 +926,24 @@
               592.75,
               -246.19
             ],
-            "heading": 215.7,
+            "heading": 220.8,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    578.12,
-                    -269.11
+                    576.27,
+                    -267.59
                   ],
                   [
-                    561.18,
-                    -290.14
+                    557.47,
+                    -287.1
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "trunk"
           },
           {
             "extra": "fire_sherman_house_flee_2",
@@ -788,23 +953,24 @@
               592.2,
               -244.64
             ],
-            "heading": 220.5,
+            "heading": 219.3,
             "beats": [
               {
                 "t": 4,
                 "walk": [
                   [
-                    573.21,
-                    -264.54
+                    573.67,
+                    -264.92
                   ],
                   [
-                    556.54,
-                    -286.34
+                    557.47,
+                    -287.1
                   ]
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "bundle"
           },
           {
             "extra": "fire_sherman_house_flee_3",
@@ -814,23 +980,80 @@
               592.56,
               -248.62
             ],
-            "heading": 214.4,
+            "heading": 222.4,
             "beats": [
               {
                 "t": 6,
                 "walk": [
                   [
-                    578.96,
-                    -271.09
+                    576.18,
+                    -268.81
                   ],
                   [
-                    563.04,
-                    -291.66
+                    557.47,
+                    -287.1
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "birdcage"
+          },
+          {
+            "extra": "fire_sherman_house_flee_4",
+            "dress": "glessner_john_j_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              591.66,
+              -244.2
+            ],
+            "heading": 218.6,
+            "beats": [
+              {
+                "t": 9,
+                "walk": [
+                  [
+                    573.4,
+                    -264.7
+                  ],
+                  [
+                    557.47,
+                    -287.1
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "trunk",
+            "tier": "desktop"
+          },
+          {
+            "extra": "fire_sherman_house_flee_5",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              592.65,
+              -247.41
+            ],
+            "heading": 221.6,
+            "beats": [
+              {
+                "t": 12,
+                "walk": [
+                  [
+                    576.22,
+                    -268.2
+                  ],
+                  [
+                    557.47,
+                    -287.1
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ],
+            "carry": "basket",
+            "tier": "desktop"
           }
         ]
       }
@@ -848,6 +1071,7 @@
         "reopening",
         "crosbys-falls",
         "crosbys-hour",
+        "goods",
         "stand",
         "stage"
       ],
@@ -868,9 +1092,9 @@
             "name": "A man watching (unnamed)",
             "at": [
               767.3,
-              -382.0
+              -387.0
             ],
-            "heading": 9.6
+            "heading": 7.3
           },
           {
             "extra": "fire_crosbys_watch_1",
@@ -878,9 +1102,9 @@
             "name": "A man watching (unnamed)",
             "at": [
               772.25,
-              -381.0
+              -387.0
             ],
-            "heading": 351.5
+            "heading": 353.9
           },
           {
             "extra": "fire_crosbys_watch_2",
@@ -888,9 +1112,9 @@
             "name": "A woman watching (unnamed)",
             "at": [
               774.05,
-              -384.0
+              -387.0
             ],
-            "heading": 347.3
+            "heading": 349.1
           },
           {
             "extra": "fire_crosbys_flee_0",
@@ -898,25 +1122,26 @@
             "name": "A man getting away (unnamed)",
             "at": [
               766.5,
-              -374.0
+              -387.0
             ],
-            "heading": 188.2,
+            "heading": 168.4,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    762.85,
-                    -389.0
+                    766.75,
+                    -395.5
                   ],
                   [
-                    762.2,
+                    770.0,
                     -404.0
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "bundle"
           },
           {
             "extra": "fire_crosbys_flee_1",
@@ -924,25 +1149,26 @@
             "name": "A woman getting away (unnamed)",
             "at": [
               773.5,
-              -374.0
+              -387.0
             ],
-            "heading": 171.8,
+            "heading": 191.6,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    777.15,
-                    -389.0
+                    773.25,
+                    -395.5
                   ],
                   [
-                    777.8,
+                    770.0,
                     -404.0
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
           },
           {
             "extra": "fire_crosbys_flee_2",
@@ -950,25 +1176,53 @@
             "name": "A child getting away (unnamed)",
             "at": [
               770.0,
-              -374.0
+              -387.0
             ],
-            "heading": 173.2,
+            "heading": 180.0,
             "beats": [
               {
                 "t": 5,
                 "walk": [
                   [
-                    770.3,
-                    -389.0
+                    768.5,
+                    -395.5
                   ],
                   [
-                    773.6,
+                    770.0,
                     -404.0
                   ]
                 ],
                 "pace": "brisk"
               }
             ]
+          },
+          {
+            "extra": "fire_crosbys_flee_3",
+            "dress": "peck_philip_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              767.9,
+              -387.0
+            ],
+            "heading": 173.0,
+            "beats": [
+              {
+                "t": 8,
+                "walk": [
+                  [
+                    770.45,
+                    -395.5
+                  ],
+                  [
+                    770.0,
+                    -404.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "trunk",
+            "tier": "desktop"
           }
         ]
       }
@@ -987,6 +1241,7 @@
         "mason-north",
         "asleep",
         "one-works",
+        "goods",
         "stand",
         "stage"
       ],
@@ -1006,18 +1261,18 @@
             "dress": "flynn_mary_1835_dress_study",
             "name": "A woman watching (unnamed)",
             "at": [
-              835.86,
-              226.2
+              834.33,
+              219.37
             ],
-            "heading": 16.2
+            "heading": 15.7
           },
           {
             "extra": "fire_state_kinzie_watch_1",
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              838.94,
-              227.56
+              835.66,
+              212.93
             ],
             "heading": 12.6
           },
@@ -1026,20 +1281,20 @@
             "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
-              841.13,
-              225.02
+              838.29,
+              212.34
             ],
-            "heading": 9.1
+            "heading": 9.9
           },
           {
             "extra": "fire_state_kinzie_watch_3",
             "dress": "child_girl_1904",
             "name": "A child watching (unnamed)",
             "at": [
-              842.01,
-              222.78
+              839.61,
+              212.04
             ],
-            "heading": 7.5
+            "heading": 8.5
           },
           {
             "extra": "fire_state_kinzie_flee_0",
@@ -1065,7 +1320,8 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "birdcage"
           },
           {
             "extra": "fire_state_kinzie_flee_1",
@@ -1075,23 +1331,24 @@
               847.98,
               258.33
             ],
-            "heading": 189.1,
+            "heading": 194.9,
             "beats": [
               {
                 "t": 3,
                 "walk": [
                   [
-                    845.15,
-                    231.29
+                    842.52,
+                    231.89
                   ],
                   [
-                    839.39,
-                    204.92
+                    834.13,
+                    206.1
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "featherbed"
           },
           {
             "extra": "fire_state_kinzie_flee_2",
@@ -1101,23 +1358,80 @@
               846.69,
               262.15
             ],
-            "heading": 191.4,
+            "heading": 192.6,
             "beats": [
               {
                 "t": 6,
                 "walk": [
                   [
-                    839.53,
-                    234.32
+                    838.94,
+                    234.45
                   ],
                   [
-                    835.3,
-                    205.83
+                    834.13,
+                    206.1
                   ]
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "trunk"
+          },
+          {
+            "extra": "fire_state_kinzie_flee_3",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              842.74,
+              260.53
+            ],
+            "heading": 193.4,
+            "beats": [
+              {
+                "t": 9,
+                "walk": [
+                  [
+                    837.85,
+                    233.45
+                  ],
+                  [
+                    830.03,
+                    207.02
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "bundle",
+            "tier": "desktop"
+          },
+          {
+            "extra": "fire_state_kinzie_flee_4",
+            "dress": "child_girl_1904",
+            "name": "A child getting away (unnamed)",
+            "at": [
+              847.62,
+              261.49
+            ],
+            "heading": 193.7,
+            "beats": [
+              {
+                "t": 12,
+                "walk": [
+                  [
+                    839.41,
+                    234.12
+                  ],
+                  [
+                    834.13,
+                    206.1
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ],
+            "carry": "basket",
+            "tier": "desktop"
           }
         ]
       }
@@ -1135,6 +1449,7 @@
         "one-works",
         "water-tower",
         "tower-stands",
+        "goods",
         "stand",
         "stage"
       ],
@@ -1171,13 +1486,14 @@
           },
           {
             "extra": "fire_water_works_watch_2",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               1106.57,
               1109.56
             ],
-            "heading": 51.5
+            "heading": 51.5,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_water_works_watch_3",
@@ -1213,7 +1529,8 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "bundle"
           },
           {
             "extra": "fire_water_works_flee_1",
@@ -1239,7 +1556,8 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "trunk"
           },
           {
             "extra": "fire_water_works_flee_2",
@@ -1265,7 +1583,36 @@
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "basket"
+          },
+          {
+            "extra": "fire_water_works_flee_3",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              1117.32,
+              1116.9
+            ],
+            "heading": 230.1,
+            "beats": [
+              {
+                "t": 10,
+                "walk": [
+                  [
+                    1104.39,
+                    1104.13
+                  ],
+                  [
+                    1089.67,
+                    1093.76
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "birdcage",
+            "tier": "desktop"
           }
         ]
       }
@@ -1283,6 +1630,7 @@
         "medill-white",
         "tribune-falls",
         "tribune-hour",
+        "goods",
         "stand",
         "stage"
       ],
@@ -1302,30 +1650,31 @@
             "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
-              695.19,
-              -507.7
+              688.88,
+              -499.95
             ],
-            "heading": 144.8
+            "heading": 144.0
           },
           {
             "extra": "fire_tribune_watch_1",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               692.97,
               -512.1
             ],
-            "heading": 138.1
+            "heading": 138.1,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_tribune_watch_2",
             "dress": "mahoney_patrick_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              689.68,
-              -510.91
+              682.1,
+              -501.6
             ],
-            "heading": 135.8
+            "heading": 136.9
           },
           {
             "extra": "fire_tribune_flee_0",
@@ -1335,23 +1684,24 @@
               709.88,
               -526.7
             ],
-            "heading": 326.7,
+            "heading": 318.1,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    698.9,
-                    -507.27
+                    696.34,
+                    -509.35
                   ],
                   [
-                    685.59,
-                    -489.73
+                    680.47,
+                    -493.9
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "papers"
           },
           {
             "extra": "fire_tribune_flee_1",
@@ -1361,23 +1711,24 @@
               707.88,
               -530.9
             ],
-            "heading": 316.8,
+            "heading": 323.5,
             "beats": [
               {
                 "t": 3,
                 "walk": [
                   [
-                    690.92,
-                    -515.05
+                    693.02,
+                    -513.35
                   ],
                   [
-                    676.29,
-                    -497.31
+                    680.47,
+                    -493.9
                   ]
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "papers"
           },
           {
             "extra": "fire_tribune_flee_2",
@@ -1387,23 +1738,52 @@
               706.99,
               -526.47
             ],
-            "heading": 321.7,
+            "heading": 320.8,
             "beats": [
               {
                 "t": 6,
                 "walk": [
                   [
-                    695.13,
-                    -509.05
+                    694.89,
+                    -509.24
                   ],
                   [
-                    680.94,
-                    -493.52
+                    680.47,
+                    -493.9
                   ]
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
+          },
+          {
+            "extra": "fire_tribune_flee_3",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              709.43,
+              -528.36
+            ],
+            "heading": 320.0,
+            "beats": [
+              {
+                "t": 9,
+                "walk": [
+                  [
+                    693.79,
+                    -512.07
+                  ],
+                  [
+                    680.47,
+                    -493.9
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ],
+            "carry": "papers",
+            "tier": "desktop"
           }
         ]
       }
@@ -1420,6 +1800,7 @@
         "palmer",
         "field-leiter",
         "field-hour",
+        "goods",
         "stand",
         "stage"
       ],
@@ -1436,13 +1817,14 @@
         "cast": [
           {
             "extra": "fire_field_leiter_watch_0",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               839.81,
               -386.48
             ],
-            "heading": 48.2
+            "heading": 48.2,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_field_leiter_watch_1",
@@ -1469,17 +1851,17 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man getting away (unnamed)",
             "at": [
-              850.61,
-              -375.37
+              843.74,
+              -383.96
             ],
-            "heading": 226.6,
+            "heading": 230.0,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    836.07,
-                    -387.06
+                    832.64,
+                    -391.36
                   ],
                   [
                     823.88,
@@ -1488,24 +1870,25 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "bolt"
           },
           {
             "extra": "fire_field_leiter_flee_1",
             "dress": "peck_philip_1835",
             "name": "A man getting away (unnamed)",
             "at": [
-              853.35,
-              -377.56
+              845.85,
+              -386.93
             ],
-            "heading": 211.5,
+            "heading": 208.0,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    844.94,
-                    -394.15
+                    841.19,
+                    -398.84
                   ],
                   [
                     834.19,
@@ -1514,24 +1897,25 @@
                 ],
                 "pace": "hurry"
               }
-            ]
+            ],
+            "carry": "bolt_blue"
           },
           {
             "extra": "fire_field_leiter_flee_2",
             "dress": "ryan_kate_1904_cook",
             "name": "A woman getting away (unnamed)",
             "at": [
-              852.25,
-              -376.69
+              844.13,
+              -386.84
             ],
-            "heading": 220.6,
+            "heading": 221.6,
             "beats": [
               {
                 "t": 5,
                 "walk": [
                   [
-                    839.24,
-                    -389.59
+                    835.18,
+                    -394.67
                   ],
                   [
                     828.56,
@@ -1540,24 +1924,25 @@
                 ],
                 "pace": "brisk"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
           },
           {
             "extra": "fire_field_leiter_flee_3",
             "dress": "bardwell_otis_1835",
             "name": "A man getting away (unnamed)",
             "at": [
-              854.44,
-              -378.43
+              847.57,
+              -387.02
             ],
-            "heading": 210.8,
+            "heading": 207.5,
             "beats": [
               {
                 "t": 8,
                 "walk": [
                   [
-                    846.19,
-                    -395.15
+                    842.75,
+                    -399.45
                   ],
                   [
                     835.59,
@@ -1565,6 +1950,432 @@
                   ]
                 ],
                 "pace": "hurry"
+              }
+            ],
+            "carry": "bolt"
+          },
+          {
+            "extra": "fire_field_leiter_loader_0",
+            "dress": "peck_philip_1835",
+            "name": "A man loading a wagon (unnamed)",
+            "at": [
+              844.7,
+              -373.4
+            ],
+            "heading": 0.0,
+            "beats": [
+              {
+                "t": 1.0,
+                "carry": "bolt"
+              },
+              {
+                "t": 1.6,
+                "walk": [
+                  [
+                    841.4,
+                    -372.8
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 3.9,
+                "carry": null
+              },
+              {
+                "t": 4.4,
+                "walk": [
+                  [
+                    844.7,
+                    -373.4
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 100.3
+              },
+              {
+                "t": 7.7,
+                "carry": "bolt"
+              },
+              {
+                "t": 8.3,
+                "walk": [
+                  [
+                    841.4,
+                    -372.8
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 10.6,
+                "carry": null
+              },
+              {
+                "t": 11.1,
+                "walk": [
+                  [
+                    844.7,
+                    -373.4
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 100.3
+              },
+              {
+                "t": 14.5,
+                "carry": "bolt"
+              },
+              {
+                "t": 15.1,
+                "walk": [
+                  [
+                    841.4,
+                    -372.8
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 17.4,
+                "carry": null
+              },
+              {
+                "t": 17.9,
+                "walk": [
+                  [
+                    844.7,
+                    -373.4
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 100.3
+              }
+            ]
+          },
+          {
+            "extra": "fire_field_leiter_loader_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man loading a wagon (unnamed)",
+            "at": [
+              844.7,
+              -371.8
+            ],
+            "heading": 0.0,
+            "beats": [
+              {
+                "t": 3.2,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 3.8,
+                "walk": [
+                  [
+                    841.4,
+                    -372.0
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 6.1,
+                "carry": null
+              },
+              {
+                "t": 6.6,
+                "walk": [
+                  [
+                    844.7,
+                    -371.8
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 86.5
+              },
+              {
+                "t": 9.9,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 10.5,
+                "walk": [
+                  [
+                    841.4,
+                    -372.0
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 12.8,
+                "carry": null
+              },
+              {
+                "t": 13.3,
+                "walk": [
+                  [
+                    844.7,
+                    -371.8
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 86.5
+              },
+              {
+                "t": 16.6,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 17.2,
+                "walk": [
+                  [
+                    841.4,
+                    -372.0
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 19.4,
+                "carry": null
+              },
+              {
+                "t": 19.9,
+                "walk": [
+                  [
+                    844.7,
+                    -371.8
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 86.5
+              }
+            ]
+          },
+          {
+            "extra": "fire_field_leiter_loader_2",
+            "dress": "bardwell_otis_1835",
+            "name": "A man loading a wagon (unnamed)",
+            "at": [
+              844.7,
+              -370.2
+            ],
+            "heading": 0.0,
+            "beats": [
+              {
+                "t": 5.4,
+                "carry": "bolt"
+              },
+              {
+                "t": 6.0,
+                "walk": [
+                  [
+                    841.4,
+                    -371.20000000000005
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 8.4,
+                "carry": null
+              },
+              {
+                "t": 8.9,
+                "walk": [
+                  [
+                    844.7,
+                    -370.2
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 73.1
+              },
+              {
+                "t": 12.2,
+                "carry": "bolt"
+              },
+              {
+                "t": 12.8,
+                "walk": [
+                  [
+                    841.4,
+                    -371.20000000000005
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 15.2,
+                "carry": null
+              },
+              {
+                "t": 15.7,
+                "walk": [
+                  [
+                    844.7,
+                    -370.2
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 73.1
+              },
+              {
+                "t": 19.1,
+                "carry": "bolt"
+              },
+              {
+                "t": 19.7,
+                "walk": [
+                  [
+                    841.4,
+                    -371.20000000000005
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 22.1,
+                "carry": null
+              },
+              {
+                "t": 22.6,
+                "walk": [
+                  [
+                    844.7,
+                    -370.2
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 73.1
+              }
+            ],
+            "tier": "desktop"
+          },
+          {
+            "extra": "fire_field_leiter_loader_3",
+            "dress": "glessner_john_j_1904",
+            "name": "A man loading a wagon (unnamed)",
+            "at": [
+              844.7,
+              -368.6
+            ],
+            "heading": 0.0,
+            "beats": [
+              {
+                "t": 7.6,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 8.2,
+                "walk": [
+                  [
+                    841.4,
+                    -370.40000000000003
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 10.7,
+                "carry": null
+              },
+              {
+                "t": 11.2,
+                "walk": [
+                  [
+                    844.7,
+                    -368.6
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 61.4
+              },
+              {
+                "t": 14.8,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 15.4,
+                "walk": [
+                  [
+                    841.4,
+                    -370.40000000000003
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 17.9,
+                "carry": null
+              },
+              {
+                "t": 18.4,
+                "walk": [
+                  [
+                    844.7,
+                    -368.6
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 61.4
+              },
+              {
+                "t": 22.0,
+                "carry": "bolt_blue"
+              },
+              {
+                "t": 22.6,
+                "walk": [
+                  [
+                    841.4,
+                    -370.40000000000003
+                  ]
+                ],
+                "pace": "brisk"
+              },
+              {
+                "t": 25.1,
+                "carry": null
+              },
+              {
+                "t": 25.6,
+                "walk": [
+                  [
+                    844.7,
+                    -368.6
+                  ]
+                ],
+                "pace": "brisk",
+                "heading": 61.4
+              }
+            ],
+            "tier": "desktop"
+          }
+        ],
+        "teams": [
+          {
+            "team": "express_wagon_state_madison_1871",
+            "at": [
+              839.4,
+              -371.2
+            ],
+            "heading": 0.0,
+            "load": "load_dry_goods",
+            "beats": [
+              {
+                "t": 34,
+                "walk": [
+                  [
+                    839.4,
+                    -350.0
+                  ],
+                  [
+                    839.6,
+                    -330.0
+                  ]
+                ],
+                "pace": "brisk"
               }
             ]
           }
@@ -1604,18 +2415,18 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              613.65,
-              1407.12
+              614.29,
+              1420.11
             ],
-            "heading": 4.9
+            "heading": 5.4
           },
           {
             "extra": "fire_ogden_house_watch_1",
             "dress": "bardwell_otis_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              616.35,
-              1406.99
+              617.09,
+              1421.97
             ],
             "heading": 2.8
           },
@@ -1624,20 +2435,21 @@
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              619.04,
-              1406.86
+              619.63,
+              1418.84
             ],
-            "heading": 0.7
+            "heading": 0.3
           },
           {
             "extra": "fire_ogden_house_watch_3",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              611.85,
-              1407.21
+              612.29,
+              1416.2
             ],
-            "heading": 6.3
+            "heading": 6.8,
+            "pose": "crouch"
           },
           {
             "extra": "fire_ogden_house_watch_4",
@@ -1647,7 +2459,26 @@
               611.35,
               1415.25
             ],
-            "heading": 7.5
+            "heading": 7.5,
+            "pose": "crouch"
+          }
+        ],
+        "props": [
+          {
+            "kind": "chair",
+            "at": [
+              612.13,
+              1406.8
+            ],
+            "heading": 30.0
+          },
+          {
+            "kind": "trunk",
+            "at": [
+              610.77,
+              1407.67
+            ],
+            "heading": 300.0
           }
         ]
       }
@@ -1666,6 +2497,7 @@
         "beach",
         "prairie",
         "cemetery-hour",
+        "goods",
         "stand",
         "stage",
         "the-lost"
@@ -1765,7 +2597,8 @@
                 ],
                 "pace": "slow"
               }
-            ]
+            ],
+            "carry": "shawl_bundle"
           },
           {
             "extra": "fire_old_cemetery_flee_1",
@@ -1791,7 +2624,86 @@
                 ],
                 "pace": "slow"
               }
-            ]
+            ],
+            "carry": "featherbed"
+          },
+          {
+            "extra": "fire_old_cemetery_flee_2",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              463.85,
+              2808.3
+            ],
+            "heading": 5.2,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    468.34,
+                    2841.01
+                  ],
+                  [
+                    469.85,
+                    2874.04
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ],
+            "carry": "trunk",
+            "tier": "desktop"
+          }
+        ],
+        "props": [
+          {
+            "kind": "bundle",
+            "at": [
+              473.53,
+              2860.15
+            ],
+            "heading": 0.0
+          },
+          {
+            "kind": "chair",
+            "at": [
+              463.31,
+              2860.48
+            ],
+            "heading": 200.0
+          },
+          {
+            "kind": "trunk",
+            "at": [
+              462.29,
+              2862.2
+            ],
+            "heading": 120.0
+          },
+          {
+            "kind": "shawl_bundle",
+            "at": [
+              474.73,
+              2858.21
+            ],
+            "heading": 0.0
+          },
+          {
+            "kind": "featherbed",
+            "at": [
+              462.27,
+              2858.38
+            ],
+            "heading": 80.0
+          },
+          {
+            "kind": "chair",
+            "at": [
+              472.98,
+              2856.99
+            ],
+            "heading": 160.0
           }
         ]
       }
@@ -2003,6 +2915,15 @@
       "locator": "p. 702, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the drought of 1871"
     },
     {
+      "id": "goods",
+      "text": "Andreas: \"Sober men and women were hurrying through the streets from the burning quarter — some with bundles of clothing on their shoulders; others, dragging trunks along the sidewalk by means of strings and ropes fastened to the handles, children trudging by their sides or borne in their arms. Now and then a sick man or women would be observed, half concealed in a mattress doubled up and borne by two men.\" On the North Side at dawn: \"I saw one man carrying the rubber tube and broken standard of a drop-light; another was trundling a wheelbarrow on which was a cook stove, while on his back was a huge feather bed. One woman had a live hen in her arms, several had cats, and numbers had canary birds in cages.\" And of the wagons: \"Expressmen, and owners of every description of wagons, were extortionate in their demands, asking from twenty to fifty dollars for conveying a small load a few blocks.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 729, 734 and 746, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Horace White's narrative and a North Side narrative"
+    },
+    {
       "id": "stand",
       "text": "Each stop is watched from a reconstructed stand in the street, at a distance where the building and the fire read: its corner from the modern street grid (the corners survive), not a surveyed 1871 point.",
       "confidence": "reconstructed",
@@ -2011,7 +2932,7 @@
     },
     {
       "id": "stage",
-      "text": "The Great Chicago Fire: the people on the streets at each stop are unnamed figures standing for the crowds the accounts describe, watching, carrying what they can, and getting away. Where each stands, when each moves and how, and the clothes they are drawn in (the town's 1835 and 1904 wardrobes, until 1871 dress is drawn) are reconstruction. Nobody is shown hurt.",
+      "text": "The Great Chicago Fire: the people on the streets at each stop are unnamed figures standing for the crowds the accounts describe, watching, carrying what they can, and getting away. Where each stands, when each moves and how, what each carries (bundles, trunks, bird cages, feather beds, bolts of cloth: the kinds the accounts list, their make drawn plainly), the wagons and their loads, and the clothes they are drawn in (the town's 1835 and 1904 wardrobes, until 1871 dress is drawn) are reconstruction. Nobody is shown hurt.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-1871-great-fire-jaunt"
@@ -2434,7 +3355,8 @@
     }
   ],
   "liberties": [
-    "L-1871-great-fire-jaunt"
+    "L-1871-great-fire-jaunt",
+    "L-1871-fire-night-3814"
   ],
   "version_of": "the-great-fire",
   "audience": "adults",

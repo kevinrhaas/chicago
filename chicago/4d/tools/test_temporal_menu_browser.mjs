@@ -1,4 +1,6 @@
-// Published front-door and cross-page appearance regression, desktop and mobile.
+// Published classic-console and cross-page appearance regression, desktop and mobile.
+// T-3798: the front door (/4d/) is now the launch page (tools/test_launch_page.mjs); the
+// machine console this test drives moved to /4d/console/, unchanged.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,7 +21,7 @@ try {
  for(const width of [1280,390]){
   const context=await browser.newContext({viewport:{width,height:width===390?844:800},reducedMotion:width===390?'reduce':'no-preference'});
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(origin+'/4d/');await page.waitForFunction(()=>document.querySelectorAll('.era.resolved').length===3);
+  await page.goto(origin+'/4d/console/');await page.waitForFunction(()=>document.querySelectorAll('.era.resolved').length===3);
   assert.equal(await page.locator('.era').count(),3);
   // T-3611: on a phone the card drops its foot line so all three years fit the first screen;
   // the 1812 card still says it is calibrating in its top line.
@@ -77,11 +79,11 @@ try {
   // T-2735: the way home asks first; Cancel stays, Return goes.
   await page.locator('.gate-card .skin-tools a').click();await page.locator('.recall-cancel').click();assert(page.url().endsWith('/4d/1835/'),'Cancel stays in the destination');
   await page.locator('.gate-card .skin-tools a').click();await page.locator('.recall-go').click();await page.waitForURL('**/4d/');assert.equal(await page.locator('html').getAttribute('data-skin'),'deep-space');
-  assert.equal(await page.locator('.masthead .machine-dial').getAttribute('title'),'Appearance: Deep Space');
+  assert.equal(await page.locator('body.launch').count(),1,'the way home lands on the launch page');
   // A visitor who chose an earlier skin keeps it, under its new machine name.
   await page.evaluate(()=>localStorage.setItem('chicago4d.skin','steampunk'));await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'brass');
   // Dev preview remains within its own prefix.
-  await page.goto(origin+'/4d/dev/');await page.locator('[data-year="1904"]').click();await page.waitForURL('**/4d/dev/1904/');
+  await page.goto(origin+'/4d/dev/console/');await page.locator('[data-year="1904"]').click();await page.waitForURL('**/4d/dev/1904/');
   // Since T-2050 the 1812 door opens the renderer on the first fort, as 1835 and 1904 do.
   await page.goto(origin+'/4d/1812/');await page.locator('.gate-card .skin-tools .machine-dial').waitFor();
   assert.equal(await page.locator('base').getAttribute('href'),'../walk/','the 1812 door is the renderer door, not the pending page');
@@ -91,5 +93,5 @@ try {
   console.log(`PASS ${width}: machine console, manual, three coordinates, four machines, legacy migration, persistence, transfer, home return, dev path, deep link, containment, no JS errors`);
   await context.close();
  }
- const context=await browser.newContext({javaScriptEnabled:false});const page=await context.newPage();await page.goto(origin+'/4d/');assert.equal(await page.locator('.era').count(),3);assert(await page.locator('[data-year="1835"]').isVisible());await context.close();console.log('PASS no-JavaScript: all destination links visible');
+ const context=await browser.newContext({javaScriptEnabled:false});const page=await context.newPage();await page.goto(origin+'/4d/console/');assert.equal(await page.locator('.era').count(),3);assert(await page.locator('[data-year="1835"]').isVisible());await context.close();console.log('PASS no-JavaScript: all destination links visible');
 }finally{await browser.close();await new Promise(r=>server.close(r));}

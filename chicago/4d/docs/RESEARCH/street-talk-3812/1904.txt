@@ -1,0 +1,171 @@
+# T-3812: 1904 street talk. Short lines the people of Prairie Avenue say aloud as you pass or
+# greet them, voiced once each in a stock voice for their kind (data/narration/voices.json
+# `street`). The owner, 2026-11-27: "Let's do great fire plus street talk" (about 150 lines,
+# 6-8 voices). Reconstructed speech, not quotation (L-street-talk-3812): what such a person
+# might say on this street in 1904, kept to things the tales and asks libraries already
+# record (tales-3553/1904, asks-3553/1904), or to the plain business of the day.
+#
+# One line each:   <voice> <kind>[@<time>][ <season>][ o:<origin>] | <words>
+#   voice   gent | lady | young_man | young_lady | manservant | maid | cook   (who may say it:
+#           tools/build_street_talk.py VOICES; children are not voiced)
+#   kind    greet  (to you, when you greet them or pass close in front of them)
+#           remark (overheard: to a companion, to themselves, or to the street)
+#   time    morning (5-12) | afternoon (12-18) | evening (18-5); none: any hour
+#   season  spring | summer | fall | winter; none: any season
+#   o:<origin>  only someone from there (the tellers' origin codes in data/tales/1904.json)
+# Words: one or two short sentences, at most 140 characters, no year after 1904, unique.
+
+## gent
+gent greet@morning | Good morning to you.
+gent greet@morning | Morning. A fine day for a walk on the Avenue.
+gent greet@afternoon | Good afternoon.
+gent greet@afternoon | Good day to you. Mind the carriages at the corner.
+gent greet@evening | Good evening.
+gent greet@evening | Evening. You're out late on the Avenue.
+gent greet | How do you do?
+gent greet | A stranger to Prairie Avenue? Welcome. It's the finest street in the city, whatever the North Side says.
+gent remark@morning | The carriage is late again. I'll be late on LaSalle Street.
+gent remark@morning | Wheat was up a cent and a half yesterday. Mark my words, it won't last the week.
+gent remark@evening | A long day downtown. I'm glad to be home.
+gent remark | Some of the Avenue has gone up to the North Side. Let them. We were here first.
+gent remark | Since the Iroquois fire, I won't take my family to any theater that can't show me its exits.
+gent remark | That automobile went by again. Frightened every horse from Sixteenth to Eighteenth Street.
+gent remark | The Illinois Central's smoke is on the curtains again.
+gent remark | When the wind comes from the southwest, you can smell the stockyards from here.
+gent remark | Ten years since the Pullman strike, and the men still don't speak of it kindly.
+gent remark | They've reversed the river and still the water tastes of it.
+gent remark | I remember when all of this was prairie and you could see the lake from the doorstep.
+gent remark | The Fair brought the whole world to Chicago. Nothing has been quite so grand since.
+gent remark spring | The lawn wants cutting already. Spring comes all at once in this city.
+gent remark summer | Hot as a boiler room. The family goes to the lake country next week, thank heaven.
+gent remark fall | The leaves are down. Have the man rake the walk before someone slips.
+gent remark winter | Bitter cold. Tell the coachman to put the blankets on the horses.
+
+## lady
+lady greet@morning | Good morning.
+lady greet@morning | Good morning. Isn't it a lovely morning?
+lady greet@afternoon | Good afternoon. Are you calling on someone?
+lady greet@afternoon | Good afternoon to you.
+lady greet@evening | Good evening.
+lady greet | How do you do?
+lady greet | Oh! You startled me. Good day.
+lady greet | Welcome to the Avenue. You must see the Glessner house. Everyone stares at it.
+lady remark@morning | I must write my calling list for Thursday before the morning gets away from me.
+lady remark@afternoon | The carriage will be round at three. We are calling on Mrs. Pullman.
+lady remark | Field's has the new spring silks in. I shall go down on Monday.
+lady remark | The reading class meets on Monday. I haven't finished the chapter.
+lady remark | Cook says the butcher sent the wrong cut again. I shall have to speak to him myself.
+lady remark | The new girl is very willing, but she broke the good gravy boat.
+lady remark | They say the whole of Chicago will move to the North Side in ten years. I shan't.
+lady remark | I wouldn't go to a theater now for anything. Not since the Iroquois.
+lady remark | The soot from those trains. I had the curtains washed only last week.
+lady remark | Such a lot of carriages today. There must be a reception at one of the houses.
+lady remark spring | The tulips are up at last. The gardener was right about the bed by the door.
+lady remark summer | Too hot for calls. Everyone sensible has gone to the lake.
+lady remark fall | We must have the furs brought out of storage.
+lady remark winter | The children will want to skate in the park. Tell Nurse to wrap them well.
+
+## young_man
+young_man greet@morning | Morning!
+young_man greet@afternoon | Afternoon. Nice day for it.
+young_man greet@evening | Evening.
+young_man greet | Hello there.
+young_man greet | How do you do. New to the neighborhood?
+young_man greet | Good day. If you're looking for the lake, it's that way, past the tracks.
+young_man remark@morning | Father wants me at the office by nine. I'll never make it.
+young_man remark@evening | There's a dance at the Calumet Club on Saturday. I mean to go.
+young_man remark | Did you see that automobile? Forty miles an hour, they say, on an open road.
+young_man remark | The White Sox will take the pennant this year. You'll see.
+young_man remark | Half the fellows from school are going to the Fair in St. Louis this summer.
+young_man remark | I'd sooner ride a bicycle than sit in that stuffy carriage.
+young_man remark | They say Roosevelt will win in a walk. I'd like to see him speak.
+young_man remark | Father says I'm to learn the business from the bottom. That means the warehouse.
+young_man remark summer | Let's go down to the lake and swim off the breakwater.
+young_man remark winter | The ice is thick enough on the lagoon in Washington Park. Skating tonight?
+
+## young_lady
+young_lady greet@morning | Good morning!
+young_lady greet@afternoon | Good afternoon.
+young_lady greet@evening | Good evening.
+young_lady greet | Oh, hello. Are you visiting someone on the Avenue?
+young_lady greet | How do you do? I don't believe we've met.
+young_lady remark@morning | Mother says I must practice the piano for an hour before luncheon.
+young_lady remark@afternoon | We're going down to Field's for gloves. Do come with us.
+young_lady remark | Did you hear? She's engaged, and to a man from New York.
+young_lady remark | I want to go to the Fair in St. Louis, but Father says it's too hot.
+young_lady remark | My dancing master says I lead. That's not a compliment.
+young_lady remark | I've read every book in the house twice. I need a new one.
+young_lady remark | Mother says I'm to pour the tea at her at-home on Thursday.
+young_lady remark | There's a lecture at the Art Institute on Thursday. I mean to go.
+young_lady remark spring | It's warm enough to leave off my jacket. Almost.
+young_lady remark summer | I'm going to ride my bicycle along the lake before it gets too hot.
+young_lady remark winter | My fingers are frozen, even through my muff.
+
+## manservant
+manservant greet@morning | Morning to you.
+manservant greet@morning | Good morning, sir. Or madam. Can I help you find a house?
+manservant greet@afternoon | Afternoon.
+manservant greet@evening | Evening. Mind the horses.
+manservant greet | Good day.
+manservant greet | Watch your step there. The horses have been along.
+manservant greet | If you're looking for the family, they're not at home to callers before three.
+manservant remark@morning | The master wants the carriage at half past eight sharp. Not a minute after.
+manservant remark@morning | Coal wagon's due this morning. That'll mean dust in everything.
+manservant remark@evening | One more drive tonight, to the theater and back, then my supper.
+manservant remark | That bay mare threw a shoe on the way back from Michigan Avenue.
+manservant remark | The ice man's late. Cook will have something to say about that.
+manservant remark | Brushed down two horses, cleaned the harness, and it's not yet ten.
+manservant remark | Another automobile. The horses hate them, and so do I.
+manservant remark | Thursday afternoon's mine. I'm off to see my brother on the West Side.
+manservant remark | The master's in a temper. Something about the price of steel.
+manservant remark | Mind that gate. It sticks in the damp and the family won't have it oiled.
+manservant remark | My father drove a hack in the old town before the fire. Now look at me, on Prairie Avenue.
+manservant remark summer | Flies are terrible in the stable this time of year.
+manservant remark winter | Snow again. I'll be clearing the walk all morning.
+manservant remark fall | Leaves in the gutters again. Raked them this morning.
+
+## maid
+maid greet@morning | Good morning.
+maid greet@morning | Morning! Excuse me, I'm in a hurry with the post.
+maid greet@afternoon | Good afternoon.
+maid greet@evening | Good evening.
+maid greet | Oh! Good day to you.
+maid greet | Hello. Are you looking for someone? The tradesmen's door is round the side.
+maid greet | Good day. You'll want the front door if you're calling, and the bell on the right.
+maid remark@morning | Up at half past five, the fires laid, the steps scrubbed, and the family not yet down.
+maid remark@morning | The brass on the front door won't polish itself.
+maid remark@afternoon | Thursday afternoon at last. My good hat and Michigan Avenue.
+maid remark@evening | One more tray up the back stairs and then I'll put my feet up.
+maid remark | The missus wants the silver done before the dinner party.
+maid remark | Mary says the cook next door has given notice. Again.
+maid remark o:swedish | I've a letter to post home to Sweden. My mother worries.
+maid remark o:irish | I sent half my wages home to my mother in County Mayo.
+maid remark | The young ladies have changed their dresses three times today.
+maid remark | Don't tell anyone, but the master snores like a coal train.
+maid remark | All the maids on the Avenue know what goes on in every house. The ladies have no idea.
+maid remark | The new carpet beater is here. My arms are aching already.
+maid remark spring | Spring cleaning. Every rug on the line and every curtain down.
+maid remark summer | When the family goes to the lake, we'll have the house to ourselves.
+maid remark winter | My hands are raw from the washing in this cold.
+
+## cook
+cook greet@morning | Good morning to you.
+cook greet@afternoon | Good afternoon.
+cook greet@evening | Good evening, dear.
+cook greet | Good day. You look hungry. Everyone does, to a cook.
+cook greet | Oh, hello. If you're the grocer's boy, you're late.
+cook remark@morning | The bread's been rising since five. It'll be on the table by eight.
+cook remark@morning | The milk's turned. In this weather! I'll have words with the milkman.
+cook remark@afternoon | Dinner for twelve tonight, and the fish not come yet.
+cook remark@evening | That's the last of the dishes. My feet are finished.
+cook remark | The butcher's sent the wrong cut again. I'll go down myself tomorrow.
+cook remark | The grocer's boy is late again. Probably stopped to look at that automobile.
+cook remark | I've cooked for this family twenty years and the master still asks for his chop the same way.
+cook remark | The new range is a wonder. It does everything except peel the potatoes.
+cook remark | Ice man's here. Mind the floor, he always drips on my clean floor.
+cook remark | Soup, fish, a joint, two sides, and a pudding. Every night, like clockwork.
+cook remark | That girl has broken two plates this week. Two!
+cook remark | They're bringing the coal in. Close the kitchen windows or we'll all be black.
+cook remark summer | Too hot to light the stove, and the family wants a roast.
+cook remark fall | Apples from the country. Pies for a week.
+cook remark winter | A good hot soup tonight. They'll all come in frozen.

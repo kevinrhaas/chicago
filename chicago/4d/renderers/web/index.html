@@ -902,6 +902,9 @@
         <div class="field row account-row" id="s-account" hidden><span class="account-who">Signed in as
           <b id="s-account-who"></b> <span id="s-account-how"></span></span>
           <button class="setting-button" id="s-sign-out" type="button">Sign out</button></div>
+        <!-- T-3778: the class a student is in, and the code to join one (js/classes-view.js
+             mountStudentClass fills it). Hidden unless the cloud features are on and someone is signed in. -->
+        <div class="saved-data class-box" id="s-class" hidden></div>
         <!-- T-3776: what this account keeps, and the way to delete all of it (js/student-data.js
              showSavedData). Hidden unless someone is signed in. -->
         <div class="saved-data" id="s-saved-data" hidden>
@@ -912,6 +915,7 @@
           <div class="field row saved-data-confirm" id="s-delete-data-confirm" hidden><span>Delete it all? This cannot be undone.</span>
             <span class="saved-data-choice"><button class="setting-button danger" id="s-delete-data-yes" type="button">Delete</button>
             <button class="setting-button" id="s-delete-data-no" type="button">Cancel</button></span></div>
+          <p class="legend-note" id="s-cloud-save" role="status" aria-live="polite" hidden></p>
           <p class="legend-note" id="s-delete-data-status" role="status" aria-live="polite"></p>
         </div>
         <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->

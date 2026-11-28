@@ -1,3 +1,81 @@
+## T-3814 — The Great Fire's people carry what they saved (27 November 2026)
+
+Owner request, 27 November 2026: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... you may have to start a crowd
+development stream". The research is `docs/RESEARCH/fire-night-scenes-3814/README.md` (what the
+accounts say people did, by kind and by stop; what stays out of the student tellings; crowd
+dynamics; the rendering plan), and the stream is four tickets: T-3814 (this), T-3815 (runaway
+teams and burning loads), T-3816 (a fire-night crowd for crowd.js at the jaunt's budgets) and
+T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder), and T-3830 (firemen and their engines, asked for on 28 November).
+
+This first piece restages the Great Fire jaunt with what was carried. A castmate may `carry` a
+thing (`renderers/web/js/stage-props.js` GOODS: a bundle or bolt on the shoulder, a bird cage,
+basket, shawl bundle or papers in the hand, a feather bed on the back, a trunk dragged on a
+1.3 m cord), from the start or from a beat; the hands hold it through `setCarry` in
+`human-actions.js`. A borne castmate with `bier: "mattress"` is carried on a doubled mattress; a
+stage team may carry a `load` on its bed (a streamed wagon row is now built for a stage at any
+hour, `townTransport.stageWant`); `stage.props` sets chairs, trunks and bundles on the ground.
+The jaunt (`docs/RESEARCH/jaunt-great-fire-3691/build.py`) now has 101 castmates (was 82): carriers
+at nine stops, a sick woman borne out at St. Paul's, four men loading an express wagon at
+Field, Leiter & Co.'s door that drives off north, and goods set down at the Ogden house and the
+old cemetery. Reconstructed under `L-1871-fire-night-3814`. Tested in
+`tools/test_jaunt_stage.mjs` and `tools/test_human_actions.mjs`.
+
+## T-3803 — 1871 shop signs from Edwards' 1871 directory (27 November 2026)
+
+Owner request, 27 November 2026: the signs above the 1871 stores should be "varied and be more
+specific based on your research of the citizens and people and businesses in 1871".
+`tools/build_1871_directory_fronts.py` reads the directory's text and writes
+`data/context/1871/directory_fronts.json`: 732 firms (510 at street level, 222 upstairs) on 71
+block faces of Lake, Randolph, Washington, Madison, Clark, LaSalle, Dearborn and State round the
+Court House square, each with its listing's page and line. The pre-1909 numbering of each street
+is calibrated from the directory (corner listings, the Court House square's and the Methodist
+block's gaps) and Carbutt's Lake Street stereograph (118, 120 and 124 on the north side), and
+written with its evidence. `renderers/web/js/city-signs-1871.js` assigns the firms to the
+generated shop fronts in the detail rings by their numbers' share of the block, lets fronts with
+no firm carry a trade from that street's classified list (never their neighbour's), and letters
+fascia boards, wall bands, cornice friezes, upstairs boards, hanging signs, pier boards, gilt
+window letters and awning valances at run time into per-cell atlas pages. A front's card names
+the firm (attested), its place (inferred) and its signs (reconstructed), under the new
+`L-1871-directory-signs`. Sign textures: Full 2 pages of 2048 (42.7 MiB, 38 px/m, the stops'
+fronts at 1.25x), Light 1 page of 2048x1024 (10.7 MiB, 30 px/m); no shipped textures.
+
+## T-3778 — Class codes and a teacher view (27 November 2026)
+
+Stage 1's third piece, behind `cloudFeatures`. `js/classes.js` keeps a class on Firestore:
+`classes/<id>` (teacher, name, year group, code), `classes/<id>/members/<uid>` (the name the
+student gave, joined, last in), `classes/<id>/handins/<uid>_<entry>` (one notebook entry the
+student chose to hand in) and `codes/<code>` (which class, until when; read by name, never
+listed), plus the student's own note `users/<uid>/classes/<id>`. `js/classes-view.js` draws
+Guide › For teachers › Your classes (make, code, roster with joined / last in / handed in /
+reflections, each student's work, CSV, print, remove, close), Settings › About › Your class
+(code, confirm, join under a chosen name, leave) and Hand in / Hand in again / Take back on
+each notebook entry. A jaunt's understanding check gains Save to my notebook, marked as a
+reflection (`topic`), as Make your case and route answers now are. Closing a class deletes it
+with everything handed in, as the school agreement promises; the end-of-school-year deletion
+the agreement also promises is not automatic yet (it needs a scheduled job with database
+access), and the teacher's page asks teachers to close each class when its year ends.
+`tools/test_classes.mjs` (gate) holds the codes, every write against its rule and a whole class
+against a fake Firestore; `tools/test_classes_emulator.mjs` (not a gate step: Java and the
+Firestore emulator) runs the rules themselves, 48 checks, including T-3777's users tree. The
+rules publish when this reaches dev.
+
+## T-3777 — Cloud save: notebook, people met, places found and Settings (27 November 2026)
+
+Stage 1's second piece, behind T-3776's `cloudFeatures` switch (on since the owner's
+27 November "Turn on the cloud features"). `js/cloud-save.js` keeps the browser's own copies as the working copy and reconciles
+them with Firestore `users/<uid>/{notebook,metfound,settings}/…`, one document per notebook
+entry, per year and kind of met/found, and one for the Settings that are the person's (the
+device's graphics stay put). The merge is three-way against the last agreed base (short
+hashes in `chicago4d.cloudsave.v1`): an edit beats a delete, two edits keep the newer,
+met/found joins, and a new browser takes the account's Settings. Writes are debounced (15 s,
+at most 60 s) plus a flush on hide and a two-minute look for Settings; pulls ask only for
+what changed since the last. Never for a sign-in with the email alone; the rules refuse it
+too. The boot waits up to 3 s for the first sync. Settings › About shows where the work was
+last saved. Delete my saved data removes the tree. `tools/test_cloud_save.mjs` measures a
+30-student, 45-minute lesson at about 1,800 writes and 4,200 reads (free tier: 20,000 and
+50,000 a day). Not yet run against the live project: the rules for `users` publish when this reaches dev.
+
 ## T-3776 — Student data policy and Delete my saved data (27 November 2026)
 
 Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
