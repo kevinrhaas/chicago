@@ -1,0 +1,6503 @@
+{
+ "format": "chicago4d_horse_railways_1871_v1",
+ "ticket": "T-3806",
+ "scene": "1871",
+ "generated_by": "tools/lay_horse_railways_1871.py",
+ "liberty": "L-1871-horse-railways-3806",
+ "doc": "The 1871 city's horse railways (T-3806): the track centrelines (`rails`; the renderer lays two strap rails on each, flush with the paving) on every street a source gives a line, and the four double-track lines the cars run (`services`), each a closed run out on the right-hand track and back on the other with a crossover at each stub, and a car every `headway_s`. Each section cites its sources; the grades are the route's (where the line ran) and the track's (single or double, and the turnouts).",
+ "corridor_line": "drawn",
+ "corridor_line_why": "The tracks lie on the context city's drawn street centrelines (data/context/1871.json streets), the lines the roadway ribbons are laid on.",
+ "gauge_m": 1.435,
+ "gauge_grade": "reconstructed",
+ "gauge_basis": "No source read gives the Chicago companies' gauge; 4 ft 8 1/2 in, the gauge of the Troy-built cars' eastern street railways, is reconstructed.",
+ "rail": {
+  "kind": "strap rail on longitudinal timbers, flush with the paving",
+  "head_m": 0.065,
+  "grade": "reconstructed",
+  "basis": "Andreas vol. 2 p. 121: on Clark Street 'the first railway was laid, by spiking the rails to the planks, an additional thickness of plank being placed in the horse-path'; the flat rail's width and colour are reconstructed."
+ },
+ "track_half_spacing_m": 1.32,
+ "companies": {
+  "ccr": {
+   "name": "Chicago City Railway",
+   "short": "CHICAGO CITY RAILWAY",
+   "livery": {
+    "body": "#c9a54a",
+    "panel": "#7a2a1c",
+    "trim": "#2a1a12",
+    "letter": "#e8d8a0"
+   }
+  },
+  "wdr": {
+   "name": "Chicago West Division Railway",
+   "short": "WEST DIVISION RAILWAY",
+   "livery": {
+    "body": "#d8c79a",
+    "panel": "#2f4a33",
+    "trim": "#1c241c",
+    "letter": "#e9dcae"
+   }
+  },
+  "ncr": {
+   "name": "North Chicago City Railway",
+   "short": "NORTH CHICAGO CITY RAILWAY",
+   "livery": {
+    "body": "#cfb98a",
+    "panel": "#5a2430",
+    "trim": "#241418",
+    "letter": "#ecdcb2"
+   }
+  }
+ },
+ "livery_grade": "reconstructed",
+ "livery_basis": "No source read for this ticket gives the companies' colours. Each company's car is painted in the manner of the period's Troy-built closed cars (a light body, a darker dash and lower panel, the company's name on the letter board), one colour per company so the three lines read apart: reconstructed (L-1871-horse-railways-3806).",
+ "car": {
+  "body_m": 4.88,
+  "platform_m": 1.0,
+  "width_m": 2.13,
+  "floor_m": 0.82,
+  "eaves_m": 2.95,
+  "roof_m": 3.35,
+  "wheel_d_m": 0.76,
+  "wheelbase_m": 1.9,
+  "windows": 7,
+  "speed_m_s": 2.35,
+  "dwell_s": 45,
+  "horses": 2,
+  "horse_ahead_m": 5.1,
+  "horse_half_spacing_m": 0.36,
+  "basis": "A closed four-wheel horse car of the 1860s of the Troy builders' pattern (Andreas: the first car came from Eaton, Gilbert & Co. of Troy): a body about sixteen feet long with open platforms and dashboards at both ends, a clerestory roof with a row of deck lights, seven windows a side, the company's name on the letter board, on two axles. Its dimensions, the pair of horses, the driver standing on the front platform and the conductor on the back one, and its pace of about five miles an hour are reconstructed (L-1871-horse-railways-3806)."
+ },
+ "hours": {
+  "service_hours": [
+   5.5,
+   24.0
+  ],
+  "service_hours_basis": "No source read gives the 1871 hours of service; the cars run from half past five in the morning to midnight (reconstructed).",
+  "fire_stop": "1871-10-08T22:00",
+  "fire_basis": "On the night of the fire no car runs from ten o'clock Sunday night, and none on the Monday. Andreas vol. 2 p. 706, of the Saturday night's fire on the West Side: in Clinton Street near Adams 'were half a dozen isolated street-cars, utterly unable to get back to their stables' for the crowd; p. 747: on the Monday 'the street cars, which had been run up there for safety' stood at Graceland; p. 753 and Colbert and Chamberlin p. 389: after the fire the rails of Clark Street were 'warped and twisted ... forced up ... two feet above the ground'. The hour the service stopped on Sunday night is reconstructed.",
+  "fire_sources": [
+   {
+    "id": "andreas_1885_v2",
+    "locator": "The Burning of Chicago, pp. 706, 747, 753"
+   },
+   {
+    "id": "colbert_chamberlin_1871_great_conflagration",
+    "locator": "p. 389"
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "state_street",
+   "operator": "ccr",
+   "name": "State Street line, Lake Street to Twenty-second Street",
+   "track": "double",
+   "route_grade": "attested",
+   "track_grade": "inferred",
+   "streets": [
+    "State Street"
+   ],
+   "length_m": 3651.6,
+   "sources": [
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "sheahan_upton_1871_great_conflagration",
+     "locator": "p. 54"
+    }
+   ],
+   "note": "Colbert and Chamberlin: rails 'on State from Lake Street south to the city limits'; Edwards: cars from State and Randolph 'via State to 22d, every minute'. Double track is inferred from the one-minute headway (Andreas: single with turnouts as first laid in 1859)."
+  },
+  {
+   "id": "state_street_south",
+   "operator": "ccr",
+   "name": "State Street south of Twenty-second, to the city limits",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "State Street"
+   ],
+   "length_m": 1596.1,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ],
+   "note": "Andreas: cars to the city limits by June 1859. Single track with turnouts is reconstructed."
+  },
+  {
+   "id": "twenty_second_street",
+   "operator": "ccr",
+   "name": "Twenty-second Street, State Street east toward Cottage Grove Avenue",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Twenty-second Street"
+   ],
+   "length_m": 802.7,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: the track 'extended, on Twenty-second Street and Cottage Grove Avenue' in 1859; Edwards: cars to Cottage Grove av. and Douglas place every four minutes. The context plan does not carry Cottage Grove Avenue, so the track stops at the plan's end of Twenty-second."
+  },
+  {
+   "id": "archer_road",
+   "operator": "ccr",
+   "name": "Archer road line, State Street to Bridgeport",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Archer Road"
+   ],
+   "length_m": 755.0,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: 'a branch track was laid upon the Archer road from State Street' in 1864, completed to Bridgeport; Edwards: Archer road cars every eight minutes."
+  },
+  {
+   "id": "randolph_street",
+   "operator": "wdr",
+   "name": "Randolph Street line, State Street to the western limits",
+   "track": "double",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Randolph Street",
+    "West Randolph Street"
+   ],
+   "length_m": 4873.6,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ],
+   "note": "Edwards: cars from State and Randolph 'along Randolph to Robey, every five minutes, and to western limits every five minutes'. The plan does not name Robey Street; the track runs to the plan's end of West Randolph. Double track is reconstructed."
+  },
+  {
+   "id": "madison_street",
+   "operator": "wdr",
+   "name": "Madison Street line, State Street to the western limits",
+   "track": "double",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Madison Street",
+    "West Madison Street"
+   ],
+   "length_m": 4875.6,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ],
+   "note": "Edwards: cars 'westward along Madison, every five minutes'; Colbert and Chamberlin: rails 'on Madison west'. How the Madison cars reached State and Randolph is not stated: here they turn back at State Street (reconstructed). Double track is reconstructed."
+  },
+  {
+   "id": "blue_island_avenue",
+   "operator": "wdr",
+   "name": "Blue Island Avenue line, to Twelfth Street",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Blue Island Avenue"
+   ],
+   "length_m": 1019.7,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: cars 'running to Twelfth Street by December 22, 1863'; Edwards: cars for Blue Island av. every six minutes. How they reached it from Madison or Randolph is not stated and is not drawn."
+  },
+  {
+   "id": "milwaukee_avenue",
+   "operator": "wdr",
+   "name": "Milwaukee Avenue line",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Milwaukee Avenue"
+   ],
+   "length_m": 5245.5,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: the Milwaukee line opened June 1864; Edwards: cars every ten minutes. Its extent in 1871 is not stated; the track runs the plan's length of the avenue (reconstructed)."
+  },
+  {
+   "id": "clinton_street",
+   "operator": "wdr",
+   "name": "Clinton Street line, Randolph to Van Buren",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "North Clinton Street",
+    "South Clinton Street"
+   ],
+   "length_m": 853.5,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    }
+   ],
+   "note": "Edwards: cars 'for Clinton south to Van Buren, Van Buren westward to Wood' and 'for Clinton and Jefferson to C. B. & Q. R. R. depot'. Where Clinton's track began is not stated: from Randolph here (reconstructed)."
+  },
+  {
+   "id": "jefferson_street",
+   "operator": "wdr",
+   "name": "Jefferson Street line, Randolph to Van Buren",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "North Jefferson Street",
+    "South Jefferson Street"
+   ],
+   "length_m": 855.2,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    }
+   ],
+   "note": "Edwards: cars 'for Clinton and Jefferson to C. B. & Q. R. R. depot' every twelve minutes; Andreas: the Clinton and Jefferson lines opened October 1864. The extent is reconstructed."
+  },
+  {
+   "id": "van_buren_street",
+   "operator": "wdr",
+   "name": "Van Buren Street line, Clinton westward to Wood",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "West Van Buren Street"
+   ],
+   "length_m": 2527.8,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Edwards: 'Van Buren westward to Wood'. The plan does not name Wood Street; the track stops at 1800 west, where Wood Street runs (reconstructed)."
+  },
+  {
+   "id": "clark_street",
+   "operator": "ncr",
+   "name": "Clark Street line, Lake Street to Division Street",
+   "track": "double",
+   "route_grade": "attested",
+   "track_grade": "attested",
+   "streets": [
+    "Clark Street",
+    "North Clark Street"
+   ],
+   "length_m": 2042.1,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: the North Chicago company's Clark Street line from North Water Street, 'laid double to Division Street'; Colbert and Chamberlin: 'on north Clark Street from the river'. Edwards' cars 'leave city limits for Lake': the run across the Clark Street bridge to Lake Street is inferred from that."
+  },
+  {
+   "id": "north_clark_street_single",
+   "operator": "ncr",
+   "name": "North Clark Street, Division Street to Fullerton Avenue",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "attested",
+   "streets": [
+    "North Clark Street"
+   ],
+   "length_m": 2583.1,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ],
+   "note": "Andreas: 'beyond that, a single track to Fullerton Avenue'. The turnouts are reconstructed."
+  },
+  {
+   "id": "division_clybourn",
+   "operator": "ncr",
+   "name": "Division Street and Clybourn Avenue line",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Division Street",
+    "Clybourn Avenue"
+   ],
+   "length_m": 3930.7,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: 'From Clark Street west, on Division, to Clybourn Avenue, and thence on Clybourn Avenue to city limits', completed 1859."
+  },
+  {
+   "id": "chicago_avenue",
+   "operator": "ncr",
+   "name": "Chicago Avenue line, Clark Street to the North Branch",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Chicago Avenue"
+   ],
+   "length_m": 1052.3,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    }
+   ],
+   "note": "Andreas: 'West on Chicago Avenue ... to the North Branch', completed 1859; Edwards: cars for Chicago av. every fifteen minutes. Authorized from Rush Street; built from Clark here (reconstructed)."
+  },
+  {
+   "id": "larrabee_street",
+   "operator": "ncr",
+   "name": "Larrabee Street line, north from Chicago Avenue",
+   "track": "single",
+   "route_grade": "attested",
+   "track_grade": "reconstructed",
+   "streets": [
+    "Larrabee Street"
+   ],
+   "length_m": 804.4,
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ],
+   "note": "Andreas: 'a single, or double, track on Larrabee Street, from Chicago Avenue to Little Fort road' (1864); Edwards: cars from 'corner Larrabee and Center'. The plan carries Larrabee only to Division Street, where the track stops."
+  }
+ ],
+ "not_laid": [
+  {
+   "line": "Wells Street",
+   "why": "Andreas vol. 3 p. 164: 'two and one-fifth miles of double track on Wells Street from Randolph to North Clark, by November, 1875' was built after the fire.",
+   "sources": [
+    {
+     "id": "andreas_1886_v3",
+     "locator": "Local Transportation, p. 164"
+    }
+   ]
+  },
+  {
+   "line": "Sedgwick Street",
+   "why": "Edwards: cars 'for Sedgwick' and from 'cor. N. av. and Sedgwick'; Andreas: the Sedgwick line of 1861. The context plan carries Sedgwick Street only south of Division, so the line north of Division is not drawn.",
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    }
+   ]
+  },
+  {
+   "line": "Cottage Grove Avenue",
+   "why": "Not on the context plan; Twenty-second Street's track stops at the plan's end.",
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    }
+   ]
+  },
+  {
+   "line": "Clark Street south of Lake",
+   "why": "Andreas pp. 120: the company deferred Clark Street for ten years from 1860, the Michigan Southern holding it below Harrison; no line is in the 1871 timetable.",
+   "sources": [
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    }
+   ]
+  }
+ ],
+ "services": [
+  {
+   "id": "state_street",
+   "operator": "ccr",
+   "section": "state_street",
+   "board": "STATE ST. — 22D ST.",
+   "terminal_a": "Lake Street",
+   "terminal_b": "Twenty-second Street",
+   "headway_s": 60,
+   "basis": "Edwards' 1871 timetable: a car a minute from State and Randolph to Twenty-second; the cars that ran on to Cottage Grove Avenue and the Archer road share it here. They turn back at the Lake Street end of the track (Colbert's rails 'from Lake Street') and at Twenty-second.",
+   "grade": "reconstructed",
+   "loop": [
+    [
+     831.18,
+     -120.99
+    ],
+    [
+     831.22,
+     -125.99
+    ],
+    [
+     828.7,
+     -140.01
+    ],
+    [
+     829.08,
+     -183.41
+    ],
+    [
+     829.88,
+     -253.72
+    ],
+    [
+     832.18,
+     -395.02
+    ],
+    [
+     834.48,
+     -512.11
+    ],
+    [
+     839.78,
+     -546.82
+    ],
+    [
+     842.48,
+     -659.88
+    ],
+    [
+     841.98,
+     -669.85
+    ],
+    [
+     841.38,
+     -695.09
+    ],
+    [
+     842.38,
+     -812.21
+    ],
+    [
+     844.08,
+     -955.01
+    ],
+    [
+     845.18,
+     -1093.41
+    ],
+    [
+     846.88,
+     -1236.8
+    ],
+    [
+     846.18,
+     -1307.2
+    ],
+    [
+     846.88,
+     -1377.52
+    ],
+    [
+     850.68,
+     -1607.22
+    ],
+    [
+     851.48,
+     -1662.22
+    ],
+    [
+     853.08,
+     -1803.61
+    ],
+    [
+     853.78,
+     -1877.31
+    ],
+    [
+     854.28,
+     -1947.71
+    ],
+    [
+     856.78,
+     -2150.0
+    ],
+    [
+     856.18,
+     -2201.92
+    ],
+    [
+     858.18,
+     -2247.23
+    ],
+    [
+     858.38,
+     -2335.61
+    ],
+    [
+     862.18,
+     -2705.62
+    ],
+    [
+     863.98,
+     -2811.91
+    ],
+    [
+     863.88,
+     -2953.41
+    ],
+    [
+     867.48,
+     -3216.41
+    ],
+    [
+     869.68,
+     -3478.91
+    ],
+    [
+     871.38,
+     -3611.71
+    ],
+    [
+     872.33,
+     -3757.91
+    ],
+    [
+     872.3,
+     -3752.91
+    ],
+    [
+     874.85,
+     -3738.89
+    ],
+    [
+     874.02,
+     -3611.69
+    ],
+    [
+     872.32,
+     -3478.89
+    ],
+    [
+     870.12,
+     -3216.39
+    ],
+    [
+     866.52,
+     -2953.39
+    ],
+    [
+     866.62,
+     -2811.89
+    ],
+    [
+     864.82,
+     -2705.58
+    ],
+    [
+     861.02,
+     -2335.59
+    ],
+    [
+     860.82,
+     -2247.17
+    ],
+    [
+     858.82,
+     -2201.88
+    ],
+    [
+     859.42,
+     -2150.0
+    ],
+    [
+     856.92,
+     -1947.69
+    ],
+    [
+     856.42,
+     -1877.29
+    ],
+    [
+     855.72,
+     -1803.59
+    ],
+    [
+     854.12,
+     -1662.18
+    ],
+    [
+     853.32,
+     -1607.18
+    ],
+    [
+     849.52,
+     -1377.48
+    ],
+    [
+     848.82,
+     -1307.2
+    ],
+    [
+     849.52,
+     -1236.8
+    ],
+    [
+     847.82,
+     -1093.39
+    ],
+    [
+     846.72,
+     -954.99
+    ],
+    [
+     845.02,
+     -812.19
+    ],
+    [
+     844.02,
+     -695.11
+    ],
+    [
+     844.62,
+     -669.95
+    ],
+    [
+     845.12,
+     -659.92
+    ],
+    [
+     842.42,
+     -546.58
+    ],
+    [
+     837.12,
+     -511.89
+    ],
+    [
+     834.82,
+     -394.98
+    ],
+    [
+     832.52,
+     -253.68
+    ],
+    [
+     831.72,
+     -183.39
+    ],
+    [
+     831.18,
+     -120.99
+    ]
+   ],
+   "cusp_m": [
+    0.0,
+    3637.88
+   ],
+   "length_m": 7275.77,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "sheahan_upton_1871_great_conflagration",
+     "locator": "p. 54"
+    }
+   ]
+  },
+  {
+   "id": "randolph_street",
+   "operator": "wdr",
+   "section": "randolph_street",
+   "board": "RANDOLPH ST.",
+   "terminal_a": "State Street",
+   "terminal_b": "the western limits",
+   "headway_s": 150,
+   "basis": "Edwards' 1871 timetable: two services every five minutes, so a car about every two and a half minutes. They turn back at a stub in Randolph Street at State (reconstructed).",
+   "grade": "reconstructed",
+   "loop": [
+    [
+     824.2,
+     -255.03
+    ],
+    [
+     819.2,
+     -255.03
+    ],
+    [
+     805.2,
+     -252.4
+    ],
+    [
+     702.9,
+     -252.48
+    ],
+    [
+     455.81,
+     -251.68
+    ],
+    [
+     334.71,
+     -251.08
+    ],
+    [
+     91.51,
+     -250.28
+    ],
+    [
+     71.21,
+     -250.08
+    ],
+    [
+     11.8,
+     -249.99
+    ],
+    [
+     -81.05,
+     -250.11
+    ],
+    [
+     -155.3,
+     -250.48
+    ],
+    [
+     -277.5,
+     -250.18
+    ],
+    [
+     -398.7,
+     -249.68
+    ],
+    [
+     -520.8,
+     -249.38
+    ],
+    [
+     -607.9,
+     -249.78
+    ],
+    [
+     -657.2,
+     -249.58
+    ],
+    [
+     -788.92,
+     -249.68
+    ],
+    [
+     -817.31,
+     -250.46
+    ],
+    [
+     -853.95,
+     -252.85
+    ],
+    [
+     -880.32,
+     -255.3
+    ],
+    [
+     -928.18,
+     -260.62
+    ],
+    [
+     -998.22,
+     -268.55
+    ],
+    [
+     -1036.37,
+     -271.87
+    ],
+    [
+     -1063.81,
+     -273.43
+    ],
+    [
+     -1085.87,
+     -274.03
+    ],
+    [
+     -3750.46,
+     -295.48
+    ],
+    [
+     -3788.39,
+     -297.05
+    ],
+    [
+     -3820.82,
+     -299.26
+    ],
+    [
+     -3853.1,
+     -301.99
+    ],
+    [
+     -3943.21,
+     -310.24
+    ],
+    [
+     -3974.36,
+     -312.61
+    ],
+    [
+     -4015.26,
+     -314.76
+    ],
+    [
+     -4033.37,
+     -315.16
+    ],
+    [
+     -4028.37,
+     -315.05
+    ],
+    [
+     -4014.38,
+     -317.36
+    ],
+    [
+     -3974.2,
+     -315.25
+    ],
+    [
+     -3942.99,
+     -312.88
+    ],
+    [
+     -3852.86,
+     -304.61
+    ],
+    [
+     -3820.62,
+     -301.9
+    ],
+    [
+     -3788.25,
+     -299.69
+    ],
+    [
+     -3750.4,
+     -298.12
+    ],
+    [
+     -1085.83,
+     -276.67
+    ],
+    [
+     -1063.69,
+     -276.07
+    ],
+    [
+     -1036.19,
+     -274.51
+    ],
+    [
+     -997.96,
+     -271.17
+    ],
+    [
+     -927.88,
+     -263.24
+    ],
+    [
+     -880.06,
+     -257.92
+    ],
+    [
+     -853.75,
+     -255.49
+    ],
+    [
+     -817.19,
+     -253.1
+    ],
+    [
+     -788.88,
+     -252.32
+    ],
+    [
+     -657.2,
+     -252.22
+    ],
+    [
+     -607.9,
+     -252.42
+    ],
+    [
+     -520.8,
+     -252.02
+    ],
+    [
+     -398.7,
+     -252.32
+    ],
+    [
+     -277.5,
+     -252.82
+    ],
+    [
+     -155.3,
+     -253.12
+    ],
+    [
+     -81.05,
+     -252.74
+    ],
+    [
+     11.8,
+     -252.63
+    ],
+    [
+     71.19,
+     -252.72
+    ],
+    [
+     91.49,
+     -252.92
+    ],
+    [
+     334.69,
+     -253.72
+    ],
+    [
+     455.79,
+     -254.32
+    ],
+    [
+     702.9,
+     -255.12
+    ],
+    [
+     824.2,
+     -255.03
+    ]
+   ],
+   "cusp_m": [
+    0.0,
+    4859.81
+   ],
+   "length_m": 9719.55,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ]
+  },
+  {
+   "id": "madison_street",
+   "operator": "wdr",
+   "section": "madison_street",
+   "board": "MADISON ST.",
+   "terminal_a": "State Street",
+   "terminal_b": "the western limits",
+   "headway_s": 300,
+   "basis": "Edwards' 1871 timetable: every five minutes. They turn back at a stub in Madison Street at State (reconstructed).",
+   "grade": "reconstructed",
+   "loop": [
+    [
+     831.09,
+     -527.83
+    ],
+    [
+     826.13,
+     -528.41
+    ],
+    [
+     811.89,
+     -527.03
+    ],
+    [
+     582.49,
+     -529.68
+    ],
+    [
+     338.49,
+     -531.38
+    ],
+    [
+     214.99,
+     -531.78
+    ],
+    [
+     13.71,
+     -533.52
+    ],
+    [
+     -83.97,
+     -534.23
+    ],
+    [
+     -126.1,
+     -534.98
+    ],
+    [
+     -147.79,
+     -534.58
+    ],
+    [
+     -253.04,
+     -535.18
+    ],
+    [
+     -286.54,
+     -537.08
+    ],
+    [
+     -394.81,
+     -537.88
+    ],
+    [
+     -601.91,
+     -539.78
+    ],
+    [
+     -671.71,
+     -540.68
+    ],
+    [
+     -714.21,
+     -540.88
+    ],
+    [
+     -814.14,
+     -541.77
+    ],
+    [
+     -869.41,
+     -541.6
+    ],
+    [
+     -1005.88,
+     -540.18
+    ],
+    [
+     -1077.92,
+     -540.23
+    ],
+    [
+     -2212.59,
+     -554.01
+    ],
+    [
+     -2897.38,
+     -561.46
+    ],
+    [
+     -3757.61,
+     -570.26
+    ],
+    [
+     -3817.58,
+     -572.01
+    ],
+    [
+     -3852.53,
+     -573.43
+    ],
+    [
+     -3972.27,
+     -578.49
+    ],
+    [
+     -4022.15,
+     -579.79
+    ],
+    [
+     -4030.25,
+     -579.9
+    ],
+    [
+     -4025.25,
+     -579.83
+    ],
+    [
+     -4010.94,
+     -582.14
+    ],
+    [
+     -3972.17,
+     -581.13
+    ],
+    [
+     -3852.43,
+     -576.07
+    ],
+    [
+     -3817.48,
+     -574.65
+    ],
+    [
+     -3757.55,
+     -572.9
+    ],
+    [
+     -2897.36,
+     -564.1
+    ],
+    [
+     -2212.55,
+     -556.65
+    ],
+    [
+     -1077.9,
+     -542.87
+    ],
+    [
+     -1005.9,
+     -542.82
+    ],
+    [
+     -869.43,
+     -544.24
+    ],
+    [
+     -814.14,
+     -544.41
+    ],
+    [
+     -714.19,
+     -543.52
+    ],
+    [
+     -671.69,
+     -543.32
+    ],
+    [
+     -601.89,
+     -542.42
+    ],
+    [
+     -394.79,
+     -540.52
+    ],
+    [
+     -286.46,
+     -539.72
+    ],
+    [
+     -252.96,
+     -537.82
+    ],
+    [
+     -147.81,
+     -537.22
+    ],
+    [
+     -126.1,
+     -537.62
+    ],
+    [
+     -83.93,
+     -536.87
+    ],
+    [
+     13.73,
+     -536.16
+    ],
+    [
+     215.01,
+     -534.42
+    ],
+    [
+     338.51,
+     -534.02
+    ],
+    [
+     582.51,
+     -532.32
+    ],
+    [
+     815.88,
+     -529.62
+    ],
+    [
+     831.09,
+     -527.83
+    ]
+   ],
+   "cusp_m": [
+    0.0,
+    4861.92
+   ],
+   "length_m": 9724.02,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ]
+  },
+  {
+   "id": "clark_street",
+   "operator": "ncr",
+   "section": "clark_street",
+   "board": "N. CLARK ST.",
+   "terminal_a": "Lake Street",
+   "terminal_b": "Division Street",
+   "headway_s": 180,
+   "basis": "Edwards' 1871 timetable: cars every twelve minutes to the city limits, to Sedgwick and to Clybourn and Larrabee, and every fifteen to Chicago avenue, all up Clark Street: about one every three minutes. Run here between Lake Street and the end of the double track at Division (the single line beyond carries no car in this scene).",
+   "grade": "reconstructed",
+   "loop": [
+    [
+     576.5,
+     -106.02
+    ],
+    [
+     576.44,
+     -101.02
+    ],
+    [
+     578.92,
+     -86.99
+    ],
+    [
+     578.52,
+     -52.09
+    ],
+    [
+     578.02,
+     6.41
+    ],
+    [
+     576.49,
+     114.85
+    ],
+    [
+     575.12,
+     272.41
+    ],
+    [
+     572.62,
+     451.42
+    ],
+    [
+     570.92,
+     585.51
+    ],
+    [
+     570.52,
+     629.41
+    ],
+    [
+     569.32,
+     718.42
+    ],
+    [
+     568.42,
+     807.61
+    ],
+    [
+     567.82,
+     896.61
+    ],
+    [
+     565.72,
+     1096.71
+    ],
+    [
+     564.02,
+     1245.02
+    ],
+    [
+     560.22,
+     1531.72
+    ],
+    [
+     558.12,
+     1675.02
+    ],
+    [
+     555.28,
+     1891.56
+    ],
+    [
+     555.14,
+     1893.26
+    ],
+    [
+     554.78,
+     1894.96
+    ],
+    [
+     554.2,
+     1896.61
+    ],
+    [
+     553.41,
+     1898.16
+    ],
+    [
+     552.42,
+     1899.59
+    ],
+    [
+     551.26,
+     1900.89
+    ],
+    [
+     549.93,
+     1902.02
+    ],
+    [
+     548.47,
+     1902.97
+    ],
+    [
+     546.9,
+     1903.72
+    ],
+    [
+     545.24,
+     1904.26
+    ],
+    [
+     543.53,
+     1904.58
+    ],
+    [
+     541.83,
+     1904.67
+    ],
+    [
+     532.22,
+     1904.54
+    ],
+    [
+     537.22,
+     1904.61
+    ],
+    [
+     546.9,
+     1900.8
+    ],
+    [
+     547.18,
+     1900.66
+    ],
+    [
+     548.35,
+     1899.9
+    ],
+    [
+     549.41,
+     1898.99
+    ],
+    [
+     550.34,
+     1897.96
+    ],
+    [
+     551.13,
+     1896.81
+    ],
+    [
+     551.77,
+     1895.56
+    ],
+    [
+     552.23,
+     1894.25
+    ],
+    [
+     552.53,
+     1892.88
+    ],
+    [
+     552.64,
+     1891.44
+    ],
+    [
+     555.48,
+     1674.98
+    ],
+    [
+     557.58,
+     1531.68
+    ],
+    [
+     561.38,
+     1244.98
+    ],
+    [
+     563.08,
+     1096.69
+    ],
+    [
+     565.18,
+     896.59
+    ],
+    [
+     565.78,
+     807.59
+    ],
+    [
+     566.68,
+     718.38
+    ],
+    [
+     567.88,
+     629.39
+    ],
+    [
+     568.28,
+     585.49
+    ],
+    [
+     569.98,
+     451.38
+    ],
+    [
+     572.48,
+     272.39
+    ],
+    [
+     573.85,
+     114.82
+    ],
+    [
+     575.38,
+     6.39
+    ],
+    [
+     575.88,
+     -52.11
+    ],
+    [
+     576.5,
+     -106.02
+    ]
+   ],
+   "cusp_m": [
+    0.0,
+    2028.38
+   ],
+   "length_m": 4052.91,
+   "sources": [
+    {
+     "id": "edwards_chicago_directory_1871",
+     "locator": "City Railway and Omnibus Routes, printed p. 53"
+    },
+    {
+     "id": "andreas_1885_v2",
+     "locator": "City Railways, pp. 119-121"
+    },
+    {
+     "id": "colbert_chamberlin_1871_great_conflagration",
+     "locator": "p. 99"
+    }
+   ]
+  }
+ ],
+ "rails": [
+  {
+   "section": "state_street",
+   "pts": [
+    [
+     828.48,
+     -114.01
+    ],
+    [
+     829.08,
+     -183.41
+    ],
+    [
+     829.88,
+     -253.72
+    ],
+    [
+     832.18,
+     -395.02
+    ],
+    [
+     834.48,
+     -512.11
+    ],
+    [
+     839.78,
+     -546.82
+    ],
+    [
+     842.48,
+     -659.88
+    ],
+    [
+     841.98,
+     -669.85
+    ],
+    [
+     841.38,
+     -695.09
+    ],
+    [
+     842.38,
+     -812.21
+    ],
+    [
+     844.08,
+     -955.01
+    ],
+    [
+     845.18,
+     -1093.41
+    ],
+    [
+     846.88,
+     -1236.8
+    ],
+    [
+     846.18,
+     -1307.2
+    ],
+    [
+     846.88,
+     -1377.52
+    ],
+    [
+     850.68,
+     -1607.22
+    ],
+    [
+     851.48,
+     -1662.22
+    ],
+    [
+     853.08,
+     -1803.61
+    ],
+    [
+     853.78,
+     -1877.31
+    ],
+    [
+     854.28,
+     -1947.71
+    ],
+    [
+     856.78,
+     -2150.0
+    ],
+    [
+     856.18,
+     -2201.92
+    ],
+    [
+     858.18,
+     -2247.23
+    ],
+    [
+     858.38,
+     -2335.61
+    ],
+    [
+     862.18,
+     -2705.62
+    ],
+    [
+     863.98,
+     -2811.91
+    ],
+    [
+     863.88,
+     -2953.41
+    ],
+    [
+     867.48,
+     -3216.41
+    ],
+    [
+     869.68,
+     -3478.91
+    ],
+    [
+     871.38,
+     -3611.71
+    ],
+    [
+     872.38,
+     -3764.91
+    ]
+   ]
+  },
+  {
+   "section": "state_street",
+   "pts": [
+    [
+     831.12,
+     -113.99
+    ],
+    [
+     831.72,
+     -183.39
+    ],
+    [
+     832.52,
+     -253.68
+    ],
+    [
+     834.82,
+     -394.98
+    ],
+    [
+     837.12,
+     -511.89
+    ],
+    [
+     842.42,
+     -546.58
+    ],
+    [
+     845.12,
+     -659.92
+    ],
+    [
+     844.62,
+     -669.95
+    ],
+    [
+     844.02,
+     -695.11
+    ],
+    [
+     845.02,
+     -812.19
+    ],
+    [
+     846.72,
+     -954.99
+    ],
+    [
+     847.82,
+     -1093.39
+    ],
+    [
+     849.52,
+     -1236.8
+    ],
+    [
+     848.82,
+     -1307.2
+    ],
+    [
+     849.52,
+     -1377.48
+    ],
+    [
+     853.32,
+     -1607.18
+    ],
+    [
+     854.12,
+     -1662.18
+    ],
+    [
+     855.72,
+     -1803.59
+    ],
+    [
+     856.42,
+     -1877.29
+    ],
+    [
+     856.92,
+     -1947.69
+    ],
+    [
+     859.42,
+     -2150.0
+    ],
+    [
+     858.82,
+     -2201.88
+    ],
+    [
+     860.82,
+     -2247.17
+    ],
+    [
+     861.02,
+     -2335.59
+    ],
+    [
+     864.82,
+     -2705.58
+    ],
+    [
+     866.62,
+     -2811.89
+    ],
+    [
+     866.52,
+     -2953.39
+    ],
+    [
+     870.12,
+     -3216.39
+    ],
+    [
+     872.32,
+     -3478.89
+    ],
+    [
+     874.02,
+     -3611.69
+    ],
+    [
+     875.02,
+     -3764.89
+    ]
+   ]
+  },
+  {
+   "section": "state_street",
+   "pts": [
+    [
+     831.22,
+     -125.99
+    ],
+    [
+     828.7,
+     -140.01
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "state_street",
+   "pts": [
+    [
+     872.3,
+     -3752.91
+    ],
+    [
+     874.85,
+     -3738.89
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     873.7,
+     -3764.9
+    ],
+    [
+     873.26,
+     -3802.14
+    ],
+    [
+     871.38,
+     -3861.69
+    ],
+    [
+     866.5,
+     -3974.76
+    ]
+   ]
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     866.5,
+     -3974.76
+    ],
+    [
+     864.68,
+     -3986.74
+    ],
+    [
+     864.03,
+     -4008.73
+    ],
+    [
+     865.0,
+     -4020.74
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     866.5,
+     -3974.76
+    ],
+    [
+     867.32,
+     -3986.77
+    ],
+    [
+     866.67,
+     -4008.76
+    ],
+    [
+     865.0,
+     -4020.74
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     865.0,
+     -4020.74
+    ],
+    [
+     864.86,
+     -4025.37
+    ],
+    [
+     864.37,
+     -4065.23
+    ],
+    [
+     863.4,
+     -4394.73
+    ]
+   ]
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     863.4,
+     -4394.73
+    ],
+    [
+     862.04,
+     -4406.71
+    ],
+    [
+     861.97,
+     -4428.71
+    ],
+    [
+     863.26,
+     -4440.73
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     863.4,
+     -4394.73
+    ],
+    [
+     864.68,
+     -4406.75
+    ],
+    [
+     864.61,
+     -4428.75
+    ],
+    [
+     863.26,
+     -4440.73
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     863.26,
+     -4440.73
+    ],
+    [
+     862.7,
+     -4629.66
+    ],
+    [
+     862.1,
+     -4814.73
+    ]
+   ]
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     862.1,
+     -4814.73
+    ],
+    [
+     860.74,
+     -4826.71
+    ],
+    [
+     860.67,
+     -4848.71
+    ],
+    [
+     861.95,
+     -4860.73
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     862.1,
+     -4814.73
+    ],
+    [
+     863.38,
+     -4826.74
+    ],
+    [
+     863.31,
+     -4848.74
+    ],
+    [
+     861.95,
+     -4860.73
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "state_street_south",
+   "pts": [
+    [
+     861.95,
+     -4860.73
+    ],
+    [
+     861.28,
+     -5069.56
+    ],
+    [
+     861.77,
+     -5084.46
+    ],
+    [
+     862.85,
+     -5099.26
+    ],
+    [
+     865.08,
+     -5118.87
+    ],
+    [
+     868.91,
+     -5143.2
+    ],
+    [
+     875.67,
+     -5177.03
+    ],
+    [
+     893.95,
+     -5258.87
+    ],
+    [
+     898.5,
+     -5283.07
+    ],
+    [
+     901.48,
+     -5302.54
+    ],
+    [
+     903.7,
+     -5322.14
+    ],
+    [
+     904.77,
+     -5336.94
+    ],
+    [
+     905.17,
+     -5346.86
+    ],
+    [
+     905.29,
+     -5356.82
+    ]
+   ]
+  },
+  {
+   "section": "twenty_second_street",
+   "pts": [
+    [
+     873.7,
+     -3764.9
+    ],
+    [
+     903.3,
+     -3768.6
+    ],
+    [
+     938.1,
+     -3768.7
+    ],
+    [
+     1005.6,
+     -3768.1
+    ],
+    [
+     1083.47,
+     -3767.77
+    ]
+   ]
+  },
+  {
+   "section": "twenty_second_street",
+   "pts": [
+    [
+     1083.47,
+     -3767.77
+    ],
+    [
+     1095.3,
+     -3769.04
+    ],
+    [
+     1117.3,
+     -3768.94
+    ],
+    [
+     1129.47,
+     -3767.57
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "twenty_second_street",
+   "pts": [
+    [
+     1083.47,
+     -3767.77
+    ],
+    [
+     1095.63,
+     -3766.39
+    ],
+    [
+     1117.63,
+     -3766.3
+    ],
+    [
+     1129.47,
+     -3767.57
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "twenty_second_street",
+   "pts": [
+    [
+     1129.47,
+     -3767.57
+    ],
+    [
+     1145.9,
+     -3767.5
+    ],
+    [
+     1211.1,
+     -3766.3
+    ],
+    [
+     1273.4,
+     -3765.9
+    ],
+    [
+     1350.7,
+     -3765.6
+    ],
+    [
+     1407.0,
+     -3764.4
+    ],
+    [
+     1490.05,
+     -3765.22
+    ],
+    [
+     1494.03,
+     -3765.79
+    ],
+    [
+     1497.87,
+     -3766.89
+    ],
+    [
+     1501.58,
+     -3768.51
+    ],
+    [
+     1510.28,
+     -3773.11
+    ],
+    [
+     1513.36,
+     -3775.22
+    ],
+    [
+     1516.12,
+     -3777.68
+    ],
+    [
+     1516.81,
+     -3778.43
+    ],
+    [
+     1516.89,
+     -3778.5
+    ],
+    [
+     1516.97,
+     -3778.56
+    ],
+    [
+     1517.05,
+     -3778.61
+    ],
+    [
+     1517.14,
+     -3778.64
+    ],
+    [
+     1517.24,
+     -3778.67
+    ],
+    [
+     1517.34,
+     -3778.69
+    ],
+    [
+     1517.44,
+     -3778.69
+    ],
+    [
+     1517.54,
+     -3778.68
+    ],
+    [
+     1517.64,
+     -3778.66
+    ],
+    [
+     1517.73,
+     -3778.62
+    ],
+    [
+     1517.82,
+     -3778.58
+    ],
+    [
+     1517.9,
+     -3778.52
+    ],
+    [
+     1517.98,
+     -3778.46
+    ],
+    [
+     1538.49,
+     -3758.52
+    ],
+    [
+     1539.63,
+     -3757.54
+    ],
+    [
+     1540.89,
+     -3756.71
+    ],
+    [
+     1542.25,
+     -3756.04
+    ],
+    [
+     1543.68,
+     -3755.55
+    ],
+    [
+     1545.16,
+     -3755.24
+    ],
+    [
+     1546.66,
+     -3755.13
+    ],
+    [
+     1605.7,
+     -3754.2
+    ],
+    [
+     1650.1,
+     -3753.7
+    ],
+    [
+     1663.4,
+     -3755.0
+    ]
+   ]
+  },
+  {
+   "section": "archer_road",
+   "pts": [
+    [
+     869.9,
+     -3356.3
+    ],
+    [
+     828.4,
+     -3381.7
+    ],
+    [
+     743.8,
+     -3435.6
+    ],
+    [
+     692.19,
+     -3468.19
+    ]
+   ]
+  },
+  {
+   "section": "archer_road",
+   "pts": [
+    [
+     692.19,
+     -3468.19
+    ],
+    [
+     681.36,
+     -3473.47
+    ],
+    [
+     671.2,
+     -3479.88
+    ],
+    [
+     662.74,
+     -3485.18
+    ],
+    [
+     653.25,
+     -3492.67
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "archer_road",
+   "pts": [
+    [
+     692.19,
+     -3468.19
+    ],
+    [
+     682.74,
+     -3475.72
+    ],
+    [
+     672.6,
+     -3482.12
+    ],
+    [
+     664.11,
+     -3487.43
+    ],
+    [
+     653.25,
+     -3492.67
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "archer_road",
+   "pts": [
+    [
+     653.25,
+     -3492.67
+    ],
+    [
+     576.5,
+     -3540.7
+    ],
+    [
+     553.5,
+     -3555.7
+    ],
+    [
+     527.4,
+     -3573.1
+    ],
+    [
+     482.3,
+     -3601.7
+    ],
+    [
+     232.4,
+     -3760.8
+    ]
+   ]
+  },
+  {
+   "section": "randolph_street",
+   "pts": [
+    [
+     831.2,
+     -252.38
+    ],
+    [
+     702.9,
+     -252.48
+    ],
+    [
+     455.81,
+     -251.68
+    ],
+    [
+     334.71,
+     -251.08
+    ],
+    [
+     91.51,
+     -250.28
+    ],
+    [
+     71.21,
+     -250.08
+    ],
+    [
+     11.8,
+     -249.99
+    ],
+    [
+     -81.05,
+     -250.11
+    ],
+    [
+     -155.3,
+     -250.48
+    ],
+    [
+     -277.5,
+     -250.18
+    ],
+    [
+     -398.7,
+     -249.68
+    ],
+    [
+     -520.8,
+     -249.38
+    ],
+    [
+     -607.9,
+     -249.78
+    ],
+    [
+     -657.2,
+     -249.58
+    ],
+    [
+     -788.92,
+     -249.68
+    ],
+    [
+     -817.31,
+     -250.46
+    ],
+    [
+     -853.95,
+     -252.85
+    ],
+    [
+     -880.32,
+     -255.3
+    ],
+    [
+     -928.18,
+     -260.62
+    ],
+    [
+     -998.22,
+     -268.55
+    ],
+    [
+     -1036.37,
+     -271.87
+    ],
+    [
+     -1063.81,
+     -273.43
+    ],
+    [
+     -1085.87,
+     -274.03
+    ],
+    [
+     -3750.46,
+     -295.48
+    ],
+    [
+     -3788.39,
+     -297.05
+    ],
+    [
+     -3820.82,
+     -299.26
+    ],
+    [
+     -3853.1,
+     -301.99
+    ],
+    [
+     -3943.21,
+     -310.24
+    ],
+    [
+     -3974.36,
+     -312.61
+    ],
+    [
+     -4015.26,
+     -314.76
+    ],
+    [
+     -4040.4,
+     -315.31
+    ]
+   ]
+  },
+  {
+   "section": "randolph_street",
+   "pts": [
+    [
+     831.2,
+     -255.02
+    ],
+    [
+     702.9,
+     -255.12
+    ],
+    [
+     455.79,
+     -254.32
+    ],
+    [
+     334.69,
+     -253.72
+    ],
+    [
+     91.49,
+     -252.92
+    ],
+    [
+     71.19,
+     -252.72
+    ],
+    [
+     11.8,
+     -252.63
+    ],
+    [
+     -81.05,
+     -252.74
+    ],
+    [
+     -155.3,
+     -253.12
+    ],
+    [
+     -277.5,
+     -252.82
+    ],
+    [
+     -398.7,
+     -252.32
+    ],
+    [
+     -520.8,
+     -252.02
+    ],
+    [
+     -607.9,
+     -252.42
+    ],
+    [
+     -657.2,
+     -252.22
+    ],
+    [
+     -788.88,
+     -252.32
+    ],
+    [
+     -817.19,
+     -253.1
+    ],
+    [
+     -853.75,
+     -255.49
+    ],
+    [
+     -880.06,
+     -257.92
+    ],
+    [
+     -927.88,
+     -263.24
+    ],
+    [
+     -997.96,
+     -271.17
+    ],
+    [
+     -1036.19,
+     -274.51
+    ],
+    [
+     -1063.69,
+     -276.07
+    ],
+    [
+     -1085.83,
+     -276.67
+    ],
+    [
+     -3750.4,
+     -298.12
+    ],
+    [
+     -3788.25,
+     -299.69
+    ],
+    [
+     -3820.62,
+     -301.9
+    ],
+    [
+     -3852.86,
+     -304.61
+    ],
+    [
+     -3942.99,
+     -312.88
+    ],
+    [
+     -3974.2,
+     -315.25
+    ],
+    [
+     -4015.16,
+     -317.4
+    ],
+    [
+     -4040.34,
+     -317.95
+    ]
+   ]
+  },
+  {
+   "section": "randolph_street",
+   "pts": [
+    [
+     819.2,
+     -255.03
+    ],
+    [
+     805.2,
+     -252.4
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "randolph_street",
+   "pts": [
+    [
+     -4028.37,
+     -315.05
+    ],
+    [
+     -4014.38,
+     -317.36
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "madison_street",
+   "pts": [
+    [
+     837.74,
+     -524.39
+    ],
+    [
+     815.72,
+     -526.98
+    ],
+    [
+     582.49,
+     -529.68
+    ],
+    [
+     338.49,
+     -531.38
+    ],
+    [
+     214.99,
+     -531.78
+    ],
+    [
+     13.71,
+     -533.52
+    ],
+    [
+     -83.97,
+     -534.23
+    ],
+    [
+     -126.1,
+     -534.98
+    ],
+    [
+     -147.79,
+     -534.58
+    ],
+    [
+     -253.04,
+     -535.18
+    ],
+    [
+     -286.54,
+     -537.08
+    ],
+    [
+     -394.81,
+     -537.88
+    ],
+    [
+     -601.91,
+     -539.78
+    ],
+    [
+     -671.71,
+     -540.68
+    ],
+    [
+     -714.21,
+     -540.88
+    ],
+    [
+     -814.14,
+     -541.77
+    ],
+    [
+     -869.41,
+     -541.6
+    ],
+    [
+     -1005.88,
+     -540.18
+    ],
+    [
+     -1077.92,
+     -540.23
+    ],
+    [
+     -2212.59,
+     -554.01
+    ],
+    [
+     -2897.38,
+     -561.46
+    ],
+    [
+     -3757.61,
+     -570.26
+    ],
+    [
+     -3817.58,
+     -572.01
+    ],
+    [
+     -3852.53,
+     -573.43
+    ],
+    [
+     -3972.27,
+     -578.49
+    ],
+    [
+     -4022.15,
+     -579.79
+    ],
+    [
+     -4037.11,
+     -580.0
+    ]
+   ]
+  },
+  {
+   "section": "madison_street",
+   "pts": [
+    [
+     838.05,
+     -527.01
+    ],
+    [
+     815.88,
+     -529.62
+    ],
+    [
+     582.51,
+     -532.32
+    ],
+    [
+     338.51,
+     -534.02
+    ],
+    [
+     215.01,
+     -534.42
+    ],
+    [
+     13.73,
+     -536.16
+    ],
+    [
+     -83.93,
+     -536.87
+    ],
+    [
+     -126.1,
+     -537.62
+    ],
+    [
+     -147.81,
+     -537.22
+    ],
+    [
+     -252.96,
+     -537.82
+    ],
+    [
+     -286.46,
+     -539.72
+    ],
+    [
+     -394.79,
+     -540.52
+    ],
+    [
+     -601.89,
+     -542.42
+    ],
+    [
+     -671.69,
+     -543.32
+    ],
+    [
+     -714.19,
+     -543.52
+    ],
+    [
+     -814.14,
+     -544.41
+    ],
+    [
+     -869.43,
+     -544.24
+    ],
+    [
+     -1005.9,
+     -542.82
+    ],
+    [
+     -1077.9,
+     -542.87
+    ],
+    [
+     -2212.55,
+     -556.65
+    ],
+    [
+     -2897.36,
+     -564.1
+    ],
+    [
+     -3757.55,
+     -572.9
+    ],
+    [
+     -3817.48,
+     -574.65
+    ],
+    [
+     -3852.43,
+     -576.07
+    ],
+    [
+     -3972.17,
+     -581.13
+    ],
+    [
+     -4022.09,
+     -582.43
+    ],
+    [
+     -4037.07,
+     -582.64
+    ]
+   ]
+  },
+  {
+   "section": "madison_street",
+   "pts": [
+    [
+     826.13,
+     -528.41
+    ],
+    [
+     811.89,
+     -527.03
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "madison_street",
+   "pts": [
+    [
+     -4025.25,
+     -579.83
+    ],
+    [
+     -4010.94,
+     -582.14
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -781.59,
+     -1332.01
+    ],
+    [
+     -810.9,
+     -1380.76
+    ],
+    [
+     -852.47,
+     -1451.77
+    ],
+    [
+     -888.1,
+     -1512.99
+    ]
+   ]
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -888.1,
+     -1512.99
+    ],
+    [
+     -895.27,
+     -1522.68
+    ],
+    [
+     -906.33,
+     -1541.7
+    ],
+    [
+     -911.24,
+     -1552.75
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -888.1,
+     -1512.99
+    ],
+    [
+     -893.0,
+     -1524.04
+    ],
+    [
+     -904.07,
+     -1543.06
+    ],
+    [
+     -911.24,
+     -1552.75
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -911.24,
+     -1552.75
+    ],
+    [
+     -911.57,
+     -1553.32
+    ],
+    [
+     -936.45,
+     -1595.16
+    ],
+    [
+     -1050.58,
+     -1782.59
+    ],
+    [
+     -1106.17,
+     -1871.92
+    ]
+   ]
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -1106.17,
+     -1871.92
+    ],
+    [
+     -1113.69,
+     -1881.4
+    ],
+    [
+     -1125.54,
+     -1899.93
+    ],
+    [
+     -1130.88,
+     -1910.72
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -1106.17,
+     -1871.92
+    ],
+    [
+     -1111.43,
+     -1882.76
+    ],
+    [
+     -1123.28,
+     -1901.29
+    ],
+    [
+     -1130.88,
+     -1910.72
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "blue_island_avenue",
+   "pts": [
+    [
+     -1130.88,
+     -1910.72
+    ],
+    [
+     -1152.54,
+     -1944.61
+    ],
+    [
+     -1189.67,
+     -2000.7
+    ],
+    [
+     -1224.42,
+     -2051.78
+    ],
+    [
+     -1284.97,
+     -2140.28
+    ],
+    [
+     -1322.23,
+     -2196.24
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -158.7,
+     -110.0
+    ],
+    [
+     -176.4,
+     -90.8
+    ],
+    [
+     -237.8,
+     -30.3
+    ],
+    [
+     -280.8,
+     12.6
+    ],
+    [
+     -306.85,
+     38.8
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -306.85,
+     38.8
+    ],
+    [
+     -314.34,
+     48.2
+    ],
+    [
+     -329.85,
+     63.8
+    ],
+    [
+     -339.29,
+     71.42
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -306.85,
+     38.8
+    ],
+    [
+     -316.28,
+     46.41
+    ],
+    [
+     -331.8,
+     62.01
+    ],
+    [
+     -339.29,
+     71.42
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -339.29,
+     71.42
+    ],
+    [
+     -527.6,
+     260.8
+    ],
+    [
+     -544.3,
+     279.0
+    ],
+    [
+     -572.1,
+     305.8
+    ],
+    [
+     -605.06,
+     334.36
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -605.06,
+     334.36
+    ],
+    [
+     -613.15,
+     343.12
+    ],
+    [
+     -629.63,
+     357.39
+    ],
+    [
+     -629.78,
+     357.52
+    ],
+    [
+     -639.77,
+     364.55
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -605.06,
+     334.36
+    ],
+    [
+     -615.11,
+     341.32
+    ],
+    [
+     -631.37,
+     355.41
+    ],
+    [
+     -631.73,
+     355.72
+    ],
+    [
+     -639.77,
+     364.55
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -639.77,
+     364.55
+    ],
+    [
+     -769.7,
+     478.7
+    ],
+    [
+     -798.2,
+     501.7
+    ],
+    [
+     -833.47,
+     531.07
+    ],
+    [
+     -860.32,
+     552.33
+    ],
+    [
+     -891.04,
+     575.93
+    ],
+    [
+     -927.25,
+     603.55
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -927.25,
+     603.55
+    ],
+    [
+     -935.8,
+     611.74
+    ],
+    [
+     -953.29,
+     625.08
+    ],
+    [
+     -963.77,
+     631.52
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -927.25,
+     603.55
+    ],
+    [
+     -937.77,
+     609.92
+    ],
+    [
+     -955.26,
+     623.27
+    ],
+    [
+     -963.77,
+     631.52
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -963.77,
+     631.52
+    ],
+    [
+     -987.89,
+     650.6
+    ],
+    [
+     -1009.16,
+     668.07
+    ],
+    [
+     -1027.15,
+     683.41
+    ],
+    [
+     -1247.74,
+     874.85
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1247.74,
+     874.85
+    ],
+    [
+     -1255.82,
+     883.62
+    ],
+    [
+     -1272.44,
+     898.04
+    ],
+    [
+     -1282.48,
+     905.0
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1247.74,
+     874.85
+    ],
+    [
+     -1257.78,
+     881.82
+    ],
+    [
+     -1274.39,
+     896.24
+    ],
+    [
+     -1282.48,
+     905.0
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1282.48,
+     905.0
+    ],
+    [
+     -1564.94,
+     1150.14
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1564.94,
+     1150.14
+    ],
+    [
+     -1573.02,
+     1158.91
+    ],
+    [
+     -1589.64,
+     1173.33
+    ],
+    [
+     -1599.68,
+     1180.29
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1564.94,
+     1150.14
+    ],
+    [
+     -1574.97,
+     1157.11
+    ],
+    [
+     -1591.59,
+     1171.53
+    ],
+    [
+     -1599.68,
+     1180.29
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1599.68,
+     1180.29
+    ],
+    [
+     -1687.53,
+     1256.54
+    ],
+    [
+     -1868.75,
+     1412.51
+    ],
+    [
+     -1882.85,
+     1424.61
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1882.85,
+     1424.61
+    ],
+    [
+     -1890.98,
+     1433.32
+    ],
+    [
+     -1907.67,
+     1447.65
+    ],
+    [
+     -1917.76,
+     1454.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1882.85,
+     1424.61
+    ],
+    [
+     -1892.93,
+     1431.52
+    ],
+    [
+     -1909.63,
+     1445.85
+    ],
+    [
+     -1917.76,
+     1454.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -1917.76,
+     1454.56
+    ],
+    [
+     -2121.87,
+     1629.72
+    ],
+    [
+     -2201.29,
+     1698.45
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2201.29,
+     1698.45
+    ],
+    [
+     -2209.39,
+     1707.21
+    ],
+    [
+     -2226.03,
+     1721.6
+    ],
+    [
+     -2236.07,
+     1728.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2201.29,
+     1698.45
+    ],
+    [
+     -2211.34,
+     1705.4
+    ],
+    [
+     -2227.98,
+     1719.8
+    ],
+    [
+     -2236.07,
+     1728.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2236.07,
+     1728.56
+    ],
+    [
+     -2336.59,
+     1816.46
+    ],
+    [
+     -2434.14,
+     1902.88
+    ],
+    [
+     -2515.87,
+     1976.38
+    ],
+    [
+     -2516.04,
+     1976.53
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2516.04,
+     1976.53
+    ],
+    [
+     -2523.92,
+     1985.52
+    ],
+    [
+     -2540.17,
+     2000.36
+    ],
+    [
+     -2550.0,
+     2007.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2516.04,
+     1976.53
+    ],
+    [
+     -2525.87,
+     1983.73
+    ],
+    [
+     -2542.12,
+     1998.56
+    ],
+    [
+     -2550.0,
+     2007.56
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2550.0,
+     2007.56
+    ],
+    [
+     -2578.42,
+     2033.51
+    ],
+    [
+     -2677.68,
+     2125.5
+    ],
+    [
+     -2765.77,
+     2208.16
+    ],
+    [
+     -2823.48,
+     2262.67
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2823.48,
+     2262.67
+    ],
+    [
+     -2831.23,
+     2271.8
+    ],
+    [
+     -2838.15,
+     2278.34
+    ],
+    [
+     -2847.22,
+     2286.91
+    ],
+    [
+     -2856.91,
+     2294.26
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2823.48,
+     2262.67
+    ],
+    [
+     -2833.18,
+     2270.01
+    ],
+    [
+     -2839.97,
+     2276.42
+    ],
+    [
+     -2849.17,
+     2285.12
+    ],
+    [
+     -2856.91,
+     2294.26
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -2856.91,
+     2294.26
+    ],
+    [
+     -3069.03,
+     2494.84
+    ],
+    [
+     -3129.0,
+     2550.86
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3129.0,
+     2550.86
+    ],
+    [
+     -3136.8,
+     2559.95
+    ],
+    [
+     -3152.88,
+     2574.97
+    ],
+    [
+     -3162.62,
+     2582.26
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3129.0,
+     2550.86
+    ],
+    [
+     -3138.75,
+     2558.15
+    ],
+    [
+     -3154.82,
+     2573.17
+    ],
+    [
+     -3162.62,
+     2582.26
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3162.62,
+     2582.26
+    ],
+    [
+     -3177.95,
+     2596.58
+    ],
+    [
+     -3253.92,
+     2666.52
+    ],
+    [
+     -3323.75,
+     2729.86
+    ],
+    [
+     -3403.08,
+     2800.96
+    ],
+    [
+     -3439.7,
+     2833.45
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3439.7,
+     2833.45
+    ],
+    [
+     -3447.7,
+     2842.31
+    ],
+    [
+     -3464.16,
+     2856.91
+    ],
+    [
+     -3474.11,
+     2863.98
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3439.7,
+     2833.45
+    ],
+    [
+     -3449.65,
+     2840.51
+    ],
+    [
+     -3466.11,
+     2855.12
+    ],
+    [
+     -3474.11,
+     2863.98
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3474.11,
+     2863.98
+    ],
+    [
+     -3485.84,
+     2874.39
+    ],
+    [
+     -3609.47,
+     2982.99
+    ],
+    [
+     -3755.63,
+     3110.19
+    ]
+   ]
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3755.63,
+     3110.19
+    ],
+    [
+     -3763.71,
+     3118.96
+    ],
+    [
+     -3780.31,
+     3133.41
+    ],
+    [
+     -3790.33,
+     3140.38
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3755.63,
+     3110.19
+    ],
+    [
+     -3765.66,
+     3117.16
+    ],
+    [
+     -3782.26,
+     3131.61
+    ],
+    [
+     -3790.33,
+     3140.38
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "milwaukee_avenue",
+   "pts": [
+    [
+     -3790.33,
+     3140.38
+    ],
+    [
+     -3833.48,
+     3177.93
+    ],
+    [
+     -3853.1,
+     3193.88
+    ],
+    [
+     -3877.99,
+     3212.66
+    ],
+    [
+     -3895.22,
+     3225.02
+    ],
+    [
+     -3917.29,
+     3240.33
+    ],
+    [
+     -3993.95,
+     3292.09
+    ],
+    [
+     -4029.17,
+     3316.78
+    ],
+    [
+     -4050.33,
+     3332.48
+    ],
+    [
+     -4070.57,
+     3348.47
+    ],
+    [
+     -4078.36,
+     3354.96
+    ],
+    [
+     -4085.95,
+     3361.5
+    ]
+   ]
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -277.5,
+     -251.5
+    ],
+    [
+     -275.2,
+     -391.5
+    ],
+    [
+     -274.14,
+     -461.47
+    ]
+   ]
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -274.14,
+     -461.47
+    ],
+    [
+     -275.27,
+     -473.49
+    ],
+    [
+     -274.94,
+     -495.49
+    ],
+    [
+     -273.44,
+     -507.47
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -274.14,
+     -461.47
+    ],
+    [
+     -272.63,
+     -473.45
+    ],
+    [
+     -272.3,
+     -495.45
+    ],
+    [
+     -273.44,
+     -507.47
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -273.44,
+     -507.47
+    ],
+    [
+     -270.8,
+     -681.1
+    ],
+    [
+     -268.2,
+     -822.8
+    ],
+    [
+     -267.53,
+     -881.42
+    ]
+   ]
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -267.53,
+     -881.42
+    ],
+    [
+     -268.72,
+     -893.44
+    ],
+    [
+     -268.28,
+     -915.44
+    ],
+    [
+     -266.72,
+     -927.41
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -267.53,
+     -881.42
+    ],
+    [
+     -266.08,
+     -893.4
+    ],
+    [
+     -265.64,
+     -915.39
+    ],
+    [
+     -266.72,
+     -927.41
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "clinton_street",
+   "pts": [
+    [
+     -266.72,
+     -927.41
+    ],
+    [
+     -266.0,
+     -963.4
+    ],
+    [
+     -263.51,
+     -1104.9
+    ]
+   ]
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -398.7,
+     -251.0
+    ],
+    [
+     -396.9,
+     -391.0
+    ],
+    [
+     -395.91,
+     -460.98
+    ]
+   ]
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -395.91,
+     -460.98
+    ],
+    [
+     -397.06,
+     -473.0
+    ],
+    [
+     -396.75,
+     -494.99
+    ],
+    [
+     -395.26,
+     -506.98
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -395.91,
+     -460.98
+    ],
+    [
+     -394.42,
+     -472.96
+    ],
+    [
+     -394.11,
+     -494.96
+    ],
+    [
+     -395.26,
+     -506.98
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -395.26,
+     -506.98
+    ],
+    [
+     -394.8,
+     -539.2
+    ],
+    [
+     -390.0,
+     -824.0
+    ],
+    [
+     -389.19,
+     -880.93
+    ]
+   ]
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -389.19,
+     -880.93
+    ],
+    [
+     -390.34,
+     -892.94
+    ],
+    [
+     -390.32,
+     -894.12
+    ],
+    [
+     -389.91,
+     -914.94
+    ],
+    [
+     -388.35,
+     -926.92
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -389.19,
+     -880.93
+    ],
+    [
+     -387.7,
+     -892.91
+    ],
+    [
+     -387.68,
+     -894.08
+    ],
+    [
+     -387.27,
+     -914.9
+    ],
+    [
+     -388.35,
+     -926.92
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "jefferson_street",
+   "pts": [
+    [
+     -388.35,
+     -926.92
+    ],
+    [
+     -387.6,
+     -965.3
+    ],
+    [
+     -385.5,
+     -1106.1
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -263.51,
+     -1104.9
+    ],
+    [
+     -473.5,
+     -1106.92
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -473.5,
+     -1106.92
+    ],
+    [
+     -485.51,
+     -1105.71
+    ],
+    [
+     -507.51,
+     -1105.92
+    ],
+    [
+     -519.5,
+     -1107.36
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -473.5,
+     -1106.92
+    ],
+    [
+     -485.49,
+     -1108.35
+    ],
+    [
+     -507.48,
+     -1108.56
+    ],
+    [
+     -519.5,
+     -1107.36
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -519.5,
+     -1107.36
+    ],
+    [
+     -711.3,
+     -1109.2
+    ],
+    [
+     -776.0,
+     -1110.0
+    ],
+    [
+     -795.98,
+     -1109.82
+    ],
+    [
+     -815.98,
+     -1109.01
+    ],
+    [
+     -835.98,
+     -1107.67
+    ],
+    [
+     -855.98,
+     -1105.9
+    ],
+    [
+     -875.99,
+     -1103.79
+    ],
+    [
+     -893.11,
+     -1101.72
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -893.11,
+     -1101.72
+    ],
+    [
+     -905.03,
+     -1098.95
+    ],
+    [
+     -915.86,
+     -1097.64
+    ],
+    [
+     -926.87,
+     -1096.25
+    ],
+    [
+     -938.76,
+     -1096.08
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -893.11,
+     -1101.72
+    ],
+    [
+     -905.01,
+     -1101.61
+    ],
+    [
+     -916.18,
+     -1100.26
+    ],
+    [
+     -926.84,
+     -1098.92
+    ],
+    [
+     -938.76,
+     -1096.08
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -938.76,
+     -1096.08
+    ],
+    [
+     -956.06,
+     -1093.9
+    ],
+    [
+     -976.07,
+     -1091.55
+    ],
+    [
+     -996.08,
+     -1089.44
+    ],
+    [
+     -1016.09,
+     -1087.66
+    ],
+    [
+     -1036.09,
+     -1086.32
+    ],
+    [
+     -1056.08,
+     -1085.5
+    ],
+    [
+     -1076.06,
+     -1085.31
+    ],
+    [
+     -1312.22,
+     -1087.26
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1312.22,
+     -1087.26
+    ],
+    [
+     -1324.24,
+     -1086.04
+    ],
+    [
+     -1346.24,
+     -1086.22
+    ],
+    [
+     -1358.22,
+     -1087.64
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1312.22,
+     -1087.26
+    ],
+    [
+     -1324.21,
+     -1088.68
+    ],
+    [
+     -1346.21,
+     -1088.86
+    ],
+    [
+     -1358.22,
+     -1087.64
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1358.22,
+     -1087.64
+    ],
+    [
+     -1732.21,
+     -1090.73
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1732.21,
+     -1090.73
+    ],
+    [
+     -1744.22,
+     -1089.51
+    ],
+    [
+     -1766.22,
+     -1089.69
+    ],
+    [
+     -1778.21,
+     -1091.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1732.21,
+     -1090.73
+    ],
+    [
+     -1744.2,
+     -1092.15
+    ],
+    [
+     -1766.2,
+     -1092.33
+    ],
+    [
+     -1778.21,
+     -1091.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -1778.21,
+     -1091.11
+    ],
+    [
+     -2152.2,
+     -1094.19
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2152.2,
+     -1094.19
+    ],
+    [
+     -2164.21,
+     -1092.97
+    ],
+    [
+     -2186.21,
+     -1093.16
+    ],
+    [
+     -2198.19,
+     -1094.57
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2152.2,
+     -1094.19
+    ],
+    [
+     -2164.18,
+     -1095.61
+    ],
+    [
+     -2186.18,
+     -1095.8
+    ],
+    [
+     -2198.19,
+     -1094.57
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2198.19,
+     -1094.57
+    ],
+    [
+     -2572.18,
+     -1097.66
+    ]
+   ]
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2572.18,
+     -1097.66
+    ],
+    [
+     -2584.19,
+     -1096.44
+    ],
+    [
+     -2606.19,
+     -1096.62
+    ],
+    [
+     -2618.18,
+     -1098.04
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2572.18,
+     -1097.66
+    ],
+    [
+     -2584.17,
+     -1099.08
+    ],
+    [
+     -2606.17,
+     -1099.26
+    ],
+    [
+     -2618.18,
+     -1098.04
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "van_buren_street",
+   "pts": [
+    [
+     -2618.18,
+     -1098.04
+    ],
+    [
+     -2790.0,
+     -1099.46
+    ]
+   ]
+  },
+  {
+   "section": "clark_street",
+   "pts": [
+    [
+     579.22,
+     -112.98
+    ],
+    [
+     578.52,
+     -52.09
+    ],
+    [
+     578.02,
+     6.41
+    ],
+    [
+     576.49,
+     114.85
+    ],
+    [
+     575.12,
+     272.41
+    ],
+    [
+     572.62,
+     451.42
+    ],
+    [
+     570.92,
+     585.51
+    ],
+    [
+     570.52,
+     629.41
+    ],
+    [
+     569.32,
+     718.42
+    ],
+    [
+     568.42,
+     807.61
+    ],
+    [
+     567.82,
+     896.61
+    ],
+    [
+     565.72,
+     1096.71
+    ],
+    [
+     564.02,
+     1245.02
+    ],
+    [
+     560.22,
+     1531.72
+    ],
+    [
+     558.12,
+     1675.02
+    ],
+    [
+     555.28,
+     1891.56
+    ],
+    [
+     555.14,
+     1893.26
+    ],
+    [
+     554.78,
+     1894.96
+    ],
+    [
+     554.2,
+     1896.61
+    ],
+    [
+     553.41,
+     1898.16
+    ],
+    [
+     552.42,
+     1899.59
+    ],
+    [
+     551.26,
+     1900.89
+    ],
+    [
+     549.93,
+     1902.02
+    ],
+    [
+     548.47,
+     1902.97
+    ],
+    [
+     546.9,
+     1903.72
+    ],
+    [
+     545.24,
+     1904.26
+    ],
+    [
+     543.53,
+     1904.58
+    ],
+    [
+     541.83,
+     1904.67
+    ],
+    [
+     523.14,
+     1904.43
+    ]
+   ]
+  },
+  {
+   "section": "clark_street",
+   "pts": [
+    [
+     576.58,
+     -113.02
+    ],
+    [
+     575.88,
+     -52.11
+    ],
+    [
+     575.38,
+     6.39
+    ],
+    [
+     573.85,
+     114.82
+    ],
+    [
+     572.48,
+     272.39
+    ],
+    [
+     569.98,
+     451.38
+    ],
+    [
+     568.28,
+     585.49
+    ],
+    [
+     567.88,
+     629.39
+    ],
+    [
+     566.68,
+     718.38
+    ],
+    [
+     565.78,
+     807.59
+    ],
+    [
+     565.18,
+     896.59
+    ],
+    [
+     563.08,
+     1096.69
+    ],
+    [
+     561.38,
+     1244.98
+    ],
+    [
+     557.58,
+     1531.68
+    ],
+    [
+     555.48,
+     1674.98
+    ],
+    [
+     552.64,
+     1891.44
+    ],
+    [
+     552.53,
+     1892.88
+    ],
+    [
+     552.23,
+     1894.25
+    ],
+    [
+     551.77,
+     1895.56
+    ],
+    [
+     551.13,
+     1896.81
+    ],
+    [
+     550.34,
+     1897.96
+    ],
+    [
+     549.41,
+     1898.99
+    ],
+    [
+     548.35,
+     1899.9
+    ],
+    [
+     547.18,
+     1900.66
+    ],
+    [
+     545.92,
+     1901.26
+    ],
+    [
+     544.59,
+     1901.7
+    ],
+    [
+     543.22,
+     1901.95
+    ],
+    [
+     541.78,
+     1902.03
+    ],
+    [
+     523.18,
+     1901.79
+    ]
+   ]
+  },
+  {
+   "section": "clark_street",
+   "pts": [
+    [
+     576.44,
+     -101.02
+    ],
+    [
+     578.92,
+     -86.99
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "clark_street",
+   "pts": [
+    [
+     537.22,
+     1904.61
+    ],
+    [
+     546.9,
+     1900.8
+    ]
+   ],
+   "crossover": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     523.16,
+     1903.11
+    ],
+    [
+     522.33,
+     1955.78
+    ],
+    [
+     522.43,
+     2006.9
+    ],
+    [
+     523.25,
+     2058.65
+    ],
+    [
+     524.71,
+     2113.07
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     524.71,
+     2113.07
+    ],
+    [
+     526.35,
+     2125.09
+    ],
+    [
+     526.53,
+     2131.78
+    ],
+    [
+     527.01,
+     2147.08
+    ],
+    [
+     526.07,
+     2159.05
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     524.71,
+     2113.07
+    ],
+    [
+     523.71,
+     2125.05
+    ],
+    [
+     523.89,
+     2131.86
+    ],
+    [
+     524.37,
+     2147.04
+    ],
+    [
+     526.07,
+     2159.05
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     526.07,
+     2159.05
+    ],
+    [
+     530.01,
+     2283.94
+    ],
+    [
+     531.29,
+     2341.07
+    ],
+    [
+     531.83,
+     2392.42
+    ],
+    [
+     531.79,
+     2422.86
+    ],
+    [
+     531.09,
+     2467.93
+    ],
+    [
+     529.93,
+     2502.39
+    ],
+    [
+     528.46,
+     2531.47
+    ],
+    [
+     528.36,
+     2532.91
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     528.36,
+     2532.91
+    ],
+    [
+     528.86,
+     2544.9
+    ],
+    [
+     527.81,
+     2560.18
+    ],
+    [
+     527.22,
+     2566.84
+    ],
+    [
+     524.86,
+     2578.77
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     528.36,
+     2532.91
+    ],
+    [
+     526.21,
+     2544.86
+    ],
+    [
+     525.17,
+     2559.98
+    ],
+    [
+     524.58,
+     2566.8
+    ],
+    [
+     524.86,
+     2578.77
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     524.86,
+     2578.77
+    ],
+    [
+     524.44,
+     2583.53
+    ],
+    [
+     521.45,
+     2611.17
+    ],
+    [
+     516.49,
+     2647.11
+    ],
+    [
+     511.18,
+     2677.62
+    ],
+    [
+     504.87,
+     2707.2
+    ],
+    [
+     500.17,
+     2725.99
+    ],
+    [
+     496.57,
+     2738.94
+    ],
+    [
+     446.28,
+     2865.53
+    ],
+    [
+     430.23,
+     2896.43
+    ],
+    [
+     415.88,
+     2922.33
+    ],
+    [
+     410.6,
+     2931.38
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     410.6,
+     2931.38
+    ],
+    [
+     406.04,
+     2941.83
+    ],
+    [
+     394.96,
+     2960.83
+    ],
+    [
+     387.36,
+     2971.07
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     410.6,
+     2931.38
+    ],
+    [
+     403.08,
+     2941.67
+    ],
+    [
+     392.0,
+     2960.67
+    ],
+    [
+     387.36,
+     2971.07
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     387.36,
+     2971.07
+    ],
+    [
+     341.35,
+     3047.95
+    ],
+    [
+     326.9,
+     3073.09
+    ],
+    [
+     308.4,
+     3107.05
+    ],
+    [
+     293.2,
+     3137.37
+    ],
+    [
+     274.32,
+     3178.25
+    ],
+    [
+     245.63,
+     3242.41
+    ],
+    [
+     218.79,
+     3304.35
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     218.79,
+     3304.35
+    ],
+    [
+     215.43,
+     3315.41
+    ],
+    [
+     211.15,
+     3325.29
+    ],
+    [
+     206.77,
+     3335.64
+    ],
+    [
+     200.67,
+     3346.64
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     218.79,
+     3304.35
+    ],
+    [
+     212.6,
+     3315.32
+    ],
+    [
+     208.73,
+     3324.25
+    ],
+    [
+     203.94,
+     3335.54
+    ],
+    [
+     200.67,
+     3346.64
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     200.67,
+     3346.64
+    ],
+    [
+     173.22,
+     3411.43
+    ],
+    [
+     110.03,
+     3560.99
+    ],
+    [
+     54.56,
+     3690.91
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     54.56,
+     3690.91
+    ],
+    [
+     51.26,
+     3702.0
+    ],
+    [
+     42.62,
+     3722.23
+    ],
+    [
+     36.49,
+     3733.22
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     54.56,
+     3690.91
+    ],
+    [
+     48.43,
+     3701.9
+    ],
+    [
+     39.79,
+     3722.14
+    ],
+    [
+     36.49,
+     3733.22
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     36.49,
+     3733.22
+    ],
+    [
+     17.52,
+     3777.66
+    ],
+    [
+     -24.67,
+     3878.03
+    ],
+    [
+     -66.03,
+     3978.75
+    ],
+    [
+     -90.35,
+     4039.18
+    ],
+    [
+     -96.56,
+     4053.14
+    ],
+    [
+     -105.72,
+     4071.84
+    ],
+    [
+     -108.89,
+     4077.72
+    ]
+   ]
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     -108.89,
+     4077.72
+    ],
+    [
+     -113.12,
+     4088.35
+    ],
+    [
+     -117.22,
+     4095.97
+    ],
+    [
+     -123.95,
+     4107.5
+    ],
+    [
+     -131.49,
+     4117.78
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     -108.89,
+     4077.72
+    ],
+    [
+     -116.04,
+     4088.21
+    ],
+    [
+     -119.52,
+     4094.67
+    ],
+    [
+     -126.92,
+     4107.33
+    ],
+    [
+     -131.49,
+     4117.78
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "north_clark_street_single",
+   "pts": [
+    [
+     -131.49,
+     4117.78
+    ],
+    [
+     -134.89,
+     4123.6
+    ],
+    [
+     -155.3,
+     4156.69
+    ],
+    [
+     -190.81,
+     4213.43
+    ],
+    [
+     -207.71,
+     4241.71
+    ],
+    [
+     -220.82,
+     4265.19
+    ],
+    [
+     -230.46,
+     4283.89
+    ],
+    [
+     -237.08,
+     4297.86
+    ],
+    [
+     -244.23,
+     4314.55
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     523.16,
+     1903.11
+    ],
+    [
+     313.18,
+     1900.25
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     313.18,
+     1900.25
+    ],
+    [
+     301.16,
+     1901.41
+    ],
+    [
+     279.16,
+     1901.13
+    ],
+    [
+     267.18,
+     1899.66
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     313.18,
+     1900.25
+    ],
+    [
+     301.2,
+     1898.77
+    ],
+    [
+     279.2,
+     1898.49
+    ],
+    [
+     267.18,
+     1899.66
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     267.18,
+     1899.66
+    ],
+    [
+     157.4,
+     1898.3
+    ],
+    [
+     88.6,
+     1896.8
+    ],
+    [
+     -17.8,
+     1895.8
+    ],
+    [
+     -90.34,
+     1894.72
+    ],
+    [
+     -91.98,
+     1894.81
+    ],
+    [
+     -93.59,
+     1895.12
+    ],
+    [
+     -95.15,
+     1895.65
+    ],
+    [
+     -96.62,
+     1896.38
+    ],
+    [
+     -97.98,
+     1897.31
+    ],
+    [
+     -99.19,
+     1898.42
+    ],
+    [
+     -100.24,
+     1899.68
+    ],
+    [
+     -101.11,
+     1901.08
+    ],
+    [
+     -102.66,
+     1903.98
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -102.66,
+     1903.98
+    ],
+    [
+     -108.5,
+     1916.0
+    ],
+    [
+     -124.49,
+     1931.11
+    ],
+    [
+     -133.41,
+     1937.65
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -102.66,
+     1903.98
+    ],
+    [
+     -108.93,
+     1912.58
+    ],
+    [
+     -109.19,
+     1912.93
+    ],
+    [
+     -110.01,
+     1913.79
+    ],
+    [
+     -124.82,
+     1927.79
+    ],
+    [
+     -133.41,
+     1937.65
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -133.41,
+     1937.65
+    ],
+    [
+     -171.6,
+     1972.25
+    ],
+    [
+     -196.6,
+     1994.37
+    ],
+    [
+     -276.22,
+     2064.54
+    ],
+    [
+     -312.15,
+     2097.29
+    ],
+    [
+     -338.34,
+     2122.28
+    ],
+    [
+     -408.01,
+     2191.41
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -408.01,
+     2191.41
+    ],
+    [
+     -416.34,
+     2201.54
+    ],
+    [
+     -431.96,
+     2217.04
+    ],
+    [
+     -440.66,
+     2223.81
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -408.01,
+     2191.41
+    ],
+    [
+     -416.71,
+     2198.19
+    ],
+    [
+     -432.32,
+     2213.68
+    ],
+    [
+     -440.66,
+     2223.81
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -440.66,
+     2223.81
+    ],
+    [
+     -454.52,
+     2237.57
+    ],
+    [
+     -612.48,
+     2395.74
+    ],
+    [
+     -704.9,
+     2488.48
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -704.9,
+     2488.48
+    ],
+    [
+     -713.19,
+     2498.67
+    ],
+    [
+     -728.72,
+     2514.25
+    ],
+    [
+     -737.37,
+     2521.07
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -704.9,
+     2488.48
+    ],
+    [
+     -713.56,
+     2495.3
+    ],
+    [
+     -729.09,
+     2510.89
+    ],
+    [
+     -737.37,
+     2521.07
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -737.37,
+     2521.07
+    ],
+    [
+     -837.72,
+     2621.76
+    ],
+    [
+     -993.32,
+     2776.67
+    ],
+    [
+     -1002.04,
+     2785.32
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1002.04,
+     2785.32
+    ],
+    [
+     -1010.38,
+     2795.44
+    ],
+    [
+     -1026.0,
+     2810.94
+    ],
+    [
+     -1034.7,
+     2817.71
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1002.04,
+     2785.32
+    ],
+    [
+     -1010.74,
+     2792.09
+    ],
+    [
+     -1026.36,
+     2807.58
+    ],
+    [
+     -1034.7,
+     2817.71
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1034.7,
+     2817.71
+    ],
+    [
+     -1300.26,
+     3081.06
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1300.26,
+     3081.06
+    ],
+    [
+     -1308.6,
+     3091.19
+    ],
+    [
+     -1324.22,
+     3106.68
+    ],
+    [
+     -1332.92,
+     3113.45
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1300.26,
+     3081.06
+    ],
+    [
+     -1308.97,
+     3087.83
+    ],
+    [
+     -1324.59,
+     3103.32
+    ],
+    [
+     -1332.92,
+     3113.45
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1332.92,
+     3113.45
+    ],
+    [
+     -1350.59,
+     3130.97
+    ],
+    [
+     -1598.35,
+     3376.93
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1598.35,
+     3376.93
+    ],
+    [
+     -1606.68,
+     3387.07
+    ],
+    [
+     -1622.3,
+     3402.57
+    ],
+    [
+     -1631.0,
+     3409.34
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1598.35,
+     3376.93
+    ],
+    [
+     -1607.05,
+     3383.71
+    ],
+    [
+     -1622.66,
+     3399.21
+    ],
+    [
+     -1631.0,
+     3409.34
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1631.0,
+     3409.34
+    ],
+    [
+     -1669.17,
+     3447.24
+    ],
+    [
+     -1897.03,
+     3672.21
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1897.03,
+     3672.21
+    ],
+    [
+     -1905.39,
+     3682.32
+    ],
+    [
+     -1910.39,
+     3687.26
+    ],
+    [
+     -1921.09,
+     3697.73
+    ],
+    [
+     -1929.84,
+     3704.45
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1897.03,
+     3672.21
+    ],
+    [
+     -1905.75,
+     3678.97
+    ],
+    [
+     -1912.25,
+     3685.38
+    ],
+    [
+     -1921.45,
+     3694.39
+    ],
+    [
+     -1929.84,
+     3704.45
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -1929.84,
+     3704.45
+    ],
+    [
+     -2038.33,
+     3810.66
+    ],
+    [
+     -2119.44,
+     3889.07
+    ],
+    [
+     -2192.12,
+     3958.41
+    ],
+    [
+     -2198.6,
+     3964.53
+    ]
+   ]
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -2198.6,
+     3964.53
+    ],
+    [
+     -2207.16,
+     3974.43
+    ],
+    [
+     -2223.16,
+     3989.53
+    ],
+    [
+     -2232.05,
+     3996.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -2198.6,
+     3964.53
+    ],
+    [
+     -2207.49,
+     3971.11
+    ],
+    [
+     -2223.49,
+     3986.21
+    ],
+    [
+     -2232.05,
+     3996.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "division_clybourn",
+   "pts": [
+    [
+     -2232.05,
+     3996.11
+    ],
+    [
+     -2289.18,
+     4050.04
+    ],
+    [
+     -2461.13,
+     4211.83
+    ]
+   ]
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     564.4,
+     1096.7
+    ],
+    [
+     443.0,
+     1095.1
+    ],
+    [
+     354.41,
+     1094.39
+    ]
+   ]
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     354.41,
+     1094.39
+    ],
+    [
+     342.4,
+     1095.61
+    ],
+    [
+     320.4,
+     1095.43
+    ],
+    [
+     308.42,
+     1093.97
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     354.41,
+     1094.39
+    ],
+    [
+     342.43,
+     1092.97
+    ],
+    [
+     320.43,
+     1092.79
+    ],
+    [
+     308.42,
+     1093.97
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     308.42,
+     1093.97
+    ],
+    [
+     235.5,
+     1093.1
+    ],
+    [
+     216.6,
+     1094.4
+    ],
+    [
+     176.4,
+     1092.2
+    ],
+    [
+     72.8,
+     1091.0
+    ],
+    [
+     -65.46,
+     1089.58
+    ]
+   ]
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     -65.46,
+     1089.58
+    ],
+    [
+     -77.48,
+     1090.78
+    ],
+    [
+     -99.48,
+     1090.55
+    ],
+    [
+     -111.46,
+     1089.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     -65.46,
+     1089.58
+    ],
+    [
+     -77.44,
+     1088.14
+    ],
+    [
+     -99.44,
+     1087.91
+    ],
+    [
+     -111.46,
+     1089.11
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "chicago_avenue",
+   "pts": [
+    [
+     -111.46,
+     1089.11
+    ],
+    [
+     -239.4,
+     1087.8
+    ],
+    [
+     -288.3,
+     1087.2
+    ],
+    [
+     -404.9,
+     1086.2
+    ],
+    [
+     -487.74,
+     1084.96
+    ]
+   ]
+  },
+  {
+   "section": "larrabee_street",
+   "pts": [
+    [
+     -405.44,
+     1086.19
+    ],
+    [
+     -404.92,
+     1089.75
+    ],
+    [
+     -404.6,
+     1113.0
+    ],
+    [
+     -407.2,
+     1200.3
+    ],
+    [
+     -409.83,
+     1296.08
+    ]
+   ]
+  },
+  {
+   "section": "larrabee_street",
+   "pts": [
+    [
+     -409.83,
+     1296.08
+    ],
+    [
+     -408.83,
+     1307.88
+    ],
+    [
+     -409.44,
+     1329.87
+    ],
+    [
+     -411.06,
+     1342.06
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "larrabee_street",
+   "pts": [
+    [
+     -409.83,
+     1296.08
+    ],
+    [
+     -411.49,
+     1308.26
+    ],
+    [
+     -412.09,
+     1330.26
+    ],
+    [
+     -411.06,
+     1342.06
+    ]
+   ],
+   "turnout": true
+  },
+  {
+   "section": "larrabee_street",
+   "pts": [
+    [
+     -411.06,
+     1342.06
+    ],
+    [
+     -420.6,
+     1772.0
+    ],
+    [
+     -423.0,
+     1890.3
+    ]
+   ]
+  }
+ ]
+}

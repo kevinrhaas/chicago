@@ -743,6 +743,11 @@ const COVERAGE = [
   ['renderers/web/js/fire-mass.js', NONE, 'where a named structure\u2019s flames may stand (T-3802): qa_city_fire_1871.mjs --self-test'],
   ['renderers/web/js/fire-goods.js', NONE, 'the 1871 families\u2019 goods the fire burns (T-3751): qa_city_fire_1871.mjs, check_fire_jaunt.mjs'],
   ['data/fire/', NONE, 'the 1871 Great Fire\u2019s district and hours: fire_1871.py --check'],
+  // T-3806: the 1871 horse railways mount only in 1871 (main.js, YEAR === '1871'); the smoke
+  // body walks 1835 and never loads them. tools/test_horse_railway_1871.mjs (check.sh) holds
+  // the laid data, the timetable, the hours, the track cells and the car.
+  ['renderers/web/js/horse-railway-1871.js', NONE, 'the 1871 horse railways\u2019 tracks and cars: test_horse_railway_1871.mjs'],
+  ['data/transport/horse_railways_1871.json', NONE, 'the 1871 horse railways as laid: lay_horse_railways_1871.py --check'],
   // The fort's burning (T-3553) and the city's share these flames; a jaunt stage loads them.
   ['renderers/web/js/fort-fire.js', [15], 'the flames, smoke and sparks a jaunt stage burns with'],
 ];

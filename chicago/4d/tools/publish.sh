@@ -626,6 +626,10 @@ mkdir -p "$SITE/data/transport/driven"
 cp -f data/transport/driven/loops.json data/transport/driven/hitch-bindings-v2.json \
   data/transport/driven/current26-hoof-support-domain.json \
   data/transport/driven/current26-walk-v2-hoof-domain.json "$SITE/data/transport/driven/"
+# T-3806: the 1871 horse railways' tracks and runs (horse-railway-1871.js).
+if [ -f data/transport/horse_railways_1871.json ]; then
+  cp -f data/transport/horse_railways_1871.json "$SITE/data/transport/horse_railways_1871.json"
+fi
 # T-3560: the saddle horses a visitor may ride (riding.js reads their rows, tack and fit).
 if [ -d data/transport/riding ]; then
   rm -rf "$SITE/data/transport/riding"

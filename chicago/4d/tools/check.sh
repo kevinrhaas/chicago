@@ -767,6 +767,10 @@ step "The 1835 town's ten wagons' rows are what their layer writes: one district
   node tools/lay_driven_wagons_1835.mjs --check
 step "1871's Sunday wagons go round their blocks as lay_driven_1871.mjs writes them, on streets their turns fit (T-3690)" \
   node tools/lay_driven_1871.mjs --check
+step "1871's horse railways are what lay_horse_railways_1871.py writes from their sources onto the 1871 street plan (T-3806)" \
+  python3 tools/lay_horse_railways_1871.py --check
+step "1871's horse railways: the cars' runs, timetable, hours, track cells and car hold (T-3806)" \
+  node tools/test_horse_railway_1871.mjs
 step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
   node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
