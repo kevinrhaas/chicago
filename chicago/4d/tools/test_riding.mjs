@@ -90,6 +90,34 @@ for (const y of YEARS) for (const s of ['male', 'female']) for (const o of perso
   ok([...Object.keys(o.dress.pieces ?? {}), ...(o.dress.hide ?? [])].every(piece), `${y} ${o.id}: the pieces it colours or sets aside are ${o.asset}'s own`);
   ok(!o.dress.hat || o.dress.hat.kind, `${y} ${o.id}: its hat is a kind human-hats.js makes`);
 }
+// T-3553 (Kevin, 2026-11-27: "provide better coloring and more options", "And fix any people with
+// that clothes"): a wear (human-wear.js) names only the cloth and pieces of every body it is worn
+// on: a body's own (ASSET_WEAR), a visitor's outfit's (`dress.wear`) and a jaunt figure's (`wear`).
+{
+  const { WEARS, ASSET_WEAR } = await import('../renderers/web/js/human-wear.js');
+  const worn = [...Object.entries(ASSET_WEAR).map(([a, w]) => [a, w, 'its own body'])];
+  for (const y of YEARS) for (const s of ['male', 'female']) for (const o of person.outfits?.[y]?.[s] ?? []) if (o.dress?.wear) worn.push([o.asset, o.dress.wear, `${y} ${o.id}`]);
+  for (const f of fs.readdirSync(new URL('../data/jaunts/', import.meta.url))) {
+    if (!f.endsWith('.json') || f === 'schema.json') continue;
+    const doc = JSON.parse(read(`data/jaunts/${f}`));
+    for (const st of doc.stops ?? []) for (const c of st.stage?.cast ?? []) if (c.wear) worn.push([c.dress ?? c.dress_of, c.wear, `${f} ${c.extra ?? c.person}`]);
+  }
+  const seen = new Set();
+  for (const [asset, id, who] of worn) {
+    const w = WEARS[id];
+    ok(w, `${who}: wears ${id}, a wear of human-wear.js`);
+    if (!w || seen.has(`${asset} ${id}`)) continue;
+    seen.add(`${asset} ${id}`);
+    const g = humans[asset] ?? await parse(read(`assets/humans/web/${asset}.lod${config.rider.lod}.glb`));
+    const mats = new Set(), names = [];
+    g.scene.traverse(n => { if (n.isMesh) { names.push(n.name); mats.add(n.material?.name); } });
+    const piece = k => names.some(n => new RegExp(`(^|_)${k}(_lod\\d+)?$`).test(n));
+    const colours = [w.base, ...(w.looks ?? [])].flatMap(l => Object.keys(l?.colours ?? {}));
+    ok(colours.every(m => mats.has(m)), `${id} on ${asset}: its colours name ${asset}'s own cloth (${colours.filter(m => !mats.has(m)).join(', ')})`);
+    ok((w.base?.hide ?? []).every(piece), `${id} on ${asset}: the pieces it sets aside are ${asset}'s own`);
+    ok([w.base, ...(w.looks ?? [])].every(l => !l?.hat || l.hat.kind), `${id}: its hats are kinds human-hats.js makes`);
+  }
+}
 
 const v = new THREE.Vector3(), q = new THREE.Vector3();
 const report = [];

@@ -131,6 +131,16 @@ CLAIMS = {
         'removed to a place of safety." He stayed until "the famous bell came crashing and clanging down": "By this incident, we '
         'fix the instant of the falling of the bell at five minutes past two." In the street, LaSalle Street "appeared like a '
         'furnace, all fire".'),
+    # T-3814: what the people in the streets carried, and the wagons (the stops' staging reads these).
+    'goods': att(A, f'pp. 729, 734 and 746, {AV}: Horace White\'s narrative and a North Side narrative',
+        'Andreas: "Sober men and women were hurrying through the streets from the burning quarter \u2014 some with bundles of '
+        'clothing on their shoulders; others, dragging trunks along the sidewalk by means of strings and ropes fastened to the '
+        'handles, children trudging by their sides or borne in their arms. Now and then a sick man or women would be observed, '
+        'half concealed in a mattress doubled up and borne by two men." On the North Side at dawn: "I saw one man carrying the '
+        'rubber tube and broken standard of a drop-light; another was trundling a wheelbarrow on which was a cook stove, while '
+        'on his back was a huge feather bed. One woman had a live hen in her arms, several had cats, and numbers had canary birds '
+        'in cages." And of the wagons: "Expressmen, and owners of every description of wagons, were extortionate in their '
+        'demands, asking from twenty to fifty dollars for conveying a small load a few blocks."'),
     'prisoners': att(A, f'p. 725, {AV}: the county jail in the Court House basement',
         '"Captain Hickey, seeing that there was no hope of saving the building, ordered the cells to be unlocked, and in a moment '
         'the released prisoners, all bareheaded, many barefooted, rushed into the street, yelling like demons. A large truck, '
@@ -339,6 +349,8 @@ def staging(title):
         'stage': {
             'text': f'{title}: the people on the streets at each stop are unnamed figures standing for the crowds the accounts '
                     'describe, watching, carrying what they can, and getting away. Where each stands, when each moves and how, '
+                    'what each carries (bundles, trunks, bird cages, feather beds, bolts of cloth: the kinds the accounts list, '
+                    'their make drawn plainly), the wagons and their loads, '
                     'and the clothes they are drawn in (the town\'s 1835 and 1904 wardrobes, until 1871 dress is drawn) are '
                     'reconstruction. Nobody is shown hurt.',
             'confidence': 'reconstructed', 'sources': [], 'liberty': LIBERTY},

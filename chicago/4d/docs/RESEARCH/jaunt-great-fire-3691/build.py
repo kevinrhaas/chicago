@@ -42,7 +42,9 @@ SCENE_PATH = ROOT / 'data/scenes/1871.json'
 # Corners from the modern street grid, which keeps the 1871 lines (State and Madison is the
 # survey's own corner): the stand is in the street, the landmark the building or its corner.
 ANCHORS = [
-    ('fire_oleary_barn', "DeKoven Street, before the O'Leary cottage, looking at the barn behind it", "O'Leary barn", (-300.0, -2004.0), (-300.0, -1958.0)),
+    # T-3814: as dev has it since T-3689 built the O'Leary lot on the 1871 plan's DeKoven Street (~35 m north of
+    # today's): the stand before the cottage, looking at the barn's middle (oleary_barn_1871).
+    ('fire_oleary_barn', "DeKoven Street, before the O'Leary cottage, looking at the barn behind it", "O'Leary barn", (-311.0, -1962.0), (-319.0, -1927.0)),
     ('fire_st_pauls', "Clinton Street south of Mather, looking at St. Paul's church and Bateham's mills", "St. Paul's church", (-266.0, -1560.0), (-245.0, -1490.0)),
     # T-3751 (the owner, 2026-11-26: "The narration says the user is on Jackson Street, but the scene appears to be
     # elsewhere"): the stand was 60 m up Franklin, on Quincy; now the north-west corner of Jackson and Franklin
@@ -97,12 +99,47 @@ def mark(aid, a, b):
 _CONTEXT = None
 
 
+_LANDMARKS = None
+
+
+def landmarks():
+    """T-3814: the scene's own structures' footprints (local ENU polygons), which stand where the
+    context's buildings were dropped for them: a figure is not put inside the Field, Leiter store."""
+    global _LANDMARKS
+    if _LANDMARKS is None:
+        _LANDMARKS = []
+        for sid in json.loads(SCENE_PATH.read_text()).get('structure_ids', []):
+            f = ROOT / f'data/sidecars/1871/{sid}.json'
+            if not f.exists(): continue
+            sc = json.loads(f.read_text())
+            # Open ground (Washington Square, the old cemetery, the sands) is what the crowd stands on.
+            form = json.loads((ROOT / f'data/structures/{sid}.json').read_text())['phases'][-1].get('form') or {}
+            if (form.get('kind') or {}).get('value') == 'open_ground': continue
+            pl, poly = sc.get('placement') or {}, (sc.get('footprint') or {}).get('polygon') or []
+            th = math.radians(pl.get('rotation_deg', 0)); c, sn = math.cos(th), math.sin(th)
+            _LANDMARKS.append([(pl.get('local_e', 0) + u * c + v * sn, pl.get('local_n', 0) - u * sn + v * c) for u, v in poly])
+    return _LANDMARKS
+
+
+def _poly_gap(p, poly):
+    """Metres from p to the polygon `poly` (0 inside)."""
+    inside, best = False, 1e9
+    for i in range(len(poly)):
+        (x1, y1), (x2, y2) = poly[i], poly[(i + 1) % len(poly)]
+        if (y1 > p[1]) != (y2 > p[1]) and p[0] < (x2 - x1) * (p[1] - y1) / (y2 - y1) + x1: inside = not inside
+        dx, dy = x2 - x1, y2 - y1
+        t = max(0, min(1, ((p[0] - x1) * dx + (p[1] - y1) * dy) / (dx * dx + dy * dy or 1)))
+        best = min(best, math.hypot(p[0] - x1 - t * dx, p[1] - y1 - t * dy))
+    return 0.0 if inside else best
+
+
 def clearance(p):
-    """Metres from p to the nearest building the 1871 context draws (data/context/1871.json)."""
+    """Metres from p to the nearest building the 1871 context draws (data/context/1871.json), or
+    the scene's own structures (T-3814)."""
     global _CONTEXT
     if _CONTEXT is None:
         _CONTEXT = json.loads((ROOT / 'data/context/1871.json').read_text())['buildings']
-    best = 1e9
+    best = min([1e9] + [_poly_gap(p, poly) for poly in landmarks() if any(abs(x - p[0]) < 120 and abs(y - p[1]) < 120 for x, y in poly)])
     for b in _CONTEXT:
         if abs(b['e'] - p[0]) > 60 or abs(b['n'] - p[1]) > 60:
             continue
@@ -110,6 +147,21 @@ def clearance(p):
         de, dn = p[0] - b['e'], p[1] - b['n']
         u, v = de * math.cos(th) - dn * math.sin(th), de * math.sin(th) + dn * math.cos(th)
         best = min(best, math.hypot(max(0, abs(u) - b['width_m'] / 2), max(0, abs(v) - b['depth_m'] / 2)))
+    return best
+
+
+def _clear_of_cast(p, cast):
+    """T-3814: metres from p to the nearest castmate's mark or the lines they walk."""
+    best = 1e9
+    for c in cast:
+        cur = c['at']
+        best = min(best, math.hypot(p[0] - cur[0], p[1] - cur[1]))
+        for b in c.get('beats', []):
+            for q in b.get('walk', []):
+                dx, dy = q[0] - cur[0], q[1] - cur[1]
+                t = max(0, min(1, ((p[0] - cur[0]) * dx + (p[1] - cur[1]) * dy) / ((dx * dx + dy * dy) or 1)))
+                best = min(best, math.hypot(p[0] - cur[0] - t * dx, p[1] - cur[1] - t * dy))
+                cur = q
     return best
 
 
@@ -129,21 +181,83 @@ def crowd(aid, watchers, fleers, seed):
     # The stop's view looks down the line from the stand to the landmark, and a phone held upright
     # sees about 20 degrees either side of it: the watchers stand 10-25 m out and near the line,
     # their backs to you, and the people getting away come down it toward you and past.
-    watchers = [(in_the_open(aid, 10 + a, b * 0.45), b * 0.45, who) for a, b, who in watchers]
-    fleers = [(in_the_open(aid, min(a0, L - 6), b0 * 0.35), b0 * 0.35, -4.0, b1 * 0.3, t, pace, who) for a0, b0, a1, b1, t, pace, who in fleers]
-    for i, (a, b, who) in enumerate(watchers):
+    # T-3814: a watcher may hold what they carried out (a 4th item: a GOODS kind, stage-props.js),
+    # and a fleer carries one (an 8th); a 5th/9th item 'd' leaves that figure to the desktop tiers.
+    watchers = [(in_the_open(aid, 10 + a, b * 0.45), b * 0.45, who, *more) for a, b, who, *more in watchers]
+    fleers = [(in_the_open(aid, min(a0, L - 6), b0 * 0.35), b0 * 0.35, -4.0, b1 * 0.3, t, pace, who, *more) for a0, b0, a1, b1, t, pace, who, *more in fleers]
+
+    def extras(entry, more):
+        if more and more[0]: entry['carry'] = more[0]
+        if len(more) > 1 and more[1] == 'd': entry['tier'] = 'desktop'
+        return entry
+    for i, (a, b, who, *more) in enumerate(watchers):
         dress = {'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who][(k + i) % len({'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who])]
         role = {'m': 'A man watching', 'w': 'A woman watching', 'c': 'A child watching'}[who]
-        cast.append({'extra': f'{aid}_watch_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': mark(aid, a, b), 'heading': hd(mark(aid, a, b), target)})
-    for i, (a0, b0, a1, b1, t, pace, who) in enumerate(fleers):
+        entry = {'extra': f'{aid}_watch_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': mark(aid, a, b), 'heading': hd(mark(aid, a, b), target)}
+        if dress == 'anonymous_working_driver_1904':
+            # T-3553 (L-wear-3553): the bronze watchers wear the 1904 working man's short coat and
+            # cap, laid over the working man's body, not the driver's dress.
+            entry['dress'], entry['wear'] = 'glessner_john_j_1904', 'working_coat_1904'
+        cast.append(extras(entry, more))
+    for i, (a0, b0, a1, b1, t, pace, who, *more) in enumerate(fleers):
         pool = {'m': MEN, 'w': WOMEN, 'c': CHILDREN}[who]
         dress = pool[(k + 2 * i + 1) % len(pool)]
         role = {'m': 'A man getting away', 'w': 'A woman getting away', 'c': 'A child getting away'}[who]
         if clearance(mark(aid, a1, b1)) < 1.5:
             b1 = 0.0
         start, end = mark(aid, a0, b0), mark(aid, a1, b1)
-        cast.append({'extra': f'{aid}_flee_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': start, 'heading': hd(start, end),
-                     'beats': [{'t': t, 'walk': [mark(aid, (a0 + a1) / 2, (b0 + b1) / 2 + (1.5 if i % 2 else -1.5)), end], 'pace': pace}]})
+        cast.append(extras({'extra': f'{aid}_flee_{i}', 'dress': dress, 'name': f'{role} (unnamed)', 'at': start, 'heading': hd(start, end),
+                            'beats': [{'t': t, 'walk': [mark(aid, (a0 + a1) / 2, (b0 + b1) / 2 + (1.5 if i % 2 else -1.5)), end], 'pace': pace}]}, more))
+    return cast
+
+
+# ── T-3814: the scenes round the goods ──────────────────────────────────────────────────────
+# The owner, 2026-11-27: "crowds running around existing buildings carrying things or dumping things
+# into wagons". What the accounts say people carried is the 'goods' claim; which of them carries
+# what, and the wagons' places and loads, are the staging's reconstruction (L-1871-great-fire-jaunt).
+
+def mattress(aid, at_a, at_b, t, pace='brisk', seed=0):
+    """A sick man or woman "half concealed in a mattress doubled up and borne by two men" (Andreas
+    p. 734): two bearers 1.95 m apart come down the line from the landmark past the stand, the one
+    they carry lying between them. Starts `at_a` m out toward the landmark, `at_b` to the right."""
+    _, target, _, _, L = frame(aid)
+    a0 = in_the_open(aid, min(at_a, L - 6), at_b)
+    lead, tail = mark(aid, a0 - 1.0, at_b), mark(aid, a0 + 1.0, at_b)
+    end_lead, end_tail = mark(aid, -5.0, at_b * 0.6), mark(aid, -3.05, at_b * 0.6)
+    away = hd(tail, lead)
+    sick = WOMEN[seed % len(WOMEN)]
+    return [
+        {'extra': f'{aid}_mattress_lead', 'dress': MEN[(seed + 1) % len(MEN)], 'name': 'A man carrying a sick neighbour (unnamed)',
+         'at': lead, 'heading': away, 'beats': [{'t': t, 'walk': [end_lead], 'pace': pace}]},
+        {'extra': f'{aid}_mattress_tail', 'dress': MEN[(seed + 3) % len(MEN)], 'name': 'A man carrying a sick neighbour (unnamed)',
+         'at': tail, 'heading': away, 'beats': [{'t': t, 'walk': [end_tail], 'pace': pace}]},
+        {'extra': f'{aid}_mattress_sick', 'dress': sick, 'name': 'A sick woman carried in her mattress (unnamed)', 'bier': 'mattress',
+         'at': mark(aid, a0, at_b), 'heading': away, 'pose': 'lie',
+         'beats': [{'t': 0, 'borne': [f'{aid}_mattress_lead', f'{aid}_mattress_tail']}]},
+    ]
+
+
+def loaders(aid, door, kerb, kinds, t0=1.0, rounds=3, seed=0):
+    """Men carrying goods out of a store's door to a wagon at the kerb, and back for more: each takes
+    up a load at the door (a beat facing it), walks it to the wagon's side and puts it in (carry
+    null), and goes back. `door` and `kerb` are marks (local ENU)."""
+    cast = []
+    for i, kind in enumerate(kinds):
+        off = (i - (len(kinds) - 1) / 2) * 1.6
+        d = [door[0], door[1] + off]
+        k = [kerb[0], kerb[1] + off * 0.5]
+        beats, t = [], t0 + i * 2.2
+        start = list(d)
+        for r in range(rounds):
+            beats.append({'t': round(t, 1), 'carry': kind})
+            beats.append({'t': round(t + 0.6, 1), 'walk': [k], 'pace': 'brisk'})
+            dist = math.hypot(k[0] - d[0], k[1] - d[1])
+            t += 0.6 + dist / 1.75 + 0.4
+            beats.append({'t': round(t, 1), 'carry': None})
+            beats.append({'t': round(t + 0.5, 1), 'walk': [d], 'pace': 'brisk', 'heading': hd(k, d)})
+            t += 0.5 + dist / 1.75 + 1.4
+        cast.append({'extra': f'{aid}_loader_{i}', 'dress': MEN[(seed + i * 2) % len(MEN)], 'name': 'A man loading a wagon (unnamed)',
+                     'at': start, 'heading': hd(start, d), 'beats': beats, **({'tier': 'desktop'} if i >= 2 else {})})
     return cast
 
 
@@ -169,7 +283,8 @@ STOPS = [
               "Across the river, in the Court House tower, the watchman has not yet seen the light.",
          caption="Neighbours come out into DeKoven Street to watch the barn burn, and families carry what they can out of the cottages behind it.",
          cast=lambda: crowd('fire_oleary_barn', [(8, -6, 'm'), (9, -2, 'w'), (7, 3, 'm'), (10, 7, 'c'), (5, 10, 'w')],
-                            [(40, -12, -8, -30, 2, 'hurry', 'w'), (38, 14, -10, 26, 4, 'hurry', 'm'), (36, 6, -6, 18, 7, 'brisk', 'c')], 0)),
+                            [(40, -12, -8, -30, 2, 'hurry', 'w', 'shawl_bundle'), (38, 14, -10, 26, 4, 'hurry', 'm', 'trunk'), (36, 6, -6, 18, 7, 'brisk', 'c', 'basket'),
+                             (42, -4, -9, -16, 10, 'hurry', 'm', 'bundle', 'd'), (39, 10, -8, 12, 13, 'brisk', 'w', 'featherbed', 'd')], 0)),
     dict(id='st-pauls', anchor='fire_st_pauls', date='1871-10-08', hour='22:30', hour_evidence=['bateham'], since='Ninety minutes later',
          evidence=['alarm', 'little-giant', 'riley', 'st-pauls', 'bateham', 'wind'],
          text="Half past ten, Clinton and Mather Streets. The alarm came late, and wrong. At 9:28 Mathias Schaffer, the watchman in "
@@ -182,7 +297,8 @@ STOPS = [
               "materials from this mill will fire the South Side, and nothing can prevent it now.\"",
          caption="Families from the blocks round the church hurry north with bundles and a mattress, and a few men stop at the corner to watch the mills go.",
          cast=lambda: crowd('fire_st_pauls', [(6, -8, 'm'), (8, -4, 'm'), (7, 6, 'w'), (4, 9, 'm')],
-                            [(60, -14, -12, -26, 1, 'hurry', 'w'), (58, 10, -14, 22, 3, 'run', 'm'), (55, -4, -10, -10, 5, 'hurry', 'c'), (62, 2, -16, 4, 8, 'brisk', 'w')], 1)),
+                            [(60, -14, -12, -26, 1, 'hurry', 'w', 'bundle'), (58, 10, -14, 22, 3, 'run', 'm', 'trunk'), (55, -4, -10, -10, 5, 'hurry', 'c', 'basket'), (62, 2, -16, 4, 8, 'brisk', 'w', 'shawl_bundle'),
+                             (57, -10, -12, -18, 11, 'hurry', 'm', 'featherbed', 'd')], 1) + mattress('fire_st_pauls', 30, 3.0, 4, seed=1)),
     dict(id='parmelee', anchor='fire_parmelee_stables', date='1871-10-08', hour='23:30', hour_evidence=['parmelee'], since='One hour later',
          evidence=['parmelee', 'gasworks'],
          text="Half past eleven, Jackson and Franklin Streets, across the South Branch of the river. Since half past nine brands have been falling on this side, and now one has caught. This is the new stable of "
@@ -219,7 +335,8 @@ STOPS = [
               "the last line between the fire and the North Side. The wind is already carrying it over.",
          caption="Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel.",
          cast=lambda: crowd('fire_sherman_house', [(6, -7, 'm'), (7, -2, 'w'), (5, 6, 'm')],
-                            [(52, -6, -8, -22, 1, 'hurry', 'w'), (50, 4, -10, 16, 2, 'hurry', 'm'), (54, 0, -12, -4, 4, 'brisk', 'm'), (48, 8, -6, 24, 6, 'hurry', 'w')], 4)),
+                            [(52, -6, -8, -22, 1, 'hurry', 'w', 'shawl_bundle'), (50, 4, -10, 16, 2, 'hurry', 'm', 'trunk'), (54, 0, -12, -4, 4, 'brisk', 'm', 'bundle'), (48, 8, -6, 24, 6, 'hurry', 'w', 'birdcage'),
+                             (51, -2, -9, -12, 9, 'hurry', 'm', 'trunk', 'd'), (49, 6, -7, 8, 12, 'brisk', 'w', 'basket', 'd')], 4)),
     dict(id='crosbys', anchor='fire_crosbys', date='1871-10-09', hour='02:20', hour_evidence=['crosbys-hour'], since='Fifteen minutes later',
          evidence=['crosbys', 'reopening', 'crosbys-falls', 'crosbys-hour'],
          text="Twenty past two, Washington Street between Dearborn and State. From the Court House the fire has turned east, "
@@ -233,7 +350,8 @@ STOPS = [
               "has caught.",
          caption="People from the hotels and the stores on Washington Street hurry east toward the lake; two men stand in the roadway and watch the opera house roof.",
          cast=lambda: crowd('fire_crosbys', [(8, -6, 'm'), (9, 5, 'm'), (6, 9, 'w')],
-                            [(38, -10, -6, -26, 1, 'hurry', 'm'), (36, 10, -8, 26, 2, 'hurry', 'w'), (40, 0, -10, 12, 5, 'brisk', 'c')], 5)),
+                            [(38, -10, -6, -26, 1, 'hurry', 'm', 'bundle'), (36, 10, -8, 26, 2, 'hurry', 'w', 'shawl_bundle'), (40, 0, -10, 12, 5, 'brisk', 'c'),
+                             (37, -6, -7, -14, 8, 'hurry', 'm', 'trunk', 'd')], 5)),
     dict(id='north-side', anchor='fire_state_kinzie', date='1871-10-09', hour='02:30', hour_evidence=['wright'], since='Ten minutes later',
          evidence=['crossing', 'wright', 'mason-north', 'asleep', 'one-works'],
          text="Half past two, north of the main river, where the State Street viaduct comes down at Kinzie Street. The river did "
@@ -246,7 +364,8 @@ STOPS = [
               "the water for the whole city.",
          caption="North Side people woken by the glare come out half-dressed, and the first of them start away north up State Street with what they can carry.",
          cast=lambda: crowd('fire_state_kinzie', [(6, -6, 'w'), (8, 0, 'm'), (6, 6, 'm'), (4, 9, 'c')],
-                            [(52, -6, -4, -20, 2, 'hurry', 'w'), (50, 6, -6, 18, 3, 'hurry', 'm'), (54, 0, -8, 4, 6, 'brisk', 'm')], 6)),
+                            [(52, -6, -4, -20, 2, 'hurry', 'w', 'birdcage'), (50, 6, -6, 18, 3, 'hurry', 'm', 'featherbed'), (54, 0, -8, 4, 6, 'brisk', 'm', 'trunk'),
+                             (51, -10, -5, -14, 9, 'hurry', 'w', 'bundle', 'd'), (53, 3, -7, 10, 12, 'brisk', 'c', 'basket', 'd')], 6)),
     dict(id='water-works', anchor='fire_water_works', date='1871-10-09', hour='03:20', hour_evidence=['waterworks'], since='Fifty minutes later',
          evidence=['waterworks', 'one-works', 'water-tower', 'tower-stands'],
          text="Twenty past three, Chicago Avenue at the lake shore. Here are the Water Works: the engine house, and a hundred and "
@@ -259,7 +378,8 @@ STOPS = [
               "where they can draw water from the river.",
          caption="Men from the works and the breweries along the shore come out on Chicago Avenue to watch the engine house roof, and families go by toward the lake.",
          cast=lambda: crowd('fire_water_works', [(10, -8, 'm'), (12, -2, 'm'), (9, 5, 'm'), (11, 10, 'w')],
-                            [(30, -16, -6, -30, 2, 'hurry', 'w'), (34, 16, -8, 28, 4, 'hurry', 'm'), (28, -2, -10, -14, 7, 'brisk', 'c')], 7)),
+                            [(30, -16, -6, -30, 2, 'hurry', 'w', 'bundle'), (34, 16, -8, 28, 4, 'hurry', 'm', 'trunk'), (28, -2, -10, -14, 7, 'brisk', 'c', 'basket'),
+                             (32, 8, -7, 16, 10, 'hurry', 'w', 'birdcage', 'd')], 7)),
     dict(id='tribune', anchor='fire_tribune', date='1871-10-09', hour='07:30', hour_evidence=['tribune-hour'], since='Four hours later',
          evidence=['bross', 'medill-white', 'tribune-falls', 'tribune-hour'],
          text="Half past seven on Monday morning, Dearborn and Madison Streets, in daylight. On this corner stands the Tribune "
@@ -273,7 +393,8 @@ STOPS = [
               "stop what comes next.",
          caption="Printers and clerks come out of the Tribune with armfuls of papers and hurry up Dearborn Street; a few men stand on the burned corner opposite.",
          cast=lambda: crowd('fire_tribune', [(6, -6, 'm'), (8, 4, 'm'), (5, 8, 'm')],
-                            [(40, -6, -8, -22, 1, 'hurry', 'm'), (42, 6, -10, 18, 3, 'brisk', 'm'), (38, 0, -12, -2, 6, 'hurry', 'w')], 8)),
+                            [(40, -6, -8, -22, 1, 'hurry', 'm', 'papers'), (42, 6, -10, 18, 3, 'brisk', 'm', 'papers'), (38, 0, -12, -2, 6, 'hurry', 'w', 'shawl_bundle'),
+                             (41, -2, -9, -10, 9, 'hurry', 'm', 'papers', 'd')], 8)),
     dict(id='state-street', anchor='fire_field_leiter', date='1871-10-09', hour='08:00', hour_evidence=['field-hour'], since='Thirty minutes later',
          evidence=['palmer', 'field-leiter', 'field-hour'],
          text="Eight o'clock, State Street at Washington. This store of white Massachusetts marble belongs to Potter Palmer, who "
@@ -285,7 +406,10 @@ STOPS = [
               "been running since half past two, and it has not stopped.",
          caption="Wagons wait at the kerb while men carry bolts of cloth out of the store; shoppers' carriages and porters hurry the goods away up State Street.",
          cast=lambda: crowd('fire_field_leiter', [(7, -8, 'm'), (9, 6, 'w'), (5, 10, 'm')],
-                            [(40, -6, -6, -24, 1, 'hurry', 'm'), (42, 4, -8, 20, 2, 'hurry', 'm'), (38, 0, -10, -4, 5, 'brisk', 'w'), (44, 8, -6, 26, 8, 'hurry', 'm')], 9)),
+                            [(40, -6, -6, -24, 1, 'hurry', 'm', 'bolt'), (42, 4, -8, 20, 2, 'hurry', 'm', 'bolt_blue'), (38, 0, -10, -4, 5, 'brisk', 'w', 'shawl_bundle'), (44, 8, -6, 26, 8, 'hurry', 'm', 'bolt')], 9)
+         + loaders('fire_field_leiter', [844.7, -371.0], [841.4, -371.6], ['bolt', 'bolt_blue', 'bolt', 'bolt_blue'], seed=2),
+         teams=lambda: [{'team': 'express_wagon_state_madison_1871', 'at': [839.4, -371.2], 'heading': 0.0, 'load': 'load_dry_goods',
+                         'beats': [{'t': 34, 'walk': [[839.4, -350.0], [839.6, -330.0]], 'pace': 'brisk'}]}]),
     dict(id='ogden-house', anchor='fire_ogden_house', date='1871-10-09', hour='12:00', hour_evidence=['ogden-hour'], since='Four hours later',
          evidence=['ogden', 'first-mayor', 'st-michaels', 'monday', 'ogden-hour'],
          text="Midday on Monday, on the North Side, before the house of Mahlon D. Ogden, brother of William B. Ogden, Chicago's "
@@ -297,7 +421,10 @@ STOPS = [
               "St. Michael's, the great brick German church, whose steeple it will burn. "
               "Ahead of the fire, the people of the North Side are running for the lake and the old cemetery.",
          caption="The men who saved the house stand in the burnt park looking at it; a family picks through what is left of their furniture.",
-         cast=lambda: crowd('fire_ogden_house', [(10, -6, 'm'), (12, 0, 'm'), (9, 6, 'm'), (6, -10, 'w'), (5, -12, 'c')], [], 10)),
+         cast=lambda: [dict(c, **({'pose': 'crouch'} if c['extra'].endswith(('_watch_3', '_watch_4')) else {}))
+                       for c in crowd('fire_ogden_house', [(10, -6, 'm'), (12, 0, 'm'), (9, 6, 'm'), (6, -10, 'w'), (5, -12, 'c')], [], 10)],
+         props=lambda: [{'kind': 'chair', 'at': mark('fire_ogden_house', 6.6, -4.2), 'heading': 30.0},
+                        {'kind': 'trunk', 'at': mark('fire_ogden_house', 7.4, -5.6), 'heading': 300.0}]),
     dict(id='old-cemetery', anchor='fire_old_cemetery', date='1871-10-09', hour='18:30', hour_evidence=['cemetery-hour'], since='Six hours later',
          evidence=['cemetery', 'chapel-chairs', 'beach', 'prairie', 'cemetery-hour'],
          text="Nightfall on Monday, the old City Cemetery at the south end of Lincoln Park. Most of its dead were moved years ago, "
@@ -309,7 +436,14 @@ STOPS = [
               "\"blinded by smoke, weakened by hunger, and choking with thirst\", and nobody can say where the fire will stop.",
          caption="Families sit among the old graves with their bundles and chairs, looking south at the glow; others are still coming in from the burning streets.",
          cast=lambda: crowd('fire_old_cemetery', [(8, -8, 'w'), (10, -3, 'm'), (7, 3, 'c'), (9, 8, 'w'), (12, 12, 'm'), (6, -12, 'm')],
-                            [(60, -8, 6, -6, 1, 'slow', 'w'), (64, 6, 8, 10, 3, 'slow', 'm')], 11)),
+                            [(60, -8, 6, -6, 1, 'slow', 'w', 'shawl_bundle'), (64, 6, 8, 10, 3, 'slow', 'm', 'featherbed'), (62, -2, 7, 2, 6, 'slow', 'm', 'trunk', 'd')], 11),
+         # The goods set down between the stand and the watchers, clear of the lines the others walk.
+         props=lambda: [{'kind': 'bundle', 'at': mark('fire_old_cemetery', 9.4, -4.6), 'heading': 0.0},
+                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 10.2, 5.6), 'heading': 200.0},
+                        {'kind': 'trunk', 'at': mark('fire_old_cemetery', 8.6, 6.8), 'heading': 120.0},
+                        {'kind': 'shawl_bundle', 'at': mark('fire_old_cemetery', 11.2, -6.0), 'heading': 0.0},
+                        {'kind': 'featherbed', 'at': mark('fire_old_cemetery', 12.4, 6.4), 'heading': 80.0},
+                        {'kind': 'chair', 'at': mark('fire_old_cemetery', 12.6, -4.4), 'heading': 160.0}]),
 ]
 
 LEGS = [
@@ -386,6 +520,10 @@ def dev_version(path):
         return 1
 
 
+# T-3814: the stops whose people carry goods (the 'goods' claim is their evidence).
+GOODS_STOPS = {'oleary-barn', 'st-pauls', 'sherman-house', 'crosbys', 'north-side', 'water-works', 'tribune', 'state-street', 'old-cemetery'}
+
+
 def build():
     staging = C.staging(TITLE)
     used = []
@@ -395,13 +533,20 @@ def build():
             if i not in used: used.append(i)
     stops = []
     for k, s in enumerate(STOPS):
-        ev = list(s['evidence']) + (['drought'] if k == 0 else []) + ['stand', 'stage']
+        ev = list(s['evidence']) + (['drought'] if k == 0 else []) + (['goods'] if s['id'] in GOODS_STOPS else []) + ['stand', 'stage']
         use(ev)
         stop = {'id': s['id'], 'destination': {'kind': 'anchor', 'id': s['anchor']}, 'text': s['text'], 'read_s': read_s(s['text']),
                 'evidence': ev, 'next': STOPS[k + 1]['id'] if k + 1 < len(STOPS) else ENDINGS[0]['id'],
                 'hour': s['hour'], 'date': s['date'], 'hour_evidence': s['hour_evidence']}
         if 'since' in s: stop['since'] = s['since']
         stop['stage'] = {'caption': s['caption'], 'liberty': C.LIBERTY, 'cast': s['cast']()}
+        if 'teams' in s: stop['stage']['teams'] = s['teams']()
+        if 'props' in s:
+            stop['stage']['props'] = s['props']()
+            # T-3814: nothing is set down where someone stands or walks.
+            for pr in stop['stage']['props']:
+                gap = _clear_of_cast(pr['at'], stop['stage']['cast'])
+                assert gap >= 1.2, (s['id'], pr['kind'], round(gap, 2))
         stops.append(stop)
     legs = []
     for leg in LEGS:
@@ -423,7 +568,7 @@ def build():
         'ambience': {'season': 'fall'},
         'opening': {'text': OPENING, 'read_s': read_s(OPENING)},
         'stops': stops, 'legs': legs, 'endings': endings, 'keepsake': KEEPSAKE,
-        'evidence': evidence, 'liberties': [C.LIBERTY],
+        'evidence': evidence, 'liberties': [C.LIBERTY, 'L-1871-fire-night-3814'],
     }
     assert len(PREMISE) <= 260, len(PREMISE)
     for s in stops:
@@ -471,10 +616,20 @@ def direction(doc):
 
 
 def scene_with_anchors():
+    """The scene's viewpoints with ours in them: one already there in its place (within 0.5 m and 1
+    degree) is kept as it is, with whatever a later tool measured onto it, and in its order (T-3814)."""
     scene = json.loads(SCENE_PATH.read_text())
-    ours = {a[0] for a in ANCHORS}
-    kept = [a for a in scene['anchors'] if a['id'] not in ours]
-    scene['anchors'] = kept + [scene_anchor(a) for a in ANCHORS]
+    want = {a[0]: scene_anchor(a) for a in ANCHORS}
+    out, seen = [], set()
+    for a in scene['anchors']:
+        w = want.get(a['id'])
+        if w is None: out.append(a); continue
+        seen.add(a['id'])
+        same = (math.hypot(a['local_e'] - w['local_e'], a['local_n'] - w['local_n']) <= 0.5
+                and abs(((a.get('yaw_deg', 0) - w['yaw_deg'] + 540) % 360) - 180) <= 1.0)
+        out.append(a if same else w)
+    out += [w for i, w in want.items() if i not in seen]
+    scene['anchors'] = out
     return scene
 
 
@@ -485,6 +640,16 @@ def main(check=False):
     if misses:
         raise SystemExit('direction refused:\n  ' + '\n  '.join(misses))
     dpath = ROOT / f'data/narration/direction/{ID}.json'
+    # The narration work tunes this file by hand (T-3696 smooth style, T-3809 the voiced reading):
+    # a script whose words still match the panel's is kept as tuned, and so are its other keys
+    # ('style'); only a part whose words changed is written afresh.
+    if dpath.exists():
+        tuned = json.loads(dpath.read_text())
+        for key, script in (tuned.get('scripts') or {}).items():
+            if key in perf['scripts'] and words(script) == words(perf['scripts'][key]):
+                perf['scripts'][key] = script
+        order = list(tuned) + [k for k in perf if k not in tuned]
+        perf = {k: (perf[k] if k in perf else tuned[k]) for k in order}
     dbody = json.dumps(perf, indent=2, ensure_ascii=False) + '\n'
     sbody = json.dumps(scene_with_anchors(), indent=2, ensure_ascii=False) + '\n'
     outs = [(path, body), (dpath, dbody), (SCENE_PATH, sbody)]

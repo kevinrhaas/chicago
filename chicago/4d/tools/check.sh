@@ -884,6 +884,11 @@ step "Ride a horse: each year's saddle horse, its tack on the coat, the rider se
   node tools/test_riding.mjs
 step "The visitor's own person: every choice one the renderer draws and a body the saddle seats, kept per year and sex, the chosen face drawn, kept with the account (T-3644)" \
   node tools/test_visitor_person.mjs
+# The gate's runners have no browser: the creator's walk-through (the You tab opens it full
+# screen, every category picture choices, Undo, Randomize, Esc, nothing off a phone's side) runs
+# by hand with --browser; here, its rules by the source and its pure parts in node.
+step "The character creator by its source and pure parts: five categories, the summary, a picture keyed by what is drawn, the portrait's pixels read behind a fence (T-3553)" \
+  node tools/test_person_creator.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
@@ -4925,6 +4930,12 @@ step "1871 street furniture and street trees re-lay from the city (T-3686)" \
 # carriage ways and the walk's through-path; the furniture check refuses each of those.
 selftest "1871 street furniture check refuses doorways, crossings and the through-path (T-3805)" \
   python3 tools/lay_1871_street_furniture.py --self-test
+
+# T-3803. The shop signs round the 1871 jaunt stops carry firms of Edwards' 1871 directory at
+# their listed numbers: every firm sits on its face's parity and number span, every street's
+# numbering carries its evidence, and every listing keeps its page and line.
+step "1871 directory firms sit on their calibrated faces with their listings (T-3803)" \
+  python3 -I tools/build_1871_directory_fronts.py --check
 
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
