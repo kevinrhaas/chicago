@@ -8,12 +8,9 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 9
+      max-parallel: 10
       matrix:
         include:
-        - part: 9/16
-          serial: true
-          key: 9of16
         - part: 1/16
           serial: false
           key: 1of16
@@ -38,15 +35,21 @@ jobs:
         - part: 8/8
           serial: false
           key: 8of8
+        - part: 9/32
+          serial: false
+          key: 9of32
+        - part: 25/32
+          serial: true
+          key: 25of32
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: bbb71fa654a84e6fb09e49f32ee37572836265b28f26bd20ebbbf8723c13000a
+      SOURCE_MANIFEST_SHA: b0ffc8c16c7758ef59e329fae1c1cd967a2bdec5aa266a56f797ad4f97929409
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: 118bd2e6d614bb594bc88419c74df807956d5a1c
+        ref: 65c26d09994bfaea00a02d79c011b88138a5fc1a
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-python@v5
@@ -71,9 +74,9 @@ jobs:
 
         subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-dev118-apply-working-source.py''])
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-roughness-channel-fix-apply-working-source.py''])
 
-        assert hashlib.sha256(raw).hexdigest()==''bc3b227565e7875e80b77012db5da8b6ec4cb373d492b112cdf4f1dcfa6b0f08''
+        assert hashlib.sha256(raw).hexdigest()==''4cfa0f30be00ccb05b36f3874709996134515a594ef0d5088207ff2b4fc9d77b''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw)
 
@@ -126,9 +129,4 @@ jobs:
     steps:
     - run: test "${{ needs.native-working-source.result }}" = success
 'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3748-working-source.yml
   workflow_dispatch: null

@@ -13,9 +13,12 @@ jobs:
         - 1
         - 2
         - 3
+        - 4
+        - 5
+        - 6
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: bbb71fa654a84e6fb09e49f32ee37572836265b28f26bd20ebbbf8723c13000a
+      SOURCE_MANIFEST_SHA: b0ffc8c16c7758ef59e329fae1c1cd967a2bdec5aa266a56f797ad4f97929409
       REQUIRED_CPU: AMD EPYC 7763 64-Core Processor
       SOURCE_RECEIPT_PATH: /tmp/calibrated-source-before.json
     steps:
@@ -45,7 +48,7 @@ jobs:
         '
     - uses: actions/checkout@v4
       with:
-        ref: 118bd2e6d614bb594bc88419c74df807956d5a1c
+        ref: 65c26d09994bfaea00a02d79c011b88138a5fc1a
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-node@v4
@@ -60,8 +63,8 @@ jobs:
 
         head=os.environ[''DIAGNOSTIC_HEAD''];subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-dev118-apply-working-source.py'']);assert
-        hashlib.sha256(raw).hexdigest()==''bc3b227565e7875e80b77012db5da8b6ec4cb373d492b112cdf4f1dcfa6b0f08''
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-roughness-channel-fix-apply-working-source.py'']);assert
+        hashlib.sha256(raw).hexdigest()==''4cfa0f30be00ccb05b36f3874709996134515a594ef0d5088207ff2b4fc9d77b''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw);subprocess.run([''python3'',str(p)],check=True)
 
@@ -96,7 +99,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: vegetation-m2-dev118-calibration-${{ matrix.allocation }}
+        name: vegetation-roughness-channel-fix-calibration-${{ matrix.allocation }}
         path: '/tmp/calibrated-host.json
 
           /tmp/calibrated-source-before.json
@@ -106,9 +109,4 @@ jobs:
           chicago/4d/still-frame-desktop.json'
         if-no-files-found: error
 'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3748-dev118-calibration.yml
   workflow_dispatch: null
