@@ -128,6 +128,8 @@ export function* layOverSteps(root) {
     writeBack(W, null);
     report.evened.push({ mesh: mesh.name, points: moved });
   }
+  // The outline samplers are not used by the rider passes below.
+  grids.clear();
   // Riders and braces only: lifting a garment's own edge over the cloth under it (a waistcoat's
   // over a shirt) saws the edge where it crosses, so garments are left to bindLayers and cullHidden.
   const strap = (m) => overRank(m) >= 4.5 || BRACES.test(m.name ?? '');

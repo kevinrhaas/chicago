@@ -559,42 +559,64 @@ export async function createFrontYards({
     });
     ownMats = true;
   }
+  const leafRelief = mats.leafMat.bumpMap;
   const ivySpec = (w, h, conf) => ({ speciesId: 'parthenocissus_tricuspidata', common: 'Boston ivy',
     form: 'vine_wall', leaf: 'maple', h: [h, h], crownW: [w, w], dark: 0x29421f, light: 0x648a3a,
     bark: 0x6b5a48, conf, sinkM: 0 });
 
   let forest = null;
-  let current = { mode: null, detail: null };
-  const build = async (wantMode, wantDetail) => {
-    if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+  let current = { mode: null, detail: null }, applied = { ...current };
+  let buildRevision = 0, disposed = false;
+  let pending = Promise.resolve();
+  const build = (wantMode, wantDetail) => {
+    if (disposed) return pending;
+    const mine = ++buildRevision;
     current = { mode: wantMode, detail: wantDetail };
-    stats.mode = wantMode; stats.detail = wantDetail;
-    const lvl = YARD_LEVELS[wantDetail] ? wantDetail : 'full';
-    const grown = new TreeInstances({ level: lvl, shadowM: SHADOW_M[lvl], name: 'front-yards',
-      levels: YARD_LEVELS, cull: true, fadeS: FADE_S });
-    if (tubMesh) tubMesh.visible = wantMode === 'summer';
-    for (const p of placed) {
-      if (p.tub && wantMode !== 'summer') continue;
-      if (p.kind === 'bedding' && !BEDDED[wantMode]) continue;
-      if (p.kind === 'creeper') {
-        // Its +x out of the wall: a compass bearing turned into the batches' yaw.
-        // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
-        // patches under its windows theirs, so neither is grown at the other's height (T-1881)
-        const spec = { ...seasonSpec('ivy', ivySpec(p.mantle === 'mantle_ring' ? RING_W_M : 2.4, 6, p.conf), wantMode),
-          ...(p.mantle ? { arch: p.mantle } : {}) };
-        grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
-          { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
-        continue;
+    pending = pending.catch(() => {}).then(async () => {
+      if (disposed || mine !== buildRevision) return;
+      try {
+        const lvl = YARD_LEVELS[wantDetail] ? wantDetail : 'full';
+        const grown = new TreeInstances({ level: lvl, shadowM: SHADOW_M[lvl], name: 'front-yards',
+          levels: YARD_LEVELS, cull: true, fadeS: FADE_S });
+        for (const p of placed) {
+          if (p.tub && wantMode !== 'summer') continue;
+          if (p.kind === 'bedding' && !BEDDED[wantMode]) continue;
+          if (p.kind === 'creeper') {
+            // Its +x out of the wall: a compass bearing turned into the batches' yaw.
+            // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
+            // patches under its windows theirs, so neither is grown at the other's height (T-1881)
+            const spec = { ...seasonSpec('ivy', ivySpec(p.mantle === 'mantle_ring' ? RING_W_M : 2.4, 6, p.conf), wantMode),
+              ...(p.mantle ? { arch: p.mantle } : {}) };
+            grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
+              { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
+            continue;
+          }
+          const spec = seasonSpec(p.plant, specOf(p.plant, p.conf), wantMode);
+          const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
+          grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
+        }
+        const pause = checkpoint(); if (pause) await pause;
+        const candidate = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+        if (disposed || mine !== buildRevision) { candidate.dispose(); return; }
+        const bumpMap = wantDetail === 'light' ? null : leafRelief;
+        if (mats.leafMat.bumpMap !== bumpMap) {
+          mats.leafMat.bumpMap = bumpMap;
+          mats.leafMat.needsUpdate = true;
+        }
+        if (forest) { group.remove(forest.group); forest.dispose(); }
+        forest = candidate;
+        group.add(forest.group);
+        if (tubMesh) tubMesh.visible = wantMode === 'summer';
+        stats.mode = wantMode; stats.detail = wantDetail;
+        stats.drawCalls = forest.stats.drawCalls + (beds.length ? 1 : 0);
+        stats.grown = forest.stats;
+        applied = { mode: wantMode, detail: wantDetail };
+      } catch (error) {
+        if (mine === buildRevision) current = { ...applied };
+        throw error;
       }
-      const spec = seasonSpec(p.plant, specOf(p.plant, p.conf), wantMode);
-      const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
-      grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
-    }
-    const pause = checkpoint(); if (pause) await pause;
-    forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
-    group.add(forest.group);
-    stats.drawCalls = forest.stats.drawCalls + (beds.length ? 1 : 0);
-    stats.grown = forest.stats;
+    });
+    return pending;
   };
   await build(SEASON[mode] ? mode : 'summer', detail);
 
@@ -607,12 +629,13 @@ export async function createFrontYards({
     }
   };
   out.setDetail = async (d) => {
-    if (!YARD_LEVELS[d] || d === current.detail) return;
+    if (!YARD_LEVELS[d]) return;
+    if (d === current.detail) return pending;
     await build(current.mode, d);
   };
   out.setSeason = async (m) => {
     const want = SEASON[m] ? m : 'summer';
-    if (want === current.mode) return;
+    if (want === current.mode) return pending;
     await build(want, current.detail);
   };
   /** Deal now, from this eye (a still frame for a reading or a shot). */
@@ -632,7 +655,7 @@ export async function createFrontYards({
     let best = null;
     const sphere = new THREE.Sphere(); const hitP = new THREE.Vector3();
     for (const p of placed) {
-      if (p.kind === 'bedding' || (p.tub && current.mode !== 'summer') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
+      if (p.kind === 'bedding' || (p.tub && stats.mode !== 'summer') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
       const r = p.kind === 'creeper' ? Math.min(p.w ?? 1.5, p.h) * 0.5
         : p.kind === 'tree' ? p.h * 0.3 : Math.max(0.4, p.h * 0.5);
       sphere.center.set(p.x, p.y + (p.kind === 'tree' ? p.h * 0.62 : p.h * 0.5), p.z);
@@ -673,6 +696,8 @@ export async function createFrontYards({
     return plantCard(hit, doc, back);
   };
   out.dispose = () => {
+    if (disposed) return;
+    disposed=true; buildRevision++;
     if (forest) { group.remove(forest.group); forest.dispose(); }
     if (ownMats) mats.dispose();
     for (const f of disposers) f();
