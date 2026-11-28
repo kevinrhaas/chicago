@@ -508,6 +508,320 @@
       }
     },
     {
+      "id": "jaunt-opening-1835",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "Every 1835 jaunt opening, after the fixed fanfare phrase",
+      "era": "1835",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1835 boom town on the Chicago River",
+          "fiddle",
+          "fife and drum",
+          "keyed bugle",
+          "hammered dulcimer",
+          "reed organ",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Opening A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "jaunt-closing-1835",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "Every 1835 jaunt closing scene, before the fixed fanfare cadence",
+      "era": "1835",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1835 boom town on the Chicago River",
+          "fiddle",
+          "fife and drum",
+          "keyed bugle",
+          "hammered dulcimer",
+          "reed organ",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Closing A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "jaunt-opening-1871",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "Every 1871 jaunt opening, after the fixed fanfare phrase",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Opening A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "jaunt-closing-1871",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "Every 1871 jaunt closing scene, before the fixed fanfare cadence",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Closing A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      }
+    },
+    {
       "id": "jaunt-opening-1904",
       "group": "jaunt",
       "kind": "bed",
@@ -1831,6 +2145,688 @@
       "jaunts": [
         "scandal-at-1612",
         "sisters-of-the-levee"
+      ]
+    },
+    {
+      "id": "bed-1835-town",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "1835 errands, people and town walks",
+      "era": "1835",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1835 boom town on the Chicago River",
+          "fiddle",
+          "fife and drum",
+          "keyed bugle",
+          "hammered dulcimer",
+          "reed organ",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Town A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a boom town of new frame stores and muddy streets on a bright day: a light fiddle and hammered dulcimer figure, soft reed organ chords, hopeful and busy but quiet"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Town B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a boom town of new frame stores and muddy streets on a bright day: a light fiddle and hammered dulcimer figure, soft reed organ chords, hopeful and busy but quiet",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Town C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a boom town of new frame stores and muddy streets on a bright day: a light fiddle and hammered dulcimer figure, soft reed organ chords, hopeful and busy but quiet",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "a-decent-coat",
+        "bed-for-the-night",
+        "calling-on-neighbors",
+        "gossip-or-notice",
+        "household-provisions",
+        "inspect-a-lot",
+        "letter-home",
+        "new-in-chicago",
+        "news-before-breakfast",
+        "notable-women-1835",
+        "outfit-for-the-west",
+        "schoolday-errand",
+        "shopping-south-water",
+        "soap-and-candles",
+        "sunday-circuit",
+        "an-evening-stroll",
+        "from-prairie-to-town",
+        "fort-dearborn-errand"
+      ]
+    },
+    {
+      "id": "bed-1835-river",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "waters",
+        "portage"
+      ],
+      "use": "1835 river, harbor and bridge jaunts",
+      "era": "1835",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1835 boom town on the Chicago River",
+          "fiddle",
+          "fife and drum",
+          "keyed bugle",
+          "hammered dulcimer",
+          "reed organ",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "River A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the working river and harbor: a rolling six-eight harp and low string current, a distant keyed bugle call now and then, schooners and the open lake"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "River B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the working river and harbor: a rolling six-eight harp and low string current, a distant keyed bugle call now and then, schooners and the open lake",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "River C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the working river and harbor: a rolling six-eight harp and low string current, a distant keyed bugle call now and then, schooners and the open lake",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "a-parcel-across-the-river",
+        "across-wolf-point",
+        "along-the-harbor",
+        "freight-for-the-store",
+        "over-the-draw",
+        "work-on-waterfront"
+      ]
+    },
+    {
+      "id": "bed-1835-trades",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "1835 trades and workshops",
+      "era": "1835",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1835 boom town on the Chicago River",
+          "fiddle",
+          "fife and drum",
+          "keyed bugle",
+          "hammered dulcimer",
+          "reed organ",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Trades A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "honest work in small shops: a steady plucked fiddle and dulcimer pattern like a tool in rhythm, warm low strings, homely and unhurried"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Trades B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "honest work in small shops: a steady plucked fiddle and dulcimer pattern like a tool in rhythm, warm low strings, homely and unhurried",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Trades C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "honest work in small shops: a steady plucked fiddle and dulcimer pattern like a tool in rhythm, warm low strings, homely and unhurried",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "apprentice-at-the-democrat",
+        "boots-and-leather",
+        "materials-for-a-roof",
+        "mend-the-harness",
+        "taverns-of-chicago"
+      ]
+    },
+    {
+      "id": "bed-1871-city",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "portage"
+      ],
+      "use": "The Last Sunday; A Message for the Opera House",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "City A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the proud wooden city on a warm, dry Sunday afternoon in October: a gentle saxhorn band chorale far off, parlor piano, soft strings, a church bell now and then, a faint unease in the low strings"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "City B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the proud wooden city on a warm, dry Sunday afternoon in October: a gentle saxhorn band chorale far off, parlor piano, soft strings, a church bell now and then, a faint unease in the low strings",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "City C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the proud wooden city on a warm, dry Sunday afternoon in October: a gentle saxhorn band chorale far off, parlor piano, soft strings, a church bell now and then, a faint unease in the low strings",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "the-last-sunday",
+        "a-message-for-the-opera-house"
+      ]
+    },
+    {
+      "id": "bed-1871-inquiry",
+      "group": "jaunt",
+      "kind": "bed",
+      "themes": [
+        "mystery"
+      ],
+      "use": "Who Started the Fire?",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Inquiry A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "weighing the evidence of who started the fire: pizzicato low strings, a curious clarinet, soft muted brass, the mystery left open"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Inquiry B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "weighing the evidence of who started the fire: pizzicato low strings, a curious clarinet, soft muted brass, the mystery left open",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Inquiry C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "weighing the evidence of who started the fire: pizzicato low strings, a curious clarinet, soft muted brass, the mystery left open",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "who-started-the-fire"
+      ]
+    },
+    {
+      "id": "fire-1-rising",
+      "group": "fire",
+      "kind": "bed",
+      "themes": [
+        "remembrance",
+        "portage"
+      ],
+      "use": "The Great Fire: the barn to the river",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Rising A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "night, a fire spreading on a gale through a wooden city: a low string pedal with a slowly quickening pulse, a distant fire bell, tension that grows but stays under the voice"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Rising B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "night, a fire spreading on a gale through a wooden city: a low string pedal with a slowly quickening pulse, a distant fire bell, tension that grows but stays under the voice",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Rising C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "night, a fire spreading on a gale through a wooden city: a low string pedal with a slowly quickening pulse, a distant fire bell, tension that grows but stays under the voice",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "the-great-fire"
+      ]
+    },
+    {
+      "id": "fire-2-inferno",
+      "group": "fire",
+      "kind": "bed",
+      "themes": [
+        "remembrance",
+        "portage"
+      ],
+      "use": "The Great Fire: the business district and the North Side burning",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Inferno A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the whole city on fire: driving low string ostinato, low timpani kept beneath the voice, a minor saxhorn chorale, grief and awe, tragic, never exciting"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Inferno B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the whole city on fire: driving low string ostinato, low timpani kept beneath the voice, a minor saxhorn chorale, grief and awe, tragic, never exciting",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Inferno C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "the whole city on fire: driving low string ostinato, low timpani kept beneath the voice, a minor saxhorn chorale, grief and awe, tragic, never exciting",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "the-great-fire"
+      ]
+    },
+    {
+      "id": "fire-3-ruins",
+      "group": "fire",
+      "kind": "bed",
+      "themes": [
+        "remembrance",
+        "portage"
+      ],
+      "use": "The Great Fire: the last refuges and the rain",
+      "era": "1871",
+      "plan": {
+        "positive_global_styles": [
+          "cinematic orchestral film score",
+          "grand Hollywood adventure style",
+          "French horns",
+          "lush strings",
+          "harp",
+          "timpani",
+          "consonant and tonal",
+          "instrumental",
+          "year 1871 wooden city before the Great Fire",
+          "saxhorn brass band",
+          "cornet",
+          "parlor piano",
+          "church bells",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
+        ],
+        "negative_global_styles": [
+          "vocals",
+          "choir",
+          "singing",
+          "humming",
+          "spoken word",
+          "electronic",
+          "synthesizer",
+          "drum kit",
+          "electric guitar",
+          "atonal",
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
+        ],
+        "sections": [
+          {
+            "section_name": "Ruins A",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "exhausted people in the ruins and then rain: a slow solo cello, soft strings, distant church bell, the first hope at the very end"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Ruins B",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "exhausted people in the ruins and then rain: a slow solo cello, soft strings, distant church bell, the first hope at the very end",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Ruins C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "exhausted people in the ruins and then rain: a slow solo cello, soft strings, distant church bell, the first hope at the very end",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
+          }
+        ]
+      },
+      "jaunts": [
+        "the-great-fire"
       ]
     }
   ]

@@ -1,4 +1,70 @@
 export const CHANGELOG = [ // newest first
+  { v: 3314, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2008 Calumet: the Hanford house checked against its 1883 drawing', kind: 'improvement',
+    items: [
+      'The Hanford house at 2008 Calumet Avenue has been matched against its 1883 drawing. Its south side now has the round oriel window on carved brackets, and a projecting bay with three windows on each floor that rises to a stone gable. The chimneys and side windows are where the drawing puts them, the pointed corner roof covers the whole corner block, and the stone is rough-faced, as drawn.',
+    ] },
+  { v: 3313, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2130 Prairie\'s south gable gets its attic window', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie now has the tall attic window the 1905 photograph from Prairie and 22nd Street shows high in its stone south gable, with its stone sill and lintel, placed where the photograph puts it to within a few inches.',
+    ] },
+  { v: 3312, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: '2021 Prairie\'s front opens to the street, and its picket fence appears', kind: 'improvement',
+    items: [
+      'The tall board fence across the High house\'s front at 2021 Prairie is gone. As in the old photograph, its steps and basement windows now face the street with nothing in between.',
+      'The photograph\'s low white picket fence now runs along the side of the lot by the south wing.',
+      'Still different from the photograph: the open porch behind the arch, the steps running along the front, the cut corner of the south wing, and the side yard sloping down to the street.',
+    ] },
+  { v: 3311, ts: '2026-11-28T04:45:36.482Z', date: 'Nov 27, 2026, 10:45 PM CT', title: 'A wooden stable behind 2125 Prairie, the alley\'s first frame building', kind: 'improvement',
+    items: [
+      'The stable on the alley behind 2125 Prairie Avenue is now built at the size and place the 1911 fire-insurance map gives it: 6.9 by 7.2 metres, standing on its own in the yard.',
+      'It is the only wooden building on that alley. Its walls are pale painted boards with cream trim, beside the brick stables to its north.',
+      'It has a carriage door with a hay-loft hatch and hoist above it, stable windows, a door to the yard, and a pointed gable at each end.',
+      'A brick path joins its yard door to the back of the house.',
+    ] },
+  { v: 3310, ts: '2026-11-28T04:12:08.127Z', date: 'Nov 27, 2026, 10:12 PM CT', title: 'The people of 1904 talk as you pass', kind: 'feature',
+    items: [
+      'On Prairie Avenue in 1904, people near you now speak: a greeting when greeted, or a remark about their day. A caption shows who.',
+    ] },
+  { v: 3309, ts: '2026-11-28T04:12:08.127Z', date: 'Nov 27, 2026, 10:12 PM CT', title: 'The Great Fire read aloud, and music under every jaunt', kind: 'feature',
+    items: [
+      'The Great Fire jaunt in 1871 is now read aloud, from the O\'Leary barn to the rain.',
+      'Every jaunt now plays music. 1835 and 1871 have their own, and the Great Fire plays in three movements.',
+    ] },
+  { v: 3308, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'A new launch page for the four years', kind: 'feature',
+    items: [
+      'The front door is now a launch page that opens on Chicago 4D itself, with no year chosen for you. Rest the mouse on 1835, 1904, 1812 or 1871 to see it fade in behind the page, then choose one and press Play.',
+      'A system check reads your computer by itself as the page opens and says in plain words how the town will run on it.',
+      'Music on the launch page can be switched on and off, and Settings for sound, appearance, scene detail and language carry into every year.',
+      'Sign in from the launch page; one sign-in opens every year.',
+      'The old machine console is still there, as the Classic console link at the foot of the page.',
+    ] },
+  { v: 3307, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Cloud play access and a waitlist, managed by email', kind: 'feature',
+    items: [
+      'The launch page has an Admin sheet for the owner: add people by the address they sign in with and give them cloud play, before they ever sign in.',
+      'Anyone without cloud play can join the cloud play waitlist from the launch page; the owner sees who is waiting, with the year they chose and what the system check said, and lets them in with one click.',
+      'The cloud button says cloud play is opening soon until the cloud machines are ready.',
+      'The system check no longer calls a computer ready when the browser is drawing without its graphics chip, and says how to turn hardware acceleration on.',
+    ] },
+  { v: 3306, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Play from the cloud', kind: 'feature',
+    items: [
+      'Players with cloud play can press Play from the cloud on the launch page: a machine with a fast graphics card opens the year they chose and streams it to their browser, so a slow computer or a phone plays at full detail.',
+      'The page says plainly how it is going while the machine starts, usually in about a minute, and why when it cannot start one.',
+      'Before the stream opens, the page says which machine they got: an NVIDIA L4 graphics card, at full detail.',
+      'A cloud session ends by itself after ten minutes with nobody connected, and after two hours in any case.',
+    ] },
+  { v: 3305, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Classes: a join code, a teacher\'s page and hand-ins', kind: 'feature',
+    items: [
+      'Teachers make a class in Guide › For teachers and give students its six-character code.',
+      'Students enter the code once in Settings › About and are in the class on every device they sign in on.',
+      'A notebook entry can be handed in to the class, handed in again after an edit, or taken back; a jaunt\'s check can be saved to the notebook as a reflection.',
+      'The teacher\'s page lists who joined, when each was last in and what each handed in, with CSV and print. No grades or scores.',
+      'Closing a class deletes it and everything handed in.',
+    ] },
+  { v: 3304, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'Your notebook and finds follow you to another device', kind: 'feature',
+    items: [
+      'Your field notebook, the people you met, the places you found and your settings follow your sign-in to any device.',
+      'It works offline: this browser keeps your work, and it catches up with your account when it can.',
+      'Settings › About says where your work was last saved.',
+    ] },
   { v: 3303, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '213 and 215 East Twentieth Street, built from their photographs', kind: 'feature',
     items: [
       '215 East Twentieth Street stands back behind its front yard: three storeys of red brick, two round-headed windows and an arched door on the ground floor, and stone lintels above.',

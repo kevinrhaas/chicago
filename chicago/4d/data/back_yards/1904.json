@@ -54,7 +54,7 @@
  },
  "summary": {
   "lots": 141,
-  "surfaces": 299,
+  "surfaces": 298,
   "doors": 135,
   "posts": 108,
   "gardens": 25,
@@ -65,7 +65,7 @@
    "front_walk": 16,
    "gangway": 36,
    "garden_bed": 25,
-   "rear_terrace": 112
+   "rear_terrace": 111
   }
  },
  "lots": [
@@ -1706,53 +1706,25 @@
    "note": "",
    "surfaces": [
     {
-     "id": "calumet_2008:rear_terrace:0",
-     "kind": "rear_terrace",
-     "material": "yard_brick",
-     "polygon_local_m": [
-      [
-       1495.6,
-       -3508.87
-      ],
-      [
-       1495.62,
-       -3512.37
-      ],
-      [
-       1488.08,
-       -3512.42
-      ],
-      [
-       1488.06,
-       -3508.93
-      ]
-     ],
-     "along_deg": 179.56,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "calumet_2008:drying_yard:1",
+     "id": "calumet_2008:drying_yard:0",
      "kind": "drying_yard",
      "material": "trodden",
      "polygon_local_m": [
       [
-       1490.41,
-       -3514.28
+       1490.4,
+       -3513.03
       ],
       [
-       1490.45,
-       -3518.78
+       1490.44,
+       -3517.53
       ],
       [
-       1487.25,
-       -3518.81
+       1487.24,
+       -3517.56
       ],
       [
-       1487.21,
-       -3514.31
+       1487.2,
+       -3513.06
       ]
      ],
      "along_deg": 179.56,
@@ -1766,8 +1738,8 @@
     {
      "id": "calumet_2008:back_door",
      "structure": "hanford_house_2008_calumet",
-     "e": 1495.7,
-     "n": -3510.99,
+     "e": 1495.69,
+     "n": -3511.74,
      "facing_deg": 269.56,
      "sill_m": 1.4,
      "width_m": 0.95,
@@ -1787,8 +1759,8 @@
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1488.82,
-     "n": -3514.6,
+     "e": 1488.81,
+     "n": -3513.35,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
@@ -1797,8 +1769,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1488.85,
-     "n": -3518.5,
+     "e": 1488.84,
+     "n": -3517.25,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
@@ -1847,7 +1819,7 @@
    "trees": [
     [
      1507.63,
-     -3522.9,
+     -3522.65,
      "linden",
      8.97,
      5.39
