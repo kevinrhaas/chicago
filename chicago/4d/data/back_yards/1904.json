@@ -54,12 +54,12 @@
  },
  "summary": {
   "lots": 141,
-  "surfaces": 298,
+  "surfaces": 299,
   "doors": 135,
   "posts": 108,
   "gardens": 25,
   "by_kind": {
-   "alley_walk": 23,
+   "alley_walk": 24,
    "coach_walk": 33,
    "drying_yard": 54,
    "front_walk": 16,
@@ -15524,8 +15524,7 @@
    "street": "prairie",
    "side": "east",
    "structures": [
-    "high_house_2021_prairie",
-    "high_house_2021_prairie_coach_house"
+    "high_house_2021_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -15559,6 +15558,34 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2021:alley_walk:1",
+     "kind": "alley_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1446.42,
+       -3553.06
+      ],
+      [
+       1446.43,
+       -3554.06
+      ],
+      [
+       1469.75,
+       -3553.88
+      ],
+      [
+       1469.74,
+       -3552.88
+      ]
+     ],
+     "along_deg": 179.55,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -15585,7 +15612,22 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
+   "shrubs": [
+    [
+     1468.43,
+     -3544.39,
+     "lilac",
+     2.85,
+     2.43
+    ],
+    [
+     1465.67,
+     -3544.16,
+     "lilac",
+     2.71,
+     2.2
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []

@@ -160,6 +160,10 @@
       "confidence": "reconstructed",
       "note": "T-1932: a one-storey brick range carried on along the alley past the coach house's open gable, as 1720 Prairie's stable has one on the 1911 sheet and on Robinson's 1886 plate: its alley wall on the coach house's alley wall line, its far end closed, under a flat roof flush with the alley face and dying into the gable. The wing's flat roof and the 9-inch service wall; the 3.2 m wall height is the wing's specimen figure. A variant states the range's length along the alley and its depth back from it (less than the coach house's, or the whole of it: 1730 Prairie's range, whose yard wall the 1911 sheet draws on one line with the stable's, stands its yard wall's end on the yard wall's end and is roofed flush with both faces), and every opening on it."
     },
+    "gable_upper": {
+      "confidence": "reconstructed",
+      "note": "T-1938: the open gable over a range, from the range's roof up, built as a second wall on the gable's plane in painted sheet tin (`gable_upper: tin`), for 2021 Prairie's garage, whose 1911 sheet draws the wall between its two-storey body and its one-storey south end in the yellow of frame and letters it 'TIN CL. 2ND' (the second storey of that wall tin-clad). What the sheet gives is the material of that part of the wall; its thickness (the brick gable's, so the two parts stand flush), its dull painted grey and its plain face (no seams or laps modelled) are reconstructed. The lower part, inside the range, stays brick."
+    },
     "ventilator": {
       "evidence": null,
       "confidence": "reconstructed",
@@ -179,7 +183,7 @@
       "coach_house": 9000
     }
   },
-  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west, range_alley, range_yard, range_end), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line. T-1938: `construction` is 'brick' (the default) or 'frame'; `west_end` is 'party' (the default) or 'gable', a second open gable for a building the sheet draws clear of both neighbours, whose openings (wall gable_west) count back from the yard face. A frame building takes west_end 'gable': it stands free.",
+  "_variants_doc": "kind picks the builder; class picks the triangle budget. width_m runs along the alley (party wall included), depth_m back from it. Openings are on a wall (alley, yard, gable, lean_to, wing_east, wing_west, range_alley, range_yard, range_end), at s0..s1 along it from its start, sill to head in metres from grade; a carriage opening's head is its springing line. T-1938: `construction` is 'brick' (the default) or 'frame'; `west_end` is 'party' (the default) or 'gable', a second open gable for a building the sheet draws clear of both neighbours, whose openings (wall gable_west) count back from the yard face. A frame building takes west_end 'gable': it stands free. T-1938: a brick variant with `west_end` 'gable' may carry a `range` on past its east gable, and `gable_upper` 'tin' builds that gable from the range's roof up as a tin-clad wall (wall gable_upper).",
   "variants": [
     {
       "id": "k12.coach_house.two_storey_brick",

@@ -28,6 +28,9 @@ each variant on a specimen lot the way T-2321 will build one behind a named hous
   frame          (T-1938) the same shell in painted clapboard on a thinner wall, its rings,
                  sills and lintels in painted timber trim, for a building the sheet colours
                  yellow (`construction: frame`)
+  tin gable     (T-1938) a brick building free at both ends may carry a range on past its
+                 east gable, and that gable above the range's roof may be tin-clad, for a
+                 building the sheet draws so (`gable_upper: tin`, 2021 Prairie's)
 
 EVERY PIECE STANDS ON SOMETHING, as in K09 and K10 (whose mesh primitives this module
 reuses): an open piece leaves its open edges lying on another surface (a wall's foot on the
@@ -71,7 +74,9 @@ ROLE_MATERIAL = {"brick": "brick", "arch": "rubbed_brick", "stone": "dressed_sto
                  "ground": "ground", "backing": "house_wall",
                  # T-1938: a frame building's walls and its trim (FRAME_ROLE). Last, so that a
                  # brick building's file keeps its bytes
-                 "clapboard": "painted_clapboard", "frame_trim": "painted_trim"}
+                 "clapboard": "painted_clapboard", "frame_trim": "painted_trim",
+                 # T-1938: the tin-clad upper gable over a range (`gable_upper: tin`). Last again
+                 "tin": "tin_cladding"}
 BOARD_ROLES = ("ground", "backing")
 MATERIALS = {
     "brick": {"color": (0.52, 0.30, 0.22), "roughness": 0.92, "metallic": 0.0},
@@ -91,6 +96,9 @@ MATERIALS = {
     # frame stable is painted as the district's frame houses are; reconstructed
     "painted_clapboard": {"color": (0.78, 0.71, 0.56), "roughness": 0.78, "metallic": 0.0},
     "painted_trim": {"color": (0.91, 0.88, 0.79), "roughness": 0.7, "metallic": 0.0},
+    # T-1938: painted sheet tin on a frame wall (2021 Prairie's 'TIN CL. 2ND'); its colour,
+    # a dull painted grey, is reconstructed (`parts.gable_upper`)
+    "tin_cladding": {"color": (0.40, 0.41, 0.40), "roughness": 0.6, "metallic": 0.2},
 }
 
 #: T-1938: what a frame building (`construction: frame`) makes of the kit's masonry roles: its
@@ -321,10 +329,22 @@ class Variant:
                                  "and no party wall")
             t = P["wall"]["frame_m"]
         if construction == "frame" or west == "gable":
-            fitted = [k for k in ("ramp", "stair", "lean_to", "wing", "range") if v.get(k)]
+            # T-1938: a brick building free at both ends may carry a range on past its east
+            # gable (2021 Prairie's one-storey south end): the range stands on the gable and the
+            # alley and yard walls' ends, none of which a free west end moves. The other
+            # fittings are each drawn against a party wall or its return
+            ok = ("range",) if construction == "brick" else ()
+            fitted = [k for k in ("ramp", "stair", "lean_to", "wing", "range") if v.get(k) and k not in ok]
             if fitted:
                 raise ValueError(f"{v['id']}: the kit fits no {', '.join(fitted)} to a free-standing "
                                  "or frame coach house")
+        # T-1938: the east gable's upper part tin-clad (2021 Prairie's, whose 1911 sheet draws the
+        # wall between its two-storey body and its one-storey south end in the yellow of frame and
+        # letters it 'TIN CL. 2ND'): it stands only over a range, from the range's roof up
+        if v.get("gable_upper") not in (None, "tin"):
+            raise ValueError(f"{v['id']}: gable_upper {v['gable_upper']!r} is not 'tin'")
+        if v.get("gable_upper") and not v.get("range"):
+            raise ValueError(f"{v['id']}: gable_upper stands only over a range, from the range's roof up")
         B = P["basement"]["depth_m"]
         # T-3308: a named lot may state its own loft height, for a building the sheet counts a
         # storey and a half (1709 Prairie's by the tracks): the loft is a half-storey under the
@@ -427,7 +447,18 @@ class Variant:
         self.wall("yard", Frame((W / 2 - tpe, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
                   [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges=yard_open)
         gable_outline = [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)]
-        if east == "gable":
+        if east == "gable" and v.get("gable_upper"):
+            # T-1938: the open gable in two walls on one plane, brick up to the range's roof
+            # (its top left open, lying on the upper wall's foot) and tin-clad above it (its foot
+            # closed); every other edge lies where the whole gable's does
+            h = v["range"].get("height_m", P["range"]["height_m"]) + P["range"]["roof_m"]
+            if not 0.0 < h < E:
+                raise ValueError(f"{v['id']}: the range's roof at {h} m is not under the eave ({E} m)")
+            g = Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X)
+            self.wall("gable", g, [(t, -B), (D - t, -B), (D - t, h), (t, h)], t, open_edges={0, 1, 2, 3})
+            self.wall("gable_upper", g, [(t, h), (D - t, h)] + gable_outline[2:], t,
+                      open_edges=set(range(1, 7)), name="gable upper wall", role="tin")
+        elif east == "gable":
             # the open gable: between the eave walls below the eave, over their tops above it
             self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X), gable_outline, t,
                       open_edges=set(range(7)))
@@ -564,10 +595,10 @@ class Variant:
         self.meta["deck"] = {"y": round(E + c, 4), "top": round(top, 4), "x": (-W / 2 + t, W / 2 - t),
                              "z": (-D + t, -t)}
 
-    def wall(self, key, frame, outline, thick, open_edges=(), name=None):
+    def wall(self, key, frame, outline, thick, open_edges=(), name=None, role="brick"):
         name = name or f"{key} wall"
         holes = [self.outline_of(op) for op in self.v["openings"] if op["wall"] == key]
-        p = self.piece(name, "brick", "open", wall=key)
+        p = self.piece(name, role, "open", wall=key)
         slab(p.mesh, outline, holes, -thick, 0.0, open_edges)
         frame.apply(p.mesh)
         self.walls[key] = {"frame": frame, "thick": thick, "piece": name, "outline": outline}
