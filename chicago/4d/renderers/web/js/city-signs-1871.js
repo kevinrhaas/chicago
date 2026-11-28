@@ -252,6 +252,13 @@ export function planSigns(doc, fronts, detail) {
         board: BOARDS[[4, 5, 6, 0][pick(4, 'upb')]], framed: true });
       census.upstairs++;
     }
+    // T-3804: a named building's own name along its cornice frieze, once on each street it
+    // fronts (street_walls.json `lettering`), in place of a firm's frieze lettering.
+    const bld = fr.r.wall?.building;
+    if (bld?.lettering && fr.storeys >= 2 && (fr.r.id === bld.rows?.[0] || String(fr.r.id).endsWith('_wing'))) {
+      for (let i = signs.length - 1; i >= 0; i--) if (signs[i].kind === 'frieze') signs.splice(i, 1);
+      add('frieze', fr.w - 0.6, 0.46, { lines: [{ text: bld.lettering, face: 'roman', size: 1 }], bare: BARE[0] });
+    }
     census.signs += signs.length;
     plans.set(fr.r.id, { firm: fr.firm ?? null, upper: fr.upper ?? null, trade, face: fr.face?.id ?? null, signs, focus: fr.focus });
   }

@@ -189,6 +189,8 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
       (col + 1 - inset * atlasCells) / atlasCells, (row + bottom - inset * atlasCells) / atlasCells];
   };
   const match = name => fronts.materials[name]?.match ?? [1, 1, 1];
+  // T-3804: the light tier keeps every form and spends fewer triangles on the iron and dormers.
+  const lite = detail === 'light';
   const tint = [1, 1, 1];
 
   for (const r of rows) {
@@ -278,6 +280,13 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
           [[0, 0], [ww / span, 0], [ww / span, O / span], [0, O / span]], UP, wallColor);
         box('trim', o.cx - o.half - .08, o.cx + o.half + .08, o.ys - .1, o.ys, O, O + .06, trimColor, 'ftb');
         if (!o.rise) {
+          if (style === 'hood') {
+            // T-3804: a corniced hood on two consoles (McVicker's, the Tribune's neighbours).
+            box('trim', o.cx - o.half - .2, o.cx + o.half + .2, o.yt + .1, o.yt + .34, O, O + .17, trimColor, 'ftb');
+            box('trim', o.cx - o.half - .08, o.cx + o.half + .08, o.yt, o.yt + .1, O, O + .07, trimColor, 'f');
+            for (const a of [o.cx - o.half - .13, o.cx + o.half + .13]) box('trim', a - .05, a + .05, o.yt - .3, o.yt + .1, O, O + .13, trimColor, 'flr');
+            continue;
+          }
           // A flat head: a plain cap (frame) or a stone lintel.
           box('trim', o.cx - o.half - .1, o.cx + o.half + .1, o.yt, o.yt + .2, O, O + .08, trimColor, 'ftb');
           continue;
@@ -309,9 +318,44 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
       wallQuad(from, w, low, top, O);
     };
 
+    // T-3804: an iron railing from a0 to a1 at height y, `o` out: rails and posts.
+    const balcony = (a0, a1, y, o, color) => {
+      for (const yr of [y + .12, y + .55, y + 1]) box('iron', a0, a1, yr, yr + .05, o - .04, o, color, 'ftb');
+      for (let a = a0; a <= a1 + 1e-6; a += lite ? 1.8 : .9) box('iron', a - .025, a + .025, y, y + 1.05, o - .045, o, color, 'flr');
+    };
+    // T-3804: a slated mansard over the front's whole depth, its dormers on the bays.
+    const mansard = (y0, color, bays, bw) => {
+      const slate = [.4, .41, .45], rise = 2.9, inset = 1.5, of = .16, ob = -d;
+      const uv = cellUv('trim'), q = [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]];
+      const y1 = y0 + rise, fT = of - inset, bT = ob + inset;
+      const nf = [OUT[0] * rise, inset, OUT[2] * rise], Lf = Math.hypot(...nf);
+      buf('parts').poly([P(0, y0, of), P(w, y0, of), P(w, y1, fT), P(0, y1, fT)], q, nf.map(v => v / Lf), slate);
+      buf('parts').poly([P(0, y0, ob), P(w, y0, ob), P(w, y1, bT), P(0, y1, bT)], q, nf.map((v, i) => i === 1 ? v / Lf : -v / Lf), slate.map(v => v * .9));
+      buf('parts').poly([P(0, y1, fT), P(w, y1, fT), P(w, y1, bT), P(0, y1, bT)], q, UP, slate.map(v => v * .85));
+      for (const [a, nrm] of [[0, neg(RIGHT)], [w, RIGHT]]) {
+        buf('parts').poly([P(a, y0, of), P(a, y1, fT), P(a, y1, bT), P(a, y0, ob)], [q[0], q[3], q[2], q[1]], nrm, slate.map(v => v * .95));
+      }
+      box('cornice', -.04, w + .04, y1 - .05, y1 + .12, fT - .1, fT + .1, color, 'ftb');
+      for (let k = 0; k < bays; k++) {
+        const cx = (k + .5) * bw, dw = Math.min(.95, bw * .4);
+        // The dormer's face stands on the slope's foot; its cheeks run back into the slate.
+        const yb = y0 + .35, yt = y0 + 2.05, oF = of - .25;
+        wallQuad(cx - dw / 2 - .12, cx + dw / 2 + .12, yb, yt, oF);
+        part('sash', cx - dw / 2, cx + dw / 2, yb + .2, yt - .2, oF + .02);
+        if (!lite) { wallSide(cx - dw / 2 - .12, yb, yt, oF - 1.2, oF, neg(RIGHT)); wallSide(cx + dw / 2 + .12, yb, yt, oF, oF - 1.2, RIGHT); }
+        box('trim', cx - dw / 2 - .25, cx + dw / 2 + .25, yt, yt + .2, oF - 1.2, oF + .12, color, 'ftb');
+      }
+    };
     if (shop) {
       census.shops++;
-      const { storeys, gf, bays, bw, h0, awning } = shopDims(r);
+      const { storeys, gf, bays, bw, h0 } = shopDims(r);
+      // T-3804: the front's street style (street_walls.json): window heads, paired windows, a
+      // round-headed top storey or an arcaded attic, the ground storey (iron piers, an iron
+      // arcade, a colonnade, or a house front over an areaway), the cornice, a mansard, an
+      // iron balcony, a belvedere. A front with none keeps the T-3686 rule by its facade.
+      const st = r.wall ?? {};
+      const awning = st.awning ?? shopDims(r).awning;
+      const ground = st.ground ?? 'piers';
       const O = .16;
       const plan = signs?.plans.get(r.id);
       // T-3803: a lettered sign: a quad on its atlas page, `uv` [u0, vTop, u1, vBottom].
@@ -320,26 +364,61 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         part(`sign${sg.page}`, a0, a1, y0, y1, o, WHITE, sg.uv);
       };
       const signOf = kind => plan?.signs.find(sg => sg.kind === kind && sg.uv);
-      // The storefront: cast-iron piers, plate glass on a panelled bulkhead,
-      // a door in every shop, the lintel and a lettered signboard over it.
-      for (let k = 0; k <= bays; k++) {
-        const a = k * bw;
-        box('iron', Math.max(0, a - .17), Math.min(w, a + .17), 0, gf - .7, 0, O + .06, trimColor, 'flr');
-      }
       const doorBay = bays >= 3 ? Math.floor(bays / 2) : 0;
-      for (let k = 0; k < bays; k++) {
-        const a0 = k * bw + .17, a1 = (k + 1) * bw - .17;
-        if (k === doorBay) {
-          const cx = (k + .5) * bw;
-          part('shop_door', cx - .76, cx + .76, 0, Math.min(3.05, gf - .8), .06);
-          part('dark', cx - .76, cx + .76, Math.min(3.05, gf - .8), gf - .7, .06);
-          if (cx - .76 - a0 > .3) part('shop_glass', a0, cx - .76, 0, gf - .7, .06);
-          if (a1 - cx - .76 > .3) part('shop_glass', cx + .76, a1, 0, gf - .7, .06);
-        } else part('shop_glass', a0, a1, 0, gf - .7, .06);
+      // An arch from x0 to x1 springing at ys with its crown at yc: the fill above the
+      // arc up to `top` and an archivolt band along it, `o` out from the wall.
+      const arch = (x0, x1, ys, yc, top, o, color, band = .16) => {
+        const half = (x1 - x0) / 2, rise = yc - ys, cx = x0 + half;
+        if (rise < .05 || half < .1) return;
+        const R = (half * half + rise * rise) / (2 * rise), y0c = yc - R, phi = Math.asin(Math.min(1, half / R)), K = lite ? 4 : 6;
+        const arc = [], outer = [];
+        for (let k = 0; k <= K; k++) {
+          const f = -phi + 2 * phi * k / K;
+          arc.push([cx + R * Math.sin(f), y0c + R * Math.cos(f)]);
+          outer.push([cx + (R + band) * Math.sin(f), y0c + (R + band) * Math.cos(f)]);
+        }
+        const uv = cellUv('iron'), q = [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]];
+        for (let k = 0; k < K; k++) {
+          const tri = [[k < K / 2 ? x0 : x1, top], arc[k], arc[k + 1]];
+          buf('parts').poly(tri.map(([a, y]) => P(a, y, o)), q.slice(0, 3), OUT, color);
+          buf('parts').poly([arc[k], arc[k + 1], outer[k + 1], outer[k]].map(([a, y]) => P(a, y, o + .03)), q, OUT, color.map(v => v * 1.06));
+        }
+        // The spandrel strip either side of the crown up to `top`.
+        if (top > yc + band) buf('parts').poly([P(x0, yc + band, o), P(x1, yc + band, o), P(x1, top, o), P(x0, top, o)], q, OUT, color);
+      };
+      if (ground === 'house') {
+        // Crosby's west neighbour: no shop, a ground storey of windows and an arched door over an areaway.
+        const centres = Array.from({ length: bays }, (_, k) => (k + .5) * bw);
+        openings(centres, Math.min(bw * .45, 1.1), 0, gf, .9, gf - 1.6, O, 'round', doorBay, Math.min(1.2, bw * .7), Math.min(3, gf - .5));
+        box('trim', 0, w, gf - .14, gf, O, O + .1, trimColor, 'ftb');
+        balcony(0, w, 0, O + 1.14, [.2, .2, .2]);
+      } else {
+        // The storefront: cast-iron piers, plate glass on a panelled bulkhead,
+        // a door in every shop, the lintel and a lettered signboard over it.
+        for (let k = 0; k <= bays; k++) {
+          const a = k * bw;
+          box('iron', Math.max(0, a - .17), Math.min(w, a + .17), 0, gf - .7, 0, O + .06, trimColor, 'flr');
+        }
+        // An arcade (the Lake and Clark Street views): each bay's glass rises into a
+        // segmental iron arch under the lintel, the door's bay too, clear of its transom.
+        const archRise = ground === 'arcade' ? Math.max(0, Math.min(bw * .3, .75, gf - .7 - Math.min(3.05, gf - .8) - .12)) : 0;
+        const glassTop = gf - .7;
+        for (let k = 0; k < bays; k++) {
+          const a0 = k * bw + .17, a1 = (k + 1) * bw - .17;
+          if (k === doorBay) {
+            const cx = (k + .5) * bw;
+            part('shop_door', cx - .76, cx + .76, 0, Math.min(3.05, gf - .8), .06);
+            part('dark', cx - .76, cx + .76, Math.min(3.05, gf - .8), glassTop, .06);
+            if (cx - .76 - a0 > .3) part('shop_glass', a0, cx - .76, 0, glassTop, .06);
+            if (a1 - cx - .76 > .3) part('shop_glass', cx + .76, a1, 0, glassTop, .06);
+          } else part('shop_glass', a0, a1, 0, glassTop, .06);
+          if (archRise > .1) arch(a0, a1, glassTop - archRise, glassTop - .02, glassTop, .1, trimColor);
+        }
+        box('cornice', 0, w, gf - .7, gf, 0, O + .12, trimColor, 'fb');
       }
-      box('cornice', 0, w, gf - .7, gf, 0, O + .12, trimColor, 'fb');
       const boards = fronts.boards ?? [];
-      if (plan) {
+      if (ground === 'house') { /* a house front carries no shop board */ }
+      else if (plan) {
         const fascia = signOf('fascia'), fw = Math.min(w - .4, fascia?.wM ?? 0);
         sign(fascia, w / 2 - fw / 2, w / 2 + fw / 2, gf - .66, gf - .05, O + .135);
         // Gilt letters on the glass of the first shop bay that is not the door's.
@@ -359,7 +438,7 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         const b = boards[h0 % boards.length], sw = Math.min(w - .6, 5.4);
         part('board', w / 2 - sw / 2, w / 2 + sw / 2, gf - .66, gf - .05, O + .13, WHITE, b);
       }
-      if (awning) {
+      if (awning && ground !== 'house' && ground !== 'porch') {
         // A canvas awning let down over the walk.
         const uv = cellUv('awning', (h0 >>> 4) & 1 ? 0 : .5, (h0 >>> 4) & 1 ? .5 : 1);
         const col = AWNING_TINT[(h0 >>> 5) % AWNING_TINT.length];
@@ -374,18 +453,43 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         const valance = signOf('valance'), vw = Math.min(w - .4, valance?.wM ?? 0);
         sign(valance, w / 2 - vw / 2, w / 2 + vw / 2, yLow - .24, yLow - .02, oFar + .012);
       }
+      if (ground === 'porch') {
+        // McVicker's: an iron colonnade over the walk carrying a railed balcony at the first floor.
+        const oc = O + 2.3, yd = gf - .05;
+        box('iron', 0, w, yd - .3, yd, O, oc + .12, trimColor, 'ftblr');
+        for (let k = 0; k <= bays; k++) {
+          const a = Math.min(w - .12, Math.max(.12, k * bw));
+          box('iron', a - .1, a + .1, 0, yd - .3, oc - .1, oc + .1, trimColor, 'flr');
+          box('iron', a - .16, a + .16, yd - .48, yd - .3, oc - .16, oc + .16, trimColor, 'fblr');
+        }
+        balcony(0, w, yd, oc + .1, trimColor);
+      }
       // Upper storeys: windows on the bays, hoods by material, string courses.
       const sh = storeys > 1 ? (h - gf - .62) / (storeys - 1) : 0;
-      const style = facade === 'stone' ? 'round' : facade === 'frame' ? 'flat' : 'segmental';
-      const centres = Array.from({ length: bays }, (_, k) => (k + .5) * bw);
-      const ww = Math.min(bw * .5, 1.2);
+      const style = st.heads ?? (facade === 'stone' ? 'round' : facade === 'frame' ? 'flat' : 'segmental');
+      const bayCentres = Array.from({ length: bays }, (_, k) => (k + .5) * bw);
+      const centres = st.pair ? bayCentres.flatMap(c => [c - bw * .19, c + bw * .19]) : bayCentres;
+      const ww = st.pair ? Math.min(bw * .27, .78) : Math.min(bw * .5, 1.2);
       for (let k = 1; k < storeys; k++) {
         const y0 = gf + (k - 1) * sh, y1 = k === storeys - 1 ? h : y0 + sh;
-        const wh = sh * .5 - (style === 'round' ? ww * .25 : 0);
-        openings(centres, ww, y0, y1, y0 + sh * .2, Math.max(.8, wh), O, style);
+        const top = k === storeys - 1;
+        if (top && st.attic) {
+          // An arcade of small round-headed attic lights under the cornice.
+          const ac = bayCentres.flatMap(c => [c - bw * .25, c, c + bw * .25]), aw = Math.min(bw * .15, .42);
+          openings(ac, aw, y0, y1, y0 + sh * .22, Math.max(.6, sh * .3), O, 'round');
+        } else {
+          const kStyle = top && st.top ? 'round' : style;
+          const wh = sh * .5 - (kStyle === 'round' ? ww * .25 : 0);
+          openings(centres, ww, y0, y1, y0 + sh * .2, Math.max(.8, wh), O, kStyle);
+        }
         if (k > 1 && facade !== 'frame') box('trim', 0, w, y0 - .1, y0 + .08, O, O + .07, trimColor, 'ftb');
       }
       if (storeys === 1) wallQuad(0, w, gf, h, O);
+      if (st.balcony && storeys > 1 && ground !== 'porch') {
+        // An iron balcony along the first upper storey, on the storefront's cornice.
+        box('iron', .1, w - .1, gf - .02, gf + .1, O, O + .95, [.22, .22, .22], 'ftb');
+        balcony(.1, w - .1, gf + .1, O + .9, [.2, .2, .2]);
+      }
       const band = signOf('band'), upper = signOf('upper'), frieze = signOf('frieze'), hanging = signOf('hanging');
       // A board nailed to the wall stands in front of everything on it: proud of the string
       // courses (0.07), sills (0.06) and hoods (0.12) it crosses, on a dark edge of its own
@@ -395,20 +499,20 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         sign(sg, a0, a1, y0, y1, O + .155);
       };
       // A board on the wall between the storefront and the first upper windows.
-      if (band && storeys > 1) {
+      if (band && storeys > 1 && !st.balcony && ground !== 'porch') {
         const bh = Math.min(band.hM, sh * .2 - .2), bw2 = band.wM * bh / band.hM;
         wallBoard(band, w / 2 - bw2 / 2, w / 2 + bw2 / 2, gf + .06, gf + .06 + bh);
       }
       // An upstairs office's board between the first and second upper storeys' windows.
       // It clears the first upper windows' arches and hoods and the next storey's sills.
       if (upper && storeys > 2) {
-        const rise = style === 'round' ? ww / 2 : style === 'segmental' ? ww * .2 : 0;
+        const rise = style === 'round' ? ww / 2 : style === 'segmental' ? ww * .2 : style === 'hood' ? .34 : 0;
         const crown = gf + sh * .2 + Math.max(.8, sh * .5 - (style === 'round' ? ww * .25 : 0)) + rise;
         const y0 = crown + .4, uh = Math.min(upper.hM, gf + sh * 1.2 - .22 - y0), uw = upper.wM * uh / upper.hM;
         if (uh > .3) wallBoard(upper, w / 2 - uw / 2, w / 2 + uw / 2, y0, y0 + uh);
       }
       // A board hung at right angles to the walk off an iron bracket, above the storefront.
-      if (hanging && storeys > 1) {
+      if (hanging && storeys > 1 && !st.balcony && ground !== 'porch') {
         const a = hanging.at ? w - .35 : .35, y0 = gf + .35, y1 = y0 + hanging.hM, o0 = O + .3, o1 = o0 + hanging.wM;
         const [u0, vt, u1, vb] = hanging.uv, b = buf(`sign${hanging.page}`);
         b.poly([P(a, y0, o1), P(a, y0, o0), P(a, y1, o0), P(a, y1, o1)], [[u0, vb], [u1, vb], [u1, vt], [u0, vt]], RIGHT, WHITE);
@@ -417,17 +521,41 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         box('iron', a - .02, a + .02, y0 - .02, y1 + .06, O, O + .08, [.22, .22, .22], 'flr');
       }
       // K10's bracketed cornice: frieze, brackets on a 0.72 m rhythm, crown. A lettered
-      // frieze keeps its brackets to its ends.
-      box('cornice', 0, w, h - .62, h - .12, O, O + .04, trimColor, 'f');
+      // frieze keeps its brackets to its ends. A heavy cornice (Booksellers' Row, the
+      // marble front on Clark) is deeper, on larger brackets; a parapet cornice carries a
+      // row of blocks (the St. James).
+      const heavy = st.cornice === 'heavy' || st.cornice === 'parapet';
+      const fz0 = heavy ? h - .9 : h - .62, bd = heavy ? .62 : .42, bwid = heavy ? .09 : .06;
+      box('cornice', 0, w, fz0, h - .12, O, O + .04, trimColor, 'f');
       const zw = Math.min(w - .6, frieze?.wM ?? 0);
       if (frieze) sign(frieze, w / 2 - zw / 2, w / 2 + zw / 2, h - .58, h - .16, O + .048);
-      const count = Math.max(2, Math.round(w / .72));
+      const count = Math.max(2, Math.round(w / (heavy ? .95 : .72)));
       for (let k = 0; k <= count; k++) {
         const a = .15 + (w - .3) * k / count;
         if (frieze && Math.abs(a - w / 2) < zw / 2 + .12) continue;
-        box('cornice', a - .06, a + .06, h - .6, h - .12, O, O + .42, trimColor, 'flr');
+        box('cornice', a - bwid, a + bwid, fz0 + .02, h - .12, O, O + bd, trimColor, 'flr');
       }
-      box('cornice', -.04, w + .04, h - .12, h + .22, 0, O + .62, trimColor, 'ftb');
+      const crown = heavy ? .34 : .22, reach = heavy ? .85 : .62;
+      box('cornice', -.04, w + .04, h - .12, h + crown, 0, O + reach, trimColor, 'ftb');
+      if (st.cornice === 'parapet') {
+        for (let a = .5; a < w - .3; a += 2.1) box('trim', a - .24, a + .24, h + crown, h + crown + .62, O - .2, O + .3, wallColor, 'ftlr');
+      }
+      if (st.mansard) mansard(h + crown, trimColor, bays, bw);
+      if (st.tower) {
+        // McVicker's belvedere: a storey over the middle of the front, its own cornice and flagstaff.
+        // `tower` is [e, n, width]: the middle of the building's whole front, which may span rows.
+        const [te, tn, tw] = Array.isArray(st.tower) ? st.tower : [r.e, r.n, Math.min(w * .4, 8)];
+        const ac = w / 2 - (c * (te - r.e) + s * (tn - r.n));
+        const a0 = ac - tw / 2, a1 = ac + tw / 2, y0 = h + crown, y1 = y0 + 4.2, of = O - .5, ob = -Math.min(8, d - 1);
+        wallQuad(a0, a1, y0, y1, of);
+        wallSide(a0, y0, y1, ob, of, neg(RIGHT)); wallSide(a1, y0, y1, of, ob, RIGHT);
+        for (const cx of [ac - tw * .3, ac, ac + tw * .3]) {
+          part('sash', cx - .38, cx + .38, y0 + 1, y0 + 2.9, of + .03);
+          box('trim', cx - .55, cx + .55, y0 + 2.9, y0 + 3.15, of, of + .14, trimColor, 'ftb');
+        }
+        box('cornice', a0 - .3, a1 + .3, y1 - .1, y1 + .3, ob - .3, of + .5, trimColor, 'ftblr');
+        box('iron', ac - .05, ac + .05, y1 + .3, y1 + 6.5, ob / 2 - .05, ob / 2 + .05, [.3, .28, .25], 'flr');
+      }
     } else {
       census.houses++;
       const floor = HOUSE_FLOOR[kind];

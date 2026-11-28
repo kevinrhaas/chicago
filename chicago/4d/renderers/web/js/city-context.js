@@ -99,11 +99,22 @@ export function cityContextCard(r, doc, definition, sign = null) {
   } else if (sign?.trade) {
     firmAttrs.signs={value:`${sign.signs.map(x=>SIGN_WORDS[x.kind] ?? x.kind).join('; ')}: ${sign.trade}`,confidence:'reconstructed',sources:['edwards_chicago_directory_1871'],note:'No firm the 1871 directory lists falls on this front; it carries a trade the classified directory lists on this street, lettered in a reconstructed form (L-1871-directory-signs).'};
   }
-  const libs=Object.keys(firmAttrs).length ? [...libertyIds,'L-1871-directory-signs'] : libertyIds;
-  return {id,libertyIds:libs,sidecar:{name:sign?.firm ? `${sign.firm.name}, ${tradeWords(sign.firm.trade).toLowerCase() || 'merchants'}` : r.t.name,phase:null,
+  // T-3804: a named building of 1871 (street_walls.json), or a front restyled to its street.
+  const wallAttrs={}, wb=r.wall?.building, wp=r.wall?.profile ? doc.__wallProfiles?.[r.wall.profile] : null;
+  if (wb) {
+    wallAttrs.building={value:wb.name,confidence:wb.grade==='attested'?'attested':wb.grade==='inferred'?'inferred':'reconstructed',sources:wb.sources,note:wb.identity};
+    wallAttrs.building_place={value:wb.place,confidence:'reconstructed',sources:wb.sources,note:'Where the sources put the building, set over the generated lots that stand there.'};
+    wallAttrs.building_form={value:wb.form,confidence:'reconstructed',sources:wb.sources,note:'Built to the picture named, at the reconstructed tier (L-1871-street-walls).'};
+  } else if (r.wall) {
+    wallAttrs.street_wall={value:r.wall.profile ? `${wp?.label ?? r.wall.profile}: ${r.t.storeys} storeys, ${({round:'round-headed',segmental:'segmental-headed',hood:'corniced'})[r.wall.heads] ?? ''} windows${r.wall.mansard ? ', a mansard' : ''}` : 'restyled to its street',
+      confidence:'reconstructed',sources:wp?.sources ?? [],note:`${wp?.note ?? ''} A generated front given its street's storeys and style${r.row?.added ? ', added where the block face had only side walls and gaps' : ''} (L-1871-street-walls).`.trim()};
+  }
+  const libs0=Object.keys(firmAttrs).length ? [...libertyIds,'L-1871-directory-signs'] : libertyIds;
+  const libs=r.wall ? [...libs0,'L-1871-street-walls'] : libs0;
+  return {id,libertyIds:libs,sidecar:{name:wb ? wb.name : sign?.firm ? `${sign.firm.name}, ${tradeWords(sign.firm.trade).toLowerCase() || 'merchants'}` : r.t.name,phase:null,
     change_note:`A reconstructed ${r.t.name.toLowerCase()} in ${district.name ?? r.district}. Its footprint, height, facade and exact position are context choices, not an identified historical parcel.`,
     placement:{symbolic_location:district.name ?? r.district,position_confidence:'reconstructed',position_sources:district.sources ?? [],position_note:district.note ?? doc.source_limit ?? 'District-scale reconstruction from the pre-fire city evidence.'},
-    attributes:{...firmAttrs,form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
+    attributes:{...wallAttrs,...firmAttrs,form:{value:`${r.t.storeys} storeys; ${r.t.roof} roof; ${r.t.material}`,confidence:'reconstructed',sources,note:definition.source_limit},dimensions:{value:`${r.w.toFixed(1)} × ${r.d.toFixed(1)} m; ${r.h.toFixed(1)} m to eaves`,confidence:'reconstructed',sources:[],note:'Bounded dimensions chosen for this context building; no parcel survey is claimed.'}},
     citations:doc.citations ?? definition.citations ?? [],research_note:'The whole-city context is a liberty recorded in the project’s liberties register. Named, documented structures can replace these forms as research and modelling continue.'}};
 }
 
@@ -141,6 +152,14 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   if (doc.detail_rings && definition.fronts) {
     try { rings=await json(new URL(doc.detail_rings,dataBase)); }
     catch (error) { problems.push(`1871 context detail rings: ${error.message}`); }
+  }
+  // T-3804: the street walls round the stops, matched to the period street views: each
+  // shop front on the stops' block faces restyled to its street, new attached fronts where
+  // a face had only side walls and gaps, and the named buildings the stops look at.
+  let walls=null;
+  if (rings?.street_walls) {
+    try { walls=await json(new URL(rings.street_walls,new URL(doc.detail_rings,dataBase))); }
+    catch (error) { problems.push(`1871 street walls: ${error.message}`); }
   }
   const geometries = new Set(), materials = new Set(), textures = new Set();
   // Confidence must discard/dither the sun's depth pass as well as the colour
@@ -267,7 +286,24 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     const x=r.cos*dx-r.sin*dz, z=r.sin*dx+r.cos*dz;
     return Math.abs(x)<r.w/2+pad && Math.abs(z)<r.d/2+pad;
   }
+  // A restyled row keeps its id, place and footprint; its kit (storeys), height, front and
+  // tone are its street's (street_walls.json `rows`). An added front is a row of its own.
+  if (walls?.profiles) Object.defineProperty(doc,'__wallProfiles',{value:walls.profiles,enumerable:false,configurable:true});
+  const wallBuildings=new Map((walls?.buildings ?? []).map(b=>[b.id,b]));
+  const wallOf=(style,owner)=>({...style,profile:walls.profiles?.[owner] ? owner : null,building:wallBuildings.get(owner) ?? null});
+  const wallRows=[];
   for (const row of doc.buildings ?? []) {
+    const over=walls && !Array.isArray(row) ? walls.rows?.[row.id] : null;
+    if (!over) { wallRows.push(row); continue; }
+    const [kit,eave_m,facade,tone,style,owner]=over;
+    wallRows.push({...row,kit,eave_m,facade,tone,row:'attached',wall:wallOf(style,owner)});
+  }
+  for (const [id,e,n,width_m,depth_m,eave_m,bearing_deg,kit,tone,facade,style,owner,base_m] of walls?.fill ?? []) {
+    wallRows.push({id,e,n,width_m,depth_m,eave_m,bearing_deg,kit,tone,facade,district:'central_business',base_m,row:'attached',walk_gap_m:.06,
+      wall:wallOf(style,owner),added:true});
+  }
+  out.census.wallFronts=walls?.fill?.length ?? 0;
+  for (const row of wallRows) {
     const name = enumValue('kit', value(row, 'kit'));
     const t = templates.get(name);
     if (!t) throw Error(`1871 context: unknown kit ${name}`);
@@ -276,7 +312,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     if (![e,n,w,d,h,bearing].every(Number.isFinite) || Math.min(w,d,h)<=0) throw Error('1871 context: invalid placement dimensions');
     const base=+value(row,'base_m',terrain.surfaceHeight(e,n));
     const r={row,t,e,n,w,d,h,base,bearing,cos:Math.cos(radians),sin:Math.sin(radians),radius:Math.hypot(w,d)/2,
-      id:value(row,'id',`${e},${n}`), district:enumValue('district',value(row,'district','city'))};
+      id:value(row,'id',`${e},${n}`), district:enumValue('district',value(row,'district','city')), wall:Array.isArray(row)?null:row.wall ?? null};
     r.pts=[[-w/2,-d/2],[w/2,-d/2],[w/2,d/2],[-w/2,d/2]].map(([x,z])=>[e+r.cos*x+r.sin*z,n+r.sin*x-r.cos*z]);
     if (droppedByStructure(r)) { out.census.dropped++; continue; }
     const key=`${Math.floor(e/tileM)},${Math.floor(n/tileM)}`;

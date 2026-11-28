@@ -5,6 +5,7 @@
   "radius_m": {"full": 200, "balanced": 150, "light": 100},
   "show_m": {"full": 330, "balanced": 270, "light": 200},
   "directory_fronts": "directory_fronts.json",
+  "street_walls": "street_walls.json",
   "rings": [
     {"id": "court_house_square", "label": "Court House square", "points": [[516.7, -328.2]]},
     {"id": "state_street_lake_to_monroe", "label": "State Street, Lake to Monroe", "points": [[856.0, -106.8], [860.6, -650.8]]},

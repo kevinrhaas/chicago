@@ -237,8 +237,8 @@ async function run(opts) {
         check(row.boot.kind === 'city_context_1871', `${vp.name}: 1871 context document loaded`);
         check(row.boot.structures.length === 0, `${vp.name}: context baseline imports no later named structures`);
         check(row.boot.layers.every(layer => !['humans', 'residents', 'street_grid'].includes(layer)), `${vp.name}: no other year's people or Prairie Avenue grid`);
-        check(buildings.length >= 10_000 && row.boot.census.buildings === buildings.length - row.boot.census.dropped,
-          `${vp.name}: entire-city building census reaches the renderer (${row.boot.census.buildings})`);
+        check(buildings.length >= 10_000 && row.boot.census.buildings === buildings.length + (row.boot.census.wallFronts ?? 0) - row.boot.census.dropped,
+          `${vp.name}: entire-city building census reaches the renderer (${row.boot.census.buildings}, with ${row.boot.census.wallFronts ?? 0} T-3804 street-wall fronts)`);
         check(Object.keys(row.boot.census.styleCounts).length >= 8 && Object.keys(row.boot.census.districtCounts).length >= 6,
           `${vp.name}: varied forms in multiple districts`);
         check(Object.values(uses).every(rows => rows.length > 0), `${vp.name}: commercial, residential and industrial forms present`);

@@ -4932,6 +4932,12 @@ step "1871 street furniture and street trees re-lay from the city (T-3686)" \
 step "1871 directory firms sit on their calibrated faces with their listings (T-3803)" \
   python3 -I tools/build_1871_directory_fronts.py --check
 
+# T-3804. The street walls round the 1871 jaunt stops: every restyled row is a standing generated
+# row, every added front keeps off the landmarks and its neighbours, and every profile and named
+# building's source resolves.
+step "1871 street walls stand on their rows and sources (T-3804)" \
+  python3 -I tools/build_1871_street_walls.py --check
+
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
 
