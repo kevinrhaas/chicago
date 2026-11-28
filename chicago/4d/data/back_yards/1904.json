@@ -54,13 +54,13 @@
  },
  "summary": {
   "lots": 141,
-  "surfaces": 299,
+  "surfaces": 300,
   "doors": 135,
   "posts": 108,
   "gardens": 25,
   "by_kind": {
-   "alley_walk": 24,
-   "coach_walk": 33,
+   "alley_walk": 23,
+   "coach_walk": 35,
    "drying_yard": 54,
    "front_walk": 16,
    "gangway": 36,
@@ -15524,7 +15524,8 @@
    "street": "prairie",
    "side": "east",
    "structures": [
-    "high_house_2021_prairie"
+    "high_house_2021_prairie",
+    "high_house_2021_prairie_coach_house"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -15560,32 +15561,60 @@
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     },
     {
-     "id": "prairie_2021:alley_walk:1",
-     "kind": "alley_walk",
+     "id": "prairie_2021:coach_walk:1",
+     "kind": "coach_walk",
      "material": "yard_brick",
      "polygon_local_m": [
       [
        1446.42,
-       -3553.06
+       -3552.96
       ],
       [
        1446.43,
-       -3554.06
+       -3554.16
       ],
       [
-       1469.75,
-       -3553.88
+       1450.1,
+       -3554.13
       ],
       [
-       1469.74,
-       -3552.88
+       1450.09,
+       -3552.93
       ]
      ],
      "along_deg": 179.55,
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in brick paving, laid herringbone (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2021:coach_walk:2",
+     "kind": "coach_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1448.85,
+       -3547.69
+      ],
+      [
+       1448.9,
+       -3554.14
+      ],
+      [
+       1450.1,
+       -3554.13
+      ],
+      [
+       1450.05,
+       -3547.68
+      ]
+     ],
+     "along_deg": 179.55,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk from the back door to the coach house, in brick paving, laid herringbone (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -15612,22 +15641,7 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [
-    [
-     1468.43,
-     -3544.39,
-     "lilac",
-     2.85,
-     2.43
-    ],
-    [
-     1465.67,
-     -3544.16,
-     "lilac",
-     2.71,
-     2.2
-    ]
-   ],
+   "shrubs": [],
    "trees": [],
    "creeper": [],
    "beds": []
