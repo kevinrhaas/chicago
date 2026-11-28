@@ -125,14 +125,20 @@
       "note": "The slate overhangs the south flank by about a foot in the photograph (y 600-620 px over the wall's head)."
     },
     "stair_tread_m": {
-      "value": 0.3,
-      "confidence": "reconstructed",
-      "note": "The contract's ordinary tread. (L-k01-2021-high-3633)"
+      "value": 0.26,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2021_high_photo"
+      ],
+      "note": "Read off the photograph through its solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the flight runs straight out of the arch toward the street, and its lower nosings, seen over the low south cheek under snow (x 13-170 px, y 1668-1510 px on the stoop's north edge, v about 1.35 m), climb 1.48 m over 2.28 m, a pitch of about 0.65; with the kit's thirteen 0.169 m risers to the 2.2 m floor that is a going of about 0.26 m, inside the kit's 0.25-0.34 m range (T-3634)."
     },
     "stair_landing_depth_m": {
-      "value": 1.2,
-      "confidence": "reconstructed",
-      "note": "A landing before the porch's mouth, the contract's ordinary. (L-k01-2021-high-3633)"
+      "value": 0.5,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2021_high_photo"
+      ],
+      "note": "What is left of the photograph's reach once its flight is laid: the bottom riser stands about 3.5-3.8 m before the front (u 11.3-11.6 m on the solved camera, the foot's south end hidden behind its block), and twelve 0.26 m goings take 3.12 m of it, leaving a landing about 0.5 m deep before the arch's mouth, in front of the 0.45 m reveal. The landing itself is hidden behind the cheeks in the picture (T-3634; it was the contract's ordinary 1.2 m, which carried the render's foot 1.3 m further out than the picture's)."
     },
     "service_wall_brick": {
       "value": "common_buff_common_6",
@@ -245,7 +251,7 @@
     "stoop_width_m": {
       "value": 2.0,
       "confidence": "reconstructed",
-      "note": "The flight is seen climbing along the front from the north under snow; its width is set to the arch's 1.8 m opening and its cheeks. The photograph's flight climbs along the front from the north; K01's stoop runs straight out from the door (recorded in the match record). (L-k01-2021-high-3633)"
+      "note": "The flight runs straight out of the arch toward the street (T-3634 re-read the photograph through its solved camera: the south cheek's coping lands on the arch's south jamb at x 400 px and its foot at x 227 px, both on v 3.35 m, within 5 px of a straight stoop's); its width is set to the arch's 1.8 m opening and its cheeks. (L-k01-2021-high-3633)"
     },
     "entrance_bay": {
       "value": "south",
@@ -389,14 +395,21 @@
           "opening_m": [
             1.8,
             2.55
-          ]
+          ],
+          "cheek_form": {
+            "kind": "swept",
+            "head_m": 0.1,
+            "foot_m": 0.9,
+            "block_m": 0.55,
+            "fall": "straight"
+          }
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2021_high_photo"
       ],
-      "note": "The round-arched porch the register names: in the photograph a broad round arch at x 235-420 px (v 1.2-3.5 m), its crown at about 4.75 m over grade and its opening about 1.8 m wide, opening on a porch with a small light in its north wall and the door at its south end. Built as the kit's round-headed principal entrance cut in the brick front (street_front_round_heads.door) in a 0.45 m reveal: K01 builds an open porch behind an arch (its loggia) only behind a stone front's voussoirs, so the porch's depth, its small north light and its door at the south end are not built, and the match record says so."
+      "note": "The round-arched porch the register names: in the photograph a broad round arch at x 235-420 px (v 1.2-3.5 m), its crown at about 4.75 m over grade and its opening about 1.8 m wide, opening on a porch with a small light in its north wall and the door at its south end. Built as the kit's round-headed principal entrance cut in the brick front (street_front_round_heads.door) in a 0.45 m reveal: K01 builds an open porch behind an arch (its loggia) only behind a stone front's voussoirs, so the porch's depth, its small north light and its door at the south end are not built, and the match record says so. T-3634: the stoop's cheeks are the photograph's (`cheek_form` swept, `fall` straight): on the solved camera the south cheek's snowy coping falls in one straight line from about 1.95 m over grade where it meets the arch's south jamb (x 400, y 1463 px) to about 0.95 m (x 227, y 1563 px) on a block at the flight's foot about 0.5 m long and 1.0 m high (x 220-287, y 1557-1670 px), and the north cheek's falls the same way to about 0.76 m where it leaves the print (x 0, y 1583 px). So each cheek stands 0.1 m over the landing beside it (the least that keeps a straight fall 0.1 m clear of the first tread; the print reads its head about 0.25 m lower, where the jamb's shadow hides it) and falls straight to a 0.55 m block whose top is 0.9 m over grade. The flight's treads show over the cheeks' tops, as in the print."
     },
     "bays": {
       "value": [

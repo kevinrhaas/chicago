@@ -8741,7 +8741,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not isinstance(cf, dict) or cf.get("kind") != "swept" \
                 or not {"kind", "head_m", "foot_m", "block_m"} <= set(cf) <= {"kind", "head_m", "foot_m", "block_m",
                                                                              "flare", "newel", "pierced", "arched",
-                                                                             "railed", "wing"} \
+                                                                             "railed", "wing", "fall"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
                 or any("parapet" not in t or "loggia" in t
                        for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
@@ -8753,7 +8753,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
         door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()
-                                  if k not in ("flare", "newel", "pierced", "arched", "railed", "wing")}
+                                  if k not in ("flare", "newel", "pierced", "arched", "railed", "wing", "fall")}
+        # T-3634: the sweep falls in one straight rake from the landing's level to the foot
+        # block's top instead of the kit's reversed curve (2021's, the Chicagology photograph)
+        if "fall" in cf:
+            if cf["fall"] != "straight" or "railed" in cf:
+                raise ParamError("entrance_kit.cheek_form.fall is 'straight' (the curve is the default), on a "
+                                 "cheek that is not railed")
+            door_kit["cheek_form"]["fall"] = "straight"
         # T-3134: the right cheek flared out `out_m` toward its foot, and each foot block a newel
         # `width_m` across under a cap `cap_m` [high, overhang] and a knob `knob_m` high (1812's
         # stair, the Levy print)

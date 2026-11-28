@@ -2,7 +2,7 @@
   "structure_id": "high_house_2021_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/high_house_2021_prairie__as_mapped_1904.glb",
-  "glb_sha256": "80a1e086ebc445517561e4bb512c0afb9793656b2ee915722aec4994983ca08a",
+  "glb_sha256": "dbd6945d342f4d44b50cd51be67b08ef33577c32037fe937717cabc391fda311",
   "camera_sha256": "31f4e79f431095049899c7efa1abef58e63bd0f4ac99681ff2e6cb782fb05aa1",
   "photo_sha256": "0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "a04b5afd8b04f1d4c448f1c2f1ac5912d766a190a5d0a2d3c0ac1b208fd2faa2"
     }
   ],
-  "flora_sha256": "81eff9b8b4fa30330c22d705a14e60c229dfcd7fd8644bba842cf68ca1cbb0f1",
+  "flora_sha256": "38f82872d71b6c90f0dcc04e542c54ccb969e69916d66f92a9b24faf7da04847",
   "side_by_side": "docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -90,8 +90,8 @@
       "status": "open"
     },
     {
-      "what": "the stoop: the photograph's flight climbs along the front from the north to the porch; the render's runs straight out from the door",
-      "status": "open"
+      "what": "the stoop (T-3634): re-read through the solved camera, the photograph's flight runs straight out of the arch toward the street, not along the front: the south cheek's coping lands on the arch's south jamb at x 400 px and on its foot block at x 227 px, both on v 3.35 m and within 5 px of a straight stoop's, and the nosings climb at about 0.65. The render's flight now has the picture's reach and cheeks: 0.26 m goings off a 0.5 m landing put its foot about 3.6 m before the front (u 11.4 m, against the print's 11.3-11.6), where it stood 4.8 m out, and its cheeks fall in one straight rake to a 0.55 m block 0.9 m high; the south coping prints from (220, 1565) to (400, 1430) px against the print's (230, 1560) to (410, 1425), its block at x 220-260 against 220-285",
+      "status": "fixed"
     },
     {
       "what": "the front's lights: the broad lights of both storeys at x 690-820 px and the second-floor light at x 410-505 px print in place; the principal floor's broad light is built 1.15 m wide (the contract's widest) against about 1.3 m, and its transom bar is not drawn",
@@ -144,6 +144,14 @@
     {
       "what": "the north flank, the rear and the rear ranges are not in the picture",
       "status": "not shown"
+    },
+    {
+      "what": "the stoop's treads: the print's snow picks out each nosing over the cheeks; the render's flat overcast light and single stone leave its risers faint (tone, not form; the flight's place, pitch and count are the picture's)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the stoop's cheek head: the print reads the coping about 1.95 m over grade where it meets the arch's jamb, in the jamb's shadow; the render's stands 0.1 m over the 2.2 m landing, about 0.35 m higher at that one point and within 0.1 m of the print from the flight's middle to its foot",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
