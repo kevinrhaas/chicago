@@ -21,6 +21,9 @@ URL=$(md instance/attributes/chicago-url) || { echo "no session on this machine"
 TOKEN=$(md instance/attributes/session-token)
 [[ "$TOKEN" =~ ^[0-9a-f]{32,}$ ]] || { echo "bad session token"; exit 1; }
 [[ "$URL" =~ ^https://[a-z0-9./-]+/$ ]] || { echo "bad town address"; exit 1; }
+# The stream cannot pass the pointer lock through to the player's browser, so the town looks by
+# dragging (js/controls/pointerlock.js, dragLook).
+URL="$URL?look=drag"
 # One sign-in: the starter's one-hour pass for the player's own account, which the town reads
 # from the address and forgets (js/sign-in.js). Without one the player signs in in the stream.
 PASS=$(md instance/attributes/sign-in-pass || true)
