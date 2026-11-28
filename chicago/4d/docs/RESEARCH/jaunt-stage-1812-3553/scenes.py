@@ -38,6 +38,13 @@ SALLY_IN = (1163.6, 229.5)          # on the parade side of the inner postern
 SALLY_BAND = [(1165.0, 229.5), (1167.36, 229.5), (1167.36, 236.6)]
 COVERED_WAY_E = 1167.36
 COVERED_WAY_END = (1167.36, 263.4)  # its river end, at the water
+# T-3553 (2026-11-28): the well 'dug there' in the sally port (Wau-Bun), its place reconstructed: in
+# the passage between the inner and outer east pickets, just south of the inner postern (the north
+# band is too narrow for one); and the stack of kegs and
+# muskets the carriers take up, on the parade by the north range, south of their line.
+WELL = (1166.9, 227.3)
+STACK = (1161.8, 228.3)
+LADEN = 1.2   # m/s, a man under a load (each puts it down where his walk at this pace ends)
 
 
 def door_at(b, did):
@@ -282,44 +289,97 @@ def battle(b):
 
     # 5 — the factory, 13 August, early afternoon. Soldiers carry the goods out to a pile on
     # the grass; the gathering stands round it to receive them; Heald looks on.
-    door = (1071.6, 218.0); pile = (1079.0, 215.5)
-    cast = [member('heald_nathan', P(1086.5, 221.5), face=pile)]
-    carriers = soldiers(b, 6, skip=('kelso_john',))
+    # T-3553 (the owner, 2026-11-28: "the fort dearborn people should be carrying goods out of the
+    # factor and piling them and handing out when they distribute the goods to natives"): each
+    # carrier comes out with a bale of blankets or a bolt of cloth on his shoulder (Wau-Bun's
+    # 'blankets, broadcloths, calicoes'), sets it on the pile and goes back in for more; a soldier
+    # at the pile hands them out, and people of the gathering come up one by one and carry theirs
+    # back to where they stand.
+    # The pile is on the grass south of the factory's paled kitchen garden (data/gardens/1812.json
+    # factory_garden_1812: E 1075-1090, N 211-224), not in its beds: the carriers come out of the
+    # door, down the strip between the factory and the garden and round its corner.
+    door = (1071.6, 218.0); pile = (1079.5, 207.9); corner = (1073.2, 209.8)
+    out = ['blanket_bale', 'bolt', 'blanket_bale', 'bolt_blue', 'blanket_bale', 'bolt']
+    cast = [member('heald_nathan', P(1085.0, 209.6), face=pile)]
+    carriers = soldiers(b, 7, skip=('kelso_john',))
+    hander, carriers = carriers[6], carriers[:6]
     for i, who in enumerate(carriers):
-        a = (door[0] + 0.6, door[1] - 1.6 + 1.1 * (i % 3)); z = (pile[0] - 1.2, pile[1] - 1.5 + 0.9 * (i % 4))
-        beats, t = [], 1.5 * i
-        for k in range(5):
-            beats += [{'t': t, 'walk': [P(*z)]}, {'t': t + 10, 'walk': [P(*a)], 'hide': True}, {'t': t + 17, 'show': True}]
-            t += 20
-        cast.append(member(who, P(*a), heading=bearing(a, z), beats=beats))
-    crowd = b.take(b.MEN, 18, stride=13, offset=4) + b.take(b.WOMEN, 12, stride=3, offset=6)
-    spots = b.ring(pile, 4.2, 12, start=40, span=200) + b.ring(pile, 6.5, 12, start=30, span=220) + b.ring(pile, 8.8, 6, start=60, span=160)
+        a = (door[0] + 0.6, door[1] - 1.6 + 1.1 * (i % 3)); z = (pile[0] - 1.25, pile[1] + 0.5 - 0.45 * (i % 3))
+        there = round((math.dist(a, corner) + math.dist(corner, z)) / LADEN + 0.3, 1)
+        back = round((math.dist(a, corner) + math.dist(corner, z)) / 1.3 + 0.6, 1)
+        beats, t = [], 2.0 * i
+        for k in range(4):
+            beats += [{'t': round(t, 1), 'walk': [P(*corner), P(*z)], 'pace': LADEN, 'carry': out[i]}, {'t': round(t + there, 1), 'carry': None},
+                      {'t': round(t + there + 1.0, 1), 'walk': [P(*corner), P(*a)], 'hide': True},
+                      {'t': round(t + there + 1.0 + back + 4.0, 1), 'show': True, 'carry': out[i]}]
+            t += there + 1.0 + back + 5.0
+        cast.append(member(who, P(*a), heading=bearing(a, corner), beats=beats))
+    # The gathering round the pile, men and women in turn, on its open south and west sides (in the
+    # stop's view, beyond the pile), clear of the carriers' way in from the north-west.
+    men, women = b.take(b.MEN, 18, stride=13, offset=4), b.take(b.WOMEN, 12, stride=3, offset=6)
+    crowd = [x for pair in zip(men[:12], women) for x in pair] + men[12:]
+    spots = b.ring(pile, 3.6, 12, start=140, span=125) + b.ring(pile, 5.6, 12, start=143, span=122) + b.ring(pile, 7.6, 6, start=155, span=100)
+    hand_at = (pile[0] + 1.5 * math.sin(math.radians(60)), pile[1] + 1.5 * math.cos(math.radians(60)))
+    hander_beats = []
     for i, (who, at) in enumerate(zip(crowd, spots)):
-        cast.append(member(who, at, face=pile, tier='desktop' if i % 3 == 1 else None))
-    st['factory'] = {'caption': "Watch the goods come out of the factory to the people of the gathering, while Heald looks on.", 'cast': cast}
+        beats = None
+        if i < 8:   # the inner ring come up for theirs, one by one
+            u = ((at[0] - pile[0]) / 3.6, (at[1] - pile[1]) / 3.6)
+            take = (pile[0] + 1.6 * u[0], pile[1] + 1.6 * u[1])
+            t0 = 10.0 + 7.0 * i; got = round(t0 + math.dist(at, take) / 1.3 + 0.6, 1)
+            beats = [{'t': t0, 'walk': [P(*take)]}, {'t': got, 'carry': ('blanket_bale', 'bolt', 'bolt_blue')[i % 3], 'face': hander},
+                     {'t': round(got + 1.2, 1), 'walk': [P(*at)], 'pace': LADEN}, {'t': round(got + 1.2 + math.dist(take, at) / LADEN + 0.4, 1), 'face': 'heald_nathan'}]
+            hander_beats += [{'t': round(got - 1.0, 1), 'face': who}]
+        cast.append(member(who, at, face=pile, beats=beats, tier='desktop' if i % 3 == 1 and not beats else None))
+    cast.append(member(hander, P(*hand_at), face=pile, beats=hander_beats))
+    st['factory'] = {'caption': "Watch the goods come out of the factory to the people of the gathering, while Heald looks on.", 'cast': cast,
+                     'props': [{'kind': k, 'at': P(pile[0] + de, pile[1] + dn), 'heading': h, **({'y': y} if y else {})} for k, de, dn, h, y in (
+                         ('blanket_bale', 0.15, 0.3, 10, 0), ('blanket_bale', 0.25, -0.4, 80, 0), ('blanket_bale', 0.2, -0.05, 40, 0.26),
+                         ('bolt', 0.55, 0.75, 5, 0), ('bolt_blue', -0.25, 0.75, 95, 0), ('bolt', 0.5, -0.95, 70, 0),
+                         ('keg', -0.3, -0.85, 0, 0), ('bolt_blue', 0.35, 0.3, 20, 0.26))]}
 
     # 6 — the covered way, 13 August, evening, from above. Men carry the powder and the
     # liquor down the covered way; at the river end they stave in the barrels and pour.
     # T-3553 (the owner, 2026-11-16: "they currently walk through the pickets and they are split in
     # half"): out of the fort by the sally port and down the middle of the covered way, between its
     # two rows of pickets; three at the water's edge stave in the barrels.
+    # T-3553 (the owner, 2026-11-28: "the soldiers are carrying and dumping arms and whiskey out the
+    # sally port so they should be carrying and dumping"): each takes up a keg or an armful of
+    # muskets at the stack by the north range and carries it out by the sally port, the muskets
+    # and some of the powder to the well dug there (Wau-Bun: 'thrown into a well which had been dug
+    # there'), the rest of the kegs down to the river, where they are staved in; and back for more.
     end = COVERED_WAY_END
     down = [P(*SALLY_IN)] + [P(*q) for q in SALLY_BAND] + [P(COVERED_WAY_E, 240.0), P(COVERED_WAY_E, 256.8), P(end[0], end[1] - 1.6)]
-    back = list(reversed(down))
+    to_well = [P(*SALLY_IN), P(*SALLY_BAND[0]), P(WELL[0], WELL[1] + 1.05)]
     cast = []
     for i, who in enumerate(soldiers(b, 9, skip=('kelso_john',))):
         if i < 3:
             at = (end[0] - 0.8 + 0.8 * i, end[1] - 0.4 * (i % 2))
             cast.append(member(who, P(*at), heading=0, pose='crouch', beats=[{'t': 12 + 9 * i, 'pose': 'stand', 'ease': 0.8}, {'t': 16 + 9 * i, 'pose': 'crouch', 'ease': 0.8}]))
             continue
-        # Six carriers in file, each down and back up again, four times over.
+        # Six carriers in file, each out and back again: every other one to the well (muskets, then a
+        # keg, four times over), the rest down to the river with a keg (three times).
+        home = P(SALLY_IN[0] - 1.2 * (i - 3), SALLY_IN[1] - 0.4 * (i % 2))
+        well = i % 2 == 0
+        path = to_well if well else down
+        way = [home] + path
+        length = sum(math.dist(p, q) for p, q in zip(way, way[1:]))
         beats, t = [], 4.0 * (i - 3)
-        for k in range(4):
-            beats += [{'t': t, 'walk': down[1:]}, {'t': t + 34, 'walk': back[1:]}]
-            t += 68
-        cast.append(member(who, P(SALLY_IN[0] - 1.2 * (i - 3), SALLY_IN[1] - 0.4 * (i % 2)), heading=90, beats=beats))
-    st['covered-way'] = {'caption': "Watch the soldiers carry the powder and the whiskey out by the sally port and down the covered way to the river.",
-                         'cast': cast, 'open_gates': SALLY_PORT}
+        for k in range(4 if well else 3):
+            kind = ('muskets' if k % 2 == 0 else 'keg') if well else 'keg'
+            there = round(t + length / LADEN + 0.4, 1)
+            beats += [{'t': round(t, 1), 'walk': path, 'pace': LADEN, 'carry': kind},
+                      {'t': there, 'carry': None, **({'face': P(*WELL)} if well else {})},
+                      {'t': round(there + 1.2, 1), 'walk': list(reversed(way[:-1]))}]
+            t = there + 1.2 + length / 1.3 + 3.0
+        cast.append(member(who, home, heading=90, beats=beats))
+    props = [{'kind': 'well', 'at': P(*WELL), 'heading': 0}]
+    props += [{'kind': k, 'at': P(STACK[0] + de, STACK[1] + dn), 'heading': h} for k, de, dn, h in (
+        ('keg', 0, 0, 0), ('keg', 0.42, 0.05, 0), ('keg', -0.42, 0, 0), ('keg', 0.2, -0.4, 0), ('muskets', -0.3, -0.55, 90))]
+    props += [{'kind': k, 'at': P(end[0] + de, end[1] + dn), 'heading': h} for k, de, dn, h in (
+        ('keg_staved', -1.25, 0.55, 30), ('keg_staved', 1.2, 0.5, 200), ('keg', 1.35, -0.6, 0), ('keg_staved', -1.4, -0.5, 120))]
+    st['covered-way'] = {'caption': "Watch the soldiers carry the muskets, the powder and the whiskey out by the sally port, to the well and down the covered way to the river.",
+                         'cast': cast, 'open_gates': SALLY_PORT, 'props': props}
 
     # 7 — the gate, 14 August, sunset. Wells rides in at the head of his Miamis (he rode; Kevin,
     # 2026-11-17: "maybe during the battle of fort Dearborn they would have had horses"), gets

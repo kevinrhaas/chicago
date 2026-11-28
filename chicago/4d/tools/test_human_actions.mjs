@@ -326,6 +326,30 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   }
 }
 
+// T-3814: a fire-night figure handed something to carry after it is made (setCarry): the bundle's
+// arm is held up at the shoulder where the hold says, and put down, it goes back to the dress's
+// own (here none: both arms swing again).
+{
+  const r = await rig('private_first_infantry_1812', 0, 'walk');
+  const life = createHumanLife({ id: 'shoulder', scene: r.scene }), acts = createHumanActions({ id: 'shoulder', scene: r.scene });
+  assert(acts.carrying === null, 'carries nothing of its own');
+  const spec = { side: 'r', wrist_from_shoulder: [0.06, 0.1, 0.16], elbow_pole: [-0.55, -0.75, 0.35], fingers: [0.15, 0.45, -0.88], palm: [0.25, -0.2, -0.95], curl: 0.85 };
+  for (let i = 0; i < 20; i++) step(r, life, acts, 1 / 30, { state: 'walking', root: r.root });
+  acts.setCarry(spec);
+  assert(acts.carrying === 'r', 'set to carry on the right');
+  let worst = 0;
+  for (let i = 0; i < 90; i++) {
+    step(r, life, acts, 1 / 30, { state: 'walking', root: r.root });
+    if (i < 45 || i % 15) continue;
+    const want = figure(r, world(r.bone('upperarm_r'))).add(new THREE.Vector3(...spec.wrist_from_shoulder));
+    worst = Math.max(worst, figure(r, world(r.bone('hand_r'))).distanceTo(want));
+  }
+  assert(worst < 0.05, `the right wrist is held up at the shoulder (${(worst * 100).toFixed(1)} cm off)`);
+  acts.setCarry(null);
+  assert(acts.carrying === null, 'put down, nothing carried');
+  console.log(`setCarry: wrist ${(worst * 100).toFixed(1)} cm from the shoulder hold, let go after: PASS`);
+}
+
 // T-3490: a duty's hold and talking hand, on the 1812 private. Held at rest, his hands never
 // move to the hips or behind however long he stands (a man in a rank); talking, one forearm
 // comes up before him, the hand ahead of the body above the waist, and moves; quiet, it goes

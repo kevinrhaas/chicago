@@ -42,6 +42,9 @@ import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
 import { showSavedData } from './student-data.js';
+import { cloudSaveFor, startCloudSave, cloudSaveLine } from './cloud-save.js';
+import { startClasses } from './classes-view.js';
+import { fieldNotebook } from './field-notebook.js';
 import { SIGN_IN } from './sign-in-config.js';
 import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -113,7 +116,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
-import { createMetFoundWatch, placeIndex, sceneTitle } from './met-found.js';
+import { createMetFoundWatch, placeIndex, sceneTitle, metFound } from './met-found.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
 import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
@@ -2040,6 +2043,9 @@ boot().catch((err) => {
   console.error('[4D Chicago] boot failed', err);
 });
 
+/** T-3777: the longest the boot waits for cloud save's first sync, in ms. */
+const CLOUD_WAIT_MS = 3000;
+
 async function boot() {
   // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
   // once, loads nothing) until js/sign-in-config.js names a Firebase project.
@@ -2054,6 +2060,18 @@ async function boot() {
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
   // words at each age, fetched the first time a card opens.
   void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });
+  // T-3777: cloud save, behind T-3776's cloudFeatures switch. The first sync is waited for a
+  // moment (never more than CLOUD_WAIT_MS), so the Settings and notebook another device left
+  // are the ones the town reads; past that the town boots on this browser's copy.
+  if (cloudSaveFor(api.signIn.account, SIGN_IN)) {
+    const line = document.getElementById('s-cloud-save');
+    api.cloudSave = startCloudSave({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId,
+      sources: [fieldNotebook, metFound], onStatus: (s) => { if (line) { line.hidden = false; line.textContent = cloudSaveLine(s); } } });
+    await Promise.race([api.cloudSave.ready.catch(() => {}), new Promise((r) => setTimeout(r, CLOUD_WAIT_MS))]);
+  }
+  // T-3778: the class a student is in (Settings › About › Your class, Hand in in the notebook),
+  // read once per visit, not waited for.
+  void startClasses({ account: api.signIn.account, config: SIGN_IN, projectId: SIGN_IN.firebase?.projectId }).catch(() => {});
   setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();
@@ -2776,6 +2794,7 @@ async function boot() {
   const streetFurniture = await createStreetFurniture({
     dataBase: layerBase('street_furniture'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('street_furniture'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    floorAt: (e, n) => api.contextCity?.floorHeight?.(e, n) ?? null,
   });
   scene3d.add(streetFurniture.group);
   api.streetFurniture = streetFurniture;
@@ -4602,6 +4621,20 @@ async function boot() {
       assetIds: [...new Set([...(inside?.people ?? []).map((x) => x.asset_id),
         ...(api.humans.records ?? []).map((r) => r.appearance?.asset_id)].filter(Boolean))] });
     scene3d.add(api.crowd.group);
+    // T-3812 (the owner, 2026-11-27: "street talk"): people near the visitor say short things
+    // aloud now and then, and answer a greeting, in the stock voice for their kind (street-talk.js).
+    if (daysScene === '1904') {
+      void import('./street-talk.js').then(({ createStreetTalk }) => {
+        api.streetTalk = createStreetTalk({ scene: daysScene, base: new URL('street/', resolveBases().dataBase),
+          humans: api.humans, hour: sunHour, season: () => api.humans?.season ?? null,
+          visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+          speech: () => api.sound?.speech ?? null,
+          // Nobody speaks over a jaunt's voice, nor while a story or question card is open.
+          busy: () => !!api.narration?.voice?.() || !!api.tales?.card?.open || !!api.tales?.askCard?.open,
+          host: (id) => !!api.jauntHosts?.active?.includes?.(id),
+          onCaption: ({ actor, text }) => hud.say(`${actor?.person?.name ?? 'Someone'}: “${text}”`, 4200) });
+      }).catch(() => { api.streetTalk = null; });
+    }
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
     if (daysScene === '1812') {
@@ -4769,14 +4802,15 @@ async function boot() {
   // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
   api.person = null;
   void (async () => {
-    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT, EYE_COLOUR }] = await Promise.all([
       import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
     personHost(document);   // the You tab's group, with its "loads with the town" line until then
     const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
       account: api.signIn?.account ?? null });
     api.person = person;
     const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
-    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    api.personPortrait = portrait;   // its stats() for the QA run: builds and renders, and their time
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT, eyes: EYE_COLOUR });
     person.onChange(() => { void api.riding?.reseat?.(); });
   })().catch((error) => { problems.push(`person: ${error.message}`); });
 
@@ -5515,7 +5549,16 @@ async function boot() {
     inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
+    // Cloud play (tools/stream): the stream cannot pass the pointer lock to the player's
+    // browser, so the look is a drag. The machine opens the year with ?look=drag.
+    dragLook: params.get('look') === 'drag',
+    // The first drag is the look engaged: the tag goes, as it does on the first lock.
+    onDragLook: () => { gesture.setLook({ locked: true }); gesture.setLook({ locked: false }); },
   });
+  if (pointerlock.dragLook) {
+    const tag = document.getElementById('look-tag');
+    if (tag) tag.textContent = 'Drag to look around';
+  }
 
   const touch = createTouchBackend({
     intent,
@@ -5691,6 +5734,16 @@ async function boot() {
 
   canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // Drag look (cloud play): the end of a drag is not a click; a plain click picks what is
+    // under it, as a tap does, since there is no crosshair to inspect down.
+    if (pointerlock.dragLook) {
+      if (pointerlock.dragged) return;
+      if (popup.openId) { popup.close(); return; }
+      if (inspectingByHand()) { releaseInspect(); return; }
+      const r = canvas.getBoundingClientRect();
+      inspect(new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1), { by: 'hand' });
+      return;
+    }
     // T-3614: with the mouse free, a click on a person's name card opens their card, where a
     // click anywhere else takes the look (a touch tap reaches the same card through Interact).
     if (!pointerlock.isLocked && api.nameCards?.shown) {
@@ -6575,7 +6628,7 @@ async function boot() {
   }
   function ensureJaunts() {
     return jauntReady ??= loadJauntModules()
-      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
+      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier, createGoods, createCord, createMattress, GOODS }]) => {
       useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
@@ -6843,7 +6896,10 @@ async function boot() {
               resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
-              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3814: a streamed team a stage takes is built for it at any hour, wherever the visitor is.
+              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null,
+                load: (ids = []) => { for (const id of ids) void api.townTransport?.stageWant?.(id)?.catch?.(() => {}); void api.townTransport?.ready?.()?.catch?.(() => {}); },
+                release: (id) => api.townTransport?.stageRelease?.(id) },
               // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
               horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
@@ -6872,6 +6928,8 @@ async function boot() {
               boats: { carry: (id, o) => crossings?.carry?.(id, o) ?? null },
               // ... and the dead are carried on a bier (stage-props.js).
               bier: createBier,
+              // T-3814: the goods the Great Fire's people carried, wagons' loads and things set down.
+              goods: { create: createGoods, cord: createCord, mattress: createMattress, spec: (kind) => GOODS[kind] ?? null },
               gates: { open: (ids) => {
                 const opened = fortGates.gates.filter((g) => ids.includes(g.id) && g.state === 'closed');
                 for (const g of opened) { g.actions.closed[0].steps[0].run(1); g.state = 'open'; }
@@ -7357,6 +7415,10 @@ async function boot() {
   interactions.extend?.((thing, actions) => withStory(thing, actions,
     (who) => { api.loadTales().then((teller) => teller.tell(who), () => hud.say('Stories could not be loaded just now')); },
     (who) => { api.loadTales().then((teller) => teller.ask(who), () => hud.say('Questions could not be loaded just now')); }));
+  // T-3812: someone greeted answers aloud, where their scene has street talk (1904). After the
+  // story's extension, so Tell me a story's own wave (Greet's first beat) stays silent.
+  interactions.extend?.((thing, actions) => (thing?.kind !== 'person' || !Array.isArray(actions) ? actions : actions.map((a) => (a.id !== 'greet' ? a : {
+    ...a, steps: (a.steps ?? []).map((st, i) => (i ? st : { ...st, run(t) { st.run?.(t); if (t === 0) api.streetTalk?.greet(thing.personId ?? thing.actor?.personId); } })) }))));
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -8278,6 +8340,8 @@ async function boot() {
     api.jauntHosts?.update(frameDt);
     // T-3553: the host whose voice is reading their stop aloud moves their mouth with it.
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
+    // T-3812: and now and then someone near the visitor says something aloud.
+    api.streetTalk?.update(frameDt);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
     // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).

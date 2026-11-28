@@ -4,10 +4,10 @@
 // Firestore rules allow.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
+import { configured, gateMode, validEmail, signInGate, cloudPass, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId, MESSAGE_FIELDS } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
-import { ACCOUNT_DOCS, ACCOUNT_ROWS, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
+import { ACCOUNT_DOCS, ACCOUNT_ROWS, ACCOUNT_TREES, ACCOUNT_CLASSES, ACCOUNT_BY_EMAIL, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
 import { rulesFromDoc, collectionsOf, ownerEmailOf } from './publish_firestore_rules.mjs';
 
 const FULL = { apiKey: 'k', authDomain: 'p.firebaseapp.com', projectId: 'p', appId: 'a' };
@@ -24,6 +24,18 @@ assert.equal(gateMode({ config: on, hostname: 'localhost' }), 'off', 'a local se
 assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', webdriver: true }), 'robot', 'automation passes');
 assert.equal(gateMode({ config: { ...on, enabled: false }, hostname: 'localhost', search: '?signin=preview' }), 'preview');
 assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', search: '?signin=preview' }), 'on', 'preview never weakens a live gate');
+
+// One sign-in for cloud play: the machine's pass is read only in its own exact form.
+assert.equal(cloudPass('#cloud-signin=aa.bb-_.cc'), 'aa.bb-_.cc');
+assert.equal(cloudPass(''), '');
+assert.equal(cloudPass('#cloud-signin=aa.bb'), '', 'a pass is a whole token');
+assert.equal(cloudPass('#cloud-signin=aa.bb.cc&x=<script>'), '', 'nothing else rides with it');
+assert.equal(cloudPass('#other=aa.bb.cc'), '');
+{
+  const src = readFileSync(new URL('../renderers/web/js/sign-in.js', import.meta.url), 'utf8');
+  assert.ok(/replaceState\?\.\(null, '', `\$\{loc\.pathname\}\$\{loc\.search\}`\)/.test(src) && /signInWithCustomToken\(auth, pass\)/.test(src),
+    'the gate signs in with the pass and takes it out of the address');
+}
 
 // The shipped config may be on or off, but on means complete.
 if (SIGN_IN.enabled) assert.ok(configured(SIGN_IN.firebase), 'sign-in-config.js is enabled without all four Firebase values');
@@ -91,9 +103,13 @@ const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(
 // T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
 // T-3741 messages/<id>, the public contact page's (site/js/contact.js), checked below.
 // T-3743 bugs/<id>, crash and bug reports (tools/test_bug_report.mjs holds its fields).
-assert.equal(lists.length, 6, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages, bugs and people hasOnly lists');
+// T-3777 users/<uid>/<part>/<id>, cloud save (tools/test_cloud_save.mjs holds its writes).
+// T-3778 classes, their members and hand-ins, and join codes (tools/test_classes.mjs holds them).
+// T-3797 access/<email> (its fields and the two rights), waitlist/<email> and launch/cloud (tools/test_launch_rights.mjs).
+assert.equal(lists.length, 16, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages, bugs, people, users, classes, members (and what a member may change), handins, codes, access (and its rights), waitlist and launch hasOnly lists');
 const visitorRule = lists.find((l) => l.includes('firstSeen'));
 const visitRule = lists.find((l) => l.includes('uid') && !l.includes('kind'));
+assert.deepEqual(lists.find((l) => l.includes('deleted')), ['at', 'deleted', 'v'], 'users/<uid>/<part>/<id> holds v, deleted and when');
 assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');
 const w = entryWrites({ projectId: 'p', uid: 'u1', email: 'a@b.co', name: 'A', method: 'google', year: '1835', device: 'phone', visitId: 'v1' });
 const fieldsOf = write => [...Object.keys(write.update.fields), ...(write.updateTransforms || []).map(t => t.fieldPath)];
@@ -141,15 +157,20 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
   // Every collection the rules let a visitor write is one Delete my saved data removes, and
   // the rules let the visitor read and delete each of them.
   const kept = [...ACCOUNT_DOCS, ...ACCOUNT_ROWS].sort();
+  // T-3777: the tree under users/<uid>/ is the account's alone, in exactly the parts deleted.
+  const tree = /match \/users\/\{uid\}\/\{part\}\/\{id\} \{\n\s+allow read, delete: if isSelf\(uid\) && part in \[([^\]]*)\];/.exec(doc);
+  assert.ok(tree, 'users/<uid>/<part>/<id>: the account reads and deletes its own, nobody else');
+  assert.deepEqual(tree[1].match(/'([^']+)'/g).map((x) => x.slice(1, -1)), [...ACCOUNT_TREES.users], 'in the parts Delete my saved data removes');
+  assert.deepEqual(Object.keys(ACCOUNT_TREES), ['users']);
   const written = [...doc.matchAll(/match \/([a-z]+)\/\{[a-z]+\} \{\n\s+allow read, delete: ([^;]+);/g)].map((m) => [m[1], m[2]]);
   const selfDeletes = written.filter(([, rule]) => /isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c).sort();
   assert.deepEqual(selfDeletes, kept, 'the rules let a visitor delete exactly the collections js/student-data.js deletes');
   assert.deepEqual(written.filter(([, rule]) => !/isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c), ['messages'],
     'only the contact page\'s messages (no uid) are the owner\'s alone');
   const policy = readFileSync(new URL('../docs/STUDENT-DATA.md', import.meta.url), 'utf8');
-  for (const c of kept) assert.ok(policy.includes(`| \`${c}/`), `docs/STUDENT-DATA.md lists ${c}`);
+  for (const c of [...kept, 'users', ...ACCOUNT_CLASSES]) assert.ok(policy.includes(`| \`${c}/`), `docs/STUDENT-DATA.md lists ${c}`);
   const privacy = readFileSync(new URL('../renderers/web/privacy.html', import.meta.url), 'utf8');
-  assert.deepEqual([...privacy.matchAll(/data-collection="([a-z]+)"/g)].map((m) => m[1]).sort(), kept, 'privacy.html names every collection kept');
+  assert.deepEqual([...privacy.matchAll(/data-collection="([a-z]+)"/g)].map((m) => m[1]).sort(), [...kept, 'users', 'classes', ...ACCOUNT_BY_EMAIL].sort(), 'privacy.html names every collection kept');
   assert.ok(page.includes('href="./privacy.html"'), 'Settings › About links What we keep');
   assert.ok(readFileSync(new URL('../renderers/web/js/sign-in.js', import.meta.url), 'utf8').includes('href="./privacy.html"'), 'the sign-in panel links it before anything is kept');
 
@@ -160,24 +181,29 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
 
   // A fake Firestore: three documents, two visits and one bug for u1, one visit for someone else.
   const calls = [];
-  const rows = { visits: ['v1', 'v2'], bugs: ['b1'] };
+  // T-3778: classes come back empty here (tools/test_classes.mjs and the emulator run hold them).
+  const rows = { visits: ['v1', 'v2'], bugs: ['b1'], notebook: ['n1'], metfound: ['1835-met', '1835-found'], settings: [], classes: [] };
   const fakeFetch = async (url, init = {}) => {
     calls.push([init.method ?? 'GET', url, init.body ? JSON.parse(init.body) : null]);
     const ok = (body) => ({ ok: true, status: 200, json: async () => body });
     if (url.endsWith(':runQuery')) {
       const col = JSON.parse(init.body).structuredQuery.from[0].collectionId;
       const left = rows[col].splice(0);
-      return ok(left.length ? left.map((id) => ({ document: { name: `projects/p/databases/(default)/documents/${col}/${id}` } })) : [{ readTime: 'x' }]);
+      const parent = url.includes('/users/') ? 'users/u1/' : '';
+      return ok(left.length ? left.map((id) => ({ document: { name: `projects/p/databases/(default)/documents/${parent}${col}/${id}` } })) : [{ readTime: 'x' }]);
     }
     return ok({});
   };
   const account = { uid: 'u1', idToken: async () => 'tok' };
   const r = await deleteMyData({ projectId: 'p', account, fetchFn: fakeFetch });
-  assert.deepEqual(r, { deleted: 6, failed: [] }, 'three documents and three rows');
+  assert.deepEqual(r, { deleted: 9, failed: [] }, 'three documents, three rows and three saved items');
   assert.deepEqual(calls.filter(([m]) => m === 'DELETE').map(([, u]) => u.split('/documents/')[1]), ['readers/u1', 'people/u1', 'visitors/u1']);
-  const commits = calls.filter(([, u]) => u.endsWith(':commit')).map(([, , b]) => b.writes.map((w) => w.delete.split('/').slice(-2).join('/')));
-  assert.deepEqual(commits, [['visits/v1', 'visits/v2'], ['bugs/b1']]);
-  assert.equal(calls.length, 9, 'three deletes, then each collection queried until it comes back empty');
+  const commits = calls.filter(([, u]) => u.endsWith(':commit')).map(([, , b]) => b.writes.map((w) => w.delete.split('/documents/')[1]));
+  assert.deepEqual(commits, [['visits/v1', 'visits/v2'], ['bugs/b1'], ['users/u1/notebook/n1'], ['users/u1/metfound/1835-met', 'users/u1/metfound/1835-found']]);
+  assert.ok(calls.filter(([, u]) => u.endsWith('/users/u1:runQuery')).length === 7, "the account's classes, then each saved part, queried under the account until empty");
+  assert.deepEqual(calls[0].slice(0, 2), ['POST', 'https://firestore.googleapis.com/v1/projects/p/databases/(default)/documents/users/u1:runQuery'],
+    "the student's classes are read before the tree that names them goes");
+  assert.equal(calls.length, 19, 'the classes, three deletes, then each collection and part queried until it comes back empty');
 
   // A refusal is reported, never thrown, and the rest still goes.
   const refuse = async (url, init = {}) => (init.method === 'DELETE' && url.includes('/people/') ? { ok: false, status: 403 } : fakeFetch(url, init));
@@ -214,8 +240,9 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
 // across rather than reading it from the repo.
 {
   const rules = rulesFromDoc(doc);
-  assert.deepEqual(collectionsOf(rules), [...ACCOUNT_DOCS, ...ACCOUNT_ROWS, 'messages'].sort(),
-    'the published rules match every account collection and messages, and nothing else');
+  // T-3797: access/<email> and waitlist/<email> (deleted by address), and launch/cloud (the owner's switch, no one's data).
+  assert.deepEqual(collectionsOf(rules), [...ACCOUNT_DOCS, ...ACCOUNT_ROWS, ...Object.keys(ACCOUNT_TREES), ...ACCOUNT_CLASSES, ...ACCOUNT_BY_EMAIL, 'handins', 'members', 'messages', 'launch'].sort(),
+    'the published rules match every account collection (classes with their members and hand-ins), messages and launch access, and nothing else');
   assert.equal(ownerEmailOf(rules), null, 'the doc holds the placeholder, never an address');
   assert.equal(ownerEmailOf(rules.replaceAll("'OWNER_EMAIL'", "'owner@example.com'")), 'owner@example.com');
   assert.equal(ownerEmailOf("request.auth.token.email == 'a@x.org' || request.auth.token.email == 'b@x.org'"), null,

@@ -297,6 +297,10 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
   node tools/test_sign_in.mjs
+step "Cloud save merges two browsers without dropping an entry, stays offline-safe, writes only what its rule allows, and a lesson stays inside the free tier (T-3777)" \
+  node tools/test_cloud_save.mjs
+step "Classes: join codes read clearly, every write is its rule's fields, a class runs make to close without leaking a classmate's work, and no grade appears (T-3778)" \
+  node tools/test_classes.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "Crash reports and Report a bug write only what the bugs rule allows, only from the live hosts, a crash once, and cap their emails (T-3743)" \
@@ -345,6 +349,8 @@ step "Hosted audio retains originals and binds published URLs to verified bytes 
   node tools/test_audio_hosting.mjs
 step "Jaunt narration: one script for app and voicer keyed by its words, only changed words or voices voiced, the player follows, queues, ducks and mutes (T-3578)" \
   node tools/test_narration.mjs
+step "Street talk: every scene's lines build to the file the voicer and app read, each line under 140 characters, one recording per words and voice (T-3812)" \
+  node tools/build_street_talk.mjs --check
 step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
   node tools/test_habitat_audio.mjs
 step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
@@ -878,6 +884,11 @@ step "Ride a horse: each year's saddle horse, its tack on the coat, the rider se
   node tools/test_riding.mjs
 step "The visitor's own person: every choice one the renderer draws and a body the saddle seats, kept per year and sex, the chosen face drawn, kept with the account (T-3644)" \
   node tools/test_visitor_person.mjs
+# The gate's runners have no browser: the creator's walk-through (the You tab opens it full
+# screen, every category picture choices, Undo, Randomize, Esc, nothing off a phone's side) runs
+# by hand with --browser; here, its rules by the source and its pure parts in node.
+step "The character creator by its source and pure parts: five categories, the summary, a picture keyed by what is drawn, the portrait's pixels read behind a fence (T-3553)" \
+  node tools/test_person_creator.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
@@ -2046,6 +2057,19 @@ step "side_bays take read windows; a read round head on a stone side face has no
 # over the door, read off the square-on photograph, laid once at its own sill and size.
 step "front_bays_by_storey takes a light read off the picture on an upper storey (T-3562)" \
   python3 tools/test_k01_front_read_light.py
+
+# T-3730. ...and a light in a gable roof's end parapet: 2130 Prairie's attic light in its south
+# gable, read off the Chicagology print, cut to K06's reveal in the roof's solid with its sash
+# and lintel, and refused unless it stands wholly in the parapet.
+step "a K01 gable parapet takes a light read off the picture, wholly inside it (T-3730)" \
+  python3 tools/test_k01_gable_lights.py
+
+# T-3634. ...and a K11 open front's picket fence: 2021 Prairie's street front open, as its
+# photograph shows it, and its low pickets on two rails along the south lot line, laid on the
+# line in their own painted slot; a run off the line, against the house, too short, out to the
+# walk or too tall is refused.
+step "an open front lays a picket fence along a side lot line, and nothing across the street (T-3634)" \
+  python3 tools/test_k11_side_pickets.py
 
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
@@ -4902,6 +4926,17 @@ step "1871 city, infrastructure and terrain are reproducible" \
 step "1871 street furniture and street trees re-lay from the city (T-3686)" \
   python3 tools/lay_1871_street_furniture.py --check
 
+# T-3805: the street dress round the jaunt stops is laid clear of doorways, board crossings,
+# carriage ways and the walk's through-path; the furniture check refuses each of those.
+selftest "1871 street furniture check refuses doorways, crossings and the through-path (T-3805)" \
+  python3 tools/lay_1871_street_furniture.py --self-test
+
+# T-3803. The shop signs round the 1871 jaunt stops carry firms of Edwards' 1871 directory at
+# their listed numbers: every firm sits on its face's parity and number span, every street's
+# numbering carries its evidence, and every listing keeps its page and line.
+step "1871 directory firms sit on their calibrated faces with their listings (T-3803)" \
+  python3 -I tools/build_1871_directory_fronts.py --check
+
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
 
@@ -5034,6 +5069,27 @@ step "source browser counts and filters" \
 # page itself; no smoke part loads the Observatory.
 step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
   node tools/test_portal_clips.mjs
+
+# The launch page at /4d/ (T-3798): the System check's verdict for every kind of computer,
+# four year tiles with their stills, the tools and dialogs. `--browser` drives the page.
+step "launch page: check verdicts, four year tiles and stills, tools (T-3798)" \
+  node tools/test_launch_page.mjs
+
+# Launch access (T-3797): rights by sign-in address, the grant against its rule, only the owner
+# gives or takes admin, no access keys. The rules run for real in test_launch_rights_emulator.mjs.
+step "launch access: rights by email, owner-only admin, the Admin panel's imports (T-3797)" \
+  node tools/test_launch_rights.mjs
+
+# Cloud play (T-3793..T-3795): the starter checks a Firebase ID token and reads rights as the
+# player, starts a Spot L4 with Google's own two-hour end, caps the month's hours, and stops on
+# the budget; the machine scripts parse and gate the stream by the session's token.
+step "cloud play starter: tokens, rights, the machine, hours cap, budget stop (T-3793..T-3795)" \
+  node tools/test_stream_starter.mjs
+
+# Cloud play looks by dragging (?look=drag): a streamed browser cannot pass the pointer lock to
+# the player's own, so the left button held turns the view and a plain click stays a click.
+step "cloud play drag look: ?look=drag turns by dragging, asks for no lock (T-3794)" \
+  node tools/test_drag_look.mjs
 
 # The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
 # site/js/films.js names each by the hash of its bytes, and every film has its poster.
@@ -5655,6 +5711,15 @@ step "the lap and the merger leave a PR whose lap lock a live run holds" \
 # the REAL script against a faked `gh` and asserts exactly that.
 step "the merger merges what GitHub calls clean, and nothing else" \
   node tools/test_merge_ready.mjs
+
+# THE BATCH (.github/steward/pr-batch.sh, run by the steward janitor, Kevin 2026-11-27).
+# Its two new resolvers: two pure additions at one spot keep both and any edit is
+# refused; the stale-mesh re-stamp reads validate's list and routes each id to the
+# pure emitter its manifest entry names.
+selftest "a batch merge keeps two additions at one spot, and refuses an edit" \
+  python3 tools/merge_additions.py --self-test
+selftest "the batch re-stamps stale meshes through the emitter each entry names" \
+  python3 tools/restamp_stale.py --self-test
 
 # AND THE PULL REQUEST NOTHING CAN MOVE, WHICH IS THE HOLE BETWEEN THOSE TWO
 # (T-1368). A `dirty` PR has no merge ref; the gate runs on `pull_request`, which
