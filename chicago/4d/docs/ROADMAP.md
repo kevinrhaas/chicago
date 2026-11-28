@@ -1,3 +1,12 @@
+## T-3776..T-3780 — Stage 1: a classroom database on Firebase (27 November 2026)
+
+The owner's server plan ("Server, cloud GPU and engine plan", 23 November 2026; Google Cloud
+chosen) runs in three stages: a database on the existing Firebase, on-demand cloud GPU streaming,
+then a higher-fidelity engine. Stage 1 is queue band 3B: T-3776 the student data policy and
+Delete my saved data (this PR), then T-3777 cloud save, T-3778 class codes and a teacher view,
+T-3779 shared routes and hand-ins, T-3780 follow the teacher and classmates in town. Each writes
+only while `cloudFeatures` is on. Stages 2 and 3 have no tickets until the owner files them.
+
 ## 2026-11-26 — Forehead-band correction (T-3769)
 
 The photo landmark hull ended partway up the forehead; a six-texel colour fade made its lighting difference a visible band. The importer now blends broad lighting over a wider region while preserving fine facial detail in the same RGB atlases. Head fits, eye records, child proportions and runtime texture dimensions are unchanged. Baseline and corrected adult/child renders are retained with the validation evidence. The release receipt on T-3769 records the rebuild, published checks and verified dev build. Real low-power GPU timing remains unmeasured.
