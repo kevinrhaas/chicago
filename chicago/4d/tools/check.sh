@@ -522,8 +522,15 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "Overlapping seasonal tree rebuilds retain independent templates and live instances (T-3747)" \
+  node tools/test_tree_rebuilds.mjs
 step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
   node tools/test_city_context_depth.mjs
+step "Seasonal dates and evergreen atlas tiles retain the four scene years' contracts (T-3748)" \
+  node tools/test_vegetation_seasons.mjs
+
+step "1871 context trees retain dimensions, cards and the live forest through seasonal/detail rebuilds (T-3760)" \
+  node tools/test_1871_tree_handoff.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
 step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
@@ -866,6 +873,8 @@ step "John J. Glessner's frock coat stops at the knee, is taken in at the waist,
   node tools/test_human_frockcoat.mjs
 step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
   node tools/test_human_gown.mjs
+step "Clothing preparation preserves nearest points and releases loader scratch while retaining live assets (T-3747 integration)" \
+  node tools/test_human_preparation_memory.mjs
 step "Clothes hang, lie and are trimmed as cloth at load: nothing under shows through more than drawn, standing or striding; John J. Glessner's coat has its lapels, collar, front buttons and seams, the lapels off his shoulders; a lady's collar under her chin; skin rows whole, every step short (T-3553)" \
   node tools/test_human_drape.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \

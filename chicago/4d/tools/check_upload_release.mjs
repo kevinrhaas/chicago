@@ -18,7 +18,8 @@
  *     their kept bounding spheres — a building by its instance's;
  *  3. a chunk the reach held back at boot still has its arrays, and walking up
  *     to it uploads it and lets them go, without an error;
- *  4. a desktop (1280x800, mouse) releases nothing, and there, where the
+ *  4. a desktop (1280x800, mouse) releases only Full's static woodland batches;
+ *     its pickable building and furniture layers keep their triangles, and there,
  *     triangles still exist, the GPU pick answers a fixed list of taps on the
  *     plank walks, fences, yard goods and buildings exactly as the old raycast
  *     does (`pickAtRaycast`, the oracle): the same id, at the same distance
@@ -423,10 +424,27 @@ if (part('1835')) {
 /* ---- 4: the desktop ---------------------------------------------------- */
 if (part('desktop')) {
   const { ctx, page, errors } = await boot({ viewport: { width: 1280, height: 800 } });
-  const census = await page.evaluate(() => window.__chicago4d.uploadRelease);
+  const released = await page.evaluate(() => {
+    const a = window.__chicago4d, woodland = [], other = [];
+    a.scene3d.traverse(o => {
+      if (!o.geometry?.userData.uploadReleased) return;
+      let p = o, timber = false;
+      while (p) { if (p.name === 'timbers-grown') timber = true; p = p.parent; }
+      if (o.name === 'timber' && o.parent?.name === 'trees') timber = true;
+      (timber ? woodland : other).push({ name: o.name,
+        released: o.geometry.attributes.position?.array === null
+          && o.geometry.index?.array?.length === 0 });
+    });
+    return { census: a.uploadRelease, woodland, other };
+  });
+  const { census } = released;
   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
-  check('desktop: nothing is released', census?.attributes === 0 && census.sources === 0
-    && census.images === 0, JSON.stringify(census));
+  check('desktop: only Full woodland batches are released',
+    JSON.stringify(released.woodland.map(o => o.name).sort()) === JSON.stringify([
+      'timber', 'timber-far-leaves', 'timber-far-wood', 'timber-shade-leaves', 'timber-shade-wood',
+    ]) && released.woodland.every(o => o.released)
+      && released.other.length === 0 && census?.attributes > 0 && census.sources === 0
+      && census.images === 0, JSON.stringify(released));
   for (const [layer, api] of [['frontage', 'frontage'], ['enclosures', 'enclosures'], ['yard', 'yard']]) {
     const r = await page.evaluate(gpuAgainstRaycast, { layer, api });
     check(`desktop: the GPU pick answers ${r.compared} fixed taps on ${layer} as the raycast does`,

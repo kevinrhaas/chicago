@@ -63,6 +63,7 @@
 import * as THREE from 'three';
 import { inertBackYards } from './inert-layers.js';
 import { patchSeason } from './season.js';
+import { patchLeafLight } from './leaf-light.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import { KINDS as CROP_KINDS, growTemplate, seasonLook, cropAtlas } from './gardens.js';
 
@@ -1183,8 +1184,10 @@ export async function createBackYards({
       return;
     }
     const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
+      bumpMap: lowSpec || detailNow === 'light' ? null : atlas, bumpScale: 0.002,
       side: THREE.DoubleSide, alphaTest: CROP_LEAF_CUTOFF });
     leafMat.name = 'back-yards-crop-leaves';
+    patchLeafLight(leafMat, { lowSpec });
     const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
     solidMat.name = 'back-yards-crop-solid';
     confidence?.patch(leafMat); confidence?.patch(solidMat);
@@ -1323,6 +1326,10 @@ export async function createBackYards({
     if (!VIEW_M[d] || d === detailNow) return;
     const wasLight = detailNow === 'light';
     detailNow = d; stats.detail = d;
+    if (!lowSpec && crops?.leaves.material) {
+      const m=crops.leaves.material, bump=d==='light'?null:m.map;
+      if (m.bumpMap!==bump) { m.bumpMap=bump; m.needsUpdate=true; }
+    }
     if (wasLight !== (d === 'light') && !lowSpec) { buildFixtures(); hangLeaves(); refreshBalls(); }
     const cast = !lowSpec && d !== 'light';
     for (const m of fixtureMeshes) m.castShadow = cast;
