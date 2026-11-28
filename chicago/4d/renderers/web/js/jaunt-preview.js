@@ -207,7 +207,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) more.append(awarded);
         else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         note.append(head, more);
-        const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session, { placeOf: stop => destinations?.byId?.(stop.destination?.kind, stop.destination?.id)?.label }), checkDraft);
+        const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session, { placeOf: stop => destinations?.byId?.(stop.destination?.kind, stop.destination?.id)?.label }), checkDraft,
+          { title: session.jaunt.title, year: session.jaunt.year ?? session.year });
         if (check) note.append(check);
         const investigation = renderInvestigation(doc, jauntInvestigation(session), investigationDraft);
         if (investigation) note.append(investigation);

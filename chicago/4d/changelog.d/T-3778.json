@@ -1,0 +1,11 @@
+{
+  "title": "Classes: a join code, a teacher's page and hand-ins",
+  "kind": "feature",
+  "items": [
+    "Teachers make a class in Guide › For teachers and give students its six-character code.",
+    "Students enter the code once in Settings › About and are in the class on every device they sign in on.",
+    "A notebook entry can be handed in to the class, handed in again after an edit, or taken back; a jaunt's check can be saved to the notebook as a reflection.",
+    "The teacher's page lists who joined, when each was last in and what each handed in, with CSV and print. No grades or scores.",
+    "Closing a class deletes it and everything handed in."
+  ]
+}

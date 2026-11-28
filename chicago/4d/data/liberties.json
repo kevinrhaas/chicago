@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1258,
+  "count": 1259,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1247,7 +1247,7 @@
     },
     {
       "id": "house_213_e20th",
-      "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice"
+      "name": "213 East Twentieth Street — four-storey red-fronted rowhouse behind a bracketed cornice"
     },
     {
       "id": "house_2140_calumet",
@@ -1263,7 +1263,7 @@
     },
     {
       "id": "house_215_e20th",
-      "name": "215 East Twentieth Street — Rowhouse, flat behind a cornice"
+      "name": "215 East Twentieth Street — red brick rowhouse with round-headed lights behind its front yard"
     },
     {
       "id": "house_217_e20th",
@@ -53509,8 +53509,6 @@
       "subjects": [
         "hanford_house_2008_calumet",
         "hanford_house_2008_calumet_coach_house",
-        "house_213_e20th",
-        "house_215_e20th",
         "second_presbyterian_church_1936_michigan",
         "wheeler_kohn_house_2018_calumet",
         "wheeler_kohn_house_2018_calumet_coach_house"
@@ -53525,30 +53523,6 @@
         {
           "domain": "structure",
           "structure": "hanford_house_2008_calumet_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_213_e20th",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_213_e20th",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_215_e20th",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_215_e20th",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -53606,11 +53580,11 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`"
+          "text": "`hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`"
         },
         {
           "label": "Retired in part",
-          "text": "217 East Twentieth Street, the corner rowhouse, by later work, which refined it in place on the K01 frontage kit under `“217 East Twentieth Street, the corner rowhouse, refined from the district draft onto K01: its plan off the 1911 sheet, its red brick, round-headed lights and copper corner oriel off three 2009 photographs of the surviving house, the rest the kits'”`, under the same id; its draft attributes are gone. 213 and 215 are still this draft's. 2008 Calumet, the Hanford house, by later work (the X02 package), which refined it in place on the K01 frontage kit under `“2008 Calumet, the Hanford house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, south flank and roof off the 1883 Inland Architect plate, the rest the kits'”`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are 's)."
+          "text": "217 East Twentieth Street, the corner rowhouse, by later work, which refined it in place on the K01 frontage kit under `“217 East Twentieth Street, the corner rowhouse, refined from the district draft onto K01: its plan off the 1911 sheet, its red brick, round-headed lights and copper corner oriel off three 2009 photographs of the surviving house, the rest the kits'”`, under the same id; its draft attributes are gone. 213 and 215 by later work, which refined them in place on the K01 frontage kit under `“213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'”`, under the same ids; their draft attributes are gone. 2008 Calumet, the Hanford house, by later work (the X02 package), which refined it in place on the K01 frontage kit under `“2008 Calumet, the Hanford house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, south flank and roof off the 1883 Inland Architect plate, the rest the kits'”`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are 's)."
         },
         {
           "label": "Decision",
@@ -53635,10 +53609,10 @@
       ],
       "work_refs": [
         "T-1939",
-        "T-3782",
         "T-1940",
         "T-3791",
         "T-3781",
+        "T-3782",
         "T-3790",
         "T-2982",
         "T-2162",
@@ -82402,6 +82376,239 @@
       ],
       "work_refs": [
         "T-3814"
+      ]
+    },
+    {
+      "id": "L-k01-213-215-e20th-3782",
+      "title": "213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'",
+      "section": "per_subject",
+      "subjects": [
+        "house_213_e20th",
+        "house_215_e20th"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "213 and 215 East Twentieth Street (the X01 package) are no longer district drafts. Each stands, under the draft's own id (213 East Twentieth Street — four-storey red-fronted rowhouse behind a bracketed cornice, 215 East Twentieth Street — red brick rowhouse with round-headed lights behind its front yard), as a k01 frontage record built by the k01 emit generator. 215: three storeys of K03 pressed red brick set back behind its front yard, the ground storey's two round-headed lights and the round-arched door in its west bay (the kit's deep-arched double door), the upper storeys' lights on stone sills under flat stone lintels, a K10 bracketed cornice over a flat deck; both flanks are party walls. 213: four storeys on the street line, a red pressed-brick front over buff common flanks, the ground storey's two lights under corniced lintels and the door between them under the K07 pedimented hood on consoles, the third storey's lights round-headed, a K10 bracketed cornice over a frieze and a flat deck; two bays of lights in the east flank's strip before 215's front, three on the west flank, and the sheet's narrower rear range on K01's rear wing. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size (0.186 m a pixel): 215's 11.43 by 7.15 m body set 3.25 m behind its neighbours' street line, its '3'; 213's 6.5 m front on the street line, its body 15.89 m deep to the east wall's step and the rear range 7.43 m beyond it, 0.46 m narrower on the east. From four 2009 photographs (Jyoti Srivastava, 'Three Row Houses at East Cullerton', Chicago - Architecture…, forms only, check required): 215's red brick front, its round-headed lights and arched door, its stone sills and lintels (224); 213's four grades of lights, the third round-headed, its red front and buff east flank, its bracketed cornice (220, 225); 213's door with its transom under the pedimented hood between two framed lights (222). **What is invented.** Both principal floors and every storey height, read by proportion, not through a solved camera; 213's storey count against the sheet's illegible figure (the photographs' four is taken); the bays' centres (read across the prints at the fronts' own widths); the roofs behind the cornices; the walls' thickness; the flanks' and rears' lights beyond what the photographs show; the stacks; the stoops' steps; the kits' sash, doors and hood; a shallow key at each round head's crown (the prints are too small to show one); the low iron railing on a curb at the walk's inner edge with a walk gate, and the flagged walks (215's yard is closed by a tall iron fence and gate in 2009, a later one; no picture shows either strip in 1904); 213's basement lights, the kit's least, which photograph 222 does not show. **What is not built.** 213's ground-storey pilasters, the moulded frames of its ground lights and the carving of its hood's consoles (photograph 222; the kit's corniced lintel and hood stand in); its cornice's return along the east flank (photograph 225; K01 runs the cornice on the front); the fourth storey's lights on the east flank where it stands over 215's roof (photograph 225; K01 cuts a flank's bays through every storey, so the flank's lights stand only in the strip before 215's front); a small rounded bulge on 213's east wall behind 215's rear corner (sheet 35, about 0.6 m out at rows 343-358); 215's dashed line over its front on the sheet, unread. 213's red is 2009's paint over the front: the register reads red brick and sandstone, and the brick stands red."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves the photographs' cameras, works the photo-match down and signs off the image gate, writing into the match record what is under the good-enough bar; a K01 cornice returned along a flank, and flank bays limited to the storeys a neighbour leaves clear, would stand the two forms not built; a dated photograph of the row nearer 1904, ingested as a source, would settle 213's storey count and its front's colour."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_213_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_213_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_213_e20th.as_mapped_1904.form.stair_tread_m`, `house_213_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_213_e20th.as_mapped_1904.form.service_wall_brick`, `house_213_e20th.as_mapped_1904.form.roof_form`, `house_213_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_213_e20th.as_mapped_1904.form.roof_covering`, `house_213_e20th.as_mapped_1904.form.stoop_width_m`, `house_213_e20th.as_mapped_1904.form.north_bays`, `house_213_e20th.as_mapped_1904.form.basement_lights`, `house_213_e20th.as_mapped_1904.form.window_kit`, `house_213_e20th.as_mapped_1904.form.chimneys`, `house_213_e20th.as_mapped_1904.form.boundary`, `house_213_e20th.as_mapped_1904.form.yard`, `house_215_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_215_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_215_e20th.as_mapped_1904.form.stair_tread_m`, `house_215_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_215_e20th.as_mapped_1904.form.service_wall_brick`, `house_215_e20th.as_mapped_1904.form.eave_overhang_m`, `house_215_e20th.as_mapped_1904.form.wall_head`, `house_215_e20th.as_mapped_1904.form.roof_form`, `house_215_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_215_e20th.as_mapped_1904.form.roof_covering`, `house_215_e20th.as_mapped_1904.form.stoop_width_m`, `house_215_e20th.as_mapped_1904.form.rear_bays`, `house_215_e20th.as_mapped_1904.form.basement_lights`, `house_215_e20th.as_mapped_1904.form.window_kit`, `house_215_e20th.as_mapped_1904.form.chimneys`, `house_215_e20th.as_mapped_1904.form.boundary`, `house_215_e20th.as_mapped_1904.form.yard`."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 213 215 e20th."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-3782)."
+        }
+      ],
+      "work_refs": [
+        "T-3782",
+        "T-1939",
+        "T-1837",
+        "T-3783"
       ]
     },
     {

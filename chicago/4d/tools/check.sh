@@ -297,6 +297,10 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
   node tools/test_sign_in.mjs
+step "Cloud save merges two browsers without dropping an entry, stays offline-safe, writes only what its rule allows, and a lesson stays inside the free tier (T-3777)" \
+  node tools/test_cloud_save.mjs
+step "Classes: join codes read clearly, every write is its rule's fields, a class runs make to close without leaking a classmate's work, and no grade appears (T-3778)" \
+  node tools/test_classes.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "Crash reports and Report a bug write only what the bugs rule allows, only from the live hosts, a crash once, and cap their emails (T-3743)" \
@@ -5035,6 +5039,22 @@ step "source browser counts and filters" \
 step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
   node tools/test_portal_clips.mjs
 
+# The launch page at /4d/ (T-3798): the System check's verdict for every kind of computer,
+# four year tiles with their stills, the tools and dialogs. `--browser` drives the page.
+step "launch page: check verdicts, four year tiles and stills, tools (T-3798)" \
+  node tools/test_launch_page.mjs
+
+# Launch access (T-3797): rights by sign-in address, the grant against its rule, only the owner
+# gives or takes admin, no access keys. The rules run for real in test_launch_rights_emulator.mjs.
+step "launch access: rights by email, owner-only admin, the Admin panel's imports (T-3797)" \
+  node tools/test_launch_rights.mjs
+
+# Cloud play (T-3793..T-3795): the starter checks a Firebase ID token and reads rights as the
+# player, starts a Spot L4 with Google's own two-hour end, caps the month's hours, and stops on
+# the budget; the machine scripts parse and gate the stream by the session's token.
+step "cloud play starter: tokens, rights, the machine, hours cap, budget stop (T-3793..T-3795)" \
+  node tools/test_stream_starter.mjs
+
 # The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
 # site/js/films.js names each by the hash of its bytes, and every film has its poster.
 step "public site films: films.js, site-films/ and the posters agree (T-3611)" \
@@ -5655,6 +5675,15 @@ step "the lap and the merger leave a PR whose lap lock a live run holds" \
 # the REAL script against a faked `gh` and asserts exactly that.
 step "the merger merges what GitHub calls clean, and nothing else" \
   node tools/test_merge_ready.mjs
+
+# THE BATCH (.github/steward/pr-batch.sh, run by the steward janitor, Kevin 2026-11-27).
+# Its two new resolvers: two pure additions at one spot keep both and any edit is
+# refused; the stale-mesh re-stamp reads validate's list and routes each id to the
+# pure emitter its manifest entry names.
+selftest "a batch merge keeps two additions at one spot, and refuses an edit" \
+  python3 tools/merge_additions.py --self-test
+selftest "the batch re-stamps stale meshes through the emitter each entry names" \
+  python3 tools/restamp_stale.py --self-test
 
 # AND THE PULL REQUEST NOTHING CAN MOVE, WHICH IS THE HOLE BETWEEN THOSE TWO
 # (T-1368). A `dirty` PR has no merge ref; the gate runs on `pull_request`, which

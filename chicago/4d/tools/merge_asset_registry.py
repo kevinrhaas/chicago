@@ -68,6 +68,10 @@ import tempfile
 REGISTRIES = {
     "chicago/4d/assets/manifest.json": {"map": "assets", "sort_keys": True},
     "chicago/4d/assets/manifest.web.json": {"map": "masters", "sort_keys": False},
+    # The version meshes' build record (T-1727), written as build.py writes manifest.json.
+    # Two house PRs that each bake a version conflict here exactly as they do there
+    # (the batch dry run of 2026-11-28: #2402 and #2404).
+    "chicago/4d/assets/manifest.versions.json": {"map": "assets", "sort_keys": True},
 }
 
 # The emitters that build a GLB in pure Python — no Blender, seconds, the same bytes from
