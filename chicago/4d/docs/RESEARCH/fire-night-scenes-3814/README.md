@@ -93,6 +93,37 @@ working steadily.
 woman kneeling with her skirt burning and the runaway that struck her (A p. 736), the girl whose hair
 caught (A p. 736), the dead on the sands (A p. 755), looting with violence.
 
+## Firemen, engines and water (T-3830)
+
+The owner, 2026-11-28: "would there have been fire wagons pulled by horses and would people be putting the
+fire out with hoses? ... Or other people operating water wagons". Yes. From Andreas vol. 2:
+
+- The department: "seventeen steam engines, fifty-four hose carts, four hook and ladder trucks, two hose
+  elevators, one fire-escape, eleven alarm bells, and forty-eight thousand feet of hose" (A p. 702). The
+  steamers were horse-drawn and their men rode; companies were named ("Little Giant" No. 6, "Chicago" No. 5,
+  "R. A. Williams" No. 17, "John B. Rice" No. 10).
+- At the barn, William Musham's "Little Giant" No. 6 was "in position at the corner of DeKoven and Jefferson
+  streets" two and a half minutes after a still alarm; "they laid a line through Patrick O'Leary's lot, and
+  sent a stream directly on the fire"; "For more than thirty minutes this engine battled alone"; "one man could
+  not hold the pipe"; the men "were obliged to call for such aid as could be obtained, in carrying and holding
+  their hose and pipes" (A p. 711). Christian Schimmels's "Chicago" No. 5 "took the plug at Forquer and Taylor
+  streets", broke down, and its men "tore up the sidewalk and took boards from the fence near by to use as quick
+  fuel"; then "the supply of coal gave out" (A p. 712).
+- The engines "had all been working on the West Side; and they could not reel-up six hundred feet of hose each,
+  and cross the river" in time (A p. 710). "After the Water Works burned, the firemen could do little good with
+  their engines, except on the banks of the river": one engine and 7,500 feet of hose lost, fourteen engines
+  after eleven on Sunday night, half the hose by daybreak (A p. 710). Firemen of "nearly every city, far and
+  near ... came with their apparatus" (A p. 710).
+- Saturday night (the West Side fire the night before): "A dozen leads of hose ... the pipemen stood their
+  ground within a rod of the fiery tempest" (A p. 705); men "who carried portable fire-extinguishers ...
+  directed their miniature engines on the saloon walls" (A p. 706).
+- Water without the mains: buckets on roofs (A pp. 742-743), Field, Leiter's "own pumping engines" (A
+  pp. 734-735), water carts on Monday (A p. 753).
+
+So the barn stop gets the Little Giant and its two lines, the bank stops after 3:20 a.m. get engines
+drafting from the river, and no engine works a hydrant after the Water Works fell. No engine model exists
+yet; a period steam fire engine, hose cart and ladder truck are T-3830's to build.
+
 ## How the crowds moved and sounded
 
 **Direction.** Away from the front and down the wind's flank, to the lake, the prairie, the bridges and
@@ -170,3 +201,4 @@ mattress. A `tier: "desktop"` castmate is left out at Light, so a phone keeps th
 | T-3815 | one runaway (White's buggy wreck), burning loads on trucks (Frear), at the Court House or Sherman House stop | T-3814's loads |
 | T-3816 | the crowd stream: fire-night source, run clip, carried bodies, flow field, counter-currents, caps | — |
 | T-3817 | the prisoners at the Court House, people standing in the lake on the North Side sands, men wetting roofs, the gunpowder on Monday | T-3814 |
+| T-3830 | firemen: horse-drawn steam fire engines, hose carts, pipemen where the accounts put them; engines at the river after the Water Works burned | T-3815's teams |

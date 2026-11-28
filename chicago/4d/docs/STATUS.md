@@ -6,7 +6,7 @@ development stream". The research is `docs/RESEARCH/fire-night-scenes-3814/READM
 accounts say people did, by kind and by stop; what stays out of the student tellings; crowd
 dynamics; the rendering plan), and the stream is four tickets: T-3814 (this), T-3815 (runaway
 teams and burning loads), T-3816 (a fire-night crowd for crowd.js at the jaunt's budgets) and
-T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder).
+T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder), and T-3830 (firemen and their engines, asked for on 28 November).
 
 This first piece restages the Great Fire jaunt with what was carried. A castmate may `carry` a
 thing (`renderers/web/js/stage-props.js` GOODS: a bundle or bolt on the shoulder, a bird cage,
