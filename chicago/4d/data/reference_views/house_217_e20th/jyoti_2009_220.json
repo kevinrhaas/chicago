@@ -1,0 +1,35 @@
+{
+ "structure_id": "house_217_e20th",
+ "also_render": [
+  "house_215_e20th",
+  "house_213_e20th"
+ ],
+ "card_members": [
+  "house_213_e20th"
+ ],
+ "scene": "1904",
+ "source_id": "jyoti_blog_2009_cullerton_rowhouses",
+ "library_image": "a19-jyoti-cullerton-220",
+ "photo": "../../sources/assets/cullerton_213_217_photos_t3783/a19-jyoti-cullerton-220.jpg",
+ "image_px": [
+  400,
+  266
+ ],
+ "principal_px": [
+  200,
+  223.6
+ ],
+ "focal_px": 435.9,
+ "eye": [
+  19.57,
+  -15.46,
+  1.6
+ ],
+ "yaw_deg": -7.22,
+ "sun_uvy": [
+  -0.35,
+  -1.0,
+  0.9
+ ],
+ "solve": "FITTED FOR T-3783 by least squares on this copy (400 x 266 px), looking west along East Twentieth Street from the walk east of the passage: 217's east flank broadside on the left, its corner oriel, and beyond it the top of 213's east flank and front over 215. A level camera (the flank's verticals stand upright in the copy); the principal column the copy's middle and the principal row left free, which puts the horizon at y 223.6, where the street's far cars stand, so the copy is the lower part of its frame.  FRAME: the K01 cross-street frame T-3781 set: u runs north to East Twentieth Street from the main body's rear, v west from the house's east wall, so the footprint frame's 'north' (+v, yaw 0) is the real west.  FITTED TO: 217's corner (u 14.6, v 0) at x 118; the street front's round-headed lights, the first's east jamb at x 121 (sill y 230, head y 184) and the second's west jamb at x 140 (head y 186); the east flank's second- and third-storey sills at y 144 and 35; the front's west end (v 7.06) at x 160; and 213's cornice at its front's east corner (u 14.65, v 14.22 in this frame) at (182, 42).  FIXED: the eye 1.6 m over grade. Left free, the fit lifts the eye to 4.8 m and shortens the lens to 247 px to reconcile the flank's storeys with the build's, which no street photograph supports.  RESULT: the eye at u 19.6, v -15.5 (5 m out from the front, 15.5 m east of the flank), heading -7.2, focal 436 px. Residuals 5.6 px RMS, worst 16.4 px: the flank's second-storey sill, which the photograph sets about 0.6 m lower than the build, as 106 does. 213 is in the picture (its cornice and the head of its east flank) and is a card member; 215 stands behind 217 from here and is rendered as context only. The review stands every member on one grade plane; the scene's ground is not reproduced.  LIGHT: the sun read from 106 and 220, which the blog posted together: the east flank lit, the street front (north) and its oriel's north face in shade, so a morning sun from the east-south-east, high; sun_uvy is that direction in the houses' common frame (all three stand on one bearing, -90.599 deg)."
+}

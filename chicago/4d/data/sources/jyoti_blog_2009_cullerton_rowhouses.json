@@ -7,13 +7,13 @@
  "describes_date": "2008-2009",
  "repository": "Chicago - Architecture & Cityscape (blog). Prairie library images a19-jyoti-cullerton-106, a19-jyoti-cullerton-220, a19-jyoti-cullerton-223 and a19-jyoti-cullerton-224 (stream-1900.json).",
  "url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
- "locator": "Photograph 106 (217's east flank and corner oriel, from the north-east, 267 x 400 px); photograph 220 (looking west along the street past 217's east flank and oriel, 215 set back and 213's buff east flank and red front beyond, 400 x 266 px); photograph 222 (213's ground storey: the door under a pedimented hood on consoles between two framed lights, 400 x 266 px); photograph 223 (217's ground storey on the street: the oriel's copper underside, two round-headed lights and the door, 400 x 266 px); photograph 224 (215's front square-on: two round-headed lights and the round-arched door, the second storey's lights over them, behind the yard's fence, 400 x 266 px); photograph 225 (213 from across the street to the north-east: its red front and east flank under a bracketed cornice, 400 x 266 px).",
+ "locator": "Photograph 106 (217's east flank and corner oriel, from the north-east, 267 x 400 px); photograph 220 (looking west along the street past 217's east flank and oriel, 215 set back and 213's buff east flank and red front beyond, 400 x 266 px); photograph 222 (213's ground storey: the door under a pedimented hood on consoles between two framed lights, 400 x 266 px); photograph 223 (217's ground storey on the street: the oriel's copper underside, two round-headed lights and the door, 400 x 266 px); photograph 224 (215's front square-on: two round-headed lights and the round-arched door, the second storey's lights over them, behind the yard's fence, 400 x 266 px); photograph 225 (213 from across the street to the north-west: its red front under a bracketed cornice and its buff west flank and rear range, 400 x 266 px; T-3783's camera solve places it there, not north-east).",
  "tier": 2,
  "rights_status": "check_required",
  "rights_note": "Copyright the photographer ('(c) 2009' on some prints); the Prairie library's ruling is link only. Only what stands in the street and its forms are read from it; nothing is derived from the image as an asset.",
  "asset_use": "cross_check",
  "verified": true,
- "access_notes": "Read 2026-11-27 (T-3781) from the image store's reference copies (kevinrhaas/chicago-images, prairie-1904/files/a19-jyoti-cullerton-106.jpg, -220.jpg, -223.jpg), each about 400 px on its long side; -222, -224 and -225 read the same day the same way (T-3782).",
+ "access_notes": "Read 2026-11-27 (T-3781) from the image store's reference copies (kevinrhaas/chicago-images, prairie-1904/files/a19-jyoti-cullerton-106.jpg, -220.jpg, -223.jpg), each about 400 px on its long side; -222, -224 and -225 read the same day the same way (T-3782). T-3783 (2026-11-28) brought 106, 220, 224 and 225 into data/sources/assets/cullerton_213_217_photos_t3783/ as the image gate's reference copies and solved a camera on each.",
  "note": "Modern photographs of the surviving house, about 105 years after the scene date: they show its forms, not its 1904 condition. The copper's green patina, the window grilles and the planting are 2009's; the register warns that modern grilles and patina are not proof of the 1904 state.",
  "what_it_supplies": [
   "217's street front: two round-headed lights under the oriel and the door in a carved stone surround west of them (223)",
@@ -21,8 +21,9 @@
   "217's walls: red brick over a red sandstone base course, stone sills and heads, the ground storey's round-headed openings (106, 220, 223)",
   "a steep gable with a finial over 217's east flank (106)",
   "215's street front: red pressed brick, the ground storey's two round-headed lights and round-arched door in its west bay under plain stone heads, the second storey's square-headed lights on stone sills under flat stone lintels, set back behind a front yard (224)",
-  "213's street front: red, four storeys, the third storey's lights round-headed, a deep bracketed cornice returning along the east flank (225); the ground storey's door with a transom between two framed lights under a broad pedimented hood on consoles (222)",
-  "213's east flank: buff common brick where it stands before and over 215, with lights near the front (220, 225)"
+  "213's street front: red, four storeys, the third storey's lights round-headed, a deep bracketed cornice (225); the ground storey's door with a transom between two framed lights under a broad pedimented hood on consoles (222)",
+  "213's east flank: buff common brick where it stands before and over 215, with lights near the front (220, 225)",
+  "213's west flank and rear range in buff common brick behind the red front, its parapet under the front's cornice (225)"
  ],
  "what_it_does_not_supply": [
   "a 1904 date: the photographs are of the surviving house in 2009",
