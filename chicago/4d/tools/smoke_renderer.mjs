@@ -10423,6 +10423,11 @@ for (const [label, viewport, touch] of [
       // whether the default's mesh was fetched. Its errors land in this viewport's
       // `zero page errors` through the listeners the tab already carries.
       const bootHere = async (url) => {
+        // The version fixture replaces this same town. Let its in-flight embedded
+        // pictures finish before navigation tears down their object URLs (T-3650).
+        // Refusals while settling still reach the unchanged zero-page-errors check.
+        console.log(settledLine('the town before the version/default reload',
+          await settlePictureWork(page, bodyPictureFiles)));
         await page.goto(url, { waitUntil: 'domcontentloaded' });
         // waitForFunction(fn, ARG, options): the options are the THIRD argument.
         try {

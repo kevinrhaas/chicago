@@ -105,6 +105,7 @@ export function createTargetTag({
   addresses = () => [],
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),
+  now = () => performance.now(),
 } = {}) {
   let shown = null;    // the target the tag is showing
   let pending = null;  // the timer waiting out the dwell
@@ -169,14 +170,20 @@ export function createTargetTag({
   /** T-2736: hold, fade, and stay gone for this building until the reticle leaves it. */
   function arm(t) {
     stopFade();
+    const expiresAt = now() + hold + fade;
+    const finish = () => {
+      fading = null;
+      spent = t.id;
+      tagEl?.classList?.remove('is-fading');
+      if (tagEl) tagEl.hidden = true;
+    };
     fading = wait(() => {
+      // A slow frame can delay this callback past both the hold and fade. Keep the
+      // original deadline instead of starting another full fade after the stall.
+      const remaining = expiresAt - now();
+      if (remaining <= 0) { finish(); return; }
       tagEl?.classList?.add('is-fading');
-      fading = wait(() => {
-        fading = null;
-        spent = t.id;
-        tagEl?.classList?.remove('is-fading');
-        if (tagEl) tagEl.hidden = true;
-      }, fade);
+      fading = wait(finish, Math.min(fade, remaining));
     }, hold);
   }
 

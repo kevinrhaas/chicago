@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 3322, ts: '2026-11-28T06:54:39.541Z', date: 'Nov 28, 2026, 12:54 AM CT', title: '1871 streets get fire-alarm boxes, hydrants and goods outside', kind: 'feature',
+    items: [
+      'Red fire-alarm boxes stand at the stations Edwards\' 1871 directory lists; hydrants at the Board of Public Works\' corners.',
+      'Wholesale walks carry cases, crates and barrels, with coal-hole plates and cellar doors.',
+      'Lake Street\'s tall telegraph poles, and alarm wires from the Court House cupola.',
+    ] },
+  { v: 3321, ts: '2026-11-28T06:54:39.541Z', date: 'Nov 28, 2026, 12:54 AM CT', title: 'Fort Dearborn\'s soldiers carry out the goods, kegs and muskets', kind: 'feature',
+    items: [
+      'At the factory, soldiers pile blankets and cloth on the grass, and the gathering carries them away.',
+      'On the night of the 13th, muskets and kegs go out the sally port, down the well.',
+      'The rest of the kegs go down the covered way to the river, staved in.',
+    ] },
+  { v: 3320, ts: '2026-11-28T06:32:08.694Z', date: 'Nov 28, 2026, 12:32 AM CT', title: 'Look around in cloud play by dragging', kind: 'fix',
+    items: [
+      'In cloud play, hold the left mouse button and move to look around. On a phone, drag as usual.',
+      'A click that does not drag still opens what you clicked.',
+    ] },
   { v: 3319, ts: '2026-11-28T05:48:51.584Z', date: 'Nov 27, 2026, 11:48 PM CT', title: 'Great Fire streets fill with people carrying what they saved', kind: 'feature',
     items: [
       'At the Great Fire stops people now carry bundles on their shoulders, bird cages, papers and bolts of cloth, and drag trunks on cords, as the accounts describe.',

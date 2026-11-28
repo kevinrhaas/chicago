@@ -5548,7 +5548,16 @@ async function boot() {
     inspecting: () => !gateOpen && inspectingByHand(),
     // T-3563: Settings › Look › Mouse sensitivity, read each frame.
     lookSpeed: () => hud.settings.lookSpeed,
+    // Cloud play (tools/stream): the stream cannot pass the pointer lock to the player's
+    // browser, so the look is a drag. The machine opens the year with ?look=drag.
+    dragLook: params.get('look') === 'drag',
+    // The first drag is the look engaged: the tag goes, as it does on the first lock.
+    onDragLook: () => { gesture.setLook({ locked: true }); gesture.setLook({ locked: false }); },
   });
+  if (pointerlock.dragLook) {
+    const tag = document.getElementById('look-tag');
+    if (tag) tag.textContent = 'Drag to look around';
+  }
 
   const touch = createTouchBackend({
     intent,
@@ -5724,6 +5733,16 @@ async function boot() {
 
   canvas.addEventListener('click', (ev) => {
     if (backends.active !== pointerlock || gateOpen) return;
+    // Drag look (cloud play): the end of a drag is not a click; a plain click picks what is
+    // under it, as a tap does, since there is no crosshair to inspect down.
+    if (pointerlock.dragLook) {
+      if (pointerlock.dragged) return;
+      if (popup.openId) { popup.close(); return; }
+      if (inspectingByHand()) { releaseInspect(); return; }
+      const r = canvas.getBoundingClientRect();
+      inspect(new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1), { by: 'hand' });
+      return;
+    }
     // T-3614: with the mouse free, a click on a person's name card opens their card, where a
     // click anywhere else takes the look (a touch tap reaches the same card through Interact).
     if (!pointerlock.isLocked && api.nameCards?.shown) {
