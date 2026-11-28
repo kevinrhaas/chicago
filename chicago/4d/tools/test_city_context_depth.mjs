@@ -76,9 +76,14 @@ city.group.traverse(o=>{
   else if(o.userData.layers?.includes('bridges'))bridges.push(o);
   else streets.push(o);
 });
-assert.equal(near.length,5,'all building and tree instance batches are tested');
+assert.equal(near.length,4,'all building instance batches are tested');
 assert.equal(bridges.length,1,'the two portable bridge primitives form one material batch');
-assert(near.some(o=>o.userData.treeCount>0),'the fixture includes a near tree caster');
+assert(near.every(o=>o.userData.treeCount===0),'no portable tree crown remains');
+const [stem]=city.treeStems();
+assert.equal(city.treeStems().length,1,'the tree has exactly one renderer handoff');
+assert.deepEqual([stem.id,stem.e,stem.n,stem.y,stem.h,stem.crownW],['context:1871:tree',90,20,0,6,4]);
+assert.equal(stem.card().sidecar.name,'Reconstructed deciduous tree');
+assert.equal(city.census.handedOffTrees,1);
 const casters=[...near,...bridges], depths=new Set(), owners=new Map();
 const compileHook = (material,lib) => {
   const shader={uniforms:THREE.UniformsUtils.clone(lib.uniforms),vertexShader:lib.vertexShader,fragmentShader:lib.fragmentShader};
@@ -108,7 +113,7 @@ for(const mesh of casters) {
   shaders.push(shadow);
 }
 assert.equal(depths.size,owners.size,'different colour owners never share cached depth maps');
-assert.equal(owners.size,3);
+assert.equal(owners.size,2);
 assert.equal(owners.get(plain).map,null,'the unmapped owner cannot inherit another caster’s atlas');
 for(const mesh of [...far,...streets]) {
   assert.equal(mesh.castShadow,false);assert.equal(mesh.customDepthMaterial,undefined,'noncasters need no depth owner');
@@ -135,4 +140,5 @@ const disposed=new Map([...depths].map(d=>[d,0]));
 for(const depth of depths)depth.addEventListener('dispose',()=>disposed.set(depth,disposed.get(depth)+1));
 city.dispose();city.dispose();
 assert([...disposed.values()].every(n=>n===1),'every owned depth is disposed exactly once');
-console.log('PASS 1871 context shadows: actual near building/tree and bridge casters, per-colour depth ownership, confidence attributes/live hide-dither uniforms, map isolation, unchanged tier policy and idempotent disposal');
+assert.equal(city.treeStems().length,0,'disposed context releases handoff records');
+console.log('PASS 1871 context: building/bridge shadow ownership, confidence/depth map isolation, tier policy and disposal; tree records handed off once with their generic cards and no portable crowns');

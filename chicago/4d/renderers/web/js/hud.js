@@ -160,7 +160,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onConfidenceKey = null, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, resolvedSeason = null, lowered = null, device = null, structureVersion = null,
 }) {
   // T-2620: the drawer's sections live inside the Navigator now (a sibling of #hud), so
   // lookups by id and of the sections' own parts are made in the document, not under #hud.
@@ -176,6 +176,7 @@ export function createHud({
   const panel = $('panel');
   const hint = $('hint');
   const settings = readSettings();
+  if (resolvedSeason) settings.season = resolvedSeason;
   settings.units = normalUnitSystem(settings.units);
 
   if (badgeYear) badgeYear.textContent = scene?.id ?? '';

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3323, ts: '2026-11-28T10:43:27.988Z', date: 'Nov 28, 2026, 4:43 AM CT', title: 'Natural trees through the seasons', kind: 'improvement',
+    items: [
+      'Trees have rounded foliage, warmer backlit leaves and finer close twigs in Full.',
+      'Plants follow spring, summer, fall and winter across every scene, with evergreen colour and bare winter branches.',
+      '1871’s remaining solid crowns become branching trees, keeping their recorded places, sizes and cards.',
+    ] },
   { v: 3322, ts: '2026-11-28T06:54:39.541Z', date: 'Nov 28, 2026, 12:54 AM CT', title: '1871 streets get fire-alarm boxes, hydrants and goods outside', kind: 'feature',
     items: [
       'Red fire-alarm boxes stand at the stations Edwards\' 1871 directory lists; hydrants at the Board of Public Works\' corners.',
