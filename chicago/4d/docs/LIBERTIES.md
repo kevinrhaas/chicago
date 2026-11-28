@@ -46010,6 +46010,7 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 **Ticket:** T-3654; materials T-3683; fronts T-3686.
 **Review:** `data/scenes/1871.json`, `data/context/1871/plan.json`, `data/context/1871.json`, `data/context/1871/kit.json`, `data/terrain/epochs/e1871_prefire/`, `renderers/web/js/city-context.js`, `renderers/web/js/city-fronts.js`, `data/context/1871/detail-rings.json`.
 **Recorded:** 2026-11-18.
+**Revised:** 2026-11-27 (T-3803). Inside the jaunt stops' rings the sentence "never a firm's name, and no sign is placed at its recorded address" no longer holds on the business streets round the Court House square: there the shop signs carry firms of the 1871 directory at their listed numbers, under `L-1871-directory-signs`. Every other front keeps a trade word, as above.
 
 ### L-1871-street-network — The 1871 streets: today's platted lines, the 1871 names, splined arterials and a lattice in whole blocks
 
@@ -47351,6 +47352,64 @@ is assigned to 2018 by that rule, not read.
 lot lines; then the houses' `lot_s_m` and this cut move together.
 **Ticket:** T-3785 (piece 1 of T-1945).
 **Recorded:** 2026-11-27 (T-3785).
+
+### L-wear-3553 — Plain working clothes worn in the colours of the photographs, a flat cap, and the visitor's dress in colourings
+
+**Decision:** the owner, 2026-11-27, of the 1904 working clothes on offer for the visitor's own person: *"That outfit as described does not look very good, when I typed that Description this is image I got, provide better coloring and more options and more people with more clothing options"*, and *"And fix any people with that clothes"*, with a photograph of a working man of the time in a dark sack coat, waistcoat, collarless shirt, dark trousers and a flat cap. The body every 1904 working man, groom and watcher wears (`anonymous_working_driver_1904`) came in a tan shirt and a pale grey waistcoat over pale trousers, with no hat, so at any distance it read as one knit suit. It is now worn as such a man is photographed (`renderers/web/js/human-wear.js` `working_1904`): a collarless shirt gone to oatmeal, a dark wool waistcoat and trousers and a flat cap (`renderers/web/js/human-hats.js` `cap`), in one of four colourings (brown, charcoal, tweed, navy) that each wearer's own key picks, so a crowd is not one suit. A coachman in livery keeps his own hat. The watchers of the Great Fire and the men at the Eighteenth Street bronze wear the coat and cap of the photograph (`working_coat_1904`: the 1904 gentleman's body with its frock coat's skirts, tie and derby set aside, so its body is a short coat, in a working man's wool). The visitor may choose among more dresses in 1904 (a long overcoat and cap on the coachman's body with its livery made plain; a tailored jacket and skirt on the 1904 lady's body, never in her own black; a work dress and bib apron on the cook's study body), each in colourings of its own, shown drawn in the character creator.
+**Not invented:** nothing about anybody. Every body is one the town's own people are already drawn with, and no garment of any person is claimed.
+**Liberties within it:** the colours and the cap's cut are reconstructed, the general run of working dress in photographs of Chicago streets of about 1890 to 1910, not read from any one record; the short coat is a frock coat's body without its skirts, not a sack coat's own cut; the colourings are a selection. The flat cap is drawn only on the figure, not on the far crowd's picture of it.
+**Re-opens on:** a sack coat body of its own to draw; the owner wanting other colours or dresses on offer.
+**Ticket:** T-3553.
+**Review:** `renderers/web/js/human-wear.js`, `renderers/web/js/human-hats.js`, `renderers/web/js/humans.js`, `renderers/web/js/crowd.js`, `data/humans/visitor_person.json`, `data/jaunts/the-great-fire*.json`, `data/jaunts/bronze-at-eighteenth*.json`, `tools/test_riding.mjs`, `tools/test_visitor_person.mjs`, `tools/test_person_creator.mjs`.
+**Recorded:** 2026-11-27.
+
+### L-1871-fire-night-3814 — What the Great Fire's people carry, who carries it where, and the express wagon loading on State Street
+
+**Decision:** the owner, 2026-11-27: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... or other descriptions or
+likely actions and scenarios or mini scenes to integrate into jaunts". So the Great Fire jaunt's
+stops are restaged with people carrying what the accounts say they carried, a sick woman borne
+out on her mattress, an express wagon loaded at Field, Leiter & Co.'s door, and goods set down on
+the ground where the refugees stop.
+**What is read, not invented:** what was carried and how. Horace White: men and women "some with
+bundles of clothing on their shoulders; others, dragging trunks along the sidewalk by means of strings
+and ropes fastened to the handles ... Now and then a sick man or women would be observed, half
+concealed in a mattress doubled up and borne by two men" (Andreas vol. 2 p. 734). "One woman carrying
+an empty bird cage" (p. 732); on the North Side at dawn, a man with "a huge feather bed" on his back
+and "numbers had canary birds in cages" (p. 746); "Elegant ladies ... astonished themselves by dragging
+trunks for a long distance" (p. 729). Expressmen asked "from twenty to fifty dollars for conveying a
+small load a few blocks" (p. 729). Field, Leiter and Co.'s men carried goods from the store into
+wagons (the jaunt's `field-leiter` claim). Sources and pages are listed in
+`docs/RESEARCH/fire-night-scenes-3814/README.md`.
+**What is reconstructed:** every carrier and what each one carries, at which stop and on which
+path; the two mattress bearers and the woman on it; the express wagon's place at the kerb, its
+four loaders, its load and the moment it drives off north; the number and place of the chairs,
+trunks and bundles set down at the Ogden house and the old cemetery. The things themselves are
+drawn as the period's ordinary kinds in plain boxes and cylinders (`renderers/web/js/stage-props.js`
+GOODS), not from a picture of any one. How each is held (in the hand, on the right shoulder, on
+the back, dragged on a 1.3 m cord) is a pose chosen to read at a distance, not a record.
+**Evidence and limits:** `andreas_1885_v2`, `sheahan_upton_1871_great_conflagration`,
+`colbert_chamberlin_1871_chicago_great_conflagration`. No account places one named person with
+one thing at one corner at one hour; all the carriers are unnamed figures.
+**How to resolve:** a photograph or engraving of a street on the fire night with people carrying
+goods (the period's engravings are artists' composites), or a first-hand account placing one
+family's goods at one stop, to stage that family by name.
+**Ticket:** T-3814.
+**Review:** `docs/RESEARCH/jaunt-great-fire-3691/build.py` (`crowd`, `mattress`, `loaders`, the
+stops' `carry`, `teams`, `props`), `renderers/web/js/stage-props.js` (GOODS),
+`renderers/web/js/jaunt-stage.js` (`take`, `goodsFrame`, `loadFrame`).
+**Recorded:** 2026-11-27 (T-3814).
+
+### L-1871-directory-signs — The 1871 shop signs round the jaunt stops: real firms by their listed numbers, set on generated fronts, in reconstructed sign forms
+
+**Decision:** the owner, 2026-11-27, asked that the signs above the 1871 stores be "varied and be more specific based on your research of the citizens and people and businesses in 1871". `tools/build_1871_directory_fronts.py` reads Edwards' 1871 directory (`edwards_chicago_directory_1871`, the fourteenth annual issue, read in its Internet Archive text) and writes `data/context/1871/directory_fronts.json`; `renderers/web/js/city-signs-1871.js` paints the signs at run time, cell by cell, and `renderers/web/js/city-fronts.js` hangs them on the fronts inside the detail rings.
+**What is attested:** each firm's name, its business as the directory gives it, and its listed street number, with the directory's page and line on the front's card (the alphabetical list, with the classified business list where the firm appears in it). Page numbers are counted through the scanned text and may be one page out.
+**What is inferred:** which generated front a firm stands on. The 1871 numbering is not the 1909 grid. Each face's number range is calibrated from the directory itself (the numbers that stop at a corner, the gaps where the Court House square and the Methodist Church block have no shops, corner listings such as "cor. Dearborn" and "S.E. cor. Clark") and, on Lake Street, from John Carbutt's stereograph east from Clark (`nypl_carbutt_lake_street_east_from_clark_stereo`), whose wall signs show 118, 120 and 124 on the north side, so Lake runs even numbers north where Randolph, Washington and Madison run odd. A firm is then set along its face in proportion to its number between the face's corner numbers, on the nearest generated shop front. The generated fronts are not the 1871 lots, so a firm may stand a front or two from its true door; neighbours keep their directory order. The evidence and the conflicts each street's calibration met are written into the data file.
+**What is reconstructed:** every sign's form, size, colours, lettering and placement on the front: fascia boards over the shop, lettered string courses and friezes, boards between the upper windows for a firm upstairs, hanging boards on iron brackets at right angles to the walk, narrow boards on the door piers, gilt letters on the plate glass and painted awning valances. The forms are those the period stereographs show on Lake, Clark and State streets (`nypl_carbutt_lake_street_east_from_clark_stereo`, `nypl_carbutt_clark_street_north_from_washington_stereo`, `nypl_carbutt_booksellers_row_state_street_stereo`); no sign is copied from a picture, and none is claimed for a particular firm. The faces are the project's self-hosted period display types (Old Standard, Abril Fatface, Alfa Slab One, Anton). Fronts the directory does not reach (no listed firm near that number, or a street outside the calibrated faces) carry a trade word drawn from the classified trades listed on that street, never the same as the next front's. On the light detail tier the hanging, pier and valance signs are left off and the lettering is coarser; the firms keep their fascia and upper boards.
+**How to resolve:** a lot-by-lot source for the pre-fire business blocks (an insurance atlas or survey of 1869-71 that gives street numbers), or photographs of particular fronts, entered as sources; then the firm's front, and its sign, move to the recorded ones.
+**Ticket:** T-3803.
+**Review:** `tools/build_1871_directory_fronts.py`, `data/context/1871/directory_fronts.json`, `renderers/web/js/city-signs-1871.js`, `renderers/web/js/city-fronts.js`, `renderers/web/js/city-context.js`.
+**Recorded:** 2026-11-27 (T-3803).
 
 ### L-k01-213-215-e20th-3782 — 213 and 215 East Twentieth Street refined from the district draft onto K01: their plans off the 1911 sheet, 215's round-headed front behind its yard and 213's four-storey red front under its cornice off four 2009 photographs of the surviving houses, the rest the kits'
 

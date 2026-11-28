@@ -422,7 +422,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     const instance = { ...row.driver_instance,
       id: row.replace_human_instance ?? `hi_driver_${row.id}`, contract_version: 1, display: 'shown', scene: sceneId,
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' },
-      appearance: { asset_id: row.driver_asset }, behaviour: { state: 'seated' },
+      // T-3553: under a livery's top hat, no cap of his body's own wear (human-wear.js).
+      appearance: { asset_id: row.driver_asset, ...(row.driver_livery_file ? { wear_hat: false } : {}) }, behaviour: { state: 'seated' },
       animation: { clip: driverClip, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
     };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });

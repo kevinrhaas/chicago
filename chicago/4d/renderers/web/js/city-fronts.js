@@ -20,8 +20,11 @@
  *    cornices, K09 hoods and keystones, K06 sills, K07 doors and steps.
  *
  * Everything here is reconstructed (L-1871-city-baseline, Fronts): generic period fronts on
- * generated lots, never a record of a particular building. Sign words are the
- * trades legible in pre-fire street views, never a firm's name.
+ * generated lots, never a record of a particular building. T-3803: inside the rings
+ * each shop's signs are the firm Edwards' 1871 directory lists at the number its
+ * place on the block face falls on, or a trade of that street, lettered at runtime
+ * by city-signs-1871.js (L-1871-directory-signs); the kit's trade boards are the
+ * fallback when that file or the lettering is missing.
  *
  * Cost. The detail is merged per 100 m cell and per material (five draws a
  * cell at most) and shown only within `show_m` of the camera; the stand-ins
@@ -122,12 +125,58 @@ class Buffer {
   }
 }
 
+/** Is a placement a shop or house front inside the rings at this tier? */
+function ringKind(r, rings, radius, value) {
+  if (r.isTree) return null;
+  const t = r.t;
+  const shop = !!t.shop || value(r.row, 'row', null) === 'attached';
+  const house = !shop && HOUSE_FLOOR[t.id] != null;
+  if (!shop && !house) return null;
+  let near = Infinity;
+  for (const ring of rings.rings ?? []) near = Math.min(near, ringDistance(ring, r.e, r.n));
+  if (near > radius) return null;
+  return { shop, near };
+}
+
+/** A shop front's storefront and storey heights, shared by the fronts and their signs. */
+function shopDims(r) {
+  const storeys = Math.max(1, r.t.storeys ?? 2);
+  const gf = Math.min(4.6, Math.max(3.6, r.h / storeys * 1.2));
+  const bays = Math.max(2, Math.round(r.w / 2.9));
+  const sh = storeys > 1 ? (r.h - gf - .62) / (storeys - 1) : 0;
+  const h0 = hash(String(r.id));
+  return { storeys, gf, bays, bw: r.w / bays, sh, h0, awning: h0 % 10 < 6 };
+}
+
+export const cellKeyOf = (e, n, cellM = 100) => `${Math.floor(e / cellM)},${Math.floor(n / cellM)}`;
+
+/**
+ * T-3803: the shop fronts the rings build at this tier, as the sign planner wants
+ * them — the front's centre and outward direction in local e/n, its size, and the
+ * heights of the bands its signs can take.
+ */
+export function shopFrames({ rows, rings, detail = 'full', value }) {
+  const radius = rings.radius_m?.[detail] ?? 200;
+  const out = [];
+  for (const r of rows) {
+    const k = ringKind(r, rings, radius, value);
+    if (!k?.shop) continue;
+    const d = shopDims(r), c = r.cos, s = r.sin;
+    // The front's centre: local x = 0, z = -d/2 (P() below), and OUT = (-s, c) in e/n.
+    const centre = [r.e + s * (-r.d / 2), r.n - c * (-r.d / 2)];
+    out.push({ r, w: r.w, h: r.h, gf: d.gf, storeys: d.storeys, bays: d.bays, bw: d.bw, awning: d.awning,
+      bandH: d.storeys > 1 ? d.sh * .2 - .2 : 0, upperH: d.storeys > 2 ? d.sh * .48 - .35 : 0,
+      out: [-s, c], centre, focus: k.near < 70, cell: cellKeyOf(r.e, r.n) });
+  }
+  return out;
+}
+
 /**
  * Build the detail cells. `rows` are city-context placements ({e, n, w, d, h,
  * base, cos, sin, t, row}); `fronts` is kit.json's `fronts` section; `materials`
  * maps its material names to the loaded kit materials.
  */
-export function buildFronts({ rows, rings, fronts, materials, detail = 'full', value }) {
+export function buildFronts({ rows, rings, fronts, materials, detail = 'full', value, signs = null }) {
   const radius = rings.radius_m?.[detail] ?? 200;
   const cellM = 100;
   const cells = new Map();
@@ -143,15 +192,10 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
   const tint = [1, 1, 1];
 
   for (const r of rows) {
-    if (r.isTree) continue;
-    const t = r.t, kind = t.id;
-    const shop = !!t.shop || value(r.row, 'row', null) === 'attached';
-    const house = !shop && HOUSE_FLOOR[kind] != null;
-    if (!shop && !house) continue;
-    let near = Infinity;
-    for (const ring of rings.rings ?? []) near = Math.min(near, ringDistance(ring, r.e, r.n));
-    if (near > radius) continue;
-    const key = `${Math.floor(r.e / cellM)},${Math.floor(r.n / cellM)}`;
+    const k = ringKind(r, rings, radius, value);
+    if (!k) continue;
+    const t = r.t, kind = t.id, shop = k.shop;
+    const key = cellKeyOf(r.e, r.n, cellM);
     if (!cells.has(key)) cells.set(key, { e: (Math.floor(r.e / cellM) + .5) * cellM, n: (Math.floor(r.n / cellM) + .5) * cellM, buffers: {} });
     const cell = cells.get(key);
     const buf = name => cell.buffers[name] ??= new Buffer();
@@ -184,7 +228,7 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
     const wallSide = (a, y0, y1, o0, o1, normal) => buf(wall).poly([P(a, y0, o0), P(a, y0, o1), P(a, y1, o1), P(a, y1, o0)],
       [[o0 / span, -y0 / span], [o1 / span, -y0 / span], [o1 / span, -y1 / span], [o0 / span, -y1 / span]], normal, wallColor);
     const part = (name, a0, a1, y0, y1, o, color = WHITE, uv = cellUv(name)) => {
-      buf('parts').poly([P(a0, y0, o), P(a1, y0, o), P(a1, y1, o), P(a0, y1, o)],
+      buf(name.startsWith('sign') ? name : 'parts').poly([P(a0, y0, o), P(a1, y0, o), P(a1, y1, o), P(a0, y1, o)],
         [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]], OUT, color);
     };
     // A box in the front frame; `faces` picks front/top/bottom/left/right.
@@ -267,11 +311,15 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
 
     if (shop) {
       census.shops++;
-      const storeys = Math.max(1, t.storeys ?? 2);
-      const gf = Math.min(4.6, Math.max(3.6, h / storeys * 1.2));
-      const bays = Math.max(2, Math.round(w / 2.9)), bw = w / bays;
+      const { storeys, gf, bays, bw, h0, awning } = shopDims(r);
       const O = .16;
-      const h0 = hash(String(r.id));
+      const plan = signs?.plans.get(r.id);
+      // T-3803: a lettered sign: a quad on its atlas page, `uv` [u0, vTop, u1, vBottom].
+      const sign = (sg, a0, a1, y0, y1, o) => {
+        if (!sg?.uv) return;
+        part(`sign${sg.page}`, a0, a1, y0, y1, o, WHITE, sg.uv);
+      };
+      const signOf = kind => plan?.signs.find(sg => sg.kind === kind && sg.uv);
       // The storefront: cast-iron piers, plate glass on a panelled bulkhead,
       // a door in every shop, the lintel and a lettered signboard over it.
       for (let k = 0; k <= bays; k++) {
@@ -291,11 +339,27 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
       }
       box('cornice', 0, w, gf - .7, gf, 0, O + .12, trimColor, 'fb');
       const boards = fronts.boards ?? [];
-      if (boards.length) {
+      if (plan) {
+        const fascia = signOf('fascia'), fw = Math.min(w - .4, fascia?.wM ?? 0);
+        sign(fascia, w / 2 - fw / 2, w / 2 + fw / 2, gf - .66, gf - .05, O + .135);
+        // Gilt letters on the glass of the first shop bay that is not the door's.
+        const glass = signOf('glass');
+        if (glass) {
+          const k = doorBay === 0 ? 1 : 0, gw = Math.min(glass.wM, bw - .5), cx = (k + .5) * bw;
+          sign(glass, cx - gw / 2, cx + gw / 2, 1.85, 1.85 + glass.hM * gw / glass.wM, .072);
+        }
+        // Narrow boards on the iron piers either side of the door.
+        const pier = signOf('pier');
+        if (pier) for (const kk of [doorBay, doorBay + 1]) {
+          const a = kk * bw;
+          if (a < .3 || a > w - .3) continue;
+          sign(pier, a - .14, a + .14, .55, .55 + pier.hM, O + .075);
+        }
+      } else if (boards.length) {
         const b = boards[h0 % boards.length], sw = Math.min(w - .6, 5.4);
         part('board', w / 2 - sw / 2, w / 2 + sw / 2, gf - .66, gf - .05, O + .13, WHITE, b);
       }
-      if (h0 % 10 < 6) {
+      if (awning) {
         // A canvas awning let down over the walk.
         const uv = cellUv('awning', (h0 >>> 4) & 1 ? 0 : .5, (h0 >>> 4) & 1 ? .5 : 1);
         const col = AWNING_TINT[(h0 >>> 5) % AWNING_TINT.length];
@@ -307,6 +371,8 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         buf('parts').poly(q, quv, slope.map(v => -v / L), col.map(v => v * .7));
         buf('parts').poly([P(.1, yLow - .25, oFar), P(w - .1, yLow - .25, oFar), P(w - .1, yLow, oFar), P(.1, yLow, oFar)],
           [[uv[0], uv[1] + .02], [uv[2], uv[1] + .02], [uv[2], uv[1]], [uv[0], uv[1]]], OUT, col);
+        const valance = signOf('valance'), vw = Math.min(w - .4, valance?.wM ?? 0);
+        sign(valance, w / 2 - vw / 2, w / 2 + vw / 2, yLow - .24, yLow - .02, oFar + .012);
       }
       // Upper storeys: windows on the bays, hoods by material, string courses.
       const sh = storeys > 1 ? (h - gf - .62) / (storeys - 1) : 0;
@@ -320,11 +386,45 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
         if (k > 1 && facade !== 'frame') box('trim', 0, w, y0 - .1, y0 + .08, O, O + .07, trimColor, 'ftb');
       }
       if (storeys === 1) wallQuad(0, w, gf, h, O);
-      // K10's bracketed cornice: frieze, brackets on a 0.72 m rhythm, crown.
+      const band = signOf('band'), upper = signOf('upper'), frieze = signOf('frieze'), hanging = signOf('hanging');
+      // A board nailed to the wall stands in front of everything on it: proud of the string
+      // courses (0.07), sills (0.06) and hoods (0.12) it crosses, on a dark edge of its own
+      // thickness, so the trim never reads over the lettering (the owner, 2026-11-27).
+      const wallBoard = (sg, a0, a1, y0, y1) => {
+        box('trim', a0 - .03, a1 + .03, y0 - .03, y1 + .03, O, O + .15, [.16, .14, .12], 'ftblr');
+        sign(sg, a0, a1, y0, y1, O + .155);
+      };
+      // A board on the wall between the storefront and the first upper windows.
+      if (band && storeys > 1) {
+        const bh = Math.min(band.hM, sh * .2 - .2), bw2 = band.wM * bh / band.hM;
+        wallBoard(band, w / 2 - bw2 / 2, w / 2 + bw2 / 2, gf + .06, gf + .06 + bh);
+      }
+      // An upstairs office's board between the first and second upper storeys' windows.
+      // It clears the first upper windows' arches and hoods and the next storey's sills.
+      if (upper && storeys > 2) {
+        const rise = style === 'round' ? ww / 2 : style === 'segmental' ? ww * .2 : 0;
+        const crown = gf + sh * .2 + Math.max(.8, sh * .5 - (style === 'round' ? ww * .25 : 0)) + rise;
+        const y0 = crown + .4, uh = Math.min(upper.hM, gf + sh * 1.2 - .22 - y0), uw = upper.wM * uh / upper.hM;
+        if (uh > .3) wallBoard(upper, w / 2 - uw / 2, w / 2 + uw / 2, y0, y0 + uh);
+      }
+      // A board hung at right angles to the walk off an iron bracket, above the storefront.
+      if (hanging && storeys > 1) {
+        const a = hanging.at ? w - .35 : .35, y0 = gf + .35, y1 = y0 + hanging.hM, o0 = O + .3, o1 = o0 + hanging.wM;
+        const [u0, vt, u1, vb] = hanging.uv, b = buf(`sign${hanging.page}`);
+        b.poly([P(a, y0, o1), P(a, y0, o0), P(a, y1, o0), P(a, y1, o1)], [[u0, vb], [u1, vb], [u1, vt], [u0, vt]], RIGHT, WHITE);
+        b.poly([P(a, y0, o0), P(a, y0, o1), P(a, y1, o1), P(a, y1, o0)], [[u0, vb], [u1, vb], [u1, vt], [u0, vt]], neg(RIGHT), WHITE);
+        box('iron', a - .025, a + .025, y1 + .04, y1 + .1, O, o1 + .08, [.22, .22, .22], 'ftblr');
+        box('iron', a - .02, a + .02, y0 - .02, y1 + .06, O, O + .08, [.22, .22, .22], 'flr');
+      }
+      // K10's bracketed cornice: frieze, brackets on a 0.72 m rhythm, crown. A lettered
+      // frieze keeps its brackets to its ends.
       box('cornice', 0, w, h - .62, h - .12, O, O + .04, trimColor, 'f');
+      const zw = Math.min(w - .6, frieze?.wM ?? 0);
+      if (frieze) sign(frieze, w / 2 - zw / 2, w / 2 + zw / 2, h - .58, h - .16, O + .048);
       const count = Math.max(2, Math.round(w / .72));
       for (let k = 0; k <= count; k++) {
         const a = .15 + (w - .3) * k / count;
+        if (frieze && Math.abs(a - w / 2) < zw / 2 + .12) continue;
         box('cornice', a - .06, a + .06, h - .6, h - .12, O, O + .42, trimColor, 'flr');
       }
       box('cornice', -.04, w + .04, h - .12, h + .22, 0, O + .62, trimColor, 'ftb');
@@ -408,7 +508,7 @@ export function buildFronts({ rows, rings, fronts, materials, detail = 'full', v
     delete cell.buffers;
   }
   census.cells = cells.size;
-  return { cells: [...cells.values()], meshes, census, showM: rings.show_m?.[detail] ?? 300 };
+  return { cells: [...cells.values()], meshes, census, showM: rings.show_m?.[detail] ?? 300, signPlans: signs?.plans ?? null };
 }
 
 /** One gates.js box (world centre, horizontal axis u, half sizes) as six faces. */

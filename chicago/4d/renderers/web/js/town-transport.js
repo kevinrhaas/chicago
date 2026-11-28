@@ -322,6 +322,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   // T-3557: a row `on_call` (the Glessner brougham, waiting at its door as a parked carriage)
   // is not loaded with the others: `summon(id)` brings it, `putAway(id)` lets it go again.
   const summoned = new Set();
+  // T-3814: streamed rows a jaunt's stage has asked for, built wherever the visitor is and at any
+  // hour (a stage takes them; a staged team keeps no hours), until the stage lets them go.
+  const staging = new Set();
   const actors = [], roots = [];
   const saved = new Map();
   const pendingApproaches = new Map();
@@ -501,8 +504,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
           if (row.scene !== sceneId || failed.has(row.id) || actors.some(actor => actor.id === row.id)) continue;
           if (row.on_call && !summoned.has(row.id)) continue;
           // A streamed team is built when chosen, or when someone is on the way to its man.
-          if (row.streamed && ((!wanted.has(row.id) && pendingApproaches.get(row.person_id)?.rowId !== row.id)
+          if (row.streamed && !staging.has(row.id) && ((!wanted.has(row.id) && pendingApproaches.get(row.person_id)?.rowId !== row.id)
             || building.get(row.id) === ownGeneration || !ghostClear(row.id))) continue;
+          if (staging.has(row.id) && building.get(row.id) === ownGeneration) continue;
           let assembly;
           building.set(row.id, ownGeneration);
           try {
@@ -732,6 +736,18 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       return true;
     },
     isOnCall(id) { return !!rowById.get(id)?.on_call; },
+    /** T-3814: build a streamed row for a jaunt's stage now, wherever the visitor is and at any hour
+     *  (a fire-night stop's wagon). Resolves to its actor or null. `release` lets it stream again. */
+    async stageWant(id) {
+      const row = rowById.get(id);
+      if (disposed || !row || row.on_call || failed.has(id) || !draws(tier)) return null;
+      const live = out.actorById(id);
+      if (live) return live;
+      if (!staging.has(id)) { staging.add(id); load = null; }
+      await out.ready();
+      return out.actorById(id);
+    },
+    stageRelease(id) { staging.delete(id); },
     /** T-3557: a scene's loaded team by its row id (the seat, the reins), or null. */
     actorById(id) { return disposed ? null : actors.find(actor => actor.id === id && !actor.disposed) ?? null; },
     driverForPerson(personId) { return actors.find(actor => actor.personId === personId) ?? null; },

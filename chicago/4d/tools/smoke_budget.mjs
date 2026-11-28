@@ -740,6 +740,7 @@ const COVERAGE = [
   // tools/qa_city_fire_1871.mjs drives it at both viewports; tools/fire_1871.py holds the data.
   ['renderers/web/js/city-fire.js', NONE, 'the 1871 Great Fire as drawn: qa_city_fire_1871.mjs'],
   ['renderers/web/js/fire-map.js', NONE, 'the 1871 Great Fire\u2019s map and clock: qa_city_fire_1871.mjs, fire_1871.py --check'],
+  ['renderers/web/js/fire-mass.js', NONE, 'where a named structure\u2019s flames may stand (T-3802): qa_city_fire_1871.mjs --self-test'],
   ['renderers/web/js/fire-goods.js', NONE, 'the 1871 families\u2019 goods the fire burns (T-3751): qa_city_fire_1871.mjs, check_fire_jaunt.mjs'],
   ['data/fire/', NONE, 'the 1871 Great Fire\u2019s district and hours: fire_1871.py --check'],
   // The fort's burning (T-3553) and the city's share these flames; a jaunt stage loads them.

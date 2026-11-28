@@ -4807,14 +4807,15 @@ async function boot() {
   // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
   api.person = null;
   void (async () => {
-    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT, EYE_COLOUR }] = await Promise.all([
       import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
     personHost(document);   // the You tab's group, with its "loads with the town" line until then
     const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
       account: api.signIn?.account ?? null });
     api.person = person;
     const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
-    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    api.personPortrait = portrait;   // its stats() for the QA run: builds and renders, and their time
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT, eyes: EYE_COLOUR });
     person.onChange(() => { void api.riding?.reseat?.(); });
   })().catch((error) => { problems.push(`person: ${error.message}`); });
 
@@ -6612,7 +6613,7 @@ async function boot() {
   }
   function ensureJaunts() {
     return jauntReady ??= loadJauntModules()
-      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier }]) => {
+      .then(([preview, runtime, panel, estimates, context, cards, voices, pace, { createJauntStage }, humanFight, humanBlood, { createFortFire }, { createBier, createGoods, createCord, createMattress, GOODS }]) => {
       useFightMotions(humanFight); // every hand in town takes the fight motions up
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
@@ -6880,7 +6881,10 @@ async function boot() {
               resolve: (id) => api.stagePerson?.(id) ?? null, tier: () => api.humans?.tier ?? 'full',
               eye: () => camera.getWorldPosition(new THREE.Vector3()),
               // The town's own horse teams, taken for a scene (the 1812 column's wagons).
-              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null, load: () => { void api.townTransport?.ready?.()?.catch?.(() => {}); } },
+              // T-3814: a streamed team a stage takes is built for it at any hour, wherever the visitor is.
+              teams: { get: (id) => api.townTransport?.actorById?.(id) ?? null,
+                load: (ids = []) => { for (const id of ids) void api.townTransport?.stageWant?.(id)?.catch?.(() => {}); void api.townTransport?.ready?.()?.catch?.(() => {}); },
+                release: (id) => api.townTransport?.stageRelease?.(id) },
               // T-3560: saddle horses for the castmates who ride (Wells, the surgeon's mate, 1812).
               horses: { create: (spec) => api.riding?.stageHorse?.(spec) ?? null },
               // The adults jaunts (2026-11-15): weapons in the hand, and the guns' flash and smoke.
@@ -6909,6 +6913,8 @@ async function boot() {
               boats: { carry: (id, o) => crossings?.carry?.(id, o) ?? null },
               // ... and the dead are carried on a bier (stage-props.js).
               bier: createBier,
+              // T-3814: the goods the Great Fire's people carried, wagons' loads and things set down.
+              goods: { create: createGoods, cord: createCord, mattress: createMattress, spec: (kind) => GOODS[kind] ?? null },
               gates: { open: (ids) => {
                 const opened = fortGates.gates.filter((g) => ids.includes(g.id) && g.state === 'closed');
                 for (const g of opened) { g.actions.closed[0].steps[0].run(1); g.state = 'open'; }
