@@ -264,9 +264,13 @@ def rule_keyed(b, v):
                  for p in pr.pos if inside(p[0], p[2])]
         if worst:
             fails.append(f"behind: a {worst[0][0]} vertex stands inside the corner at {worst[0][1]}")
-        ring, (cx, cz) = b.plan["ring"], b.plan["centre"]
-        n = len(ring)
-        reach = math.hypot(ring[0][0] - cx, ring[0][1] - cz) + b.meta["overhang_m"] / math.cos(math.pi / n)
+        cx, cz = b.plan["centre"]
+        if "ring" in b.plan:
+            ring = b.plan["ring"]
+            n = len(ring)
+            reach = math.hypot(ring[0][0] - cx, ring[0][1] - cz) + b.meta["overhang_m"] / math.cos(math.pi / n)
+        else:   # T-3800: a round tower across its corner, its eaves a circle
+            reach = b.plan["R"] + b.meta["overhang_m"]
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
             fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")

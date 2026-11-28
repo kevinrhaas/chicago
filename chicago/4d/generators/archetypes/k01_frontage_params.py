@@ -2979,6 +2979,10 @@ def _bay_span(plan: dict) -> tuple:
         # T-2787: a round tower meets its wall where its circle crosses the wall's face
         r, c = float(plan["radius_m"]), float(plan["centre_proud_m"])
         h = math.sqrt(r * r - c * c)
+        if plan.get("across_corner"):
+            # T-3800: across its corner it meets its wall from its junction to the corner
+            cx = float(plan.get("centre_x_m", 0.0))
+            return (cx - h, 0.0) if plan["across_corner"] == "right" else (0.0, cx + h)
         return -h, h
     if plan["kind"] == "polygon":
         # ...and a polygonal one where its ring does (k08_bays walks the same ring)
@@ -3407,6 +3411,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"centre_proud_m and sides 4, not {sorted(q)}")
             elif across is None and set(q) != {"radius_m", "centre_proud_m"}:
                 raise ParamError(f"bays: {e['id']} sizes its tower by radius_m and centre_proud_m, not {sorted(q)}")
+            # T-3800: or a ROUND tower across its house's corner (2140's, the 1911 sheet's circle at
+            # the 22nd Street corner standing out of both walls), sized as any round tower and by
+            # how far its centre stands in from the end wall's plane along the wall
+            round_across = across is not None and v["plan"]["kind"] == "circle"
+            if round_across and set(q) != {"radius_m", "centre_proud_m", "centre_in_m"}:
+                raise ParamError(f"bays: {e['id']} is a round tower across its corner, sized by radius_m, "
+                                 f"centre_proud_m and centre_in_m, not {sorted(q)}")
             r, c = float(q["radius_m"]), float(q["centre_proud_m"])
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
@@ -3426,7 +3437,28 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             v["plan"] = {**v["plan"], "radius_m": r, "centre_proud_m": c}
             if square:
                 v["plan"] = {**v["plan"], "sides": 4}
-            if across is not None:
+            if round_across:
+                # T-3800: its centre `centre_in_m` behind the end wall's plane (on it at 0), so its
+                # ring stands at least 0.3 m out past that plane and crosses it behind the wall's
+                # face; s_m is the corner's. Its walls stand on the ring outside the house, its
+                # cornice is the main cornice's (cap_at_eave), so over the wall head there is no
+                # back to close, and its cap is whole over the house's roof (k08_bays.plan_of)
+                end = 0.0 if across == "left" else wall_len[e["wall"]]
+                d = float(q["centre_in_m"])
+                if across not in ("left", "right") or e.get("corner") or e.get("flush_corner"):
+                    raise ParamError(f"bays: {e['id']} across_corner is 'left' or 'right'")
+                if abs(float(e["s_m"]) - end) > 1e-6:
+                    raise ParamError(f"bays: {e['id']} stands across its {across} corner, so its s_m is that "
+                                     f"corner's ({end} m), not {e['s_m']}")
+                if not 0.0 <= d <= r - 0.3 or not c < math.sqrt(r * r - d * d) - 0.3:
+                    raise ParamError(f"bays: {e['id']}'s centre {d} m in from its end wall and {c} m proud leaves "
+                                     f"its ring off one of its walls (in 0-{r - 0.3:.2f} m, and crossing the end "
+                                     f"wall 0.3 m behind the face)")
+                if e.get("cap_at_eave") is not True:
+                    raise ParamError(f"bays: {e['id']}, a round tower across its corner, carries its cap at the "
+                                     f"eave (cap_at_eave), its cornice the main cornice's")
+                v["plan"] = {**v["plan"], "centre_x_m": -d if across == "right" else d, "across_corner": across}
+            elif across is not None:
                 # T-3176: a square tower set diagonally across its wall's corner (1827's, from the
                 # Doane photograph and the 1911 sheet's turned bump at the south-west corner): the
                 # kit's polygon with four sides, turned 45 degrees so an angle points out of each
