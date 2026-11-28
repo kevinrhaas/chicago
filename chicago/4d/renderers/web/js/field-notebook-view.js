@@ -1,4 +1,5 @@
 import { fieldNotebook, LIMITS, safeNotebookURL } from './field-notebook.js';
+import { classSession, handInControl } from './classes-view.js';
 import { t } from './strings/index.js';
 import './strings/notebook.js';
 const tr = (key) => t(`notebook.${key}`);
@@ -129,13 +130,17 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
         const r = notebook.remove(entry.id); result(r);
         if (r.ok) { drafts.delete(entry.id); status.textContent = tr('deleted'); title.focus(); }
       })));
+      // T-3778: hand this entry in to the student's class, by their choice.
+      const handin = handInControl(doc, entry, { say: (text) => { status.textContent = text; } });
+      if (handin) actions.append(handin);
       article.append(actions); entries.append(article);
     }
   }
   root.append(form, status, exportButtons, entries); container.append(root);
   const unsubscribe = notebook.subscribe(paint);
+  const unsubscribeClass = classSession.subscribe(paint);
   const refresh = e => { if (!e || e.key === 'chicago4d.notebook.v1' || e.key === null) paint(); };
   doc.defaultView?.addEventListener('storage', refresh);
   paint();
-  return { refresh: paint, destroy() { unsubscribe(); doc.defaultView?.removeEventListener('storage', refresh); root.remove(); } };
+  return { refresh: paint, destroy() { unsubscribe(); unsubscribeClass(); doc.defaultView?.removeEventListener('storage', refresh); root.remove(); } };
 }

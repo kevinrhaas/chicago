@@ -5862,6 +5862,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_classes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_cloud_save.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_coach_house.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6810,6 +6818,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_launch_page.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_launch_rights.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_leg_notes.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7235,6 +7251,10 @@
       "wrote_ignored": []
     },
     "tools/test_storefront_cargo_rhythm.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_stream_starter.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

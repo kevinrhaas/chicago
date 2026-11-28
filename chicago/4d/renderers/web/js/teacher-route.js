@@ -278,7 +278,7 @@ export function answerTitle(session, stop) {
 export function answerEntry(session, stop, answer) {
   const text = cleanText(String(answer ?? ''), ROUTE_LIMITS.answer);
   if (!text) return null;
-  return { kind: 'note', title: answerTitle(session, stop), year: session.year, place: stop.label,
+  return { kind: 'note', topic: 'route', title: answerTitle(session, stop), year: session.year, place: stop.label,
     text: `${stop.question ? `Teacher’s question: ${stop.question}\n\n` : ''}${ANSWER_LEAD}${text}` };
 }
 /** The answer already in the notebook for this stop, if any: `{ id, answer }`. */
