@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3310, ts: '2026-11-28T04:12:08.127Z', date: 'Nov 27, 2026, 10:12 PM CT', title: 'The people of 1904 talk as you pass', kind: 'feature',
+    items: [
+      'On Prairie Avenue in 1904, people near you now speak: a greeting when greeted, or a remark about their day. A caption shows who.',
+    ] },
+  { v: 3309, ts: '2026-11-28T04:12:08.127Z', date: 'Nov 27, 2026, 10:12 PM CT', title: 'The Great Fire read aloud, and music under every jaunt', kind: 'feature',
+    items: [
+      'The Great Fire jaunt in 1871 is now read aloud, from the O\'Leary barn to the rain.',
+      'Every jaunt now plays music. 1835 and 1871 have their own, and the Great Fire plays in three movements.',
+    ] },
   { v: 3308, ts: '2026-11-28T03:08:32.430Z', date: 'Nov 27, 2026, 9:08 PM CT', title: 'A new launch page for the four years', kind: 'feature',
     items: [
       'The front door is now a launch page that opens on Chicago 4D itself, with no year chosen for you. Rest the mouse on 1835, 1904, 1812 or 1871 to see it fade in behind the page, then choose one and press Play.',
