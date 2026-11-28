@@ -25104,7 +25104,7 @@ and its draft attributes are gone.
 
 ### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
 
-**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25151,12 +25151,13 @@ its record's `draft.replaceable_by`) replaces its attributes in place, under the
 buildings are T-1937's.
 **Retired in part:** 2000 and 2010, the two frame dwellings at the 20th Street end, by T-1909, which refined both in place on the K16 timber kit under `L-k16-2000-2010-frame-1909`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, T-1935's); and 2018, the stone-front house with its bow, by T-3607 (piece 1 of T-1910), which refined it in place on the K01 frontage kit under `L-k01-2018-stone-front-3607`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's); and 2026, the Louis Wahl house, by T-3608 (piece 2 of T-1910), which refined it in place on the K01 frontage kit to its 1874 Land Owner engraving under `L-k01-2026-wahl-3608`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's).
 **Retired in part:** 2108, the Mark Kimball house, by T-3667 (piece 1 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2108-kimball-3667`, under the same id; its draft attributes are gone (the coach house it shares with 2110 is still this draft's, T-1937's).
-**Retired in part:** 2112, the Max M. Rothschild house, by T-3668 (piece 2 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2112-rothschild-3668`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
+**Retired in part:** 2112, the Max M. Rothschild house, by T-3668 (piece 2 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2112-rothschild-3668`, under the same id; its draft attributes are gone (its alley building is now T-1937's, below).
 **Retired in part:** 2110, the Harriet Rees house, by T-1922 (the S12A package), which refined it in place on the K01 frontage kit under `L-k01-2110-rees-1922`, under the same id; its draft attributes are gone (the coach house it shares with 2108 is still this draft's, T-1937's; its tympanum, loggia colonettes and carved bands are T-1923's).
 **Retired in part:** 2036, the Ebenezer Buckingham house at the 21st Street corner, by T-1911 (the S08 package's corner house), which refined it in place on the K01 frontage kit under `L-k01-2036-buckingham-1911`, under the same id; its draft attributes are gone (its alley stable is still this draft's, T-1938's).
 **Retired in part:** 2100, the John B. Sherman house at the 21st Street corner, by T-1919 (the S10A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2100-sherman-1919`, under the same id; its draft attributes are gone (the 21st Street wall is still not built).
 **Retired in part:** 2120, the two-storey brick house with an iron-clad north bay, by T-3720 (piece 1 of T-1926, the S15 package), which refined it in place on the K01 frontage kit under `L-k01-2120-prairie-3720`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
 **Retired in part:** 2100's alley building, the Sherman wagon house and stable, by T-1937, which refined it in place on the K12 coach-house kit under `L-k12-2100-wagon-house-1937`, under the same id `sherman_house_2100_prairie_coach_house`, as one rectangle under the hip and deck the sheet draws; its draft attributes are gone.
+**Retired in part:** 2112's alley building, the Rothschild barn, by T-1937, which refined it in place on the K12 coach-house kit under `L-k12-2112-barn-1937`, under the same id `rothschild_house_2112_prairie_coach_house`, as one rectangle between two party walls on the outline and window marks the sheet draws; its draft attributes are gone.
 **Retired in part:** the coach house 2108 and 2110 shared, by T-1937, which refined it in place on the K12 coach-house kit under `L-k12-2108-2110-coach-house-1937`, under the same id `mark_kimball_house_2108_prairie_coach_house`, as one building divided on the lot line under a flat roof; its draft attributes are gone.
 **Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
 **Review:** `docs/RESEARCH/prairie-draft-20-22-west-2351/README.md`.
@@ -46983,6 +46984,38 @@ taking a deck that runs through to an end wall (a hip on three sides) would clos
 **Covers:** `sherman_house_2100_prairie_coach_house.as_standing_1904.form.coach_house`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.stories`, `sherman_house_2100_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1937.
 **Recorded:** 2026-11-27 (T-1937).
+
+### L-k12-2112-barn-1937 — The Rothschild barn behind 2112 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its two window marks
+
+**Decision:** the district draft's alley building behind 2112 Prairie Avenue (T-1937) is refined in place, under its
+own id `rothschild_house_2112_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the
+alley on its west (`alley_side: west`), under the kit's gable, with a party wall at both ends (`east_end: party`), as
+1824's (L-k12-1824-stable-1935) and 2011's (L-k12-2011-stable-1938) stables are.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel, by darkness centroids
+through the sheet's fitted similarity: one plain two-storey brick rectangle on the alley line, 8.62 m deep (columns 474.00
+and 520.36) and 14.50 m between its own wall lines (rows 1208.0 and 1286.0), lettered AUTO, with no roof line, wing or
+porch; the key's fire-wall sign at the alley end of its north and its south wall; two of the key's window marks on the
+alley wall, centred 2.69 m and 11.43 m south of the north wall line. Its north wall line is the one the sheet draws once
+with 2108 and 2110's shared coach house; its south wall stands 0.37 m from 2120's alley building. The draft had fitted a
+13.0 x 8.5 m rectangle short of both end walls; it is gone.
+**The date.** The 1911 sheet and the T-1842 census's carry-back (present_as_mapped), with the Chicago Daily Tribune's
+classified of 31 May 1910 ('2112 Prairie-av., brick barn' to rent; image record
+nps-2112-tribune-1910-05-31-brick-barn-to-rent, not yet a source record); the range claims 1904 and no more.
+**What is invented.** **The north end, 0.25 m:** 2108 and 2110's committed record takes its length from the Glessner
+House post (two 25 ft halves) and stands its south face 0.25 m north of the sheet's line, so this building's north face
+is carried on to that face, back to back as the sheet draws them, and it stands 14.75 m long, not 14.50. The roof: the
+kit's 40-degree gable, its ridge along the alley between the two party walls (the sheet draws none); the party walls'
+parapets and their 0.5 m returns past both eaves. The use for 1904 (a stable and coach house; AUTO is the 1911 use). The
+split of the two storeys into the kit's 3.6 m carriage room and 2.7 m loft. Every opening but the two marks' places: on
+the alley, a carriage bay 3.0 m clear between the marks under the loft hatch and hoist, a man door, a loft sash over each
+mark and over the door; on the yard, a door toward the house and three stable sash, a loft sash over each. The kit's
+1.8 m basement, its brick colour and 13-inch walls, its slate. **What is not.** The outline, its place, the two storeys,
+the brick, the two party walls and the two window marks' places are the sheet's.
+**How to resolve:** a view down the alley, a permit, or the Rothschild estate's papers would place the carriage door and
+the roof; the barn's 1910 rental notice or a later conversion permit might give its size.
+**Covers:** `rothschild_house_2112_prairie_coach_house.as_standing_1904.form.coach_house`, `rothschild_house_2112_prairie_coach_house.as_standing_1904.form.stories`, `rothschild_house_2112_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-1937.
+**Recorded:** 2026-11-28 (T-1937).
 
 ### L-k12-2031-stable-1938 — The brick stable behind 2031 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark
 
