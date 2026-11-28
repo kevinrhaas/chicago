@@ -78,8 +78,11 @@ import { onDaylight } from './time-of-day.js';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
+import { EVERGREEN_BELOW_V } from './tree-model.js';
 import { resolveBases } from './scene-loader.js';
 import { RULES, compactPlan, compactGeometry } from './compact-attributes.js';
+import { releaseAfterUpload } from './upload-release.js';
+import { patchDeciduousSprays } from './season.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -4556,7 +4559,10 @@ export async function createTrees({
   // the bank thickets and the dooryard shrubs, so a phone keeps it from its
   // second level down, as the parkway elms did (T-2158, PR 773): a quarter of
   // its memory.
-  if ((lowSpec || level === 'light') && surfaceAtlas.mipmaps?.length > 1) {
+  // Balanced keeps the same trees and meshes, using the existing smaller
+  // atlases and inexpensive leaf shader to leave room on shared-memory GPUs.
+  const reducedTextures = lowSpec || level !== 'full';
+  if (reducedTextures && surfaceAtlas.mipmaps?.length > 1) {
     surfaceAtlas.mipmaps = surfaceAtlas.mipmaps.slice(1);
     surfaceAtlas.image = surfaceAtlas.mipmaps[0];
   }
@@ -4579,6 +4585,7 @@ export async function createTrees({
   patchTreeWind(distanceMat, uWind);
   confidence?.patch(depthMat);
   confidence?.patch(distanceMat);
+  for (const material of [nearMat, depthMat, distanceMat]) patchDeciduousSprays(material);
   const disposables = [nearMat, depthMat, distanceMat, surfaceAtlas];
   /**
    * ONE BATCH, CULLED PER CHUNK, IN BOTH PASSES — T-0223 step one.
@@ -4648,8 +4655,12 @@ export async function createTrees({
   stats.timberChunks = chunks.length;
   stats.foliageSprays = chunks.reduce((t, b) => t + b.sprays, 0);
   stats.foliageRepresentation = 'species-alpha-sprays';
-  stats.surfaceAtlasSize = 2048;
+  stats.surfaceAtlasSize = surfaceAtlas.image.width;
   for (const b of chunks) stats.heads += b.heads;
+  // Static thicket/vine triangles are also read only by the GPU. Full keeps
+  // their recorded plants, cached bounds and shader controls, rather than a
+  // second triangle copy. The independently rebuilt horizon stays dynamic.
+  if (level === 'full') releaseAfterUpload(group, { timber: [] });
 
   /* ---- 4b. the grown trees (T-2743) ------------------------------------- */
 
@@ -4661,7 +4672,7 @@ export async function createTrees({
   if (grown.count) {
     grownMats = await createGrownTreeMaterials({
       assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
-      lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+      lowSpec: reducedTextures, alphaCutoff: TREE_ALPHA_CUTOFF, problems,
     });
     disposables.push(grownMats);
     forest = await grown.build({ ...grownMats, checkpoint });
@@ -4672,6 +4683,8 @@ export async function createTrees({
   // T-2864: the crown the Season setting asks for (tree-model.js leafCover and
   // leafScale), and the materials that take its colour.
   let crownNow = '{}';
+  let crownApplied = crownNow, crownRevision = 0, treeDisposed = false;
+  let crownPending = Promise.resolve();
 
   /* ---- 5. the horizon ---------------------------------------------------- */
 
@@ -5314,20 +5327,37 @@ uniform float uBandUp;
       // T-3399: the grown leaf atlas's fifth row is the conifers' scale and needle
       // (tree-model.js LEAF_TILES), and an evergreen keeps its colour in every Season.
       if (foliage) {
-        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: 0.2 }], [nearMat, 0], [farMat, 2]]) {
+        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: EVERGREEN_BELOW_V }], [nearMat, 0], [farMat, 2]]) {
           foliage(m, role, opts);
         }
       }
       const key = JSON.stringify(crown);
-      if (!grownMats || key === crownNow) return;
+      if (!grownMats || treeDisposed) return;
+      if (key === crownNow) return crownPending;
       crownNow = key;
-      if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
-      forest = await grown.build({ ...grownMats, checkpoint, season: crown });
-      group.add(forest.group);
-      stats.grown = forest.stats;
+      const mine = ++crownRevision;
+      crownPending = crownPending.catch(() => {}).then(async () => {
+        // Coalesce rapid season choices before growing another whole forest.
+        if (treeDisposed || mine !== crownRevision) return;
+        try {
+          const candidate = await grown.build({ ...grownMats, checkpoint, season: { ...crown } });
+          if (treeDisposed || mine !== crownRevision) { candidate.dispose(); return; }
+          if (forest) { group.remove(forest.group); forest.dispose(); }
+          forest = candidate;
+          group.add(forest.group);
+          stats.grown = forest.stats;
+          crownApplied = key;
+        } catch (error) {
+          if (mine === crownRevision) crownNow = crownApplied;
+          throw error;
+        }
+      });
+      return crownPending;
     },
 
     dispose() {
+      if (treeDisposed) return;
+      treeDisposed = true; crownRevision++;
       for (const d of disposables) d?.dispose?.();
       forest?.dispose();
     },

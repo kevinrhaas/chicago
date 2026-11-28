@@ -49,6 +49,7 @@
 import * as THREE from 'three';
 import { onDaylight } from './time-of-day.js';
 import { GUST_GLSL, uGustClock } from './wind-gust.js';
+import { seasonUniforms } from './season.js';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
@@ -7783,6 +7784,11 @@ function emptyGeo() {
   return { pos: [], nor: [], col: [], dir: [], side: [], botany: [], idx: [], n: 0 };
 }
 function finishGeo(g, name) {
+  // Heads share the leaf program. Reserve kind 8 for their untextured florets,
+  // so April can withhold July flowers without another material or draw pass.
+  if (name.startsWith('flora-head-')) for (let i=0;i<g.n;i++) {
+    if (g.side[i*4+3]===0) botany(g,i,0,0,8);
+  }
   const geo = new THREE.BufferGeometry();
   geo.name = name;
   geo.setAttribute('position', new THREE.Float32BufferAttribute(g.pos, 3));
@@ -7858,9 +7864,11 @@ function curvedLeaf(g, { base, dx, dz, len, wide, rise, curl, segments, k0, k1 }
       const u = side / (segments > 1 ? 2 : 1);
       const lateral = (u * 2 - 1) * wide;
       const fold = segments > 1 && side === 1 ? wide * 0.09 * Math.sin(t * Math.PI) : 0;
-      const slope = rise + Math.cos(t * Math.PI) * Math.PI * curl;
-      const n = new THREE.Vector3(-dx * slope - dz * (u - 0.5) * wide * 0.2,
-        len, -dz * slope + dx * (u - 0.5) * wide * 0.2).normalize();
+      const slope = rise + Math.cos(t * Math.PI) * Math.PI * curl
+        + (segments > 1 && side === 1 ? wide * 0.09 * Math.PI * Math.cos(t * Math.PI) : 0);
+      const foldSlope = segments > 1 ? (1 - 2 * u) * 0.09 * Math.sin(t * Math.PI) : 0;
+      const n = new THREE.Vector3(-dx * slope + dz * foldSlope * len,
+        len, -dz * slope - dx * foldSlope * len).normalize();
       const v = vert(g, base[0] + dx * len * t - dz * lateral,
         base[1] + rise * t + arch + fold, base[2] + dz * len * t + dx * lateral,
         n.x, n.y, n.z, k, k, k, dx, dz);
@@ -8638,6 +8646,7 @@ function plantMaterial({ uniforms, billboard = false, membrane = 1.0, gpuNear = 
       uChiSunCol: uniforms.uChiSunCol,
       uChiSky: uniforms.uChiSky,
       uChiFoliage: uniforms.uChiFoliage,
+      uChiSpring: seasonUniforms.uChiFresh,
     });
     if (gpuNear) Object.assign(shader.uniforms, gpuNear.uniforms);
     shader.vertexShader = `
@@ -8671,14 +8680,47 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
 `)
       .replace('#include <beginnormal_vertex>', /* glsl */`
 #include <beginnormal_vertex>
+// The same wind coefficient drives positions and normals. Fetch-backed near
+// instances fill their transform before this chunk, just as CPU instances do.
+vec3 chiInst = vec3(instanceMatrix[3][0], instanceMatrix[3][1], instanceMatrix[3][2]);
+float chiPh = dot(chiInst.xz, uChiWind) * uChiWaveK + uChiTime;
+float chiGust = (0.62 + 0.38 * sin(chiPh * 0.31 + 1.7)) * chiTownGust(chiInst);
+float chiPlantWind = uChiSway * chiGust * sin(chiPh);
 {
-  // Broad-leaf normals follow the nonuniform species scale.
-  if (aSide.w > 0.5 && aSide.w < 2.5) {
-    objectNormal /= max(vec3(aFlora.y, aFlora.x, aFlora.y), vec3(0.001));
-  }
   float cy = cos(aFlora.w), sy = sin(aFlora.w);
+  ${billboard ? /* glsl */`
   objectNormal.xz = vec2(objectNormal.x * cy + objectNormal.z * sy,
                         -objectNormal.x * sy + objectNormal.z * cy);
+  ` : /* glsl */`
+  float t = clamp(position.y, 0.0, 1.0);
+  float dt = step(0.0,position.y)*(1.0-step(1.0,position.y));
+  vec3 speciesScale = max(vec3(aFlora.y, aFlora.x, aFlora.y), vec3(0.001));
+  if (aSide.w > 2.5 && aSide.w < 3.5) {
+    // A grass ribbon's width is in metres AFTER species scale. Transform its
+    // length tangent and keep that physical width, rather than widening it.
+    vec3 width = aSide.xyz;
+    vec3 tangent;
+    if (dot(width,width) > 1e-12) tangent = cross(width,objectNormal);
+    else {
+      tangent = vec3(aDir.x*objectNormal.y,-dot(objectNormal.xz,aDir.xy),aDir.y*objectNormal.y);
+      width = cross(objectNormal,tangent);
+    }
+    float ty = tangent.y;
+    tangent.xz += aDir.xy * (2.0*aFlora.z*t*ty*dt);
+    tangent *= speciesScale;
+    tangent.xz = vec2(tangent.x*cy+tangent.z*sy,-tangent.x*sy+tangent.z*cy);
+    width.xz = vec2(width.x*cy+width.z*sy,-width.x*sy+width.z*cy);
+    tangent.xz += uChiWind * (2.0*t*aFlora.x*ty*chiPlantWind*dt);
+    objectNormal = cross(tangent,width);
+  } else {
+    // Inverse transpose of the arch, species scale, yaw and wind shear.
+    // This changes light on the folded leaf; its outline and motion stay put.
+    objectNormal.y -= 2.0*aFlora.z*t*dt*dot(objectNormal.xz,aDir.xy);
+    objectNormal /= speciesScale;
+    objectNormal.xz = vec2(objectNormal.x*cy+objectNormal.z*sy,-objectNormal.x*sy+objectNormal.z*cy);
+    objectNormal.y -= 2.0*t*chiPlantWind*dt*dot(objectNormal.xz,uChiWind);
+  }
+  `}
 }
 `)
       .replace('#include <begin_vertex>', /* glsl */`
@@ -8754,11 +8796,8 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
   // Wind, in world space, after the plant has been turned: a travelling wave
   // across the field plus a slow gust, both fixed at the base and free at the
   // tip. This is the "wind-combed" reading the sources give the wet prairie.
-  float chiPh = dot(chiInst.xz, uChiWind) * uChiWaveK + uChiTime;
-  // T-3586: scaled by the town's shared gust, 1 at a gust's top (the sway it had).
-  float chiGust = (0.62 + 0.38 * sin(chiPh * 0.31 + 1.7)) * chiTownGust(chiInst);
   transformed.xz += uChiWind
-    * (uChiSway * chiGust * sin(chiPh) * chiT * chiT * aFlora.x);
+    * (chiPlantWind * chiT * chiT * aFlora.x);
   `}
   // The world-space frame the sun terms need, built HERE rather than read off
   // three's vNormal: <defaultnormal_vertex> has already run by this point, so
@@ -8805,6 +8844,7 @@ uniform vec3 uChiSun;
 uniform vec3 uChiSunCol;
 uniform vec3 uChiSky;
 uniform sampler2D uChiFoliage;
+uniform float uChiSpring;
 varying vec3 vChiBotany;
 varying float vChiFamily;
 varying vec3 vChiNW;
@@ -8854,6 +8894,8 @@ float chiBayer4(vec2 fragXY) {
 // wholly inside its ring reaches the shader that existed before this: the
 // branch is what the confidence view's own comment warns about paying for.
 if (vChiFade < 1.0 && fract(chiBayer4(gl_FragCoord.xy) + vChiDither) >= vChiFade) discard;
+// Mid-April is a seasonal viewing approximation, not a backdated July bloom.
+if (uChiSpring > 0.5 && (vChiBotany.z > 4.5 || vChiBotany.z < -1.5)) discard;
 // A spray is a collection of leaves, never an opaque rectangular surface.
 // Atlas tiles are padded and use ordinary mipmaps; alpha clipping keeps leaf
 // gaps and depth ordering without sorting thousands of transparent plants.
@@ -8895,7 +8937,7 @@ if (vChiBotany.z > 0.5 && vChiBotany.z < 2.5) {
   }
   if (chiBladeEdge > 0.0) discard;
   chiLeafSurface *= 0.84 + 0.16 * smoothstep(0.0, 0.08, -chiBladeEdge);
-} else if (vChiBotany.z > 4.5) {
+} else if (vChiBotany.z > 4.5 && vChiBotany.z < 7.5) {
   vec2 p = vChiBotany.xy * 2.0 - 1.0;
   if (vChiBotany.z < 5.5) {
     // A small globe of florets, rather than three intersecting rectangles.
@@ -9017,7 +9059,7 @@ if (vChiBotany.z > 4.5 && vChiBotany.z < 5.5) {
       shader.vertexShader = gpuNear.glsl + v;
     };
   }
-  mat.customProgramCacheKey = () => `flora-botanical-3-${billboard}-${membrane}${gpuNear ? '-gpu-near' : ''}`;
+  mat.customProgramCacheKey = () => `flora-botanical-4-${billboard}-${membrane}${gpuNear ? '-gpu-near' : ''}`;
   mat.needsUpdate = true;
   return mat;
 }
