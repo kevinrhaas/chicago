@@ -2,7 +2,7 @@
   "structure_id": "murdoch_house_2130_prairie",
   "view": "glessner_2140_vanosdel",
   "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
-  "glb_sha256": "007a6edd99a2cf74498456d9494c5ffbd4e57352f7de122c28f764255099a4dd",
+  "glb_sha256": "b7c17c49ec5cb97657d1567a7a2b1bf59c1fd31c4e97fb12c5d40e8c60a21b9a",
   "camera_sha256": "3df21672242dca30d35a782b47dc9dcfa5810d5d602059bc46a070fbfccac399",
   "photo_sha256": "51d5e6b7c5501d56698d35581dab5edebebf4890f5fa75abb3d7b1989fd91e22",
   "side_by_side": "docs/RESEARCH/photo-match/murdoch_house_2130_prairie/glessner_2140_vanosdel-side-by-side.jpg",
@@ -33,8 +33,8 @@
       "status": "open"
     },
     {
-      "what": "the front's north part beside the tower: both pictures carry it up as wall to about the cone's eave (about 11.2 m) under an eave of its own, which runs on from the cone's eave course to the left of the drum (the Chicagology print's x 1600-1673 px, y 790-880 px, a valley rising from the front's eave near x 1657, y 880 to the ridge near x 1550, y 707; the Van Osdel print's pale wall left of the drum up to y 280 px), where the build's street slope comes down to the 8.8 m eave there: about 1.5 m of wall and eave a visitor would see as slate (L-k01-2130-murdoch-3730)",
-      "status": "open"
+      "what": "the front's north part beside the tower: carried up as wall to its own eave at 11.2 m from v 3.8 to the north wall (k01_gable_roof raised_front, T-3730), roofed to the ridge and hipped south; on this camera the pale wall left of the drum now rises to an eave that runs on from the cone's eave course at about y 283-288 px, where the print's stands at about y 278-280, the two eave courses together spanning x about 553-640 px against the print's 548-638: within about 7 px (0.5 m at this copy's 13 px a metre)",
+      "status": "fixed"
     },
     {
       "what": "the attic light in the south gable (T-3730, gable_roof.ends.south.lights): on this camera it stands behind 2140's mansard and dormers (the render's x about 1218-1225 px of its 675 px frame, the print's x about 519, y 280-300), so the print cannot show it",
