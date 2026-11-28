@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3303, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '213 and 215 East Twentieth Street, built from their photographs', kind: 'feature',
+    items: [
+      '215 East Twentieth Street stands back behind its front yard: three storeys of red brick, two round-headed windows and an arched door on the ground floor, and stone lintels above.',
+      '213 next door is a tall red front of four storeys on the street line. Its third-floor windows are round-headed, and a deep bracketed cornice runs along the top. The door has a pedimented hood on brackets.',
+    ] },
+  { v: 3302, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: '2140 Prairie\'s tall chimney brought down to its photographs', kind: 'improvement',
+    items: [
+      'The Tucker/Smith house at 2140 Prairie now has its tall chimney with four pots at the height two old photographs show. It had stood about 1.5 m too tall, and it has moved about half a metre to where both pictures place it.',
+      'Both photographs, taken from the corner of Prairie and 22nd Street, are now matched against the house. The comparison shows what is still wrong: the round tower should stand right at the corner, and the towers\' caps, the dormers and the iron fence still need work.',
+    ] },
+  { v: 3301, ts: '2026-11-28T01:15:14.748Z', date: 'Nov 27, 2026, 7:15 PM CT', title: 'What\'s new opens on the latest days, one line each', kind: 'change',
+    items: [
+      'The last few days of changes, one line per release; tap a line for its notes.',
+      'Every earlier release, as first written, is under Full history.',
+    ] },
   { v: 3300, ts: '2026-11-27T23:13:28.225Z', date: 'Nov 27, 2026, 5:13 PM CT', title: 'The public home page opens on the march out of Fort Dearborn', kind: 'change',
     items: [
       'The first picture under the home page\'s opening film is now the garrison and the families marching out of Fort Dearborn in 1812, each with their name over their head.',

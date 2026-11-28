@@ -1,0 +1,28 @@
+{
+ "structure_id": "tucker_smith_house_2140_prairie",
+ "source_id": "glessner_blog_2015_08_2140_photo",
+ "library_image": "a20-glessner-vanosdel-2140-photo",
+ "photo": "../../sources/assets/murdoch_2130_photos_t3730/glessner_2140_vanosdel.jpg",
+ "image_px": [
+  675,
+  526
+ ],
+ "principal_px": [
+  337.5,
+  459.6
+ ],
+ "focal_px": 1776.8,
+ "eye": [
+  41.13,
+  -62.84,
+  1.18
+ ],
+ "yaw_deg": -24.81,
+ "sun_uvy": [
+  0.55,
+  -0.6,
+  0.58
+ ],
+ "scene": "1904",
+ "solve": "FITTED FOR T-3799 jointly with the Van Osdel print's camera (glessner_2140_vanosdel.json), both cameras and the round tower's axis solved together by least squares, because T-3730's cameras on 2130 (which this one started from, carried into this frame: 2130's origin lies at u -9.52, v +26.16 here, both frames turned -0.679 degrees) were fitted to 2130 alone and put 2140's tower about 2 m apart on the two pictures. In this house's frame (u east from its rear wall, v north from its south wall): the lot's south-east street corner (18.18, -6.99), the corner pier's foot; 2130's tower lights at -40 degrees on its 2.4 m drum about (12.51, 32.76), centres at 3.4, 7.05 and 9.8 m; that drum's right edge; and this house's round drum, 2.3 m in radius as sheet 35 draws it, its two silhouette edges at about 6 m, with its axis left free. ON THIS COPY (675 x 526 px): the corner pier's foot at (415, 493); 2130's lights at x 615, y 419, 355 and 300; 2130's drum edge at x 640; this drum's edges at x 308 and 427 below its cornice. On this one 1.9 px RMS, worst 4.3 px. A level camera; the principal column the copy's middle. The joint axis, the stack and what is soft: see chicagology_2140_a.json; the eye at (41.13, -62.84), 1.18 m over the lots' grade. LIGHT: sun from the south-east and high, T-3730's reading (the south and east faces lit, the tower's drum shaded toward the north). DATE: after 1890 (2130 stands); its towers carry the flat crested decks the 1904 record declares."
+}

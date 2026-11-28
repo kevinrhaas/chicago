@@ -794,6 +794,14 @@ export default {
   "hint.interact": "Interactuar usa lo que está a tu alcance. Tócalo o pulsa R.",
   "hint.follow": "Siguiendo. Cualquier movimiento tuyo los deja ir."
  },
+ "whatsnew": {
+  "lead": "Los cambios más recientes. Toca uno para leer sus notas.",
+  "unread": "{n} más desde tu última visita están en el historial completo.",
+  "history": "Historial completo",
+  "history.note": "Cada versión desde {date}, {n} en total, tal como se escribió.",
+  "history.more": "Mostrar {n} más",
+  "history.hide": "Ocultar el historial completo"
+ },
  "understanding": {
   "title": "Comprueba lo que entendiste · 3 preguntas",
   "intro": "Antes de despedirnos, tres preguntas sobre nuestro paseo. Tómate tu tiempo; puedes intentarlo cuantas veces quieras.",

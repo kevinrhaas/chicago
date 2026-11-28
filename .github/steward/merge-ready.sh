@@ -221,8 +221,15 @@ for N in $PRS; do
       # loses the race instead of being merged unseen. GitHub answers 409 and the
       # next run picks it up with a fresh gate.
       SHA=$(gh api "repos/$REPO/pulls/$N" --jq '.head.sha' 2>/dev/null)
+      # A BATCH (pr-batch.sh, branch steward/batch-*) is merged with a MERGE commit,
+      # never squashed: GitHub marks a member merged only when its head is reachable
+      # from dev, and a squash would leave every member open with its work landed.
+      METHOD=squash
+      case "$(gh api "repos/$REPO/pulls/$N" --jq '.head.ref' 2>/dev/null)" in
+        steward/batch-*) METHOD=merge ;;
+      esac
       if gh api -X PUT "repos/$REPO/pulls/$N/merge" \
-           -f merge_method=squash -f sha="$SHA" >/tmp/mr.json 2>/tmp/mr.err; then
+           -f merge_method="$METHOD" -f sha="$SHA" >/tmp/mr.json 2>/tmp/mr.err; then
         say "#$N  MERGED — $TITLE"
         MERGED=$((MERGED+1))
       else
