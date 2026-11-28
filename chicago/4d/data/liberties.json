@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1267,
+  "count": 1268,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -82833,6 +82833,48 @@
         "T-1939",
         "T-1837",
         "T-3783"
+      ]
+    },
+    {
+      "id": "L-1871-street-walls",
+      "title": "The 1871 street walls round the jaunt stops: generated fronts restyled to each street's period views, gaps closed with added fronts, four named buildings built to their pictures",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-27, asked that the streets round the 1871 jaunt stops be photo-matched \"the best you can to the surrounding street\", \"photographic match perfect with 1871\". The generated city (the city 1871 emit generator, `“A complete context city on the afternoon before the Great Fire”`) fills each downtown block with rows facing one street, so the other street of a corner block showed the rows' side walls and gaps between them, and its fronts' storeys and styles came from the whole city's mix. the 1871 street walls generator writes the street walls data for the 70 block faces round the stops that the directory fronts data already calibrates; the walkthrough's city context code applies it at load and the walkthrough's city fronts code builds the fronts."
+        },
+        {
+          "label": "What is attested",
+          "text": "the forms each street's profile is read from, in public-domain period views: John Carbutt's stereographs \"Lake street, East from Clark\" (John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's…), \"Clark street, North from Washington\" ('58. Clark street, North from Washington.' Stereograph from Carbutt's Views of…), \"Book Seller's Row, State Street\" (John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's…) and the Chamber of Commerce card (John Carbutt, '140.—Chamber of Commerce', stereograph, Views of Chicago series…), and the Library of Congress card of Crosby's Opera House (John Carbutt, '139.—Crosby's Opera House, Washington Street', stereograph…). The St. James Hotel's name and corner (\"State, nw. cor. Washington\", Edwards’ Annual Directory of the City of Chicago, 1871; Andreas vol. 2 p. 508, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time) and McVicker's Theatre's block (\"Madison, bet. Dearborn and State\", the same directory; Andreas pp. 597-599) are attested; so is McVicker's front as built in 1857 (Andreas's engraving, p. 598, Wood engraving 'McVicker's Theater' in A. T. Andreas, History of Chicago, vol.…)."
+        },
+        {
+          "label": "What is inferred",
+          "text": "that the brick corner building beside Crosby's in Carbutt's card stood where the St. James stood (the card predates the hotel's 1867 fire and rebuilding \"on a larger scale\"); that McVicker's 1871 front kept the 1857 front's form (Andreas: the 1871 remodelling left \"nothing but the walls\")."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "every generated front's storeys (four or five on the business streets, as the views show; three only as a tenth of the cross streets), height, material (stone, brick or painted brick in each street's shares), window heads (round, segmental, or flat under a corniced hood), ground storey (iron piers, or a segmental iron arcade), cornice (bracketed or heavy), and the share with a slated mansard and dormers or an iron balcony: drawn per front from its street's profile, never claimed for a particular building. The 95 added fronts' places, widths and depths (sized to the gaps on each face's own front line, kept off every row and landmark). The St. James's form (built as the earlier corner building in Carbutt's card: five storeys of brick, paired round-arched windows, an arcaded attic under a bracketed cornice with parapet blocks) and its length on State Street (the three generated rows from the corner, about 41 m, the corner and Nos. 92-98 at the directory's spacing). McVicker's place along its block (the two generated rows east of the Tribune building), its width and height, and that its colonnade and belvedere stood in 1871. The brick block west of Crosby's (five storeys, segmental heads, a round-headed top storey, a heavy cornice on scroll brackets, a house front over an areaway) as Carbutt's card shows it, on the generated row beside the opera house. The long marble front facing the Court House square on Clark Street, built as one five-storey stone front with round-headed windows, an iron balcony and an arched ground storey as Carbutt's Clark Street card shows it, over the generated rows there. Two views in the owner's references (the late-1860s Lake Street stereoview and Kurz's 1865 LaSalle Street print, check required until their holders are traced) were read as cross-checks only; nothing is derived from them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a lot-by-lot source for the pre-fire business blocks (an insurance atlas or survey of 1869-71), or photographs of particular fronts, entered as sources and solved as reference views; then each front, and the named buildings, move to the recorded ones."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 street walls generator, the street walls data, the walkthrough's city fronts code, the walkthrough's city context code, the walkthrough's city signs 1871 code."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3804)."
+        }
+      ],
+      "work_refs": [
+        "T-3804"
       ]
     },
     {

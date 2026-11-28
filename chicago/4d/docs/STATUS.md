@@ -1,3 +1,30 @@
+## T-3804 — 1871 street walls round the jaunt stops, matched to the period views (28 November 2026)
+
+Owner request, 27 November 2026: photo-match the streets round the 1871 jaunt stops, "photographic
+match perfect with 1871". The generated city filled each downtown block with rows facing one street,
+so Lake Street east of Clark, Washington beside Crosby's and a dozen other faces showed side walls
+and gaps, and the fronts' storeys and styles came from the whole city's mix.
+`tools/build_1871_street_walls.py` writes `data/context/1871/street_walls.json` for the 70 block faces
+the directory calibration (T-3803) covers: a profile per street read from the public-domain period
+views (Carbutt's Lake Street east from Clark, Clark Street north from Washington, Booksellers' Row on
+State and the Chamber of Commerce card; the Crosby's Opera House card), 364 generated shop fronts
+restyled to their street (four or five storeys; stone, brick or painted brick; round, segmental or
+corniced heads; iron piers or a segmental iron arcade; bracketed or heavy cornices; some mansards
+with dormers and iron balconies), 95 added attached fronts closing the gaps, and four named buildings:
+the St. James Hotel (State, NW corner of Washington, with a Washington Street wing to Crosby's),
+McVicker's Theatre (Madison beside the Tribune, from Andreas's p. 598 engraving: colonnade, balcony,
+corniced hoods, belvedere, lettered cornice), the brick block west of Crosby's, and the long marble
+front on Clark facing the Court House square. `city-context.js` applies the file at load (stand-ins
+and detail alike); `city-fronts.js` builds the new forms inside the detail rings; a named building
+letters its name along its frieze (`city-signs-1871.js`) and its card carries its identity, place and
+form with their grades. The window bay rule (`shopDims`, one bay per ~2.9 m) is unchanged. Recorded
+under the new `L-1871-street-walls`; new source `andreas_1885_v2_mcvickers_theatre_plate`. No
+reference view was solved: the street views show generated fronts, not identified lots, so the match
+is by profile, read against the views by eye in the before/after side-by-sides.
+Phone (light) at the six stops, triangles before → after: Lake and Clark 713k → 749k, Clark north 1.237M → 1.263M,
+LaSalle 930k → 965k, Crosby's 820k → 882k, St. James 1.137M → 1.196M, McVicker's 1.198M → 1.257M, all within
+the 1.305M light ceiling; draw calls unchanged. McVicker's has the least headroom (48k).
+
 ## T-3805 — 1871 street furniture round the jaunt stops (27 November 2026)
 
 Owner request, 27 November 2026: photo-match the streets round the 1871 jaunt stops. Within the
