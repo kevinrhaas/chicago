@@ -2062,6 +2062,19 @@ step "side_bays take read windows; a read round head on a stone side face has no
 step "front_bays_by_storey takes a light read off the picture on an upper storey (T-3562)" \
   python3 tools/test_k01_front_read_light.py
 
+# T-3730. ...and a light in a gable roof's end parapet: 2130 Prairie's attic light in its south
+# gable, read off the Chicagology print, cut to K06's reveal in the roof's solid with its sash
+# and lintel, and refused unless it stands wholly in the parapet.
+step "a K01 gable parapet takes a light read off the picture, wholly inside it (T-3730)" \
+  python3 tools/test_k01_gable_lights.py
+
+# T-3634. ...and a K11 open front's picket fence: 2021 Prairie's street front open, as its
+# photograph shows it, and its low pickets on two rails along the south lot line, laid on the
+# line in their own painted slot; a run off the line, against the house, too short, out to the
+# walk or too tall is refused.
+step "an open front lays a picket fence along a side lot line, and nothing across the street (T-3634)" \
+  python3 tools/test_k11_side_pickets.py
+
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
 # with a front wall of its own drawn only past the host and its roof cut only along it; and a

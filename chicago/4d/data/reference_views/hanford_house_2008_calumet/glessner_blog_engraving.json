@@ -1,0 +1,22 @@
+{
+  "structure_id": "hanford_house_2008_calumet",
+  "library_image": "a20-glessner-hanford-engraving",
+  "photo": "../../sources/assets/hanford_2008_plate_t3791/glessner_blog_hanford_engraving.jpg",
+  "image_px": [
+    675,
+    565
+  ],
+  "principal_px": [
+    172.1,
+    510.1
+  ],
+  "focal_px": 977.5,
+  "eye": [
+    47.86,
+    -17.42,
+    0.78
+  ],
+  "yaw_deg": -60.96,
+  "solve": "The plate's camera (inland_architect_plate.json, T-3791), carried onto the Glessner House blog's 675 x 565 px copy of the same drawing (library image a20-glessner-hanford-engraving, 'Unearthing Hanford', 2015): the blog's picture is Lautrup's 1883 perspective cropped and reduced, not a second view. Registered by normalised cross-correlation of the copy against the upright plate over scales 0.44-0.58 (peak 0.664 at 0.496; no rotation): plate x = (x + 271) / 0.496, plate y = (y + 113) / 0.496. So the eye and heading are the plate's, the focal length 1970.8 x 0.496 = 977.5 px and the principal point (893.4 x 0.496 - 271, 1256.2 x 0.496 - 113) = (172.1, 510.1). It agrees with the plate's to the registration, so every difference it shows is the plate's and is read in the plate's record; this record repeats them at the copy's scale. Overcast, as the plate's.",
+  "sky": "overcast"
+}

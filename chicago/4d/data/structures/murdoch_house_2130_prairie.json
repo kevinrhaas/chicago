@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½ and 3B dwelling (D), stone front and brick rear divided on the diagonal, with a round bay on its Prairie front'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-3729 (piece 1 of T-1927, the S16 package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a rock-faced stone front, a K08 round tower of three stages under a slated cone, the front carried up as a steep street gable, K06 sash, a K07 door, the K11 railing and the one-storey brick rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (the outline, the '3B' tower's bow, '2½B', the stone/brick division and the '1B' range), and the two photographs of 2140 next door, which show this house past 2140's north side (forms only). What is not built, and why, is the liberty L-k01-2130-murdoch-3729; T-3730 solves the photographs' cameras and works the match down. T-3730, second pass: the front is roofed as the side-gabled block both pictures show (K01's gable roof, its ridge 4.0 m behind the front at about 13.9 m, the south gable in the flank's stone) in place of T-3729's street gable over a hip, and the print's stack stands on that ridge.",
+  "research_note": "T-3729 (piece 1 of T-1927, the S16 package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a rock-faced stone front, a K08 round tower of three stages under a slated cone, the front carried up as a steep street gable, K06 sash, a K07 door, the K11 railing and the one-storey brick rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (the outline, the '3B' tower's bow, '2½B', the stone/brick division and the '1B' range), and the two photographs of 2140 next door, which show this house past 2140's north side (forms only). What is not built, and why, is the liberty L-k01-2130-murdoch-3729; T-3730 solves the photographs' cameras and works the match down. T-3730, second pass: the front is roofed as the side-gabled block both pictures show (K01's gable roof, its ridge 4.0 m behind the front at about 13.9 m, the south gable in the flank's stone) in place of T-3729's street gable over a hip, and the print's stack stands on that ridge. T-3730, a later pass: the attic light the Chicagology print shows in the south gable is built (gable_roof.ends.south.lights, K01's new light in a gable parapet), read off the print on its solved camera.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -535,7 +535,15 @@
                 "style": "coped"
               },
               "south": {
-                "style": "coped"
+                "style": "coped",
+                "lights": [
+                  {
+                    "back_m": 2.5,
+                    "sill_m": 9.35,
+                    "clear_width_m": 0.75,
+                    "clear_height_m": 1.5
+                  }
+                ]
               }
             }
           },
@@ -543,7 +551,7 @@
           "sources": [
             "chicagology_2140_photo_a"
           ],
-          "note": "The ridge 4.0 m behind the front's plane, at about 13.9 m (the Chicagology print's rake and ridge on its solved camera, see roof_pitch_deg), so the rear slope falls about 16 degrees to the rear wall's head, the kit's plain gable; no picture sees it (L-k01-2130-murdoch-3730). Both side walls are carried up as K05 coped parapets: the south one, the print's stone gable over the front part, in the flank's rock-faced stone (stone_front.flanks); the north one, which neither picture sees, to match in the north wall's brick. The print shows a plain verge on the rake; the coping is the kit's."
+          "note": "The ridge 4.0 m behind the front's plane, at about 13.9 m (the Chicagology print's rake and ridge on its solved camera, see roof_pitch_deg), so the rear slope falls about 16 degrees to the rear wall's head, the kit's plain gable; no picture sees it (L-k01-2130-murdoch-3730). Both side walls are carried up as K05 coped parapets: the south one, the print's stone gable over the front part, in the flank's rock-faced stone (stone_front.flanks); the north one, which neither picture sees, to match in the north wall's brick. The print shows a plain verge on the rake; the coping is the kit's. T-3730: the south gable carries the print's one attic light (ends.south.lights): on the solved camera the print's light (x 1460-1493 px, y 787-867) cast onto the south wall's plane has its jambs at u 19.04 and 19.82 and its clear head and sill at about 10.87 and 9.39 m, so a 0.75 by 1.5 m light 2.5 m behind the front, its sill at 9.35 m; its sash, sill and lintel are the kits' (L-k01-2130-murdoch-3730)."
         }
       }
     }
