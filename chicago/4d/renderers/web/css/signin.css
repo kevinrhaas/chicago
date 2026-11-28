@@ -150,3 +150,15 @@
 .account-row .account-who { min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
 .account-row #s-account-how { color: var(--ink-dim); }
 .account-row .setting-button { flex: none; }
+
+/* T-3776: Settings › About, "Your saved data" and Delete my saved data (js/student-data.js). */
+.signin-note a { color: inherit; text-decoration: underline; }
+.saved-data { display: grid; gap: 8px; margin-top: 6px; }
+.saved-data h5 { margin: 6px 0 0; }
+.saved-data > p { margin: 0; }
+.saved-data .legend-note a { color: inherit; text-decoration: underline; }
+.saved-data .field.row > span:first-child { min-width: 0; }
+.saved-data .setting-button { flex: none; }
+.saved-data-choice { display: inline-flex; gap: 8px; flex: none; }
+.saved-data .setting-button.danger { color: var(--alert, #E0457B); border-color: currentColor; }
+#s-delete-data-status:empty { display: none; }

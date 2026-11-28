@@ -46,6 +46,7 @@ def inventory():
 
 def register(model):
     rows=inventory();pending=[r for r in rows if r['status']!='existing_skin']
+    references=json.loads(REFERENCES.read_text()) if REFERENCES.exists() else {'people':[]}
     texture_source='historical_photo_textures_3762';P.source_record(texture_source)
     states=json.loads(subprocess.check_output(['node',str(ROOT/'tools/historical_photo_state.mjs'),*[r['person'] for r in pending]],cwd=ROOT,text=True))
     previous=json.loads(RECIPE.read_text()) if RECIPE.exists() else {'faces':[]}
@@ -86,13 +87,14 @@ def register(model):
             'scene_age':state['age'],'reference_asset':state['asset'],'before_values':state['values'],
             'before_height':state['height'],'before_hair_rgb':state['hair_rgb'],
             'original_source':portrait['source'],'source_publication_date':source.get('date'),
+            **({'skin_calibration':references['archive_skin_calibration'][person]} if person in references.get('archive_skin_calibration',{}) else {}),
             'source_describes_date':source.get('describes_date'),'photo_age_basis':portrait.get('age_note'),
             'limits':['Monochrome photographs do not attest skin, iris or hair colour; existing chosen colours are retained.',
                       'Exposure and publication dates may differ; scene age and presence remain the population record’s.',
                       'Unseen profile depth and features remain reconstructed.',
                       *([portrait['stand_in']['card_note']] if portrait.get('stand_in') else [])]})
         entries.append(e)
-    refs=json.loads(REFERENCES.read_text())['people'] if REFERENCES.exists() else []
+    refs=references['people']
     if refs:
         snapshots=json.loads(subprocess.check_output(['node',str(ROOT/'tools/historical_photo_state.mjs'),*[r['person_id'] for r in refs]],cwd=ROOT,text=True))
         for ref in refs:
@@ -110,7 +112,7 @@ def register(model):
                         'reference_asset':state['asset'],'before_values':state['values'],'before_height':state['height'],
                         'before_hair_rgb':state['hair_rgb'],'original_source':ref['source'],
                         'reference':ref.get('reference',ref['photo']),'reference_crop_px':ref.get('reference_crop_px'),
-                        **{k:ref[k] for k in ['hair_style','spectacles','iris_rgb_linear','fit_controls'] if k in ref},
+                        **{k:ref[k] for k in ['hair_style','spectacles','iris_rgb_linear','fit_controls','texture_controls'] if k in ref},
                         'limits':[ref['stand_in']['card_note'],'Only one photographic view was supplied; hidden profile depth is reconstructed.',
                                   'Period hair/clothes, neutral expression and removed spectacles in the texture companion are edited, not historical evidence.']})
             entries.append(e)

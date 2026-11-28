@@ -63,7 +63,11 @@ with some usage numbers.
    `chicago.polecat.live` and `dev.chicago.polecat.live` (the dev preview).
 4. **Build → Firestore Database → Create database**: production mode, location
    `nam5 (us-central)`. Then the **Rules** tab: paste the rules below, put the owner's
-   Google address where it says `OWNER_EMAIL`, and **Publish**.
+   Google address where it says `OWNER_EMAIL`, and **Publish**. Since T-3776 a change to
+   the rules below is published by the workflow `chicago-4d-firestore-rules.yml` when it
+   reaches dev (`tools/publish_firestore_rules.mjs`, with the repository secret
+   `FIREBASE_SERVICE_ACCOUNT`); it carries the live owner address across, so the console
+   paste is only needed for a brand-new project.
 5. **Project settings (gear) → General → Your apps → Web (`</>`)**: register an app
    (nickname `4D Chicago`, no Hosting). Copy `apiKey`, `authDomain`, `projectId`,
    `appId` and `measurementId` from the config it shows into
@@ -124,8 +128,13 @@ service cloud.firestore {
         && d.shot is string && d.shot.size() <= 900000
         && d.at is timestamp;
     }
+    // T-3776: the visitor reads and deletes their own row too (Settings › About › Delete my
+    // saved data, js/student-data.js); every collection that holds a visitor's data lets them.
+    function isSelf(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
     match /visitors/{uid} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || isSelf(uid);
       allow create, update: if request.auth != null && request.auth.uid == uid && visitorFields();
     }
     // T-3645: the reader's ages (Settings › Display › Reading age), read and written by
@@ -137,7 +146,7 @@ service cloud.firestore {
         && request.resource.data.ages is list && request.resource.data.ages.size() <= 5;
     }
     match /visits/{id} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || isSelf(resource.data.uid);
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.keys().hasOnly(['uid', 'email', 'method', 'year', 'device', 'at'])
@@ -157,9 +166,9 @@ service cloud.firestore {
     }
     // T-3743: crash reports and Report a bug (renderers/web/js/bug-report.js). Anyone in the
     // app may file one under their own uid, or with none when sign-in let them in without
-    // one; only the owner reads or deletes them (visitors.html).
+    // one; only the owner reads them all (visitors.html), and a visitor their own (T-3776).
     match /bugs/{id} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || (resource.data.uid != '' && isSelf(resource.data.uid));
       allow create: if bugFields(request.resource.data);
     }
     // T-3644: the visitor's own person (renderers/web/js/visitor-person.js), theirs alone.

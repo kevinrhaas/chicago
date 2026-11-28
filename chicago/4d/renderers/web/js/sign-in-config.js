@@ -23,6 +23,12 @@ export const SIGN_IN = {
   // method): 'google' and 'microsoft' are the big buttons; 'password' (email and password)
   // and 'email' (the email alone, Firebase's Anonymous provider) wait behind the grey link.
   providers: ['google', 'microsoft', 'password', 'email'],
+  // T-3776: the one switch for Stage 1's cloud features (cloud save, classes, shared routes,
+  // follow the teacher; T-3777..T-3780). Every one checks cloudFeaturesOn() in
+  // js/student-data.js before it writes. The owner switched it on, 2026-11-27 ("Turn on the
+  // cloud features"); docs/STUDENT-DATA.md says what each feature keeps, and a school gets the
+  // agreement (docs/STUDENT-DATA-AGREEMENT.md) before its classes use them.
+  cloudFeatures: true,
   firebase: {
     apiKey: 'AIzaSyBxCJiD-E2s72C5WV8J101WtjCqDxGztDw',
     authDomain: 'chicago-61643.firebaseapp.com',

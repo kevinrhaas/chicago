@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Import boundary checks: rights, source changes, EXIF crops and immutable town data."""
 import json
+import copy
 import pathlib
 import tempfile
 import unittest
@@ -14,6 +15,101 @@ import photo_reference_fit as R
 
 
 class ImportBoundaries(unittest.TestCase):
+    def test_monochrome_scan_exposure_is_not_eye_white_albedo(self):
+        import historical_photo_shape as H
+        entry={'sex':'female','historical':{'monochrome':True,'stand_in':{'label':'STAND-IN'},
+                            'before_hair_rgb':[.08,.05,.03],'limits':[]}}
+        corrected=[]
+        for exposure in (.03,.85):
+            face={'eyes':{'sclera_linear':[exposure]*3,'iris_linear':[.05]*3,'lid_rest':.1},
+                  'hair_projection':{},'limits':[]}
+            before=copy.deepcopy(entry)
+            with patch.object(P,'native_iris_tone',return_value=np.array([.05,.04,.03])):
+                H.appearance(face,entry,{'base_body':P.BASE['female']})
+            corrected.append(face['eyes']['sclera_linear'])
+            self.assertTrue(all(.4<=v<=.55 for v in corrected[-1]))
+            self.assertGreater(corrected[-1][0],corrected[-1][2])
+            self.assertEqual(entry,before)
+        self.assertEqual(*corrected,'paper exposure must not darken or bleach the relit eye')
+
+    def test_archive_skin_restoration_preserves_features_and_source(self):
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks']);rng=np.random.default_rng(3762)
+        tone=np.array([.4,.27,.18]);noise=rng.uniform(.65,1.35,(313,313,1))
+        photo=Image.fromarray(P.L.srgb8(tone*noise));before=np.asarray(photo).copy()
+        after=np.asarray(P.restore_archive_skin(photo,points,.2))
+        x,y=np.int64(points[50]);region=np.s_[y-4:y+5,x-4:x+5]
+        self.assertLess(after[region][:,:,0].std(),before[region][:,:,0].std()*.5)
+        self.assertLess(abs(float(after[region][:,:,0].mean()-before[region][:,:,0].mean())),10)
+        for i in (70,300,33,263,0,17,98,327):
+            x,y=np.int64(points[i]);np.testing.assert_array_equal(after[y,x],before[y,x])
+        np.testing.assert_array_equal(np.asarray(photo),before)
+        self.assertIs(P.restore_archive_skin(photo,points,1),photo)
+        for value in (-.1,1.1,True,float('nan'),'smooth'):
+            with self.assertRaises(ValueError):P.restore_archive_skin(photo,points,value)
+
+    def test_lip_registration_tightens_painted_bounds_without_moving_other_features(self):
+        target=np.array([[.90,.5],[.94,.5],[.92,.46],[.92,.54],[.84,.5]])
+        members=[[0],[17],[61],[291],[4]];before=target.copy()
+        out=P.mouth_uv_registration(target,members,{'lip_height_scale':.7,'lip_width_scale':.95})
+        self.assertAlmostEqual(np.linalg.norm(out[1]-out[0]),.028)
+        self.assertAlmostEqual(np.linalg.norm(out[3]-out[2]),.076)
+        np.testing.assert_array_equal(out[4],before[4],'nose registration stays fixed')
+        np.testing.assert_array_equal(target,before,'the calibrated UV source stays immutable')
+        self.assertIs(P.mouth_uv_registration(target,members,None),target)
+        self.assertIs(P.mouth_uv_registration(target,members,{'lip_height_scale':1}),target)
+        for value in [True,.49,1.21,float('nan'),'small']:
+            with self.assertRaises(ValueError):P.mouth_uv_registration(target,members,{'lip_height_scale':value})
+
+    def test_fictional_child_pigment_softens_without_repainting_features(self):
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks'])
+        for tone in ([.5,.3,.2],[.13,.07,.04]):
+            rgb=np.broadcast_to(tone,(313,313,3)).copy()
+            x,y=np.int64(points[50]);rgb[y-1:y+2,x-1:x+2]=np.array(tone)*.3
+            features=[]
+            for i in [0,70,107,133,300,336,362]:
+                a,b=np.int64(points[i]);rgb[b-1:b+2,a-1:a+2]=np.array(tone)*.1;features.append((a,b))
+            photo=Image.fromarray(P.L.srgb8(rgb));before=np.asarray(photo).copy()
+            result,strength=P.soften_fictional_child_skin(photo,points,8);after=P.L.linear(np.asarray(result))
+            self.assertEqual(strength,.7)
+            self.assertGreater(after[y,x,0],tone[0]*.65,'dense pigment remains subtle rather than reading as dirt')
+            for a,b in features:
+                np.testing.assert_array_equal(np.asarray(result)[b-1:b+2,a-1:a+2],before[b-1:b+2,a-1:a+2])
+            np.testing.assert_array_equal(np.asarray(photo),before)
+
+    def test_unpictured_skin_cannot_carry_eyes_hair_or_background(self):
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks']);tone=np.array([.5,.3,.2])
+        rgb=np.broadcast_to(tone,(313,313,3)).copy()
+        distance,_,_,_,_,_=P.skin_support(rgb,points)
+        rgb[distance==0]=.95  # bright source background, not forehead skin
+        for i in [70,300,0]:
+            x,y=np.int64(points[i]);rgb[y-1:y+2,x-2:x+3]=.003  # brows/lips
+        before=rgb.copy();field=P.reference_skin_field(rgb,points)
+        np.testing.assert_allclose(field,np.broadcast_to(tone,field.shape),atol=1e-6)
+        np.testing.assert_array_equal(rgb,before,'continuation never edits the source')
+
+    def test_face_edge_hair_is_not_stretched_over_the_cheek(self):
+        # Use the real UV portrait's landmarks, but known flat skin and a dark
+        # edge curl. Check both relative contrasts, without choosing a skin hue.
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks']);size=(313,313)
+        for tone in ([.5,.3,.2],[.13,.07,.04]):
+            rgb=np.broadcast_to(tone,(*size,3)).copy()
+            distance,_,eye,margin,_,_=P.skin_support(rgb,points)
+            yy,xx=np.indices(size)
+            curl=(distance>0)&(distance<margin*.9)&(yy>points[33,1])&(yy<points[61,1])
+            rgb[curl]=np.array(tone)*.05
+            # Actual features safely inside the outline are retained.
+            x,y=np.int64(points[0]);rgb[y-1:y+2,x-2:x+3]=np.array(tone)*.3
+            photo=Image.fromarray(P.L.srgb8(rgb));before=np.asarray(photo).copy()
+            after=np.asarray(P.photo_skin_edges(photo,points))
+            self.assertTrue(curl.any())
+            self.assertGreater(P.L.linear(after[curl]).mean(),np.mean(tone)*.8,'edge hair becomes the same reference skin')
+            np.testing.assert_array_equal(after[y-1:y+2,x-2:x+3],before[y-1:y+2,x-2:x+3])
+            np.testing.assert_array_equal(np.asarray(photo),before,'the source photograph is immutable')
+
     def test_photo_forehead_does_not_paint_bangs_on_the_skin(self):
         # Same relative hair/skin contrast on light and dark skin. The cleanup
         # takes its replacement from the person's own skin, not a fixed colour.

@@ -2006,6 +2006,10 @@
     ],
     "original_source": "chm_ichi_061818_frances_glessner_conservatory_1892",
     "source_publication_date": "1892-03-04",
+    "skin_calibration": {
+     "skin_contrast": 0.2,
+     "basis": "Owner review rejected dark, mottled cheeks. Reduce scan/paper contrast on skin only; retain measured eye, brow, nostril and lip features and the original head and source."
+    },
     "source_describes_date": "1892-03-04",
     "photo_age_basis": "The photograph is dated 4 March 1892 by the museum's record; born in 1848, she was 44. It is fitted as her face's shape: the renderer's ageing pair takes her to 56 at the scene date, as it does for every face.",
     "limits": [
@@ -2084,7 +2088,7 @@
      0.1193332884303889
     ]
    },
-   "fit_signature": "6704f6810fd708373d589659e12c6d1fb6d5362a350cac24d1fb1f5990e1dee7"
+   "fit_signature": "a1f1f90ffaa05d102447fdb59267ce19bb4ee02431523106f4a945925c8e9d19"
   },
   {
    "id": "glessner_john_j",
@@ -4158,7 +4162,7 @@
      0.1278108228838507
     ]
    },
-   "fit_signature": "7984ab413f32e1586945bf59dde60685ed7b271012f3240681d34de5cfed6adc"
+   "fit_signature": "965128962edcd297d0a400d17f0fe3692f28baac24db57226704b6f33e5ed1c3"
   },
   {
    "id": "glessner_williamson_martha_l",
@@ -6232,7 +6236,7 @@
      0.1122823491530852
     ]
    },
-   "fit_signature": "f8513d4a7bc61b0e10cd6c68ae6c8fd5bf44edd0dc37ac268fc56553b25c3736"
+   "fit_signature": "25f40a99c1e76c281e162de857853cf744a97e4f0413b4334c4e19a8e936053c"
   },
   {
    "id": "pa1904_buckingham_e",
@@ -8306,7 +8310,7 @@
      0.12516054068738489
     ]
    },
-   "fit_signature": "0325ca3053e5139a3b87ed138c0a9f7cc99de171ea15e177ab8e3876c47a74c0"
+   "fit_signature": "a0478049a7dd56106ff5644b1d80826cafa20c6ea1149ba252706c9c29551e3c"
   },
   {
    "id": "pa1904_clark_john_m",
@@ -10380,7 +10384,7 @@
      0.1271001200031114
     ]
    },
-   "fit_signature": "33879a46bf87630c59fcf3aa6107a361b3d3a5f8ddbbb7c8debe4afd04801c84"
+   "fit_signature": "46f8f4c4f0506e3ffe625a7ccb1056d45fe85406d9f0a3380ae635547edeba23"
   },
   {
    "id": "pa1904_field_marshall",
@@ -12454,7 +12458,7 @@
      0.12691310061400599
     ]
    },
-   "fit_signature": "9516c053efee29130f7afcf8a3872faa908c40f58a2316b5e1063a85ea378d9e"
+   "fit_signature": "75b9e3d5eebec90b6e6cab934bc09133083dc104d77d5f5e44e55bb5e3afe3f4"
   },
   {
    "id": "pa1904_field_mrs_marshall_jr",
@@ -14528,7 +14532,7 @@
      0.1058603182447278
     ]
    },
-   "fit_signature": "dbf4cf91b6bfa98e667aa02b0a263f28104b7cf739486f5389aad34160488de9"
+   "fit_signature": "9e8ac0ad5d7067338d067da8cc54d169b2e58bd34cdd25d77f0687bcee5ecf97"
   },
   {
    "id": "pa1904_glessner_john_j_c1900_august_billings",
@@ -16606,7 +16610,7 @@
      0.13386374060085013
     ]
    },
-   "fit_signature": "19299de0dec21dafb32ebe84e1695efe55ca0c1b1a3192bf3b662cfbf405d6fb"
+   "fit_signature": "c3433016e4d5f41d465fc7fd84e77f429fccb1b1e283251ae97c8a5509f552a7"
   },
   {
    "id": "pa1904_glessner_john_j_c1900_charles_nelson",
@@ -18684,7 +18688,7 @@
      0.12892012159210345
     ]
    },
-   "fit_signature": "015807e655b1055cb785186b231e820b3d0f48080356794451598e880452650f"
+   "fit_signature": "5424b83eff5ee4c55e2f109c41dce381fca2d4c4c26624220b289f53319ba271"
   },
   {
    "id": "pa1904_glessner_john_j_c1900_christine_nelson",
@@ -20762,7 +20766,7 @@
      0.10572271017860828
     ]
    },
-   "fit_signature": "c71a3058c76b78509bc55db84e626171c4f055ad1f1bd48d0a28cb2220160bee"
+   "fit_signature": "5514e1a2a41b470df346f61c40febb2a9cef1cfaf54393588165c342193f82ec"
   },
   {
    "id": "pa1904_glessner_john_j_c1900_kate_ryan",
@@ -22840,7 +22844,7 @@
      0.11743971589865415
     ]
    },
-   "fit_signature": "26208b7575f86e0ed2da37b1e8fb91c96abcf08423757b40b173667239aa3d7c"
+   "fit_signature": "d46752b2c63280268a260c857062bc0a130934cbcb6b89412f4de9081151706f"
   },
   {
    "id": "pa1904_glessner_john_j_c1900_mary_reynolds",
@@ -24918,7 +24922,7 @@
      0.10643955665057954
     ]
    },
-   "fit_signature": "1bc146349eb21f8b1e3b9ef817f655fd5efcca69d3c805f7823aea9e30de128e"
+   "fit_signature": "282fe9fd3008a1061d0b68f626c2bfa4dbb824f4c294c9bc0b5bbe63effddc6a"
   },
   {
    "id": "pa1904_gorton_frank_s",
@@ -26992,7 +26996,7 @@
      0.12907246871438485
     ]
    },
-   "fit_signature": "3d944e0f41bb85931aecd1884e5d5eba606e0872012550e89043228989097aa6"
+   "fit_signature": "7dac4e581528a111f715461886461e44ad3e5c65ab8e6893e7ced968cdcebedf"
   },
   {
    "id": "pa1904_keith_elbridge_g",
@@ -29066,7 +29070,7 @@
      0.12802745096170395
     ]
    },
-   "fit_signature": "54ae4b86117e37521609da7fc4e317b4dfc8fa4082a3030c844416b9dd68f182"
+   "fit_signature": "b80765b948443206e15ca6b08ce1eb0029c18541efb8e94b51256b15aa343c4d"
   },
   {
    "id": "pa1904_kimball_william_w",
@@ -31140,7 +31144,7 @@
      0.1260008270312
     ]
    },
-   "fit_signature": "d86b951baf01bd1cb0bf5d55d6d73c1925dfd28cbdbc01d5d90d8958d45d31ad"
+   "fit_signature": "ba9791acd0b15d35b6c1bd08213f1d7dace4d30daef0cd9cf7fa655384a848b9"
   },
   {
    "id": "pa1904_lowden_frank_orren",
@@ -33214,7 +33218,7 @@
      0.13149032801086877
     ]
    },
-   "fit_signature": "38d782c541dce0de00dd7143dfcad54f00a64d228000198fa9d60c643b367938"
+   "fit_signature": "4221c41555346393e7071fa99c4d3d70d9fc0ed20da9bdd1a8bb99afe433fc11"
   },
   {
    "id": "pa1904_mckinlock_george_a",
@@ -35288,7 +35292,7 @@
      0.13392895359788842
     ]
    },
-   "fit_signature": "a50e2e595b871a57525010912832a13a2fb5dd663077ac9ab5ddbb9b800d81c3"
+   "fit_signature": "8f88a327ca1c8d69b51f63804615216ef9fab0b19196fa2b14a922c709dec882"
   },
   {
    "id": "pa1904_meeker_mrs_arthur",
@@ -37362,7 +37366,7 @@
      0.10746285199078154
     ]
    },
-   "fit_signature": "64affbe8e6330a3564b38dccad7f1abfea56219899cb1d21d77629dfb6385a96"
+   "fit_signature": "8b861639a05388ad8c957bb1f571c766f00f639213ca422e88eccd0a10050f69"
   },
   {
    "id": "pa1904_otis_f_r",
@@ -39436,7 +39440,7 @@
      0.12481010828945982
     ]
    },
-   "fit_signature": "ceef9746c0aaea59bd78d703d03ffc124d2f4e0b81ac9554209530d12a6ad424"
+   "fit_signature": "ad0e0d794f75e19911bceb4a32487c7b1616492765d6f8a652490f284b055aec"
   },
   {
    "id": "pa1904_pike_eugene_s",
@@ -41510,7 +41514,7 @@
      0.12688339277161462
     ]
    },
-   "fit_signature": "f58426705969134598ef4b3c8141bfced4519f7946f37293ac944abf2c5b0091"
+   "fit_signature": "97b1b4ab1a6f36d04fdeea266a5609201fc5d73106a52983f250c84dd67b70fd"
   },
   {
    "id": "pa1904_pullman_mrs_george_m",
@@ -43584,7 +43588,7 @@
      0.1217253342682572
     ]
    },
-   "fit_signature": "90884f5357145908d091d33b3d6c7133af38ba1b9ad670dee252151553c9c50b"
+   "fit_signature": "bb288df8e43ae82804e5c8c528c20adce48eee2a6efeed31dc226531d5cea2cf"
   },
   {
    "id": "pa1904_shipman_daniel_b",
@@ -45658,7 +45662,7 @@
      0.12576129551216014
     ]
    },
-   "fit_signature": "6f4955ca8c08149aef187a10d8695818bb77803e863a4e1f1fa57b3241d24b89"
+   "fit_signature": "18db04a2250ff1b67f471580eb8db53ef5dd76fafbb33a9fc109f354e5bddc14"
   },
   {
    "id": "pa1904_shortall_john_g",
@@ -47732,7 +47736,7 @@
      0.12731455475536188
     ]
    },
-   "fit_signature": "e39ff11fc2126ddf4f4b58251b43ca48045e9871554f144a37e57e3ac80d34b4"
+   "fit_signature": "74fbbbacc9b2add1f3d3fa14e5b6bfbfb5675b47feb83d41f335de3b7d86b1d7"
   },
   {
    "id": "pa1904_walker_henry_h",
@@ -49806,7 +49810,7 @@
      0.12906561992669546
     ]
    },
-   "fit_signature": "7417a7b35f7b10b67f714eafe6286ef0923c9e6275dcee9bb8a32976a57e6677"
+   "fit_signature": "227d9ab325d1c14fb8238108762051f79d4cce2c5414892c49ec2ad55e95a759"
   },
   {
    "id": "pa1904_young_lawrence_a",
@@ -51880,7 +51884,7 @@
      0.13314451741213176
     ]
    },
-   "fit_signature": "2e5b98fff5712a48ac5dad16c197c22e6e780a42c23edc058ae2f4b05888ccce"
+   "fit_signature": "280e8acd028d5fbcf8d91bcd667069b6d2300439eb2ed78c855265faaa63afc7"
   },
   {
    "id": "pa1904_stirling_william_r_c1900_dorothy_sterling",
@@ -51987,20 +51991,26 @@
     ],
     "fit_controls": {
      "values": {
-      "lip_upper": 0.08,
-      "lip_lower": 0.08,
+      "lip_upper": -0.45,
+      "lip_lower": -0.35,
       "nose_depth": 0.05,
       "chin_prominence": 0.1,
-      "prognathism": -0.1
+      "prognathism": -0.1,
+      "lip_lower_height": -0.8
      },
      "hold": [
       "lip_upper",
       "lip_lower",
       "nose_depth",
       "chin_prominence",
-      "prognathism"
+      "prognathism",
+      "lip_lower_height"
      ],
-     "basis": "Read by eye from the chosen reference: relatively fine lip volume. Single near-frontal source does not constrain depth, so nose/chin depth stay at a conservative young-female prior rather than extreme frontal-fit solutions."
+     "basis": "Owner review found the mapped lips too full. Upper/lower volume and lower-lip height use a finer prior; painted lip bounds are registered separately. Single frontal reference leaves nose/chin depth at a conservative young-female prior."
+    },
+    "texture_controls": {
+     "lip_height_scale": 0.6,
+     "lip_width_scale": 0.98
     },
     "limits": [
      "The owner chose this reference model for Dorothy Sterling. It is a reconstructed likeness, not a photograph of the historical person. Period styling and neutral expression are edited.",
@@ -53924,62 +53934,62 @@
    ],
    "fitted": {
     "values": {
-     "nose_length": -0.174,
-     "nose_width": 0.149,
-     "nose_hump": -0.45,
-     "nose_curve": -0.127,
-     "nose_tip": 0.132,
-     "nose_tip_width": 0.079,
-     "nostrils": -0.474,
-     "nose_height": -0.263,
-     "mouth_width": 0.435,
-     "mouth_height": 0.903,
-     "chin_width": -0.185,
-     "chin_height": -0.335,
-     "jaw": -0.056,
-     "cheekbones": -0.173,
-     "cheek_volume": 0.42,
+     "nose_length": -0.178,
+     "nose_width": 0.147,
+     "nose_hump": -0.451,
+     "nose_curve": -0.13,
+     "nose_tip": 0.138,
+     "nose_tip_width": 0.08,
+     "nostrils": -0.477,
+     "nose_height": -0.248,
+     "mouth_width": 0.447,
+     "mouth_height": 0.884,
+     "chin_width": -0.186,
+     "chin_height": -0.303,
+     "jaw": -0.039,
+     "cheekbones": -0.166,
+     "cheek_volume": 0.417,
      "cheek_inner": -1.0,
-     "brow_height": -0.012,
-     "brow_angle": 0.105,
-     "nose_septum": 0.132,
+     "brow_height": -0.007,
+     "brow_angle": 0.109,
+     "nose_septum": 0.13,
      "nose_volume": 0.081,
-     "nostril_angle": 0.377,
-     "lip_lower_height": -0.385,
-     "brow_ridge": -0.28,
+     "nostril_angle": 0.374,
+     "brow_ridge": -0.283,
      "forehead_slope": 0.0,
-     "temples": -0.36,
-     "ear_size": -0.143,
+     "temples": -0.363,
+     "ear_size": -0.134,
      "ear_flap": 0.0,
      "ear_lobe": 0.0,
-     "jowls": -0.324,
-     "head_shape": 0.427,
+     "jowls": -0.33,
+     "head_shape": 0.432,
      "forehead_height": 0.0,
-     "lip_upper": 0.08,
-     "lip_lower": 0.08,
+     "lip_upper": -0.45,
+     "lip_lower": -0.35,
      "nose_depth": 0.05,
      "chin_prominence": 0.1,
      "prognathism": -0.1,
+     "lip_lower_height": -0.8,
      "head_shape.option": 6
     },
-    "rms_px": 6.97,
+    "rms_px": 7.01,
     "camera": {
      "yaw_deg": 1.0,
-     "pitch_deg": 3.5,
+     "pitch_deg": 3.6,
      "roll_deg": 2.7,
-     "px_per_m": 3476.0,
+     "px_per_m": 3477.3,
      "shift_px": [
       418.9,
-      558.9
+      558.7
      ]
     },
     "projection_centre_m": [
-     4.8020216630023704e-05,
-     1.5135971309998393,
-     0.09651606490487331
+     4.754035085821062e-05,
+     1.5136928623197496,
+     0.09645152732098072
     ]
    },
-   "fit_signature": "cc8647f1f72ce45f5c1a2e4ec8fab22b2361ff27a46eba2f6822dea801e180f6"
+   "fit_signature": "66bf652b049a72bf400049e4bd663e7e30d722b337f5a54bd7327c7fac5666c3"
   },
   {
    "id": "pa1904_stirling_william_r_c1900_alice_m_sterling",
@@ -56090,7 +56100,7 @@
      0.09704068407541194
     ]
    },
-   "fit_signature": "f078d00c5c1babfa7c012ab7be35ff1a065f7da1d91e4d6430fed950b208722b"
+   "fit_signature": "20d1fb0351fd33bf3fd3bed9afac09a5d24ff3e9410e5fc573dfe5480c0fa636"
   }
  ]
 }

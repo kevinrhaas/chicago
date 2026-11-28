@@ -7,6 +7,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { HairBudget } from '../renderers/web/js/human-hair-dynamics.js';
 const THREE = await import(process.env.C4D_THREE_MODULE
   ? pathToFileURL(process.env.C4D_THREE_MODULE).href
   : new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href);
@@ -158,17 +159,19 @@ assert.equal(acquired.length, released.length, 'every parse is let go');
 const layerSource = slice('export function createHumanLayer(', '\n/**\n * THE SCENE PATH.');
 let updates = 0;
 class LayerActor {
-  constructor({ instance: inst, identity, person }) {
+  constructor({ instance: inst, identity, person, hairBudget = null }) {
     Object.assign(this, { instance: inst, identity, person, id: inst.id, personId: inst.person_id,
       root: new THREE.Group(), proxy: new THREE.Mesh(new THREE.BoxGeometry(1, 2, 1)), body: {}, inRange: true, e: 0, n: 0 });
     this.proxy.userData.actor = this;
     this.root.add(this.proxy);
+    this.hairBudget = hairBudget;
+    hairBudget?.register(this);
   }
   update() { updates++; }
-  dispose() { this.root.removeFromParent(); }
+  dispose() { this.hairBudget?.unregister(this); this.root.removeFromParent(); }
 }
-const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'DRAW_M',
-  `${layerSource}\nreturn createHumanLayer;`)(THREE, LayerActor, () => ({}), () => null, { full: [0] }, 140);
+const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'DRAW_M', 'HairBudget',
+  `${layerSource}\nreturn createHumanLayer;`)(THREE, LayerActor, () => ({}), () => null, { full: [0] }, 140, HairBudget);
 const layer = createLayer({ assets: {} });
 const standing = layer.add({ id: 'hi_a', person_id: 'p_a', interaction: { selectable: true } }, { person: { id: 'p_a' } });
 standing.root.position.set(0, 0, -5);

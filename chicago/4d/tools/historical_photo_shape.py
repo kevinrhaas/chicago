@@ -74,19 +74,11 @@ def fit(entry,portrait):
 
 
 def texture_photo(im, entry, points):
-    """Reduce baked archive lighting; retain source details, never invent pixels."""
-    if not entry['historical'].get('monochrome'):return im
-    from PIL import Image
-    from scipy.ndimage import gaussian_filter
+    """Remove skin-only studio illumination, retaining source detail and chroma."""
     import photo_face_library as P
-    rgb=P.L.linear(np.asarray(im,dtype=float))
-    luminance=np.maximum(.004,rgb.mean(axis=2))
-    scale=max(3,np.linalg.norm(np.array(points[468])-points[473])*.28)
-    log=np.log(luminance);broad=gaussian_filter(log,scale)
-    # Low-frequency side lighting belongs to the photograph's studio, not the
-    # moving 3D face's own sun. Keep a quarter of that contrast and the fine detail.
-    gain=np.exp(.75*(np.median(broad)-broad))
-    return Image.fromarray(P.L.srgb8(rgb*np.clip(gain,.35,3)[...,None]))
+    im=P.reference_albedo(im, points)
+    calibration=entry.get('historical',{}).get('skin_calibration')
+    return P.restore_archive_skin(im,points,calibration['skin_contrast']) if calibration else im
 
 
 def appearance(face, entry, portrait):
@@ -98,6 +90,9 @@ def appearance(face, entry, portrait):
                 grade='reconstructed' if h.get('stand_in') else 'inferred')
     if existing:face.update(shape_from=entry['shape_from'],reference_source=entry['reference_source'])
     if h.get('monochrome'):
+        # Scan exposure is illumination, not the physical albedo of an eye white.
+        # Monochrome sources cannot supply its colour; use a warm neutral prior.
+        face['eyes']['sclera_linear']=[.52,.50,.48]
         native=P.native_iris_tone(entry['sex'],portrait['base_body'])
         weight=np.array([.2126,.7152,.0722])
         gain=float(np.clip(np.dot(face['eyes']['iris_linear'],weight)/max(.002,np.dot(native,weight)),.4,3))
@@ -116,3 +111,5 @@ def appearance(face, entry, portrait):
             iris=np.array(h['iris_rgb_linear']);face['eyes']['iris_linear']=iris.tolist()
             face['eyes']['iris_gain']=np.clip(iris/np.maximum(native,.002),.1,64).tolist()
     face['limits'].extend(h['limits'])
+    if h.get('skin_calibration'):
+        face['limits'].append('Skin-only scan contrast is reduced for display from this same portrait; source and fitted head are retained. This does not attest skin colour.')

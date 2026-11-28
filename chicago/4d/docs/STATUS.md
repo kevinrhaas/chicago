@@ -1,3 +1,40 @@
+## T-3776 — Student data policy and Delete my saved data (27 November 2026)
+
+Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
+starts with the policy. `docs/STUDENT-DATA.md` lists every record kept on a signed-in account,
+field by field, with why and who reads it; `renderers/web/privacy.html` (*What we keep*, linked
+from the sign-in panel and Settings › About) says the same for a visitor; and
+`docs/STUDENT-DATA-AGREEMENT.md` is a draft school agreement on Illinois SOPPA's points, for the
+owner, not legal advice. Settings › About gains *Your saved data* with **Delete my saved data**
+(`js/student-data.js`): the visitor's `visitors`, `readers` and `people` documents and every
+`visits` and `bugs` row with their uid, behind an inline confirm, then a sign-out.
+`cloudFeatures` in `js/sign-in-config.js` is the one switch T-3777..T-3780 check before
+writing student work; the owner switched it on on 27 November 2026.
+
+The rules are now published from the repo (the owner, 26 November 2026: "you can push directly
+to firestore"): `tools/publish_firestore_rules.mjs`, run by the workflow
+`chicago-4d-firestore-rules.yml` with the repository secret `FIREBASE_SERVICE_ACCOUNT`, publishes
+the one rules block of docs/SIGN-IN.md, carries the live owner address across (never
+committed), and refuses to drop a collection the live rules hold. Until the new rules are live,
+the visitor's own read and delete of `visitors`, `visits` and `bugs` (`isSelf`) are refused and
+the delete reports "could not be deleted just now". The Firebase sign-in account itself is
+removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
+live delete was run.
+
+## 2026-11-27 — Photo forehead, skin and expression correction (T-3762)
+
+The owner's native-app review rejected side-face blotches, a visible face/forehead transition, exaggerated child skin detail and Sarah Grey's eyes/mouth. Earlier visual-ready language below is superseded. The photo renderer now accepts each atlas's bounded face mask, extending coverage over the upper forehead; the offline writer keeps photographic features inside the measured landmark hull and fills unpictured forehead/face edges from a feature-free field of that same reference’s skin. Feature-excluded lighting estimates reduce studio shading before the town lights the face. Original source photographs, existing curated historical heads and child head/eye geometry remain protected. The owner-requested Dorothy stand-in lip refinement is the only intentional head refit. Existing selection tones are pinned separately from relit albedo so improved display does not reshuffle NPC face identities.
+
+Fictional child albedos also soften dense skin pigment contrast toward their own skin field, protecting all measured eye, brow and lip landmarks. Real person photographs retain their source pigment. Added pores, lines and grain now scale with age and are reduced over photographic skin, including the previously unscaled grain term. Photographic lips retain their pictured parting without a second stock shadow. A person noticing the visitor gives a small resting smile; greetings stay moderate. The Grey full-skin maps remain unchanged, with bounded warm-neutral photographic eye whites and softer corner shading. These changes add no texture or geometry: the same three crowd sheets and one globally resident-or-loading nearby page retain their existing budget. Focused guards protect skin features, original sources, fitted heads and existing assignments. Delivery requires ordinary-material native views and complete combined-tree project and published desktop/mobile gates; release evidence binds those results to the exact source tree. Diagnostic material-injection images are excluded from release evidence. Physical-GPU timing remains unmeasured.
+
+The final owner review also rejected dark Frances Glessner skin and oversized Dorothy lips. The r185 scene-environment path had ignored per-material sky intensity; a shader uniform now restores the intended skin/eye fill without taking ownership of the shared environment or adding a pass. Frances alone receives a recorded skin-only scan-contrast calibration. Monochrome scans use a warm neutral sclera prior instead of reusing scan exposure as eye-white albedo. Dorothy alone gets finer lip volume/height and a narrower painted lip-height registration; raw photographs and all other fitted heads stay unchanged.
+
+## 2026-11-27 — Scalable hair prototype (T-3792)
+
+The existing hair-card renderer now has a separate quality/motion controller. A critically damped spring responds to a small reconstructed breeze and body movement, with root-pinned outward tip displacement, hat clipping and stationary facial hair. Period updos are restrained. Near photographic bun styles gain fine overlapping cards; the existing cap remains the crowd silhouette. Full admits at most 16 near heads and 220,000 optional hair-card triangles, Balanced 12 and 72,000, and Light adds no such layers or motion. The triangle bound covers existing and new near scalp/facial cards. Caps, full likeness skins and the existing Light tails remain in the body LOD budget; parked allocations are separate from rendered triangles. Per-body motion uniforms and materials are released with the body; original Grey head fits and full photo skins stay intact.
+
+Native tier comparisons exposed cap/skull intersections on children (up to 1.15 mm on the reviewed Light head). A sliced build now gives the existing child cap 2.5 mm of clearance while preserving its indices, UVs and vertex count, and the child's head/eye geometry and proportions. Strand edges use the renderer's existing MSAA with a deterministic cutoff when MSAA is off. The analytical spring, subdivision, motion limits, teleport recovery, independent heads, complete near-card budgets, child-cap clearance and lifecycle tests pass locally. Native visual comparisons, the complete project gate, published desktop/mobile checks and phone upload-release measurements qualify the combined delivery with T-3762. No physical-GPU frame-rate result is claimed. See docs/HAIR-QUALITY.md.
+
 ## 2026-11-26 — Natural photo faces, historical NPC context and diverse visitor choices (T-3762)
 
 The photo catalogs now retain the original 256 adult and sixteen child references and add 64 adult and 48 child companions, including the owner-approved sixteen period faces: 320 adult and 64 child choices in total. Default NPCs use their existing community/card facts and scene context; unknown town appearances retain the documented European-majority reconstruction, while the 1812 camps retain their Indigenous context. A reference pool is an artistic reconstruction, never a new biographical ancestry claim. The Settings creator independently offers every compatible adult photo face across all four new reference pools and the original choices; complexion and NPC defaults do not restrict those choices.

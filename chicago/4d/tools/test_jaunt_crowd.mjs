@@ -11,6 +11,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { HairBudget } from '../renderers/web/js/human-hair-dynamics.js';
 import { createJaunts, stopPeople, localsStop } from '../renderers/web/js/jaunts.js';
 
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
@@ -116,17 +117,19 @@ const start = source.indexOf('export function createHumanLayer('), stop = source
 assert.ok(start >= 0 && stop > start, 'humans.js: createHumanLayer');
 const updates = new Map();
 class LayerActor {
-  constructor({ instance: inst, identity, person }) {
+  constructor({ instance: inst, identity, person, hairBudget = null }) {
     Object.assign(this, { instance: inst, identity, person, id: inst.id, personId: inst.person_id, recheck: 1,
       root: new THREE.Group(), proxy: new THREE.Mesh(new THREE.BoxGeometry(1, 2, 1)), body: {}, inRange: true, e: 0, n: 0 });
     this.proxy.userData.actor = this;
     this.root.add(this.proxy);
+    this.hairBudget = hairBudget;
+    hairBudget?.register(this);
   }
   update() { updates.set(this.id, (updates.get(this.id) ?? 0) + 1); this.root.visible = true; }
-  dispose() { this.root.removeFromParent(); }
+  dispose() { this.hairBudget?.unregister(this); this.root.removeFromParent(); }
 }
-const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'DRAW_M',
-  `${source.slice(start, stop).replace(/^export /gm, '')}\nreturn createHumanLayer;`)(THREE, LayerActor, () => ({}), () => null, { full: [0] }, 140);
+const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'DRAW_M', 'HairBudget',
+  `${source.slice(start, stop).replace(/^export /gm, '')}\nreturn createHumanLayer;`)(THREE, LayerActor, () => ({}), () => null, { full: [0] }, 140, HairBudget);
 const layer = createLayer({ assets: {} });
 const soldier = layer.add({ id: 'hi_soldier', person_id: 'p_soldier', interaction: { selectable: true, radius_m: 3 } }, { person: { id: 'p_soldier' } });
 const peck = layer.add({ id: 'hi_peck', person_id: 'p_peck', interaction: { selectable: true, radius_m: 3 } }, { person: { id: 'p_peck' } });

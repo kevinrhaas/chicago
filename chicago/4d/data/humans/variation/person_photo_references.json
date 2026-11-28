@@ -37,20 +37,26 @@
    ],
    "fit_controls": {
     "values": {
-     "lip_upper": 0.08,
-     "lip_lower": 0.08,
+     "lip_upper": -0.45,
+     "lip_lower": -0.35,
      "nose_depth": 0.05,
      "chin_prominence": 0.1,
-     "prognathism": -0.1
+     "prognathism": -0.1,
+     "lip_lower_height": -0.8
     },
     "hold": [
      "lip_upper",
      "lip_lower",
      "nose_depth",
      "chin_prominence",
-     "prognathism"
+     "prognathism",
+     "lip_lower_height"
     ],
-    "basis": "Read by eye from the chosen reference: relatively fine lip volume. Single near-frontal source does not constrain depth, so nose/chin depth stay at a conservative young-female prior rather than extreme frontal-fit solutions."
+    "basis": "Owner review found the mapped lips too full. Upper/lower volume and lower-lip height use a finer prior; painted lip bounds are registered separately. Single frontal reference leaves nose/chin depth at a conservative young-female prior."
+   },
+   "texture_controls": {
+    "lip_height_scale": 0.6,
+    "lip_width_scale": 0.98
    }
   },
   {
@@ -116,5 +122,11 @@
     "basis": "Read by eye from the chosen reference: relatively fine lip volume. Single near-frontal source does not constrain depth, so nose/chin depth stay at a conservative young-female prior rather than extreme frontal-fit solutions."
    }
   }
- ]
+ ],
+ "archive_skin_calibration": {
+  "glessner_frances_m": {
+   "skin_contrast": 0.2,
+   "basis": "Owner review rejected dark, mottled cheeks. Reduce scan/paper contrast on skin only; retain measured eye, brow, nostril and lip features and the original head and source."
+  }
+ }
 }

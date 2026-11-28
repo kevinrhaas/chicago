@@ -888,6 +888,8 @@ step "A mouth that opens: the teeth a strip of their own behind the lips, the sm
   node tools/test_human_mouth.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
+step "Hair secondary motion is stable at low frame rates, bounded across a crowd and disabled on Light without hiding people (T-3792)" \
+  node tools/test_human_hair_dynamics.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
   python3 tools/human_wardrobe.py --check
 step "The shared body-and-face kit reproduces from its pinned MakeHuman targets, and each drawn person's age from their record (T-3412)" \
@@ -1875,6 +1877,15 @@ step "a K01 hip a source reads may stand below the ordinary pitch band, to the f
 # stepped ends, out of its pitch range, over the ridge or with too long a head refused.
 step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
   python3 tools/test_k01_rear_fall.py
+
+# T-3713. ...and a K01 mansard may stop short of a side wall, the strip beyond it roofed flat at the
+# wall head under a stone balustrade (2115 Prairie's front south of its pavilion: no mansard over it
+# in the Armour photograph, the roof line dropping from the crown to a railing in the Tribune's 1928
+# halftone): the mansard read on the narrower plan, nothing over the strip but its deck and railing,
+# the plain mansard unchanged, and a south short end, a strip out of range, a short end beside
+# walled ends and a balustrade out of its bounds refused.
+step "a K01 mansard stops short of a side wall, the strip beyond it railed and flat (T-3713)" \
+  python3 tools/test_k01_mansard_short.py
 
 # T-3144. A K07 swept stoop's cheek drawn in to its newel (a negative flare) and a cheek pierced
 # by a row of openings under its top, as Levy's print shows 1812 Prairie's: built so, each

@@ -171,7 +171,8 @@ try {
     if(figures.has(key))return figures.get(key);
     const face=library.faces[index],own=assets.get(face.base_body),fig=cloneSkinned(own.scene);
     const rec={sex:face.sex,age:{years:face.age},scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
-    const v=personVariation({kit,key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
+    const v=personVariation({kit:{...kit,photoFaces:null,photoChildren:null,photoPortraits:null},
+      key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
     v.height=1;
     // Preserve the same body/build in the before/after pair; the photo changes
     // the face only. No resident or ordinary library selection is changed.
@@ -180,7 +181,8 @@ try {
     // then keep their different face geometries in separate cache entries.
     v.key+=after?':after':':before';
     v.lib=after?{url:textureURL,index:face.page_index??face.index,id:face.id,cols:page.cols,size_px:page.size_px,
-      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0}:null;
+      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0,
+      ...(library.face_mask?{mask:library.face_mask}:{})}:null;
     v.even=after?face.body_gain:null;
     applyVariation(fig,kit,v,{scope:'full'});
     if(after&&!photoHairMode)fig.traverse(o=>{

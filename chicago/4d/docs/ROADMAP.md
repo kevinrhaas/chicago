@@ -1,3 +1,22 @@
+## T-3776..T-3780 — Stage 1: a classroom database on Firebase (27 November 2026)
+
+The owner's server plan ("Server, cloud GPU and engine plan", 23 November 2026; Google Cloud
+chosen) runs in three stages: a database on the existing Firebase, on-demand cloud GPU streaming,
+then a higher-fidelity engine. Stage 1 is queue band 3B: T-3776 the student data policy and
+Delete my saved data (this PR), then T-3777 cloud save, T-3778 class codes and a teacher view,
+T-3779 shared routes and hand-ins, T-3780 follow the teacher and classmates in town. Each writes
+only while `cloudFeatures` is on. Stages 2 and 3 have no tickets until the owner files them.
+
+## 2026-11-27 — Photo forehead, skin and expression correction (T-3762)
+
+The owner's native-app review rejected side-face blotches, a visible face/forehead transition, exaggerated child skin detail and Sarah Grey's eyes/mouth. Earlier visual-ready language below is superseded. The photo renderer now accepts each atlas's bounded face mask, extending coverage over the upper forehead; the offline writer keeps photographic features inside the measured landmark hull and fills unpictured forehead/face edges from a feature-free field of that same reference’s skin. Feature-excluded lighting estimates reduce studio shading before the town lights the face. Original source photographs, all fitted head values and child head/eye geometry remain protected. Existing selection tones are pinned separately from relit albedo so improved display does not reshuffle NPC face identities.
+
+Fictional child albedos also soften dense skin pigment contrast toward their own skin field, protecting all measured eye, brow and lip landmarks. Real person photographs retain their source pigment. Added pores, lines and grain now scale with age and are reduced over photographic skin, including the previously unscaled grain term. Photographic lips retain their pictured parting without a second stock shadow. A person noticing the visitor gives a small resting smile; greetings stay moderate. The Grey full-skin maps remain unchanged, with bounded warm-neutral photographic eye whites and softer corner shading. These changes add no texture or geometry: the same three crowd sheets and one globally resident-or-loading nearby page retain their existing budget. Focused guards protect skin features, original sources, fitted heads and existing assignments. Delivery requires ordinary-material native views and complete combined-tree project and published desktop/mobile gates; release evidence binds those results to the exact source tree. Diagnostic material-injection images are excluded from release evidence. Physical-GPU timing remains unmeasured.
+
+## 2026-11-27 — Dedicated hair quality and motion (T-3792)
+
+The dedicated strand-card module now has shared near-card and motion budgets, preserving period grooming, hats, original photographic mappings and the Light fallback. Focused guards cover mechanics, child-cap clearance and lifecycle. Native tier comparisons and the complete project and published browser gates qualify its combined delivery with T-3762; the operational ticket is T-3792 and docs/HAIR-QUALITY.md records the design.
+
 ## 2026-11-26 — Natural photo faces, historical NPC context and diverse visitor choices (T-3762)
 
 The photo catalogs now retain the original 256 adult and sixteen child references and add 64 adult and 48 child companions, including the owner-approved sixteen period faces: 320 adult and 64 child choices in total. Default NPCs use their existing community/card facts and scene context; unknown town appearances retain the documented European-majority reconstruction, while the 1812 camps retain their Indigenous context. A reference pool is an artistic reconstruction, never a new biographical ancestry claim. The Settings creator independently offers every compatible adult photo face across all four new reference pools and the original choices; complexion and NPC defaults do not restrict those choices.

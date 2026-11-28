@@ -9,6 +9,18 @@
   2048,
   2048
  ],
+ "face_mask": {
+  "centre": [
+   0.859375,
+   0.515625
+  ],
+  "half": [
+   0.125,
+   0.125
+  ],
+  "round": 0.07,
+  "feather": 0.035
+ },
  "textures": {
   "light": {
    "file": "faces_light.jpg",
@@ -16,8 +28,8 @@
     512,
     512
    ],
-   "bytes": 83529,
-   "sha256": "a800824b27ad2c5d5764ba2f1ea4437b7e297aca13c9e40f76b11f53a82b725b",
+   "bytes": 58526,
+   "sha256": "ef71a600bac20eee7cebab0a90846e2ad3abf5c24329713f2c45161bc9680e0a",
    "gpu_bytes_rgba8_mipmaps": 1398102
   }
  },
@@ -37,8 +49,8 @@
       1024,
       1024
      ],
-     "bytes": 207425,
-     "sha256": "60e8e1a958e8801db1db9bb0becc2e79da1b1e01557db9092bb8aa09d586d7f7",
+     "bytes": 112798,
+     "sha256": "1b5cbd491a96a4cf2181ff8fa5a65f827076e649e6fb17161dff28ddb8872e01",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -47,8 +59,8 @@
       512,
       512
      ],
-     "bytes": 66590,
-     "sha256": "872f0261523709658ae9e54c7cb2fcf3f90a142a988f5f0fc002b4150efde124",
+     "bytes": 41679,
+     "sha256": "ee5582a143f989723ce525ee173800cd238399bc79875226d0f0c07e45a58943",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -90,8 +102,8 @@
       1024,
       1024
      ],
-     "bytes": 216387,
-     "sha256": "6b1f2a22e0f846a3caac02e1a93a63b41f1759894851a93276ecae4133b63898",
+     "bytes": 116324,
+     "sha256": "e93b86ec2cc5b4f35e1712e866aaa727f33883fac06a10431dc455b49c3d4769",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -100,8 +112,8 @@
       512,
       512
      ],
-     "bytes": 67817,
-     "sha256": "e2ba1d01cdded728e8617f4e51d62a40997acb3e5f18ae1ad626d6a8a0a7325e",
+     "bytes": 41143,
+     "sha256": "6d091af16a29ecfe6c1b71f3e2eabf3bd1bfb1009e7a2e17a1bd1ec586021381",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -143,8 +155,8 @@
       1024,
       1024
      ],
-     "bytes": 211434,
-     "sha256": "3f756dd4e892f49289f4b3e4ec5dc183abb9590fac041d3c6c81dff15364b327",
+     "bytes": 123199,
+     "sha256": "3f9777ec0bff8096cf952010fc0ed404dff5ccbd740704c806a144031053a6c8",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -153,8 +165,8 @@
       512,
       512
      ],
-     "bytes": 66977,
-     "sha256": "277e2be16c3a7f938dbc17478f532f28367e50c138a1249e5b8db69905a996a5",
+     "bytes": 43987,
+     "sha256": "501df72a91a182a4eed9a9398f270dc3d0f93c02027505128f27e2aee91c8158",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -196,8 +208,8 @@
       1024,
       1024
      ],
-     "bytes": 196780,
-     "sha256": "5d55ff4596f57898e8d454330b443bd84fbb89437a5bc89fd7a7e4262dc038b6",
+     "bytes": 96680,
+     "sha256": "e843c14a46cbf2e8b8c35623194bd9e0c1a8d2d5f5f2c480fa7527eea147429e",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -206,8 +218,8 @@
       512,
       512
      ],
-     "bytes": 61421,
-     "sha256": "dc608e7e45ebdcf23aca9a4dc2f9f925b0c7a6156fd5b54b6a9bab8a376d1f44",
+     "bytes": 35082,
+     "sha256": "0f2fec655af25887ea87ef720486365f0bc3936e1c7e92fa4c64a9f9f2d8e873",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -279,14 +291,14 @@
     ]
    },
    "tone_rgb": [
-    0.3419144249086609,
-    0.13843161503245183,
-    0.08650046203654976
+    0.33716361504833037,
+    0.13563332965520566,
+    0.08437621154414882
    ],
    "body_gain": [
-    0.48476771251207573,
-    0.4737074199651897,
-    0.6687142507864795
+    0.4988776039952674,
+    0.49882869895920995,
+    0.7292437406795222
    ],
    "hair_rgb": [
     0.04518620438567554,
@@ -379,8 +391,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.13843161503245183,
+    0.08650046203654976
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -411,14 +432,14 @@
     ]
    },
    "tone_rgb": [
-    0.7454042095403874,
-    0.38132601143253014,
-    0.30946892281750854
+    0.7379104087727308,
+    0.386429433787049,
+    0.31398871337571754
    ],
    "body_gain": [
-    1.0568372295269384,
-    1.304882277064921,
-    2.3924297511401305
+    1.091834825175129,
+    1.4212000264651732,
+    2.7137305608163103
    ],
    "hair_rgb": [
     0.09758734714186246,
@@ -511,8 +532,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.7454042095403874,
+    0.38132601143253014,
+    0.30946892281750854
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -545,12 +575,12 @@
    "tone_rgb": [
     0.6795424696330938,
     0.3564001441459435,
-    0.25415209433082675
+    0.25818285292159576
    ],
    "body_gain": [
-    0.9634581771355303,
-    1.219586961540677,
-    1.9647886652263302
+    1.0054718360253367,
+    1.3107590933964255,
+    2.2314136413358776
    ],
    "hair_rgb": [
     0.020288563056652397,
@@ -643,8 +673,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6795424696330938,
+    0.3564001441459435,
+    0.25415209433082675
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -675,14 +714,14 @@
     ]
    },
    "tone_rgb": [
-    0.6307571363461467,
-    0.31398871337571754,
-    0.21586050011389926
+    0.6239603916750761,
+    0.30946892281750854,
+    0.20863687014525575
    ],
    "body_gain": [
-    0.8942901260128837,
-    1.074456750912951,
-    1.6687655673685065
+    0.9232308923434412,
+    1.138156679702518,
+    1.8031993715288452
    ],
    "hair_rgb": [
     0.017641954488384078,
@@ -775,8 +814,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6307571363461467,
+    0.31398871337571754,
+    0.21586050011389926
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.48999999999999994
+   },
    "population": "child",
    "texture_only": true
   },
@@ -807,14 +855,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
-    0.3277780980565422,
-    0.20685780326778636
+    0.665387298282272,
+    0.33245153634617935,
+    0.21223075741405523
    ],
    "body_gain": [
-    0.9334465904249996,
-    1.1216434707856453,
-    1.599167885058296
+    0.984527411263999,
+    1.222681532364713,
+    1.834260493467326
    ],
    "hair_rgb": [
     0.027320891639074894,
@@ -907,8 +955,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3277780980565422,
+    0.20685780326778636
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -939,14 +996,14 @@
     ]
    },
    "tone_rgb": [
-    0.5520114015120001,
+    0.5457244613701866,
     0.25015828472995344,
     0.14702726649759498
    ],
    "body_gain": [
-    0.7826440913191752,
-    0.856031590865741,
-    1.1366324068833256
+    0.8074706153893302,
+    0.9200255720546704,
+    1.270722065383207
    ],
    "hair_rgb": [
     0.020288563056652397,
@@ -1039,8 +1096,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5520114015120001,
+    0.25015828472995344,
+    0.14702726649759498
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1071,14 +1137,14 @@
     ]
    },
    "tone_rgb": [
-    0.6514056374198242,
-    0.31854677812509186,
+    0.6444796819705821,
+    0.32546065358474646,
     0.2704977910130658
    ],
    "body_gain": [
-    0.9235656578508976,
-    1.090054265194311,
-    2.0911533117622985
+    0.9535918622744287,
+    1.1969706472797057,
+    2.3378487532674126
    ],
    "hair_rgb": [
     0.07421356838014963,
@@ -1171,8 +1237,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6514056374198242,
+    0.31854677812509186,
+    0.2704977910130658
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1203,14 +1278,14 @@
     ]
    },
    "tone_rgb": [
-    0.3662525955988395,
+    0.3564001441459435,
     0.15292615199615017,
     0.09084171118340768
    ],
    "body_gain": [
-    0.5192744734811636,
-    0.5233071425939694,
-    0.7022754029742202
+    0.527340561197891,
+    0.562427786967996,
+    0.7851235325783114
    ],
    "hair_rgb": [
     0.017641954488384078,
@@ -1303,8 +1378,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.15292615199615017,
+    0.09084171118340768
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1340,9 +1424,9 @@
     0.1119324278369056
    ],
    "body_gain": [
-    0.6155448549544416,
-    0.6312660129870675,
-    0.8653226567511358
+    0.6423870077132877,
+    0.6784572916634181,
+    0.9674056334754484
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -1435,8 +1519,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.184474994500441,
+    0.1119324278369056
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1467,14 +1560,14 @@
     ]
    },
    "tone_rgb": [
-    0.7156935005064807,
-    0.386429433787049,
-    0.3162677457504047
+    0.7011018919329731,
+    0.3915724777497232,
+    0.31854677812509186
    ],
    "body_gain": [
-    1.0147132610534633,
-    1.3223459831409146,
-    2.4449898147139013
+    1.0373718171040904,
+    1.440114978528302,
+    2.753124841825881
    ],
    "hair_rgb": [
     0.2788942634768104,
@@ -1567,8 +1660,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.7156935005064807,
+    0.386429433787049,
+    0.3162677457504047
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1599,14 +1701,14 @@
     ]
    },
    "tone_rgb": [
-    0.5972017883637634,
+    0.5906188409193369,
     0.26635560480286247,
     0.1651321945016676
    ],
    "body_gain": [
-    0.7786708483262198,
-    0.7926004057724305,
-    1.0161500532381589
+    0.8438810466203377,
+    0.8880133068885437,
+    1.1332600684403784
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -1699,8 +1801,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5972017883637634,
+    0.26635560480286247,
+    0.1651321945016676
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1731,14 +1842,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
+    0.6514056374198242,
     0.3467040563550296,
-    0.2704977910130658
+    0.26635560480286247
    ],
    "body_gain": [
-    0.8584322543510903,
-    1.0316951128298197,
-    1.6645230542004057
+    0.930733720286626,
+    1.155890133505436,
+    1.8279304761817479
    ],
    "hair_rgb": [
     0.052860647023180246,
@@ -1831,8 +1942,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3467040563550296,
+    0.2704977910130658
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.48999999999999994
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1868,9 +1988,9 @@
     0.18782077230067787
    ],
    "body_gain": [
-    0.8561089456443739,
-    1.0133732542233187,
-    1.4519971809874912
+    0.8934414112027154,
+    1.0891295576823368,
+    1.6232907363729736
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -1963,8 +2083,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6038273388553378,
+    0.2961382707983211,
+    0.18782077230067787
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -1995,14 +2124,14 @@
     ]
    },
    "tone_rgb": [
-    0.6938717612919899,
+    0.6866853124353135,
     0.37626212299090644,
     0.29177064981753587
    ],
    "body_gain": [
-    0.9047154973784837,
-    1.1196517211646961,
-    1.7954267624198939
+    0.9811416094595395,
+    1.2544349210948835,
+    2.002347437935703
    ],
    "hair_rgb": [
     0.042311410620809675,
@@ -2095,8 +2224,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6938717612919899,
+    0.37626212299090644,
+    0.29177064981753587
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "population": "child",
    "texture_only": true
   },
@@ -2127,14 +2265,14 @@
     ]
    },
    "tone_rgb": [
-    0.6583748172794485,
-    0.3564001441459435,
-    0.2788942634768104
+    0.6514056374198242,
+    0.35153259950043936,
+    0.27467731206038465
    ],
    "body_gain": [
-    0.8584322543510903,
-    1.0605479808712919,
-    1.7161912099273655
+    0.930733720286626,
+    1.1719882012340384,
+    1.885040227339964
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -2227,8 +2365,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3564001441459435,
+    0.2788942634768104
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -2259,14 +2406,14 @@
     ]
    },
    "tone_rgb": [
-    0.5906188409193369,
-    0.2874408377269175,
+    0.5775804404296506,
+    0.2852947890784548,
     0.20863687014525575
    ],
    "body_gain": [
-    0.7700875698248565,
-    0.8553442109338851,
-    1.2838584707563097
+    0.8252516730054275,
+    0.9511553897096953,
+    1.4318215442695588
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -2359,8 +2506,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5906188409193369,
+    0.2874408377269175,
+    0.20863687014525575
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "population": "child",
    "texture_only": true
   },
@@ -2396,9 +2552,9 @@
     0.24620132670783548
    ],
    "body_gain": [
-    0.8006503525639763,
-    1.0589902093746595,
-    1.9033231945339373
+    0.8355644273011242,
+    1.138156679702518,
+    2.127860129803773
    ],
    "hair_rgb": [
     0.1119324278369056,
@@ -2491,8 +2647,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.30946892281750854,
+    0.24620132670783548
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -2525,13 +2690,13 @@
    },
    "tone_rgb": [
     0.5028864580325687,
-    0.26225065752969623,
-    0.19806931955994886
+    0.26635560480286247,
+    0.20155625379439707
    ],
    "body_gain": [
-    0.7129945394344581,
-    0.8974112043223965,
-    1.5312262329576116
+    0.7440861945586641,
+    0.9795956505828207,
+    1.742003270643052
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -2624,8 +2789,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -2657,14 +2831,14 @@
     ]
    },
    "tone_rgb": [
-    0.4620769996544071,
-    0.238397573812271,
-    0.1946178304415758
+    0.45641102318040466,
+    0.24228112246555486,
+    0.19806931955994886
    ],
    "body_gain": [
-    0.6551347173689719,
-    0.8157869110325557,
-    1.5045436013791202
+    0.6753197187324922,
+    0.8910551514815755,
+    1.7118665186119182
    ],
    "hair_rgb": [
     0.13286832155381798,
@@ -2757,8 +2931,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.238397573812271,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -2790,14 +2973,14 @@
     ]
    },
    "tone_rgb": [
-    0.4396571738409188,
+    0.4341536361747489,
     0.23074004852434915,
-    0.184474994500441
+    0.18116424424986022
    ],
    "body_gain": [
-    0.6233477938502368,
-    0.7895831674252208,
-    1.4261317781641158
+    0.6423870077132877,
+    0.8486096927339458,
+    1.5657599308665364
    ],
    "hair_rgb": [
     0.04091519690685319,
@@ -2890,8 +3073,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4396571738409188,
+    0.23074004852434915,
+    0.184474994500441
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -2924,13 +3116,13 @@
    },
    "tone_rgb": [
     0.5394794890121071,
-    0.27467731206038465,
-    0.2232279573168085
+    0.2831487404299921,
+    0.22696587351009836
    ],
    "body_gain": [
-    0.7648762929655447,
-    0.939934716420057,
-    1.7257216056098186
+    0.7982303631558002,
+    1.0413570039140527,
+    1.9616126343678817
    ],
    "hair_rgb": [
     0.11697066775851084,
@@ -3023,8 +3215,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.27467731206038465,
+    0.2232279573168085
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -3056,14 +3257,14 @@
     ]
    },
    "tone_rgb": [
-    0.5028864580325687,
-    0.260216755225646,
-    0.19806931955994886
+    0.5149176653765214,
+    0.2704977910130658,
+    0.20863687014525575
    ],
    "body_gain": [
-    0.655696336678533,
-    0.774332892049643,
-    1.2188304662399154
+    0.7357185857885374,
+    0.9018231025449679,
+    1.4318215442695588
    ],
    "hair_rgb": [
     0.13843161503245183,
@@ -3156,8 +3357,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.260216755225646,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -3189,14 +3399,14 @@
     ]
    },
    "tone_rgb": [
-    0.467783796112159,
-    0.26635560480286247,
-    0.2232279573168085
+    0.4793201831008268,
+    0.2704977910130658,
+    0.22696587351009836
    ],
    "body_gain": [
-    0.6099271844947074,
-    0.7926004057724305,
-    1.3736455292455385
+    0.6848566109942644,
+    0.9018231025449679,
+    1.5576088122845533
    ],
    "hair_rgb": [
     0.05126945837404324,
@@ -3289,8 +3499,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.2232279573168085
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -3322,14 +3541,14 @@
     ]
    },
    "tone_rgb": [
-    0.4910208498478356,
-    0.25015828472995344,
-    0.2195261997292692
+    0.4969329950608704,
+    0.25818285292159576,
+    0.2232279573168085
    ],
    "body_gain": [
-    0.640225178736379,
-    0.7444016735861286,
-    1.3508665600626708
+    0.7100219412563897,
+    0.8607658516309954,
+    1.531956448287239
    ],
    "hair_rgb": [
     0.1119324278369056,
@@ -3422,8 +3641,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25015828472995344,
+    0.2195261997292692
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -3455,14 +3683,14 @@
     ]
    },
    "tone_rgb": [
-    0.5271151257058131,
-    0.26635560480286247,
+    0.5332764040105052,
+    0.2704977910130658,
     0.19806931955994886
    ],
    "body_gain": [
-    0.7473460465646753,
-    0.9114581688211411,
-    1.5312262329576116
+    0.7890520887369116,
+    0.99482967427991,
+    1.7118665186119182
    ],
    "hair_rgb": [
     0.030713443732993635,
@@ -3555,8 +3783,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5271151257058131,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -3588,14 +3825,14 @@
     ]
    },
    "tone_rgb": [
-    0.45078578283822346,
-    0.2232279573168085,
+    0.45641102318040466,
+    0.23074004852434915,
     0.1651321945016676
    ],
    "body_gain": [
-    0.6391259825841746,
-    0.7638770933926882,
-    1.2765972473100842
+    0.6753197187324922,
+    0.8486096927339458,
+    1.4271986976092828
    ],
    "hair_rgb": [
     0.027320891639074894,
@@ -3688,8 +3925,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.2232279573168085,
+    0.1651321945016676
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -3721,14 +3967,14 @@
     ]
    },
    "tone_rgb": [
-    0.44520119451622786,
-    0.2232279573168085,
-    0.16826940018969075
+    0.45641102318040466,
+    0.23074004852434915,
+    0.1714411007328226
    ],
    "body_gain": [
-    0.6312081297269907,
-    0.7638770933926882,
-    1.300850229338585
+    0.6753197187324922,
+    0.8486096927339458,
+    1.4817250895319225
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -3821,8 +4067,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.44520119451622786,
+    0.2232279573168085,
+    0.16826940018969075
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -3854,14 +4109,14 @@
     ]
    },
    "tone_rgb": [
-    0.4178850708481375,
-    0.20507873639031693,
-    0.14995978981060856
+    0.4341536361747489,
+    0.21223075741405523,
+    0.15292615199615017
    ],
    "body_gain": [
-    0.5924792144762971,
-    0.7017711892070647,
-    1.1593030387389929
+    0.6423870077132877,
+    0.7805367078217833,
+    1.3217047446014574
    ],
    "hair_rgb": [
     0.028426039504420793,
@@ -3954,8 +4209,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -3987,14 +4251,14 @@
     ]
    },
    "tone_rgb": [
-    0.47065764613008426,
-    0.23455058216100522,
-    0.19120168274079138
+    0.4851499400560704,
+    0.24228112246555486,
+    0.19806931955994886
    ],
    "body_gain": [
-    0.6673003941022657,
-    0.8026226602989243,
-    1.4781341857931
+    0.7178426997199161,
+    0.8910551514815755,
+    1.7118665186119182
    ],
    "hair_rgb": [
     0.03954623527673283,
@@ -4087,8 +4351,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.19120168274079138
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -4120,14 +4393,14 @@
     ]
    },
    "tone_rgb": [
-    0.4341536361747489,
-    0.20507873639031693,
-    0.14995978981060856
+    0.45078578283822346,
+    0.21586050011389926,
+    0.1574436493843539
    ],
    "body_gain": [
-    0.5660779769436763,
-    0.6102574406067676,
-    0.9227858253775835
+    0.6440864257411021,
+    0.7196657140916245,
+    1.0804955473114237
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -4220,8 +4493,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -4253,14 +4535,14 @@
     ]
    },
    "tone_rgb": [
-    0.4178850708481375,
+    0.41254261348390375,
     0.19806931955994886,
-    0.15292615199615017
+    0.1559264637078274
    ],
    "body_gain": [
-    0.544865954791782,
-    0.5893993601917159,
-    0.9410394984536191
+    0.5894442715379486,
+    0.6603510055130015,
+    1.0700834895730411
    ],
    "hair_rgb": [
     0.02518685962736163,
@@ -4353,8 +4635,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.19806931955994886,
+    0.15292615199615017
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -4386,14 +4677,14 @@
     ]
    },
    "tone_rgb": [
-    0.4286904966139066,
-    0.21223075741405523,
+    0.4341536361747489,
+    0.21586050011389926,
     0.17464740365558504
    ],
    "body_gain": [
-    0.5589547773832383,
-    0.6315398715498052,
-    1.0747024168006
+    0.6203222781022143,
+    0.7196657140916245,
+    1.1985605182377925
    ],
    "hair_rgb": [
     0.030713443732993635,
@@ -4486,8 +4777,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4286904966139066,
+    0.21223075741405523,
+    0.17464740365558504
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -4519,14 +4819,14 @@
     ]
    },
    "tone_rgb": [
-    0.40197777983219574,
-    0.1714411007328226,
-    0.09530746663096469
+    0.4178850708481375,
+    0.17788841598362912,
+    0.09989872824711389
    ],
    "body_gain": [
-    0.5699257902382822,
-    0.5866645526392166,
-    0.7367990834031974
+    0.6183155405432107,
+    0.6542333461148848,
+    0.8634011997319203
    ],
    "hair_rgb": [
     0.02518685962736163,
@@ -4619,8 +4919,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.1714411007328226,
+    0.09530746663096469
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -4652,14 +4961,14 @@
     ]
    },
    "tone_rgb": [
-    0.3467040563550296,
-    0.14126329114027164,
-    0.07618538148130784
+    0.33245153634617935,
+    0.13563332965520566,
+    0.07421356838014963
    ],
    "body_gain": [
-    0.49155847216093324,
-    0.48339730173748535,
-    0.5889708459202004
+    0.4919054681305204,
+    0.49882869895920995,
+    0.6414104073207686
    ],
    "hair_rgb": [
     0.026241221894849898,
@@ -4752,8 +5061,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3467040563550296,
+    0.14126329114027164,
+    0.07618538148130784
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -4785,14 +5103,14 @@
     ]
    },
    "tone_rgb": [
-    0.31398871337571754,
-    0.12477181756095049,
+    0.3049873140698863,
+    0.12213877222960187,
     0.06301001765316767
    ],
    "body_gain": [
-    0.44517452101770266,
-    0.4269641423117793,
-    0.48711527955974293
+    0.45126856428540485,
+    0.44919876993839775,
+    0.5445807548450564
    ],
    "hair_rgb": [
     0.019382360956935723,
@@ -4885,8 +5203,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.31398871337571754,
+    0.12477181756095049,
+    0.06301001765316767
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -4918,14 +5245,14 @@
     ]
    },
    "tone_rgb": [
-    0.31854677812509186,
-    0.12743768043564743,
-    0.06480326669290577
+    0.3049873140698863,
+    0.12477181756095049,
+    0.06301001765316767
    ],
    "body_gain": [
-    0.4516369644277062,
-    0.43608661786808656,
-    0.5009784562393697
+    0.45126856428540485,
+    0.4588825149314326,
+    0.5445807548450564
    ],
    "hair_rgb": [
     0.017641954488384078,
@@ -5018,8 +5345,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.31854677812509186,
+    0.12743768043564743,
+    0.06480326669290577
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -5051,14 +5387,14 @@
     ]
    },
    "tone_rgb": [
-    0.386429433787049,
+    0.38132601143253014,
     0.1651321945016676,
-    0.09758734714186246
+    0.09989872824711389
    ],
    "body_gain": [
-    0.547881279692506,
-    0.5650757292128472,
-    0.7544242908510317
+    0.5642216373117946,
+    0.6073188496437134,
+    0.8634011997319203
    ],
    "hair_rgb": [
     0.033104766570885055,
@@ -5151,8 +5487,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.386429433787049,
+    0.1651321945016676,
+    0.09758734714186246
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -5184,14 +5529,14 @@
     ]
    },
    "tone_rgb": [
-    0.40197777983219574,
-    0.16826940018969075,
-    0.09084171118340768
+    0.41254261348390375,
+    0.17464740365558504,
+    0.09530746663096469
    ],
    "body_gain": [
-    0.524124985773768,
-    0.5007230651975343,
-    0.5589994727184042
+    0.5894442715379486,
+    0.5822637694238889,
+    0.6540707975390916
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -5284,8 +5629,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.16826940018969075,
+    0.09084171118340768
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -5317,14 +5671,14 @@
     ]
    },
    "tone_rgb": [
-    0.37626212299090644,
-    0.1651321945016676,
+    0.3712376804741491,
+    0.162029375639111,
     0.08437621154414882
    ],
    "body_gain": [
-    0.4905952262887281,
-    0.4913876111786144,
-    0.5192136646119309
+    0.5304274442985766,
+    0.5401960352246611,
+    0.5790523862280308
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -5417,8 +5771,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.37626212299090644,
+    0.1651321945016676,
+    0.08437621154414882
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -5450,14 +5813,14 @@
     ]
    },
    "tone_rgb": [
-    0.3005437944157765,
-    0.13150239912209113,
-    0.07324270953123355
+    0.3049873140698863,
+    0.1301364766903643,
+    0.07227185068231748
    ],
    "body_gain": [
-    0.391868704877967,
-    0.3913146674024763,
-    0.45070304681694506
+    0.4357683771188256,
+    0.4338670594079136,
+    0.49598324964868556
    ],
    "hair_rgb": [
     0.033104766570885055,
@@ -5550,8 +5913,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3005437944157765,
+    0.13150239912209113,
+    0.07324270953123355
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -5588,9 +5960,9 @@
     0.238397573812271
    ],
    "body_gain": [
-    0.8006503525639763,
-    1.043654324456811,
-    1.8429942593118893
+    0.8355644273011242,
+    1.1216743367083317,
+    2.0604141299330343
    ],
    "hair_rgb": [
     0.02518685962736163,
@@ -5683,8 +6055,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.3049873140698863,
+    0.238397573812271
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -5716,14 +6097,14 @@
     ]
    },
    "tone_rgb": [
-    0.5209955732043543,
-    0.26635560480286247,
-    0.1946178304415758
+    0.5332764040105052,
+    0.2704977910130658,
+    0.19806931955994886
    ],
    "body_gain": [
-    0.7386697192394324,
-    0.9114581688211411,
-    1.5045436013791202
+    0.7890520887369116,
+    0.99482967427991,
+    1.7118665186119182
    ],
    "hair_rgb": [
     0.024157632448504756,
@@ -5816,8 +6197,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5209955732043543,
+    0.26635560480286247,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -5849,14 +6239,14 @@
     ]
    },
    "tone_rgb": [
-    0.5028864580325687,
+    0.4969329950608704,
     0.26225065752969623,
-    0.18782077230067787
+    0.18116424424986022
    ],
    "body_gain": [
-    0.7129945394344581,
-    0.8974112043223965,
-    1.4519971809874912
+    0.7352772685351083,
+    0.9644985832707149,
+    1.5657599308665364
    ],
    "hair_rgb": [
     0.021219010376003555,
@@ -5949,8 +6339,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.18782077230067787
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -5982,14 +6381,14 @@
     ]
    },
    "tone_rgb": [
-    0.47065764613008426,
-    0.23455058216100522,
+    0.47353149614800955,
+    0.238397573812271,
     0.16826940018969075
    ],
    "body_gain": [
-    0.6673003941022657,
-    0.8026226602989243,
-    1.300850229338585
+    0.7006516945215172,
+    0.8767723382011893,
+    1.4543128281129736
    ],
    "hair_rgb": [
     0.02315336617811041,
@@ -6082,8 +6481,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.16826940018969075
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -6117,12 +6525,12 @@
    "tone_rgb": [
     0.5647115057049292,
     0.31854677812509186,
-    0.24228112246555486
+    0.238397573812271
    ],
    "body_gain": [
-    0.8006503525639763,
-    1.090054265194311,
-    1.8730170391552645
+    0.8355644273011242,
+    1.1715429776274686,
+    2.0604141299330343
    ],
    "hair_rgb": [
     0.05126945837404324,
@@ -6215,8 +6623,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.31854677812509186,
+    0.24228112246555486
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -6250,12 +6667,12 @@
    "tone_rgb": [
     0.5394794890121071,
     0.2831487404299921,
-    0.20155625379439707
+    0.19806931955994886
    ],
    "body_gain": [
-    0.7034087297604987,
-    0.8425721197977678,
-    1.2402875080885098
+    0.7708127209574035,
+    0.9440005946811637,
+    1.3592991440453488
    ],
    "hair_rgb": [
     0.04817182422688942,
@@ -6348,8 +6765,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.2831487404299921,
+    0.20155625379439707
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -6381,14 +6807,14 @@
     ]
    },
    "tone_rgb": [
-    0.5088813208549338,
-    0.26635560480286247,
-    0.19806931955994886
+    0.5209955732043543,
+    0.2704977910130658,
+    0.20155625379439707
    ],
    "body_gain": [
-    0.6635128318907794,
-    0.7926004057724305,
-    1.2188304662399154
+    0.7444027503692506,
+    0.9018231025449679,
+    1.3832290829715703
    ],
    "hair_rgb": [
     0.043735029256973465,
@@ -6481,8 +6907,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.41999999999999993
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -6514,14 +6949,14 @@
     ]
    },
    "tone_rgb": [
-    0.4910208498478356,
-    0.25415209433082675,
-    0.1946178304415758
+    0.4851499400560704,
+    0.25015828472995344,
+    0.18782077230067787
    ],
    "body_gain": [
-    0.640225178736379,
-    0.7562861432693285,
-    1.1975915378651685
+    0.6931862155718552,
+    0.8340124317377402,
+    1.288965982159472
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -6614,8 +7049,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25415209433082675,
+    0.1946178304415758
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.35
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -6647,14 +7091,14 @@
     ]
    },
    "tone_rgb": [
-    0.5088813208549338,
+    0.5028864580325687,
     0.2874408377269175,
     0.238397573812271
    ],
    "body_gain": [
-    0.7214940812072217,
-    0.9836109879981598,
-    1.8429942593118893
+    0.7440861945586641,
+    1.0571423666702007,
+    2.0604141299330343
    ],
    "hair_rgb": [
     0.12477181756095049,
@@ -6747,8 +7191,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.2874408377269175,
+    0.238397573812271
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -6780,14 +7233,14 @@
     ]
    },
    "tone_rgb": [
-    0.4851499400560704,
+    0.47353149614800955,
     0.25818285292159576,
-    0.20507873639031693
+    0.20863687014525575
    ],
    "body_gain": [
-    0.6878476295031404,
-    0.8834913405299091,
-    1.5854143472614306
+    0.7006516945215172,
+    0.9495381182770639,
+    1.8031993715288452
    ],
    "hair_rgb": [
     0.1119324278369056,
@@ -6880,8 +7333,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4851499400560704,
+    0.25818285292159576,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -6915,12 +7377,12 @@
    "tone_rgb": [
     0.4620769996544071,
     0.24620132670783548,
-    0.19120168274079138
+    0.1946178304415758
    ],
    "body_gain": [
-    0.6551347173689719,
-    0.8424910396330718,
-    1.4781341857931
+    0.6837032709352965,
+    0.9054727757248373,
+    1.6820361103779569
    ],
    "hair_rgb": [
     0.09989872824711389,
@@ -7013,8 +7475,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.24620132670783548,
+    0.19120168274079138
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -7046,14 +7517,14 @@
     ]
    },
    "tone_rgb": [
-    0.45641102318040466,
-    0.25415209433082675,
-    0.20507873639031693
+    0.4341536361747489,
+    0.24228112246555486,
+    0.19806931955994886
    ],
    "body_gain": [
-    0.5950986174690566,
-    0.7562861432693285,
-    1.261963298737185
+    0.6203222781022143,
+    0.8077504541965375,
+    1.3592991440453488
    ],
    "hair_rgb": [
     0.2831487404299921,
@@ -7146,8 +7617,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.45641102318040466,
+    0.25415209433082675,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "european",
    "population": "child",
    "texture_only": true
@@ -7180,13 +7660,13 @@
    },
    "tone_rgb": [
     0.5028864580325687,
-    0.26225065752969623,
+    0.26635560480286247,
     0.19806931955994886
    ],
    "body_gain": [
-    0.7129945394344581,
-    0.8974112043223965,
-    1.5312262329576116
+    0.7440861945586641,
+    0.9795956505828207,
+    1.7118665186119182
    ],
    "hair_rgb": [
     0.06480326669290577,
@@ -7279,8 +7759,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -7312,14 +7801,14 @@
     ]
    },
    "tone_rgb": [
-    0.5088813208549338,
+    0.5028864580325687,
     0.26635560480286247,
-    0.20507873639031693
+    0.20155625379439707
    ],
    "body_gain": [
-    0.7214940812072217,
-    0.9114581688211411,
-    1.5854143472614306
+    0.7440861945586641,
+    0.9795956505828207,
+    1.742003270643052
    ],
    "hair_rgb": [
     0.15292615199615017,
@@ -7412,8 +7901,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -7445,14 +7943,14 @@
     ]
    },
    "tone_rgb": [
-    0.4341536361747489,
-    0.20863687014525575,
-    0.13286832155381798
+    0.4396571738409188,
+    0.21223075741405523,
+    0.13563332965520566
    ],
    "body_gain": [
-    0.6155448549544416,
-    0.7139469798351521,
-    1.0271730116721862
+    0.6505302104844497,
+    0.7805367078217833,
+    1.172246950514336
    ],
    "hair_rgb": [
     0.026241221894849898,
@@ -7545,8 +8043,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20863687014525575,
+    0.13286832155381798
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -7583,9 +8090,9 @@
     0.14126329114027164
    ],
    "body_gain": [
-    0.5518841404680483,
-    0.6208454598078067,
-    0.8692714418649293
+    0.6047683202798136,
+    0.6955825732808951,
+    0.9694538818965472
    ],
    "hair_rgb": [
     0.04817182422688942,
@@ -7678,8 +8185,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4232676699860717,
+    0.20863687014525575,
+    0.14126329114027164
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "native_metis",
    "population": "child",
    "texture_only": true
@@ -7712,13 +8228,13 @@
    },
    "tone_rgb": [
     0.3662525955988395,
-    0.184474994500441,
-    0.13286832155381798
+    0.18116424424986022,
+    0.12743768043564743
    ],
    "body_gain": [
-    0.5192744734811636,
-    0.6312660129870675,
-    1.0271730116721862
+    0.5419185499099763,
+    0.6662811013105426,
+    1.1014138829376925
    ],
    "hair_rgb": [
     0.04970656598412723,
@@ -7811,8 +8327,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.184474994500441,
+    0.13286832155381798
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -7844,14 +8369,14 @@
     ]
    },
    "tone_rgb": [
-    0.4314220663943278,
-    0.22137707852303884,
+    0.4232676699860717,
+    0.2195261997292692,
     0.1559264637078274
    ],
    "body_gain": [
-    0.6116720238085326,
-    0.7575434605887988,
-    1.2054299584215724
+    0.6262797989665719,
+    0.8073676940379392,
+    1.3476357326819455
    ],
    "hair_rgb": [
     0.05780543019106723,
@@ -7944,8 +8469,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4314220663943278,
+    0.22137707852303884,
+    0.1559264637078274
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -7979,12 +8513,12 @@
    "tone_rgb": [
     0.27467731206038465,
     0.11443537382697373,
-    0.06662593864377289
+    0.06847816984440017
    ],
    "body_gain": [
-    0.389438650568923,
-    0.3915932475079469,
-    0.5150690943626508
+    0.40642095764960456,
+    0.42086741353421636,
+    0.5918407074497409
    ],
    "hair_rgb": [
     0.03433980680868217,
@@ -8077,8 +8611,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.27467731206038465,
+    0.11443537382697373,
+    0.06662593864377289
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -8110,14 +8653,14 @@
     ]
    },
    "tone_rgb": [
-    0.3419144249086609,
-    0.162029375639111,
+    0.3467040563550296,
+    0.1651321945016676,
     0.09989872824711389
    ],
    "body_gain": [
-    0.4458104454577237,
-    0.48215448281504597,
-    0.6147323260195879
+    0.4953736008302473,
+    0.5505406436696546,
+    0.6855794531894734
    ],
    "hair_rgb": [
     0.0382043715953465,
@@ -8210,8 +8753,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.162029375639111,
+    0.09989872824711389
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "black",
    "population": "child",
    "texture_only": true
@@ -8243,14 +8795,14 @@
     ]
    },
    "tone_rgb": [
-    0.5028864580325687,
+    0.5088813208549338,
     0.2831487404299921,
     0.20863687014525575
    ],
    "body_gain": [
-    0.7129945394344581,
-    0.9689236036438745,
-    1.6129214228551614
+    0.752956377068343,
+    1.0413570039140527,
+    1.8031993715288452
    ],
    "hair_rgb": [
     0.04518620438567554,
@@ -8343,8 +8895,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.2831487404299921,
+    0.20863687014525575
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -8377,13 +8938,13 @@
    },
    "tone_rgb": [
     0.467783796112159,
-    0.26635560480286247,
-    0.20507873639031693
+    0.26225065752969623,
+    0.20155625379439707
    ],
    "body_gain": [
-    0.6632258374360338,
-    0.9114581688211411,
-    1.5854143472614306
+    0.6921472216353857,
+    0.9644985832707149,
+    1.742003270643052
    ],
    "hair_rgb": [
     0.07227185068231748,
@@ -8476,8 +9037,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -8509,14 +9079,14 @@
     ]
    },
    "tone_rgb": [
-    0.45078578283822346,
+    0.44520119451622786,
     0.24620132670783548,
     0.18116424424986022
    ],
    "body_gain": [
-    0.6391259825841746,
-    0.8424910396330718,
-    1.4005371648957752
+    0.6587333131549498,
+    0.9054727757248373,
+    1.5657599308665364
    ],
    "hair_rgb": [
     0.0295568344378088,
@@ -8609,8 +9179,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.24620132670783548,
+    0.18116424424986022
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -8643,13 +9222,13 @@
    },
    "tone_rgb": [
     0.4178850708481375,
-    0.23074004852434915,
+    0.23455058216100522,
     0.1714411007328226
    ],
    "body_gain": [
-    0.544865954791782,
-    0.6866183883147783,
-    1.054972255183752
+    0.5970776184610446,
+    0.7819773053080088,
+    1.176556480317412
    ],
    "hair_rgb": [
     0.03688945040110004,
@@ -8742,8 +9321,17 @@
    "limits": [
     "profile depth from a single front photograph",
     "ears and hair outside the face patch",
+    "Fictional child skin contrast is softened at the atlas texel scale; source files and facial features are preserved.",
     "Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs."
    ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.23074004852434915,
+    0.1714411007328226
+   ],
+   "skin_calibration": {
+    "fictional_child_pigment_softening": 0.7
+   },
    "reference_pool": "east_asian",
    "population": "child",
    "texture_only": true
@@ -8751,11 +9339,11 @@
  ],
  "capacity": 512,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "9a6b443a4ba6c412b5a5c73827f788e294f092b2d58b66b1025cdcf79fcc097a",
+  "tools/photo_face_library.py": "c1185db9281d33a7f2469c28ca3e1a889a4c5c1c41ea2c19a65c935ddd94440e",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
-  "renderers/web/js/human-skin.js": "b9158e3bb326762bc5da24f6cfd168d3389131b84fad410f7c12f73537cb5aaf",
+  "renderers/web/js/human-skin.js": "49406c90c17f394faa6dbe37e5ed8983aa5092045d2e01d2076022a9159b1981",
   "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
   "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
   "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
@@ -8786,6 +9374,7 @@
  "limits": [
   "Front photo fits do not establish profile depth.",
   "Hair, ears, bodies and dress are reconstructed.",
+  "Unpictured forehead/face-edge skin extends the same reference; it is reconstructed, not another photographic view.",
   "Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass."
  ],
  "activation": {
@@ -8800,5 +9389,5 @@
   ],
   "request": "Ok yes let\u2019s roll the faces out so I can see them on dev; children faces of the same type so people look consistent."
  },
- "recipe_sha256": "0d9f86088c3da0052420db6124654e25017c62b15f8240ac3a2abee908fc5e30"
+ "recipe_sha256": "0e4b40f24ef9794b2689397194821bc98d6c8b423fe3ddff7966ccc518b518ec"
 }
