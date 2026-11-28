@@ -2564,6 +2564,22 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "high_house_2021_prairie/as_mapped_1904/form.stair_landing_depth_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2021_high_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "high_house_2021_prairie/as_mapped_1904/form.stair_tread_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2021_high_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "high_house_2021_prairie/as_mapped_1904/form.storey_heights_m": {
       "kind": "structure",
       "blocked_sources": [

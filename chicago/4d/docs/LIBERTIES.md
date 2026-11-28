@@ -45367,7 +45367,7 @@ eave (11.0 m) and its south-facing gable (to 14.6 m); the places of two of its t
 
 **What is invented.** The brick's colour (pressed red: the print is monochrome); the walls' thickness; the
 north flank's and rear's common brick and every light there; the plain stone heads over the street lights;
-the stoop's width, tread and landing; the turret's rounded apron; the slopes behind the gable (a hip at 49
+the stoop's width (its going, landing and straight-falling cheeks are read off the print since T-3634); the turret's rounded apron; the slopes behind the gable (a hip at 49
 degrees, its street end hidden by the gable); the body behind the front block (a slate hip, two storeys)
 and the ranges' storeys, flat roofs and lights; the picket fence's run past the print's right edge, to the south
 wing's rear corner, and its pale paint's colour (T-3634); the yard.
@@ -45395,7 +45395,7 @@ record (`data/reference_views/high_house_2021_prairie/chicagology_photo.match.js
 **How to resolve:** T-3635 signs off the image gate for 2021 with 2017's; a picture of the north flank or the
 rear, the 1940 Daily News article's own illustration, or a K01 brick porch behind an arch would replace the
 invented parts.
-**Covers:** `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stair_tread_m`, `high_house_2021_prairie.as_mapped_1904.form.stair_landing_depth_m`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`
+**Covers:** `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_front_m`, `high_house_2021_prairie.as_mapped_1904.form.wall_thickness_side_m`, `high_house_2021_prairie.as_mapped_1904.form.service_wall_brick`, `high_house_2021_prairie.as_mapped_1904.form.street_front_trim`, `high_house_2021_prairie.as_mapped_1904.form.stoop_width_m`, `high_house_2021_prairie.as_mapped_1904.form.side_bays`, `high_house_2021_prairie.as_mapped_1904.form.rear_bays`, `high_house_2021_prairie.as_mapped_1904.form.boundary`, `high_house_2021_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3633 (piece 1 of T-1917, S08).
 **Review:** `docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-17 (T-3633).

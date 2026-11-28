@@ -2080,6 +2080,13 @@ step "a K01 gable parapet takes a light read off the picture, wholly inside it (
 step "an open front lays a picket fence along a side lot line, and nothing across the street (T-3634)" \
   python3 tools/test_k11_side_pickets.py
 
+# T-3634. ...and 2021 Prairie's stoop cheeks: a swept cheek may fall in one straight rake from
+# beside the landing to its foot block (`cheek_form.fall: "straight"`, the Chicagology
+# photograph's coping) instead of the kit's reversed curve; one that would come within 0.1 m
+# of a tread is refused.
+step "a swept stoop cheek falls straight where its record says so (T-3634)" \
+  python3 tools/test_k07_swept_straight.py
+
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
 # with a front wall of its own drawn only past the host and its roof cut only along it; and a

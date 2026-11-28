@@ -1503,6 +1503,13 @@ class Entrance(Opening):
         top = lambda o: h0 if o <= L else yF if o >= o1 else \
             yF + (h0 - yF) * (1.0 + math.cos(math.pi * (o - L) / (o1 - L))) / 2.0
         cuts = ([0.0] if start < L else []) + [L] + [L + (o1 - L) * i / N for i in range(1, N)] + [o1, F]
+        # T-3634: or in one straight rake from the landing's level to the block's top (2021's, the
+        # Chicagology photograph), laid as one strip
+        if sw.get("fall") == "straight":
+            if sw.get("railed"):
+                raise ValueError("a straight-falling swept cheek is not stepped under a rail")
+            top = lambda o: h0 if o <= L else yF if o >= o1 else h0 + (yF - h0) * (o - L) / (o1 - L)
+            cuts = ([0.0] if start < L else []) + [L, o1, F]
         # T-3134: the right cheek flared out as it descends, its strips cut at the nosings' lines too;
         # T-3144: either cheek, out (a positive out_m) or in toward the axis (a negative one)
         side = "right" if sgn > 0 else "left"
