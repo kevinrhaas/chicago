@@ -450,7 +450,7 @@ def opening_script(doc):
 
 
 def direction(doc):
-    texts = {'opening:opening': opening_script(doc), **{f'stop:{s["id"]}': s['text'] for s in doc['stops']},
+    texts = {'opening:opening': opening_script(doc), **{f'stop:{s["id"]}': (f"{s['since']}. " if s.get('since') else '') + s['text'] for s in doc['stops']},
              **{f'ending:{e["id"]}': e['text'] for e in doc['endings']}}
     scripts, misses = {}, []
     for key, text in texts.items():
@@ -466,7 +466,7 @@ def direction(doc):
     return {'$comment': "T-3578 format, written by docs/RESEARCH/jaunt-great-fire-3691/build.py: the same words as the panel shows, with "
                         "audio tags in square brackets and [short pause]/[long pause] for pauses. Performance only: a hush or a low "
                         "voice is a reading of the story, not evidence of how anyone spoke (L-jaunt-voices-3578). Keyed <part>:<id>. "
-                        "Nothing is recorded until the owner asks.",
+                        "A stop's `since` lead is read with it (narration.js narrationScripts).",
             'version': 1, 'jaunt': doc['id'], 'scripts': scripts}, misses
 
 

@@ -45,6 +45,17 @@ export function configured(firebase = {}) {
   return ['apiKey', 'authDomain', 'projectId', 'appId'].every(key => String(firebase[key] || '').trim());
 }
 
+/**
+ * One sign-in for cloud play (tools/stream; the owner, 2026-11-27: "you should have only one sign
+ * in for this"). The cloud machine opens the year as #cloud-signin=<pass>, a one-hour Firebase
+ * custom token for the player's own account, made by the starter for the player who pressed the
+ * cloud button. → the pass, or ''. The gate signs in with it and takes it out of the address.
+ */
+export function cloudPass(hash) {
+  const m = /^#cloud-signin=([A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)$/.exec(String(hash || ''));
+  return m ? m[1] : '';
+}
+
 /** Should this page ask? Pure, so the self-test can hold every branch. */
 export function gateMode({ config = SIGN_IN, hostname = '', search = '', webdriver = false } = {}) {
   let preview = false;
@@ -153,7 +164,7 @@ export function buildPanel(doc, { year, providers = ['google', 'email'] }) {
       </p>
     </form>` : ''}
     <p class="signin-msg" role="status" aria-live="polite"></p>
-    <p class="signin-note">We keep your email so we know who has visited.</p>`;
+    <p class="signin-note">We keep your email so we know who has visited. <a href="./privacy.html" target="_blank" rel="noopener">What we keep</a></p>`;
   el.querySelector('.signin-eyebrow b').textContent = year ? String(year) : '';
   const q = sel => el.querySelector(sel);
   if (manual) q('.signin-manual').textContent = manualLabel(providers);
@@ -304,6 +315,8 @@ export async function signInGate({
   nav = globalThis.navigator,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   win = globalThis,
+  // T-3798: the launch page signs a player in without entering a year, so it records no visit.
+  record = true,
 } = {}) {
   const mode = gateMode({ config, hostname: loc?.hostname, search: loc?.search, webdriver: !!nav?.webdriver });
   if (mode === 'off' || mode === 'robot' || !gate) return { how: mode === 'robot' ? 'robot' : 'off' };
@@ -337,6 +350,7 @@ export async function signInGate({
   const { auth, authMod } = fb;
   const device = deviceClass(win);
   const enter = (user, email) => {
+    if (!record) return;
     const method = methodOf(user);
     if (user) {
       const name = user.displayName || user.providerData?.[0]?.displayName || '';
@@ -358,6 +372,8 @@ export async function signInGate({
   const accountOf = (user, email) => (user ? {
     email: email || user.email || user.providerData?.find(p => p.email)?.email || '',
     method: methodOf(user),
+    // T-3778: the name a class shows its teacher (the student can change it when joining).
+    name: user.displayName || user.providerData?.[0]?.displayName || '',
     // T-3645: the reader's ages ride the account (reading-level.js § syncReading).
     // T-3644: whose row the visitor's own person is kept in (visitor-person.js), and a token for it.
     uid: user.uid,
@@ -367,6 +383,15 @@ export async function signInGate({
       forget(storage, EMAIL_KEY);
     },
   } : null);
+
+  const pass = cloudPass(loc?.hash);
+  if (pass) {
+    try { win.history?.replaceState?.(null, '', `${loc.pathname}${loc.search}`); } catch { /* the pass still works */ }
+    if (!auth.currentUser) {
+      await timeout(authMod.signInWithCustomToken(auth, pass), 8000, 'cloud pass')
+        .catch(err => console.warn('[4D Chicago] sign-in: the cloud pass was not taken; asking instead', err));
+    }
+  }
 
   const current = auth.currentUser;
   const storedEmail = read(storage, EMAIL_KEY);

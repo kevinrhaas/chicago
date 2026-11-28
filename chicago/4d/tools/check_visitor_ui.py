@@ -100,7 +100,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from compile_summaries import lint_string  # noqa: E402
 
 WEB = ROOT / "renderers" / "web"
-PAGES = [WEB / "index.html", WEB / "portal" / "index.html", WEB / "portal" / "pending.html"]
+PAGES = [WEB / "index.html", WEB / "portal" / "index.html", WEB / "portal" / "console.html", WEB / "portal" / "pending.html"]
 BUSINESSES = ROOT / "data" / "businesses" / "index.json"
 SKINS = WEB / "css" / "skins.css"
 HIDE_RULE = re.compile(r"html:not\(\[data-researcher-mode\]\)\s*\[data-researcher\]\s*\{\s*display:\s*none")

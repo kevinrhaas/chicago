@@ -63,7 +63,11 @@ with some usage numbers.
    `chicago.polecat.live` and `dev.chicago.polecat.live` (the dev preview).
 4. **Build → Firestore Database → Create database**: production mode, location
    `nam5 (us-central)`. Then the **Rules** tab: paste the rules below, put the owner's
-   Google address where it says `OWNER_EMAIL`, and **Publish**.
+   Google address where it says `OWNER_EMAIL`, and **Publish**. Since T-3776 a change to
+   the rules below is published by the workflow `chicago-4d-firestore-rules.yml` when it
+   reaches dev (`tools/publish_firestore_rules.mjs`, with the repository secret
+   `FIREBASE_SERVICE_ACCOUNT`); it carries the live owner address across, so the console
+   paste is only needed for a brand-new project.
 5. **Project settings (gear) → General → Your apps → Web (`</>`)**: register an app
    (nickname `4D Chicago`, no Hosting). Copy `apiKey`, `authDomain`, `projectId`,
    `appId` and `measurementId` from the config it shows into
@@ -124,8 +128,13 @@ service cloud.firestore {
         && d.shot is string && d.shot.size() <= 900000
         && d.at is timestamp;
     }
+    // T-3776: the visitor reads and deletes their own row too (Settings › About › Delete my
+    // saved data, js/student-data.js); every collection that holds a visitor's data lets them.
+    function isSelf(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
     match /visitors/{uid} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || isSelf(uid);
       allow create, update: if request.auth != null && request.auth.uid == uid && visitorFields();
     }
     // T-3645: the reader's ages (Settings › Display › Reading age), read and written by
@@ -137,7 +146,7 @@ service cloud.firestore {
         && request.resource.data.ages is list && request.resource.data.ages.size() <= 5;
     }
     match /visits/{id} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || isSelf(resource.data.uid);
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.keys().hasOnly(['uid', 'email', 'method', 'year', 'device', 'at'])
@@ -157,9 +166,9 @@ service cloud.firestore {
     }
     // T-3743: crash reports and Report a bug (renderers/web/js/bug-report.js). Anyone in the
     // app may file one under their own uid, or with none when sign-in let them in without
-    // one; only the owner reads or deletes them (visitors.html).
+    // one; only the owner reads them all (visitors.html), and a visitor their own (T-3776).
     match /bugs/{id} {
-      allow read, delete: if isOwner();
+      allow read, delete: if isOwner() || (resource.data.uid != '' && isSelf(resource.data.uid));
       allow create: if bugFields(request.resource.data);
     }
     // T-3644: the visitor's own person (renderers/web/js/visitor-person.js), theirs alone.
@@ -168,6 +177,156 @@ service cloud.firestore {
       allow create, update: if request.auth != null && request.auth.uid == uid
         && request.resource.data.keys().hasOnly(['person', 'at'])
         && request.resource.data.person is string && request.resource.data.person.size() <= 4000;
+    }
+    // T-3777: cloud save (renderers/web/js/cloud-save.js): the field notebook, people met and
+    // places found, and Settings, under the account's own uid and nobody else's, never from
+    // a sign-in with the email alone. `at` is the server's own time.
+    // T-3778 adds `classes`: the student's own note of the class they are in.
+    match /users/{uid}/{part}/{id} {
+      allow read, delete: if isSelf(uid) && part in ['notebook', 'metfound', 'settings', 'classes'];
+      allow create, update: if isSelf(uid) && part in ['notebook', 'metfound', 'settings', 'classes']
+        && request.auth.token.firebase.sign_in_provider != 'anonymous'
+        && request.resource.data.keys().hasOnly(['v', 'deleted', 'at'])
+        && request.resource.data.v is string && request.resource.data.v.size() <= 800000
+        && request.resource.data.deleted is bool
+        && request.resource.data.at == request.time;
+    }
+    // T-3778: classes (renderers/web/js/classes.js). A teacher makes a class; its join code
+    // is a document of its own that a signed-in student reads by name, never by listing.
+    // Joining writes the student's own member row, checked against a live code for that
+    // class. Only the class's teacher reads its roster and hand-ins; a student reads only
+    // their own. Never from a sign-in with the email alone.
+    function realSignIn() {
+      return request.auth != null && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+    function classOf(classId) {
+      return get(/databases/$(database)/documents/classes/$(classId)).data;
+    }
+    function teaches(classId) {
+      return request.auth != null && classOf(classId).teacher == request.auth.uid;
+    }
+    function inClass(classId) {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/classes/$(classId)/members/$(request.auth.uid));
+    }
+    function words(v, max) {
+      return v is string && v.size() <= max;
+    }
+    function classFields(d) {
+      return d.keys().hasOnly(['teacher', 'teacherName', 'name', 'group', 'code', 'open', 'createdAt'])
+        && d.teacher == request.auth.uid
+        && words(d.name, 80) && d.name.size() > 0
+        && words(d.group, 40) && words(d.teacherName, 80) && words(d.code, 12)
+        && d.open is bool && d.createdAt is timestamp;
+    }
+    match /classes/{classId} {
+      allow list: if realSignIn() && resource.data.teacher == request.auth.uid;
+      allow get: if request.auth != null && (resource.data.teacher == request.auth.uid || inClass(classId));
+      allow create: if realSignIn() && classFields(request.resource.data)
+        && request.resource.data.open == true && request.resource.data.createdAt == request.time
+        && getAfter(/databases/$(database)/documents/codes/$(request.resource.data.code)).data.classId == classId;
+      allow update: if realSignIn() && resource.data.teacher == request.auth.uid
+        && classFields(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && (request.resource.data.code == ''
+          || getAfter(/databases/$(database)/documents/codes/$(request.resource.data.code)).data.classId == classId);
+      allow delete: if request.auth != null && resource.data.teacher == request.auth.uid;
+
+      match /members/{uid} {
+        function memberFields(d) {
+          return d.keys().hasOnly(['uid', 'name', 'code', 'joinedAt', 'lastIn'])
+            && d.uid == uid && words(d.name, 60) && d.name.size() > 0 && words(d.code, 12)
+            && d.joinedAt is timestamp && d.lastIn == request.time;
+        }
+        allow read: if isSelf(uid) || teaches(classId);
+        allow create: if isSelf(uid) && realSignIn() && memberFields(request.resource.data)
+          && request.resource.data.joinedAt == request.time
+          && get(/databases/$(database)/documents/codes/$(request.resource.data.code)).data.classId == classId
+          && get(/databases/$(database)/documents/codes/$(request.resource.data.code)).data.expires > request.time
+          && classOf(classId).open == true;
+        allow update: if isSelf(uid) && realSignIn() && memberFields(request.resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['lastIn', 'name']);
+        allow delete: if isSelf(uid) || teaches(classId);
+      }
+      match /handins/{id} {
+        function handinFields(d) {
+          return d.keys().hasOnly(['uid', 'name', 'entryId', 'kind', 'topic', 'title', 'v', 'at'])
+            && d.uid == request.auth.uid && id == request.auth.uid + '_' + d.entryId
+            && words(d.entryId, 100) && d.entryId.size() > 0
+            && d.kind in ['note', 'person', 'photo'] && d.topic in ['', 'reflection', 'case', 'route']
+            && words(d.name, 60) && words(d.title, 200) && words(d.v, 400000)
+            && d.at == request.time;
+        }
+        allow read: if (request.auth != null && resource.data.uid == request.auth.uid) || teaches(classId);
+        allow create, update: if realSignIn() && handinFields(request.resource.data)
+          && inClass(classId) && classOf(classId).open == true;
+        allow delete: if (request.auth != null && resource.data.uid == request.auth.uid) || teaches(classId);
+      }
+    }
+    match /codes/{code} {
+      allow get: if realSignIn();
+      allow create: if realSignIn()
+        && request.resource.data.keys().hasOnly(['classId', 'teacher', 'className', 'teacherName', 'expires', 'at'])
+        && request.resource.data.teacher == request.auth.uid
+        && words(request.resource.data.classId, 40) && words(request.resource.data.className, 80)
+        && words(request.resource.data.teacherName, 80)
+        && request.resource.data.at == request.time
+        && request.resource.data.expires is timestamp
+        && request.resource.data.expires <= request.time + duration.value(31, 'd')
+        && code.size() == 6
+        && getAfter(/databases/$(database)/documents/classes/$(request.resource.data.classId)).data.teacher == request.auth.uid;
+      allow delete: if request.auth != null && resource.data.teacher == request.auth.uid;
+    }
+    // T-3797: launch access (js/launch-rights.js). Rights by sign-in address, so the owner
+    // pre-assigns them before a person ever signs in (owner's choice 2026-11-27: rights by
+    // email only, no access keys). The owner is an admin by his sign-in; only he grants or
+    // takes away admin. A player reads only their own rights and may delete them.
+    function myEmail() {
+      return request.auth.token.email.lower();
+    }
+    function verified() {
+      return realSignIn() && request.auth.token.email is string && request.auth.token.email_verified == true;
+    }
+    function isAdmin() {
+      return verified() && (isOwner()
+        || (exists(/databases/$(database)/documents/access/$(myEmail()))
+          && 'admin' in get(/databases/$(database)/documents/access/$(myEmail())).data.rights));
+    }
+    function accessFields(d, email) {
+      return d.keys().hasOnly(['email', 'rights', 'note', 'by', 'at'])
+        && d.email == email && d.rights is list && d.rights.size() <= 2
+        && d.rights.hasOnly(['cloud', 'admin'])
+        && words(d.note, 200) && words(d.by, 254)
+        && d.at == request.time;
+    }
+    match /access/{email} {
+      allow get: if (verified() && myEmail() == email) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isAdmin() && accessFields(request.resource.data, email)
+        && (isOwner() || !('admin' in request.resource.data.rights));
+      allow update: if isAdmin() && accessFields(request.resource.data, email)
+        && (isOwner() || (!('admin' in request.resource.data.rights) && !('admin' in resource.data.rights)));
+      allow delete: if (verified() && myEmail() == email)
+        || (isAdmin() && (isOwner() || !('admin' in resource.data.rights)));
+    }
+    // The cloud play waitlist (owner, 2026-11-27): a signed-in player without cloud play adds
+    // themself, by their own verified address; only admins list it. Letting someone in is an
+    // admin's grant above, and removes their waitlist row in the same commit.
+    match /waitlist/{email} {
+      allow get, delete: if (verified() && myEmail() == email) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if verified() && myEmail() == email
+        && request.resource.data.keys().hasOnly(['email', 'name', 'year', 'check', 'at'])
+        && request.resource.data.email == email
+        && words(request.resource.data.name, 80) && words(request.resource.data.year, 4)
+        && words(request.resource.data.check, 80) && request.resource.data.at == request.time;
+    }
+    match /launch/{doc} {
+      allow get: if request.auth != null;
+      allow write: if isAdmin() && doc == 'cloud'
+        && request.resource.data.keys().hasOnly(['ready', 'note', 'by', 'at'])
+        && request.resource.data.ready is bool && words(request.resource.data.note, 200)
+        && words(request.resource.data.by, 254) && request.resource.data.at == request.time;
     }
   }
 }

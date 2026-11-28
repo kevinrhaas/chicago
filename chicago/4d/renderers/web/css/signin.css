@@ -150,3 +150,23 @@
 .account-row .account-who { min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
 .account-row #s-account-how { color: var(--ink-dim); }
 .account-row .setting-button { flex: none; }
+
+/* T-3776: Settings › About, "Your saved data" and Delete my saved data (js/student-data.js). */
+.signin-note a { color: inherit; text-decoration: underline; }
+.saved-data { display: grid; gap: 8px; margin-top: 6px; }
+.saved-data h5 { margin: 6px 0 0; }
+.saved-data > p { margin: 0; }
+.saved-data .legend-note a { color: inherit; text-decoration: underline; }
+.saved-data .field.row > span:first-child { min-width: 0; }
+.saved-data .setting-button { flex: none; }
+.saved-data-choice { display: inline-flex; gap: 8px; flex: none; }
+.saved-data .setting-button.danger { color: var(--alert, #E0457B); border-color: currentColor; }
+#s-delete-data-status:empty { display: none; }
+/* T-3778: Settings › About › Your class (js/classes-view.js mountStudentClass). */
+.class-box form { display: grid; gap: 8px; margin: 0; }
+.class-box input { min-width: 0; flex: 1 1 8rem; max-width: 14rem; min-height: 40px; padding: 0 .5rem; font: inherit;
+  color: var(--ink); background: var(--panel-raised, var(--panel-solid, #fff)); border: 1px solid var(--edge, currentColor); border-radius: 4px; }
+.class-box #s-class-code { text-transform: uppercase; letter-spacing: .1em; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.class-box .class-line { font-weight: 600; }
+.class-box form > .setting-button { justify-self: end; }
+.class-handin { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; }

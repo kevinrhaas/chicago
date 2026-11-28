@@ -14,6 +14,65 @@ Cost (swiftshader, published): light tier +1 to +4 draws at the walk stands (coa
 doors are not drawn there), full +5 to +17; data file +29 KB gzipped. Shots:
 `tools/street_dress_shots_1871.mjs`. `L-1871-street-dress-3805`.
 
+## T-3778 — Class codes and a teacher view (27 November 2026)
+
+Stage 1's third piece, behind `cloudFeatures`. `js/classes.js` keeps a class on Firestore:
+`classes/<id>` (teacher, name, year group, code), `classes/<id>/members/<uid>` (the name the
+student gave, joined, last in), `classes/<id>/handins/<uid>_<entry>` (one notebook entry the
+student chose to hand in) and `codes/<code>` (which class, until when; read by name, never
+listed), plus the student's own note `users/<uid>/classes/<id>`. `js/classes-view.js` draws
+Guide › For teachers › Your classes (make, code, roster with joined / last in / handed in /
+reflections, each student's work, CSV, print, remove, close), Settings › About › Your class
+(code, confirm, join under a chosen name, leave) and Hand in / Hand in again / Take back on
+each notebook entry. A jaunt's understanding check gains Save to my notebook, marked as a
+reflection (`topic`), as Make your case and route answers now are. Closing a class deletes it
+with everything handed in, as the school agreement promises; the end-of-school-year deletion
+the agreement also promises is not automatic yet (it needs a scheduled job with database
+access), and the teacher's page asks teachers to close each class when its year ends.
+`tools/test_classes.mjs` (gate) holds the codes, every write against its rule and a whole class
+against a fake Firestore; `tools/test_classes_emulator.mjs` (not a gate step: Java and the
+Firestore emulator) runs the rules themselves, 48 checks, including T-3777's users tree. The
+rules publish when this reaches dev.
+
+## T-3777 — Cloud save: notebook, people met, places found and Settings (27 November 2026)
+
+Stage 1's second piece, behind T-3776's `cloudFeatures` switch (on since the owner's
+27 November "Turn on the cloud features"). `js/cloud-save.js` keeps the browser's own copies as the working copy and reconciles
+them with Firestore `users/<uid>/{notebook,metfound,settings}/…`, one document per notebook
+entry, per year and kind of met/found, and one for the Settings that are the person's (the
+device's graphics stay put). The merge is three-way against the last agreed base (short
+hashes in `chicago4d.cloudsave.v1`): an edit beats a delete, two edits keep the newer,
+met/found joins, and a new browser takes the account's Settings. Writes are debounced (15 s,
+at most 60 s) plus a flush on hide and a two-minute look for Settings; pulls ask only for
+what changed since the last. Never for a sign-in with the email alone; the rules refuse it
+too. The boot waits up to 3 s for the first sync. Settings › About shows where the work was
+last saved. Delete my saved data removes the tree. `tools/test_cloud_save.mjs` measures a
+30-student, 45-minute lesson at about 1,800 writes and 4,200 reads (free tier: 20,000 and
+50,000 a day). Not yet run against the live project: the rules for `users` publish when this reaches dev.
+
+## T-3776 — Student data policy and Delete my saved data (27 November 2026)
+
+Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
+starts with the policy. `docs/STUDENT-DATA.md` lists every record kept on a signed-in account,
+field by field, with why and who reads it; `renderers/web/privacy.html` (*What we keep*, linked
+from the sign-in panel and Settings › About) says the same for a visitor; and
+`docs/STUDENT-DATA-AGREEMENT.md` is a draft school agreement on Illinois SOPPA's points, for the
+owner, not legal advice. Settings › About gains *Your saved data* with **Delete my saved data**
+(`js/student-data.js`): the visitor's `visitors`, `readers` and `people` documents and every
+`visits` and `bugs` row with their uid, behind an inline confirm, then a sign-out.
+`cloudFeatures` in `js/sign-in-config.js` is the one switch T-3777..T-3780 check before
+writing student work; the owner switched it on on 27 November 2026.
+
+The rules are now published from the repo (the owner, 26 November 2026: "you can push directly
+to firestore"): `tools/publish_firestore_rules.mjs`, run by the workflow
+`chicago-4d-firestore-rules.yml` with the repository secret `FIREBASE_SERVICE_ACCOUNT`, publishes
+the one rules block of docs/SIGN-IN.md, carries the live owner address across (never
+committed), and refuses to drop a collection the live rules hold. Until the new rules are live,
+the visitor's own read and delete of `visitors`, `visits` and `bugs` (`isSelf`) are refused and
+the delete reports "could not be deleted just now". The Firebase sign-in account itself is
+removed by the owner on request. Tested with a fake Firestore in `tools/test_sign_in.mjs`; no
+live delete was run.
+
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
 Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish
