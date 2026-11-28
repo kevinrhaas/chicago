@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1257,
+  "count": 1258,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -82360,6 +82360,45 @@
         "T-1909",
         "T-3785",
         "T-1945"
+      ]
+    },
+    {
+      "id": "L-1871-street-dress-3807",
+      "title": "The 1871 streets round the jaunt stops: the wood block as specified, stone-flag walks and crosswalks, gutters, steps between walks at different grades, and yard ground behind the fronts",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-28",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work dresses the ground round the 1871 jaunt stops (the detail rings, the detail rings data, within their full radius) to the period photographs and the paving specification. The paving extents are earlier work's and are not moved (`“What the 1871 streets are made of: wood block, boulders and dirt, under raised plank walks”`)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the Nicholson pavement's make, from Andreas, *History of Chicago* vol. 2 (Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time), pp. 56-57: three-inch pine blocks six inches deep set on end in rows across the street on a flooring of inch boards, the inch-wide cells between rows filled with gravel and tar, the worn pine holding \"a coating of fine gravel\" and spreading to close the joints; and the Board of Public Works' 1871 report (Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…), p. 22, on Clark and Lake \"completely worn out in many places\" and p. 23 on the Samuels blocks rammed with Joliet gravel; Andreas p. 58, \"nearly all of pine\", for the city's 561 miles of sidewalk. The stone walks follow the photographs that show them, each named on its frontage in stone flag frontages (the walkthrough's street surfaces 1871 code): Lake Street east from Clark (John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's…, pale walks and a pale crosswalk), Crosby's Opera House (John Carbutt, '139.—Crosby's Opera House, Washington Street', stereograph…, a broad jointed stone walk and kerb), the Sherman House (John Carbutt, '52.—Sherman House, cor), the Court House square ('Court House', stereograph, No. 22 [of a Chicago series, flagged walk, stone kerb and a stone crosswalk at the corner, Nicholson block in the foreground), the Chamber of Commerce (John Carbutt, '140.—Chamber of Commerce', stereograph, Views of Chicago series…), State Street's marble fronts (John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's…; the Field and Leiter plate in Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time) and the Tribune (the Tribune plate in Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time)."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "every tile is painted in the browser from a seeded generator, bounded by those pictures and the specification and copied from none of them: the blocks' tones (grey-brown weathered pine), their lengths (6 to 12 inches) and wear; the street's grime (wheel-polished tracks, dung and wet down the horse paths, straw, patches worn out and mended with muck), whose lanes are placed 2 m and 6 m either side of the line on every paved street alike; the limestone flags' sizes and tone; dung on the dirt streets. Which frontages are flagged is read from the photographs for the fronts they show and extended along the same block faces; every other walk round the stops stays plank. Every crossing within the rings that crosses a wood-block or boulder street is drawn as a stone crosswalk (the photographs show them at Clark and Washington and on Lake Street; the rest are inferred from those). The gutters (a 0.6 m strip of wet muck along every kerb round the stops) are reconstructed. **The steps between walks at different grades are reconstructed in place:** Chicago raised its grade from 1856 and the walks of raised and unraised lots stood at different heights, but no source places any one step in 1871, so each walk round the stops is cut into frontages 7 to 22 m long from a seed of its id, about one in four (never two together) stands one or two risers of 0.17 m above its neighbours, and a step leads up and down at each end; the walker climbs them. The yard ground (trodden earth, cinders, chips and straw) is laid over the South Division's business blocks, from Franklin Street to Michigan Avenue and the river to about Jackson Street, where the cupola view of about 1858 shows the backs of lots as bare yards and sheds (a visual reference only, rights unchecked); the Court House square's lawn inside its walks keeps its grass."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated photograph of a given frontage settles its walk (stone or plank) and any step in it; the Board's annual reports for 1856-1870, which order the raising of named streets and walks, would place the steps; a street-by-street record of crosswalks would replace the rule that every paved crossing round the stops is stone."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's street surfaces 1871 code (stone flag frontages, yard ground, `gradeSteps`, `paintSurface`, `paintGrime`), the walkthrough's city context code (the floors)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-28 (T-3807)."
+        }
+      ],
+      "work_refs": [
+        "T-3807",
+        "T-3685"
       ]
     },
     {
